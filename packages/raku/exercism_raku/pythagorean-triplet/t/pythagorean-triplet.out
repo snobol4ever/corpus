@@ -1,0 +1,8 @@
+ok 1 - triplets whose sum is 12
+ok 2 - triplets whose sum is 108
+ok 3 - triplets whose sum is 1000
+ok 4 - no matching triplets for 1001
+ok 5 - returns all matching triplets
+ok 6 - several matching triplets
+ok 7 - triplets for large number
+1..7

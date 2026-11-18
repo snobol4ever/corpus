@@ -1,0 +1,21 @@
+ok 1 - Roster is empty when no student is added
+ok 2 - Add a student
+ok 3 - Student is added to the roster
+ok 4 - Adding multiple students in the same grade in the roster
+ok 5 - Multiple students in the same grade are added to the roster
+ok 6 - Cannot add student to same grade in the roster more than once
+ok 7 - Student not added to same grade in the roster more than once
+ok 8 - Adding students in multiple grades
+ok 9 - Students in multiple grades are added to the roster
+ok 10 - Cannot add same student to multiple grades in the roster
+ok 11 - Student not added to multiple grades in the roster
+ok 12 - Students are sorted by grades in the roster
+ok 13 - Students are sorted by name in the roster
+ok 14 - Students are sorted by grades and then by name in the roster
+ok 15 - Grade is empty if no students in the roster
+ok 16 - Grade is empty if no students in that grade
+ok 17 - Student not added to same grade more than once
+ok 18 - Student not added to multiple grades
+ok 19 - Student not added to other grade for multiple grades
+ok 20 - Students are sorted by name in a grade
+1..20

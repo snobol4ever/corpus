@@ -1,0 +1,20 @@
+ok 1 - zero
+ok 2 - one
+ok 3 - fourteen
+ok 4 - twenty
+ok 5 - twenty-two
+ok 6 - thirty
+ok 7 - ninety-nine
+ok 8 - one hundred
+ok 9 - one hundred twenty-three
+ok 10 - two hundred
+ok 11 - nine hundred ninety-nine
+ok 12 - one thousand
+ok 13 - one thousand two hundred thirty-four
+ok 14 - one million
+ok 15 - one million two thousand three hundred forty-five
+ok 16 - one billion
+ok 17 - a big number
+ok 18 - numbers below zero are out of range
+ok 19 - numbers above 999,999,999,999 are out of range
+1..19

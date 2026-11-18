@@ -1,0 +1,26 @@
+ok 1 - format smallest non-exceptional ordinal numeral 4
+ok 2 - format greatest single digit non-exceptional ordinal numeral 9
+ok 3 - format non-exceptional ordinal numeral 5
+ok 4 - format non-exceptional ordinal numeral 6
+ok 5 - format non-exceptional ordinal numeral 7
+ok 6 - format non-exceptional ordinal numeral 8
+ok 7 - format exceptional ordinal numeral 1
+ok 8 - format exceptional ordinal numeral 2
+ok 9 - format exceptional ordinal numeral 3
+ok 10 - format smallest two digit non-exceptional ordinal numeral 10
+ok 11 - format non-exceptional ordinal numeral 11
+ok 12 - format non-exceptional ordinal numeral 12
+ok 13 - format non-exceptional ordinal numeral 13
+ok 14 - format exceptional ordinal numeral 21
+ok 15 - format exceptional ordinal numeral 22 ending in nd even though it is a multiple of 11
+ok 16 - format exceptional ordinal numeral 33 ending in rd even though it is a multiple of 11
+ok 17 - format exceptional ordinal numeral 52 ending in nd even though it is a multiple of 13
+ok 18 - format exceptional ordinal numeral 62
+ok 19 - format non-exceptional ordinal numeral 72 ending in nd even though it is a multiple of 12
+ok 20 - format exceptional ordinal numeral 91 ending in st even though it is a multiple of 13
+ok 21 - format exceptional ordinal numeral 100
+ok 22 - format exceptional ordinal numeral 101
+ok 23 - format non-exceptional ordinal numeral 112
+ok 24 - format exceptional ordinal numeral 123
+ok 25 - format large number 972 ending in nd even though it is a multiple of 12
+1..25

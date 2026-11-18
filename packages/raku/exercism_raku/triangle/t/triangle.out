@@ -1,0 +1,22 @@
+ok 1 - equilateral triangle: all sides are equal
+ok 2 - equilateral triangle: any side is unequal
+ok 3 - equilateral triangle: no sides are equal
+ok 4 - equilateral triangle: all zero sides is not a triangle
+ok 5 - equilateral triangle: sides may be floats
+ok 6 - isosceles triangle: last two sides are equal
+ok 7 - isosceles triangle: first two sides are equal
+ok 8 - isosceles triangle: first and last sides are equal
+ok 9 - isosceles triangle: equilateral triangles are also isosceles
+ok 10 - isosceles triangle: no sides are equal
+ok 11 - isosceles triangle: first triangle inequality violation
+ok 12 - isosceles triangle: second triangle inequality violation
+ok 13 - isosceles triangle: third triangle inequality violation
+ok 14 - isosceles triangle: sides may be floats
+ok 15 - scalene triangle: no sides are equal
+ok 16 - scalene triangle: all sides are equal
+ok 17 - scalene triangle: first and second sides are equal
+ok 18 - scalene triangle: first and third sides are equal
+ok 19 - scalene triangle: second and third sides are equal
+ok 20 - scalene triangle: may not violate triangle inequality
+ok 21 - scalene triangle: sides may be floats
+1..21

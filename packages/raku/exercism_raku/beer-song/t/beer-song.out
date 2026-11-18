@@ -1,0 +1,9 @@
+ok 1 - verse: single verse: first generic verse
+ok 2 - verse: single verse: last generic verse
+ok 3 - verse: single verse: verse with 2 bottles
+ok 4 - verse: single verse: verse with 1 bottle
+ok 5 - verse: single verse: verse with 0 bottles
+ok 6 - lyrics: multiple verses: first two verses
+ok 7 - lyrics: multiple verses: last three verses
+ok 8 - lyrics: multiple verses: all verses
+1..8

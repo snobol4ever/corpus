@@ -1,0 +1,14 @@
+ok 1 - Trivial 1-digit cages: 1
+ok 2 - Trivial 1-digit cages: 2
+ok 3 - Trivial 1-digit cages: 3
+ok 4 - Trivial 1-digit cages: 4
+ok 5 - Trivial 1-digit cages: 5
+ok 6 - Trivial 1-digit cages: 6
+ok 7 - Trivial 1-digit cages: 7
+ok 8 - Trivial 1-digit cages: 8
+ok 9 - Trivial 1-digit cages: 9
+ok 10 - Cage with sum 45 contains all digits 1:9
+ok 11 - Cage with only 1 possible combination
+ok 12 - Cage with several combinations
+ok 13 - Cage with several combinations that is restricted
+1..13

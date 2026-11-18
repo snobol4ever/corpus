@@ -1,0 +1,6 @@
+ok 1 - date only specification of time
+ok 2 - second test for date only specification of time
+ok 3 - third test for date only specification of time
+ok 4 - full time specified
+ok 5 - full time with day roll-over
+1..5

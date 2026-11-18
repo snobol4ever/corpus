@@ -1,0 +1,53 @@
+ok 1 - Create a new clock with an initial time: on the hour
+ok 2 - Create a new clock with an initial time: past the hour
+ok 3 - Create a new clock with an initial time: midnight is zero hours
+ok 4 - Create a new clock with an initial time: hour rolls over
+ok 5 - Create a new clock with an initial time: hour rolls over continuously
+ok 6 - Create a new clock with an initial time: sixty minutes is next hour
+ok 7 - Create a new clock with an initial time: minutes roll over
+ok 8 - Create a new clock with an initial time: minutes roll over continuously
+ok 9 - Create a new clock with an initial time: hour and minutes roll over
+ok 10 - Create a new clock with an initial time: hour and minutes roll over continuously
+ok 11 - Create a new clock with an initial time: hour and minutes roll over to exactly midnight
+ok 12 - Create a new clock with an initial time: negative hour
+ok 13 - Create a new clock with an initial time: negative hour rolls over
+ok 14 - Create a new clock with an initial time: negative hour rolls over continuously
+ok 15 - Create a new clock with an initial time: negative minutes
+ok 16 - Create a new clock with an initial time: negative minutes roll over
+ok 17 - Create a new clock with an initial time: negative minutes roll over continuously
+ok 18 - Create a new clock with an initial time: negative sixty minutes is previous hour
+ok 19 - Create a new clock with an initial time: negative hour and minutes both roll over
+ok 20 - Create a new clock with an initial time: negative hour and minutes both roll over continuously
+ok 21 - Add minutes: add minutes
+ok 22 - Add minutes: add no minutes
+ok 23 - Add minutes: add to next hour
+ok 24 - Add minutes: add more than one hour
+ok 25 - Add minutes: add more than two hours with carry
+ok 26 - Add minutes: add across midnight
+ok 27 - Add minutes: add more than one day (1500 min = 25 hrs)
+ok 28 - Add minutes: add more than two days
+ok 29 - Subtract minutes: subtract minutes
+ok 30 - Subtract minutes: subtract to previous hour
+ok 31 - Subtract minutes: subtract more than an hour
+ok 32 - Subtract minutes: subtract across midnight
+ok 33 - Subtract minutes: subtract more than two hours
+ok 34 - Subtract minutes: subtract more than two hours with borrow
+ok 35 - Subtract minutes: subtract more than one day (1500 min = 25 hrs)
+ok 36 - Subtract minutes: subtract more than two days
+ok 37 - Compare two clocks for equality: clocks with same time
+ok 38 - Compare two clocks for equality: clocks a minute apart
+ok 39 - Compare two clocks for equality: clocks an hour apart
+ok 40 - Compare two clocks for equality: clocks with hour overflow
+ok 41 - Compare two clocks for equality: clocks with hour overflow by several days
+ok 42 - Compare two clocks for equality: clocks with negative hour
+ok 43 - Compare two clocks for equality: clocks with negative hour that wraps
+ok 44 - Compare two clocks for equality: clocks with negative hour that wraps multiple times
+ok 45 - Compare two clocks for equality: clocks with minute overflow
+ok 46 - Compare two clocks for equality: clocks with minute overflow by several days
+ok 47 - Compare two clocks for equality: clocks with negative minute
+ok 48 - Compare two clocks for equality: clocks with negative minute that wraps
+ok 49 - Compare two clocks for equality: clocks with negative minute that wraps multiple times
+ok 50 - Compare two clocks for equality: clocks with negative hours and minutes
+ok 51 - Compare two clocks for equality: clocks with negative hours and minutes that wrap
+ok 52 - Compare two clocks for equality: full clock and zeroed clock
+1..52

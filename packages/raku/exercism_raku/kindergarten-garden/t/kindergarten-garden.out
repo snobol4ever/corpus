@@ -1,0 +1,18 @@
+ok 1 - partial garden: garden with single student
+ok 2 - partial garden: different garden with single student
+ok 3 - partial garden: garden with two students
+ok 4 - partial garden: multiple students for the same garden with three students: second student's garden
+ok 5 - partial garden: multiple students for the same garden with three students: third student's garden
+ok 6 - full garden: for Alice, first student's garden
+ok 7 - full garden: for Bob, second student's garden
+ok 8 - full garden: for Charlie
+ok 9 - full garden: for David
+ok 10 - full garden: for Eve
+ok 11 - full garden: for Fred
+ok 12 - full garden: for Ginny
+ok 13 - full garden: for Harriet
+ok 14 - full garden: for Ileana
+ok 15 - full garden: for Joseph
+ok 16 - full garden: for Kincaid, second to last student's garden
+ok 17 - full garden: for Larry, last student's garden
+1..17

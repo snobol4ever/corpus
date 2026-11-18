@@ -1,0 +1,7 @@
+ok 1 - encode: encode with two rails
+ok 2 - encode: encode with three rails
+ok 3 - encode: encode with ending in the middle
+ok 4 - decode: decode with three rails
+ok 5 - decode: decode with five rails
+ok 6 - decode: decode with six rails
+1..6

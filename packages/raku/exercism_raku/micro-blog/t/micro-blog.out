@@ -1,0 +1,13 @@
+ok 1 - English language short
+ok 2 - English language long
+ok 3 - German language short (broth)
+ok 4 - German language long (bear carpet → beards)
+ok 5 - Bulgarian language short (good)
+ok 6 - Greek language short (health)
+ok 7 - Maths short
+ok 8 - Maths long
+ok 9 - English and emoji short
+ok 10 - Emoji short
+ok 11 - Emoji long
+ok 12 - Royal Flush?
+1..12

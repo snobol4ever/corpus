@@ -1,0 +1,5 @@
+ok 1 - single letter
+ok 2 - single score with multiple letters
+ok 3 - multiple scores with multiple letters
+ok 4 - multiple scores with differing numbers of letters
+1..4

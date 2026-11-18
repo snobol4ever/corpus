@@ -1,0 +1,6 @@
+ok 1 - Degenerate case with a single 'A' row
+ok 2 - Degenerate case with no row containing 3 distinct groups of spaces
+ok 3 - Smallest non-degenerate case with odd diamond side length
+ok 4 - Smallest non-degenerate case with even diamond side length
+ok 5 - Largest possible diamond
+1..5

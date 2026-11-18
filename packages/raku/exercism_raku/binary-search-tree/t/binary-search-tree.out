@@ -1,0 +1,6 @@
+ok 1 - can sort data: can sort single number
+ok 2 - can sort data: can sort if second number is smaller than first
+ok 3 - can sort data: can sort if second number is same as first
+ok 4 - can sort data: can sort if second number is greater than first
+ok 5 - can sort data: can sort complex tree
+1..5

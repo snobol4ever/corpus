@@ -1,0 +1,14 @@
+ok 1 - empty strand
+ok 2 - can count one nucleotide in single-character input
+ok 3 - strand with repeated nucleotide
+ok 4 - strand with multiple nucleotides
+# Subtest: strand with invalid nucleotides
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches /:i
+    #         "Invalid nucleotide in strand"
+    #         || "type check failed"
+    #     /
+ok 5 - strand with invalid nucleotides
+1..5

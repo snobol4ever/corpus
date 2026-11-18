@@ -1,0 +1,15 @@
+ok 1 - keep on empty list returns empty list
+ok 2 - keeps everything
+ok 3 - keeps nothing
+ok 4 - keeps first and last
+ok 5 - keeps neither first nor last
+ok 6 - keeps strings
+ok 7 - keeps lists
+ok 8 - discard on empty list returns empty list
+ok 9 - discards everything
+ok 10 - discards nothing
+ok 11 - discards first and last
+ok 12 - discards neither first nor last
+ok 13 - discards strings
+ok 14 - discards lists
+1..14

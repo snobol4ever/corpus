@@ -1,0 +1,156 @@
+# Subtest: pop gets element from the list
+    ok 1 - push 7
+    ok 2 - pop 7
+    1..2
+ok 1 - pop gets element from the list
+# Subtest: push/pop respectively add/remove at the end of the list
+    ok 1 - push 11
+    ok 2 - push 13
+    ok 3 - pop 13
+    ok 4 - pop 11
+    1..4
+ok 2 - push/pop respectively add/remove at the end of the list
+# Subtest: shift gets an element from the list
+    ok 1 - push 17
+    ok 2 - shift 17
+    1..2
+ok 3 - shift gets an element from the list
+# Subtest: shift gets first element from the list
+    ok 1 - push 23
+    ok 2 - push 5
+    ok 3 - shift 23
+    ok 4 - shift 5
+    1..4
+ok 4 - shift gets first element from the list
+# Subtest: unshift adds element at start of the list
+    ok 1 - unshift 23
+    ok 2 - unshift 5
+    ok 3 - shift 5
+    ok 4 - shift 23
+    1..4
+ok 5 - unshift adds element at start of the list
+# Subtest: pop, push, shift, and unshift can be used in any order
+    ok 1 - push 1
+    ok 2 - push 2
+    ok 3 - pop 2
+    ok 4 - push 3
+    ok 5 - shift 1
+    ok 6 - unshift 4
+    ok 7 - push 5
+    ok 8 - shift 4
+    ok 9 - pop 5
+    ok 10 - shift 3
+    1..10
+ok 6 - pop, push, shift, and unshift can be used in any order
+# Subtest: count an empty list
+    ok 1 - count 0
+    1..1
+ok 7 - count an empty list
+# Subtest: count a list with items
+    ok 1 - push 37
+    ok 2 - push 1
+    ok 3 - count 2
+    1..3
+ok 8 - count a list with items
+# Subtest: count is correct after mutation
+    ok 1 - push 31
+    ok 2 - count 1
+    ok 3 - unshift 43
+    ok 4 - count 2
+    ok 5 - shift
+    ok 6 - count 1
+    ok 7 - pop
+    ok 8 - count 0
+    1..8
+ok 9 - count is correct after mutation
+# Subtest: popping to empty doesn't break the list
+    ok 1 - push 41
+    ok 2 - push 59
+    ok 3 - pop
+    ok 4 - pop
+    ok 5 - push 47
+    ok 6 - count 1
+    ok 7 - pop 47
+    1..7
+ok 10 - popping to empty doesn't break the list
+# Subtest: shifting to empty doesn't break the list
+    ok 1 - push 41
+    ok 2 - push 59
+    ok 3 - shift
+    ok 4 - shift
+    ok 5 - push 47
+    ok 6 - count 1
+    ok 7 - shift 47
+    1..7
+ok 11 - shifting to empty doesn't break the list
+# Subtest: deletes the only element
+    ok 1 - push 61
+    ok 2 - delete 61
+    ok 3 - count 0
+    1..3
+ok 12 - deletes the only element
+# Subtest: deletes the element with the specified value from the list
+    ok 1 - push 71
+    ok 2 - push 83
+    ok 3 - push 79
+    ok 4 - delete 83
+    ok 5 - count 2
+    ok 6 - pop 79
+    ok 7 - shift 71
+    1..7
+ok 13 - deletes the element with the specified value from the list
+# Subtest: deletes the element with the specified value from the list, re-assigns tail
+    ok 1 - push 71
+    ok 2 - push 83
+    ok 3 - push 79
+    ok 4 - delete 83
+    ok 5 - count 2
+    ok 6 - pop 79
+    ok 7 - pop 71
+    1..7
+ok 14 - deletes the element with the specified value from the list, re-assigns tail
+# Subtest: deletes the element with the specified value from the list, re-assigns head
+    ok 1 - push 71
+    ok 2 - push 83
+    ok 3 - push 79
+    ok 4 - delete 83
+    ok 5 - count 2
+    ok 6 - shift 71
+    ok 7 - shift 79
+    1..7
+ok 15 - deletes the element with the specified value from the list, re-assigns head
+# Subtest: deletes the first of two elements
+    ok 1 - push 97
+    ok 2 - push 101
+    ok 3 - delete 97
+    ok 4 - count 1
+    ok 5 - pop 101
+    1..5
+ok 16 - deletes the first of two elements
+# Subtest: deletes the second of two elements
+    ok 1 - push 97
+    ok 2 - push 101
+    ok 3 - delete 101
+    ok 4 - count 1
+    ok 5 - pop 97
+    1..5
+ok 17 - deletes the second of two elements
+# Subtest: delete does not modify the list if the element is not found
+    ok 1 - push 89
+    ok 2 - delete 103
+    ok 3 - count 1
+    1..3
+ok 18 - delete does not modify the list if the element is not found
+# Subtest: deletes only the first occurrence
+    ok 1 - push 73
+    ok 2 - push 9
+    ok 3 - push 9
+    ok 4 - push 107
+    ok 5 - delete 9
+    ok 6 - count 3
+    ok 7 - pop 107
+    ok 8 - pop 9
+    ok 9 - pop 73
+    1..9
+ok 19 - deletes only the first occurrence
+1..19

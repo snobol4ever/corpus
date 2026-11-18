@@ -1,0 +1,13 @@
+ok 1 - List of scores
+ok 2 - Latest score
+ok 3 - Personal best
+ok 4 - Top 3 scores: Personal top three from a list of scores
+ok 5 - Top 3 scores: Personal top highest to lowest
+ok 6 - Top 3 scores: Personal top when there is a tie
+ok 7 - Top 3 scores: Personal top when there are less than 3
+ok 8 - Top 3 scores: Personal top when there is only one
+ok 9 - Top 3 scores: Latest score after personal top scores
+ok 10 - Top 3 scores: Scores after personal top scores
+ok 11 - Top 3 scores: Latest score after personal best
+ok 12 - Top 3 scores: Scores after personal best
+1..12

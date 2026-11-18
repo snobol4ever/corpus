@@ -1,0 +1,41 @@
+ok 1 - Returns true if the set contains no elements: sets with no elements are empty
+ok 2 - Returns true if the set contains no elements: sets with elements are not empty
+ok 3 - Sets can report if they contain an element: nothing is contained in an empty set
+ok 4 - Sets can report if they contain an element: when the element is in the set
+ok 5 - Sets can report if they contain an element: when the element is not in the set
+ok 6 - A set is a subset if all of its elements are contained in the other set: empty set is a subset of another empty set
+ok 7 - A set is a subset if all of its elements are contained in the other set: empty set is a subset of non-empty set
+ok 8 - A set is a subset if all of its elements are contained in the other set: non-empty set is not a subset of empty set
+ok 9 - A set is a subset if all of its elements are contained in the other set: set is a subset of set with exact same elements
+ok 10 - A set is a subset if all of its elements are contained in the other set: set is a subset of larger set with same elements
+ok 11 - A set is a subset if all of its elements are contained in the other set: set is not a subset of set that does not contain its elements
+ok 12 - Sets are disjoint if they share no elements: the empty set is disjoint with itself
+ok 13 - Sets are disjoint if they share no elements: empty set is disjoint with non-empty set
+ok 14 - Sets are disjoint if they share no elements: non-empty set is disjoint with empty set
+ok 15 - Sets are disjoint if they share no elements: sets are not disjoint if they share an element
+ok 16 - Sets are disjoint if they share no elements: sets are disjoint if they share no elements
+ok 17 - Sets with the same elements are equal: empty sets are equal
+ok 18 - Sets with the same elements are equal: empty set is not equal to non-empty set
+ok 19 - Sets with the same elements are equal: non-empty set is not equal to empty set
+ok 20 - Sets with the same elements are equal: sets with the same elements are equal
+ok 21 - Sets with the same elements are equal: sets with different elements are not equal
+ok 22 - Sets with the same elements are equal: set is not equal to larger set with same elements
+ok 23 - Sets with the same elements are equal: set is equal to a set constructed from an array with duplicates
+ok 24 - Unique elements can be added to a set: add to empty set
+ok 25 - Unique elements can be added to a set: add to non-empty set
+ok 26 - Unique elements can be added to a set: adding an existing element does not change the set
+ok 27 - Intersection returns a set of all shared elements: intersection of two empty sets is an empty set
+ok 28 - Intersection returns a set of all shared elements: intersection of an empty set and non-empty set is an empty set
+ok 29 - Intersection returns a set of all shared elements: intersection of a non-empty set and an empty set is an empty set
+ok 30 - Intersection returns a set of all shared elements: intersection of two sets with no shared elements is an empty set
+ok 31 - Intersection returns a set of all shared elements: intersection of two sets with shared elements is a set of the shared elements
+ok 32 - Difference (or Complement) of a set is a set of all elements that are only in the first set: difference of two empty sets is an empty set
+ok 33 - Difference (or Complement) of a set is a set of all elements that are only in the first set: difference of empty set and non-empty set is an empty set
+ok 34 - Difference (or Complement) of a set is a set of all elements that are only in the first set: difference of a non-empty set and an empty set is the non-empty set
+ok 35 - Difference (or Complement) of a set is a set of all elements that are only in the first set: difference of two non-empty sets is a set of elements that are only in the first set
+ok 36 - Difference (or Complement) of a set is a set of all elements that are only in the first set: difference removes all duplicates in the first set
+ok 37 - Union returns a set of all elements in either set: union of empty sets is an empty set
+ok 38 - Union returns a set of all elements in either set: union of an empty set and non-empty set is the non-empty set
+ok 39 - Union returns a set of all elements in either set: union of a non-empty set and empty set is the non-empty set
+ok 40 - Union returns a set of all elements in either set: union of non-empty sets contains all unique elements
+1..40

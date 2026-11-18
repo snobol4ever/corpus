@@ -1,0 +1,10 @@
+1..9
+ok 1 - Class Binary has to_decimal method
+ok 2 - "1" returns 1
+ok 3 - "10" returns 2
+ok 4 - "100" returns 4
+ok 5 - "10001101000" returns 1128
+ok 6 - "1001" returns 9
+ok 7 - "11" returns 3
+ok 8 - "11010" returns 26
+ok 9 - "carrot23" returns 0

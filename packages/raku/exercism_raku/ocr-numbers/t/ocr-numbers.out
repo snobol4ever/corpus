@@ -1,0 +1,18 @@
+ok 1 - Recognizes 0
+ok 2 - Recognizes 1
+ok 3 - Unreadable but correctly sized inputs return ?
+ok 4 - Input with a number of lines that is not a multiple of four raises an error
+ok 5 - Input with a number of columns that is not a multiple of three raises an error
+ok 6 - Recognizes 110101100
+ok 7 - Garbled numbers in a string are replaced with ?
+ok 8 - Recognizes 2
+ok 9 - Recognizes 3
+ok 10 - Recognizes 4
+ok 11 - Recognizes 5
+ok 12 - Recognizes 6
+ok 13 - Recognizes 7
+ok 14 - Recognizes 8
+ok 15 - Recognizes 9
+ok 16 - Recognizes string of decimal numbers
+ok 17 - Numbers separated by empty lines are recognized. Lines are joined by commas.
+1..17

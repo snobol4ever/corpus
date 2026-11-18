@@ -1,0 +1,12 @@
+ok 1 - empty
+ok 2 - no nesting
+ok 3 - flattens a nested array
+ok 4 - flattens array with just integers present
+ok 5 - 5 level nesting
+ok 6 - 6 level nesting
+ok 7 - null values are omitted from the final result
+ok 8 - consecutive null values at the front of the array are omitted from the final result
+ok 9 - consecutive null values in the middle of the array are omitted from the final result
+ok 10 - 6 level nested array with null values
+ok 11 - all values in nested array are null
+1..11

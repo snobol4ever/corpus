@@ -1,0 +1,7 @@
+ok 1 - Empty RNA sequence
+ok 2 - RNA complement of cytosine is guanine
+ok 3 - RNA complement of guanine is cytosine
+ok 4 - RNA complement of thymine is adenine
+ok 5 - RNA complement of adenine is uracil
+ok 6 - RNA complement
+1..6

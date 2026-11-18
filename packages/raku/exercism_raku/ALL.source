@@ -1,0 +1,6 @@
+root	/home/packages/raku/exercism_raku
+origin	https://github.com/exercism/raku, the practice exercises: each test (t/NAME.rakutest, Test, TAP) beside its model solution (.meta/solutions copied into lib/, links followed), the layout exercism's runner gives it
+version	a651dee (2026-11-08)
+licence	MIT (LICENSE copied into the root)
+copy	root
+cwd	root

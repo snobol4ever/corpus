@@ -1,0 +1,19 @@
+ok 1 - Only a single book
+ok 2 - Two of the same book
+ok 3 - Empty basket
+ok 4 - Two different books
+ok 5 - Three different books
+ok 6 - Four different books
+ok 7 - Five different books
+ok 8 - Two groups of four is cheaper than group of five plus group of three
+ok 9 - Two groups of four is cheaper than groups of five and three
+ok 10 - Group of four plus group of two is cheaper than two groups of three
+ok 11 - Two each of first four books and one copy each of rest
+ok 12 - Two copies of each book
+ok 13 - Three copies of first book and two each of remaining
+ok 14 - Three each of first two books and two each of remaining books
+ok 15 - Four groups of four are cheaper than two groups each of five and three
+ok 16 - Check that groups of four are created properly even when there are more groups of three than groups of five
+ok 17 - One group of one and four is cheaper than one group of two and three
+ok 18 - One group of one and two plus three groups of four is cheaper than one group of each size
+1..18

@@ -1,0 +1,12 @@
+ok 1 - finds a value in an array with one element
+ok 2 - finds a value in the middle of an array
+ok 3 - finds a value at the beginning of an array
+ok 4 - finds a value at the end of an array
+ok 5 - finds a value in an array of odd length
+ok 6 - finds a value in an array of even length
+ok 7 - identifies that a value is not included in the array
+ok 8 - a value smaller than the array's smallest value is not found
+ok 9 - a value larger than the array's largest value is not found
+ok 10 - nothing is found in an empty array
+ok 11 - nothing is found when the left and right bounds cross
+1..11

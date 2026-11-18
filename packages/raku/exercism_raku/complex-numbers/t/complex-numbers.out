@@ -1,0 +1,41 @@
+ok 1 - Real part: Real part of a purely real number
+ok 2 - Real part: Real part of a purely imaginary number
+ok 3 - Real part: Real part of a number with real and imaginary part
+ok 4 - Imaginary part: Imaginary part of a purely real number
+ok 5 - Imaginary part: Imaginary part of a purely imaginary number
+ok 6 - Imaginary part: Imaginary part of a number with real and imaginary part
+ok 7 - Imaginary unit
+ok 8 - Arithmetic: Addition: Add purely real numbers
+ok 9 - Arithmetic: Addition: Add purely imaginary numbers
+ok 10 - Arithmetic: Addition: Add numbers with real and imaginary part
+ok 11 - Arithmetic: Subtraction: Subtract purely real numbers
+ok 12 - Arithmetic: Subtraction: Subtract purely imaginary numbers
+ok 13 - Arithmetic: Subtraction: Subtract numbers with real and imaginary part
+ok 14 - Arithmetic: Multiplication: Multiply purely real numbers
+ok 15 - Arithmetic: Multiplication: Multiply purely imaginary numbers
+ok 16 - Arithmetic: Multiplication: Multiply numbers with real and imaginary part
+ok 17 - Arithmetic: Division: Divide purely real numbers
+ok 18 - Arithmetic: Division: Divide purely imaginary numbers
+ok 19 - Arithmetic: Division: Divide numbers with real and imaginary part
+ok 20 - Absolute value: Absolute value of a positive purely real number
+ok 21 - Absolute value: Absolute value of a negative purely real number
+ok 22 - Absolute value: Absolute value of a purely imaginary number with positive imaginary part
+ok 23 - Absolute value: Absolute value of a purely imaginary number with negative imaginary part
+ok 24 - Absolute value: Absolute value of a number with real and imaginary part
+ok 25 - Complex conjugate: Conjugate a purely real number
+ok 26 - Complex conjugate: Conjugate a purely imaginary number
+ok 27 - Complex conjugate: Conjugate a number with real and imaginary part
+ok 28 - Complex exponential function: Euler's identity/formula
+ok 29 - Complex exponential function: Exponential of 0
+ok 30 - Complex exponential function: Exponential of a purely real number
+ok 31 - Complex exponential function: Exponential of a number with real and imaginary part
+ok 32 - Complex exponential function: Exponential resulting in a number with real and imaginary part
+ok 33 - Operations between real numbers and complex numbers: Add real number to complex number
+ok 34 - Operations between real numbers and complex numbers: Add complex number to real number
+ok 35 - Operations between real numbers and complex numbers: Subtract real number from complex number
+ok 36 - Operations between real numbers and complex numbers: Subtract complex number from real number
+ok 37 - Operations between real numbers and complex numbers: Multiply complex number by real number
+ok 38 - Operations between real numbers and complex numbers: Multiply real number by complex number
+ok 39 - Operations between real numbers and complex numbers: Divide complex number by real number
+ok 40 - Operations between real numbers and complex numbers: Divide real number by complex number
+1..40

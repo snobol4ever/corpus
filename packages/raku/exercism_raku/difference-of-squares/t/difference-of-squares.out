@@ -1,0 +1,10 @@
+ok 1 - Square the sum of the numbers up to the given number: square of sum 1
+ok 2 - Square the sum of the numbers up to the given number: square of sum 5
+ok 3 - Square the sum of the numbers up to the given number: square of sum 100
+ok 4 - Sum the squares of the numbers up to the given number: sum of squares 1
+ok 5 - Sum the squares of the numbers up to the given number: sum of squares 5
+ok 6 - Sum the squares of the numbers up to the given number: sum of squares 100
+ok 7 - Subtract sum of squares from square of sums: difference of squares 1
+ok 8 - Subtract sum of squares from square of sums: difference of squares 5
+ok 9 - Subtract sum of squares from square of sums: difference of squares 100
+1..9

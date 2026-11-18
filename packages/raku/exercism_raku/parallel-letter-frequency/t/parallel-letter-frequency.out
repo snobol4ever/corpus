@@ -1,0 +1,14 @@
+ok 1 - no texts
+ok 2 - one text with one letter
+ok 3 - one text with multiple letters
+ok 4 - two texts with one letter
+ok 5 - two texts with multiple letters
+ok 6 - ignore letter casing
+ok 7 - ignore whitespace
+ok 8 - ignore punctuation
+ok 9 - ignore numbers
+ok 10 - Unicode letters
+ok 11 - combination of lower- and uppercase letters, punctuation and white space
+ok 12 - large texts
+ok 13 - many small texts
+1..13

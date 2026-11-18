@@ -1,0 +1,13 @@
+ok 1 - empty string
+ok 2 - two characters in a row
+ok 3 - two characters in a column
+ok 4 - simple
+ok 5 - single line
+ok 6 - first line longer than second line
+ok 7 - second line longer than first line
+ok 8 - mixed line length
+ok 9 - square
+ok 10 - rectangle
+ok 11 - triangle
+ok 12 - jagged triangle
+1..12

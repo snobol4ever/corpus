@@ -1,0 +1,32 @@
+ok 1 - Encode a series of integers, producing a series of bytes.: zero
+ok 2 - Encode a series of integers, producing a series of bytes.: arbitrary single byte
+ok 3 - Encode a series of integers, producing a series of bytes.: asymmetric single byte
+ok 4 - Encode a series of integers, producing a series of bytes.: largest single byte
+ok 5 - Encode a series of integers, producing a series of bytes.: smallest double byte
+ok 6 - Encode a series of integers, producing a series of bytes.: arbitrary double byte
+ok 7 - Encode a series of integers, producing a series of bytes.: asymmetric double byte
+ok 8 - Encode a series of integers, producing a series of bytes.: largest double byte
+ok 9 - Encode a series of integers, producing a series of bytes.: smallest triple byte
+ok 10 - Encode a series of integers, producing a series of bytes.: arbitrary triple byte
+ok 11 - Encode a series of integers, producing a series of bytes.: asymmetric triple byte
+ok 12 - Encode a series of integers, producing a series of bytes.: largest triple byte
+ok 13 - Encode a series of integers, producing a series of bytes.: smallest quadruple byte
+ok 14 - Encode a series of integers, producing a series of bytes.: arbitrary quadruple byte
+ok 15 - Encode a series of integers, producing a series of bytes.: asymmetric quadruple byte
+ok 16 - Encode a series of integers, producing a series of bytes.: largest quadruple byte
+ok 17 - Encode a series of integers, producing a series of bytes.: smallest quintuple byte
+ok 18 - Encode a series of integers, producing a series of bytes.: arbitrary quintuple byte
+ok 19 - Encode a series of integers, producing a series of bytes.: asymmetric quintuple byte
+ok 20 - Encode a series of integers, producing a series of bytes.: maximum 32-bit integer input
+ok 21 - Encode a series of integers, producing a series of bytes.: two single-byte values
+ok 22 - Encode a series of integers, producing a series of bytes.: two multi-byte values
+ok 23 - Encode a series of integers, producing a series of bytes.: many multi-byte values
+ok 24 - Decode a series of bytes, producing a series of integers.: one byte
+ok 25 - Decode a series of bytes, producing a series of integers.: two bytes
+ok 26 - Decode a series of bytes, producing a series of integers.: three bytes
+ok 27 - Decode a series of bytes, producing a series of integers.: four bytes
+ok 28 - Decode a series of bytes, producing a series of integers.: maximum 32-bit integer
+ok 29 - Decode a series of bytes, producing a series of integers.: incomplete sequence causes error
+ok 30 - Decode a series of bytes, producing a series of integers.: incomplete sequence causes error, even if value is zero
+ok 31 - Decode a series of bytes, producing a series of integers.: multiple values
+1..31

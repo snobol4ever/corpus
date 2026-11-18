@@ -1,0 +1,9 @@
+ok 1 - extract row from one number matrix
+ok 2 - can extract row
+ok 3 - extract row where numbers have different widths
+ok 4 - can extract row from non-square matrix with no corresponding column
+ok 5 - extract column from one number matrix
+ok 6 - can extract column
+ok 7 - can extract column from non-square matrix with no corresponding row
+ok 8 - extract column where numbers have different widths
+1..8

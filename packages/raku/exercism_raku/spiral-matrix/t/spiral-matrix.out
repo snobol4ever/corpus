@@ -1,0 +1,7 @@
+ok 1 - empty spiral
+ok 2 - trivial spiral
+ok 3 - spiral of size 2
+ok 4 - spiral of size 3
+ok 5 - spiral of size 4
+ok 6 - spiral of size 5
+1..6

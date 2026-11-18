@@ -1,0 +1,96 @@
+ok 1 - when teenth Monday is the 13th, the first day of the teenth week
+ok 2 - when teenth Monday is the 19th, the last day of the teenth week
+ok 3 - when teenth Monday is some day in the middle of the teenth week
+ok 4 - when teenth Tuesday is the 19th, the last day of the teenth week
+ok 5 - when teenth Tuesday is some day in the middle of the teenth week
+ok 6 - when teenth Tuesday is the 13th, the first day of the teenth week
+ok 7 - when teenth Wednesday is some day in the middle of the teenth week
+ok 8 - when teenth Wednesday is the 13th, the first day of the teenth week
+ok 9 - when teenth Wednesday is the 19th, the last day of the teenth week
+ok 10 - when teenth Thursday is some day in the middle of the teenth week
+ok 11 - when teenth Thursday is the 13th, the first day of the teenth week
+ok 12 - when teenth Thursday is the 19th, the last day of the teenth week
+ok 13 - when teenth Friday is the 19th, the last day of the teenth week
+ok 14 - when teenth Friday is some day in the middle of the teenth week
+ok 15 - when teenth Friday is the 13th, the first day of the teenth week
+ok 16 - when teenth Saturday is some day in the middle of the teenth week
+ok 17 - when teenth Saturday is the 13th, the first day of the teenth week
+ok 18 - when teenth Saturday is the 19th, the last day of the teenth week
+ok 19 - when teenth Sunday is the 19th, the last day of the teenth week
+ok 20 - when teenth Sunday is some day in the middle of the teenth week
+ok 21 - when teenth Sunday is the 13th, the first day of the teenth week
+ok 22 - when first Monday is some day in the middle of the first week
+ok 23 - when first Monday is the 1st, the first day of the first week
+ok 24 - when first Tuesday is the 7th, the last day of the first week
+ok 25 - when first Tuesday is some day in the middle of the first week
+ok 26 - when first Wednesday is some day in the middle of the first week
+ok 27 - when first Wednesday is the 7th, the last day of the first week
+ok 28 - when first Thursday is some day in the middle of the first week
+ok 29 - when first Thursday is another day in the middle of the first week
+ok 30 - when first Friday is the 1st, the first day of the first week
+ok 31 - when first Friday is some day in the middle of the first week
+ok 32 - when first Saturday is some day in the middle of the first week
+ok 33 - when first Saturday is another day in the middle of the first week
+ok 34 - when first Sunday is some day in the middle of the first week
+ok 35 - when first Sunday is the 7th, the last day of the first week
+ok 36 - when second Monday is some day in the middle of the second week
+ok 37 - when second Monday is the 8th, the first day of the second week
+ok 38 - when second Tuesday is the 14th, the last day of the second week
+ok 39 - when second Tuesday is some day in the middle of the second week
+ok 40 - when second Wednesday is some day in the middle of the second week
+ok 41 - when second Wednesday is the 14th, the last day of the second week
+ok 42 - when second Thursday is some day in the middle of the second week
+ok 43 - when second Thursday is another day in the middle of the second week
+ok 44 - when second Friday is the 8th, the first day of the second week
+ok 45 - when second Friday is some day in the middle of the second week
+ok 46 - when second Saturday is some day in the middle of the second week
+ok 47 - when second Saturday is another day in the middle of the second week
+ok 48 - when second Sunday is some day in the middle of the second week
+ok 49 - when second Sunday is the 14th, the last day of the second week
+ok 50 - when third Monday is some day in the middle of the third week
+ok 51 - when third Monday is the 15th, the first day of the third week
+ok 52 - when third Tuesday is the 21st, the last day of the third week
+ok 53 - when third Tuesday is some day in the middle of the third week
+ok 54 - when third Wednesday is some day in the middle of the third week
+ok 55 - when third Wednesday is the 21st, the last day of the third week
+ok 56 - when third Thursday is some day in the middle of the third week
+ok 57 - when third Thursday is another day in the middle of the third week
+ok 58 - when third Friday is the 15th, the first day of the third week
+ok 59 - when third Friday is some day in the middle of the third week
+ok 60 - when third Saturday is some day in the middle of the third week
+ok 61 - when third Saturday is another day in the middle of the third week
+ok 62 - when third Sunday is some day in the middle of the third week
+ok 63 - when third Sunday is the 21st, the last day of the third week
+ok 64 - when fourth Monday is some day in the middle of the fourth week
+ok 65 - when fourth Monday is the 22nd, the first day of the fourth week
+ok 66 - when fourth Tuesday is the 28th, the last day of the fourth week
+ok 67 - when fourth Tuesday is some day in the middle of the fourth week
+ok 68 - when fourth Wednesday is some day in the middle of the fourth week
+ok 69 - when fourth Wednesday is the 28th, the last day of the fourth week
+ok 70 - when fourth Thursday is some day in the middle of the fourth week
+ok 71 - when fourth Thursday is another day in the middle of the fourth week
+ok 72 - when fourth Friday is the 22nd, the first day of the fourth week
+ok 73 - when fourth Friday is some day in the middle of the fourth week
+ok 74 - when fourth Saturday is some day in the middle of the fourth week
+ok 75 - when fourth Saturday is another day in the middle of the fourth week
+ok 76 - when fourth Sunday is some day in the middle of the fourth week
+ok 77 - when fourth Sunday is the 28th, the last day of the fourth week
+ok 78 - last Monday in a month with four Mondays
+ok 79 - last Monday in a month with five Mondays
+ok 80 - last Tuesday in a month with four Tuesdays
+ok 81 - last Tuesday in another month with four Tuesdays
+ok 82 - last Wednesday in a month with five Wednesdays
+ok 83 - last Wednesday in a month with four Wednesdays
+ok 84 - last Thursday in a month with four Thursdays
+ok 85 - last Thursday in a month with five Thursdays
+ok 86 - last Friday in a month with five Fridays
+ok 87 - last Friday in a month with four Fridays
+ok 88 - last Saturday in a month with four Saturdays
+ok 89 - last Saturday in another month with four Saturdays
+ok 90 - last Sunday in a month with five Sundays
+ok 91 - last Sunday in a month with four Sundays
+ok 92 - when last Wednesday in February in a leap year is the 29th
+ok 93 - last Wednesday in December that is also the last day of the year
+ok 94 - when last Sunday in February in a non-leap year is not the 29th
+ok 95 - when first Friday is the 7th, the last day of the first week
+1..95

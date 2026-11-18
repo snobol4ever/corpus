@@ -1,0 +1,12 @@
+ok 1 - lowercase letter
+ok 2 - uppercase letter
+ok 3 - valuable letter
+ok 4 - short word
+ok 5 - short, valuable word
+ok 6 - medium word
+ok 7 - medium, valuable word
+ok 8 - long, mixed-case word
+ok 9 - english-like word
+ok 10 - empty input
+ok 11 - entire alphabet available
+1..11

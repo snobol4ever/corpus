@@ -1,0 +1,46 @@
+ok 1 - Test creation of Queens with valid and invalid positions: queen with a valid position
+# Subtest: Test creation of Queens with valid and invalid positions: queen must have positive row
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches /:i
+    #       "row not on board"
+    #       || "type check failed"
+    #   /
+ok 2 - Test creation of Queens with valid and invalid positions: queen must have positive row
+# Subtest: Test creation of Queens with valid and invalid positions: queen must have row on board
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches /:i
+    #       "row not on board"
+    #       || "type check failed"
+    #   /
+ok 3 - Test creation of Queens with valid and invalid positions: queen must have row on board
+# Subtest: Test creation of Queens with valid and invalid positions: queen must have positive column
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches /:i
+    #       "column not on board"
+    #       || "type check failed"
+    #   /
+ok 4 - Test creation of Queens with valid and invalid positions: queen must have positive column
+# Subtest: Test creation of Queens with valid and invalid positions: queen must have column on board
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (Exception)
+    ok 3 - .message matches /:i
+    #       "column not on board"
+    #       || "type check failed"
+    #   /
+ok 5 - Test creation of Queens with valid and invalid positions: queen must have column on board
+ok 6 - Test the ability of one queen to attack another: cannot attack
+ok 7 - Test the ability of one queen to attack another: can attack on same row
+ok 8 - Test the ability of one queen to attack another: can attack on same column
+ok 9 - Test the ability of one queen to attack another: can attack on first diagonal
+ok 10 - Test the ability of one queen to attack another: can attack on second diagonal
+ok 11 - Test the ability of one queen to attack another: can attack on third diagonal
+ok 12 - Test the ability of one queen to attack another: can attack on fourth diagonal
+ok 13 - Test the ability of one queen to attack another: cannot attack if falling diagonals are only the same when reflected across the longest falling diagonal
+1..13

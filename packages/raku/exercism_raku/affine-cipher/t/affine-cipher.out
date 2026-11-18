@@ -1,0 +1,17 @@
+ok 1 - encode: encode yes
+ok 2 - encode: encode no
+ok 3 - encode: encode OMG
+ok 4 - encode: encode O M G
+ok 5 - encode: encode mindblowingly
+ok 6 - encode: encode numbers
+ok 7 - encode: encode deep thought
+ok 8 - encode: encode all the letters
+ok 9 - encode: encode with a not coprime to m
+ok 10 - decode: decode exercism
+ok 11 - decode: decode a sentence
+ok 12 - decode: decode numbers
+ok 13 - decode: decode all the letters
+ok 14 - decode: decode with no spaces in input
+ok 15 - decode: decode with too many spaces
+ok 16 - decode: decode with a not coprime to m
+1..16

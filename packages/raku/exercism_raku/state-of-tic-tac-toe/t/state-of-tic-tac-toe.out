@@ -1,0 +1,30 @@
+ok 1 - Won games: Finished game where X won via left column victory
+ok 2 - Won games: Finished game where X won via middle column victory
+ok 3 - Won games: Finished game where X won via right column victory
+ok 4 - Won games: Finished game where O won via left column victory
+ok 5 - Won games: Finished game where O won via middle column victory
+ok 6 - Won games: Finished game where O won via right column victory
+ok 7 - Won games: Finished game where X won via top row victory
+ok 8 - Won games: Finished game where X won via middle row victory
+ok 9 - Won games: Finished game where X won via bottom row victory
+ok 10 - Won games: Finished game where O won via top row victory
+ok 11 - Won games: Finished game where O won via middle row victory
+ok 12 - Won games: Finished game where O won via bottom row victory
+ok 13 - Won games: Finished game where X won via falling diagonal victory
+ok 14 - Won games: Finished game where X won via rising diagonal victory
+ok 15 - Won games: Finished game where O won via falling diagonal victory
+ok 16 - Won games: Finished game where O won via rising diagonal victory
+ok 17 - Won games: Finished game where X won via a row and a column victory
+ok 18 - Won games: Finished game where X won via two diagonal victories
+ok 19 - Drawn games: Draw
+ok 20 - Drawn games: Another draw
+ok 21 - Ongoing games: Ongoing game: one move in
+ok 22 - Ongoing games: Ongoing game: two moves in
+ok 23 - Ongoing games: Ongoing game: five moves in
+ok 24 - Invalid boards: Invalid board: X went twice
+ok 25 - Invalid boards: Invalid board: O started
+ok 26 - Invalid boards: Invalid board: X won and O kept playing
+ok 27 - Invalid boards: Invalid board: players kept playing after a win
+ok 28 - Invalid boards: Invalid board: O kept playing after X wins
+ok 29 - Invalid boards: Invalid board: X kept playing after O wins
+1..29

@@ -1,0 +1,6 @@
+ok 1 - accumulate empty
+ok 2 - accumulate squares
+ok 3 - accumulate upcases
+ok 4 - accumulate reversed strings
+ok 5 - accumulate recursively
+1..5

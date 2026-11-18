@@ -1,0 +1,28 @@
+ok 1 - just a number
+ok 2 - just a zero
+ok 3 - just a negative number
+ok 4 - addition
+ok 5 - addition with a left hand zero
+ok 6 - addition with a right hand zero
+ok 7 - more addition
+ok 8 - addition with negative numbers
+ok 9 - large addition
+ok 10 - subtraction
+ok 11 - multiplication
+ok 12 - division
+ok 13 - multiple additions
+ok 14 - addition and subtraction
+ok 15 - multiple subtraction
+ok 16 - subtraction then addition
+ok 17 - multiple multiplication
+ok 18 - addition and multiplication
+ok 19 - multiple division
+ok 20 - unknown operation
+ok 21 - Non math question
+ok 22 - reject problem missing an operand
+ok 23 - reject problem with no operands or operators
+ok 24 - reject two operations in a row
+ok 25 - reject two numbers in a row
+ok 26 - reject postfix notation
+ok 27 - reject prefix notation
+1..27

@@ -1,0 +1,107 @@
+ok 1 - should be able to score a game with all zeros
+ok 2 - should be able to score a game with no strikes or spares
+ok 3 - a spare followed by zeros is worth ten points
+ok 4 - points scored in the roll after a spare are counted twice
+ok 5 - consecutive spares each get a one roll bonus
+ok 6 - a spare in the last frame gets a one roll bonus that is counted once
+ok 7 - a strike earns ten points in a frame with a single roll
+ok 8 - points scored in the two rolls after a strike are counted twice as a bonus
+ok 9 - consecutive strikes each get the two roll bonus
+ok 10 - a strike in the last frame gets a two roll bonus that is counted once
+ok 11 - rolling a spare with the two roll bonus does not get a bonus roll
+ok 12 - strikes with the two roll bonus do not get bonus rolls
+ok 13 - last two strikes followed by only last bonus with non strike points
+ok 14 - a strike with the one roll bonus after a spare in the last frame does not get a bonus
+ok 15 - all strikes is a perfect game
+# Subtest: rolls cannot score negative points
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::NegativePins)
+    ok 3 - .message matches /^ "Negative roll is invalid" $/
+ok 16 - rolls cannot score negative points
+# Subtest: a roll cannot score more than 10 points
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::TooManyPins)
+    ok 3 - .message matches /^ "Pin count exceeds pins on the lane" $/
+ok 17 - a roll cannot score more than 10 points
+# Subtest: two rolls in a frame cannot score more than 10 points
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::TooManyPins)
+    ok 3 - .message matches /^ "Pin count exceeds pins on the lane" $/
+ok 18 - two rolls in a frame cannot score more than 10 points
+# Subtest: bonus roll after a strike in the last frame cannot score more than 10 points
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::TooManyPins)
+    ok 3 - .message matches /^ "Pin count exceeds pins on the lane" $/
+ok 19 - bonus roll after a strike in the last frame cannot score more than 10 points
+# Subtest: two bonus rolls after a strike in the last frame cannot score more than 10 points
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::TooManyPins)
+    ok 3 - .message matches /^ "Pin count exceeds pins on the lane" $/
+ok 20 - two bonus rolls after a strike in the last frame cannot score more than 10 points
+ok 21 - two bonus rolls after a strike in the last frame can score more than 10 points if one is a strike
+# Subtest: the second bonus rolls after a strike in the last frame cannot be a strike if the first one is not a strike
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::TooManyPins)
+    ok 3 - .message matches /^ "Pin count exceeds pins on the lane" $/
+ok 22 - the second bonus rolls after a strike in the last frame cannot be a strike if the first one is not a strike
+# Subtest: second bonus roll after a strike in the last frame cannot score more than 10 points
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::TooManyPins)
+    ok 3 - .message matches /^ "Pin count exceeds pins on the lane" $/
+ok 23 - second bonus roll after a strike in the last frame cannot score more than 10 points
+# Subtest: an unstarted game cannot be scored
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::GameInProgress)
+    ok 3 - .message matches /^ "Score cannot be taken until the end of the game" $/
+ok 24 - an unstarted game cannot be scored
+# Subtest: an incomplete game cannot be scored
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::GameInProgress)
+    ok 3 - .message matches /^ "Score cannot be taken until the end of the game" $/
+ok 25 - an incomplete game cannot be scored
+# Subtest: cannot roll if game already has ten frames
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::GameOver)
+    ok 3 - .message matches /^ "Cannot roll after game is over" $/
+ok 26 - cannot roll if game already has ten frames
+# Subtest: bonus rolls for a strike in the last frame must be rolled before score can be calculated
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::GameInProgress)
+    ok 3 - .message matches /^ "Score cannot be taken until the end of the game" $/
+ok 27 - bonus rolls for a strike in the last frame must be rolled before score can be calculated
+# Subtest: both bonus rolls for a strike in the last frame must be rolled before score can be calculated
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::GameInProgress)
+    ok 3 - .message matches /^ "Score cannot be taken until the end of the game" $/
+ok 28 - both bonus rolls for a strike in the last frame must be rolled before score can be calculated
+# Subtest: bonus roll for a spare in the last frame must be rolled before score can be calculated
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::GameInProgress)
+    ok 3 - .message matches /^ "Score cannot be taken until the end of the game" $/
+ok 29 - bonus roll for a spare in the last frame must be rolled before score can be calculated
+# Subtest: cannot roll after bonus roll for spare
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::GameOver)
+    ok 3 - .message matches /^ "Cannot roll after game is over" $/
+ok 30 - cannot roll after bonus roll for spare
+# Subtest: cannot roll after bonus rolls for strike
+    1..3
+    ok 1 - code dies
+    ok 2 - right exception type (X::Bowling::GameOver)
+    ok 3 - .message matches /^ "Cannot roll after game is over" $/
+ok 31 - cannot roll after bonus rolls for strike
+1..31

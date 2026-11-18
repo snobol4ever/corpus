@@ -1,0 +1,12 @@
+ok 1 - Perfect numbers: Smallest perfect number is classified correctly
+ok 2 - Perfect numbers: Medium perfect number is classified correctly
+ok 3 - Abundant numbers: Smallest abundant number is classified correctly
+ok 4 - Abundant numbers: Medium abundant number is classified correctly
+ok 5 - Abundant numbers: Perfect square abundant number is classified correctly
+ok 6 - Deficient numbers: Smallest prime deficient number is classified correctly
+ok 7 - Deficient numbers: Smallest non-prime deficient number is classified correctly
+ok 8 - Deficient numbers: Medium deficient number is classified correctly
+ok 9 - Deficient numbers: Edge case (no factors other than itself) is classified correctly
+ok 10 - Invalid inputs: Zero is rejected (as it is not a positive integer)
+ok 11 - Invalid inputs: Negative integer is rejected (as it is not a positive integer)
+1..11

@@ -1,0 +1,46 @@
+# Subtest: an empty string
+    ok 1 - reverse once
+    ok 2 - reverse twice
+    1..2
+ok 1 - an empty string
+# Subtest: a word
+    ok 1 - reverse once
+    ok 2 - reverse twice
+    1..2
+ok 2 - a word
+# Subtest: a capitalized word
+    ok 1 - reverse once
+    ok 2 - reverse twice
+    1..2
+ok 3 - a capitalized word
+# Subtest: a sentence with punctuation
+    ok 1 - reverse once
+    ok 2 - reverse twice
+    1..2
+ok 4 - a sentence with punctuation
+# Subtest: a palindrome
+    ok 1 - reverse once
+    ok 2 - reverse twice
+    1..2
+ok 5 - a palindrome
+# Subtest: an even-sized word
+    ok 1 - reverse once
+    ok 2 - reverse twice
+    1..2
+ok 6 - an even-sized word
+# Subtest: wide characters
+    ok 1 - reverse once
+    ok 2 - reverse twice
+    1..2
+ok 7 - wide characters
+# Subtest: grapheme cluster with pre-combined form
+    ok 1 - reverse once
+    ok 2 - reverse twice
+    1..2
+ok 8 - grapheme cluster with pre-combined form
+# Subtest: grapheme clusters
+    ok 1 - reverse once
+    ok 2 - reverse twice
+    1..2
+ok 9 - grapheme clusters
+1..9

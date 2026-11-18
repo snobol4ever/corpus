@@ -1,0 +1,11 @@
+ok 1 - Orange and orange and black
+ok 2 - Blue and grey and brown
+ok 3 - Red and black and red
+ok 4 - Green and brown and orange
+ok 5 - Yellow and violet and yellow
+ok 6 - Blue and violet and blue
+ok 7 - Minimum possible value
+ok 8 - Maximum possible value
+ok 9 - First two colors make an invalid octal number
+ok 10 - Ignore extra colors
+1..10

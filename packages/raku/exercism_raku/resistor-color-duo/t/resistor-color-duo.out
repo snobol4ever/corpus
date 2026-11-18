@@ -1,0 +1,8 @@
+ok 1 - Brown and black
+ok 2 - Blue and grey
+ok 3 - Yellow and violet
+ok 4 - White and red
+ok 5 - Orange and orange
+ok 6 - Ignore additional colors
+ok 7 - Black and brown, one-digit
+1..7

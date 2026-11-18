@@ -1,0 +1,14 @@
+ok 1 - no rows
+ok 2 - no columns
+ok 3 - no flowers
+ok 4 - garden full of flowers
+ok 5 - flower surrounded by spaces
+ok 6 - space surrounded by flowers
+ok 7 - horizontal line
+ok 8 - horizontal line, flowers at edges
+ok 9 - vertical line
+ok 10 - vertical line, flowers at edges
+ok 11 - cross
+ok 12 - large garden
+ok 13 - multiple adjacent flowers
+1..13
