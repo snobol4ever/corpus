@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=12 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=11 chunks=1 sizes=11
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=22 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=13 chunks=1 sizes=21
 entry	part	cluster	shells
 demo01/hello	chunk:01	dir:demo01	
 demo02/wordcount	chunk:01	dir:demo02	
@@ -14,3 +14,13 @@ demo09/rpn	chunk:01	dir:demo09
 demo10/anagram	chunk:01	dir:demo10	
 infinite_snobol4/inf_eval	chunk:01	dir:infinite_snobol4	
 infinite_snobol4/infinite_snobol4	core	core	fixtures
+mixes/a_trip_planner_in_three_languages	chunk:01	dir:mixes	
+mixes/notebooks/a_trip_planner_in_three_languages	chunk:01	dir:mixes/notebooks	
+mixes/icon_writes_the_sentences_snobol4_reads_them	chunk:01	dir:mixes	
+mixes/notebooks/icon_writes_the_sentences_snobol4_reads_them	chunk:01	dir:mixes/notebooks	
+mixes/json_in_and_out_snobol4_reads_it_icon_writes_it	chunk:01	dir:mixes	
+mixes/notebooks/json_in_and_out_snobol4_reads_it_icon_writes_it	chunk:01	dir:mixes/notebooks	
+mixes/a_family_tree_you_can_ask_in_plain_english	chunk:01	dir:mixes	
+mixes/notebooks/a_family_tree_you_can_ask_in_plain_english	chunk:01	dir:mixes/notebooks	
+mixes/a_family_tree_you_can_ask_in_plain_english_drawn_as_svg	chunk:01	dir:mixes	
+mixes/notebooks/a_family_tree_you_can_ask_in_plain_english_drawn_as_svg	chunk:01	dir:mixes/notebooks	

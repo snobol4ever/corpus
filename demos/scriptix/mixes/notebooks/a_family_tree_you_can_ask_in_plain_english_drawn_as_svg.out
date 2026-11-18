@@ -1,0 +1,391 @@
+snobol4: 9 people read
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" font-family="Helvetica, Arial, sans-serif">
+<rect width="720" height="500" rx="14" fill="#fbf9f3"/>
+<text x="24" y="38" font-size="19" fill="#2b3a55">Who are the grandchildren of Eleanor?</text>
+<path d="M185 119 C185 155 185 130 185 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 119 C440 155 440 130 440 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 100 225 100 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 270 225 270 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 214 C440 250 440 225 440 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M100 309 C100 345 100 320 100 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M270 309 C270 345 270 320 270 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<rect x="123" y="71" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#2b3a55" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="185" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">Eleanor</text>
+<text x="185" y="110" text-anchor="middle" font-size="11" fill="#555">born 1921</text>
+<rect x="378" y="71" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">George</text>
+<text x="440" y="110" text-anchor="middle" font-size="11" fill="#555">born 1923</text>
+<rect x="123" y="166" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Margaret</text>
+<text x="185" y="205" text-anchor="middle" font-size="11" fill="#555">born 1948</text>
+<rect x="378" y="166" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Thomas</text>
+<text x="440" y="205" text-anchor="middle" font-size="11" fill="#555">born 1950</text>
+<rect x="38" y="261" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Alice</text>
+<text x="100" y="300" text-anchor="middle" font-size="11" fill="#555">born 1975</text>
+<rect x="208" y="261" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Robert</text>
+<text x="270" y="300" text-anchor="middle" font-size="11" fill="#555">born 1977</text>
+<rect x="378" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Diana</text>
+<text x="440" y="300" text-anchor="middle" font-size="11" fill="#555">born 1978</text>
+<rect x="38" y="356" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">James</text>
+<text x="100" y="395" text-anchor="middle" font-size="11" fill="#555">born 2001</text>
+<rect x="208" y="356" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">Sophie</text>
+<text x="270" y="395" text-anchor="middle" font-size="11" fill="#555">born 2003</text>
+<text x="24" y="472" font-size="21" font-weight="bold" fill="#0b6b3a">Alice, Robert</text>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" font-family="Helvetica, Arial, sans-serif">
+<rect width="720" height="500" rx="14" fill="#fbf9f3"/>
+<text x="24" y="38" font-size="19" fill="#2b3a55">who is the mom of James?</text>
+<path d="M185 119 C185 155 185 130 185 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 119 C440 155 440 130 440 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 100 225 100 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 270 225 270 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 214 C440 250 440 225 440 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M100 309 C100 345 100 320 100 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M270 309 C270 345 270 320 270 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<rect x="123" y="71" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">Eleanor</text>
+<text x="185" y="110" text-anchor="middle" font-size="11" fill="#555">born 1921</text>
+<rect x="378" y="71" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">George</text>
+<text x="440" y="110" text-anchor="middle" font-size="11" fill="#555">born 1923</text>
+<rect x="123" y="166" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Margaret</text>
+<text x="185" y="205" text-anchor="middle" font-size="11" fill="#555">born 1948</text>
+<rect x="378" y="166" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Thomas</text>
+<text x="440" y="205" text-anchor="middle" font-size="11" fill="#555">born 1950</text>
+<rect x="38" y="261" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Alice</text>
+<text x="100" y="300" text-anchor="middle" font-size="11" fill="#555">born 1975</text>
+<rect x="208" y="261" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Robert</text>
+<text x="270" y="300" text-anchor="middle" font-size="11" fill="#555">born 1977</text>
+<rect x="378" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Diana</text>
+<text x="440" y="300" text-anchor="middle" font-size="11" fill="#555">born 1978</text>
+<rect x="38" y="356" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#2b3a55" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="100" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">James</text>
+<text x="100" y="395" text-anchor="middle" font-size="11" fill="#555">born 2001</text>
+<rect x="208" y="356" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">Sophie</text>
+<text x="270" y="395" text-anchor="middle" font-size="11" fill="#555">born 2003</text>
+<text x="24" y="472" font-size="21" font-weight="bold" fill="#0b6b3a">Alice</text>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" font-family="Helvetica, Arial, sans-serif">
+<rect width="720" height="500" rx="14" fill="#fbf9f3"/>
+<text x="24" y="38" font-size="19" fill="#2b3a55">Is Sophie a cousin of James?</text>
+<path d="M185 119 C185 155 185 130 185 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 119 C440 155 440 130 440 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 100 225 100 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 270 225 270 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 214 C440 250 440 225 440 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M100 309 C100 345 100 320 100 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M270 309 C270 345 270 320 270 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<rect x="123" y="71" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">Eleanor</text>
+<text x="185" y="110" text-anchor="middle" font-size="11" fill="#555">born 1921</text>
+<rect x="378" y="71" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">George</text>
+<text x="440" y="110" text-anchor="middle" font-size="11" fill="#555">born 1923</text>
+<rect x="123" y="166" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Margaret</text>
+<text x="185" y="205" text-anchor="middle" font-size="11" fill="#555">born 1948</text>
+<rect x="378" y="166" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Thomas</text>
+<text x="440" y="205" text-anchor="middle" font-size="11" fill="#555">born 1950</text>
+<rect x="38" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Alice</text>
+<text x="100" y="300" text-anchor="middle" font-size="11" fill="#555">born 1975</text>
+<rect x="208" y="261" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Robert</text>
+<text x="270" y="300" text-anchor="middle" font-size="11" fill="#555">born 1977</text>
+<rect x="378" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Diana</text>
+<text x="440" y="300" text-anchor="middle" font-size="11" fill="#555">born 1978</text>
+<rect x="38" y="356" width="124" height="48" rx="10" fill="#ffd34d" stroke="#2b3a55" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="100" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">James</text>
+<text x="100" y="395" text-anchor="middle" font-size="11" fill="#555">born 2001</text>
+<rect x="208" y="356" width="124" height="48" rx="10" fill="#ffd34d" stroke="#2b3a55" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="270" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">Sophie</text>
+<text x="270" y="395" text-anchor="middle" font-size="11" fill="#555">born 2003</text>
+<text x="24" y="472" font-size="21" font-weight="bold" fill="#0b6b3a">Yes, Sophie is a cousin of James</text>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" font-family="Helvetica, Arial, sans-serif">
+<rect width="720" height="500" rx="14" fill="#fbf9f3"/>
+<text x="24" y="38" font-size="19" fill="#2b3a55">Who are the ancestors of Sophie?</text>
+<path d="M185 119 C185 155 185 130 185 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 119 C440 155 440 130 440 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 100 225 100 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 270 225 270 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 214 C440 250 440 225 440 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M100 309 C100 345 100 320 100 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M270 309 C270 345 270 320 270 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<rect x="123" y="71" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">Eleanor</text>
+<text x="185" y="110" text-anchor="middle" font-size="11" fill="#555">born 1921</text>
+<rect x="378" y="71" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">George</text>
+<text x="440" y="110" text-anchor="middle" font-size="11" fill="#555">born 1923</text>
+<rect x="123" y="166" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Margaret</text>
+<text x="185" y="205" text-anchor="middle" font-size="11" fill="#555">born 1948</text>
+<rect x="378" y="166" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Thomas</text>
+<text x="440" y="205" text-anchor="middle" font-size="11" fill="#555">born 1950</text>
+<rect x="38" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Alice</text>
+<text x="100" y="300" text-anchor="middle" font-size="11" fill="#555">born 1975</text>
+<rect x="208" y="261" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Robert</text>
+<text x="270" y="300" text-anchor="middle" font-size="11" fill="#555">born 1977</text>
+<rect x="378" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Diana</text>
+<text x="440" y="300" text-anchor="middle" font-size="11" fill="#555">born 1978</text>
+<rect x="38" y="356" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">James</text>
+<text x="100" y="395" text-anchor="middle" font-size="11" fill="#555">born 2001</text>
+<rect x="208" y="356" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#2b3a55" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="270" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">Sophie</text>
+<text x="270" y="395" text-anchor="middle" font-size="11" fill="#555">born 2003</text>
+<text x="24" y="472" font-size="21" font-weight="bold" fill="#0b6b3a">Eleanor, Margaret, Robert</text>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" font-family="Helvetica, Arial, sans-serif">
+<rect width="720" height="500" rx="14" fill="#fbf9f3"/>
+<text x="24" y="38" font-size="19" fill="#2b3a55">How many descendants does Eleanor have?</text>
+<path d="M185 119 C185 155 185 130 185 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 119 C440 155 440 130 440 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 100 225 100 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 270 225 270 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 214 C440 250 440 225 440 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M100 309 C100 345 100 320 100 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M270 309 C270 345 270 320 270 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<rect x="123" y="71" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#2b3a55" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="185" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">Eleanor</text>
+<text x="185" y="110" text-anchor="middle" font-size="11" fill="#555">born 1921</text>
+<rect x="378" y="71" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">George</text>
+<text x="440" y="110" text-anchor="middle" font-size="11" fill="#555">born 1923</text>
+<rect x="123" y="166" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Margaret</text>
+<text x="185" y="205" text-anchor="middle" font-size="11" fill="#555">born 1948</text>
+<rect x="378" y="166" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Thomas</text>
+<text x="440" y="205" text-anchor="middle" font-size="11" fill="#555">born 1950</text>
+<rect x="38" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Alice</text>
+<text x="100" y="300" text-anchor="middle" font-size="11" fill="#555">born 1975</text>
+<rect x="208" y="261" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Robert</text>
+<text x="270" y="300" text-anchor="middle" font-size="11" fill="#555">born 1977</text>
+<rect x="378" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Diana</text>
+<text x="440" y="300" text-anchor="middle" font-size="11" fill="#555">born 1978</text>
+<rect x="38" y="356" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">James</text>
+<text x="100" y="395" text-anchor="middle" font-size="11" fill="#555">born 2001</text>
+<rect x="208" y="356" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">Sophie</text>
+<text x="270" y="395" text-anchor="middle" font-size="11" fill="#555">born 2003</text>
+<text x="24" y="472" font-size="21" font-weight="bold" fill="#0b6b3a">5</text>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" font-family="Helvetica, Arial, sans-serif">
+<rect width="720" height="500" rx="14" fill="#fbf9f3"/>
+<text x="24" y="38" font-size="19" fill="#2b3a55">Thomas's kids</text>
+<path d="M185 119 C185 155 185 130 185 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 119 C440 155 440 130 440 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 100 225 100 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 270 225 270 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 214 C440 250 440 225 440 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M100 309 C100 345 100 320 100 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M270 309 C270 345 270 320 270 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<rect x="123" y="71" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">Eleanor</text>
+<text x="185" y="110" text-anchor="middle" font-size="11" fill="#555">born 1921</text>
+<rect x="378" y="71" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">George</text>
+<text x="440" y="110" text-anchor="middle" font-size="11" fill="#555">born 1923</text>
+<rect x="123" y="166" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Margaret</text>
+<text x="185" y="205" text-anchor="middle" font-size="11" fill="#555">born 1948</text>
+<rect x="378" y="166" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#2b3a55" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="440" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Thomas</text>
+<text x="440" y="205" text-anchor="middle" font-size="11" fill="#555">born 1950</text>
+<rect x="38" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Alice</text>
+<text x="100" y="300" text-anchor="middle" font-size="11" fill="#555">born 1975</text>
+<rect x="208" y="261" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Robert</text>
+<text x="270" y="300" text-anchor="middle" font-size="11" fill="#555">born 1977</text>
+<rect x="378" y="261" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Diana</text>
+<text x="440" y="300" text-anchor="middle" font-size="11" fill="#555">born 1978</text>
+<rect x="38" y="356" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">James</text>
+<text x="100" y="395" text-anchor="middle" font-size="11" fill="#555">born 2001</text>
+<rect x="208" y="356" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">Sophie</text>
+<text x="270" y="395" text-anchor="middle" font-size="11" fill="#555">born 2003</text>
+<text x="24" y="472" font-size="21" font-weight="bold" fill="#0b6b3a">Diana</text>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" font-family="Helvetica, Arial, sans-serif">
+<rect width="720" height="500" rx="14" fill="#fbf9f3"/>
+<text x="24" y="38" font-size="19" fill="#2b3a55">who are the uncles of James?</text>
+<path d="M185 119 C185 155 185 130 185 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 119 C440 155 440 130 440 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 100 225 100 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 270 225 270 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 214 C440 250 440 225 440 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M100 309 C100 345 100 320 100 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M270 309 C270 345 270 320 270 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<rect x="123" y="71" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">Eleanor</text>
+<text x="185" y="110" text-anchor="middle" font-size="11" fill="#555">born 1921</text>
+<rect x="378" y="71" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">George</text>
+<text x="440" y="110" text-anchor="middle" font-size="11" fill="#555">born 1923</text>
+<rect x="123" y="166" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Margaret</text>
+<text x="185" y="205" text-anchor="middle" font-size="11" fill="#555">born 1948</text>
+<rect x="378" y="166" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Thomas</text>
+<text x="440" y="205" text-anchor="middle" font-size="11" fill="#555">born 1950</text>
+<rect x="38" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Alice</text>
+<text x="100" y="300" text-anchor="middle" font-size="11" fill="#555">born 1975</text>
+<rect x="208" y="261" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Robert</text>
+<text x="270" y="300" text-anchor="middle" font-size="11" fill="#555">born 1977</text>
+<rect x="378" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Diana</text>
+<text x="440" y="300" text-anchor="middle" font-size="11" fill="#555">born 1978</text>
+<rect x="38" y="356" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#2b3a55" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="100" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">James</text>
+<text x="100" y="395" text-anchor="middle" font-size="11" fill="#555">born 2001</text>
+<rect x="208" y="356" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">Sophie</text>
+<text x="270" y="395" text-anchor="middle" font-size="11" fill="#555">born 2003</text>
+<text x="24" y="472" font-size="21" font-weight="bold" fill="#0b6b3a">Robert</text>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" font-family="Helvetica, Arial, sans-serif">
+<rect width="720" height="500" rx="14" fill="#fbf9f3"/>
+<text x="24" y="38" font-size="19" fill="#2b3a55">Who was born before 1950?</text>
+<path d="M185 119 C185 155 185 130 185 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 119 C440 155 440 130 440 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 100 225 100 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 270 225 270 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 214 C440 250 440 225 440 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M100 309 C100 345 100 320 100 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M270 309 C270 345 270 320 270 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<rect x="123" y="71" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">Eleanor</text>
+<text x="185" y="110" text-anchor="middle" font-size="11" fill="#555">born 1921</text>
+<rect x="378" y="71" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">George</text>
+<text x="440" y="110" text-anchor="middle" font-size="11" fill="#555">born 1923</text>
+<rect x="123" y="166" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Margaret</text>
+<text x="185" y="205" text-anchor="middle" font-size="11" fill="#555">born 1948</text>
+<rect x="378" y="166" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Thomas</text>
+<text x="440" y="205" text-anchor="middle" font-size="11" fill="#555">born 1950</text>
+<rect x="38" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Alice</text>
+<text x="100" y="300" text-anchor="middle" font-size="11" fill="#555">born 1975</text>
+<rect x="208" y="261" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Robert</text>
+<text x="270" y="300" text-anchor="middle" font-size="11" fill="#555">born 1977</text>
+<rect x="378" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Diana</text>
+<text x="440" y="300" text-anchor="middle" font-size="11" fill="#555">born 1978</text>
+<rect x="38" y="356" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">James</text>
+<text x="100" y="395" text-anchor="middle" font-size="11" fill="#555">born 2001</text>
+<rect x="208" y="356" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">Sophie</text>
+<text x="270" y="395" text-anchor="middle" font-size="11" fill="#555">born 2003</text>
+<text x="24" y="472" font-size="21" font-weight="bold" fill="#0b6b3a">Eleanor, George, Margaret</text>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" font-family="Helvetica, Arial, sans-serif">
+<rect width="720" height="500" rx="14" fill="#fbf9f3"/>
+<text x="24" y="38" font-size="19" fill="#2b3a55">Who is younger than Diana?</text>
+<path d="M185 119 C185 155 185 130 185 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 119 C440 155 440 130 440 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 100 225 100 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 270 225 270 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 214 C440 250 440 225 440 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M100 309 C100 345 100 320 100 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M270 309 C270 345 270 320 270 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<rect x="123" y="71" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">Eleanor</text>
+<text x="185" y="110" text-anchor="middle" font-size="11" fill="#555">born 1921</text>
+<rect x="378" y="71" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">George</text>
+<text x="440" y="110" text-anchor="middle" font-size="11" fill="#555">born 1923</text>
+<rect x="123" y="166" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Margaret</text>
+<text x="185" y="205" text-anchor="middle" font-size="11" fill="#555">born 1948</text>
+<rect x="378" y="166" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Thomas</text>
+<text x="440" y="205" text-anchor="middle" font-size="11" fill="#555">born 1950</text>
+<rect x="38" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Alice</text>
+<text x="100" y="300" text-anchor="middle" font-size="11" fill="#555">born 1975</text>
+<rect x="208" y="261" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Robert</text>
+<text x="270" y="300" text-anchor="middle" font-size="11" fill="#555">born 1977</text>
+<rect x="378" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#2b3a55" stroke-width="3" stroke-dasharray="6 4"/>
+<text x="440" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Diana</text>
+<text x="440" y="300" text-anchor="middle" font-size="11" fill="#555">born 1978</text>
+<rect x="38" y="356" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">James</text>
+<text x="100" y="395" text-anchor="middle" font-size="11" fill="#555">born 2001</text>
+<rect x="208" y="356" width="124" height="48" rx="10" fill="#ffd34d" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">Sophie</text>
+<text x="270" y="395" text-anchor="middle" font-size="11" fill="#555">born 2003</text>
+<text x="24" y="472" font-size="21" font-weight="bold" fill="#0b6b3a">James, Sophie</text>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="500" viewBox="0 0 720 500" font-family="Helvetica, Arial, sans-serif">
+<rect width="720" height="500" rx="14" fill="#fbf9f3"/>
+<text x="24" y="38" font-size="19" fill="#2b3a55">What is the weather in Dallas?</text>
+<path d="M185 119 C185 155 185 130 185 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 119 C440 155 440 130 440 166" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 100 225 100 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M185 214 C185 250 270 225 270 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M440 214 C440 250 440 225 440 261" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M100 309 C100 345 100 320 100 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<path d="M270 309 C270 345 270 320 270 356" fill="none" stroke="#b9b3a5" stroke-width="2"/>
+<rect x="123" y="71" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">Eleanor</text>
+<text x="185" y="110" text-anchor="middle" font-size="11" fill="#555">born 1921</text>
+<rect x="378" y="71" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="93" text-anchor="middle" font-size="16" fill="#1d1d1d">George</text>
+<text x="440" y="110" text-anchor="middle" font-size="11" fill="#555">born 1923</text>
+<rect x="123" y="166" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="185" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Margaret</text>
+<text x="185" y="205" text-anchor="middle" font-size="11" fill="#555">born 1948</text>
+<rect x="378" y="166" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="188" text-anchor="middle" font-size="16" fill="#1d1d1d">Thomas</text>
+<text x="440" y="205" text-anchor="middle" font-size="11" fill="#555">born 1950</text>
+<rect x="38" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Alice</text>
+<text x="100" y="300" text-anchor="middle" font-size="11" fill="#555">born 1975</text>
+<rect x="208" y="261" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Robert</text>
+<text x="270" y="300" text-anchor="middle" font-size="11" fill="#555">born 1977</text>
+<rect x="378" y="261" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="440" y="283" text-anchor="middle" font-size="16" fill="#1d1d1d">Diana</text>
+<text x="440" y="300" text-anchor="middle" font-size="11" fill="#555">born 1978</text>
+<rect x="38" y="356" width="124" height="48" rx="10" fill="#c5dcf5" stroke="#8a8474" stroke-width="1"/>
+<text x="100" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">James</text>
+<text x="100" y="395" text-anchor="middle" font-size="11" fill="#555">born 2001</text>
+<rect x="208" y="356" width="124" height="48" rx="10" fill="#f6c9d6" stroke="#8a8474" stroke-width="1"/>
+<text x="270" y="378" text-anchor="middle" font-size="16" fill="#1d1d1d">Sophie</text>
+<text x="270" y="395" text-anchor="middle" font-size="11" fill="#555">born 2003</text>
+<text x="24" y="472" font-size="21" font-weight="bold" fill="#0b6b3a">I do not understand the question</text>
+</svg>

@@ -1,0 +1,42 @@
+snobol4: 9 people read
+icon: the family:
+   Eleanor (1921)
+       +-- Margaret (1948)
+           +-- Alice (1975)
+               +-- James (2001)
+           +-- Robert (1977)
+               +-- Sophie (2003)
+   George (1923)
+       +-- Thomas (1950)
+           +-- Diana (1978)
+Q: Who are the grandchildren of Eleanor?
+   Alice, Robert
+Q: who is the mom of James?
+   Alice
+Q: Thomas's kids
+   Diana
+Q: Is Sophie a cousin of James?
+   yes, Sophie is a cousin of James
+Q: Is Diana a cousin of James?
+   no, Diana is no cousin of James
+Q: Who are the ancestors of Sophie?
+   Eleanor, Margaret, Robert
+Q: How many descendants does Eleanor have?
+   5
+Q: Who is the father of Diana?
+   Thomas
+Q: List all siblings of Alice
+   Robert
+Q: who is the aunt of Sophie?
+   Alice
+Q: Who was born before 1950?
+   Eleanor, George, Margaret
+Q: Who is younger than Diana?
+   James, Sophie
+Q: who are the uncles of James?
+   Robert
+Q: What is the weather in Dallas?
+   I do not understand the question
+Q: Who is the butler of James?
+   I know no relation called butler
+icon: 15 questions asked, 14 understood by SNOBOL4

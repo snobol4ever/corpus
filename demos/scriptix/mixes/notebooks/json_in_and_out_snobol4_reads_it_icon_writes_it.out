@@ -1,0 +1,61 @@
+snobol4: 265 characters read: 5 objects, 1 arrays, 6 strings, 5 integers, 2 reals, depth 3
+icon: the data SNOBOL4 built, written back out:
+   {
+     "order": 1047,
+     "customer": {
+       "name": "Ada Lovelace",
+       "city": "London",
+       "vip": true
+     },
+     "items": [
+       {
+         "sku": "TEA-12",
+         "qty": 3,
+         "price": 4.5
+       },
+       {
+         "sku": "CUP-2",
+         "qty": 6,
+         "price": 12
+       },
+       {
+         "sku": "POT-1",
+         "qty": 1,
+         "price": 38.25,
+         "note": "a gift\nwrap it"
+       }
+     ],
+     "paid": false
+   }
+the round trip: three texts, each 265 characters, all the same
+every value, by its path:
+   order               integer  1047
+   customer.name       string   "Ada Lovelace"
+   customer.city       string   "London"
+   customer.vip        string   "true"
+   items[1].sku        string   "TEA-12"
+   items[1].qty        integer  3
+   items[1].price      real     4.5
+   items[2].sku        string   "CUP-2"
+   items[2].qty        integer  6
+   items[2].price      integer  12
+   items[3].sku        string   "POT-1"
+   items[3].qty        integer  1
+   items[3].price      real     38.25
+   items[3].note       string   "a gift\nwrap it"
+   paid                string   "false"
+every number over 10:
+   order = 1047
+   items[2].price = 12
+   items[3].price = 38.25
+where is London?  customer.city
+the bill comes to 123.75
+texts that are not JSON, each refused by the pattern:
+   {"a": }               refused
+   [1, 2                 refused
+   {"a" 1}               refused
+   [1,, 2]               refused
+   tru                   refused
+   {"a": [1, {"b": ]}    refused
+   [01]                  refused
+snobol4 parsed 3 texts in all
