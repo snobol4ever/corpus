@@ -71,7 +71,7 @@ def notebook(cells):
             "metadata": {"kernelspec": {"name": "scrip", "display_name": "SCRIP", "language": "scrip"}},
             "cells": [{"cell_type": "code", "id": "c%d" % i, "execution_count": None, "outputs": [],
                        "metadata": {"scrip": {"language": lang}},
-                       "source": src.splitlines(keepends=True)} for i, (lang, src) in enumerate(cells)]}
+                       "source": ("%%" + lang + "\n" + src).splitlines(keepends=True)} for i, (lang, src) in enumerate(cells)]}
 
 def pair_files(kind, defs, use):
     """{relative path: text} of one set: for each pair the SCRIPtix document, the Jupyter notebook, its one answer NAME.out (the files form's name; no NAME.ref stands
