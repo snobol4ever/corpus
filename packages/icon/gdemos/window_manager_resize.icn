@@ -1,0 +1,24 @@
+link graphics
+
+procedure main();
+  local w, e, f;
+  w := open("window_manager_resize", "g", "size=200,150", "pos=0,0", "bg=white", "fg=black") | stop("no window");
+  f := open("window_manager_resize.txt", "w") | stop("no file");
+  draw(w, f);
+  repeat {
+    e := Event(w);
+    if e === &resize then draw(w, f) else if e === "q" then break;
+  };
+  close(f);
+end
+
+procedure draw(w, f);
+  local x, y;
+  x := WAttrib(w, "width");
+  y := WAttrib(w, "height");
+  EraseArea(w);
+  DrawRectangle(w, 5, 5, x - 10, y - 10);
+  DrawLine(w, 0, 0, x, y);
+  write(f, x, " ", y);
+  flush(f);
+end

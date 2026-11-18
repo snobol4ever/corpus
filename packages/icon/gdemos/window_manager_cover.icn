@@ -1,0 +1,12 @@
+link graphics
+
+procedure main();
+  local w;
+  w := open("window_manager_cover", "g", "size=200,150", "pos=0,0", "bg=white", "fg=black") | stop("no window");
+  FillRectangle(w, 20, 20, 80, 50);
+  Fg(w, "red");
+  FillRectangle(w, 100, 60, 80, 70);
+  Fg(w, "black");
+  DrawCircle(w, 100, 75, 40);
+  repeat if Event(w) === "q" then break;
+end

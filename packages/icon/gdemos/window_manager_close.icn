@@ -1,0 +1,11 @@
+link graphics
+
+procedure main();
+  local w;
+  w := open("window_manager_close", "g", "size=200,150", "pos=0,0", "bg=white", "fg=black") | stop("no window");
+  DrawRectangle(w, 10, 10, 180, 130);
+  write("ready");
+  flush(&output);
+  repeat if Event(w) === "q" then break;
+  write("quit by key");
+end
