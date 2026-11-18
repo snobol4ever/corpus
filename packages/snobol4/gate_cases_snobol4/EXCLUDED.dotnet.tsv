@@ -1,0 +1,4 @@
+# EXCLUDED.dotnet.tsv -- gate_cases_snobol4: the entries that leave snobol4dotnet's denominator ALONE, read for a key @dotnet (R-1864 (4)). SCRIP's rows and the
+# jvm engine's never read it. Class LON_UNICODE_BY_DESIGN (R-1859, Lon, verbatim: "Continue having snobol4dotnet support Unicode as designed."): an entry whose
+# one difference from sbl -bf is bytes against characters, its evidence the measured difference (seat dotnet 2026-11-17).
+test_gate_sno_substr_indexes_bytes_as_the_pattern_cursor_does__census	LON_UNICODE_BY_DESIGN	measured 2026-11-17 on snobol4dotnet 2241973 against the ref (sbl -bf): the program measures a string holding two é, and every line that differs is a count of bytes against a count of characters, sbl answering size 7, cursor 4, break 4, dupl 6 and substr12 [é], snobol4dotnet size 5, cursor 2, break 2, dupl 3 and substr12 [éé]
