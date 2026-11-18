@@ -557,7 +557,6 @@ progs/hebcalen: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_M
 progs/hebeng: no hebeng.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/hotedit: out_files names hidden file(s) .mosaic-hotlist-default .mosaic-hotlist-backup -- the staging rule admits a bare name with no leading '.' (validate_out_files_cell), so the run cannot own them; excluded rather than refused (the whole build would stop)
 progs/htget: no htget.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
-progs/huffstuf: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/interpe: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/iprofile: no iprofile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/isize: oracle produced EMPTY output -- refusing to mint a vacuous ref
