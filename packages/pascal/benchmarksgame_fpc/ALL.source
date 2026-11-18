@@ -1,0 +1,4 @@
+root	/home/resources/packages/pascal/benchmarksgame_fpc
+origin	the Computer Language Benchmarks Game (https://salsa.debian.org/benchmarksgame-team/benchmarksgame, commit 40296663e), its 24 Free Pascal programs, each read from the <pre> of its public/program page; the inputs from public/download
+version	40296663e (2026-11-18 clone)
+licence	BSD 3-clause (LICENSE.md copied into the root); read in place all the same

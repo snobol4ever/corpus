@@ -1,0 +1,6 @@
+PasMP.pas: LIBRARY: the source names unit PasMP;
+fasta_6.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: fasta_6.pas(28,19) Error: String constant too long while ansistrings are disabled
+mtpcpu.pas: LIBRARY: the source names unit MTPCPU;
+mtprocs.pas: LIBRARY: the source names unit MTProcs;
+mtputils.pas: LIBRARY: the source names unit MTPUtils;
+regexredux_1.pas: ORACLE-REFUSES: fpc compiles it in no mode of the ladder; the last says: regexredux_1.pas(212,1) Error: Error while linking

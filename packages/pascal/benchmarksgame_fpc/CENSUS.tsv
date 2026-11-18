@@ -1,0 +1,29 @@
+# the census of /home/resources/packages/pascal/benchmarksgame_fpc by fpc (40296663e (2026-11-18 clone)), 2026-11-18: path from the root, verdict, note
+PasMP.pas	LIBRARY	the source names unit PasMP;
+binarytrees_5.pas	ENTRY	
+binarytrees_6.pas	ENTRY	
+binarytrees_7.pas	ENTRY	
+fannkuchredux_1.pas	ENTRY	
+fasta_5.pas	ENTRY	
+fasta_6.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: fasta_6.pas(28,19) Error: String constant too long while ansistrings are disabled
+mandelbrot_1.pas	ENTRY	
+mandelbrot_2.pas	ENTRY	
+mandelbrot_3.pas	ENTRY	
+mandelbrot_5.pas	ENTRY	
+mandelbrot_6.pas	ENTRY	
+mandelbrot_7.pas	ENTRY	
+mandelbrot_8.pas	ENTRY	
+mtpcpu.pas	LIBRARY	the source names unit MTPCPU;
+mtprocs.pas	LIBRARY	the source names unit MTProcs;
+mtputils.pas	LIBRARY	the source names unit MTPUtils;
+nbody_1.pas	ENTRY	
+nbody_2.pas	ENTRY	
+nbody_3.pas	ENTRY	
+pidigits_1.pas	ENTRY	
+pidigits_2.pas	ENTRY	
+pidigits_3.pas	ENTRY	
+regexredux_1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: regexredux_1.pas(212,1) Error: Error while linking
+revcomp_2.pas	ENTRY	standard input is the collection's revcomp-input.txt
+spectralnorm_1.pas	ENTRY	
+spectralnorm_2.pas	ENTRY	
+spectralnorm_3.pas	ENTRY	
