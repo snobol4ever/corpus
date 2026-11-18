@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,adventofcode.com_2022_day_1_solution_a,adventofcode.com_2022_day_1_solution_a.sno,aoc2022_snobol__adventofcode.com_2022_day_1_solution_a,aoc2022_snobol,2281,0,131072,4096,60,
