@@ -3,4 +3,3 @@ lab1/p3	NO_ORACLE_ANSWER	it seeds &random from &clock: iconx answers differently
 lab3/p1	NO_ORACLE_ANSWER	iconx runs past 30 s: it writes every 13-letter combination of the alphabet (26 choose 13, about ten million lines)
 other/prog2	NO_ORACLE_ANSWER	iconx runs past 30 s: a prime generator in an endless repeat loop
 lab2/q	NEEDS_TERMINAL	a NAND-circuit simulator that waits on the keyboard (kbhit) in a repeat loop and draws with terminal escape codes (crt.icn)
-lab4/p2	MALFORMED	the program as written is refused by Icon's translator (icont 9.5.25a with newline insertion: File p2.icn; Line 14 # "procedura": invalid declaration); a translator refusal is an answer, but the Icon grade road cannot compare one yet

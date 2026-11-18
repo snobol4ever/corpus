@@ -11,7 +11,7 @@ lab2/q.icn	same-code	47
 lab3/p1.icn	same-code	9
 lab3/p2.icn	same-code	8
 lab4/p1.icn	same-code	5
-lab4/p2.icn	both-refused (icont rc 1: File p2.icn; Line 14 # "procedura": invalid declaration)	0
+lab4/p2.icn	same-diagnostic (both translators refuse it alike: the stock translator with newline insertion on the original gives File p2.icn; Line 14 # "procedura": invalid declaration, 1 error; the fleet translator on the converted text, whose semicolons were added by hand under the rule of skill unicon section 4, gives the same line and the same count, rc 1, twice alike; officer_10 2026-11-17)	0
 lab4/p3.icn	same-code	22
 other/cat.icn	same-code	1
 other/dictionary.icn	same-code	3

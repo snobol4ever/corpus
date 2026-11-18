@@ -12,3 +12,4 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 11,other/hello,other/hello.icn,icon_lab__other/hello,icon_lab,5,0,131072,4096,60,,merged
 12,other/print,other/print.icn,icon_lab__other/print,icon_lab,22,0,131072,4096,60,,merged
 13,other/prog1,other/prog1.icn,icon_lab__other/prog1,icon_lab,9,0,131072,4096,60,,merged
+14,lab4/p2,lab4/p2.icn,icon_lab__lab4/p2,icon_lab,31,1,131072,4096,60,,merged

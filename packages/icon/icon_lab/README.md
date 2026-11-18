@@ -8,8 +8,9 @@ digits in a string, cat, and a program that links a library beside it.
 
 THE CONVERSION: every file carries the semicolons SCRIP Icon requires, inserted once by `util_icon_semicolons.py` and PROVED by the stock
 Arizona translator with newline insertion (`icont -s -c` of the original and of the converted text give the same `.u1` and `.u2`, byte for
-byte): 19 of 20 same-code (`CONVERSION-PROOF.tsv`). The twentieth, `lab4/p2.icn`, is refused by Icon's translator as written (line 14,
-`procedura`) and is kept unchanged.
+byte): 19 of 20 same-code (`CONVERSION-PROOF.tsv`). The twentieth, `lab4/p2.icn`, is refused by Icon's translator at its line 14 (`procedura`, an invalid declaration); it carries its semicolons added by hand
+and is an entry whose answer is the translator's diagnostic and whose status is 1 (`CONTRACT.tsv`, fatal gradable): the stock translator on the original and the fleet's on the
+converted text give the same line and count (`CONVERSION-PROOF.tsv`).
 
 THE INPUTS ARE OURS: no input ships with the programs that read standard input except `lab2/data`. `lab2/p1.in` is a copy of `lab2/data`;
 `lab1/p2.in`, `lab4/p1.in`, `lab4/p3.in`, `other/cat.in`, `other/dictionary.in` and `other/digit.in` were written by the grader on

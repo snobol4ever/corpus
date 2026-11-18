@@ -1,3 +1,4 @@
 # CONTRACT.tsv -- the run contract of icon_lab, read by corpus_suite_harness.py and util_build_package_suite.py: key<TAB>value<TAB>evidence.
 stderr	merged	every answer was cut with stderr merged into stdout (iconx STEM < NAME.in 2>&1, iconlab_cut.py), so a run-time error is graded as an answer, its block rendered in the oracle's voice (Lon 2026-11-15: "when the oracle produces and error then SCRIP should produce the same error")
 ipath	other	other/prog1 links nwd, the library file beside it in other/
+fatal	gradable	Lon 2026-11-15 13:3x CST, in the grader's window, verbatim: "You do realize when the oracle produces and error then SCRIP should produce the same error. Yes? Do you get that?" (CEO-1344): lab4/p2.icn, which Icon's translator refuses at its line 14 (an invalid declaration), is an entry whose answer is the translator's diagnostic and whose want_rc is its status; and Lon 2026-11-17 17:2x CST: "We want 100% compatibility with Icon and Unicon."
