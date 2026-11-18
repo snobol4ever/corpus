@@ -172,8 +172,8 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 171,crypto/filecrypt,crypto/filecrypt.icn,unicon_tests__crypto/filecrypt,unicon_tests,35,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 172,crypto/filehash,crypto/filehash.icn,unicon_tests__crypto/filehash,unicon_tests,30,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,staged
 173,crypto/filekey,crypto/filekey.icn,unicon_tests__crypto/filekey,unicon_tests,29,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-174,crypto/filekeyattr,crypto/filekeyattr.icn,unicon_tests__crypto/filekeyattr,unicon_tests,24,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-175,crypto/filetamper,crypto/filetamper.icn,unicon_tests__crypto/filetamper,unicon_tests,40,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+174,crypto/filekeyattr,crypto/filekeyattr.icn,unicon_tests__crypto/filekeyattr,unicon_tests,24,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,staged
+175,crypto/filetamper,crypto/filetamper.icn,unicon_tests__crypto/filetamper,unicon_tests,40,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,staged
 176,crypto/freshiv,crypto/freshiv.icn,unicon_tests__crypto/freshiv,unicon_tests,25,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 177,crypto/hash,crypto/hash.icn,unicon_tests__crypto/hash,unicon_tests,34,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 178,crypto/hmac,crypto/hmac.icn,unicon_tests__crypto/hmac,unicon_tests,32,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
