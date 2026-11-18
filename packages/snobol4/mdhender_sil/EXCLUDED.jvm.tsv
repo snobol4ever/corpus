@@ -3,3 +3,4 @@
 # verbatim: "let's do more of a SNOBOL4++ where it has all extensions and keeps the dynamic power of SNOBOL4. Have the INPUT and HOST be just like SPITBOL."):
 # an entry whose sbl -bf answer turns on a SPITBOL restriction snobol4jvm lifts; its SPITBOL ref stands, its evidence the oracle's answer and the port's.
 charcode	SNOBOL4PP_EXTENSION_KEPT_BY_LON	sbl -bf ends line 17, DEFINE('CHAR(N)'), with ERROR 248 (attempted redefinition of system function); CSNOBOL4 -b and snobol4jvm 02f1a64 let a DEFINE replace a system function, and the port's whole answer equals CSNOBOL4's byte for byte
+reverse	SNOBOL4PP_EXTENSION_KEPT_BY_LON	sbl -bf ends line 9, a DEFINE of REVERSE, with ERROR 248 (attempted redefinition of system function); CSNOBOL4 -b and snobol4jvm cbb2a8a let a DEFINE replace a system function, and the port's whole answer equals CSNOBOL4's byte for byte
