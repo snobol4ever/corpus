@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=353 features=63 ubiquitous=8(package write every return procedure alternation to_by assign) distinctive=55 core=25 clusters=87 chunks=4 sizes=100,100,100,28
+# shape: entries=354 features=63 ubiquitous=8(package write every return procedure alternation to_by assign) distinctive=55 core=25 clusters=87 chunks=4 sizes=100,100,100,29
 entry	part	cluster	shells
 100-doors-1	chunk:02	feat:table	table
 100-doors-2	chunk:01	feat:integer	integer
@@ -98,10 +98,10 @@ draw-a-clock-2-fixed-time	chunk:03	family:draw-a-clock--fixed-time
 draw-a-pixel	chunk:03	family:draw-a-pixel	
 duffinian-numbers	chunk:03	feat:insert	aug_assign element_gen insert limitation seq set writes
 dutch-national-flag-problem	chunk:01	feat:swap	aug_assign break element_gen find gen_with_alternation integer map repl scan swap
-entropy	chunk:02	feat:table	aug_assign element_gen gen_with_alternation table
+entropy	chunk:03	feat:table	aug_assign element_gen gen_with_alternation table
 equilibrium-index	chunk:03	feat:every_with_suspend	aug_assign element_gen every_with_suspend fail gen_with_alternation limitation local suspend writes
 euler-method	chunk:03	feat:until	aug_assign until
-evaluate-binomial-coefficients-1	chunk:03	family:evaluate-binomial-coefficients	
+evaluate-binomial-coefficients-1	chunk:04	family:evaluate-binomial-coefficients	
 evolutionary-algorithm-1	chunk:02	feat:global	aug_assign element_gen global keyword_ref next push scan until
 execute-a-system-command-1	chunk:01	feat:keyword_ref	keyword_ref
 execute-hq9+	chunk:02	feat:stop	aug_assign break case element_gen gen_with_alternation get limitation map read repeat static stop table writes
@@ -117,6 +117,7 @@ fibonacci-word-fractal	chunk:04	family:fibonacci-word-fractal
 filter	chunk:03	feat:fail	element_gen fail gen_with_alternation put writes
 find-common-directory-path	core	core	element_gen fail find local match scan scan_with_tab tab
 find-first-and-last-set-bit-of-a-long-integer	chunk:03	feat:until	aug_assign break fail gen_with_alternation keyword_ref limitation put repeat seq static until
+find-limit-of-recursion	chunk:02	feat:want_rc	aug_assign keyword_ref limitation static want_rc
 first-class-environments	chunk:02	feat:record	aug_assign element_gen limitation put record while
 five-weekends	chunk:03	feat:insert	element_gen find gen_with_alternation insert integer limitation next put scan scan_with_tab set sort tab
 fizzbuzz-1	chunk:04	family:fizzbuzz	
@@ -222,7 +223,7 @@ odd-word-problem-1	chunk:03	feat:any	any break coexpr_activate create element_ge
 old-lady-swallowed-a-fly	chunk:02	feat:push	case element_gen find gen_with_alternation limitation move push stop tab table want_rc while
 one-dimensional-cellular-automata-1	chunk:02	feat:push	element_gen push record while
 one-dimensional-cellular-automata-2	chunk:02	feat:repl	fail gen_with_alternation limitation repl section
-one-of-n-lines-in-a-file	chunk:02	feat:table	aug_assign fail gen_with_alternation limitation table writes
+one-of-n-lines-in-a-file	chunk:03	feat:table	aug_assign fail gen_with_alternation limitation table writes
 order-disjoint-list-items	chunk:03	feat:find	aug_assign find move scan scan_with_tab tab upto while writes
 pangram-checker-2	chunk:01	feat:image	aug_assign element_gen image want_rc writes
 parametric-polymorphism	chunk:02	feat:section	element_gen gen_with_alternation limitation section
@@ -264,7 +265,7 @@ run-length-encoding	chunk:02	feat:repl	aug_assign image keyword_ref many move re
 s-expressions	core	core	aug_assign case coexpr_activate element_gen find gen_with_alternation get image keyword_ref limitation many map move pos put scan scan_with_tab static tab trim type until upto while
 same-fringe	chunk:02	feat:coexpr_activate	coexpr_activate fail gen_with_alternation limitation suspend while
 sattolo-cycle	chunk:01	feat:swap	element_gen scan swap writes
-search-a-list-1	chunk:03	feat:want_rc	fail limitation local want_rc
+search-a-list-1	chunk:02	feat:want_rc	fail limitation local want_rc
 search-a-list-of-records	chunk:02	feat:record	element_gen record
 sedols	chunk:02	feat:map	aug_assign fail gen_with_alternation keyword_ref limitation map static table
 self-describing-numbers-1	chunk:02	feat:repeat	aug_assign element_gen every_with_suspend fail limitation repeat suspend
