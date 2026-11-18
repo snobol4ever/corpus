@@ -4361,6 +4361,22 @@ end
 hello
 ```
 
+## ladder__rung29_builtins_unicons_3d_functions_are_no_icon_procedures
+
+```Icon
+procedure main()
+    write(image(proc("DrawCube")) | "no such procedure");
+    write(image(proc("DrawSphere", 0)) | "no such procedure");
+    write(image(proc("Texcoord")) | "no such procedure");
+end
+```
+
+```stdout
+no such procedure
+no such procedure
+no such procedure
+```
+
 ## ladder__rung41_rt_open_in_a_graphics_mode_fails_without_graphics
 
 ```Icon
