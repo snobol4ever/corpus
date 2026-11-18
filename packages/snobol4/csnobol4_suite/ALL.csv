@@ -18,7 +18,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 17,contin,contin.sno,csnobol4_suite__contin,csnobol4_suite,3,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 18,convert,convert.sno,csnobol4_suite__convert,csnobol4_suite,16,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0
 19,crlf,crlf.sno,csnobol4_suite__crlf,csnobol4_suite,5,1,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-20,diag2,diag2.sno,csnobol4_suite__diag2,csnobol4_suite,254,1,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,1,0,0
+20,diag2,diag2.sno,csnobol4_suite__diag2,csnobol4_suite,254,231,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,1,0,0
 21,dump,dump.sno,csnobol4_suite__dump,csnobol4_suite,4,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 22,err,err.sno,csnobol4_suite__err,csnobol4_suite,7,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0
 23,fact,fact.sno,csnobol4_suite__fact,csnobol4_suite,19,0,131072,4096,300,--stlimit,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0
