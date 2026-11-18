@@ -269,11 +269,11 @@ ide/utags.icn: NEEDS-DISPLAY: the source names import gui
 ide/verifymake.icn: LIBRARY: no procedure main
 lib/FxPt.icn: LIBRARY: no procedure main; graded through its driver lib/FxPt_driver.icn
 lib/_button.icn: LIBRARY: no procedure main; graded through its driver lib/_button_driver.icn
+lib/_menu.icn: LIBRARY: no procedure main; graded through its driver lib/_menu_driver.icn
+lib/_node.icn: LIBRARY: no procedure main; graded through its driver lib/_node_driver.icn
+lib/_panel.icn: LIBRARY: no procedure main; graded through its driver lib/_panel_driver.icn
 lib/_image.icn: LIBRARY: no procedure main; graded through its driver lib/_image_driver.icn
 lib/_list.icn: LIBRARY: no procedure main; graded through its driver lib/_list_driver.icn
-lib/_menu.icn: LIBRARY: no procedure main
-lib/_node.icn: LIBRARY: no procedure main
-lib/_panel.icn: LIBRARY: no procedure main
 lib/_table.icn: LIBRARY: no procedure main
 lib/_ticker.icn: LIBRARY: no procedure main
 lib/_tree.icn: LIBRARY: no procedure main
@@ -308,6 +308,35 @@ lib/db_util.icn: LIBRARY: no procedure main; graded through its driver lib/db_ut
 lib/decode.icn: LIBRARY: no procedure main; graded through its driver lib/decode_driver.icn
 lib/dispatcher.icn: LIBRARY: no procedure main; graded through its driver lib/dispatcher_driver.icn
 lib/doptions.icn: LIBRARY: no procedure main; graded through its driver lib/doptions_driver.icn
+lib/logger.icn: LIBRARY: no procedure main; graded through its driver lib/logger_driver.icn
+lib/mailbox.icn: LIBRARY: no procedure main; graded through its driver lib/mailbox_driver.icn
+lib/mailmisc.icn: LIBRARY: no procedure main; graded through its driver lib/mailmisc_driver.icn
+lib/mapbytes.icn: LIBRARY: no procedure main; graded through its driver lib/mapbytes_driver.icn
+lib/matrix_util.icn: LIBRARY: no procedure main; graded through its driver lib/matrix_util_driver.icn
+lib/md5.icn: LIBRARY: no procedure main; graded through its driver lib/md5_driver.icn
+lib/menubar.icn: LIBRARY: no procedure main; graded through its driver lib/menubar_driver.icn
+lib/menubutton.icn: LIBRARY: no procedure main; graded through its driver lib/menubutton_driver.icn
+lib/menucomponent.icn: LIBRARY: no procedure main; graded through its driver lib/menucomponent_driver.icn
+lib/menuseparator.icn: LIBRARY: no procedure main; graded through its driver lib/menuseparator_driver.icn
+lib/message.icn: LIBRARY: no procedure main; graded through its driver lib/message_driver.icn
+lib/messagehandler.icn: LIBRARY: no procedure main; graded through its driver lib/messagehandler_driver.icn
+lib/method.icn: LIBRARY: no procedure main; graded through its driver lib/method_driver.icn
+lib/misc_util.icn: LIBRARY: no procedure main; graded through its driver lib/misc_util_driver.icn
+lib/money.icn: LIBRARY: no procedure main; graded through its driver lib/money_driver.icn
+lib/msg.icn: LIBRARY: no procedure main; graded through its driver lib/msg_driver.icn
+lib/msgutils.icn: LIBRARY: no procedure main; graded through its driver lib/msgutils_driver.icn
+lib/multipart.icn: LIBRARY: no procedure main; graded through its driver lib/multipart_driver.icn
+lib/multiparthandler.icn: LIBRARY: no procedure main; graded through its driver lib/multiparthandler_driver.icn
+lib/netclient.icn: LIBRARY: no procedure main; graded through its driver lib/netclient_driver.icn
+lib/noophandler.icn: LIBRARY: no procedure main; graded through its driver lib/noophandler_driver.icn
+lib/notification.icn: LIBRARY: no procedure main; graded through its driver lib/notification_driver.icn
+lib/notifier.icn: LIBRARY: no procedure main; graded through its driver lib/notifier_driver.icn
+lib/object.icn: LIBRARY: no procedure main; graded through its driver lib/object_driver.icn
+lib/overlayitem.icn: LIBRARY: no procedure main; graded through its driver lib/overlayitem_driver.icn
+lib/overlayset.icn: LIBRARY: no procedure main; graded through its driver lib/overlayset_driver.icn
+lib/packetspec.icn: LIBRARY: no procedure main; graded through its driver lib/packetspec_driver.icn
+lib/pdb_util.icn: LIBRARY: no procedure main; graded through its driver lib/pdb_util_driver.icn
+lib/popclient.icn: LIBRARY: no procedure main; graded through its driver lib/popclient_driver.icn
 lib/dropdown.icn: LIBRARY: no procedure main; graded through its driver lib/dropdown_driver.icn
 lib/editabletextlist.icn: LIBRARY: no procedure main; graded through its driver lib/editabletextlist_driver.icn
 lib/editlist.icn: LIBRARY: no procedure main; graded through its driver lib/editlist_driver.icn
@@ -337,35 +366,6 @@ lib/jsonrpc.icn: LIBRARY: no procedure main; graded through its driver lib/jsonr
 lib/label.icn: LIBRARY: no procedure main; graded through its driver lib/label_driver.icn
 lib/langprocs.icn: LIBRARY: no procedure main; graded through its driver lib/langprocs_driver.icn
 lib/listener.icn: LIBRARY: no procedure main; graded through its driver lib/listener_driver.icn
-lib/logger.icn: LIBRARY: no procedure main
-lib/mailbox.icn: LIBRARY: no procedure main
-lib/mailmisc.icn: LIBRARY: no procedure main
-lib/mapbytes.icn: LIBRARY: no procedure main
-lib/matrix_util.icn: LIBRARY: no procedure main
-lib/md5.icn: LIBRARY: no procedure main
-lib/menubar.icn: LIBRARY: no procedure main
-lib/menubutton.icn: LIBRARY: no procedure main
-lib/menucomponent.icn: LIBRARY: no procedure main
-lib/menuseparator.icn: LIBRARY: no procedure main
-lib/message.icn: LIBRARY: no procedure main
-lib/messagehandler.icn: LIBRARY: no procedure main
-lib/method.icn: LIBRARY: no procedure main
-lib/misc_util.icn: LIBRARY: no procedure main
-lib/money.icn: LIBRARY: no procedure main
-lib/msg.icn: LIBRARY: no procedure main
-lib/msgutils.icn: LIBRARY: no procedure main
-lib/multipart.icn: LIBRARY: no procedure main
-lib/multiparthandler.icn: LIBRARY: no procedure main
-lib/netclient.icn: LIBRARY: no procedure main
-lib/noophandler.icn: LIBRARY: no procedure main
-lib/notification.icn: LIBRARY: no procedure main
-lib/notifier.icn: LIBRARY: no procedure main
-lib/object.icn: LIBRARY: no procedure main
-lib/overlayitem.icn: LIBRARY: no procedure main
-lib/overlayset.icn: LIBRARY: no procedure main
-lib/packetspec.icn: LIBRARY: no procedure main
-lib/pdb_util.icn: LIBRARY: no procedure main
-lib/popclient.icn: LIBRARY: no procedure main
 lib/popupmenu.icn: LIBRARY: no procedure main
 lib/pqueue.icn: LIBRARY: no procedure main
 lib/predicat.icn: LIBRARY: no procedure main

@@ -1,0 +1,2 @@
+class Message procedure mail__Message -1
+procedure get_all_mailboxes procedure mail__get_all_mailboxes 1

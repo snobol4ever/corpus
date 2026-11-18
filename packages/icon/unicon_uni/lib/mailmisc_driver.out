@@ -1,0 +1,2 @@
+procedure get_all_type_handlers procedure mail__get_all_type_handlers 0
+procedure get_all_encoding_handlers procedure mail__get_all_encoding_handlers 0

@@ -1,0 +1,2 @@
+class Mailbox procedure mail__Mailbox -1
+procedure mailbox_list_to_string procedure mail__mailbox_list_to_string 1
