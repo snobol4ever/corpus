@@ -1,3 +1,2 @@
-average-loop-length: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
 barnsley-fern: the oracle answers differently on two runs: it redraws until q or Esc and unicon seeds its random draw from the clock (MEASURED by the coo 2026-11-16 on the unicon graphics oracle: three md5 in three runs); its seeded one-pass form is the entry barnsley-fern-seeded
 http: oracle produced EMPTY output -- refusing to mint a vacuous ref

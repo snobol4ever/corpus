@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=38 features=52 ubiquitous=5(package write every procedure assign) distinctive=47 core=22 clusters=11 chunks=1 sizes=16
+# shape: entries=39 features=53 ubiquitous=5(package write every procedure assign) distinctive=48 core=22 clusters=12 chunks=1 sizes=17
 entry	part	cluster	shells
 accumulator-factory	chunk:01	feat:coexpr_activate	aug_assign coexpr_activate keyword_ref return while
 animation-1-three-ticks	chunk:01	family:animation--three-ticks	
@@ -15,7 +15,7 @@ simple-windowed-application	chunk:01	family:simple-windowed-application
 singly-linked-list-element-definition-1	chunk:01	feat:want_rc	want_rc
 singly-linked-list-element-definition-2	chunk:01	feat:want_rc	want_rc
 singly-linked-list-element-insertion	chunk:01	feat:insert	insert want_rc
-undefined-values	core	core	alternation gen_with_alternation global keyword_ref local return static
+undefined-values	chunk:01	feat:global	alternation gen_with_alternation global keyword_ref local return static
 unix-ls	core	core	alternation element_gen gen_with_alternation sort
 vector	core	core	next return want_rc
 walsh-matrix	core	core	alternation element_gen gen_with_alternation limitation list return static to_by
@@ -40,3 +40,4 @@ repunit-primes	core	core	alternation aug_assign break every_with_suspend gen_wit
 ultra-useful-primes	core	core	alternation aug_assign break gen_with_alternation limitation seq
 wagstaff-primes	chunk:01	feat:return	alternation aug_assign gen_with_alternation limitation return
 walk-a-directory-recursively	core	core	alternation aug_assign case coexpr_activate element_gen gen_with_alternation global integer keyword_ref limitation local put read return scan scan_with_tab stop tab to_by want_rc while
+average-loop-length	core	core	aug_assign limitation local repl return scan to_by while
