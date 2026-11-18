@@ -1,6 +1,5 @@
 # EXCLUDED.tsv -- rosetta-icon: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
 # the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
-amicable-pairs	NO_ORACLE_ANSWER	oracle timed out -- non-terminating or too slow for the grading timeout (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 conways-game-of-life	NO_ORACLE_ANSWER	oracle timed out -- non-terminating or too slow for the grading timeout (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 count-in-factors	NO_ORACLE_ANSWER	oracle timed out -- non-terminating or too slow for the grading timeout (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)
 count-in-octal	NO_ORACLE_ANSWER	oracle timed out -- non-terminating or too slow for the grading timeout (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row packages-consolidation-finish-cio)

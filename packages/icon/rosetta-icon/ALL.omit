@@ -3,7 +3,6 @@ abc-problem: oracle produced EMPTY output -- refusing to mint a vacuous ref
 add-a-variable-to-a-class-instance-at-runtime: oracle produced EMPTY output -- refusing to mint a vacuous ref
 align-columns: oracle produced EMPTY output -- refusing to mint a vacuous ref
 almost-prime-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
-amicable-pairs: oracle timed out -- non-terminating or too slow for the grading timeout
 anadromes: oracle produced EMPTY output -- refusing to mint a vacuous ref
 anagrams: oracle produced EMPTY output -- refusing to mint a vacuous ref
 anagrams-deranged-anagrams: oracle produced EMPTY output -- refusing to mint a vacuous ref

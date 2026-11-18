@@ -1,10 +1,10 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=423 features=63 ubiquitous=6(package write every procedure alternation assign) distinctive=57 core=24 clusters=83 chunks=4 sizes=100,100,100,99
+# shape: entries=424 features=63 ubiquitous=6(package write every procedure alternation assign) distinctive=57 core=24 clusters=83 chunks=4 sizes=100,100,100,100
 entry	part	cluster	shells
-100-doors-1	chunk:03	feat:table	table to_by
+100-doors-1	chunk:04	feat:table	table to_by
 100-doors-2	chunk:02	feat:integer	integer to_by
-100-doors-3	chunk:03	feat:table	table to_by
+100-doors-3	chunk:04	feat:table	table to_by
 24-game	core	core	any aug_assign case element_gen every_with_suspend fail gen_with_alternation get keyword_ref limitation next pos put read repeat return scan scan_with_tab stop suspend tab to_by trim type while writes
 24-game-solve	core	core	any break case coexpr_activate element_gen every_with_suspend fail find gen_with_alternation get image insert keyword_ref limitation many map member next pos put read repeat return scan scan_with_tab set static suspend tab to_by trim type while writes
 99-bottles-of-beer	chunk:03	feat:case	case gen_with_alternation integer limitation static table to_by writes
@@ -25,11 +25,11 @@ arithmetic-evaluation	core	core	any aug_assign break element_gen every_with_susp
 arithmetic-geometric-mean	chunk:03	feat:while	return while
 arithmetic-integer	chunk:02	feat:read	integer read want_rc writes
 arithmetic-rational-1	chunk:02	feat:want_rc	integer return to_by want_rc
-array-concatenation	chunk:01	feat:writes	element_gen writes
+array-concatenation	chunk:02	feat:writes	element_gen writes
 assertions-2	chunk:03	feat:stop	stop to_by want_rc
-associative-array-creation	chunk:03	feat:table	local table
+associative-array-creation	chunk:02	feat:local	local table
 associative-array-iteration	chunk:03	feat:sort	element_gen limitation map sort table writes
-associative-array-merging	chunk:03	feat:table	gen_with_alternation local table
+associative-array-merging	chunk:02	feat:local	gen_with_alternation local table
 attractive-numbers	chunk:01	feat:seq	aug_assign gen_with_alternation limitation return seq writes
 averages-arithmetic-mean	chunk:03	feat:element_gen	aug_assign element_gen gen_with_alternation
 averages-median	chunk:03	feat:sort	return sort
@@ -70,10 +70,10 @@ continued-fraction	chunk:01	feat:record	local record return to_by writes
 continued-fraction-arithmetic-construct-from-rational-number	chunk:04	feat:every_with_suspend	every_with_suspend local return suspend while writes
 continued-fraction-arithmetic-g-matrix-ng-continued-fraction-n-	chunk:01	feat:create	aug_assign coexpr_activate create every_with_suspend fail keyword_ref limitation local put record repeat return suspend to_by while
 continued-fraction-arithmetic-g-matrix-ng-continued-fraction-n1-continued-fraction-n2-	chunk:02	feat:global	aug_assign coexpr_activate create every_with_suspend fail gen_with_alternation global keyword_ref limitation local put record repeat return scan static suspend to_by type while writes
-convex-hull	chunk:04	feat:get	aug_assign element_gen fail gen_with_alternation get keyword_ref list local put record return scan section to_by while
+convex-hull	chunk:03	feat:get	aug_assign element_gen fail gen_with_alternation get keyword_ref list local put record return scan section to_by while
 copy-a-string	chunk:02	feat:section	section
 count-occurrences-of-a-substring	chunk:04	feat:find	aug_assign find image move return scan scan_with_tab tab while
-count-the-coins-3	chunk:02	feat:want_rc	return section to_by want_rc writes
+count-the-coins-3	chunk:03	feat:want_rc	return section to_by want_rc writes
 crc-32	chunk:02	feat:list	element_gen limitation list return static to_by
 create-a-two-dimensional-array-at-runtime	chunk:02	feat:list	element_gen gen_with_alternation integer keyword_ref list scan to_by
 create-an-html-table-1	chunk:03	feat:limitation	limitation to_by
@@ -98,7 +98,7 @@ draw-a-clock-2-fixed-time	chunk:04	family:draw-a-clock--fixed-time
 draw-a-pixel	chunk:04	family:draw-a-pixel	
 duffinian-numbers	chunk:04	feat:insert	aug_assign element_gen insert limitation return seq set to_by writes
 dutch-national-flag-problem	chunk:02	feat:repl	aug_assign break element_gen find gen_with_alternation integer map repl return scan swap to_by
-entropy	chunk:03	feat:table	aug_assign element_gen gen_with_alternation return table
+entropy	chunk:04	feat:table	aug_assign element_gen gen_with_alternation return table
 equilibrium-index	chunk:04	feat:every_with_suspend	aug_assign element_gen every_with_suspend fail gen_with_alternation limitation local suspend to_by writes
 euler-method	chunk:04	feat:until	aug_assign return to_by until
 evaluate-binomial-coefficients-1	chunk:04	family:evaluate-binomial-coefficients	
@@ -117,7 +117,7 @@ fibonacci-word-fractal	chunk:04	family:fibonacci-word-fractal
 filter	chunk:03	feat:fail	element_gen fail gen_with_alternation put return to_by writes
 find-common-directory-path	core	core	element_gen fail find local match return scan scan_with_tab tab
 find-first-and-last-set-bit-of-a-long-integer	chunk:04	feat:until	aug_assign break fail gen_with_alternation keyword_ref limitation put repeat return seq static to_by until
-find-limit-of-recursion	chunk:02	feat:want_rc	aug_assign keyword_ref limitation static to_by want_rc
+find-limit-of-recursion	chunk:03	feat:want_rc	aug_assign keyword_ref limitation static to_by want_rc
 first-class-environments	chunk:01	feat:record	aug_assign element_gen limitation put record to_by while
 five-weekends	chunk:04	feat:insert	element_gen find gen_with_alternation insert integer limitation next put return scan scan_with_tab set sort tab to_by
 fizzbuzz-1	chunk:04	feat:to_by	to_by
@@ -197,7 +197,7 @@ mad-libs	chunk:02	feat:read	element_gen limitation put read scan scan_with_tab s
 mandelbrot-set	chunk:04	family:mandelbrot-set	
 matrix-multiplication-1	chunk:04	family:matrix-multiplication	
 matrix-transposition	chunk:04	feat:put	element_gen put return to_by writes
-md5	chunk:02	feat:want_rc	image limitation to_by want_rc
+md5	chunk:03	feat:want_rc	image limitation to_by want_rc
 menu	chunk:02	feat:read	gen_with_alternation integer read repeat return to_by want_rc writes
 mian-chowla-sequence	core	core	aug_assign break every_with_suspend gen_with_alternation insert limitation member next put seq set suspend to_by writes
 minimum-multiple-of-m-where-digital-sum-equals-m	chunk:01	feat:seq	aug_assign gen_with_alternation limitation return seq while writes
@@ -210,11 +210,11 @@ multisplit	core	core	aug_assign break element_gen every_with_suspend gen_with_al
 n-queens-problem-1	chunk:02	feat:list	every_with_suspend list static suspend to_by
 n-queens-problem-3	chunk:02	feat:global	aug_assign element_gen every_with_suspend gen_with_alternation global integer list repl return static suspend to_by
 named-parameters	chunk:03	feat:stop	get keyword_ref scan section stop to_by want_rc while
-narcissist	chunk:04	feat:get	aug_assign find get image move read scan scan_with_tab section tab while
+narcissist	chunk:03	feat:get	aug_assign find get image move read scan scan_with_tab section tab while
 narcissistic-decimal-number	chunk:01	feat:seq	aug_assign element_gen gen_with_alternation integer limitation return seq
 non-decimal-radices-convert	chunk:04	feat:until	aug_assign gen_with_alternation integer keyword_ref limitation return static to_by until
 non-decimal-radices-input	chunk:02	feat:integer	integer
-non-decimal-radices-output	chunk:02	feat:want_rc	gen_with_alternation limitation want_rc
+non-decimal-radices-output	chunk:03	feat:want_rc	gen_with_alternation limitation want_rc
 nth-1	chunk:02	feat:writes	gen_with_alternation limitation return to_by writes
 null-object	chunk:02	feat:keyword_ref	keyword_ref return
 numeric-error-propagation	chunk:01	feat:record	record return
@@ -223,9 +223,9 @@ odd-word-problem-1	chunk:04	feat:any	any break coexpr_activate create element_ge
 old-lady-swallowed-a-fly	chunk:03	feat:push	case element_gen find gen_with_alternation limitation move push stop tab table to_by want_rc while
 one-dimensional-cellular-automata-1	chunk:03	feat:push	element_gen push record return to_by while
 one-dimensional-cellular-automata-2	chunk:02	feat:repl	fail gen_with_alternation limitation repl return section to_by
-one-of-n-lines-in-a-file	chunk:03	feat:table	aug_assign fail gen_with_alternation limitation return table to_by writes
+one-of-n-lines-in-a-file	chunk:04	feat:table	aug_assign fail gen_with_alternation limitation return table to_by writes
 order-disjoint-list-items	chunk:04	feat:find	aug_assign find move return scan scan_with_tab tab upto while writes
-pangram-checker-2	chunk:02	feat:want_rc	aug_assign element_gen image want_rc writes
+pangram-checker-2	chunk:03	feat:want_rc	aug_assign element_gen image want_rc writes
 parametric-polymorphism	chunk:02	feat:section	element_gen gen_with_alternation limitation section
 parse-an-ip-address	core	core	aug_assign break element_gen every_with_suspend find gen_with_alternation keyword_ref limitation many move next pos repl return scan scan_with_tab static suspend tab to_by while
 parsing-rpn-calculator-algorithm	chunk:03	feat:pop	aug_assign case element_gen gen_with_alternation limitation many pop pos push return scan scan_with_tab tab until upto
@@ -233,12 +233,12 @@ parsing-rpn-to-infix-conversion	core	core	aug_assign element_gen gen_with_altern
 parsing-shunting-yard-algorithm	core	core	aug_assign element_gen gen_with_alternation limitation many member pop pos push record return scan scan_with_tab static stop tab table to_by until upto while
 partial-function-application	chunk:01	feat:create	aug_assign coexpr_activate create element_gen gen_with_alternation keyword_ref limitation put repeat return to_by want_rc
 percolation-mean-run-density	chunk:04	feat:many	aug_assign element_gen gen_with_alternation integer many scan scan_with_tab tab upto while
-perfect-numbers	chunk:03	feat:local	aug_assign gen_with_alternation limitation local return to_by
+perfect-numbers	chunk:02	feat:local	aug_assign gen_with_alternation limitation local return to_by
 pernicious-numbers	chunk:01	feat:seq	aug_assign gen_with_alternation limitation return seq to_by while writes
 pinstripe-display	chunk:04	family:pinstripe-display	
 playing-cards	chunk:03	feat:swap	aug_assign create element_gen every_with_suspend get list local put record return scan suspend swap to_by
 pollards-rho-algorithm	chunk:03	feat:while	aug_assign element_gen gen_with_alternation return while
-prime-decomposition	chunk:03	feat:local	gen_with_alternation limitation local put return to_by writes
+prime-decomposition	chunk:02	feat:local	gen_with_alternation limitation local put return to_by writes
 probabilistic-choice	chunk:03	feat:push	aug_assign element_gen fail push record return to_by
 program-name	chunk:02	feat:keyword_ref	keyword_ref
 pythagorean-triples	core	core	aug_assign break element_gen gen_with_alternation insert integer keyword_ref limitation put record return section seq set sort while
@@ -265,7 +265,7 @@ run-length-encoding	chunk:02	feat:repl	aug_assign image keyword_ref many move re
 s-expressions	core	core	aug_assign case coexpr_activate element_gen find gen_with_alternation get image keyword_ref limitation many map move pos put return scan scan_with_tab static tab to_by trim type until upto while
 same-fringe	chunk:03	feat:coexpr_activate	coexpr_activate fail gen_with_alternation limitation return suspend while
 sattolo-cycle	chunk:03	feat:swap	element_gen scan swap to_by writes
-search-a-list-1	chunk:02	feat:want_rc	fail limitation local return want_rc
+search-a-list-1	chunk:03	feat:want_rc	fail limitation local return want_rc
 search-a-list-of-records	chunk:01	feat:record	element_gen record to_by
 sedols	chunk:03	feat:map	aug_assign fail gen_with_alternation keyword_ref limitation map return static table to_by
 self-describing-numbers-1	chunk:03	feat:repeat	aug_assign element_gen every_with_suspend fail limitation repeat return suspend to_by
@@ -304,11 +304,11 @@ strip-whitespace-from-a-string-top-and-tail	chunk:04	feat:trim	keyword_ref limit
 subset-sum-problem	core	core	aug_assign break element_gen every_with_suspend find limitation local next pos put return scan scan_with_tab sort suspend tab table to_by until
 substring	chunk:04	feat:find	find limitation section
 substring-top-and-tail-1	chunk:02	feat:section	section
-subtractive-generator	chunk:04	feat:get	aug_assign gen_with_alternation get limitation list put return scan static to_by
+subtractive-generator	chunk:03	feat:get	aug_assign gen_with_alternation get limitation list put return scan static to_by
 sum-and-product-of-an-array	chunk:03	feat:element_gen	aug_assign element_gen
 sum-digits-of-an-integer	chunk:02	feat:integer	aug_assign integer limitation return while
 sum-multiples-of-3-and-5	chunk:02	feat:integer	integer return
-sum-of-a-series-1	chunk:03	feat:local	aug_assign gen_with_alternation limitation local
+sum-of-a-series-1	chunk:02	feat:local	aug_assign gen_with_alternation limitation local
 sum-of-a-series-2	chunk:03	feat:aug_assign	aug_assign to_by
 sum-of-squares	chunk:01	feat:seq	aug_assign element_gen limitation local put return seq to_by
 symmetric-difference	chunk:04	feat:set	element_gen limitation return set writes
@@ -425,3 +425,4 @@ fibonacci-word	chunk:03	feat:case	aug_assign case gen_with_alternation integer r
 palindromic-gapful-numbers	chunk:03	feat:pop	aug_assign element_gen gen_with_alternation limitation list pop put return seq to_by writes
 summarize-and-say-sequence-1	chunk:04	feat:member	aug_assign element_gen insert integer limitation member next put repeat return seq set table to_by
 summarize-and-say-sequence-2	chunk:04	feat:insert	aug_assign element_gen gen_with_alternation insert limitation put return seq set table to_by upto writes
+amicable-pairs	chunk:01	feat:seq	aug_assign fail gen_with_alternation limitation return seq static table
