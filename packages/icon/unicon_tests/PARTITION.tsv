@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=209 features=65 ubiquitous=7(package write procedure alternation to_by assign keyword_ref) distinctive=58 core=26 clusters=50 chunks=2 sizes=100,83
+# shape: entries=208 features=65 ubiquitous=7(package write procedure alternation to_by assign keyword_ref) distinctive=58 core=26 clusters=51 chunks=2 sizes=100,82
 entry	part	cluster	shells
 coexpr/co	chunk:01	feat:create	coexpr_activate create global image limitation
 coexpr/cobench	chunk:01	feat:create	aug_assign coexpr_activate create element_gen every gen_with_alternation local stop while writes
@@ -143,7 +143,7 @@ special/1to10	chunk:02	feat:every	every
 special/audio	chunk:01	feat:want_rc	image stop want_rc
 thread/channel	chunk:02	feat:until	aug_assign coexpr_activate create every gen_with_alternation stop until
 thread/critter	chunk:02	feat:push	aug_assign break element_gen every every_with_suspend fail global limitation local next push put repeat return stop suspend table type
-thread/error	chunk:02	feat:put	element_gen every put stop want_rc
+thread/error	chunk:01	feat:want_rc	element_gen every put stop want_rc
 thread/gc	core	core	aug_assign create element_gen every gen_with_alternation global insert integer local move put scan scan_with_tab set static stop tab table upto writes
 thread/hellothr	chunk:01	feat:coexpr_activate	coexpr_activate stop
 thread/mutexfun	chunk:01	feat:type	image integer local return stop type writes
@@ -187,13 +187,13 @@ crypto/peek	chunk:01	dir:crypto
 crypto/sha512	chunk:01	dir:crypto	
 crypto/sign	chunk:01	dir:crypto	
 crypto/tamper	chunk:01	dir:crypto	
-crypto/tlsauth	chunk:01	dir:crypto	
-crypto/tlscipher	chunk:01	dir:crypto	
-crypto/tlshandle	chunk:01	dir:crypto	
-crypto/tlspeek	chunk:01	dir:crypto	
-crypto/tlsplain	chunk:01	dir:crypto	
-crypto/tlsproto	chunk:01	dir:crypto	
-crypto/tlsverify	chunk:01	dir:crypto	
+crypto/tlsauth	chunk:01	feat:fixtures	fixtures
+crypto/tlscipher	chunk:01	feat:fixtures	fixtures
+crypto/tlshandle	chunk:01	feat:fixtures	fixtures
+crypto/tlspeek	chunk:01	feat:fixtures	fixtures
+crypto/tlsplain	chunk:01	feat:fixtures	fixtures
+crypto/tlsproto	chunk:01	feat:fixtures	fixtures
+crypto/tlsverify	chunk:01	feat:fixtures	fixtures
 general/cfuncs	chunk:01	feat:image	every gen_with_alternation image local return
 database/dbi	chunk:01	feat:want_rc	every limitation want_rc writes
 database/hello	chunk:01	feat:want_rc	every want_rc writes
@@ -205,7 +205,6 @@ database/sel	chunk:01	feat:want_rc	every limitation want_rc while writes
 database/test	chunk:01	feat:want_rc	every limitation want_rc writes
 database/testnlm	chunk:01	feat:want_rc	every limitation want_rc writes
 pattern/unevalex3ss	chunk:01	feat:want_rc	element_gen every gen_with_alternation scan want_rc
-special/monitor	chunk:01	feat:want_rc	image want_rc while
 special/save	chunk:02	feat:suspend	suspend want_rc
 general/proto	core	core	aug_assign break case coexpr_activate create element_gen every every_with_suspend fail gen_with_alternation global limitation local next record repeat return scan section static suspend swap until while
 ipl/tbold	chunk:01	feat:read	read while

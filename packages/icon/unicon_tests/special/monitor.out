@@ -1,9 +1,0 @@
-
-Run-time error 118
-File evinit.icn; Line 133
-co-expression expected
-offending value: &null
-Traceback:
-   main()
-   MTEvGet(&null,&null,&null) from line 10 in monitor.icn
-   EvGet(&cset,&null,&null) from line 133 in evinit.icn
