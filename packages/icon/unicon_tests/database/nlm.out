@@ -1,0 +1,9 @@
+connect to NLM...
+
+Run-time error 106
+File nlm.icn; Line 4
+procedure or integer expected
+offending value: &null
+Traceback:
+   main()
+   &null("nlm","test","federico","") from line 4 in nlm.icn

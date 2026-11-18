@@ -1,0 +1,8 @@
+
+Run-time error 106
+File testnlm.icn; Line 3
+procedure or integer expected
+offending value: &null
+Traceback:
+   main()
+   &null("nlm","test","federico","") from line 3 in testnlm.icn

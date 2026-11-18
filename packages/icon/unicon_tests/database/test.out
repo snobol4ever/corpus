@@ -1,0 +1,8 @@
+
+Run-time error 106
+File test.icn; Line 3
+procedure or integer expected
+offending value: &null
+Traceback:
+   main()
+   &null("mysql","test","fbalbi","ana230473") from line 3 in test.icn

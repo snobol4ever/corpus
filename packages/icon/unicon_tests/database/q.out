@@ -1,0 +1,8 @@
+
+Run-time error 209
+File q.icn; Line 6
+invalid second argument to open
+offending value: "q"
+Traceback:
+   main()
+   open("testdsn","q") from line 6 in q.icn

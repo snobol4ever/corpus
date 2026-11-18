@@ -1,0 +1,9 @@
+hello ya\'all
+
+Run-time error 106
+File hello.icn; Line 4
+procedure or integer expected
+offending value: &null
+Traceback:
+   main()
+   &null("mysql","test","fbalbi","ana230473") from line 4 in hello.icn
