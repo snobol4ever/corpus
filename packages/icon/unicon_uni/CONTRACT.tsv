@@ -19,3 +19,4 @@ ipath	ide	the ide library files a driver links, semicolon-ready beside it (offic
 ipath	ide/ivib	the ivib library files a driver links, semicolon-ready beside it, and the .icon string data they include (officer_07, the same row)
 graphics_oracle	ide/*_driver	an ide library driver links classes of the gui package, which only the graphics unicon resolves; it opens no window (officer_07, the same row)
 graphics_oracle	ide/ivib/*_driver	an ivib library driver links classes of the gui package, which only the graphics unicon resolves; it opens no window (officer_07, the same row)
+fatal	gradable	Lon 2026-11-17, in the cio window: "We are grading a compiler here, syntax/semantic/runtime errors." A program the oracle translator refuses the same way on two runs is an entry whose answer is what the oracle printed and whose want_rc is its status (row unicon-every-no-oracle-answer-exclusion-is-measured-again-and-cut-or-says-why)

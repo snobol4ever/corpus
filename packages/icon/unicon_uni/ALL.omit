@@ -24,9 +24,6 @@
 3d/viewer/u3dviewer.icn: OWED: built from u3dviewer.icn, world.icn and subwin3d.icn; the graphics unicon builds it only from its units given separately (unicon -s -o prog with each file named), and the harness's one road for several units, NAME.chain, concatenates them, which the oracle refuses in either order (MEASURED on u3dviewer with world.icn and subwin3d.icn: fatal: can't read spec for class Dialog; built from the three files it holds a still picture twice, fe46efba); owed to a road that builds an entry from several units, the grader's (the cqo's ruling 2026-11-16 19:1x CST; officer_12)
 3d/viewer/world.icn: LIBRARY: no procedure main
 3d/xparse.icn: LIBRARY: no procedure main
-cint/test1.icn: ORACLE-REFUSES: unicon does not translate it: Run-time error 106
-cint/test3.icn: ORACLE-REFUSES: unicon does not translate it: Run-time error 106
-cint/test4.icn: ORACLE-REFUSES: unicon does not translate it: Run-time error 106
 gprogs/abook.icn: ORACLE-REFUSES: unicon does not translate it: abook.icn:51: # "global" Unable to import (1) package "guiwidgets"
 gprogs/qmazer.icn: NEEDS-DISPLAY: the source names &window
 gui/addressgui.icn: LIBRARY: no procedure main
@@ -555,18 +552,15 @@ ulsp/symbols.icn: LIBRARY: no procedure main
 ulsp/unicon_built_in_functions.icn: LIBRARY: no procedure main
 unicon/ca.icn: LIBRARY: no procedure main
 unicon/cfy.icn: LIBRARY: no procedure main
-unicon/grok.icn: ORACLE-REFUSES: unicon does not translate it: foo.icn:9: # "initially" syntax error (54;279)
 unicon/idol.icn: LIBRARY: no procedure main
 unicon/main.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 106
 unicon/merr.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: usage: merr [-yYBG] [-W writefn] [-F filenm] [-s make] [-o msgfl]compiler [target] [-N MaxIterations] [-phase1] [-phase2]
 unicon/nocc.icn: LIBRARY: no procedure main
 unicon/parserr.icn: LIBRARY: no procedure main
 unicon/preproce.icn: LIBRARY: no procedure main
-unicon/samp.icn: ORACLE-REFUSES: unicon does not translate it: samp.icn:1: # ":" syntax error (316;369)
 unicon/tokens.icn: LIBRARY: no procedure main
 unicon/tree.icn: LIBRARY: no procedure main
 unicon/tstcls.icn: LIBRARY: no procedure main
-unicon/tstfld.icn: ORACLE-REFUSES: unicon does not translate it: tstfld.icn:2: # "initially" syntax error (54;279)
 unicon/tstmeth.icn: LIBRARY: no procedure main
 unicon/unicon.icn: LIBRARY: no procedure main
 unicon/unigram.icn: LIBRARY: no procedure main

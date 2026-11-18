@@ -28,3 +28,9 @@ udb/lib/structaliases_driver	1
 udb/lib/structusage_driver	1
 udb/lib/typechange_driver	1
 udb/lib/varprofile_driver	1
+cint/test1	1
+cint/test3	1
+cint/test4	1
+unicon/grok	1
+unicon/samp	1
+unicon/tstfld	1

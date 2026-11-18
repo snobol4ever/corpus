@@ -1,0 +1,10 @@
+Run-time error 106
+File preproce.icn; Line 385
+procedure or integer expected
+offending value: &null
+Traceback:
+   main(list_1 = ["-s","-o","-o","test4.icn"])
+   unicon(list_1 = ["-s","-o","-o","test4.icn"]) from line 7 in main.icn
+   preprocessor("test4.icn",table_3(23)) from line 668 in unicon.icn
+   preproc_scan_directive() from line 140 in preproce.icn
+   &null((variable = "  fact.o {int fa...")) from line 385 in preproce.icn
