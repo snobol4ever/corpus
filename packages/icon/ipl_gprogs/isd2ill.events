@@ -1,0 +1,4 @@
+# isd2ill -v -h: it draws the weaving draft p8.isd (tie-up, threading, treadling, pattern and drawdown) in visible windows and holds them
+# open until q is typed in one (its -h); the EPS and GIF files it writes follow in out_files.
+move 5 5
+key q
