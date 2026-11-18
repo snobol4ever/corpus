@@ -191,3 +191,4 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 190,crypto/tlsplain,crypto/tlsplain.icn,unicon_tests__crypto/tlsplain,unicon_tests,19,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 191,crypto/tlsproto,crypto/tlsproto.icn,unicon_tests__crypto/tlsproto,unicon_tests,27,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 192,crypto/tlsverify,crypto/tlsverify.icn,unicon_tests__crypto/tlsverify,unicon_tests,53,0,131072,4096,300,--dialect=unicon,merged,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+193,general/cfuncs,general/cfuncs.icn,unicon_tests__general/cfuncs,unicon_tests,20,0,131072,4096,,--dialect=unicon,merged,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,1,0,0,1,1,0,0,0,0,0,0,1,0,,

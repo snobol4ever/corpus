@@ -53,7 +53,6 @@ special/save.icn	NO_ORACLE_ANSWER	CEO-1696 and ARCH-UNICON R5 (7): save() writes
 udb/foo.icn	NOT_A_UNIT_TEST	a package source the udb tests import: it has no main procedure (run-time error 117 in startup code)
 udb/scopepkg.icn	NOT_A_UNIT_TEST	a package source the udb tests import: it has no main procedure (run-time error 117 in startup code)
 thread/threadh.icn	NOT_A_UNIT_TEST	CTO-544 U4: the $include sibling of thread/channel and thread/tcom, vendored verbatim from /home/resources/unicon/uni/lib/threadh.icn so SCRIP finds it beside them (the oracle reads it from its own library path); a header of $define lines, not a program
-general/cfuncs.icn	NEEDS_LOADFUNC	CTO-513 (measured 2026-11-08 by senior_02: line 4 is link cfunc, loadfunc over a C library the oracle builds with its own cfunc.c; SCRIP has no loadfunc facility)
 mt/level.icn	NOT_A_UNIT_TEST	CTO-513 (measured: line 7 is load("level_tp"), a second program; line 3 stops unless &features has multiple programs, and tests/mt/Makefile line 24 builds level_tp before level; no system or unicon call in it)
 mt/load.icn	NOT_A_UNIT_TEST	CTO-513 (measured: lines 17 and 22 resolve ../../bin/unicon and the test runs the oracle translator at run time, then load()s the result)
 mt/loaderr.icn	NOT_A_UNIT_TEST	CTO-513 (measured: lines 20 and 25 resolve ../../bin/unicon and line 47 runs system(unicon -s a.icn) at run time, then load()s the faulty program)

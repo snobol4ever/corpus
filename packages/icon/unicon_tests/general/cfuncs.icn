@@ -4,17 +4,17 @@
 link cfunc
 
 procedure main()
-   local i
+   local i;
 
    every i := 500 to 513 do
-      gen(bitcount, i)
-   gen(vword, 314159)
-   gen(lgconv, 10^30)
-   gen(unpack, "abcd")
-   gen(pack, 1684234849)
+      gen(bitcount, i);
+   gen(vword, 314159);
+   gen(lgconv, 10^30);
+   gen(unpack, "abcd");
+   gen(pack, 1684234849);
 end
 
 procedure gen(p, a)
-   write(image(p), "(", image(a), ") = ", p(a) | "[failed]")
-   return
+   write(image(p), "(", image(a), ") = ", p(a) | "[failed]");
+   return;
 end
