@@ -1,0 +1,6 @@
+procedure p(a)
+  return a;
+end
+procedure main();
+  write(p(4));
+end

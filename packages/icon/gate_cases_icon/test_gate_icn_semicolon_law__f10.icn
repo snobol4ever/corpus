@@ -1,0 +1,4 @@
+record r(a)
+procedure main();
+  write(r(5).a);
+end

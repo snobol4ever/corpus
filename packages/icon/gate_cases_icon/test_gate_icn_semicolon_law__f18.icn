@@ -1,0 +1,5 @@
+procedure main();
+  static n;
+  initial n := 3;
+  write(n);
+end

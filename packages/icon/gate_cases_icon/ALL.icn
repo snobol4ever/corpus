@@ -3570,3 +3570,134 @@ procedure main(args)
    write("n=", integer(args[1]) | 6);
    write("also=", args[2] | "none");
 end
+#------------------------------------------ 375 test_gate_icn_semicolon_law__f01
+procedure main();
+  x := 1
+  write(x);
+end
+#------------------------------------------ 376 test_gate_icn_semicolon_law__f02
+procedure main();
+  write(1)
+end
+#------------------------------------------ 377 test_gate_icn_semicolon_law__f03
+procedure main();
+  x := 1;
+  write(x);
+end
+#------------------------------------------ 378 test_gate_icn_semicolon_law__f04
+procedure main();
+  if 1 = 1
+  then write("a")
+  else write("b");
+end
+#------------------------------------------ 379 test_gate_icn_semicolon_law__f05
+procedure main()
+  write(1);
+end
+#------------------------------------------ 380 test_gate_icn_semicolon_law__f06
+procedure main();
+  local x
+  x := 1;
+  write(x);
+end
+#------------------------------------------ 381 test_gate_icn_semicolon_law__f07
+procedure main();
+  local x;
+  x := 1;
+  write(x);
+end
+#------------------------------------------ 382 test_gate_icn_semicolon_law__f08
+global g
+procedure main();
+  g := 2;
+  write(g);
+end
+#------------------------------------------ 383 test_gate_icn_semicolon_law__f09
+global g;
+procedure main();
+  g := 2;
+  write(g);
+end
+#------------------------------------------ 384 test_gate_icn_semicolon_law__f10
+record r(a)
+procedure main();
+  write(r(5).a);
+end
+#------------------------------------------ 385 test_gate_icn_semicolon_law__f11
+record r(a);
+procedure main();
+  write(r(5).a);
+end
+#------------------------------------------ 386 test_gate_icn_semicolon_law__f12
+link strings
+procedure main();
+  write(1);
+end
+#------------------------------------------ 387 test_gate_icn_semicolon_law__f13
+link strings;
+procedure main();
+  write(1);
+end
+#------------------------------------------ 388 test_gate_icn_semicolon_law__f14
+procedure main();
+  every i := 1 to 2 do {
+    x := i
+    write(x);
+  };
+end
+#------------------------------------------ 389 test_gate_icn_semicolon_law__f15
+procedure main();
+  every i := 1 to 2 do {
+    write(i)
+  };
+end
+#------------------------------------------ 390 test_gate_icn_semicolon_law__f16
+procedure main();
+  every i := 1 to 2 do {
+    write(i);
+  }
+end
+#------------------------------------------ 391 test_gate_icn_semicolon_law__f17
+procedure main();
+  static n
+  initial n := 3
+  write(n);
+end
+#------------------------------------------ 392 test_gate_icn_semicolon_law__f18
+procedure main();
+  static n;
+  initial n := 3;
+  write(n);
+end
+#------------------------------------------ 393 test_gate_icn_semicolon_law__f19
+procedure main();
+  x := 1; write(x);
+end
+#------------------------------------------ 394 test_gate_icn_semicolon_law__f20
+procedure main();
+  write(1);
+end;
+#------------------------------------------ 395 test_gate_icn_semicolon_law__f21
+procedure p(a)
+  return a;
+end
+procedure main();
+  write(p(4));
+end
+#------------------------------------------ 396 test_gate_icn_semicolon_law__f22
+procedure main();
+end
+#------------------------------------------ 397 test_gate_icn_semicolon_law__f23
+procedure main();
+  case 2 of {
+    1: write("one")
+    2: write("two")
+  };
+end
+#------------------------------------------ 398 test_gate_icn_semicolon_law__f24
+procedure main();
+  case 2 of {
+    1: write("one");
+    2: write("two");
+  };
+end

@@ -1,0 +1,4 @@
+link strings;
+procedure main();
+  write(1);
+end

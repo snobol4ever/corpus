@@ -52892,3 +52892,53 @@ control
 #---------------------------------- 374 test_gate_suite_argv_sidecar__takes_args
 n=41
 also=two words
+#------------------------------------------ 375 test_gate_icn_semicolon_law__f01
+File test_gate_icn_semicolon_law__f01.icn; Line 3 # "write": missing semicolon or operator
+#------------------------------------------ 376 test_gate_icn_semicolon_law__f02
+File test_gate_icn_semicolon_law__f02.icn; Line 3 # "end": missing semicolon or operator
+#------------------------------------------ 377 test_gate_icn_semicolon_law__f03
+1
+#------------------------------------------ 378 test_gate_icn_semicolon_law__f04
+a
+#------------------------------------------ 379 test_gate_icn_semicolon_law__f05
+1
+#------------------------------------------ 380 test_gate_icn_semicolon_law__f06
+File test_gate_icn_semicolon_law__f06.icn; Line 3 # "x": invalid declaration
+#------------------------------------------ 381 test_gate_icn_semicolon_law__f07
+1
+#------------------------------------------ 382 test_gate_icn_semicolon_law__f08
+2
+#------------------------------------------ 383 test_gate_icn_semicolon_law__f09
+File test_gate_icn_semicolon_law__f09.icn; Line 1 # ";": invalid declaration
+#------------------------------------------ 384 test_gate_icn_semicolon_law__f10
+5
+#------------------------------------------ 385 test_gate_icn_semicolon_law__f11
+File test_gate_icn_semicolon_law__f11.icn; Line 1 # ";": invalid declaration
+#------------------------------------------ 386 test_gate_icn_semicolon_law__f12
+1
+#------------------------------------------ 387 test_gate_icn_semicolon_law__f13
+File test_gate_icn_semicolon_law__f13.icn; Line 1 # ";": invalid declaration
+#------------------------------------------ 388 test_gate_icn_semicolon_law__f14
+File test_gate_icn_semicolon_law__f14.icn; Line 4 # "write": missing right brace
+#------------------------------------------ 389 test_gate_icn_semicolon_law__f15
+1
+2
+#------------------------------------------ 390 test_gate_icn_semicolon_law__f16
+File test_gate_icn_semicolon_law__f16.icn; Line 5 # "end": missing semicolon or operator
+#------------------------------------------ 391 test_gate_icn_semicolon_law__f17
+File test_gate_icn_semicolon_law__f17.icn; Line 3 # "initial": invalid declaration
+File test_gate_icn_semicolon_law__f17.icn; Line 4 # "write": missing semicolon or operator
+#------------------------------------------ 392 test_gate_icn_semicolon_law__f18
+3
+#------------------------------------------ 393 test_gate_icn_semicolon_law__f19
+1
+#------------------------------------------ 394 test_gate_icn_semicolon_law__f20
+File test_gate_icn_semicolon_law__f20.icn; Line 3 # ";": invalid declaration
+#------------------------------------------ 395 test_gate_icn_semicolon_law__f21
+4
+#------------------------------------------ 396 test_gate_icn_semicolon_law__f22
+
+#------------------------------------------ 397 test_gate_icn_semicolon_law__f23
+File test_gate_icn_semicolon_law__f23.icn; Line 4 # "2": missing right brace or semicolon
+#------------------------------------------ 398 test_gate_icn_semicolon_law__f24
+File test_gate_icn_semicolon_law__f24.icn; Line 5 # "}": invalid case clause
