@@ -1,0 +1,9 @@
+procedure vwrite procedure vwrite -1
+procedure debug procedure debug -1
+procedure read_system_cmd procedure read_system_cmd 1
+procedure get_win_term_dims procedure get_win_term_dims 0
+procedure more procedure more 2
+procedure format_lines procedure format_lines 1
+procedure clear_line procedure clear_line 1
+procedure insert_sorted procedure insert_sorted 2
+procedure str_cmp procedure str_cmp 2

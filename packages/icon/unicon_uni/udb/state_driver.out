@@ -1,0 +1,4 @@
+class State procedure State 0
+procedure isYes procedure isYes 1
+procedure isNo procedure isNo 1
+procedure isYesNo procedure isYesNo 1

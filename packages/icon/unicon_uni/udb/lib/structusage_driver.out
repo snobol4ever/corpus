@@ -1,0 +1,2 @@
+record StructRecord record constructor StructRecord 4
+class StructUsage procedure StructUsage 2

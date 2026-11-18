@@ -1,0 +1,3 @@
+record oldVarInfo record constructor oldVarInfo 3
+record WatchedVar record constructor WatchedVar 16
+class WatchPoint procedure WatchPoint 0

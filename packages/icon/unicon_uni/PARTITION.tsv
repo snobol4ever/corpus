@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=259 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=17 chunks=3 sizes=100,100,54
+# shape: entries=296 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=18 chunks=3 sizes=100,100,91
 entry	part	cluster	shells
 gprogs/kaleid	chunk:03	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:02	dir:gui/guidemos	
@@ -129,30 +129,30 @@ lib/jsonrpc_driver	chunk:01	dir:lib
 lib/label_driver	chunk:01	dir:lib	
 lib/langprocs_driver	chunk:01	dir:lib	
 lib/listener_driver	chunk:01	dir:lib	
-parser/showtree	chunk:03	feat:want_rc	want_rc
-progs/cleanup	chunk:02	dir:progs	
-progs/complex_ex	chunk:03	feat:want_rc	want_rc
-progs/csv	chunk:02	dir:progs	
-progs/exception_demo	chunk:02	dir:progs	
-progs/gcfreq	chunk:02	dir:progs	
-progs/genAcc	chunk:02	dir:progs	
-progs/htmltex	chunk:02	dir:progs	
-progs/ie	chunk:03	feat:want_rc	want_rc
-progs/jsvalid	chunk:03	feat:want_rc	want_rc
-progs/mtrace	chunk:02	dir:progs	
-progs/rankvote	chunk:02	dir:progs	
-progs/rpn	chunk:02	dir:progs	
+parser/showtree	chunk:02	feat:want_rc	want_rc
+progs/cleanup	chunk:03	dir:progs	
+progs/complex_ex	chunk:02	feat:want_rc	want_rc
+progs/csv	chunk:03	dir:progs	
+progs/exception_demo	chunk:03	dir:progs	
+progs/gcfreq	chunk:03	dir:progs	
+progs/genAcc	chunk:03	dir:progs	
+progs/htmltex	chunk:03	dir:progs	
+progs/ie	chunk:02	feat:want_rc	want_rc
+progs/jsvalid	chunk:02	feat:want_rc	want_rc
+progs/mtrace	chunk:03	dir:progs	
+progs/rankvote	chunk:03	dir:progs	
+progs/rpn	chunk:03	dir:progs	
 progs/splitmail	chunk:03	dir:progs	
-progs/uget	chunk:03	feat:want_rc	want_rc
+progs/uget	chunk:02	feat:want_rc	want_rc
 progs/ush	chunk:03	dir:progs	
 progs/uwc	chunk:03	dir:progs	
 udb/lib/memory_alloc	chunk:03	dir:udb/lib	
 uflex/test/hello	chunk:03	dir:uflex/test	
-ulsp/launch-lsp	chunk:03	feat:want_rc	want_rc
-unicon/i	chunk:03	feat:want_rc	want_rc
+ulsp/launch-lsp	chunk:02	feat:want_rc	want_rc
+unicon/i	chunk:02	feat:want_rc	want_rc
 unicon/iol2htm	chunk:03	dir:unicon	
 unicon/lump	chunk:03	dir:unicon	
-unidoc/UniDoc	chunk:03	feat:want_rc	want_rc
+unidoc/UniDoc	chunk:02	feat:want_rc	want_rc
 util/ivibmigrate	chunk:03	dir:util	
 xml/createdemo	chunk:01	dir:xml	
 xml/globaldemo	chunk:01	dir:xml	
@@ -201,9 +201,9 @@ ide/ptyDispatcher_driver	chunk:02	dir:ide
 ide/qu_replace_driver	chunk:02	dir:ide	
 ide/shelletl_driver	chunk:02	dir:ide	
 ide/templates_driver	chunk:02	dir:ide	
-ide/uproject_driver	chunk:02	dir:ide	
-ide/utags_driver	chunk:03	feat:want_rc	want_rc
-ide/verifymake_driver	chunk:02	dir:ide	
+ide/uproject_driver	chunk:03	dir:ide	
+ide/utags_driver	chunk:02	feat:want_rc	want_rc
+ide/verifymake_driver	chunk:03	dir:ide	
 xml/attlist_driver	chunk:02	dir:xml	
 xml/attributedef_driver	chunk:02	dir:xml	
 xml/cdata_driver	chunk:02	dir:xml	
@@ -230,23 +230,23 @@ xml/xmldocument_driver	chunk:02	dir:xml
 xml/xmlelement_driver	chunk:02	dir:xml	
 xml/xmlformatter_driver	chunk:02	dir:xml	
 xml/xmlparser_driver	chunk:02	dir:xml	
-parser/classinfo_driver	chunk:02	dir:parser	
-parser/databaseinfo_driver	chunk:02	dir:parser	
-parser/packageinfo_driver	chunk:02	dir:parser	
-parser/parsedclass_driver	chunk:02	dir:parser	
-parser/parsedfunction_driver	chunk:02	dir:parser	
-parser/parsedinitiallymethod_driver	chunk:02	dir:parser	
-parser/parsedmethod_driver	chunk:02	dir:parser	
-parser/parsedobject_driver	chunk:02	dir:parser	
-parser/parsedprocedure_driver	chunk:02	dir:parser	
-parser/parsedprogram_driver	chunk:02	dir:parser	
-parser/parsedrecord_driver	chunk:02	dir:parser	
-parser/parser_driver	chunk:02	dir:parser	
-parser/preproce_driver	chunk:02	dir:parser	
-parser/unigram_driver	chunk:02	dir:parser	
-parser/unilex_driver	chunk:02	dir:parser	
-parser/ytab_h_driver	chunk:02	dir:parser	
-uflex/automata_driver	chunk:03	feat:want_rc	want_rc
+parser/classinfo_driver	chunk:03	dir:parser	
+parser/databaseinfo_driver	chunk:03	dir:parser	
+parser/packageinfo_driver	chunk:03	dir:parser	
+parser/parsedclass_driver	chunk:03	dir:parser	
+parser/parsedfunction_driver	chunk:03	dir:parser	
+parser/parsedinitiallymethod_driver	chunk:03	dir:parser	
+parser/parsedmethod_driver	chunk:03	dir:parser	
+parser/parsedobject_driver	chunk:03	dir:parser	
+parser/parsedprocedure_driver	chunk:03	dir:parser	
+parser/parsedprogram_driver	chunk:03	dir:parser	
+parser/parsedrecord_driver	chunk:03	dir:parser	
+parser/parser_driver	chunk:03	dir:parser	
+parser/preproce_driver	chunk:03	dir:parser	
+parser/unigram_driver	chunk:03	dir:parser	
+parser/unilex_driver	chunk:03	dir:parser	
+parser/ytab_h_driver	chunk:03	dir:parser	
+uflex/automata_driver	chunk:02	feat:want_rc	want_rc
 uflex/convert_driver	chunk:03	dir:uflex	
 uflex/dfadebug_driver	chunk:03	dir:uflex	
 uflex/flexgram_tab_driver	chunk:03	dir:uflex	
@@ -258,6 +258,43 @@ uflex/test/rustgram.tab_driver	chunk:03	dir:uflex/test
 uflex/test/y_tab_driver	chunk:03	dir:uflex/test	
 uflex/tree_driver	chunk:03	dir:uflex	
 uflex/uflex-lex_driver	chunk:03	dir:uflex	
-uflex/uflexskel_driver	chunk:03	feat:want_rc	want_rc
-uflex/ulexskel_driver	chunk:03	feat:want_rc	want_rc
+uflex/uflexskel_driver	chunk:02	feat:want_rc	want_rc
+uflex/ulexskel_driver	chunk:02	feat:want_rc	want_rc
 uflex/ulpp_driver	chunk:03	dir:uflex	
+udb/adapter_driver	chunk:03	dir:udb	
+udb/agent_driver	chunk:03	dir:udb	
+udb/breakpoint_driver	chunk:03	dir:udb	
+udb/coexp_driver	chunk:03	dir:udb	
+udb/console_driver	chunk:03	dir:udb	
+udb/dap_message_driver	chunk:03	dir:udb	
+udb/defaults_driver	chunk:03	dir:udb	
+udb/evaluator_driver	chunk:03	dir:udb	
+udb/externals_driver	chunk:03	dir:udb	
+udb/help_driver	chunk:03	dir:udb	
+udb/icode_driver	chunk:03	dir:udb	
+udb/internals_driver	chunk:03	dir:udb	
+udb/lib/counter_deref_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/counter_line_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/counter_pcall_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/counter_syntax_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/deadvar_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/failedloop_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/failedsubscript_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/listener_driver	chunk:03	dir:udb/lib	
+udb/lib/looptime_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/memory_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/procprofile_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/proctime_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/structaliases_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/structusage_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/typechange_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/varprofile_driver	chunk:02	feat:want_rc	want_rc
+udb/session_driver	chunk:03	dir:udb	
+udb/srcfile_driver	chunk:03	dir:udb	
+udb/stack_driver	chunk:03	dir:udb	
+udb/state_driver	chunk:03	dir:udb	
+udb/stepping_driver	chunk:03	dir:udb	
+udb/symtab_driver	chunk:03	dir:udb	
+udb/system_driver	chunk:03	dir:udb	
+udb/trace_driver	chunk:03	dir:udb	
+udb/watchpoint_driver	chunk:03	dir:udb	

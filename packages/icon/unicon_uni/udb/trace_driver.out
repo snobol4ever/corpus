@@ -1,0 +1,3 @@
+record LocationRec record constructor LocationRec 4
+class TraceRec procedure TraceRec 14
+class Tracing procedure Tracing 0

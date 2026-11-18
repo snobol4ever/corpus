@@ -1,0 +1,54 @@
+define NONE 0
+define QUIT 1
+define CONTINUE 2
+define RUN 3
+define STEP 4
+define PSTEP 5
+define NEXT 6
+define PAUSE 7
+define ERROR 8
+define END 9
+define LOAD 10
+define RELOAD 30
+define RERUN 11
+define SKIP 12
+define TRACE 13
+define WATCH 14
+define LIST 15
+define ENABLED 16
+define DISABLED 17
+define DELETED 18
+define WASSIGN 19
+define WVALUE 20
+define WTYPE 21
+define WREAD 22
+define WSCAN 23
+define WANY 24
+define SIGNAL 25
+define LITERAL 101
+define VARIABLE 102
+define AGENT 103
+define TRUE 200
+define FALSE 300
+define NOTVALID 400
+define PAST_TIME_ASSERT 1000
+define FUTURE_TIME_ASSERT 1001
+define ALL_TIME_ASSERT 1002
+define STOP_WHEN_TRUE 2000
+define PAUSE_WHEN_TRUE 2001
+define HIDE_WHEN_TRUE 2002
+define SHOW_WHEN_TRUE 2003
+define PROMPT "(udb) "
+define VERSION "   UDB Version 2.3, April 15, 2024."
+define CHARACTER '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz'
+define ValidChar '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz'
+define ValidSymbol '\t\r !"#$&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+define WhiteSpace '\t\n\r '
+define OPERATOR set_1(19)
+define SEPARATOR set_2(3)
+define OPCHAR '!&*,:<=>?^|~'
+define TOKEN '"\'+-./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ\\_abcdefghijklmnopqrstuvwxyz'
+define BRACKETS '[]'
+define PARENTHESES '()'
+define BRACES '{}'
+define MONITORED &null
