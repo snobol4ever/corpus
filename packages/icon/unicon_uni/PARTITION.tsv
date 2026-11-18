@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=138 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=15 chunks=2 sizes=100,33
+# shape: entries=164 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=15 chunks=2 sizes=100,59
 entry	part	cluster	shells
 gprogs/kaleid	chunk:02	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:01	dir:gui/guidemos	
@@ -66,22 +66,22 @@ lib/decode_driver	chunk:01	dir:lib
 lib/dispatcher_driver	chunk:01	dir:lib	
 lib/doptions_driver	chunk:01	dir:lib	
 parser/showtree	core	core	want_rc
-progs/cleanup	chunk:01	dir:progs	
+progs/cleanup	chunk:02	dir:progs	
 progs/complex_ex	chunk:02	feat:want_rc	want_rc
-progs/csv	chunk:01	dir:progs	
-progs/exception_demo	chunk:01	dir:progs	
-progs/gcfreq	chunk:01	dir:progs	
-progs/genAcc	chunk:01	dir:progs	
-progs/htmltex	chunk:01	dir:progs	
+progs/csv	chunk:02	dir:progs	
+progs/exception_demo	chunk:02	dir:progs	
+progs/gcfreq	chunk:02	dir:progs	
+progs/genAcc	chunk:02	dir:progs	
+progs/htmltex	chunk:02	dir:progs	
 progs/ie	chunk:02	feat:want_rc	want_rc
 progs/jsvalid	chunk:02	feat:want_rc	want_rc
-progs/mtrace	chunk:01	dir:progs	
-progs/rankvote	chunk:01	dir:progs	
-progs/rpn	chunk:01	dir:progs	
-progs/splitmail	chunk:01	dir:progs	
+progs/mtrace	chunk:02	dir:progs	
+progs/rankvote	chunk:02	dir:progs	
+progs/rpn	chunk:02	dir:progs	
+progs/splitmail	chunk:02	dir:progs	
 progs/uget	chunk:02	feat:want_rc	want_rc
-progs/ush	chunk:01	dir:progs	
-progs/uwc	chunk:01	dir:progs	
+progs/ush	chunk:02	dir:progs	
+progs/uwc	chunk:02	dir:progs	
 udb/lib/memory_alloc	chunk:02	dir:udb/lib	
 uflex/test/hello	chunk:02	dir:uflex/test	
 ulsp/launch-lsp	chunk:02	feat:want_rc	want_rc
@@ -90,10 +90,10 @@ unicon/iol2htm	chunk:02	dir:unicon
 unicon/lump	chunk:02	dir:unicon	
 unidoc/UniDoc	chunk:02	feat:want_rc	want_rc
 util/ivibmigrate	chunk:02	dir:util	
-xml/createdemo	chunk:02	dir:xml	
-xml/globaldemo	chunk:02	dir:xml	
-xml/testpatterns	chunk:02	dir:xml	
-xml/testxml	chunk:02	dir:xml	
+xml/createdemo	chunk:01	dir:xml	
+xml/globaldemo	chunk:01	dir:xml	
+xml/testpatterns	chunk:01	dir:xml	
+xml/testxml	chunk:01	dir:xml	
 gui/guidemos/explorer	core	core	fixtures
 gui/guidemos/ttexplorer	core	core	fixtures
 unidep/filearg_driver	chunk:02	dir:unidep	
@@ -106,12 +106,12 @@ unidoc/UniFile_driver	chunk:02	dir:unidoc
 unidoc/UniForm_driver	chunk:02	dir:unidoc	
 unidoc/UniHTML_driver	chunk:02	dir:unidoc	
 unidoc/UniToken_driver	chunk:02	dir:unidoc	
-uscribe/bib_driver	chunk:01	dir:uscribe	
-uscribe/config_driver	chunk:01	dir:uscribe	
-uscribe/directive_driver	chunk:01	dir:uscribe	
-uscribe/inline_driver	chunk:01	dir:uscribe	
-uscribe/labeltable_driver	chunk:01	dir:uscribe	
-uscribe/manifest_driver	chunk:01	dir:uscribe	
+uscribe/bib_driver	chunk:02	dir:uscribe	
+uscribe/config_driver	chunk:02	dir:uscribe	
+uscribe/directive_driver	chunk:02	dir:uscribe	
+uscribe/inline_driver	chunk:02	dir:uscribe	
+uscribe/labeltable_driver	chunk:02	dir:uscribe	
+uscribe/manifest_driver	chunk:02	dir:uscribe	
 uscribe/node_driver	chunk:02	dir:uscribe	
 uscribe/outputter_driver	chunk:02	dir:uscribe	
 uscribe/parser_driver	chunk:02	dir:uscribe	
@@ -127,16 +127,42 @@ ide/funclookup_driver	chunk:01	dir:ide
 ide/hfiledialog_driver	chunk:01	dir:ide	
 ide/ide_driver	chunk:01	dir:ide	
 ide/imgs_driver	chunk:01	dir:ide	
-ide/is_binary_driver	chunk:01	dir:ide	
-ide/mainbar_driver	chunk:01	dir:ide	
-ide/matchparen_driver	chunk:01	dir:ide	
-ide/modified_driver	chunk:01	dir:ide	
-ide/online_driver	chunk:01	dir:ide	
-ide/preferences_driver	chunk:01	dir:ide	
-ide/ptyDispatcher_driver	chunk:01	dir:ide	
-ide/qu_replace_driver	chunk:01	dir:ide	
-ide/shelletl_driver	chunk:01	dir:ide	
-ide/templates_driver	chunk:01	dir:ide	
-ide/uproject_driver	chunk:01	dir:ide	
+ide/is_binary_driver	chunk:02	dir:ide	
+ide/mainbar_driver	chunk:02	dir:ide	
+ide/matchparen_driver	chunk:02	dir:ide	
+ide/modified_driver	chunk:02	dir:ide	
+ide/online_driver	chunk:02	dir:ide	
+ide/preferences_driver	chunk:02	dir:ide	
+ide/ptyDispatcher_driver	chunk:02	dir:ide	
+ide/qu_replace_driver	chunk:02	dir:ide	
+ide/shelletl_driver	chunk:02	dir:ide	
+ide/templates_driver	chunk:02	dir:ide	
+ide/uproject_driver	chunk:02	dir:ide	
 ide/utags_driver	chunk:02	feat:want_rc	want_rc
-ide/verifymake_driver	chunk:01	dir:ide	
+ide/verifymake_driver	chunk:02	dir:ide	
+xml/attlist_driver	chunk:01	dir:xml	
+xml/attributedef_driver	chunk:01	dir:xml	
+xml/cdata_driver	chunk:01	dir:xml	
+xml/comment_driver	chunk:01	dir:xml	
+xml/contentspec_driver	chunk:01	dir:xml	
+xml/defaulterrorhandler_driver	chunk:01	dir:xml	
+xml/defaultresolver_driver	chunk:01	dir:xml	
+xml/doctype_driver	chunk:01	dir:xml	
+xml/document_driver	chunk:01	dir:xml	
+xml/element_driver	chunk:01	dir:xml	
+xml/elementdecl_driver	chunk:01	dir:xml	
+xml/entitydef_driver	chunk:01	dir:xml	
+xml/errorhandler_driver	chunk:01	dir:xml	
+xml/externalid_driver	chunk:01	dir:xml	
+xml/formatter_driver	chunk:01	dir:xml	
+xml/globalname_driver	chunk:01	dir:xml	
+xml/node_driver	chunk:01	dir:xml	
+xml/notationdecl_driver	chunk:01	dir:xml	
+xml/parser_driver	chunk:01	dir:xml	
+xml/processinginstruction_driver	chunk:01	dir:xml	
+xml/resolver_driver	chunk:01	dir:xml	
+xml/xmldecl_driver	chunk:01	dir:xml	
+xml/xmldocument_driver	chunk:01	dir:xml	
+xml/xmlelement_driver	chunk:01	dir:xml	
+xml/xmlformatter_driver	chunk:01	dir:xml	
+xml/xmlparser_driver	chunk:01	dir:xml	

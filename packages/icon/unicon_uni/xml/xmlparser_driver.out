@@ -1,0 +1,5 @@
+class Diversion procedure xml__Diversion 3
+class XmlParser procedure xml__XmlParser 0
+procedure init_xml_globals procedure xml__init_xml_globals 0
+procedure comingup procedure xml__comingup 2
+procedure many_star procedure xml__many_star 1

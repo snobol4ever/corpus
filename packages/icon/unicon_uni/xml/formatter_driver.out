@@ -1,0 +1,2 @@
+class Formatter procedure xml__Formatter 0
+procedure xml_escape procedure xml__xml_escape 2
