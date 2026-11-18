@@ -52262,3 +52262,260 @@ offending value: "abc"
 Traceback:
 main()
 {2 + "abc"} from line 3 in test_gate_icn_arith_unconvertible_operand_raises_102__bad_add.icn
+#---------- 285 test_gate_icn_a_suspend_and_a_resume_restore_their_own_lines__s1
+
+Run-time error 102
+File test_gate_icn_a_suspend_and_a_resume_restore_their_own_lines__s1.icn; Line 3
+numeric expected
+offending value: &null
+Traceback:
+main()
+{3 + &null} from line 3 in test_gate_icn_a_suspend_and_a_resume_restore_their_own_lines__s1.icn
+#- 286 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k1
+
+Run-time error 103
+File test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k1.icn; Line 3
+string expected
+offending value: list_1 = []
+Traceback:
+main()
+{"3" || list_1 = []} from line 3 in test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k1.icn
+#- 287 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k2
+
+Run-time error 102
+File test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k2.icn; Line 3
+numeric expected
+offending value: list_1 = []
+Traceback:
+main()
+{3 + list_1 = []} from line 3 in test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k2.icn
+#- 288 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k3
+
+Run-time error 120
+File test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k3.icn; Line 3
+two csets or two sets expected
+offending value: list_1 = []
+Traceback:
+main()
+{'3' ++ list_1 = []} from line 3 in test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k3.icn
+#- 289 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k4
+
+Run-time error 102
+File test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k4.icn; Line 3
+numeric expected
+offending value: list_1 = []
+Traceback:
+main()
+{7 < list_1 = []} from line 3 in test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k4.icn
+#- 290 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k5
+
+Run-time error 103
+File test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k5.icn; Line 3
+string expected
+offending value: list_1 = []
+Traceback:
+main()
+{"3.0" || list_1 = []} from line 3 in test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k5.icn
+#- 291 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k6
+
+Run-time error 103
+File test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k6.icn; Line 3
+string expected
+offending value: list_1 = []
+Traceback:
+main()
+{"a" ~== list_1 = []} from line 3 in test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k6.icn
+#- 292 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k7
+
+Run-time error 103
+File test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k7.icn; Line 3
+string expected
+offending value: list_1 = []
+Traceback:
+main()
+{"3" << list_1 = []} from line 3 in test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k7.icn
+#- 293 test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__asg
+
+Run-time error 205
+File test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__asg.icn; Line 4
+invalid value
+Traceback:
+main()
+{"ab"[5] := "z"} from line 4 in test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__asg.icn
+#- 294 test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__lit
+
+Run-time error 111
+File test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__lit.icn; Line 4
+variable expected
+offending value: "lit"
+Traceback:
+main()
+{(variable = "abc") :=: "lit"} from line 4 in test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__lit.icn
+#- 295 test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__swp
+
+Run-time error 205
+File test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__swp.icn; Line 5
+invalid value
+Traceback:
+main()
+{"ab"[5] :=: (variable = "x")} from line 5 in test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__swp.icn
+#------------- 296 test_gate_icn_arith_unconvertible_operand_raises_102__bad_neg
+
+Run-time error 102
+File test_gate_icn_arith_unconvertible_operand_raises_102__bad_neg.icn; Line 3
+numeric expected
+offending value: "abc"
+Traceback:
+main()
+{-"abc"} from line 3 in test_gate_icn_arith_unconvertible_operand_raises_102__bad_neg.icn
+#---- 297 test_gate_icn_error_conversion_fails_the_expression__by_zero_untrapped
+
+Run-time error 211
+File test_gate_icn_error_conversion_fails_the_expression__by_zero_untrapped.icn; Line 2
+by value equal to zero
+offending value: 0
+Traceback:
+main()
+{1 to 5 by 0} from line 2 in test_gate_icn_error_conversion_fails_the_expression__by_zero_untrapped.icn
+#----- 298 test_gate_icn_error_conversion_fails_the_expression__runerr_untrapped
+
+Run-time error 500
+File test_gate_icn_error_conversion_fails_the_expression__runerr_untrapped.icn; Line 2
+program malfunction
+Traceback:
+main()
+runerr(500) from line 2 in test_gate_icn_error_conversion_fails_the_expression__runerr_untrapped.icn
+#------ 299 test_gate_icn_errorvalue_is_absent_when_the_error_carries_none__f102
+
+Run-time error 102
+File test_gate_icn_errorvalue_is_absent_when_the_error_carries_none__f102.icn; Line 2
+numeric expected
+offending value: "q"
+Traceback:
+main()
+{1 + "q"} from line 2 in test_gate_icn_errorvalue_is_absent_when_the_error_carries_none__f102.icn
+#------ 300 test_gate_icn_errorvalue_is_absent_when_the_error_carries_none__f206
+
+Run-time error 206
+File test_gate_icn_errorvalue_is_absent_when_the_error_carries_none__f206.icn; Line 2
+negative first argument to real exponentiation
+Traceback:
+main()
+{-36.0 ^ -9.0} from line 2 in test_gate_icn_errorvalue_is_absent_when_the_error_carries_none__f206.icn
+#- 301 test_gate_icn_rtx_blank_operand_honours_the_error_protocol__empty_operand
+
+Run-time error 102
+File test_gate_icn_rtx_blank_operand_honours_the_error_protocol__empty_operand.icn; Line 3
+numeric expected
+offending value: ""
+Traceback:
+main()
+{2 + ""} from line 3 in test_gate_icn_rtx_blank_operand_honours_the_error_protocol__empty_operand.icn
+#-- 302 test_gate_icn_rtx_blank_operand_honours_the_error_protocol__null_operand
+
+Run-time error 102
+File test_gate_icn_rtx_blank_operand_honours_the_error_protocol__null_operand.icn; Line 3
+numeric expected
+offending value: &null
+Traceback:
+main()
+{2 + &null} from line 3 in test_gate_icn_rtx_blank_operand_honours_the_error_protocol__null_operand.icn
+#----------- 303 test_gate_icn_scan_subject_must_be_string_convertible__rej_file
+
+Run-time error 103
+File test_gate_icn_scan_subject_must_be_string_convertible__rej_file.icn; Line 1
+string expected
+offending value: &output
+Traceback:
+main()
+{&output ? ..} from line 1 in test_gate_icn_scan_subject_must_be_string_convertible__rej_file.icn
+#----------- 304 test_gate_icn_scan_subject_must_be_string_convertible__rej_list
+
+Run-time error 103
+File test_gate_icn_scan_subject_must_be_string_convertible__rej_list.icn; Line 1
+string expected
+offending value: list_1 = []
+Traceback:
+main()
+{list_1 = [] ? ..} from line 1 in test_gate_icn_scan_subject_must_be_string_convertible__rej_list.icn
+#--------- 305 test_gate_icn_scan_subject_must_be_string_convertible__rej_nested
+
+Run-time error 103
+File test_gate_icn_scan_subject_must_be_string_convertible__rej_nested.icn; Line 1
+string expected
+offending value: list_1 = []
+Traceback:
+main()
+{list_1 = [] ? ..} from line 1 in test_gate_icn_scan_subject_must_be_string_convertible__rej_nested.icn
+#----------- 306 test_gate_icn_scan_subject_must_be_string_convertible__rej_null
+
+Run-time error 103
+File test_gate_icn_scan_subject_must_be_string_convertible__rej_null.icn; Line 1
+string expected
+offending value: &null
+Traceback:
+main()
+{&null ? ..} from line 1 in test_gate_icn_scan_subject_must_be_string_convertible__rej_null.icn
+#----------- 307 test_gate_icn_scan_subject_must_be_string_convertible__rej_proc
+
+Run-time error 103
+File test_gate_icn_scan_subject_must_be_string_convertible__rej_proc.icn; Line 1
+string expected
+offending value: procedure main
+Traceback:
+main()
+{procedure main ? ..} from line 1 in test_gate_icn_scan_subject_must_be_string_convertible__rej_proc.icn
+#------------ 308 test_gate_icn_scan_subject_must_be_string_convertible__rej_set
+
+Run-time error 103
+File test_gate_icn_scan_subject_must_be_string_convertible__rej_set.icn; Line 1
+string expected
+offending value: set_1(0)
+Traceback:
+main()
+{set_1(0) ? ..} from line 1 in test_gate_icn_scan_subject_must_be_string_convertible__rej_set.icn
+#---------- 309 test_gate_icn_scan_subject_must_be_string_convertible__rej_table
+
+Run-time error 103
+File test_gate_icn_scan_subject_must_be_string_convertible__rej_table.icn; Line 1
+string expected
+offending value: table_1(0)
+Traceback:
+main()
+{table_1(0) ? ..} from line 1 in test_gate_icn_scan_subject_must_be_string_convertible__rej_table.icn
+#------- 310 test_gate_icn_scan_subject_must_be_string_convertible__rej_var_list
+
+Run-time error 103
+File test_gate_icn_scan_subject_must_be_string_convertible__rej_var_list.icn; Line 1
+string expected
+offending value: list_1 = [1,2]
+Traceback:
+main()
+{list_1 = [1,2] ? ..} from line 1 in test_gate_icn_scan_subject_must_be_string_convertible__rej_var_list.icn
+#------------------------------------------- 311 test_gate_pl_wall_us_arity1__a0
+
+Run-time error 106
+File test_gate_pl_wall_us_arity1__a0.icn; Line 2
+procedure or integer expected
+offending value: &null
+Traceback:
+main()
+&null() from line 2 in test_gate_pl_wall_us_arity1__a0.icn
+#---------------------------------------- 312 test_gate_pl_wall_us_arity1__plant
+
+Run-time error 106
+File test_gate_pl_wall_us_arity1__plant.icn; Line 2
+procedure or integer expected
+offending value: &null
+Traceback:
+main()
+&null() from line 2 in test_gate_pl_wall_us_arity1__plant.icn
+#- 313 test_gate_raku_a_numeric_relop_numifies_the_empty_and_the_blank_string_as_rakudo_does_and_icon_keeps_error_102__iconb
+
+Run-time error 102
+File test_gate_raku_a_numeric_relop_numifies_the_empty_and_the_blank_string_as_rakudo_does_and_icon_keeps_error_102__iconb.icn; Line 2
+numeric expected
+offending value: " "
+Traceback:
+main()
+{" " = 0} from line 2 in test_gate_raku_a_numeric_relop_numifies_the_empty_and_the_blank_string_as_rakudo_does_and_icon_keeps_error_102__iconb.icn

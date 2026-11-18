@@ -3030,3 +3030,128 @@ procedure main()
   x := "abc";
   write(2 + x);
 end
+#---------- 285 test_gate_icn_a_suspend_and_a_resume_restore_their_own_lines__s1
+procedure main()
+   local x;
+   every x := gen(3) do x := x + &null;
+end
+procedure gen(n)
+   suspend n;
+end
+#- 286 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k1
+procedure main()
+   local y;
+   y := 3 || [];
+end
+#- 287 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k2
+procedure main()
+   local y;
+   y := "3" + [];
+end
+#- 288 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k3
+procedure main()
+   local y;
+   y := 3 ++ [];
+end
+#- 289 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k4
+procedure main()
+   local y;
+   y := "7" < [];
+end
+#- 290 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k5
+procedure main()
+   local y;
+   y := 3.0 || [];
+end
+#- 291 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k6
+procedure main()
+   local y;
+   y := "a" ~== [];
+end
+#- 292 test_gate_icn_a_traceback_images_the_left_operand_after_its_conversion__k7
+procedure main()
+   local y;
+   y := 3 << [];
+end
+#- 293 test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__asg
+procedure main()
+   local s;
+   s := "abcdef";
+   (s[5] := (s := "ab", "z")) | write("failed");
+   write(s);
+end
+#- 294 test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__lit
+procedure main()
+   local s;
+   s := "abc";
+   (s :=: "lit") | write("failed");
+   write(s);
+end
+#- 295 test_gate_icn_a_trapped_substring_past_its_shrunk_subject_raises_205__swp
+procedure main()
+   local s, t;
+   s := "abcdef";
+   t := "x";
+   (s[5] :=: (s := "ab", t)) | write("failed");
+   write(s, " ", t);
+end
+#------------- 296 test_gate_icn_arith_unconvertible_operand_raises_102__bad_neg
+procedure main()
+  x := "abc";
+  write(-x);
+end
+#---- 297 test_gate_icn_error_conversion_fails_the_expression__by_zero_untrapped
+procedure main()
+  every write(1 to 5 by 0);
+end
+#----- 298 test_gate_icn_error_conversion_fails_the_expression__runerr_untrapped
+procedure main()
+  runerr(500);
+end
+#------ 299 test_gate_icn_errorvalue_is_absent_when_the_error_carries_none__f102
+procedure main();
+   write(1 + "q");
+end
+#------ 300 test_gate_icn_errorvalue_is_absent_when_the_error_carries_none__f206
+procedure main();
+   write(-36. ^ -9.);
+end
+#- 301 test_gate_icn_rtx_blank_operand_honours_the_error_protocol__empty_operand
+procedure main()
+  x := "";
+  write(2 + x);
+end
+#-- 302 test_gate_icn_rtx_blank_operand_honours_the_error_protocol__null_operand
+procedure main()
+  x := &null;
+  write(2 + x);
+end
+#----------- 303 test_gate_icn_scan_subject_must_be_string_convertible__rej_file
+procedure main();&output ? write("in");end
+#----------- 304 test_gate_icn_scan_subject_must_be_string_convertible__rej_list
+procedure main();[] ? write("in");end
+#--------- 305 test_gate_icn_scan_subject_must_be_string_convertible__rej_nested
+procedure main();"ab" ? { [] ? write("inner") };write("after");end
+#----------- 306 test_gate_icn_scan_subject_must_be_string_convertible__rej_null
+procedure main();&null ? write("in");end
+#----------- 307 test_gate_icn_scan_subject_must_be_string_convertible__rej_proc
+procedure main();main ? write("in");end
+#------------ 308 test_gate_icn_scan_subject_must_be_string_convertible__rej_set
+procedure main();set() ? write("in");end
+#---------- 309 test_gate_icn_scan_subject_must_be_string_convertible__rej_table
+procedure main();table() ? write("in");end
+#------- 310 test_gate_icn_scan_subject_must_be_string_convertible__rej_var_list
+procedure main();local L;L := [1,2];L ? write("in");end
+#------------------------------------------- 311 test_gate_pl_wall_us_arity1__a0
+procedure main()
+	a := wall_us(); b := wall_us(); m := wall_ms();
+	if (a > 0) & (b >= a) & (m > 0) & (a > m) then write("ic_arity0_ok") else write("ic_arity0_bad");
+end
+#---------------------------------------- 312 test_gate_pl_wall_us_arity1__plant
+procedure main()
+	write(wall_us_absent());
+end
+#- 313 test_gate_raku_a_numeric_relop_numifies_the_empty_and_the_blank_string_as_rakudo_does_and_icon_keeps_error_102__iconb
+procedure main();
+  write(" " = 0);
+end
