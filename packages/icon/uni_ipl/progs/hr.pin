@@ -1,0 +1,1 @@
+hr seeds &random from &clock in randomize() and paces its banner, race and payout with wait(), a busy-wait on &clock, and delay(): the clock is pinned for iconx and SCRIP alike, and the shim's virtual clock advances through every sleep and every busy-wait read, so the race runs the same in both participants

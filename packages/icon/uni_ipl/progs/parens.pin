@@ -1,0 +1,1 @@
+parens calls randomize() (reads /dev/urandom, falls back to &clock): the entropy and clock are pinned for iconx and SCRIP alike

@@ -1,0 +1,2 @@
+# newicon.argv -- the declared argv sidecar: the new program name and the author (a Unicon IPL program takes its arguments without the program name, as headicon.argv does); the skeleton comes from newicon.fixtures/
+newi_demo	Ada Lovelace
