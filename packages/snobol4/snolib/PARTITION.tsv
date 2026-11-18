@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=68 features=4 ubiquitous=2(package dump) distinctive=2 core=3 clusters=65 chunks=2 sizes=60,5
+# shape: entries=68 features=4 ubiquitous=2(package dump) distinctive=2 core=3 clusters=65 chunks=1 sizes=65
 entry	part	cluster	shells
 AGT.tst	chunk:01	family:AGT	
 AI.tst	chunk:01	family:AI	
@@ -64,9 +64,9 @@ STROUT.tst	chunk:01	family:STROUT
 SWAP.tst	chunk:01	family:SWAP	
 TEST.tst	chunk:01	family:TEST	
 TPROFILE.tst	chunk:01	family:TPROFILE	
-TRIMB.tst	chunk:02	family:TRIMB	
-TRUNC.tst	chunk:02	family:TRUNC	
-UNIQUE.tst	chunk:02	family:UNIQUE	
-UTF8.tst	chunk:02	family:UTF	
-WRAPPER.tst	chunk:02	family:WRAPPER	
+TRIMB.tst	chunk:01	family:TRIMB	
+TRUNC.tst	chunk:01	family:TRUNC	
+UNIQUE.tst	chunk:01	family:UNIQUE	
+UTF8.tst	chunk:01	family:UTF	
+WRAPPER.tst	chunk:01	family:WRAPPER	
 g360	core	core	language want_rc
