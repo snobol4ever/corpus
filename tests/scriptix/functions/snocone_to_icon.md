@@ -4,7 +4,7 @@ function SHOUT(s) { return s '!'; }
 ```
 
 ```icon
-global TWICE, SHOUT;
+global TWICE, SHOUT
 procedure main();
   write("twice ", TWICE(7));
   write("shout ", SHOUT("seven"));

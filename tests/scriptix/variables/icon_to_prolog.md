@@ -1,5 +1,5 @@
 ```icon
-global COUNT, WORD;
+global COUNT, WORD
 procedure main();
   COUNT := 7;
   WORD := "seven";

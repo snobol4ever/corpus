@@ -16,7 +16,7 @@ VAR_DEF = {
     "snobol4": "        COUNT = 7\n        WORD = 'seven'\nEND\n",
     "snocone": "COUNT = 7;\nWORD = 'seven';\n",
     "rebus":   "function main()\n  COUNT := 7\n  WORD := \"seven\"\nend\n",
-    "icon":    "global COUNT, WORD;\nprocedure main();\n  COUNT := 7;\n  WORD := \"seven\";\nend\n",
+    "icon":    "global COUNT, WORD\nprocedure main();\n  COUNT := 7;\n  WORD := \"seven\";\nend\n",
     "pascal":  "{$mode objfpc}\nprogram define;\nvar COUNT: integer;\n    WORD: string;\nbegin\n  COUNT := 7;\n  WORD := 'seven'\nend.\n",
     "prolog":  ":- nb_setval('COUNT', 7).\n:- nb_setval('WORD', seven).\n",
     "raku":    "our $COUNT = 7;\nour $WORD = 'seven';\n",
@@ -28,7 +28,7 @@ def var_use(b, a):
         "snobol4": "        OUTPUT = 'count ' COUNT\n        OUTPUT = 'word ' WORD\nEND\n",
         "snocone": "OUTPUT = 'count ' COUNT;\nOUTPUT = 'word ' WORD;\n",
         "rebus":   "function main()\n  OUTPUT := \"count \" || COUNT\n  OUTPUT := \"word \" || WORD\nend\n",
-        "icon":    "global COUNT, WORD;\nprocedure main();\n  write(\"count \", COUNT);\n  write(\"word \", WORD);\nend\n",
+        "icon":    "global COUNT, WORD\nprocedure main();\n  write(\"count \", COUNT);\n  write(\"word \", WORD);\nend\n",
         "pascal":  ("{$mode objfpc}\nprogram use;\nvar COUNT: integer;\n    WORD: string;\n" if same else
                     "{$mode objfpc}\nprogram use;\nvar COUNT: integer; external name 'COUNT';\n    WORD: string; external name 'WORD';\n") +
                    "begin\n  writeln('count ', COUNT);\n  writeln('word ', WORD)\nend.\n",
@@ -54,7 +54,7 @@ def fun_use(b, a):
         "snobol4": "        OUTPUT = 'twice ' TWICE(7)\n        OUTPUT = 'shout ' SHOUT('seven')\nEND\n",
         "snocone": "OUTPUT = 'twice ' TWICE(7);\nOUTPUT = 'shout ' SHOUT('seven');\n",
         "rebus":   "function main()\n  OUTPUT := \"twice \" || TWICE(7)\n  OUTPUT := \"shout \" || SHOUT(\"seven\")\nend\n",
-        "icon":    ("" if same else "global TWICE, SHOUT;\n") +
+        "icon":    ("" if same else "global TWICE, SHOUT\n") +
                    "procedure main();\n  write(\"twice \", TWICE(7));\n  write(\"shout \", SHOUT(\"seven\"));\nend\n",
         "pascal":  ("{$mode objfpc}\nprogram use;\n" if same else
                     "{$mode objfpc}\nprogram use;\nfunction TWICE(n: integer): integer; external name 'TWICE';\nfunction SHOUT(s: string): string; external name 'SHOUT';\n") +
