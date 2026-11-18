@@ -1,0 +1,3 @@
+# imgcolrs: Program to list colors in images.
+# NO STEP: it draws its picture and ends by itself, reading no event (the one prover, 2026-11-18: GREEN, ends by itself, twice equal), so its whole work is its run to the end and the script holds no event; the answer is NAME.out unchanged.
+# The grader 2026-11-18, on Lon's word via the president ("let's get GRADER to cut scripts for the remaining 50"): a program that ends by itself gets the smallest script the reading accepts.
