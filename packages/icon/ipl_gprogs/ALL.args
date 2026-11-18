@@ -20,9 +20,9 @@ giftopat	tiny.gif
 poller	tiny.gif
 rectile	-w	8	-h	4	tiny.gif
 seamcut	tiny.gif
-xpmtoims	-g16
+xpmtoims	-g16	-d
 trycolor	-W	64	-H	64
-imgpaper	-w	64	-h	48	-i	-a	0	tiny.gif
+imgpaper	-w	64	-h	48	-i	-m	tiny.gif
 fstarlab	200
 xformpat	center	16	16
 pat2gif	p8.blp

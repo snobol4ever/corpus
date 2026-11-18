@@ -1,0 +1,4 @@
+# imgpaper -m: manual mode, its own interactive work: it tiles tiny.gif as wallpaper and waits for an event; a letter writes the letter and the
+# image name (a:tiny.gif) on standard output and goes on to the next image, here the last, so the program ends.
+move 20 20
+key a
