@@ -1,0 +1,10 @@
+# plotter: plots the xy plane of a coordinate file (lines of x y z) of its working folder; helix.crd is a fixture of ours (72 points of a helix of radius 15, inside the pane at its scale of 10,
+# plotter.fixtures/), since the distribution ships none. The script picks the file in the list, presses plot, and quits with meta-q.
+click 1 40 206
+wait
+click 1 106 81
+wait
+move 300 200
+keydown Alt_L
+key q
+keyup Alt_L
