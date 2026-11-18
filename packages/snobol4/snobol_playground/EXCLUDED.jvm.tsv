@@ -1,0 +1,6 @@
+# EXCLUDED.jvm.tsv -- snobol_playground: the entries whose sbl -bf answer turns on a SPITBOL restriction snobol4jvm lifts, read only while S4E_ENGINE is jvm
+# (lib_excluded.sh, corpus_suite_harness.py PORT_EXTENSIONS, util_score_row.py); SCRIP's rows and the dotnet engine's never read it. Class
+# SNOBOL4PP_EXTENSION_KEPT_BY_LON (Lon 2026-11-17 18:1x CST, in the JVM window; and 2026-11-18 10:5x CST: "You handle the difference in the test suite as a
+# PASS, since the oracle is unable to grade."): each entry is graded on the port, its output mismatch a PASS, and it stays in the denominator; its SPITBOL ref
+# stands. Evidence: the oracle's answer, CSNOBOL4's, the port's.
+ch1/ex16	SNOBOL4PP_EXTENSION_KEPT_BY_LON	sbl -bf ends line 11, DEFINE('CONVERT(STRING)Sum'), with ERROR 248 (attempted redefinition of system function); CSNOBOL4 (snobol4 -b) redefines CONVERT and runs the program, and snobol4jvm's output equals CSNOBOL4's byte for byte (measured 2026-11-18 on 0912956)
