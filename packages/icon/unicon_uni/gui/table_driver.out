@@ -1,0 +1,3 @@
+class TableContent procedure gui__TableContent 50
+class TableHeader procedure gui__TableHeader 34
+class Table procedure gui__Table -1

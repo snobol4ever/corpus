@@ -1,0 +1,24 @@
+record ThemePalette record constructor gui__ThemePalette 11
+procedure Rgb8 procedure gui__Rgb8 3
+procedure SetGuiThemeFont procedure gui__SetGuiThemeFont 1
+procedure GetGuiThemeFont procedure gui__GetGuiThemeFont 0
+procedure GuiThemePickFont procedure gui__GuiThemePickFont 0
+procedure DefaultFlatPalette procedure gui__DefaultFlatPalette 0
+procedure GuiThemeApplyEnv procedure gui__GuiThemeApplyEnv 0
+procedure SetGuiTheme procedure gui__SetGuiTheme 2
+procedure GetGuiTheme procedure gui__GetGuiTheme 0
+procedure GuiThemeIsFlat procedure gui__GuiThemeIsFlat 0
+procedure GuiThemePalette procedure gui__GuiThemePalette 0
+procedure GuiThemeDialogAttribs procedure gui__GuiThemeDialogAttribs 0
+procedure ThemeComponentAttrib procedure gui__ThemeComponentAttrib 2
+procedure ThemeComponentBg procedure gui__ThemeComponentBg 1
+procedure ThemeComponentFg procedure gui__ThemeComponentFg 1
+procedure ThemeResolveFill procedure gui__ThemeResolveFill 3
+procedure FlatBorder procedure gui__FlatBorder 6
+procedure FlatFocusRing procedure gui__FlatFocusRing 5
+procedure ThemeFillInput procedure gui__ThemeFillInput 6
+procedure ThemeFillFace procedure gui__ThemeFillFace 7
+procedure ThemeFillAccent procedure gui__ThemeFillAccent 5
+procedure ThemeHairline procedure gui__ThemeHairline 4
+procedure ThemeSunkenPanel procedure gui__ThemeSunkenPanel 6
+procedure ThemeRaisedFace procedure gui__ThemeRaisedFace 7

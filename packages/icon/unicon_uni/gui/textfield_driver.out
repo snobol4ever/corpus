@@ -1,0 +1,8 @@
+class TextField procedure gui__TextField -1
+class TextFieldEdit procedure gui__TextFieldEdit 1
+class TextFieldDeleteRightEdit procedure gui__TextFieldDeleteRightEdit 1
+class TextFieldDeleteLeftEdit procedure gui__TextFieldDeleteLeftEdit 1
+class TextFieldDeleteRegionEdit procedure gui__TextFieldDeleteRegionEdit 1
+class TextFieldPasteEdit procedure gui__TextFieldPasteEdit 2
+class TextFieldDefaultEdit procedure gui__TextFieldDefaultEdit 2
+class TextFieldDeleteLineEdit procedure gui__TextFieldDeleteLineEdit 1

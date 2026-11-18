@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=423 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=21 chunks=5 sizes=100,100,100,100,17
+# shape: entries=439 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=21 chunks=5 sizes=100,100,100,100,33
 entry	part	cluster	shells
 gprogs/kaleid	chunk:05	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:03	dir:gui/guidemos	
@@ -11,22 +11,22 @@ gui/guidemos/editlisttest	core	core	fixtures
 gui/guidemos/editor	chunk:03	dir:gui/guidemos	
 gui/guidemos/fillpanel	chunk:03	dir:gui/guidemos	
 gui/guidemos/getweb	chunk:03	dir:gui/guidemos	
-gui/guidemos/imageview	chunk:03	dir:gui/guidemos	
-gui/guidemos/leak	chunk:03	dir:gui/guidemos	
-gui/guidemos/lines	chunk:03	dir:gui/guidemos	
-gui/guidemos/listtest	chunk:03	dir:gui/guidemos	
-gui/guidemos/menudemo	chunk:03	dir:gui/guidemos	
-gui/guidemos/palette	chunk:03	dir:gui/guidemos	
-gui/guidemos/pointers	chunk:03	dir:gui/guidemos	
-gui/guidemos/secondtest	chunk:03	dir:gui/guidemos	
-gui/guidemos/sieve	chunk:03	dir:gui/guidemos	
-gui/guidemos/sliders	chunk:03	dir:gui/guidemos	
-gui/guidemos/spinners	chunk:03	dir:gui/guidemos	
-gui/guidemos/tabletest	chunk:03	dir:gui/guidemos	
-gui/guidemos/tabs	chunk:03	dir:gui/guidemos	
-gui/guidemos/testdialog	chunk:03	dir:gui/guidemos	
-gui/guidemos/textsize	chunk:03	dir:gui/guidemos	
-gui/guidemos/texttest	chunk:03	dir:gui/guidemos	
+gui/guidemos/imageview	chunk:04	dir:gui/guidemos	
+gui/guidemos/leak	chunk:04	dir:gui/guidemos	
+gui/guidemos/lines	chunk:04	dir:gui/guidemos	
+gui/guidemos/listtest	chunk:04	dir:gui/guidemos	
+gui/guidemos/menudemo	chunk:04	dir:gui/guidemos	
+gui/guidemos/palette	chunk:04	dir:gui/guidemos	
+gui/guidemos/pointers	chunk:04	dir:gui/guidemos	
+gui/guidemos/secondtest	chunk:04	dir:gui/guidemos	
+gui/guidemos/sieve	chunk:04	dir:gui/guidemos	
+gui/guidemos/sliders	chunk:04	dir:gui/guidemos	
+gui/guidemos/spinners	chunk:04	dir:gui/guidemos	
+gui/guidemos/tabletest	chunk:04	dir:gui/guidemos	
+gui/guidemos/tabs	chunk:04	dir:gui/guidemos	
+gui/guidemos/testdialog	chunk:04	dir:gui/guidemos	
+gui/guidemos/textsize	chunk:04	dir:gui/guidemos	
+gui/guidemos/texttest	chunk:04	dir:gui/guidemos	
 gui/guidemos/themedemo	chunk:04	dir:gui/guidemos	
 gui/guidemos/ticks	chunk:04	dir:gui/guidemos	
 gui/guidemos/toolbar	chunk:04	dir:gui/guidemos	
@@ -147,7 +147,7 @@ progs/uget	chunk:02	feat:want_rc	want_rc
 progs/ush	chunk:04	dir:progs	
 progs/uwc	chunk:04	dir:progs	
 udb/lib/memory_alloc	chunk:05	dir:udb/lib	
-uflex/test/hello	chunk:04	dir:uflex/test	
+uflex/test/hello	chunk:05	dir:uflex/test	
 ulsp/launch-lsp	chunk:02	feat:want_rc	want_rc
 unicon/i	chunk:02	feat:want_rc	want_rc
 unicon/iol2htm	chunk:05	dir:unicon	
@@ -160,7 +160,7 @@ xml/testpatterns	chunk:03	dir:xml
 xml/testxml	chunk:03	dir:xml	
 gui/guidemos/explorer	core	core	fixtures
 gui/guidemos/ttexplorer	core	core	fixtures
-unidep/filearg_driver	chunk:04	dir:unidep	
+unidep/filearg_driver	chunk:05	dir:unidep	
 unidep/fileargclass_driver	chunk:05	dir:unidep	
 unidep/symbolinfo_driver	chunk:05	dir:unidep	
 unidep/symboltable_driver	chunk:05	dir:unidep	
@@ -179,7 +179,7 @@ uscribe/manifest_driver	chunk:04	dir:uscribe
 uscribe/node_driver	chunk:04	dir:uscribe	
 uscribe/outputter_driver	chunk:04	dir:uscribe	
 uscribe/parser_driver	chunk:04	dir:uscribe	
-uscribe/scan_driver	chunk:04	dir:uscribe	
+uscribe/scan_driver	chunk:05	dir:uscribe	
 ide/about_driver	chunk:04	dir:ide	
 ide/buffertabitem_driver	chunk:04	dir:ide	
 ide/buffertabset_driver	chunk:04	dir:ide	
@@ -247,20 +247,20 @@ parser/unigram_driver	chunk:04	dir:parser
 parser/unilex_driver	chunk:04	dir:parser	
 parser/ytab_h_driver	chunk:04	dir:parser	
 uflex/automata_driver	chunk:02	feat:want_rc	want_rc
-uflex/convert_driver	chunk:04	dir:uflex	
-uflex/dfadebug_driver	chunk:04	dir:uflex	
-uflex/flexgram_tab_driver	chunk:04	dir:uflex	
-uflex/test/cgram.tab_driver	chunk:04	dir:uflex/test	
-uflex/test/go.tab_driver	chunk:04	dir:uflex/test	
-uflex/test/k0tok_driver	chunk:04	dir:uflex/test	
-uflex/test/punygram.tab_driver	chunk:04	dir:uflex/test	
-uflex/test/rustgram.tab_driver	chunk:04	dir:uflex/test	
-uflex/test/y_tab_driver	chunk:04	dir:uflex/test	
-uflex/tree_driver	chunk:04	dir:uflex	
-uflex/uflex-lex_driver	chunk:04	dir:uflex	
+uflex/convert_driver	chunk:05	dir:uflex	
+uflex/dfadebug_driver	chunk:05	dir:uflex	
+uflex/flexgram_tab_driver	chunk:05	dir:uflex	
+uflex/test/cgram.tab_driver	chunk:05	dir:uflex/test	
+uflex/test/go.tab_driver	chunk:05	dir:uflex/test	
+uflex/test/k0tok_driver	chunk:05	dir:uflex/test	
+uflex/test/punygram.tab_driver	chunk:05	dir:uflex/test	
+uflex/test/rustgram.tab_driver	chunk:05	dir:uflex/test	
+uflex/test/y_tab_driver	chunk:05	dir:uflex/test	
+uflex/tree_driver	chunk:05	dir:uflex	
+uflex/uflex-lex_driver	chunk:05	dir:uflex	
 uflex/uflexskel_driver	chunk:02	feat:want_rc	want_rc
 uflex/ulexskel_driver	chunk:02	feat:want_rc	want_rc
-uflex/ulpp_driver	chunk:04	dir:uflex	
+uflex/ulpp_driver	chunk:05	dir:uflex	
 udb/adapter_driver	chunk:04	dir:udb	
 udb/agent_driver	chunk:04	dir:udb	
 udb/breakpoint_driver	chunk:04	dir:udb	
@@ -277,18 +277,18 @@ udb/lib/counter_deref_driver	chunk:02	feat:want_rc	want_rc
 udb/lib/counter_line_driver	chunk:02	feat:want_rc	want_rc
 udb/lib/counter_pcall_driver	chunk:02	feat:want_rc	want_rc
 udb/lib/counter_syntax_driver	chunk:02	feat:want_rc	want_rc
-udb/lib/deadvar_driver	chunk:02	feat:want_rc	want_rc
-udb/lib/failedloop_driver	chunk:02	feat:want_rc	want_rc
-udb/lib/failedsubscript_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/deadvar_driver	chunk:03	feat:want_rc	want_rc
+udb/lib/failedloop_driver	chunk:03	feat:want_rc	want_rc
+udb/lib/failedsubscript_driver	chunk:03	feat:want_rc	want_rc
 udb/lib/listener_driver	chunk:05	dir:udb/lib	
-udb/lib/looptime_driver	chunk:02	feat:want_rc	want_rc
-udb/lib/memory_driver	chunk:02	feat:want_rc	want_rc
-udb/lib/procprofile_driver	chunk:02	feat:want_rc	want_rc
-udb/lib/proctime_driver	chunk:02	feat:want_rc	want_rc
-udb/lib/structaliases_driver	chunk:02	feat:want_rc	want_rc
-udb/lib/structusage_driver	chunk:02	feat:want_rc	want_rc
-udb/lib/typechange_driver	chunk:02	feat:want_rc	want_rc
-udb/lib/varprofile_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/looptime_driver	chunk:03	feat:want_rc	want_rc
+udb/lib/memory_driver	chunk:03	feat:want_rc	want_rc
+udb/lib/procprofile_driver	chunk:03	feat:want_rc	want_rc
+udb/lib/proctime_driver	chunk:03	feat:want_rc	want_rc
+udb/lib/structaliases_driver	chunk:03	feat:want_rc	want_rc
+udb/lib/structusage_driver	chunk:03	feat:want_rc	want_rc
+udb/lib/typechange_driver	chunk:03	feat:want_rc	want_rc
+udb/lib/varprofile_driver	chunk:03	feat:want_rc	want_rc
 udb/session_driver	chunk:04	dir:udb	
 udb/srcfile_driver	chunk:04	dir:udb	
 udb/stack_driver	chunk:04	dir:udb	
@@ -311,11 +311,11 @@ lib/sql_driver	chunk:02	dir:lib
 lib/ssh_driver	chunk:02	dir:lib	
 lib/str_util_driver	chunk:02	dir:lib	
 lib/stringbuff_driver	chunk:02	dir:lib	
-cint/test1	chunk:02	feat:want_rc	want_rc
-cint/test3	chunk:02	feat:want_rc	want_rc
-cint/test4	chunk:02	feat:want_rc	want_rc
-unicon/grok	chunk:02	feat:want_rc	want_rc
-unicon/samp	chunk:02	feat:want_rc	want_rc
+cint/test1	chunk:03	feat:want_rc	want_rc
+cint/test3	chunk:03	feat:want_rc	want_rc
+cint/test4	chunk:03	feat:want_rc	want_rc
+unicon/grok	chunk:03	feat:want_rc	want_rc
+unicon/samp	chunk:03	feat:want_rc	want_rc
 unicon/tstfld	chunk:03	feat:want_rc	want_rc
 shell/dist/client	chunk:03	feat:want_rc	want_rc
 shell/dist/consumer	chunk:03	feat:want_rc	want_rc
@@ -358,7 +358,7 @@ ide/ivib/canvaseditlistui_driver	chunk:03	dir:ide/ivib
 ide/ivib/canvashlineui_driver	chunk:03	dir:ide/ivib	
 ide/ivib/canvashscrollbarui_driver	chunk:03	dir:ide/ivib	
 uflex/automatadfa_driver	chunk:03	feat:want_rc	want_rc
-uflex/flexgram_driver	chunk:04	dir:uflex	
+uflex/flexgram_driver	chunk:05	dir:uflex	
 xml/canonicalxmlformatter_driver	chunk:03	dir:xml	
 xml/htmldocument_driver	chunk:03	dir:xml	
 xml/htmlelement_driver	chunk:03	dir:xml	
@@ -425,3 +425,19 @@ gui/stddlg_driver	chunk:02	dir:gui
 gui/submenu_driver	chunk:02	dir:gui	
 gui/tabitem_driver	chunk:02	dir:gui	
 gui/tablecolumn_driver	chunk:02	dir:gui	
+gui/table_driver	chunk:02	dir:gui	
+gui/tabset_driver	chunk:02	dir:gui	
+gui/textbutton_driver	chunk:02	dir:gui	
+gui/textdisplay_driver	chunk:02	dir:gui	
+gui/textfield_driver	chunk:02	dir:gui	
+gui/textlist_driver	chunk:02	dir:gui	
+gui/textmenuitem_driver	chunk:02	dir:gui	
+gui/theme_driver	chunk:02	dir:gui	
+gui/ticker_driver	chunk:02	dir:gui	
+gui/toggle_driver	chunk:02	dir:gui	
+gui/toggleiconbutton_driver	chunk:02	dir:gui	
+gui/toggletextbutton_driver	chunk:02	dir:gui	
+gui/toolbar_driver	chunk:02	dir:gui	
+gui/tree_driver	chunk:02	dir:gui	
+gui/treetable_driver	chunk:02	dir:gui	
+gui/yesnodialog_driver	chunk:02	dir:gui	

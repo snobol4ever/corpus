@@ -90,23 +90,23 @@ gui/staticspin.icn: a library graded through its driver staticspin_driver, which
 gui/stddlg.icn: a library graded through its driver stddlg_driver, which is the entry gui/stddlg_driver
 gui/submenu.icn: a library graded through its driver submenu_driver, which is the entry gui/submenu_driver
 gui/tabitem.icn: a library graded through its driver tabitem_driver, which is the entry gui/tabitem_driver
-gui/table.icn: LIBRARY: no procedure main
+gui/table.icn: a library graded through its driver table_driver, which is the entry gui/table_driver
 gui/tablecolumn.icn: a library graded through its driver tablecolumn_driver, which is the entry gui/tablecolumn_driver
-gui/tabset.icn: LIBRARY: no procedure main
-gui/textbutton.icn: LIBRARY: no procedure main
-gui/textdisplay.icn: LIBRARY: no procedure main
-gui/textfield.icn: LIBRARY: no procedure main
-gui/textlist.icn: LIBRARY: no procedure main
-gui/textmenuitem.icn: LIBRARY: no procedure main
-gui/theme.icn: LIBRARY: no procedure main
-gui/ticker.icn: LIBRARY: no procedure main
-gui/toggle.icn: LIBRARY: no procedure main
-gui/toggleiconbutton.icn: LIBRARY: no procedure main
-gui/toggletextbutton.icn: LIBRARY: no procedure main
-gui/toolbar.icn: LIBRARY: no procedure main
-gui/tree.icn: LIBRARY: no procedure main
-gui/treetable.icn: LIBRARY: no procedure main
-gui/yesnodialog.icn: LIBRARY: no procedure main
+gui/tabset.icn: a library graded through its driver tabset_driver, which is the entry gui/tabset_driver
+gui/textbutton.icn: a library graded through its driver textbutton_driver, which is the entry gui/textbutton_driver
+gui/textdisplay.icn: a library graded through its driver textdisplay_driver, which is the entry gui/textdisplay_driver
+gui/textfield.icn: a library graded through its driver textfield_driver, which is the entry gui/textfield_driver
+gui/textlist.icn: a library graded through its driver textlist_driver, which is the entry gui/textlist_driver
+gui/textmenuitem.icn: a library graded through its driver textmenuitem_driver, which is the entry gui/textmenuitem_driver
+gui/theme.icn: a library graded through its driver theme_driver, which is the entry gui/theme_driver
+gui/ticker.icn: a library graded through its driver ticker_driver, which is the entry gui/ticker_driver
+gui/toggle.icn: a library graded through its driver toggle_driver, which is the entry gui/toggle_driver
+gui/toggleiconbutton.icn: a library graded through its driver toggleiconbutton_driver, which is the entry gui/toggleiconbutton_driver
+gui/toggletextbutton.icn: a library graded through its driver toggletextbutton_driver, which is the entry gui/toggletextbutton_driver
+gui/toolbar.icn: a library graded through its driver toolbar_driver, which is the entry gui/toolbar_driver
+gui/tree.icn: a library graded through its driver tree_driver, which is the entry gui/tree_driver
+gui/treetable.icn: a library graded through its driver treetable_driver, which is the entry gui/treetable_driver
+gui/yesnodialog.icn: a library graded through its driver yesnodialog_driver, which is the entry gui/yesnodialog_driver
 ide/about.icn: LIBRARY: no procedure main
 ide/buffertabitem.icn: LIBRARY: no procedure main
 ide/buffertabset.icn: LIBRARY: no procedure main
