@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=315 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=18 chunks=4 sizes=100,100,100,10
+# shape: entries=326 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=19 chunks=4 sizes=100,100,100,21
 entry	part	cluster	shells
 gprogs/kaleid	chunk:04	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:02	dir:gui/guidemos	
@@ -22,14 +22,14 @@ gui/guidemos/secondtest	chunk:02	dir:gui/guidemos
 gui/guidemos/sieve	chunk:02	dir:gui/guidemos	
 gui/guidemos/sliders	chunk:02	dir:gui/guidemos	
 gui/guidemos/spinners	chunk:02	dir:gui/guidemos	
-gui/guidemos/tabletest	chunk:02	dir:gui/guidemos	
-gui/guidemos/tabs	chunk:02	dir:gui/guidemos	
-gui/guidemos/testdialog	chunk:02	dir:gui/guidemos	
-gui/guidemos/textsize	chunk:02	dir:gui/guidemos	
-gui/guidemos/texttest	chunk:02	dir:gui/guidemos	
-gui/guidemos/themedemo	chunk:02	dir:gui/guidemos	
-gui/guidemos/ticks	chunk:02	dir:gui/guidemos	
-gui/guidemos/toolbar	chunk:02	dir:gui/guidemos	
+gui/guidemos/tabletest	chunk:03	dir:gui/guidemos	
+gui/guidemos/tabs	chunk:03	dir:gui/guidemos	
+gui/guidemos/testdialog	chunk:03	dir:gui/guidemos	
+gui/guidemos/textsize	chunk:03	dir:gui/guidemos	
+gui/guidemos/texttest	chunk:03	dir:gui/guidemos	
+gui/guidemos/themedemo	chunk:03	dir:gui/guidemos	
+gui/guidemos/ticks	chunk:03	dir:gui/guidemos	
+gui/guidemos/toolbar	chunk:03	dir:gui/guidemos	
 ide/ivib/icon/xpmtoims	chunk:04	dir:ide/ivib/icon	
 ide/wu	core	core	want_rc
 lib/FxPt_driver	core	core	want_rc
@@ -160,13 +160,13 @@ xml/testpatterns	chunk:02	dir:xml
 xml/testxml	chunk:02	dir:xml	
 gui/guidemos/explorer	core	core	fixtures
 gui/guidemos/ttexplorer	core	core	fixtures
-unidep/filearg_driver	chunk:03	dir:unidep	
-unidep/fileargclass_driver	chunk:03	dir:unidep	
-unidep/symbolinfo_driver	chunk:03	dir:unidep	
-unidep/symboltable_driver	chunk:03	dir:unidep	
-unidep/util_driver	chunk:03	dir:unidep	
-unidoc/UniAll_driver	chunk:03	dir:unidoc	
-unidoc/UniFile_driver	chunk:03	dir:unidoc	
+unidep/filearg_driver	chunk:04	dir:unidep	
+unidep/fileargclass_driver	chunk:04	dir:unidep	
+unidep/symbolinfo_driver	chunk:04	dir:unidep	
+unidep/symboltable_driver	chunk:04	dir:unidep	
+unidep/util_driver	chunk:04	dir:unidep	
+unidoc/UniAll_driver	chunk:04	dir:unidoc	
+unidoc/UniFile_driver	chunk:04	dir:unidoc	
 unidoc/UniForm_driver	chunk:04	dir:unidoc	
 unidoc/UniHTML_driver	chunk:04	dir:unidoc	
 unidoc/UniToken_driver	chunk:04	dir:unidoc	
@@ -180,8 +180,8 @@ uscribe/node_driver	chunk:03	dir:uscribe
 uscribe/outputter_driver	chunk:03	dir:uscribe	
 uscribe/parser_driver	chunk:03	dir:uscribe	
 uscribe/scan_driver	chunk:03	dir:uscribe	
-ide/about_driver	chunk:02	dir:ide	
-ide/buffertabitem_driver	chunk:02	dir:ide	
+ide/about_driver	chunk:03	dir:ide	
+ide/buffertabitem_driver	chunk:03	dir:ide	
 ide/buffertabset_driver	chunk:03	dir:ide	
 ide/buffertextlist_driver	chunk:03	dir:ide	
 ide/classbrowser_driver	chunk:03	dir:ide	
@@ -256,11 +256,11 @@ uflex/test/k0tok_driver	chunk:03	dir:uflex/test
 uflex/test/punygram.tab_driver	chunk:03	dir:uflex/test	
 uflex/test/rustgram.tab_driver	chunk:03	dir:uflex/test	
 uflex/test/y_tab_driver	chunk:03	dir:uflex/test	
-uflex/tree_driver	chunk:03	dir:uflex	
-uflex/uflex-lex_driver	chunk:03	dir:uflex	
+uflex/tree_driver	chunk:04	dir:uflex	
+uflex/uflex-lex_driver	chunk:04	dir:uflex	
 uflex/uflexskel_driver	chunk:02	feat:want_rc	want_rc
 uflex/ulexskel_driver	chunk:02	feat:want_rc	want_rc
-uflex/ulpp_driver	chunk:03	dir:uflex	
+uflex/ulpp_driver	chunk:04	dir:uflex	
 udb/adapter_driver	chunk:03	dir:udb	
 udb/agent_driver	chunk:03	dir:udb	
 udb/breakpoint_driver	chunk:03	dir:udb	
@@ -317,3 +317,14 @@ cint/test4	chunk:02	feat:want_rc	want_rc
 unicon/grok	chunk:02	feat:want_rc	want_rc
 unicon/samp	chunk:02	feat:want_rc	want_rc
 unicon/tstfld	chunk:02	feat:want_rc	want_rc
+shell/dist/client	chunk:02	feat:want_rc	want_rc
+shell/dist/consumer	chunk:02	feat:want_rc	want_rc
+shell/dist/producer	chunk:02	feat:want_rc	want_rc
+shell/dist/queue_get	chunk:02	feat:want_rc	want_rc
+shell/dist/queue_put	chunk:02	feat:want_rc	want_rc
+shell/dist/s_file	chunk:02	feat:want_rc	want_rc
+shell/dist/s_file_consumer_test	chunk:02	feat:want_rc	want_rc
+shell/dist/service	chunk:02	feat:want_rc	want_rc
+shell/dist/shell	chunk:04	dir:shell/dist	
+shell/dist/t_cat	chunk:02	feat:want_rc	want_rc
+shell/dist/ush	chunk:02	feat:want_rc	want_rc

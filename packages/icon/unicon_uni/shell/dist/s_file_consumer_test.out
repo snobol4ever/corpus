@@ -1,0 +1,2 @@
+argv[3] is null
+usage: s_file_consumer_test [-t] service filename filemode additional_arguments

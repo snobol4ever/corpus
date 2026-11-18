@@ -1,0 +1,1 @@
+usage: t_cat [-t] <infile>{1:N} <outfile>

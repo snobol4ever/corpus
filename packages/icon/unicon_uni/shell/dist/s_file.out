@@ -1,0 +1,2 @@
+filemode is null
+usage: s_file [-t] filename filemode <additional_arguments>

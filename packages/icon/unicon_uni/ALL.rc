@@ -34,3 +34,13 @@ cint/test4	1
 unicon/grok	1
 unicon/samp	1
 unicon/tstfld	1
+shell/dist/client	1
+shell/dist/consumer	1
+shell/dist/producer	1
+shell/dist/queue_get	1
+shell/dist/queue_put	1
+shell/dist/s_file	1
+shell/dist/s_file_consumer_test	1
+shell/dist/service	1
+shell/dist/t_cat	1
+shell/dist/ush	1
