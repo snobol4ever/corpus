@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=208 features=65 ubiquitous=7(package write procedure alternation to_by assign keyword_ref) distinctive=58 core=26 clusters=51 chunks=2 sizes=100,82
+# shape: entries=209 features=65 ubiquitous=7(package write procedure alternation to_by assign keyword_ref) distinctive=58 core=22 clusters=53 chunks=2 sizes=100,87
 entry	part	cluster	shells
 coexpr/co	chunk:01	feat:create	coexpr_activate create global image limitation
 coexpr/cobench	chunk:01	feat:create	aug_assign coexpr_activate create element_gen every gen_with_alternation local stop while writes
@@ -15,7 +15,7 @@ general/checkfpx	chunk:02	feat:trim	aug_assign every gen_with_alternation image 
 general/checkx	chunk:01	feat:every_with_suspend	coexpr_activate element_gen every every_with_suspend fail gen_with_alternation image integer limitation list record repl return section suspend table want_rc
 general/ck	chunk:01	feat:type	aug_assign image integer local move return scan scan_with_tab tab type upto
 general/coexpr	chunk:01	feat:every_with_suspend	coexpr_activate create element_gen every every_with_suspend gen_with_alternation image record return sort stop suspend table while
-general/collate	core	core	element_gen every every_with_suspend image insert local map repl return section set sort static suspend
+general/collate	chunk:02	feat:map	element_gen every every_with_suspend image insert local map repl return section set sort static suspend
 general/concord	chunk:02	feat:get	aug_assign get insert local many map next read section set sort table upto while
 general/diffwrds	chunk:02	feat:insert	element_gen every insert many read scan scan_with_tab set sort tab upto while
 general/endetab	core	core	aug_assign case element_gen every gen_with_alternation image integer limitation local many map move pos put read return scan scan_with_tab section stop tab upto while writes
@@ -30,14 +30,14 @@ general/ilib	core	core	aug_assign break element_gen every gen_with_alternation g
 general/kross	chunk:02	feat:upto	every local read upto while
 general/large	chunk:01	feat:image	every gen_with_alternation image stop
 general/meander	chunk:01	feat:find	aug_assign find integer local move read repl return scan scan_with_tab stop tab upto while
-general/mega	core	core	element_gen every find gen_with_alternation global integer limitation local move pos return scan scan_with_tab section seq stop tab until while writes
+general/mega	chunk:02	feat:seq	element_gen every find gen_with_alternation global integer limitation local move pos return scan scan_with_tab section seq stop tab until while writes
 general/mffsol	core	core	any aug_assign element_gen every gen_with_alternation global integer many move put read repeat return scan scan_with_tab stop tab table until upto while writes
 general/mindfa	chunk:02	feat:get	aug_assign element_gen every fail gen_with_alternation get global limitation local next put read record return scan section sort table while writes
 general/numeric	chunk:02	feat:record	every gen_with_alternation image integer limitation record
 general/others	core	core	aug_assign delete element_gen every fail find gen_with_alternation image insert integer local many member move read return scan scan_with_tab section set sort static stop tab table upto while
 general/over	chunk:01	feat:aug_assign	aug_assign stop
 general/overflow	chunk:01	feat:image	image local
-general/pdco	core	core	aug_assign break case coexpr_activate element_gen every every_with_suspend fail gen_with_alternation image limitation list local repeat return scan section stop suspend while
+general/pdco	chunk:02	feat:repeat	aug_assign break case coexpr_activate element_gen every every_with_suspend fail gen_with_alternation image limitation list local repeat return scan section stop suspend while
 general/prefix	chunk:02	feat:bal	bal every gen_with_alternation limitation local move pos read return scan scan_with_tab tab while
 general/prepro	chunk:02	feat:record	limitation record
 general/recent	core	core	case delete element_gen every fail gen_with_alternation get global image insert limitation list local member put read reads record return set sort stop table type while writes
@@ -144,10 +144,10 @@ special/audio	chunk:01	feat:want_rc	image stop want_rc
 thread/channel	chunk:02	feat:until	aug_assign coexpr_activate create every gen_with_alternation stop until
 thread/critter	chunk:02	feat:push	aug_assign break element_gen every every_with_suspend fail global limitation local next push put repeat return stop suspend table type
 thread/error	chunk:01	feat:want_rc	element_gen every put stop want_rc
-thread/gc	core	core	aug_assign create element_gen every gen_with_alternation global insert integer local move put scan scan_with_tab set static stop tab table upto writes
+thread/gc	chunk:02	feat:insert	aug_assign create element_gen every gen_with_alternation global insert integer local move put scan scan_with_tab set static stop tab table upto writes
 thread/hellothr	chunk:01	feat:coexpr_activate	coexpr_activate stop
 thread/mutexfun	chunk:01	feat:type	image integer local return stop type writes
-thread/queue	core	core	aug_assign every global limitation pop put stop while writes
+thread/queue	chunk:02	feat:pop	aug_assign every global limitation pop put stop while writes
 thread/rantest	chunk:01	feat:static	aug_assign coexpr_activate element_gen every gen_with_alternation global integer put static stop
 thread/sharelist	chunk:02	feat:put	element_gen every global limitation put scan stop
 thread/stress	chunk:02	feat:list	aug_assign element_gen every gen_with_alternation global integer limitation list local put return static stop table
@@ -170,13 +170,13 @@ crypto/badkey	chunk:01	dir:crypto
 crypto/badrole	chunk:01	dir:crypto	
 crypto/badverify	chunk:01	dir:crypto	
 crypto/dtls	chunk:01	dir:crypto	
-crypto/dtlsecho	chunk:01	dir:crypto	
+crypto/dtlsecho	core	core	fixtures
 crypto/encrypt	chunk:01	dir:crypto	
 crypto/filecrypt	chunk:01	dir:crypto	
 crypto/filehash	core	core	fixtures
 crypto/filekey	chunk:01	dir:crypto	
 crypto/filekeyattr	core	core	fixtures
-crypto/filetamper	core	core	fixtures
+crypto/filetamper	chunk:01	feat:fixtures	fixtures
 crypto/freshiv	chunk:01	dir:crypto	
 crypto/hash	chunk:01	dir:crypto	
 crypto/hmac	chunk:01	dir:crypto	
@@ -210,3 +210,4 @@ general/proto	core	core	aug_assign break case coexpr_activate create element_gen
 ipl/tbold	chunk:01	feat:read	read while
 pattern/pclass	chunk:02	feat:scan	scan
 udb/printme	chunk:02	feat:set	create global record return scan set table
+graphics/gpxtest	core	core	any aug_assign break case coexpr_activate create delete element_gen every every_with_suspend fail find gen_with_alternation get global image insert integer limitation list local many map member move next pop pos push put read reads record repeat return scan scan_with_tab section seq set sort static stop suspend swap tab table type until upto while writes

@@ -35,3 +35,4 @@ uni_lib/crypto.icn	same-code	/home/packages/icon/unicon/uni/lib/crypto.icn (unic
 general/cfuncs.icn	same-code	/home/packages/icon/unicon/tests/general/cfuncs.icn (unicon d784f58), 7 semicolons, unicon -c ucode of the original and the converted text equal
 special/monitor.icn	same-code	/home/packages/icon/unicon/tests/special/monitor.icn (unicon d784f58), 4 semicolons
 general/proto.icn	same-code	/home/packages/icon/unicon/tests/general/proto.icn (unicon d784f58), 130 semicolons
+graphics/gpxtest.icn	same-code	/home/packages/icon/unicon/tests/graphics/gpxtest.icn (unicon d784f58), 3364 semicolons; the seed line `local x, y; &random := 12345;` of main is the one changed line, made after the proof (developer_04 2026-11-18)
