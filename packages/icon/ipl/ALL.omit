@@ -564,7 +564,6 @@ progs/iundecl: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/krieg: no krieg.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/lister: no lister.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/listviz: no listviz.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
-progs/midisig: stdin midisig.dat is not valid UTF-8 (binary or 8-bit data) -- the container's stdin cell is text, so it would not be byte-identical to the file the ref was cut from (the same rule as a non-UTF-8 source)
 progs/missile: no missile.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 progs/mr: oracle produced EMPTY output when run bare, but a same-stem .dat companion exists -- likely needs it as argv[1] (JCON addtest convention), and this builder has no argv-passing mechanism (ALL.in is stdin-only); needs an ALL.args extension or grading via the package's own dedicated runner, not a fact about the program's real output
 progs/newicon: oracle timed out -- non-terminating or too slow for the grading timeout

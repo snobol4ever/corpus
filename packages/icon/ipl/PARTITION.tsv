@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=621 features=65 ubiquitous=10(package write every procedure local alternation to_by assign keyword_ref gen_with_alternation) distinctive=55 core=17 clusters=54 chunks=7 sizes=60,64,62,97,144,157,20
+# shape: entries=622 features=65 ubiquitous=10(package write every procedure local alternation to_by assign keyword_ref gen_with_alternation) distinctive=55 core=17 clusters=54 chunks=7 sizes=60,64,62,97,145,157,20
 entry	part	cluster	shells
 gprocs/autopost_driver	chunk:01	feat:type	image read stop type
 gprocs/barchart_driver	chunk:05	feat:list	aug_assign element_gen image list
@@ -608,6 +608,7 @@ progs/lcfile	chunk:06	feat:map	map read while
 progs/lineseq	chunk:02	feat:writes	limitation writes
 progs/longest	chunk:06	feat:aug_assign	aug_assign limitation
 progs/mapcolrs	chunk:04	feat:fixtures	aug_assign fixtures put read sort stop table while
+progs/midisig	chunk:05	feat:reads	aug_assign break case fail get image limitation move next put reads return scan stop table while
 progs/mszip	chunk:05	feat:reads	aug_assign coexpr_activate create element_gen fail fixtures get global integer limitation many move pos put read reads return scan scan_with_tab section sort static stop tab table upto while
 progs/mtf3	core	core	any aug_assign break case element_gen every_with_suspend fail find fixtures global insert integer limitation list many match member move next pop pos put read reads record repeat repl return scan scan_with_tab section set sort static stop suspend tab table trim until upto while writes
 progs/newsrc	chunk:04	feat:fixtures	aug_assign create element_gen find fixtures integer put read return scan scan_with_tab sort stop tab while writes
