@@ -85,7 +85,7 @@ def pair_files(kind, defs, use):
             files[n + ".md"] = md
             files[n + ".ipynb"] = json.dumps(notebook(cells), indent=1) + "\n"
             files[n + ".out"] = REF[kind]
-            rows.append("%d,%s,%s.md,tests__scriptix_%s/%s,scriptix-%s,%d,0,131072,4096,120,,,kernel-road"
+            rows.append("%d,%s,%s.md,tests__scriptix_%s/%s,scriptix-%s,%d,0,131072,4096,120,,,"
                         % (len(rows) + 1, n, n, kind, n, kind, md.count("\n")))
     files["ALL.csv"] = "rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,fixtures,grader\n" + "\n".join(rows) + "\n"
     return files
