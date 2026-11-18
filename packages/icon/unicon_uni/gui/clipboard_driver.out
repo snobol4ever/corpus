@@ -1,0 +1,2 @@
+class Clipboard procedure gui__Clipboard 1
+procedure get_clipboard procedure gui__get_clipboard 0

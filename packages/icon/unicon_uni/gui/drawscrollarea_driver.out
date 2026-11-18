@@ -1,0 +1,2 @@
+class DrawScrollAreaView procedure gui__DrawScrollAreaView 30
+class DrawScrollArea procedure gui__DrawScrollArea 35

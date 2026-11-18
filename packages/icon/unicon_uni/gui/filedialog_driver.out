@@ -1,0 +1,4 @@
+class FileDialog procedure gui__FileDialog -1
+procedure get_directory_list procedure gui__get_directory_list 2
+procedure directory_name procedure gui__directory_name 1
+procedure file_name procedure gui__file_name 1

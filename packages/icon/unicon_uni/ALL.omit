@@ -26,42 +26,42 @@
 3d/xparse.icn: LIBRARY: no procedure main
 gprogs/abook.icn: ORACLE-REFUSES: unicon does not translate it: abook.icn:51: # "global" Unable to import (1) package "guiwidgets"
 gprogs/qmazer.icn: NEEDS-DISPLAY: the source names &window
-gui/addressgui.icn: LIBRARY: no procedure main
-gui/border.icn: LIBRARY: no procedure main
-gui/button.icn: LIBRARY: no procedure main
-gui/buttongroup.icn: LIBRARY: no procedure main
-gui/checkbox.icn: LIBRARY: no procedure main
-gui/checkboxgroup.icn: LIBRARY: no procedure main
-gui/checkboxmenuitem.icn: LIBRARY: no procedure main
-gui/circulate.icn: LIBRARY: no procedure main
-gui/clipboard.icn: LIBRARY: no procedure main
-gui/component.icn: LIBRARY: no procedure main
-gui/componentscrollarea.icn: LIBRARY: no procedure main
-gui/dialog.icn: LIBRARY: no procedure main
-gui/dispatcher.icn: LIBRARY: no procedure main
-gui/displayscrollarea.icn: LIBRARY: no procedure main
-gui/drag.icn: LIBRARY: no procedure main
-gui/drawscrollarea.icn: LIBRARY: no procedure main
-gui/dropdown.icn: LIBRARY: no procedure main
-gui/editabletextlist.icn: LIBRARY: no procedure main
-gui/editlist.icn: LIBRARY: no procedure main
-gui/editspin.icn: LIBRARY: no procedure main
-gui/filedialog.icn: LIBRARY: no procedure main
-gui/font_dlg.icn: LIBRARY: no procedure main
-gui/gui_utils.icn: LIBRARY: no procedure main
+gui/addressgui.icn: a library graded through its driver addressgui_driver, which is the entry gui/addressgui_driver
+gui/border.icn: a library graded through its driver border_driver, which is the entry gui/border_driver
+gui/button.icn: a library graded through its driver button_driver, which is the entry gui/button_driver
+gui/buttongroup.icn: a library graded through its driver buttongroup_driver, which is the entry gui/buttongroup_driver
+gui/checkbox.icn: a library graded through its driver checkbox_driver, which is the entry gui/checkbox_driver
+gui/checkboxgroup.icn: a library graded through its driver checkboxgroup_driver, which is the entry gui/checkboxgroup_driver
+gui/checkboxmenuitem.icn: a library graded through its driver checkboxmenuitem_driver, which is the entry gui/checkboxmenuitem_driver
+gui/circulate.icn: a library graded through its driver circulate_driver, which is the entry gui/circulate_driver
+gui/clipboard.icn: a library graded through its driver clipboard_driver, which is the entry gui/clipboard_driver
+gui/component.icn: a library graded through its driver component_driver, which is the entry gui/component_driver
+gui/componentscrollarea.icn: a library graded through its driver componentscrollarea_driver, which is the entry gui/componentscrollarea_driver
+gui/dialog.icn: a library graded through its driver dialog_driver, which is the entry gui/dialog_driver
+gui/dispatcher.icn: a library graded through its driver dispatcher_driver, which is the entry gui/dispatcher_driver
+gui/displayscrollarea.icn: a library graded through its driver displayscrollarea_driver, which is the entry gui/displayscrollarea_driver
+gui/drag.icn: a library graded through its driver drag_driver, which is the entry gui/drag_driver
+gui/drawscrollarea.icn: a library graded through its driver drawscrollarea_driver, which is the entry gui/drawscrollarea_driver
+gui/dropdown.icn: a library graded through its driver dropdown_driver, which is the entry gui/dropdown_driver
+gui/editabletextlist.icn: a library graded through its driver editabletextlist_driver, which is the entry gui/editabletextlist_driver
+gui/editlist.icn: a library graded through its driver editlist_driver, which is the entry gui/editlist_driver
+gui/editspin.icn: a library graded through its driver editspin_driver, which is the entry gui/editspin_driver
+gui/filedialog.icn: a library graded through its driver filedialog_driver, which is the entry gui/filedialog_driver
+gui/font_dlg.icn: a library graded through its driver font_dlg_driver, which is the entry gui/font_dlg_driver
+gui/gui_utils.icn: a library graded through its driver gui_utils_driver, which is the entry gui/gui_utils_driver
 gui/guidemos/empty.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/filedialogtest.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/multi.icn: NEEDS-DISPLAY: the source names import gui
 gui/guidemos/redundant.icn: LIBRARY: no procedure main
 gui/guidemos/tickdemo.icn: NEEDS-DISPLAY: the source names import gui
-gui/guih.icn: LIBRARY: no procedure main
-gui/guiprocs.icn: LIBRARY: no procedure main
-gui/icon.icn: LIBRARY: no procedure main
-gui/iconbutton.icn: LIBRARY: no procedure main
-gui/image.icn: LIBRARY: no procedure main
-gui/label.icn: LIBRARY: no procedure main
+gui/guih.icn: a library graded through its driver guih_driver, which is the entry gui/guih_driver
+gui/guiprocs.icn: a library graded through its driver guiprocs_driver, which is the entry gui/guiprocs_driver
+gui/icon.icn: a library graded through its driver icon_driver, which is the entry gui/icon_driver
+gui/iconbutton.icn: a library graded through its driver iconbutton_driver, which is the entry gui/iconbutton_driver
+gui/image.icn: a library graded through its driver image_driver, which is the entry gui/image_driver
+gui/label.icn: a library graded through its driver label_driver, which is the entry gui/label_driver
 gui/line.icn: LIBRARY: no procedure main
-gui/linebasedscrollarea.icn: LIBRARY: no procedure main
+gui/linebasedscrollarea.icn: a library graded through its driver linebasedscrollarea_driver, which is the entry gui/linebasedscrollarea_driver
 gui/list.icn: LIBRARY: no procedure main
 gui/listspin.icn: LIBRARY: no procedure main
 gui/logindialog.icn: LIBRARY: no procedure main

@@ -1,0 +1,4 @@
+record displayAreaSize record constructor guiwidgets__displayAreaSize 2
+procedure textAreaSize procedure guiwidgets__textAreaSize 2
+procedure forceAreaSize procedure guiwidgets__forceAreaSize 3
+class Gui procedure guiwidgets__Gui 0

@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=363 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=20 chunks=4 sizes=100,100,100,57
+# shape: entries=393 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=21 chunks=4 sizes=100,100,100,87
 entry	part	cluster	shells
 gprogs/kaleid	chunk:04	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:03	dir:gui/guidemos	
@@ -230,19 +230,19 @@ xml/xmldocument_driver	chunk:02	dir:xml
 xml/xmlelement_driver	chunk:02	dir:xml	
 xml/xmlformatter_driver	chunk:02	dir:xml	
 xml/xmlparser_driver	chunk:02	dir:xml	
-parser/classinfo_driver	chunk:03	dir:parser	
-parser/databaseinfo_driver	chunk:03	dir:parser	
-parser/packageinfo_driver	chunk:03	dir:parser	
-parser/parsedclass_driver	chunk:03	dir:parser	
-parser/parsedfunction_driver	chunk:03	dir:parser	
-parser/parsedinitiallymethod_driver	chunk:03	dir:parser	
-parser/parsedmethod_driver	chunk:03	dir:parser	
-parser/parsedobject_driver	chunk:03	dir:parser	
-parser/parsedprocedure_driver	chunk:03	dir:parser	
-parser/parsedprogram_driver	chunk:03	dir:parser	
-parser/parsedrecord_driver	chunk:03	dir:parser	
-parser/parser_driver	chunk:03	dir:parser	
-parser/preproce_driver	chunk:03	dir:parser	
+parser/classinfo_driver	chunk:04	dir:parser	
+parser/databaseinfo_driver	chunk:04	dir:parser	
+parser/packageinfo_driver	chunk:04	dir:parser	
+parser/parsedclass_driver	chunk:04	dir:parser	
+parser/parsedfunction_driver	chunk:04	dir:parser	
+parser/parsedinitiallymethod_driver	chunk:04	dir:parser	
+parser/parsedmethod_driver	chunk:04	dir:parser	
+parser/parsedobject_driver	chunk:04	dir:parser	
+parser/parsedprocedure_driver	chunk:04	dir:parser	
+parser/parsedprogram_driver	chunk:04	dir:parser	
+parser/parsedrecord_driver	chunk:04	dir:parser	
+parser/parser_driver	chunk:04	dir:parser	
+parser/preproce_driver	chunk:04	dir:parser	
 parser/unigram_driver	chunk:04	dir:parser	
 parser/unilex_driver	chunk:04	dir:parser	
 parser/ytab_h_driver	chunk:04	dir:parser	
@@ -265,14 +265,14 @@ udb/adapter_driver	chunk:03	dir:udb
 udb/agent_driver	chunk:03	dir:udb	
 udb/breakpoint_driver	chunk:03	dir:udb	
 udb/coexp_driver	chunk:03	dir:udb	
-udb/console_driver	chunk:03	dir:udb	
-udb/dap_message_driver	chunk:03	dir:udb	
-udb/defaults_driver	chunk:03	dir:udb	
-udb/evaluator_driver	chunk:03	dir:udb	
-udb/externals_driver	chunk:03	dir:udb	
-udb/help_driver	chunk:03	dir:udb	
-udb/icode_driver	chunk:03	dir:udb	
-udb/internals_driver	chunk:03	dir:udb	
+udb/console_driver	chunk:04	dir:udb	
+udb/dap_message_driver	chunk:04	dir:udb	
+udb/defaults_driver	chunk:04	dir:udb	
+udb/evaluator_driver	chunk:04	dir:udb	
+udb/externals_driver	chunk:04	dir:udb	
+udb/help_driver	chunk:04	dir:udb	
+udb/icode_driver	chunk:04	dir:udb	
+udb/internals_driver	chunk:04	dir:udb	
 udb/lib/counter_deref_driver	chunk:02	feat:want_rc	want_rc
 udb/lib/counter_line_driver	chunk:02	feat:want_rc	want_rc
 udb/lib/counter_pcall_driver	chunk:02	feat:want_rc	want_rc
@@ -289,15 +289,15 @@ udb/lib/structaliases_driver	chunk:02	feat:want_rc	want_rc
 udb/lib/structusage_driver	chunk:02	feat:want_rc	want_rc
 udb/lib/typechange_driver	chunk:02	feat:want_rc	want_rc
 udb/lib/varprofile_driver	chunk:02	feat:want_rc	want_rc
-udb/session_driver	chunk:03	dir:udb	
-udb/srcfile_driver	chunk:03	dir:udb	
-udb/stack_driver	chunk:03	dir:udb	
-udb/state_driver	chunk:03	dir:udb	
-udb/stepping_driver	chunk:03	dir:udb	
-udb/symtab_driver	chunk:03	dir:udb	
-udb/system_driver	chunk:03	dir:udb	
-udb/trace_driver	chunk:03	dir:udb	
-udb/watchpoint_driver	chunk:03	dir:udb	
+udb/session_driver	chunk:04	dir:udb	
+udb/srcfile_driver	chunk:04	dir:udb	
+udb/stack_driver	chunk:04	dir:udb	
+udb/state_driver	chunk:04	dir:udb	
+udb/stepping_driver	chunk:04	dir:udb	
+udb/symtab_driver	chunk:04	dir:udb	
+udb/system_driver	chunk:04	dir:udb	
+udb/trace_driver	chunk:04	dir:udb	
+udb/watchpoint_driver	chunk:04	dir:udb	
 lib/pqueue_driver	chunk:01	dir:lib	
 lib/predicat_driver	chunk:01	dir:lib	
 lib/qsort_driver	chunk:01	dir:lib	
@@ -327,19 +327,19 @@ shell/dist/s_file_consumer_test	chunk:02	feat:want_rc	want_rc
 shell/dist/service	chunk:02	feat:want_rc	want_rc
 shell/dist/shell	chunk:04	dir:shell/dist	
 shell/dist/t_cat	chunk:02	feat:want_rc	want_rc
-ide/ivib/attribtab_driver	chunk:02	dir:ide/ivib	
-ide/ivib/basiccanvascomponentui_driver	chunk:02	dir:ide/ivib	
-ide/ivib/buttongroupset_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvas_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvasborder_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvasborderdialog_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvasborderui_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvasbutton_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvasbuttondialog_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvasbuttongroup_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascheckbox_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascheckboxdialog_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascheckboxgroup_driver	chunk:02	dir:ide/ivib	
+ide/ivib/attribtab_driver	chunk:03	dir:ide/ivib	
+ide/ivib/basiccanvascomponentui_driver	chunk:03	dir:ide/ivib	
+ide/ivib/buttongroupset_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvas_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvasborder_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvasborderdialog_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvasborderui_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvasbutton_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvasbuttondialog_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvasbuttongroup_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascheckbox_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascheckboxdialog_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascheckboxgroup_driver	chunk:03	dir:ide/ivib	
 ide/ivib/canvascheckboxmenuedit_driver	chunk:03	dir:ide/ivib	
 ide/ivib/canvascheckboxmenuitem_driver	chunk:03	dir:ide/ivib	
 ide/ivib/canvascheckboxui_driver	chunk:03	dir:ide/ivib	
@@ -365,3 +365,33 @@ xml/htmlelement_driver	chunk:02	dir:xml
 xml/htmlformatter_driver	chunk:02	dir:xml	
 xml/htmlparser_driver	chunk:02	dir:xml	
 xml/webscraper_driver	chunk:02	dir:xml	
+gui/addressgui_driver	chunk:02	dir:gui	
+gui/border_driver	chunk:02	dir:gui	
+gui/button_driver	chunk:02	dir:gui	
+gui/buttongroup_driver	chunk:02	dir:gui	
+gui/checkbox_driver	chunk:02	dir:gui	
+gui/checkboxgroup_driver	chunk:02	dir:gui	
+gui/checkboxmenuitem_driver	chunk:02	dir:gui	
+gui/circulate_driver	chunk:02	dir:gui	
+gui/clipboard_driver	chunk:02	dir:gui	
+gui/component_driver	chunk:02	dir:gui	
+gui/componentscrollarea_driver	chunk:02	dir:gui	
+gui/dialog_driver	chunk:02	dir:gui	
+gui/dispatcher_driver	chunk:02	dir:gui	
+gui/displayscrollarea_driver	chunk:03	dir:gui	
+gui/drag_driver	chunk:03	dir:gui	
+gui/drawscrollarea_driver	chunk:03	dir:gui	
+gui/dropdown_driver	chunk:03	dir:gui	
+gui/editabletextlist_driver	chunk:03	dir:gui	
+gui/editlist_driver	chunk:03	dir:gui	
+gui/editspin_driver	chunk:03	dir:gui	
+gui/filedialog_driver	chunk:03	dir:gui	
+gui/font_dlg_driver	chunk:03	dir:gui	
+gui/guih_driver	chunk:03	dir:gui	
+gui/guiprocs_driver	chunk:03	dir:gui	
+gui/gui_utils_driver	chunk:03	dir:gui	
+gui/iconbutton_driver	chunk:03	dir:gui	
+gui/icon_driver	chunk:03	dir:gui	
+gui/image_driver	chunk:03	dir:gui	
+gui/label_driver	chunk:03	dir:gui	
+gui/linebasedscrollarea_driver	chunk:03	dir:gui	
