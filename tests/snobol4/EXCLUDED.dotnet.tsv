@@ -1,0 +1,6 @@
+# EXCLUDED.dotnet.tsv -- tests/snobol4 (the SNOBOL4 rungs master): the entries that leave snobol4dotnet's denominator ALONE, read by util_score_row.py only for a key
+# @dotnet (R-1864 (4); harness 173f6715 reads a master's engine list). SCRIP's rows and the jvm engine's never read it. Class LON_UNICODE_BY_DESIGN (R-1859, Lon,
+# verbatim: "Continue having snobol4dotnet support Unicode as designed."): an entry whose one difference from sbl -bf is bytes against characters, its evidence the
+# measured difference (seat dotnet 2026-11-17).
+test_coverage_sno_nodes	LON_UNICODE_BY_DESIGN	measured 2026-11-17 on snobol4dotnet 2241973 against the ref (sbl -bf): line 6 prints &ALPHABET, whose upper 128 characters sbl writes one byte each and the ref holds as U+FFFD each (501 bytes, a ref being read as output is, UTF-8 with replacement), while snobol4dotnet writes the characters U+0080 to U+00FF as two-byte UTF-8 (373 bytes); every other line equal under the master's masks
+scrip_test_coverage_sno_nodes	LON_UNICODE_BY_DESIGN	measured 2026-11-17 on snobol4dotnet 2241973 against the ref (sbl -bf): the same program as test_coverage_sno_nodes and the same one difference, line 6's &ALPHABET, bytes under sbl and two-byte UTF-8 characters under snobol4dotnet; every other line equal under the master's masks
