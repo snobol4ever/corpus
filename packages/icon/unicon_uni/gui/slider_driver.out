@@ -1,0 +1,2 @@
+class SliderArea procedure gui__SliderArea 38
+class Slider procedure gui__Slider -1

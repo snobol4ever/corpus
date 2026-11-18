@@ -1,0 +1,2 @@
+procedure PrintDialog procedure gui__PrintDialog 0
+class pdialog procedure gui__pdialog 85

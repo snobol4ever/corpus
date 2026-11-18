@@ -60,38 +60,38 @@ gui/icon.icn: a library graded through its driver icon_driver, which is the entr
 gui/iconbutton.icn: a library graded through its driver iconbutton_driver, which is the entry gui/iconbutton_driver
 gui/image.icn: a library graded through its driver image_driver, which is the entry gui/image_driver
 gui/label.icn: a library graded through its driver label_driver, which is the entry gui/label_driver
-gui/line.icn: LIBRARY: no procedure main
+gui/line.icn: a library graded through its driver line_driver, which is the entry gui/line_driver
 gui/linebasedscrollarea.icn: a library graded through its driver linebasedscrollarea_driver, which is the entry gui/linebasedscrollarea_driver
-gui/list.icn: LIBRARY: no procedure main
-gui/listspin.icn: LIBRARY: no procedure main
-gui/logindialog.icn: LIBRARY: no procedure main
-gui/menu.icn: LIBRARY: no procedure main
-gui/menubar.icn: LIBRARY: no procedure main
-gui/menubutton.icn: LIBRARY: no procedure main
-gui/menucomponent.icn: LIBRARY: no procedure main
-gui/menuseparator.icn: LIBRARY: no procedure main
-gui/messagebox.icn: LIBRARY: no procedure main
-gui/migration.icn: LIBRARY: no procedure main
-gui/node.icn: LIBRARY: no procedure main
-gui/overlayitem.icn: LIBRARY: no procedure main
-gui/overlayset.icn: LIBRARY: no procedure main
-gui/panel.icn: LIBRARY: no procedure main
-gui/popupmenu.icn: LIBRARY: no procedure main
-gui/printdlg.icn: LIBRARY: no procedure main
-gui/progressbar.icn: LIBRARY: no procedure main
-gui/rangespin.icn: LIBRARY: no procedure main
-gui/scrollarea.icn: LIBRARY: no procedure main
-gui/scrollbar.icn: LIBRARY: no procedure main
-gui/selectablescrollarea.icn: LIBRARY: no procedure main
-gui/sizer.icn: LIBRARY: no procedure main
-gui/slider.icn: LIBRARY: no procedure main
-gui/spin.icn: LIBRARY: no procedure main
-gui/staticspin.icn: LIBRARY: no procedure main
-gui/stddlg.icn: LIBRARY: no procedure main
-gui/submenu.icn: LIBRARY: no procedure main
-gui/tabitem.icn: LIBRARY: no procedure main
+gui/list.icn: a library graded through its driver list_driver, which is the entry gui/list_driver
+gui/listspin.icn: a library graded through its driver listspin_driver, which is the entry gui/listspin_driver
+gui/logindialog.icn: a library graded through its driver logindialog_driver, which is the entry gui/logindialog_driver
+gui/menu.icn: a library graded through its driver menu_driver, which is the entry gui/menu_driver
+gui/menubar.icn: a library graded through its driver menubar_driver, which is the entry gui/menubar_driver
+gui/menubutton.icn: a library graded through its driver menubutton_driver, which is the entry gui/menubutton_driver
+gui/menucomponent.icn: a library graded through its driver menucomponent_driver, which is the entry gui/menucomponent_driver
+gui/menuseparator.icn: a library graded through its driver menuseparator_driver, which is the entry gui/menuseparator_driver
+gui/messagebox.icn: a library graded through its driver messagebox_driver, which is the entry gui/messagebox_driver
+gui/migration.icn: a library graded through its driver migration_driver, which is the entry gui/migration_driver
+gui/node.icn: a library graded through its driver node_driver, which is the entry gui/node_driver
+gui/overlayitem.icn: a library graded through its driver overlayitem_driver, which is the entry gui/overlayitem_driver
+gui/overlayset.icn: a library graded through its driver overlayset_driver, which is the entry gui/overlayset_driver
+gui/panel.icn: a library graded through its driver panel_driver, which is the entry gui/panel_driver
+gui/popupmenu.icn: a library graded through its driver popupmenu_driver, which is the entry gui/popupmenu_driver
+gui/printdlg.icn: a library graded through its driver printdlg_driver, which is the entry gui/printdlg_driver
+gui/progressbar.icn: a library graded through its driver progressbar_driver, which is the entry gui/progressbar_driver
+gui/rangespin.icn: a library graded through its driver rangespin_driver, which is the entry gui/rangespin_driver
+gui/scrollarea.icn: a library graded through its driver scrollarea_driver, which is the entry gui/scrollarea_driver
+gui/scrollbar.icn: a library graded through its driver scrollbar_driver, which is the entry gui/scrollbar_driver
+gui/selectablescrollarea.icn: a library graded through its driver selectablescrollarea_driver, which is the entry gui/selectablescrollarea_driver
+gui/sizer.icn: a library graded through its driver sizer_driver, which is the entry gui/sizer_driver
+gui/slider.icn: a library graded through its driver slider_driver, which is the entry gui/slider_driver
+gui/spin.icn: a library graded through its driver spin_driver, which is the entry gui/spin_driver
+gui/staticspin.icn: a library graded through its driver staticspin_driver, which is the entry gui/staticspin_driver
+gui/stddlg.icn: a library graded through its driver stddlg_driver, which is the entry gui/stddlg_driver
+gui/submenu.icn: a library graded through its driver submenu_driver, which is the entry gui/submenu_driver
+gui/tabitem.icn: a library graded through its driver tabitem_driver, which is the entry gui/tabitem_driver
 gui/table.icn: LIBRARY: no procedure main
-gui/tablecolumn.icn: LIBRARY: no procedure main
+gui/tablecolumn.icn: a library graded through its driver tablecolumn_driver, which is the entry gui/tablecolumn_driver
 gui/tabset.icn: LIBRARY: no procedure main
 gui/textbutton.icn: LIBRARY: no procedure main
 gui/textdisplay.icn: LIBRARY: no procedure main

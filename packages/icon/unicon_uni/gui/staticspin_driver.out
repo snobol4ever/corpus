@@ -1,0 +1,2 @@
+class SpinLabel procedure gui__SpinLabel 35
+class StaticSpin procedure gui__StaticSpin 0

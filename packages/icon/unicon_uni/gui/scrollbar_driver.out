@@ -1,0 +1,2 @@
+class BarArea procedure gui__BarArea 34
+class ScrollBar procedure gui__ScrollBar -1

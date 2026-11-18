@@ -1,0 +1,11 @@
+class sdialog procedure gui__sdialog 6
+procedure SelectDialog procedure gui__SelectDialog 6
+class tdialog procedure gui__tdialog 6
+procedure ToggleDialog procedure gui__ToggleDialog 6
+class vdialog procedure gui__vdialog 5
+procedure TextDialog procedure gui__TextDialog 7
+procedure Notice procedure gui__Notice -1
+class ColourRectangle procedure gui__ColourRectangle 33
+class cdialog procedure gui__cdialog 4
+procedure ColorDialog procedure gui__ColorDialog 5
+procedure FontDialog procedure gui__FontDialog 2
