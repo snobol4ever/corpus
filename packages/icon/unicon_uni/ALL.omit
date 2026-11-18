@@ -268,7 +268,7 @@ ide/uproject.icn: LIBRARY: no procedure main
 ide/utags.icn: NEEDS-DISPLAY: the source names import gui
 ide/verifymake.icn: LIBRARY: no procedure main
 lib/FxPt.icn: LIBRARY: no procedure main
-lib/_button.icn: LIBRARY: no procedure main
+lib/_button.icn: LIBRARY: no procedure main; graded through its driver lib/_button_driver.icn
 lib/_image.icn: LIBRARY: no procedure main
 lib/_list.icn: LIBRARY: no procedure main
 lib/_menu.icn: LIBRARY: no procedure main
@@ -277,37 +277,37 @@ lib/_panel.icn: LIBRARY: no procedure main
 lib/_table.icn: LIBRARY: no procedure main
 lib/_ticker.icn: LIBRARY: no procedure main
 lib/_tree.icn: LIBRARY: no procedure main
-lib/address.icn: LIBRARY: no procedure main
-lib/addressdb.icn: LIBRARY: no procedure main
-lib/args.icn: LIBRARY: no procedure main
-lib/base64handler.icn: LIBRARY: no procedure main
-lib/basicclasscoding.icn: LIBRARY: no procedure main
-lib/blockread.icn: LIBRARY: no procedure main
-lib/border.icn: LIBRARY: no procedure main
-lib/buttongroup.icn: LIBRARY: no procedure main
-lib/checkbox.icn: LIBRARY: no procedure main
-lib/checkboxgroup.icn: LIBRARY: no procedure main
-lib/checkboxmenuitem.icn: LIBRARY: no procedure main
-lib/class.icn: LIBRARY: no procedure main
-lib/classcoding.icn: LIBRARY: no procedure main
-lib/classobject.icn: LIBRARY: no procedure main
-lib/cltable.icn: LIBRARY: no procedure main
-lib/comparator.icn: LIBRARY: no procedure main
-lib/complex.icn: LIBRARY: no procedure main
-lib/component.icn: LIBRARY: no procedure main
-lib/compoundedit.icn: LIBRARY: no procedure main
-lib/connectable.icn: LIBRARY: no procedure main
-lib/contentdisposition.icn: LIBRARY: no procedure main
-lib/contenttype.icn: LIBRARY: no procedure main
-lib/crypto.icn: LIBRARY: no procedure main
-lib/cvsuser.icn: LIBRARY: no procedure main
-lib/cvsutil.icn: LIBRARY: no procedure main
-lib/database.icn: LIBRARY: no procedure main
-lib/db.icn: LIBRARY: no procedure main
-lib/db_util.icn: LIBRARY: no procedure main
-lib/decode.icn: LIBRARY: no procedure main
-lib/dispatcher.icn: LIBRARY: no procedure main
-lib/doptions.icn: LIBRARY: no procedure main
+lib/address.icn: LIBRARY: no procedure main; graded through its driver lib/address_driver.icn
+lib/addressdb.icn: LIBRARY: no procedure main; graded through its driver lib/addressdb_driver.icn
+lib/args.icn: LIBRARY: no procedure main; graded through its driver lib/args_driver.icn
+lib/base64handler.icn: LIBRARY: no procedure main; graded through its driver lib/base64handler_driver.icn
+lib/basicclasscoding.icn: LIBRARY: no procedure main; graded through its driver lib/basicclasscoding_driver.icn
+lib/blockread.icn: LIBRARY: no procedure main; graded through its driver lib/blockread_driver.icn
+lib/border.icn: LIBRARY: no procedure main; graded through its driver lib/border_driver.icn
+lib/buttongroup.icn: LIBRARY: no procedure main; graded through its driver lib/buttongroup_driver.icn
+lib/checkbox.icn: LIBRARY: no procedure main; graded through its driver lib/checkbox_driver.icn
+lib/checkboxgroup.icn: LIBRARY: no procedure main; graded through its driver lib/checkboxgroup_driver.icn
+lib/checkboxmenuitem.icn: LIBRARY: no procedure main; graded through its driver lib/checkboxmenuitem_driver.icn
+lib/class.icn: LIBRARY: no procedure main; graded through its driver lib/class_driver.icn
+lib/classcoding.icn: LIBRARY: no procedure main; graded through its driver lib/classcoding_driver.icn
+lib/classobject.icn: LIBRARY: no procedure main; graded through its driver lib/classobject_driver.icn
+lib/cltable.icn: LIBRARY: no procedure main; graded through its driver lib/cltable_driver.icn
+lib/comparator.icn: LIBRARY: no procedure main; graded through its driver lib/comparator_driver.icn
+lib/complex.icn: LIBRARY: no procedure main; graded through its driver lib/complex_driver.icn
+lib/component.icn: LIBRARY: no procedure main; graded through its driver lib/component_driver.icn
+lib/compoundedit.icn: LIBRARY: no procedure main; graded through its driver lib/compoundedit_driver.icn
+lib/connectable.icn: LIBRARY: no procedure main; graded through its driver lib/connectable_driver.icn
+lib/contentdisposition.icn: LIBRARY: no procedure main; graded through its driver lib/contentdisposition_driver.icn
+lib/contenttype.icn: LIBRARY: no procedure main; graded through its driver lib/contenttype_driver.icn
+lib/crypto.icn: LIBRARY: no procedure main; graded through its driver lib/crypto_driver.icn
+lib/cvsuser.icn: LIBRARY: no procedure main; graded through its driver lib/cvsuser_driver.icn
+lib/cvsutil.icn: LIBRARY: no procedure main; graded through its driver lib/cvsutil_driver.icn
+lib/database.icn: LIBRARY: no procedure main; graded through its driver lib/database_driver.icn
+lib/db.icn: LIBRARY: no procedure main; graded through its driver lib/db_driver.icn
+lib/db_util.icn: LIBRARY: no procedure main; graded through its driver lib/db_util_driver.icn
+lib/decode.icn: LIBRARY: no procedure main; graded through its driver lib/decode_driver.icn
+lib/dispatcher.icn: LIBRARY: no procedure main; graded through its driver lib/dispatcher_driver.icn
+lib/doptions.icn: LIBRARY: no procedure main; graded through its driver lib/doptions_driver.icn
 lib/dropdown.icn: LIBRARY: no procedure main
 lib/editabletextlist.icn: LIBRARY: no procedure main
 lib/editlist.icn: LIBRARY: no procedure main

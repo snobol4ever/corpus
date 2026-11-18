@@ -1,0 +1,12 @@
+class ClassClass procedure ClassObject__ClassClass 0
+class ClassObject procedure ClassObject__ClassObject 0
+procedure __NewNotSet procedure ClassObject____NewNotSet 1
+procedure AlreadyRun procedure ClassObject__AlreadyRun 1
+procedure DeepCopy procedure ClassObject__DeepCopy 2
+procedure Execute procedure ClassObject__Execute 1
+procedure IsObject procedure ClassObject__IsObject 1
+procedure IsObjectOf procedure ClassObject__IsObjectOf -2
+procedure ObjectProperties procedure ClassObject__ObjectProperties 1
+procedure set_operator_overload_error_messages procedure ClassObject__set_operator_overload_error_messages 0
+procedure SuperClass procedure ClassObject__SuperClass 1
+procedure HasMethod procedure ClassObject__HasMethod 2

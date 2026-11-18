@@ -1,0 +1,3 @@
+procedure hexencode procedure crypto__hexencode 2
+procedure hexbytes procedure crypto__hexbytes 2
+procedure hexdecode procedure crypto__hexdecode 1

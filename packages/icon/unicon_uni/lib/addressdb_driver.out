@@ -1,0 +1,7 @@
+record address record constructor addressbook__address 7
+class Category procedure addressbook__Category 1
+class ALines procedure addressbook__ALines 1
+class MLines procedure addressbook__MLines 1
+class Address procedure addressbook__Address 0
+class AddressView procedure addressbook__AddressView 1
+class AddressDB procedure addressbook__AddressDB 4

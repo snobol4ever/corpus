@@ -1,0 +1,8 @@
+procedure dbopen procedure dbopen 4
+procedure dbfetch procedure dbfetch 1
+procedure dbclose procedure dbclose 1
+procedure dbsql procedure dbsql 2
+procedure dbdelete procedure dbdelete 2
+procedure dbinsert procedure dbinsert 2
+procedure dbselect procedure dbselect 4
+procedure dbupdate procedure dbupdate 2

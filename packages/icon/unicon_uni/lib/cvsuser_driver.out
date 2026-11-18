@@ -1,0 +1,2 @@
+class CvsUser procedure cvs__CvsUser 2
+procedure get_cvs_user procedure cvs__get_cvs_user 1

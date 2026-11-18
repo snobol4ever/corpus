@@ -2,65 +2,97 @@
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
 # shape: entries=62 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=11 chunks=1 sizes=57
 entry	part	cluster	shells
-gprogs/kaleid	chunk:01	dir:gprogs	
-gui/guidemos/componentscrollareatest	chunk:01	dir:gui/guidemos	
-gui/guidemos/demo	chunk:01	dir:gui/guidemos	
-gui/guidemos/dndtest	chunk:01	dir:gui/guidemos	
-gui/guidemos/dyncomps	chunk:01	dir:gui/guidemos	
+gprogs/kaleid	chunk:32	dir:gprogs	
+gui/guidemos/componentscrollareatest	chunk:02	dir:gui/guidemos	
+gui/guidemos/demo	chunk:03	dir:gui/guidemos	
+gui/guidemos/dndtest	chunk:04	dir:gui/guidemos	
+gui/guidemos/dyncomps	chunk:05	dir:gui/guidemos	
 gui/guidemos/editlisttest	core	core	want_rc
-gui/guidemos/editor	chunk:01	dir:gui/guidemos	
-gui/guidemos/fillpanel	chunk:01	dir:gui/guidemos	
-gui/guidemos/getweb	chunk:01	dir:gui/guidemos	
-gui/guidemos/imageview	chunk:01	dir:gui/guidemos	
-gui/guidemos/leak	chunk:01	dir:gui/guidemos	
-gui/guidemos/lines	chunk:01	dir:gui/guidemos	
-gui/guidemos/listtest	chunk:01	dir:gui/guidemos	
-gui/guidemos/menudemo	chunk:01	dir:gui/guidemos	
-gui/guidemos/palette	chunk:01	dir:gui/guidemos	
-gui/guidemos/pointers	chunk:01	dir:gui/guidemos	
-gui/guidemos/secondtest	chunk:01	dir:gui/guidemos	
-gui/guidemos/sieve	chunk:01	dir:gui/guidemos	
-gui/guidemos/sliders	chunk:01	dir:gui/guidemos	
-gui/guidemos/spinners	chunk:01	dir:gui/guidemos	
-gui/guidemos/tabletest	chunk:01	dir:gui/guidemos	
-gui/guidemos/tabs	chunk:01	dir:gui/guidemos	
-gui/guidemos/testdialog	chunk:01	dir:gui/guidemos	
-gui/guidemos/textsize	chunk:01	dir:gui/guidemos	
-gui/guidemos/texttest	chunk:01	dir:gui/guidemos	
-gui/guidemos/themedemo	chunk:01	dir:gui/guidemos	
-gui/guidemos/ticks	chunk:01	dir:gui/guidemos	
-gui/guidemos/toolbar	chunk:01	dir:gui/guidemos	
-ide/ivib/icon/xpmtoims	chunk:01	dir:ide/ivib/icon	
+gui/guidemos/editor	chunk:06	dir:gui/guidemos	
+gui/guidemos/fillpanel	chunk:07	dir:gui/guidemos	
+gui/guidemos/getweb	chunk:08	dir:gui/guidemos	
+gui/guidemos/imageview	chunk:09	dir:gui/guidemos	
+gui/guidemos/leak	chunk:10	dir:gui/guidemos	
+gui/guidemos/lines	chunk:11	dir:gui/guidemos	
+gui/guidemos/listtest	chunk:12	dir:gui/guidemos	
+gui/guidemos/menudemo	chunk:13	dir:gui/guidemos	
+gui/guidemos/palette	chunk:14	dir:gui/guidemos	
+gui/guidemos/pointers	chunk:15	dir:gui/guidemos	
+gui/guidemos/secondtest	chunk:16	dir:gui/guidemos	
+gui/guidemos/sieve	chunk:17	dir:gui/guidemos	
+gui/guidemos/sliders	chunk:18	dir:gui/guidemos	
+gui/guidemos/spinners	chunk:19	dir:gui/guidemos	
+gui/guidemos/tabletest	chunk:20	dir:gui/guidemos	
+gui/guidemos/tabs	chunk:21	dir:gui/guidemos	
+gui/guidemos/testdialog	chunk:22	dir:gui/guidemos	
+gui/guidemos/textsize	chunk:23	dir:gui/guidemos	
+gui/guidemos/texttest	chunk:24	dir:gui/guidemos	
+gui/guidemos/themedemo	chunk:25	dir:gui/guidemos	
+gui/guidemos/ticks	chunk:26	dir:gui/guidemos	
+gui/guidemos/toolbar	chunk:27	dir:gui/guidemos	
+ide/ivib/icon/xpmtoims	chunk:33	dir:ide/ivib/icon	
 ide/wu	core	core	want_rc
+lib/_button_driver	chunk:01	dir:lib	
+lib/address_driver	chunk:01	dir:lib	
+lib/addressdb_driver	chunk:01	dir:lib	
+lib/args_driver	chunk:01	dir:lib	
 lib/attr	chunk:01	dir:lib	
+lib/base64handler_driver	chunk:01	dir:lib	
+lib/basicclasscoding_driver	chunk:01	dir:lib	
+lib/blockread_driver	chunk:01	dir:lib	
+lib/border_driver	chunk:01	dir:lib	
+lib/buttongroup_driver	chunk:01	dir:lib	
+lib/checkbox_driver	chunk:01	dir:lib	
+lib/checkboxgroup_driver	chunk:01	dir:lib	
+lib/checkboxmenuitem_driver	chunk:01	dir:lib	
+lib/class_driver	chunk:01	dir:lib	
+lib/classcoding_driver	chunk:01	dir:lib	
+lib/classobject_driver	chunk:01	dir:lib	
+lib/cltable_driver	chunk:01	dir:lib	
+lib/comparator_driver	chunk:01	dir:lib	
+lib/complex_driver	chunk:01	dir:lib	
+lib/component_driver	chunk:01	dir:lib	
+lib/compoundedit_driver	chunk:01	dir:lib	
+lib/connectable_driver	chunk:01	dir:lib	
+lib/contentdisposition_driver	chunk:01	dir:lib	
+lib/contenttype_driver	chunk:01	dir:lib	
+lib/crypto_driver	chunk:01	dir:lib	
+lib/cvsuser_driver	chunk:01	dir:lib	
+lib/cvsutil_driver	chunk:01	dir:lib	
+lib/database_driver	chunk:01	dir:lib	
+lib/db_driver	chunk:01	dir:lib	
+lib/db_util_driver	chunk:01	dir:lib	
+lib/decode_driver	chunk:01	dir:lib	
+lib/dispatcher_driver	chunk:01	dir:lib	
+lib/doptions_driver	chunk:01	dir:lib	
 parser/showtree	core	core	want_rc
-progs/cleanup	chunk:01	dir:progs	
-progs/complex_ex	chunk:01	feat:want_rc	want_rc
-progs/csv	chunk:01	dir:progs	
-progs/exception_demo	chunk:01	dir:progs	
-progs/gcfreq	chunk:01	dir:progs	
-progs/genAcc	chunk:01	dir:progs	
-progs/htmltex	chunk:01	dir:progs	
-progs/ie	chunk:01	feat:want_rc	want_rc
-progs/jsvalid	chunk:01	feat:want_rc	want_rc
-progs/mtrace	chunk:01	dir:progs	
-progs/rankvote	chunk:01	dir:progs	
-progs/rpn	chunk:01	dir:progs	
-progs/splitmail	chunk:01	dir:progs	
-progs/uget	chunk:01	feat:want_rc	want_rc
-progs/ush	chunk:01	dir:progs	
-progs/uwc	chunk:01	dir:progs	
-udb/lib/memory_alloc	chunk:01	dir:udb/lib	
-uflex/test/hello	chunk:01	dir:uflex/test	
-ulsp/launch-lsp	chunk:01	feat:want_rc	want_rc
-unicon/i	chunk:01	feat:want_rc	want_rc
-unicon/iol2htm	chunk:01	dir:unicon	
-unicon/lump	chunk:01	dir:unicon	
-unidoc/UniDoc	chunk:01	feat:want_rc	want_rc
-util/ivibmigrate	chunk:01	dir:util	
-xml/createdemo	chunk:01	dir:xml	
-xml/globaldemo	chunk:01	dir:xml	
-xml/testpatterns	chunk:01	dir:xml	
-xml/testxml	chunk:01	dir:xml	
+progs/cleanup	chunk:27	dir:progs	
+progs/complex_ex	chunk:27	feat:want_rc	want_rc
+progs/csv	chunk:27	dir:progs	
+progs/exception_demo	chunk:27	dir:progs	
+progs/gcfreq	chunk:27	dir:progs	
+progs/genAcc	chunk:27	dir:progs	
+progs/htmltex	chunk:27	dir:progs	
+progs/ie	chunk:28	feat:want_rc	want_rc
+progs/jsvalid	chunk:28	feat:want_rc	want_rc
+progs/mtrace	chunk:27	dir:progs	
+progs/rankvote	chunk:27	dir:progs	
+progs/rpn	chunk:27	dir:progs	
+progs/splitmail	chunk:27	dir:progs	
+progs/uget	chunk:28	feat:want_rc	want_rc
+progs/ush	chunk:27	dir:progs	
+progs/uwc	chunk:27	dir:progs	
+udb/lib/memory_alloc	chunk:33	dir:udb/lib	
+uflex/test/hello	chunk:33	dir:uflex/test	
+ulsp/launch-lsp	chunk:28	feat:want_rc	want_rc
+unicon/i	chunk:29	feat:want_rc	want_rc
+unicon/iol2htm	chunk:31	dir:unicon	
+unicon/lump	chunk:31	dir:unicon	
+unidoc/UniDoc	chunk:29	feat:want_rc	want_rc
+util/ivibmigrate	chunk:33	dir:util	
+xml/createdemo	chunk:30	dir:xml	
+xml/globaldemo	chunk:30	dir:xml	
+xml/testpatterns	chunk:31	dir:xml	
+xml/testxml	chunk:31	dir:xml	
 gui/guidemos/explorer	core	core	fixtures
 gui/guidemos/ttexplorer	core	core	fixtures
