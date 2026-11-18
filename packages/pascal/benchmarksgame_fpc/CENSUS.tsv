@@ -1,4 +1,4 @@
-# the census of /home/resources/packages/pascal/benchmarksgame_fpc by fpc (40296663e (2026-11-18 clone)), 2026-11-18: path from the root, verdict, note
+# the census of /home/packages/pascal/benchmarksgame_fpc by fpc (40296663e (2026-11-18 clone)), 2026-11-18: path from the root, verdict, note
 PasMP.pas	LIBRARY	the source names unit PasMP;
 binarytrees_5.pas	ENTRY	
 binarytrees_6.pas	ENTRY	
