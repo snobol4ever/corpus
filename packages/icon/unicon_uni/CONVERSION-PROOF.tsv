@@ -361,3 +361,13 @@ unidoc/parlett/htmloutputter.icn	same-code
 unidoc/parlett/linkfiles.icn	same-code
 unidoc/parlett/package.icn	same-code
 unidoc/parlett/packageset.icn	same-code
+uscribe/bib.icn	same-code
+uscribe/config.icn	same-code
+uscribe/directive.icn	same-code
+uscribe/inline.icn	same-code
+uscribe/labeltable.icn	same-code
+uscribe/manifest.icn	same-code
+uscribe/node.icn	same-code
+uscribe/outputter.icn	same-code
+uscribe/parser.icn	same-code
+uscribe/scan.icn	same-code
