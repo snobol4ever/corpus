@@ -1,4 +1,4 @@
-root	/home/resources/packages/raku/roast
+root	/home/packages/raku/roast
 origin	https://github.com/Raku/roast
 version	the master archive on this box (no git record)
 licence	Artistic License 2.0

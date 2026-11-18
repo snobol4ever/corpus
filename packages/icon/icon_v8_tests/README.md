@@ -3,7 +3,7 @@
 The ten tests of Icon 8.0b's own test suite (Arizona's FTP archive, `historic/v80b/v80b/tests`) that no later suite in the corpus holds:
 `check`, `checkfp`, `endetab1`, `key`, `model`, `name`, `permute`, `speller`, `version7` and `version8`. Public domain, as the Icon
 distribution's README says. The census that found them: the grader 2026-11-17, every `.icn` under a `tests` folder of every historic release
-against every Icon file of the corpus and of `/home/resources/packages/icon` (15 names; `helloc`, `hellox`, `mem01c` and `mem01x` call C and
+against every Icon file of the corpus and of `/home/packages/icon` (15 names; `helloc`, `hellox`, `mem01c` and `mem01x` call C and
 need a C build, `define` is a variant translator's file, so ten).
 
 Each test reads its stdin from `NAME.in`, upstream's `NAME.dat`; `version7` also reads `concord.dat` (`in_files`) and `$HOME` (`env`,

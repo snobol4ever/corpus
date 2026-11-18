@@ -1,4 +1,4 @@
-root	/home/resources/packages/snobol4/aoc2022_snobol
+root	/home/packages/snobol4/aoc2022_snobol
 origin	https://github.com/fstiffo/aoc-2022-snobol (Francesco Stiffoni): Advent of Code 2022 day 1 part a, in Oregon SNOBOL5, its puzzle input after END; converted IN PLACE: DOS line ends made LF (as cbrooker_snobol), and the lines after END copied to day1.input beside it, which ALL.stdin feeds (CSNOBOL4 -r reads them; SPITBOL has no such switch)
 version	444971e (2023-07-16)
 licence	MIT; read in place all the same, since the program file carries the author's Advent of Code puzzle input, which Advent of Code asks not be redistributed: only the tables and the answer are stored here

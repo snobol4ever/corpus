@@ -1,4 +1,4 @@
-root	/home/resources/packages/icon/unicon/ipl
+root	/home/packages/icon/unicon/ipl
 origin	https://github.com/uniconproject/unicon.git
 version	d784f580b3003c50b0afffb3f1991364912c435f (2026-09-06)
 licence	public domain, as each file's header states ("This file is in the public domain.")

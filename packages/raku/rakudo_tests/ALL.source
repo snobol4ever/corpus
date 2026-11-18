@@ -1,4 +1,4 @@
-root	/home/resources/packages/raku/rakudo_tests
+root	/home/packages/raku/rakudo_tests
 origin	https://github.com/rakudo/rakudo
 version	2026.05 (the release tree on this box; its folder t without t/spec, with lib)
 licence	Artistic License 2.0

@@ -1,7 +1,7 @@
 # snolib
 
 SnoLib: the self-checking tests of Fred Weigel's SNOBOL4 library for CSNOBOL4 (https://github.com/ratboy666/snolib at fc11c07; MIT,
-Copyright (c) 2021 Fred Weigel), read IN PLACE from `/home/resources/collections/snobol4/snolib` (`ALL.source`). No program of it is
+Copyright (c) 2021 Fred Weigel), read IN PLACE from `/home/packages/snobol4/snolib` (`ALL.source`). No program of it is
 stored here. The library is a module a function (`NAME.SNO`, its include form `NAME.INC`) with a test `NAME.tst`: a test sets
 `&CODE = 1`, checks the function, and clears `&CODE` only when every check held, so its exit status is its verdict and it prints
 nothing.

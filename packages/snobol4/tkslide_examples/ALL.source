@@ -1,4 +1,4 @@
-root	/home/resources/packages/snobol4/tkslide_examples/example
+root	/home/packages/snobol4/tkslide_examples/example
 origin	https://github.com/tkslide/tkslide, the folder example (the sample programs of the TkS*LIDE SNOBOL4 IDE); converted IN PLACE by sno_upcase_edition.py (Lon 2026-11-15: a simple regex, the spacing identical, one folder a collection): DOS line ends made LF, and built-in function names, keywords, the predefined names, the goto letters and END, RETURN, FRETURN, NRETURN in upper case, an angle-bracket subscript with square brackets, one character for one; the originals are at the origin
 version	1d22fb8 (2026-02-19)
 licence	COPYING, LICENSE HAIKU: All rights are granted; remove no credits

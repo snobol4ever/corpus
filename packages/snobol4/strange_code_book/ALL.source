@@ -1,4 +1,4 @@
-root	/home/resources/packages/snobol4/strange_code_book
+root	/home/packages/snobol4/strange_code_book
 origin	https://github.com/rkneusel9/StrangeCodeBook, chapters 5 and 10 (the SNOBOL4 programs of Kneusel, Strange Code, No Starch 2022); converted IN PLACE by sno_upcase_edition.py (Lon 2026-11-15: a simple regex, the spacing identical, one folder a collection): DOS line ends made LF, and built-in function names, keywords, the predefined names, the goto letters and END, RETURN, FRETURN, NRETURN in upper case, an angle-bracket subscript with square brackets, one character for one; the originals are at the origin
 version	1c46565 (2024-10-24)
 licence	MIT

@@ -1,7 +1,7 @@
 # snobol_playground
 
 SnoPlay: https://github.com/joeygibson/snobol-playground.
-Licence: MIT. Version 0b0ec3c (2025-04-08). Read IN PLACE from `/home/resources/collections/snobol4/joeygibson-snobol-playground` (`ALL.source`); no program of it is stored here.
+Licence: MIT. Version 0b0ec3c (2025-04-08). Read IN PLACE from `/home/packages/snobol4/snobol_playground` (`ALL.source`); no program of it is stored here.
 
 The programs were CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names" / "Just do a simple
 regex conversion instead. Keep the spacing identical." / one folder a collection): DOS line ends made LF; built-in function names, keywords, the predefined

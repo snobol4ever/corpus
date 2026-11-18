@@ -1,7 +1,7 @@
 # strange_code_book
 
 SnoStrange: https://github.com/rkneusel9/StrangeCodeBook, chapters 5 and 10 (the SNOBOL4 programs of Kneusel, Strange Code, No Starch 2022).
-Licence: MIT. Version 1c46565 (2024-10-24). Read IN PLACE from `/home/resources/collections/snobol4/strange-code-book` (`ALL.source`); no program of it is stored here.
+Licence: MIT. Version 1c46565 (2024-10-24). Read IN PLACE from `/home/packages/snobol4/strange_code_book` (`ALL.source`); no program of it is stored here.
 
 The programs were CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names" / "Just do a simple
 regex conversion instead. Keep the spacing identical." / one folder a collection): DOS line ends made LF; built-in function names, keywords, the predefined

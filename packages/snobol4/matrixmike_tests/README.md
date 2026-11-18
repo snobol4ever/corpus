@@ -1,7 +1,7 @@
 # matrixmike_tests
 
 SnoMatrix: https://github.com/MatrixMike/snobol4Tests.
-Licence: none stated; no program of it is stored in the corpus. Version 3003bbd (2019-01-07). Read IN PLACE from `/home/resources/collections/snobol4/matrixmike-snobol4tests` (`ALL.source`); no program of it is stored here.
+Licence: none stated; no program of it is stored in the corpus. Version 3003bbd (2019-01-07). Read IN PLACE from `/home/packages/snobol4/matrixmike_tests` (`ALL.source`); no program of it is stored here.
 
 The programs were CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names" / "Just do a simple
 regex conversion instead. Keep the spacing identical." / one folder a collection): DOS line ends made LF; built-in function names, keywords, the predefined

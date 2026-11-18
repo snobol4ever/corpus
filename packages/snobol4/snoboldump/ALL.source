@@ -1,4 +1,4 @@
-root	/home/resources/packages/snobol4/snoboldump
+root	/home/packages/snobol4/snoboldump
 origin	https://github.com/James-P-D/SNOBOLDump; converted IN PLACE by sno_upcase_edition.py (Lon 2026-11-15)
 version	f7271c0 (2021-11-06)
 licence	MIT (LICENSE in the root); read in place

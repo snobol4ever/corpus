@@ -1,4 +1,4 @@
-root	/home/resources/packages/snobol4/decus_vax84a
+root	/home/packages/snobol4/decus_vax84a
 origin	https://www.digiater.nl/openvms/decus/vax84a/sdc/snobol/ (DECUS VAX SIG tape VAX84A, [SDC.SNOBOL]: the sample programs of Wendell Turner's VAX-11 SNOBOL4, fetched 2026-11-15); the 13 programs are converted IN PLACE there by sno_upcase_edition.py (the grader's hand-off scripts, 2026-11-15; Lon that day: uppercase the keywords and function names, a simple regex conversion, the spacing identical, and one folder a collection): DOS line ends made LF, and built-in function names, keywords, the predefined names, the goto letters and END, RETURN, FRETURN, NRETURN written in upper case and an angle-bracket subscript with square brackets, one character for one, every string literal and user name left as written; the originals are at the origin
 version	the tape of 1984 as mirrored
 licence	none stated (a DECUS submission; its readme says feel free to modify; no program of it is stored in the corpus)

@@ -1,7 +1,7 @@
 # exs_sno
 
 SnoExs: https://github.com/bitfragment/exs-sno (exercises from Forte 1967 and Griswold, Poage, Polonsky 1971).
-Licence: none stated; no program of it is stored in the corpus. Version 990fa37 (2017-11-29). Read IN PLACE from `/home/resources/collections/snobol4/bitfragment-exs-sno` (`ALL.source`); no program of it is stored here.
+Licence: none stated; no program of it is stored in the corpus. Version 990fa37 (2017-11-29). Read IN PLACE from `/home/packages/snobol4/exs_sno` (`ALL.source`); no program of it is stored here.
 
 The programs were CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names" / "Just do a simple
 regex conversion instead. Keep the spacing identical." / one folder a collection): DOS line ends made LF; built-in function names, keywords, the predefined

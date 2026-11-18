@@ -1,7 +1,7 @@
 # mdhender_sil
 
 SnoSil: the 22 SNOBOL4 test programs of Michael D Henderson's SIL interpreter in Go (https://github.com/mdhender/sil at 398c46e,
-`internal/programs/sno`; BSD 2-Clause), read IN PLACE from `/home/resources/collections/snobol4/mdhender-sil` (`ALL.source`). No program
+`internal/programs/sno`; BSD 2-Clause), read IN PLACE from `/home/packages/snobol4/mdhender_sil` (`ALL.source`). No program
 of it is stored here.
 
 | | |

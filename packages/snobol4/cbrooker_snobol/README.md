@@ -1,7 +1,7 @@
 # cbrooker_snobol
 
 SnoBrooker: https://github.com/cbrooker-27/snobol (SNOBOL4 programs from a college course).
-Licence: none stated; no program of it is stored in the corpus. Version 0201644 (2021-01-09). Read IN PLACE from `/home/resources/collections/snobol4/cbrooker-snobol` (`ALL.source`); no program of it is stored here.
+Licence: none stated; no program of it is stored in the corpus. Version 0201644 (2021-01-09). Read IN PLACE from `/home/packages/snobol4/cbrooker_snobol` (`ALL.source`); no program of it is stored here.
 
 The programs were CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names" / "Just do a simple
 regex conversion instead. Keep the spacing identical." / one folder a collection): DOS line ends made LF; built-in function names, keywords, the predefined

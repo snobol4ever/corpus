@@ -1,4 +1,4 @@
-root	/home/resources/packages/pascal/FPCSource/tests
+root	/home/packages/pascal/FPCSource/tests
 origin	https://github.com/fpc/FPCSource
 version	7e7ab8d8 (2026-08-27)
 licence	GPL 2 with the Free Pascal library exception

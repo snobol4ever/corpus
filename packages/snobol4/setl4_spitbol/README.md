@@ -1,7 +1,7 @@
 # setl4_spitbol (Snobol4Setl4)
 
 Dave Shields's SETL4 (https://github.com/setl4/setl4, commit 6e9d97c of 2019-06-13, MIT): an implementation of SETL written in SPITBOL, and
-the SPITBOL programs beside it, read in place from `/home/resources/collections/snobol4/setl4-setl4` (`ALL.source`): five examples (align,
+the SPITBOL programs beside it, read in place from `/home/packages/snobol4/setl4_spitbol` (`ALL.source`): five examples (align,
 humble, mark, roman, tabify), five programs on Shakespeare's sonnets (concord, sbl-sonnets, sonnets-1, the-bard-storms, tweet) and `paul/b.spt`.
 
 The 11 programs were written in lower case for a folding SPITBOL; they were upper-cased IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15:

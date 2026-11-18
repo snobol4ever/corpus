@@ -2,7 +2,7 @@
 
 SnoCor24: the 58 example and demo programs of sw-cor24-snobol4, a 2026 SNOBOL4 implementation for the COR24 machine
 (https://github.com/sw-embed/sw-cor24-snobol4 at 68b7fbe; MIT, Copyright (c) 2026 Michael A Wright), read IN PLACE from
-`/home/resources/collections/snobol4/sw-cor24-snobol4` (`ALL.source`). No program of it is stored here.
+`/home/packages/snobol4/sw_cor24_snobol4` (`ALL.source`). No program of it is stored here.
 
 | | |
 |---|---|

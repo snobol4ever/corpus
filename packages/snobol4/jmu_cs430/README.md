@@ -2,7 +2,7 @@
 
 SnoJmu: the 42 SNOBOL4 teaching programs of a James Madison University course, CS430
 (https://users.cs.jmu.edu/adamses/Web/CS430/CodeExamples/Snobol/ 30 programs, and .../CS430/Lectures/snobol4p/ 12; fetched 2026-11-15;
-no licence stated), read IN PLACE from `/home/resources/collections/snobol4/jmu-cs430` (`ALL.source`). No program of it is stored here.
+no licence stated), read IN PLACE from `/home/packages/snobol4/jmu_cs430` (`ALL.source`). No program of it is stored here.
 
 The programs came with DOS line ends, which SPITBOL refuses as an illegal character, and many are in lower case. So they were
 CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names" / "Just do a simple

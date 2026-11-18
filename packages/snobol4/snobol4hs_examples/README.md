@@ -1,7 +1,7 @@
 # snobol4hs_examples
 
 SnoHs: https://github.com/meln5674/snobol4hs, the folder examples (the sample programs of a Haskell SNOBOL4), each .snobol4 extension written .sno.
-Licence: MIT-style (LICENSE: Copyright (c) 2016 Andrew Melnick). Version c378692 (2016-11-05). Read IN PLACE from `/home/resources/collections/snobol4/snobol4hs/examples` (`ALL.source`); no program of it is stored here.
+Licence: MIT-style (LICENSE: Copyright (c) 2016 Andrew Melnick). Version c378692 (2016-11-05). Read IN PLACE from `/home/packages/snobol4/snobol4hs_examples/examples` (`ALL.source`); no program of it is stored here.
 
 The programs were CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names" / "Just do a simple
 regex conversion instead. Keep the spacing identical." / one folder a collection): DOS line ends made LF; built-in function names, keywords, the predefined

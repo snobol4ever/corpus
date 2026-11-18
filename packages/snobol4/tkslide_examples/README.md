@@ -1,7 +1,7 @@
 # tkslide_examples
 
 SnoTkslide: https://github.com/tkslide/tkslide, the folder example (the sample programs of the TkS*LIDE SNOBOL4 IDE).
-Licence: COPYING, LICENSE HAIKU: All rights are granted; remove no credits. Version 1d22fb8 (2026-02-19). Read IN PLACE from `/home/resources/collections/snobol4/tkslide/example` (`ALL.source`); no program of it is stored here.
+Licence: COPYING, LICENSE HAIKU: All rights are granted; remove no credits. Version 1d22fb8 (2026-02-19). Read IN PLACE from `/home/packages/snobol4/tkslide_examples/example` (`ALL.source`); no program of it is stored here.
 
 The programs were CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names" / "Just do a simple
 regex conversion instead. Keep the spacing identical." / one folder a collection): DOS line ends made LF; built-in function names, keywords, the predefined

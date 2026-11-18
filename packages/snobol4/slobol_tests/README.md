@@ -1,7 +1,7 @@
 # slobol_tests
 
 SnoSlobol: https://gitlab.com/spitbol/slobol (the test and trace programs of a Go SPITBOL).
-Licence: MIT. Version 5ef74c1 (2026-04-15). Read IN PLACE from `/home/resources/collections/snobol4/slobol` (`ALL.source`); no program of it is stored here.
+Licence: MIT. Version 5ef74c1 (2026-04-15). Read IN PLACE from `/home/packages/snobol4/slobol_tests` (`ALL.source`); no program of it is stored here.
 
 The programs were CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names" / "Just do a simple
 regex conversion instead. Keep the spacing identical." / one folder a collection): DOS line ends made LF; built-in function names, keywords, the predefined

@@ -1,4 +1,4 @@
-root	/home/resources/packages/snobol4/setl4_spitbol
+root	/home/packages/snobol4/setl4_spitbol
 origin	https://github.com/setl4/setl4 (Dave Shields): SETL4, an implementation of SETL written in SPITBOL, with its SPITBOL examples; converted IN PLACE by sno_upcase_edition.py (Lon 2026-11-15: "Just do a simple regex conversion instead. Keep the spacing identical."), 11 programs, 319 lines
 version	6e9d97c (2019-06-13)
 licence	MIT (LICENSE in the root); read in place, as the other SNOBOL4 collections are

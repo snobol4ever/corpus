@@ -2,7 +2,7 @@
 
 SnoDecus: the 13 sample programs of Wendell Turner's VAX-11 SNOBOL4 (SIL 3.11 for VMS) from DECUS VAX SIG tape VAX84A, [SDC.SNOBOL]
 (https://www.digiater.nl/openvms/decus/vax84a/sdc/snobol/, fetched 2026-11-15; no licence stated, its readme says "Feel free to
-modify"), read IN PLACE from `/home/resources/collections/snobol4/decus-vax84a` (`ALL.source`). No program of it is stored here.
+modify"), read IN PLACE from `/home/packages/snobol4/decus_vax84a` (`ALL.source`). No program of it is stored here.
 
 The programs are written in lower case for a folding SNOBOL4, and the oracle, `sbl -bf`, is case-sensitive. So they were CONVERTED IN
 PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names to get DECUS and others like it

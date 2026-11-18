@@ -2,7 +2,7 @@
 
 SnoBeer: the 19 programs (tests, examples, benchmarks) of Mike Beer's SNOBOL4 interpreter in CREXX and C
 (https://github.com/mikebeer/snobol at c726b2b; no licence stated), read IN PLACE from
-`/home/resources/collections/snobol4/mikebeer-snobol` (`ALL.source`). No program of it is stored here.
+`/home/packages/snobol4/mikebeer_snobol` (`ALL.source`). No program of it is stored here.
 
 | | |
 |---|---|

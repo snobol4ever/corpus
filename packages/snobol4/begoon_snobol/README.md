@@ -1,7 +1,7 @@
 # begoon_snobol
 
 SnoBegoon: https://github.com/begoon/snobol, the folder examples (the sample programs of a TypeScript SNOBOL4).
-Licence: MIT. Version 2adfcf0 (2026-04-17). Read IN PLACE from `/home/resources/collections/snobol4/begoon-snobol/examples` (`ALL.source`); no program of it is stored here.
+Licence: MIT. Version 2adfcf0 (2026-04-17). Read IN PLACE from `/home/packages/snobol4/begoon_snobol/examples` (`ALL.source`); no program of it is stored here.
 
 The programs were CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names" / "Just do a simple
 regex conversion instead. Keep the spacing identical." / one folder a collection): DOS line ends made LF; built-in function names, keywords, the predefined

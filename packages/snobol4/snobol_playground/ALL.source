@@ -1,4 +1,4 @@
-root	/home/resources/packages/snobol4/snobol_playground
+root	/home/packages/snobol4/snobol_playground
 origin	https://github.com/joeygibson/snobol-playground; converted IN PLACE by sno_upcase_edition.py (Lon 2026-11-15: a simple regex, the spacing identical, one folder a collection): DOS line ends made LF, and built-in function names, keywords, the predefined names, the goto letters and END, RETURN, FRETURN, NRETURN in upper case, an angle-bracket subscript with square brackets, one character for one; the originals are at the origin
 version	0b0ec3c (2025-04-08)
 licence	MIT

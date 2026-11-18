@@ -1,7 +1,7 @@
 # exercism_snobol4
 
 SnoExercism: https://github.com/exercism/snobol4, the folder exercises (the Exercism SNOBOL4 track).
-Licence: MIT. Version ebd72a7 (2026-11-15). Read IN PLACE from `/home/resources/collections/snobol4/exercism-snobol4/exercises` (`ALL.source`); no program of it is stored here.
+Licence: MIT. Version ebd72a7 (2026-11-15). Read IN PLACE from `/home/packages/snobol4/exercism_snobol4/exercises` (`ALL.source`); no program of it is stored here.
 
 The programs were CONVERTED IN PLACE by `sno_upcase_edition.py` (Lon 2026-11-15: "You can uppercase the keywords and function names" / "Just do a simple
 regex conversion instead. Keep the spacing identical." / one folder a collection): DOS line ends made LF; built-in function names, keywords, the predefined

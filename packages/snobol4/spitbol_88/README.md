@@ -3,7 +3,7 @@
 Sno88: the programs of Catspaw's SPITBOL-88 distribution (https://github.com/spitbol/88-binary at 1b8a7a6; BSD 2-clause, (c) Copyright
 1985, 1994 Catspaw, Incorporated): `DEMOS` (9), `SANDLP` (4, with the function library of Griswold's String and List Processing in
 SNOBOL4 as 26 include files) and the root's `TEST` and `TICTAC`, read IN PLACE from
-`/home/resources/collections/snobol4/spitbol-88-binary` (`ALL.source`). No program of it is stored here.
+`/home/packages/snobol4/spitbol_88` (`ALL.source`). No program of it is stored here.
 
 Changed in place in the clone: those 15 programs have their `.SPT` extension written `.spt` and their DOS line ends made LF (SPITBOL
 refuses a CR as an illegal character); nothing else. NEVER RUN: `CODE.SPT` (it runs shell commands through HOST) and the 14 programs
