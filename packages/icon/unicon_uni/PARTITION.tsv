@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=164 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=15 chunks=2 sizes=100,59
+# shape: entries=180 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=16 chunks=2 sizes=100,75
 entry	part	cluster	shells
 gprogs/kaleid	chunk:02	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:01	dir:gui/guidemos	
@@ -166,3 +166,19 @@ xml/xmldocument_driver	chunk:01	dir:xml
 xml/xmlelement_driver	chunk:01	dir:xml	
 xml/xmlformatter_driver	chunk:01	dir:xml	
 xml/xmlparser_driver	chunk:01	dir:xml	
+parser/classinfo_driver	chunk:02	dir:parser	
+parser/databaseinfo_driver	chunk:02	dir:parser	
+parser/packageinfo_driver	chunk:02	dir:parser	
+parser/parsedclass_driver	chunk:02	dir:parser	
+parser/parsedfunction_driver	chunk:02	dir:parser	
+parser/parsedinitiallymethod_driver	chunk:02	dir:parser	
+parser/parsedmethod_driver	chunk:02	dir:parser	
+parser/parsedobject_driver	chunk:02	dir:parser	
+parser/parsedprocedure_driver	chunk:02	dir:parser	
+parser/parsedprogram_driver	chunk:02	dir:parser	
+parser/parsedrecord_driver	chunk:02	dir:parser	
+parser/parser_driver	chunk:02	dir:parser	
+parser/preproce_driver	chunk:02	dir:parser	
+parser/unigram_driver	chunk:02	dir:parser	
+parser/unilex_driver	chunk:02	dir:parser	
+parser/ytab_h_driver	chunk:02	dir:parser	

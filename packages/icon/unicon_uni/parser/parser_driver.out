@@ -1,0 +1,11 @@
+procedure parse_unicon procedure parser__parse_unicon 1
+procedure dump_node procedure parser__dump_node 1
+procedure dump_tree procedure parser__dump_tree 2
+procedure dump_tree0 procedure parser__dump_tree0 3
+procedure dump_tree1 procedure parser__dump_tree1 6
+procedure dump_tree2 procedure parser__dump_tree2 6
+procedure dump_tree3 procedure parser__dump_tree3 6
+procedure dump_tree4 procedure parser__dump_tree4 3
+procedure dump_tree5 procedure parser__dump_tree5 3
+procedure dump_tree6 procedure parser__dump_tree6 6
+procedure parsing_error procedure parser__parsing_error 1

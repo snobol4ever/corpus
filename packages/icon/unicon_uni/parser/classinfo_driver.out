@@ -1,0 +1,6 @@
+class ClassInfo procedure parser__ClassInfo 6
+procedure load_class_info procedure parser__load_class_info 2
+procedure get_package_name procedure parser__get_package_name 1
+procedure get_symbol_name procedure parser__get_symbol_name 1
+procedure get_all_dirs procedure parser__get_all_dirs 1
+procedure split_path_string procedure parser__split_path_string 1
