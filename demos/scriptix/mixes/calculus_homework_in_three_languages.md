@@ -20,12 +20,13 @@ children `n` and the children `c`. They are one type. Icon reads the fields of
 a tree SNOBOL4 built, and SNOBOL4's array of children is a list to Icon.
 
 Prolog runs the sheet: for each line it calls SNOBOL4's `parse`, proves the
-derivative, and calls Icon's `answer`. Measured on the day this was written,
-Prolog cannot yet look inside a record and a Prolog term does not cross a call
-(both are being built), so across Prolog's two calls the tree travels written
-out as a term, `times(x,sin(x))`. SNOBOL4 reads the answer back into a tree
-with a second small pattern, and the function itself reaches Icon as a tree in
-the shared global `problem`. When Prolog sees a record, the term text goes.
+derivative, and calls Icon's `answer`. THE TREE GOES IN TO PROLOG AS A TREE:
+`parse` returns the record, and Prolog looks inside it by unifying it with
+`tree(T, V, N, C)`, the children a Prolog list. On the way out, a Prolog term
+does not yet cross a call (it is being built), so the derivative travels to
+Icon written out as a term, `times(x,sin(x))`, which SNOBOL4 reads back into a
+tree with a second small pattern; the function itself reaches Icon as a tree in
+the shared global `problem`. When a Prolog term crosses, that text goes too.
 
 ```SNOBOL4
         DATA('tree(t,v,n,c)')
@@ -103,33 +104,26 @@ actions_end
         t_name = SPAN(&LCASE)
         t_term = t_name . *PSH() . *MARK() '(' *t_term ARBNO(',' *t_term) ')' . *BUILD()
 +              | t_num | t_name . *PSH() . *VAR()
-*  term(x): the tree x written out as a term.
-        DEFINE('term(x)i')                                 :(term_end)
-term    term = v(x)
-        EQ(n(x), 0)                                        :S(RETURN)
-        term = t(x) '('
-term_1  i = LT(i, n(x)) i + 1                              :F(term_2)
-        term = term (GT(i, 1) ',', ) term(c(x)[i])         :(term_1)
-term_2  term = term ')'                                    :(RETURN)
-term_end
 *  tree_of(text): the tree of a term. Icon calls this with Prolog's answer.
         DEFINE('tree_of(text)')                            :(tree_of_end)
 tree_of sp = 0 ; mp = 0
         text POS(0) t_term RPOS(0)                         :F(FRETURN)
         tree_of = S[1]                                     :(RETURN)
 tree_of_end
-*  parse(line): 'd/dx FORMULA' as the term d(x,TREE), the tree left in PROBLEM;
-*  or error(COLUMN).
+*  parse(line): 'd/dx FORMULA' as the tree d of the variable x over the formula's
+*  tree, which is also left in PROBLEM; or the tree error of the COLUMN.
         DEFINE('parse(line)')                              :(parse_end)
 parse   parsed = parsed + 1
         line POS(0) 'd/d' ANY(&LCASE) . wrt SPAN(' ') REM . body   :S(parse_1)
-        parse = 'error(1)'                                 :(RETURN)
+        parse = tree('error', 1, 0)                        :(RETURN)
 parse_1 text = body
 parse_2 text ' ' =                                         :S(parse_2)
         sp = 0 ; most = 0
         text POS(0) g_sum RPOS(0)                          :F(parse_3)
         problem = S[1]
-        parse = 'd(' wrt ',' term(problem) ')'             :(RETURN)
+        whole = ARRAY(1)
+        whole[1] = problem
+        parse = tree('d', wrt, 1, whole)                   :(RETURN)
 *  Refused. MOST is how many characters, blanks apart, were read; the column
 *  is that of the next one in the line as it was written.
 parse_3 i = 0 ; k = 0
@@ -138,7 +132,7 @@ parse_4 i = i + 1
         IDENT(SUBSTR(body, i, 1), ' ')                     :S(parse_4)
         k = k + 1
         EQ(k, most + 1)                                    :F(parse_4)
-parse_5 parse = 'error(' (SIZE(line) - SIZE(body) + i) ')' :(RETURN)
+parse_5 parse = tree('error', SIZE(line) - SIZE(body) + i, 0)    :(RETURN)
 parse_end
 END
 ```
@@ -281,10 +275,16 @@ r(times(power(A, N), A), power(A, M)) :- number(N), M is N + 1.
 r(plus(A, A), times(2, A)).
 r(plus(times(N, A), times(M, A)), times(K, A)) :- number(N), number(M), K is N + M.
 
+% term_of(Tree, Term): the tree SNOBOL4 built, looked into as tree(T, V, N, C), as Prolog's own term.
+term_of(tree(T0, V0, _, C), Term) :- atom_string(T, T0), term_of(T, V0, C, Term).
+term_of(num, V0, _, Number) :- !, number_string(Number, V0).
+term_of(var, V0, _, Name) :- !, atom_string(Name, V0).
+term_of(T, _, C, Term) :- maplist(term_of, C, Args), Term =.. [T|Args].
+
 % homework(Line): SNOBOL4 parses, Prolog differentiates and simplifies, Icon prints and checks.
-homework(Line) :- parse(Line, Text), term_to_atom(Term, Text), work(Line, Term).
-work(Line, error(Column)) :- !, refused(Line, Column, _).
-work(Line, d(X, F)) :- d(F, X, D0), simp(D0, D), term_to_atom(D, DT), answer(Line, X, DT, _).
+homework(Line) :- parse(Line, tree(T0, V, _, C)), atom_string(T, T0), work(T, Line, V, C).
+work(error, Line, Column, _) :- refused(Line, Column, _).
+work(d, Line, V0, [Tree]) :- atom_string(X, V0), term_of(Tree, F), d(F, X, D0), simp(D0, D), term_to_atom(D, DT), answer(Line, X, DT, _).
 ```
 
 The sheet: the rules one at a time, then together, two lines that are no
