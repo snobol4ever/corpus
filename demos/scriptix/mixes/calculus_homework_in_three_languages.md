@@ -145,6 +145,7 @@ END
 
 ```Icon
 global parsed, worked, agreed, problem
+global tree_of               # SNOBOL4's function, declared because this section calls it
 record tree(t, v, n, c)
 
 # prec(x): how tightly the top of the tree x binds.

@@ -56,7 +56,8 @@ END
 ```
 
 ```Icon
-global read, refused
+global read, refused        # SNOBOL4's two counters
+global sentence, postfix     # SNOBOL4's two functions, declared because this section calls them
 record made(text, value)
 
 # The grammar, forwards. d is how deep the brackets may go.

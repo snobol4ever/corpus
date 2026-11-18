@@ -107,6 +107,7 @@ hand(Legs) :- Legs = [First|_], last(Legs, Last), flight(First, _, _, Leave, _, 
 
 ```Icon
 global offers, flights
+global clock                 # SNOBOL4's function, declared because this section calls it
 
 procedure show(o)
     return left(o.via, 26) || " $" || right(o.cost, 3) || "  " || clock(o.leave) || " to " || clock(o.arrive) ||

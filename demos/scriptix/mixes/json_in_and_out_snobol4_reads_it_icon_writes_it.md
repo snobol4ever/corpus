@@ -263,7 +263,9 @@ END
 ```
 
 ```Icon
-global data, parses
+global data, parses                  # SNOBOL4's variables
+global jparse                        # SNOBOL4's function, declared because this section calls it
+record jobj(otab, okeys, onum)       # SNOBOL4's DATA('jobj(otab,okeys,onum)'), declared by the same names: one type
 
 # quoted(s): s as a JSON string.
 procedure quoted(s)
@@ -276,7 +278,7 @@ end
 # members(x): every [key, value] of a SNOBOL4 jobj, in the order they were read.
 procedure members(x)
     local i;
-    suspend [okeys(x)[i := 1 to onum(x)], otab(x)[okeys(x)[i]]];
+    suspend [x.okeys[i := 1 to x.onum], x.otab[x.okeys[i]]];
 end
 
 # text(x): the data x as JSON on one line.
@@ -330,7 +332,7 @@ procedure main()
     every p := leaves(data) & type(p[2]) == ("integer" | "real") & p[2] > 10 do write("   ", p[1], " = ", p[2]);
     write("where is London?  ", (p := leaves(data), p[2] === "London", p[1]));
     bill := 0;
-    every p := !otab(data)["items"] do bill +:= otab(p)["qty"] * otab(p)["price"];
+    every p := !data.otab["items"] do bill +:= p.otab["qty"] * p.otab["price"];
     write("the bill comes to ", bill);
     write("texts that are not JSON, each refused by the pattern:");
     every bad := "{\"a\": }" | "[1, 2" | "{\"a\" 1}" | "[1,, 2]" | "tru" | "{\"a\": [1, {\"b\": ]}" | "[01]" do
