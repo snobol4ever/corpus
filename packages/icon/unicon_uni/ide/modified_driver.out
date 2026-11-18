@@ -1,0 +1,5 @@
+procedure asksave procedure asksave 2
+class close_modifieddialog procedure close_modifieddialog 80
+class exit_modifieddialog procedure exit_modifieddialog 80
+procedure AskSave procedure AskSave 1
+class ModifiedDialog procedure ModifiedDialog 79

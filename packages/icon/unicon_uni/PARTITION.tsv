@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=114 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=14 chunks=2 sizes=100,9
+# shape: entries=138 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=15 chunks=2 sizes=100,33
 entry	part	cluster	shells
 gprogs/kaleid	chunk:02	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:01	dir:gui/guidemos	
@@ -67,52 +67,76 @@ lib/dispatcher_driver	chunk:01	dir:lib
 lib/doptions_driver	chunk:01	dir:lib	
 parser/showtree	core	core	want_rc
 progs/cleanup	chunk:01	dir:progs	
-progs/complex_ex	chunk:01	feat:want_rc	want_rc
+progs/complex_ex	chunk:02	feat:want_rc	want_rc
 progs/csv	chunk:01	dir:progs	
 progs/exception_demo	chunk:01	dir:progs	
 progs/gcfreq	chunk:01	dir:progs	
 progs/genAcc	chunk:01	dir:progs	
 progs/htmltex	chunk:01	dir:progs	
-progs/ie	chunk:01	feat:want_rc	want_rc
-progs/jsvalid	chunk:01	feat:want_rc	want_rc
+progs/ie	chunk:02	feat:want_rc	want_rc
+progs/jsvalid	chunk:02	feat:want_rc	want_rc
 progs/mtrace	chunk:01	dir:progs	
 progs/rankvote	chunk:01	dir:progs	
 progs/rpn	chunk:01	dir:progs	
 progs/splitmail	chunk:01	dir:progs	
-progs/uget	chunk:01	feat:want_rc	want_rc
+progs/uget	chunk:02	feat:want_rc	want_rc
 progs/ush	chunk:01	dir:progs	
 progs/uwc	chunk:01	dir:progs	
 udb/lib/memory_alloc	chunk:02	dir:udb/lib	
 uflex/test/hello	chunk:02	dir:uflex/test	
-ulsp/launch-lsp	chunk:01	feat:want_rc	want_rc
-unicon/i	chunk:01	feat:want_rc	want_rc
+ulsp/launch-lsp	chunk:02	feat:want_rc	want_rc
+unicon/i	chunk:02	feat:want_rc	want_rc
 unicon/iol2htm	chunk:02	dir:unicon	
 unicon/lump	chunk:02	dir:unicon	
-unidoc/UniDoc	chunk:01	feat:want_rc	want_rc
+unidoc/UniDoc	chunk:02	feat:want_rc	want_rc
 util/ivibmigrate	chunk:02	dir:util	
-xml/createdemo	chunk:01	dir:xml	
-xml/globaldemo	chunk:01	dir:xml	
+xml/createdemo	chunk:02	dir:xml	
+xml/globaldemo	chunk:02	dir:xml	
 xml/testpatterns	chunk:02	dir:xml	
 xml/testxml	chunk:02	dir:xml	
 gui/guidemos/explorer	core	core	fixtures
 gui/guidemos/ttexplorer	core	core	fixtures
-unidep/filearg_driver	chunk:01	dir:unidep	
-unidep/fileargclass_driver	chunk:01	dir:unidep	
-unidep/symbolinfo_driver	chunk:01	dir:unidep	
-unidep/symboltable_driver	chunk:01	dir:unidep	
-unidep/util_driver	chunk:01	dir:unidep	
-unidoc/UniAll_driver	chunk:01	dir:unidoc	
-unidoc/UniFile_driver	chunk:01	dir:unidoc	
-unidoc/UniForm_driver	chunk:01	dir:unidoc	
-unidoc/UniHTML_driver	chunk:01	dir:unidoc	
-unidoc/UniToken_driver	chunk:01	dir:unidoc	
+unidep/filearg_driver	chunk:02	dir:unidep	
+unidep/fileargclass_driver	chunk:02	dir:unidep	
+unidep/symbolinfo_driver	chunk:02	dir:unidep	
+unidep/symboltable_driver	chunk:02	dir:unidep	
+unidep/util_driver	chunk:02	dir:unidep	
+unidoc/UniAll_driver	chunk:02	dir:unidoc	
+unidoc/UniFile_driver	chunk:02	dir:unidoc	
+unidoc/UniForm_driver	chunk:02	dir:unidoc	
+unidoc/UniHTML_driver	chunk:02	dir:unidoc	
+unidoc/UniToken_driver	chunk:02	dir:unidoc	
 uscribe/bib_driver	chunk:01	dir:uscribe	
 uscribe/config_driver	chunk:01	dir:uscribe	
 uscribe/directive_driver	chunk:01	dir:uscribe	
 uscribe/inline_driver	chunk:01	dir:uscribe	
 uscribe/labeltable_driver	chunk:01	dir:uscribe	
 uscribe/manifest_driver	chunk:01	dir:uscribe	
-uscribe/node_driver	chunk:01	dir:uscribe	
-uscribe/outputter_driver	chunk:01	dir:uscribe	
-uscribe/parser_driver	chunk:01	dir:uscribe	
-uscribe/scan_driver	chunk:01	dir:uscribe	
+uscribe/node_driver	chunk:02	dir:uscribe	
+uscribe/outputter_driver	chunk:02	dir:uscribe	
+uscribe/parser_driver	chunk:02	dir:uscribe	
+uscribe/scan_driver	chunk:02	dir:uscribe	
+ide/about_driver	chunk:01	dir:ide	
+ide/buffertabitem_driver	chunk:01	dir:ide	
+ide/buffertabset_driver	chunk:01	dir:ide	
+ide/buffertextlist_driver	chunk:01	dir:ide	
+ide/classbrowser_driver	chunk:01	dir:ide	
+ide/configopt_driver	chunk:01	dir:ide	
+ide/definitions_driver	chunk:01	dir:ide	
+ide/funclookup_driver	chunk:01	dir:ide	
+ide/hfiledialog_driver	chunk:01	dir:ide	
+ide/ide_driver	chunk:01	dir:ide	
+ide/imgs_driver	chunk:01	dir:ide	
+ide/is_binary_driver	chunk:01	dir:ide	
+ide/mainbar_driver	chunk:01	dir:ide	
+ide/matchparen_driver	chunk:01	dir:ide	
+ide/modified_driver	chunk:01	dir:ide	
+ide/online_driver	chunk:01	dir:ide	
+ide/preferences_driver	chunk:01	dir:ide	
+ide/ptyDispatcher_driver	chunk:01	dir:ide	
+ide/qu_replace_driver	chunk:01	dir:ide	
+ide/shelletl_driver	chunk:01	dir:ide	
+ide/templates_driver	chunk:01	dir:ide	
+ide/uproject_driver	chunk:01	dir:ide	
+ide/utags_driver	chunk:02	feat:want_rc	want_rc
+ide/verifymake_driver	chunk:01	dir:ide	

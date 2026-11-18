@@ -448,6 +448,7 @@ parser/ytab_h.icn: LIBRARY: no procedure main
 progs/bored.icn: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 538 and 538 bytes
 progs/deen.icn: NEEDS-NETWORK: a graded run starts with no de-en.txt, so its first act is open(URL, "m"), an HTTP GET of a 7.8 MB dictionary from ftp.tu-chemnitz.de
 progs/env.icn: READS-THE-ENVIRONMENT: its answer holds TMPDIR of the process that runs it
+progs/heap_demo.icn: ORACLE-DEFECT: unicon's installed lang::invokeFcn calls a null isClass, Run-time error 106 inside the oracle's own library
 progs/idxGen.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot open idxterms.xml
 progs/mapStrings.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Usage: mapStrings [oldString=newString]... <infile >outfile
 progs/uigmp.icn: NEEDS-NETWORK: the source names import net
@@ -645,4 +646,3 @@ xml/xmldocument.icn: LIBRARY: no procedure main
 xml/xmlelement.icn: LIBRARY: no procedure main
 xml/xmlformatter.icn: LIBRARY: no procedure main
 xml/xmlparser.icn: LIBRARY: no procedure main
-progs/heap_demo.icn: ORACLE-DEFECT: unicon's installed lang::invokeFcn calls a null isClass, Run-time error 106 inside the oracle's own library

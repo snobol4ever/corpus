@@ -1,0 +1,3 @@
+class IDEKeybindings procedure IDEKeybindings 3
+class BuffEditableTextList procedure BuffEditableTextList 75
+procedure countdoublequotes procedure countdoublequotes 1
