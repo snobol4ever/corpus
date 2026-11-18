@@ -1,0 +1,2 @@
+stderr	merged	gate cases whose retired gates read a traceback or a refusal on stderr: the ref is stdout and stderr as one stream, as the oracle prints them (row icon-the-116-silent-gate-cases-and-three-misnamed-ones-are-entries; Lon 2026-11-15 13:3x CST: an error from the oracle is an answer)
+silent	exit-status	a program the oracle runs silent twice, whatever its stdin holds, is an entry graded by its exit status alone (Lon 2026-11-15 11:5x CST, in the grader window)

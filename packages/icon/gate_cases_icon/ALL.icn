@@ -2793,3 +2793,240 @@ procedure main()
    write("it is stream ", if fnum(f) > 2 then "above 2" else "not above 2");
    write("end");
 end
+#-------------- 256 test_gate_builder_mines_an_icon_collection_by_unicon__helper
+procedure helped()
+   return "helped";
+end
+#--------------- 257 test_gate_builder_mines_an_icon_collection_by_unicon__quiet
+procedure main()
+   local x;
+   x := 1;
+end
+#- 258 test_gate_dump_zeta_guard_arm_reads_a_name_only_from_an_op_that_carries_one__zw
+procedure main()
+  local s, t;
+  s := 0;
+  t := s + 1;
+end
+#- 259 test_gate_gva_register_is_told_its_first_named_slot_not_scanning_for_it__w
+global g0, g1, g2
+global never
+procedure write(a, b, c, d);
+    return &null;
+end
+procedure show(label, v);
+    return;
+end
+procedure bump(n);
+    g1 +:= n;
+    return g1;
+end
+procedure main();
+    local s;
+    g0 := 7;
+    g1 := 10;
+    g2 := "str";
+    s := bump(5) + g0;
+    every i := 1 to 3 do g1 +:= i;
+    stop(g0, " ", g1, " ", g2, " ", s, " ", image(never), " ", type(g2), " ", *g2);
+end
+#- 260 test_gate_icn_a_call_through_a_value_reports_its_line_and_its_frame__w_case
+procedure main()
+   local f;
+   case 1 of {
+1:
+	f(1)};
+end
+#- 261 test_gate_icn_a_call_through_a_value_reports_its_line_and_its_frame__w_conj
+procedure main()
+   local f;
+   1 &
+	f(1);
+end
+#- 262 test_gate_icn_a_call_through_a_value_reports_its_line_and_its_frame__w_do
+procedure main()
+   local f, line;
+   every line := !["a"] do
+	write(f(line));
+end
+#- 263 test_gate_icn_a_call_through_a_value_reports_its_line_and_its_frame__w_lastarg
+procedure main()
+   local f;
+   write(1,
+	f(1));
+end
+#- 264 test_gate_icn_a_call_through_a_value_reports_its_line_and_its_frame__w_then
+procedure main()
+   local f;
+   if 1 then
+	f(1, "b");
+end
+#------- 265 test_gate_icn_a_closed_file_raises_212_on_read_and_213_on_write__w3
+procedure main()
+   close(&output);
+   write(&errout, "after close");
+   write("to closed output");
+end
+#--------------- 266 test_gate_icn_a_linked_procedure_reports_its_own_file__lib1
+procedure p(x)
+   write("in p ", &file, " ", &line);
+   return x + 1;
+end
+procedure q(x)
+   return x + "abc";
+end
+#- 267 test_gate_icn_a_part_of_a_statement_on_a_later_line_reports_its_own_line__a2
+procedure main()
+   local x;
+   x := 1
+      + &null;
+end
+#- 268 test_gate_icn_a_part_of_a_statement_on_a_later_line_reports_its_own_line__a4
+procedure main()
+   write(1,
+      &null + 1);
+end
+#- 269 test_gate_icn_a_part_of_a_statement_on_a_later_line_reports_its_own_line__b2
+procedure main()
+   local x;
+   if x := 1 then
+      x := x + &null;
+end
+#- 270 test_gate_icn_a_part_of_a_statement_on_a_later_line_reports_its_own_line__b7
+procedure main()
+   local x;
+   x := 2;
+   case x of {
+      1: write("one");
+      2: x := x +
+         &null
+      };
+end
+#- 271 test_gate_icn_a_part_of_a_statement_on_a_later_line_reports_its_own_line__c1
+procedure main()
+   local x, y;
+   x := 1;
+   y := (if x = 1 then
+      &null else 1) + 1;
+end
+#- 272 test_gate_icn_a_part_of_a_statement_on_a_later_line_reports_its_own_line__c2
+procedure main()
+   local x;
+   x := 0;
+   until x > 2 do
+      x := x + &null;
+end
+#- 273 test_gate_icn_a_part_of_a_statement_on_a_later_line_reports_its_own_line__c3
+procedure main()
+   local x;
+   x := 1;
+   repeat
+      x := x + &null;
+end
+#- 274 test_gate_icn_a_part_of_a_statement_on_a_later_line_reports_its_own_line__c5
+procedure main()
+   local x;
+   x := 2;
+   case x of {
+      1: write("one");
+      2: if x = 2 then
+            x := x + &null
+      };
+end
+#- 275 test_gate_icn_a_part_of_a_statement_on_a_later_line_reports_its_own_line__c6
+procedure main()
+   local x;
+   every x := 1 to 3 do
+      if x = 2 then
+         x := x + &null;
+end
+#- 276 test_gate_icn_a_part_of_a_statement_on_a_later_line_reports_its_own_line__t1
+procedure main()
+   local args;
+   &trace := -1;
+   args := [1, 2];
+   while pull(args) do
+      every p ! args;
+end
+procedure p(a[])
+   return a;
+end
+#- 277 test_gate_icn_a_part_of_a_statement_on_a_later_line_reports_its_own_line__v6
+procedure main()
+   local x;
+   every x := 1 to 3 do
+      x := x + &null;
+end
+#- 278 test_gate_icn_a_procedure_returns_its_variable_when_its_result_is_one__e1
+procedure main()
+   fsl() := "no";
+   write("not reached");
+end
+procedure fsl()
+   local z;
+   z := "hello";
+   return z[2];
+end
+#- 279 test_gate_icn_a_procedure_returns_its_variable_when_its_result_is_one__e2
+procedure main()
+   floc() := 2;
+   write("not reached");
+end
+procedure floc()
+   local z;
+   z := 1;
+   return z;
+end
+#-------- 280 test_gate_icn_an_error_after_a_return_reports_the_callers_line__r1
+procedure main()
+   local x;
+   x := f(2) + &null;
+   write(x);
+end
+procedure f(n)
+   local y;
+   y := n;
+   return y;
+end
+#-------- 281 test_gate_icn_an_error_after_a_return_reports_the_callers_line__r2
+procedure main()
+   local x;
+   x := (f(2) | 1) + &null;
+   write(x);
+end
+procedure f(n)
+   local y;
+   y := n;
+   fail;
+end
+#-------- 282 test_gate_icn_an_error_after_a_return_reports_the_callers_line__r4
+procedure q();
+   return 1;
+end
+procedure r(n);
+   local x;
+   if n = 0 then {
+      x := q() + "a";
+      return x;
+   };
+   return r(n - 1);
+end
+procedure main();
+   write(r(70000));
+end
+#- 283 test_gate_icn_apply_invocation_of_a_generator_opens_one_level_not_two__a1
+procedure main()
+   local args;
+   &trace := -1;
+   args := [1,2,3];
+   while pull(args) do
+      every g ! args;
+end
+procedure g(a, b[])
+   suspend *b;
+end
+#------------- 284 test_gate_icn_arith_unconvertible_operand_raises_102__bad_add
+procedure main()
+  x := "abc";
+  write(2 + x);
+end
