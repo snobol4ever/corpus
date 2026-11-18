@@ -11886,6 +11886,87 @@ end
 direct 1 captured
 ```
 
+## ladder__rung42_kw_dump_termination_error
+
+```Icon
+global g
+procedure helper(x)
+    local y;
+    y := x + 1;
+    return y + "a";
+end
+procedure main()
+    local l;
+    g := 7;
+    l := "x";
+    &dump := 1;
+    helper(4);
+end
+```
+
+```stdout
+
+Run-time error 102
+File kw_dump_error.icn; Line 5
+numeric expected
+offending value: "a"
+Traceback:
+main()
+helper(4) from line 12 in kw_dump_error.icn
+{5 + "a"} from line 5 in kw_dump_error.icn
+
+Termination dump:
+
+co-expression #1(1)
+helper local identifiers:
+   x = 4
+   y = 5
+main local identifiers:
+   l = "x"
+
+global identifiers:
+   g = 7
+   helper = procedure helper
+   main = procedure main
+```
+
+## ladder__rung42_kw_dump_termination_stop
+
+```Icon
+global g
+procedure helper(x)
+    local y;
+    y := x + 1;
+    stop("bye");
+end
+procedure main()
+    local l;
+    g := 7;
+    l := "x";
+    &dump := 1;
+    helper(4);
+end
+```
+
+```stdout
+bye
+
+Termination dump:
+
+co-expression #1(1)
+helper local identifiers:
+   x = 4
+   y = 5
+main local identifiers:
+   l = "x"
+
+global identifiers:
+   g = 7
+   helper = procedure helper
+   main = procedure main
+   stop = function stop
+```
+
 ## ladder__rung42_kw_not_of_a_failing_keyword_succeeds
 
 ```Icon
@@ -14137,6 +14218,42 @@ Abs called
 5
 procedure Abs
 function abs 6
+```
+
+## ladder__rung42_kw_dump_termination_normal
+
+```Icon
+global g, zed, abc
+record r(a, b)
+procedure helper(x)
+    local y;
+    y := x + 1;
+    return y;
+end
+procedure main()
+    local l, m;
+    g := 7;
+    zed := [1, 2, 3];
+    abc := r(1, "two");
+    l := "x";
+    m := helper(4);
+    &dump := 1;
+end
+```
+
+```stdout
+
+Termination dump:
+
+co-expression #1(1)
+
+global identifiers:
+   abc = record r_1(1,"two")
+   g = 7
+   helper = procedure helper
+   main = procedure main
+   r = record constructor r
+   zed = list_1 = [1,2,3]
 ```
 
 ## ladder__rung43_initially_replaces_the_constructors_self
