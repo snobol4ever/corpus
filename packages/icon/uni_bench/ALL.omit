@@ -1,2 +1,0 @@
-run_chameneos-redux.icn	the oracle answers differently on two runs
-run_thread-ring.icn	the oracle ends with status 1: Run-time error 102 / File thread-ring.icn; Line 42 / numeric expected / offending value: &null / Traceback: /    run_threadring_new(list_1 = ["1000"]) from line 69 in thread-ring.icn /    threadfun2(1

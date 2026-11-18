@@ -17,3 +17,5 @@ regex-dna	10-thou.dat
 regex-dna-concurrent	10-thou.dat
 reverse-complement	150-thou.dat
 spectral-norm	100
+chameneos-redux	600
+thread-ring	1000

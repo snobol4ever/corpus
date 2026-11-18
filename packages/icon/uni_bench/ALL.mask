@@ -1,0 +1,2 @@
+# ALL.mask -- line masks for uni_bench (FORMAT: entry<TAB>python-regex<TAB>reason), read by corpus_suite_harness.py read_mask_sidecar().
+chameneos-redux	PART:^(\d+)  zero\s*$	the count of meetings each creature had, which depends on how the threads were scheduled (two oracle runs: 468 334 398 and 498 328 374 on the first group, 115 74 210 160 116 32 122 173 120 78 and 117 142 77 88 134 70 ... on the second): a machine value masked in both streams alike, the rest of each line (the word zero) and every other line graded (suites-and-grading section 4, the part mask)
