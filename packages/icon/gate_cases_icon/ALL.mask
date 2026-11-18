@@ -1,3 +1,2 @@
 # ALL.mask -- line masks for this container (entry<TAB>L<n>-or-PART:python-regex<TAB>reason), applied to the oracle and SCRIP alike
 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__K	L1	&clock is the running machine's own time of day, a value no program computes: the case checks that the contract keeps its settings rows, and its three fixed lines stay graded
-test_gate_gc_differential_configs_agree__nd	PART:^up=([0-9. ]+)$	/proc/uptime is the machine's own seconds since boot, a value that moves every run; the churn loop and the rest of the line stay graded

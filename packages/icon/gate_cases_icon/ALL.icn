@@ -3191,7 +3191,7 @@ end
 #------------------------------- 317 test_gate_gc_differential_configs_agree__nd
 procedure main();
    local f, s, i, churn;
-   f := open("/proc/uptime", "r");
+   f := open("uptime.txt", "r");
    s := read(f);
    close(f);
    every i := 1 to 300 do churn := repl("z", 100);
