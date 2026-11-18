@@ -3,3 +3,4 @@
 # verbatim: "let's do more of a SNOBOL4++ where it has all extensions and keeps the dynamic power of SNOBOL4. Have the INPUT and HOST be just like SPITBOL."):
 # an entry whose sbl -bf answer turns on a SPITBOL restriction snobol4jvm lifts; its SPITBOL ref stands, its evidence the oracle's answer and the port's.
 digits	SNOBOL4PP_EXTENSION_KEPT_BY_LON	sbl -bf ends line 3, OUTPUT = &DIGITS, with ERROR 251 (keyword operand is not name of defined keyword); snobol4jvm 0112c94 keeps CSNOBOL4's &DIGITS and prints 0123456789, rc 0 (measured 2026-11-17)
+t	SNOBOL4PP_EXTENSION_KEPT_BY_LON	sbl -bf ends line 3, TRACE('f', 'f') before f is defined, with ERROR 198 (trace first argument is not appropriate name); snobol4jvm arms a function trace before its DEFINE, as CSNOBOL4 does, and runs on (measured 2026-11-17 on ea9f510)
