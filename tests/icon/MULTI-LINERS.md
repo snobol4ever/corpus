@@ -308,6 +308,19 @@ end
 no
 ```
 
+## ladder__rung44_import_of_the_gui_class_library
+
+```Icon
+import gui
+procedure main()
+   write("x");
+end
+```
+
+```stdout
+x
+```
+
 ## ladder_rung39_numbit_dtor_rtod
 
 ```Icon

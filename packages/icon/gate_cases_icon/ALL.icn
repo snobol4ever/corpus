@@ -3319,21 +3319,16 @@ end
 #---------- 335 test_gate_tree_type_is_a_static_record_not_parsed_at_start_up__e
 procedure main();
 end
-#------------- 336 test_gate_builder_mines_an_icon_collection_by_unicon__display
-import gui
-procedure main()
-   write("x");
-end
-#------------- 337 test_gate_builder_mines_an_icon_collection_by_unicon__refused
+#------------- 336 test_gate_builder_mines_an_icon_collection_by_unicon__refused
 procedure main()
    write("x" ;;; ))
 end
-#--------------------------- 338 test_gate_gc_differential_configs_agree__broken
+#--------------------------- 337 test_gate_gc_differential_configs_agree__broken
 procedure main();
    local x;
    x := := ;;; @@@
 end
-#------------------------------- 339 test_gate_icn_alternation_beyond_32_arms__a
+#------------------------------- 338 test_gate_icn_alternation_beyond_32_arms__a
 procedure main()
    local g, c, n;
    every write("plain ", "s1" | "s2" | "s3" | "s4" | "s5" | "s6" | "s7" | "s8" | "s9" | "s10" | "s11" | "s12" | "s13" | "s14" | "s15" | "s16" | "s17" | "s18" | "s19" | "s20" | "s21" | "s22" | "s23" | "s24" | "s25" | "s26" | "s27" | "s28" | "s29" | "s30" | "s31" | "s32" | "s33" | "s34" | "s35" | "s36" | "s37" | "s38" | "s39" | "s40");
@@ -3341,23 +3336,23 @@ procedure main()
    n := 0;
    every c := 1 to 42 do { n +:= 1; write("coex ", n, " ", image(@g) | "failed") };
 end
-#----------------------------------------- 340 test_gate_icn_local_no_nv__global
+#----------------------------------------- 339 test_gate_icn_local_no_nv__global
 global g;
 procedure main()
   g := 5;
   write(g);
 end
-#----------- 341 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_lib2
+#----------- 340 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_lib2
 procedure inc(x)
    return x + 1;
 end
-#-------------------------------------- 342 test_gate_icn_semicolon_required__nl
+#-------------------------------------- 341 test_gate_icn_semicolon_required__nl
 procedure main()
   x := 5
   y := 6
   write(x + y)
 end
-#----- 343 test_gate_icn_unicon_pattern_operators_parse_at_unicons_precedence__p
+#----- 342 test_gate_icn_unicon_pattern_operators_parse_at_unicons_precedence__p
 procedure main()
    p := Span(&digits) => n || Len(`n`) -> f;
    q := ("be" .| "ge") || Fence();
@@ -3365,14 +3360,14 @@ procedure main()
    t := s ?? x .| y;
    u := Pos(1) || .> a;
 end
-#-------- 344 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__plib
+#-------- 343 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__plib
 procedure used()
    return "used";
 end
 procedure unused()
    return "unused";
 end
-#--------------------------------- 345 test_gate_icn_zk5_gva__zk5_global_witness
+#--------------------------------- 344 test_gate_icn_zk5_gva__zk5_global_witness
 global x, y, z;
 procedure main();
   x := 1;
@@ -3380,37 +3375,13 @@ procedure main();
   z := x + y;
   write(z);
 end
-#- 346 test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__helper~2
+#- 345 test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__helper~2
 procedure helper(x);
    return x * 7;
 end
-#- 347 test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__geo
-record point(x, y)
-procedure dist(p, q)
-   return abs(p.x - q.x);
-end
-procedure va(a[])
-   return *a;
-end
-class Shape(name)
-   method area()
-      return 0;
-   end
-end
-# procedure hidden()
-#- 348 test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__globals
+#- 346 test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__globals
 global counter
-#- 349 test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__pkf
-package pk
-procedure inpk(a)
-   return a;
-end
-class PC(v)
-   method m()
-      return v;
-   end
-end
-#--------------- 350 test_gate_icon_package_units_carry_their_attribute_row__lib
+#--------------- 347 test_gate_icon_package_units_carry_their_attribute_row__lib
 procedure libp(x);
   return x * 2;
 end
@@ -3419,43 +3390,43 @@ procedure run();
   write(libp(1));
   &trace := 0;
 end
-#------------- 351 test_gate_icon_package_units_carry_their_attribute_row__lib~2
+#------------- 348 test_gate_icon_package_units_carry_their_attribute_row__lib~2
 procedure libp(x);
   return x * 2;
 end
-#- 352 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__M
+#- 349 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__M
 procedure m();
    return "from M";
 end
-#- 353 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__options
+#- 350 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__options
 procedure options();
 end
-#------------- 354 test_gate_suite_runners_honour_the_tests_declared_memory__fam
+#------------- 351 test_gate_suite_runners_honour_the_tests_declared_memory__fam
 x
-#---------- 355 test_gate_suite_runners_honour_the_tests_declared_memory__hungry
+#---------- 352 test_gate_suite_runners_honour_the_tests_declared_memory__hungry
 procedure main()
    L := list();
    every i := 1 to 200 do put(L, repl("x", 32768));
    write(*L);
 end
-#--------------- 356 test_gate_builder_mines_an_icon_collection_by_unicon__links
+#--------------- 353 test_gate_builder_mines_an_icon_collection_by_unicon__links
 link helper
 procedure main()
    write(helped());
 end
-#-------------- 357 test_gate_demos_suite_grades_each_demo_in_both_modes__linked
+#-------------- 354 test_gate_demos_suite_grades_each_demo_in_both_modes__linked
 link mod
 procedure main();
    greet();
 end
-#-------- 358 test_gate_icn_a_clib_sidecar_builds_the_library_a_program_loads__w
+#-------- 355 test_gate_icn_a_clib_sidecar_builds_the_library_a_program_loads__w
 link io
 procedure main()
    local f;
    f := pathload("libcfunc.so", "bitcount") | stop("no library");
    write(f(255));
 end
-#--------- 359 test_gate_icn_a_large_integer_crosses_into_a_loaded_c_function__w
+#--------- 356 test_gate_icn_a_large_integer_crosses_into_a_loaded_c_function__w
 procedure main()
    local lg, pk, up, x;
    lg := loadfunc("/home/packages/icon/icon-master/ipl/cfuncs/libcfunc.so", "lgconv");
@@ -3469,14 +3440,14 @@ procedure main()
    &error := 1;
    write(up(2 ^ 70) | (&errornumber || " " || image(&errorvalue)));
 end
-#-------------- 360 test_gate_icn_a_linked_procedure_reports_its_own_file__plain
+#-------------- 357 test_gate_icn_a_linked_procedure_reports_its_own_file__plain
 link lib1
 procedure main()
    write(p(1));
    write(&file, " ", &line);
    write(q(2));
 end
-#------------- 361 test_gate_icn_a_linked_procedure_reports_its_own_file__traced
+#------------- 358 test_gate_icn_a_linked_procedure_reports_its_own_file__traced
 link lib1
 procedure main()
    &trace := -1;
@@ -3485,7 +3456,7 @@ procedure main()
    &trace := 0;
    write(q(2));
 end
-#- 362 test_gate_icn_an_external_value_answers_type_image_copy_identity_and_sort_as_iconx__w
+#- 359 test_gate_icn_an_external_value_answers_type_image_copy_identity_and_sort_as_iconx__w
 record pt(x, y)
 procedure main()
    local mn, xs, xr, v1, v2, s1, s2, r1, r2, r3, l, x;
@@ -3501,14 +3472,14 @@ procedure main()
    l := [r1, s2, pt(1, 2), v2, s1, r2, v1, r3, "str", 3];
    every write("sorted ", image(!sort(l)));
 end
-#----------- 363 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_lib1
+#----------- 360 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_lib1
 link gate_icx_lib2
 procedure twice(x)
    local y;
    y := 2 * x;
    return inc(y) - 1;
 end
-#----------- 364 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_main
+#----------- 361 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_main
 link gate_icx_lib1
 procedure main()
    local n;
@@ -3516,41 +3487,41 @@ procedure main()
    write(n);
    write(twice(n));
 end
-#---------- 365 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p1
+#---------- 362 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p1
 link plib
 procedure main()
    write(used());
 end
-#---------- 366 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p2
+#---------- 363 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p2
 link plib
 procedure main()
    write(used());
    write(proc("unused")());
 end
-#---------- 367 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p3
+#---------- 364 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p3
 link plib
 invocable all
 procedure main()
    write(used());
    write(image(proc("unused")));
 end
-#----- 368 test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__lib
+#----- 365 test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__lib
 link helper
 procedure run();
    write("helper(3) = ", helper(3));
    return;
 end
-#- 369 test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__lib_driver
+#- 366 test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__lib_driver
 link lib
 procedure main();
    run();
 end
-#-------- 370 test_gate_icon_package_units_carry_their_attribute_row__lib_driver
+#-------- 367 test_gate_icon_package_units_carry_their_attribute_row__lib_driver
 link lib
 procedure main();
   run();
 end
-#------ 371 test_gate_icon_package_units_carry_their_attribute_row__lib_driver~2
+#------ 368 test_gate_icon_package_units_carry_their_attribute_row__lib_driver~2
 link lib
 procedure q(x);
   return x + 1;
@@ -3561,12 +3532,12 @@ procedure main();
   write(q(1));
   &trace := 0;
 end
-#- 372 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__L
+#- 369 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__L
 link M
 procedure main();
    write(m());
 end
-#------------------------------ 373 test_gate_icn_loadfunc_returns_a_callable__w
+#------------------------------ 370 test_gate_icn_loadfunc_returns_a_callable__w
 procedure main()
    local d;
    d := "/home/packages/icon/icon-master/ipl/cfuncs/libcfunc.so";
@@ -3581,19 +3552,19 @@ end
 procedure bitcount(a)
    return "stub";
 end
-#------------- 374 test_gate_icon_m4_invocation_is_pinned__pinned_in_a_container
+#------------- 371 test_gate_icon_m4_invocation_is_pinned__pinned_in_a_container
 procedure main()
    write("&progname: ", &progname);
 end
-#------------------------------------- 375 test_gate_suite_argv_sidecar__control
+#------------------------------------- 372 test_gate_suite_argv_sidecar__control
 procedure main()
    write("control");
 end
-#--------------------------------------- 376 test_gate_suite_argv_sidecar__plain
+#--------------------------------------- 373 test_gate_suite_argv_sidecar__plain
 procedure main()
    write("control");
 end
-#---------------------------------- 377 test_gate_suite_argv_sidecar__takes_args
+#---------------------------------- 374 test_gate_suite_argv_sidecar__takes_args
 procedure main(args)
    if *args = 0 then args := [41, "two words"];
    write("n=", integer(args[1]) | 6);

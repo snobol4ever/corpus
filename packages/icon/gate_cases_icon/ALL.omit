@@ -1,1 +1,4 @@
 test_gate_icn_pow_large_integer_exponent__armB: oracle timed out -- non-terminating or too slow for the grading timeout
+test_gate_builder_mines_an_icon_collection_by_unicon__display: graded in the icon master as ladder__rung44_import_of_the_gui_class_library (EXCLUDED.tsv GRADED_IN_ANOTHER_PACKAGE)
+test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__geo: a library file with a class and no procedure main, Unicon by its header -- not a unit test (EXCLUDED.tsv NOT_A_UNIT_TEST)
+test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__pkf: a library file with a package header and a class and no procedure main, Unicon by its header -- not a unit test (EXCLUDED.tsv NOT_A_UNIT_TEST)
