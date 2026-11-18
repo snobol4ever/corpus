@@ -620,6 +620,27 @@ end
 1
 ```
 
+## ladder__rung45_win_function_raises_error_121_as_unicons_x11_build_does
+
+```Icon
+procedure main();
+	write("before");
+	WinButton("x");
+	write("after");
+end
+```
+
+```stdout
+before
+
+Run-time error 121
+File ladder__rung45_win_function_raises_error_121_as_unicons_x11_build_does.icn; Line 3
+function not supported
+Traceback:
+   main()
+   WinButton("x") from line 3 in ladder__rung45_win_function_raises_error_121_as_unicons_x11_build_does.icn
+```
+
 ## ladder_rung12_strrelop_size_sgt
 
 ```Icon
@@ -8004,6 +8025,30 @@ main()
 set(4) from line 3 in w_set.icn
 ```
 
+## ladder__rung41_a_builtin_called_through_bang_shows_function_name_bang_list
+
+```Icon
+procedure main();
+	local L;
+	L := ["a"];
+	write("before");
+	abs ! L;
+	write("after");
+end
+```
+
+```stdout
+before
+
+Run-time error 102
+File ladder__rung41_a_builtin_called_through_bang_shows_function_name_bang_list.icn; Line 4
+numeric expected
+offending value: "a"
+Traceback:
+main()
+function abs ! list_1 = ["a"] from line 4 in ladder__rung41_a_builtin_called_through_bang_shows_function_name_bang_list.icn
+```
+
 ## ladder__rung41_rt_write_puts_a_strings_bytes_as_they_are
 
 ```Icon
@@ -8021,6 +8066,30 @@ end
 ab
 lnx
 "\x01z"
+```
+
+## ladder__rung45_a_builtin_called_through_bang_shows_function_name_bang_list
+
+```Icon
+procedure main();
+	local L;
+	L := ["a"];
+	write("before");
+	abs ! L;
+	write("after");
+end
+```
+
+```stdout
+before
+
+Run-time error 102
+File ladder__rung45_a_builtin_called_through_bang_shows_function_name_bang_list.icn; Line 4
+numeric expected
+offending value: "a"
+Traceback:
+   main()
+   function abs ! list_1 = ["a"] from line 4 in ladder__rung45_a_builtin_called_through_bang_shows_function_name_bang_list.icn
 ```
 
 ## ladder_rung41_rt_errorclear
