@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=none
-# shape: entries=38 features=65 ubiquitous=9(package write read every while procedure local to_by assign) distinctive=56 core=14 clusters=13 chunks=1 sizes=24
+# shape: entries=39 features=65 ubiquitous=9(package write read every while procedure local to_by assign) distinctive=56 core=12 clusters=16 chunks=1 sizes=27
 entry	part	cluster	shells
 gprogs/breakout	chunk:01	dir:gprogs	
 gprogs/browser	chunk:01	dir:gprogs	
@@ -21,9 +21,9 @@ progs/filesect	chunk:01	feat:integer	alternation gen_with_alternation integer st
 progs/findstr	core	core	alternation any aug_assign element_gen gen_with_alternation image keyword_ref limitation reads section stop
 progs/format	core	core	alternation any aug_assign break delete element_gen gen_with_alternation integer keyword_ref limitation many match pos put repeat repl return scan scan_with_tab section set static stop tab trim
 progs/getcol	chunk:01	feat:many	alternation gen_with_alternation limitation many scan scan_with_tab stop tab upto
-progs/getlines	core	core	alternation aug_assign delete gen_with_alternation image integer member set stop
+progs/getlines	chunk:01	feat:delete	alternation aug_assign delete gen_with_alternation image integer member set stop
 progs/grpsort	chunk:01	feat:fail	alternation aug_assign case element_gen fail gen_with_alternation global limitation match next pop put record return scan sort static table trim
-progs/iplweb	core	core	alternation case element_gen fixtures gen_with_alternation keyword_ref limitation many pos return scan scan_with_tab section stop tab upto
+progs/iplweb	chunk:01	feat:pos	alternation case element_gen fixtures gen_with_alternation keyword_ref limitation many pos return scan scan_with_tab section stop tab upto
 progs/ipp	core	core	alternation any aug_assign bal break case delete element_gen every_with_suspend find gen_with_alternation global image insert integer keyword_ref limitation many map match member move next pop pos push put record repeat return scan scan_with_tab section set sort static stop suspend tab table type until upto writes
 progs/iprint	core	core	alternation aug_assign break case element_gen find gen_with_alternation get global integer keyword_ref limitation match move next put repeat repl return scan scan_with_tab section static stop tab trim writes
 progs/itrbksum	chunk:01	feat:break	alternation aug_assign break gen_with_alternation limitation
@@ -35,8 +35,9 @@ progs/strimlen	chunk:01	dir:progs
 progs/unclog	chunk:01	feat:find	alternation aug_assign break element_gen find gen_with_alternation get keyword_ref limitation next put scan scan_with_tab section sort stop tab table upto
 progs/what	core	core	alternation aug_assign coexpr_activate fixtures gen_with_alternation keyword_ref limitation match move next pop reads scan scan_with_tab section tab upto
 mprogs/mtutils	chunk:01	feat:return	keyword_ref return
-progs/dd2wif	core	core	aug_assign coexpr_activate element_gen keyword_ref list put repl return scan section table upto
+progs/dd2wif	chunk:01	feat:coexpr_activate	aug_assign coexpr_activate element_gen keyword_ref list put repl return scan section table upto
 progs/detex	core	core	alternation aug_assign bal case element_gen fail find gen_with_alternation global keyword_ref limitation many move return scan scan_with_tab section stop tab trim upto
 progs/isd2disd	chunk:01	feat:list	keyword_ref list
-progs/lcfile	chunk:01	feat:fixtures	fixtures map
-progs/lcn	chunk:01	feat:fixtures	element_gen fixtures keyword_ref map
+progs/lcfile	chunk:01	feat:map	fixtures map
+progs/lcn	chunk:01	feat:map	element_gen fixtures keyword_ref map
+progs/literat	core	core	alternation aug_assign break case create fail find fixtures gen_with_alternation get global keyword_ref list member move next pop put reads record repeat repl return scan scan_with_tab section set sort swap tab trim type until upto want_rc writes
