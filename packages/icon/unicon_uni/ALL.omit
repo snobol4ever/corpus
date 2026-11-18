@@ -267,10 +267,10 @@ ide/ui.icn: OWED: the IDE, built by its Makefile from the 26 files of ide (10,15
 ide/uproject.icn: LIBRARY: no procedure main
 ide/utags.icn: NEEDS-DISPLAY: the source names import gui
 ide/verifymake.icn: LIBRARY: no procedure main
-lib/FxPt.icn: LIBRARY: no procedure main
+lib/FxPt.icn: LIBRARY: no procedure main; graded through its driver lib/FxPt_driver.icn
 lib/_button.icn: LIBRARY: no procedure main; graded through its driver lib/_button_driver.icn
-lib/_image.icn: LIBRARY: no procedure main
-lib/_list.icn: LIBRARY: no procedure main
+lib/_image.icn: LIBRARY: no procedure main; graded through its driver lib/_image_driver.icn
+lib/_list.icn: LIBRARY: no procedure main; graded through its driver lib/_list_driver.icn
 lib/_menu.icn: LIBRARY: no procedure main
 lib/_node.icn: LIBRARY: no procedure main
 lib/_panel.icn: LIBRARY: no procedure main
@@ -308,35 +308,35 @@ lib/db_util.icn: LIBRARY: no procedure main; graded through its driver lib/db_ut
 lib/decode.icn: LIBRARY: no procedure main; graded through its driver lib/decode_driver.icn
 lib/dispatcher.icn: LIBRARY: no procedure main; graded through its driver lib/dispatcher_driver.icn
 lib/doptions.icn: LIBRARY: no procedure main; graded through its driver lib/doptions_driver.icn
-lib/dropdown.icn: LIBRARY: no procedure main
-lib/editabletextlist.icn: LIBRARY: no procedure main
-lib/editlist.icn: LIBRARY: no procedure main
-lib/encode.icn: LIBRARY: no procedure main
-lib/encodinghandler.icn: LIBRARY: no procedure main
-lib/error.icn: LIBRARY: no procedure main
-lib/errorsystem.icn: LIBRARY: no procedure main
-lib/exception.icn: LIBRARY: no procedure main
-lib/fastprime.icn: LIBRARY: no procedure main
-lib/fcn_util.icn: LIBRARY: no procedure main
-lib/file_dlg.icn: LIBRARY: no procedure main
-lib/format.icn: LIBRARY: no procedure main
-lib/genserve.icn: NEEDS-NETWORK: the source names open(":" || p, "nl"
-lib/group.icn: LIBRARY: no procedure main
-lib/gui.icn: LIBRARY: no procedure main
-lib/guiconst.icn: LIBRARY: no procedure main
-lib/heap.icn: LIBRARY: no procedure main
-lib/httpclient.icn: LIBRARY: no procedure main
-lib/httprequest.icn: LIBRARY: no procedure main
-lib/httpresponse.icn: LIBRARY: no procedure main
-lib/icmp.icn: LIBRARY: no procedure main
-lib/icon.icn: LIBRARY: no procedure main
-lib/iconbutton.icn: LIBRARY: no procedure main
-lib/igmp.icn: LIBRARY: no procedure main
-lib/json.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code
-lib/jsonrpc.icn: LIBRARY: no procedure main
-lib/label.icn: LIBRARY: no procedure main
-lib/langprocs.icn: LIBRARY: no procedure main
-lib/listener.icn: LIBRARY: no procedure main
+lib/dropdown.icn: LIBRARY: no procedure main; graded through its driver lib/dropdown_driver.icn
+lib/editabletextlist.icn: LIBRARY: no procedure main; graded through its driver lib/editabletextlist_driver.icn
+lib/editlist.icn: LIBRARY: no procedure main; graded through its driver lib/editlist_driver.icn
+lib/encode.icn: LIBRARY: no procedure main; graded through its driver lib/encode_driver.icn
+lib/encodinghandler.icn: LIBRARY: no procedure main; graded through its driver lib/encodinghandler_driver.icn
+lib/error.icn: LIBRARY: no procedure main; graded through its driver lib/error_driver.icn
+lib/errorsystem.icn: LIBRARY: no procedure main; graded through its driver lib/errorsystem_driver.icn
+lib/exception.icn: LIBRARY: no procedure main; graded through its driver lib/exception_driver.icn
+lib/fastprime.icn: LIBRARY: no procedure main; graded through its driver lib/fastprime_driver.icn
+lib/fcn_util.icn: LIBRARY: no procedure main; graded through its driver lib/fcn_util_driver.icn
+lib/file_dlg.icn: LIBRARY: no procedure main; graded through its driver lib/file_dlg_driver.icn
+lib/format.icn: LIBRARY: no procedure main; graded through its driver lib/format_driver.icn
+lib/genserve.icn: NEEDS-NETWORK: the source names open(":" || p, "nl"; graded through its driver lib/genserve_driver.icn
+lib/group.icn: LIBRARY: no procedure main; graded through its driver lib/group_driver.icn
+lib/gui.icn: LIBRARY: no procedure main; graded through its driver lib/gui_driver.icn
+lib/guiconst.icn: LIBRARY: no procedure main; graded through its driver lib/guiconst_driver.icn
+lib/heap.icn: LIBRARY: no procedure main; graded through its driver lib/heap_driver.icn
+lib/httpclient.icn: LIBRARY: no procedure main; graded through its driver lib/httpclient_driver.icn
+lib/httprequest.icn: LIBRARY: no procedure main; graded through its driver lib/httprequest_driver.icn
+lib/httpresponse.icn: LIBRARY: no procedure main; graded through its driver lib/httpresponse_driver.icn
+lib/icmp.icn: LIBRARY: no procedure main; graded through its driver lib/icmp_driver.icn
+lib/icon.icn: LIBRARY: no procedure main; graded through its driver lib/icon_driver.icn
+lib/iconbutton.icn: LIBRARY: no procedure main; graded through its driver lib/iconbutton_driver.icn
+lib/igmp.icn: LIBRARY: no procedure main; graded through its driver lib/igmp_driver.icn
+lib/json.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 117 in startup code; graded through its driver lib/json_driver.icn
+lib/jsonrpc.icn: LIBRARY: no procedure main; graded through its driver lib/jsonrpc_driver.icn
+lib/label.icn: LIBRARY: no procedure main; graded through its driver lib/label_driver.icn
+lib/langprocs.icn: LIBRARY: no procedure main; graded through its driver lib/langprocs_driver.icn
+lib/listener.icn: LIBRARY: no procedure main; graded through its driver lib/listener_driver.icn
 lib/logger.icn: LIBRARY: no procedure main
 lib/mailbox.icn: LIBRARY: no procedure main
 lib/mailmisc.icn: LIBRARY: no procedure main

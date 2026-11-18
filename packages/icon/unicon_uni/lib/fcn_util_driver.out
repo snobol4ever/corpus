@@ -1,0 +1,7 @@
+procedure compose procedure lang__compose -1
+procedure closure procedure lang__closure -2
+class Closure procedure lang__Closure -2
+procedure makeProc procedure lang__makeProc 1
+procedure invoke procedure lang__invoke -2
+procedure invokeFcn procedure lang__invokeFcn -2
+record Arg record constructor lang__Arg 0

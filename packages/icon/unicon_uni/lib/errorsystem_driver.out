@@ -1,0 +1,4 @@
+class ErrorSystem procedure ErrorSystem__ErrorSystem 2
+procedure AllOff procedure ErrorSystem__AllOff 0
+procedure AllOn procedure ErrorSystem__AllOn 0
+procedure trace procedure ErrorSystem__trace -1

@@ -1,0 +1,4 @@
+class IcmpPacket procedure net__IcmpPacket 0
+class IcmpEchoRequest procedure net__IcmpEchoRequest 0
+class IcmpEchoReply procedure net__IcmpEchoReply 0
+class Ping procedure net__Ping 3

@@ -1,0 +1,25 @@
+record undo_rec record constructor undo_rec 12
+class _Event procedure _Event 3
+class _Dialog procedure _Dialog 45
+class MetaComponent procedure MetaComponent 0
+class Container procedure Container -1
+class VisibleContainer procedure VisibleContainer -1
+class FillPanel procedure FillPanel -1
+procedure CacheImage procedure CacheImage 6
+class MenuEvent procedure MenuEvent 4
+procedure EraseRectangle procedure EraseRectangle 5
+procedure Rectangle procedure Rectangle 5
+procedure DrawRaisedRectangle procedure DrawRaisedRectangle 6
+procedure DrawSunkenRectangle procedure DrawSunkenRectangle 6
+procedure FilterRectangle procedure FilterRectangle 5
+procedure left_string procedure left_string 4
+procedure left_stringr procedure left_stringr 4
+procedure left_stringg procedure left_stringg 4
+procedure center_string procedure center_string 4
+procedure right_string procedure right_string 4
+procedure object_class_name procedure object_class_name 1
+procedure img_width procedure img_width 1
+procedure img_height procedure img_height 1
+procedure img_style procedure img_style 1
+procedure set_CheckBoxes_by_flag procedure set_CheckBoxes_by_flag 2
+procedure get_CheckBoxes_by_flag procedure get_CheckBoxes_by_flag 1

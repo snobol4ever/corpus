@@ -1,0 +1,3 @@
+class JRPC_Message procedure json__JRPC_Message 3
+class JSON_HTTPSocket procedure json__JSON_HTTPSocket 2
+class JRPC_HTTPSocket procedure json__JRPC_HTTPSocket 2

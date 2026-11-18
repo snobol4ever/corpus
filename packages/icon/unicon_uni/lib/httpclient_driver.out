@@ -1,0 +1,2 @@
+class Cookie procedure http__Cookie 6
+class HttpClient procedure http__HttpClient -1

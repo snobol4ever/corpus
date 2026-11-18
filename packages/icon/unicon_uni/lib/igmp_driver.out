@@ -1,0 +1,12 @@
+procedure ensure_igmp_constants procedure net__ensure_igmp_constants 0
+procedure pack_ipv4_list procedure net__pack_ipv4_list 1
+procedure get_ipv4_list procedure net__get_ipv4_list 3
+procedure igmp_group_record procedure net__igmp_group_record 4
+procedure get_igmp_group_record procedure net__get_igmp_group_record 2
+class IgmpPacket procedure net__IgmpPacket 0
+class Igmpv2Query procedure net__Igmpv2Query 0
+class Igmpv2Report procedure net__Igmpv2Report 0
+class Igmpv2Leave procedure net__Igmpv2Leave 0
+class Igmpv3Query procedure net__Igmpv3Query 0
+class Igmpv3Report procedure net__Igmpv3Report 0
+class Igmp procedure net__Igmp 2

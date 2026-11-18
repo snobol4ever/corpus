@@ -1,0 +1,8 @@
+procedure genprimes procedure genprimes 1
+procedure is_prime procedure is_prime 2
+procedure powm procedure powm 3
+procedure primetest procedure primetest 4
+procedure try_composite procedure try_composite 4
+procedure all_factors procedure all_factors 1
+procedure gen_factors procedure gen_factors 1
+procedure getfactor procedure getfactor 1

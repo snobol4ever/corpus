@@ -8,4 +8,5 @@ unicon/i	1
 unidoc/UniDoc	1
 progs/ie	1
 parser/showtree	1
+lib/FxPt_driver	1
 ide/utags_driver	1
