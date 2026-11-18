@@ -1,0 +1,10 @@
+# wevents: reports each window event it reads, one line an event (the interval, the modifiers, the event, its place, its queue words); the script
+# types a, clicks, and ends it with control-d. The interval and the upper word of the y queue entry are the X server's clock: masked (ALL.mask).
+move 100 100
+key a
+wait
+click 1 100 100
+wait
+keydown Control_L
+key d
+keyup Control_L
