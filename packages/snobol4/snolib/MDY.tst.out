@@ -1,0 +1,41 @@
+
+
+
+dump of natural variables
+
+DAY_MONTH = '(334,12)(304,11)(273,10)(243,9)(212,8)(181,7)(151,6)(120,5)(90,4)(59,3)(31,2)(0,1)'
+I = PATTERN
+LY_DAY_MONTH = '(335,12)(305,11)(274,10)(244,9)(213,8)(182,7)(152,6)(121,5)(91,4)(60,3)(31,2)(0,1)'
+SEARCH.X.M = PATTERN
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'MDY.lss'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'MDY.lss'
+&LASTLINE = 40
+&LASTNO = 17
+&LINE = 41
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 10
+&STLIMIT = 2147483647
+&STNO = 18
+&TRACE = 0
+&TRIM = 1
+
+
+

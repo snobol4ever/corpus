@@ -1,0 +1,42 @@
+
+
+
+dump of natural variables
+
+A = ARRAY(3) #1
+ABORT = PATTERN
+B = ARRAY(3) #2
+C = ARRAY(6) #3
+REM = PATTERN
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'CATA.lss'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'CATA.lss'
+&LASTLINE = 42
+&LASTNO = 55
+&LINE = 43
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 126
+&STLIMIT = 2147483647
+&STNO = 56
+&TRACE = 0
+&TRIM = 1
+
+
+

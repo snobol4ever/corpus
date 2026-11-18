@@ -1,0 +1,40 @@
+
+
+
+dump of natural variables
+
+I = 3999
+N = 3999
+R = 'MMMCMXCIX'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'ROMAN.lss'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'ROMAN.lss'
+&LASTLINE = 49
+&LASTNO = 20
+&LINE = 50
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 196667
+&STLIMIT = 2147483647
+&STNO = 21
+&TRACE = 0
+&TRIM = 1
+
+
+

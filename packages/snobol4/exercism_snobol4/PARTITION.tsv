@@ -1,16 +1,16 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=42 features=2 ubiquitous=2(package want_rc) distinctive=0 core=4 clusters=12 chunks=1 sizes=38
+# shape: entries=42 features=3 ubiquitous=2(package want_rc) distinctive=1 core=1 clusters=12 chunks=1 sizes=41
 entry	part	cluster	shells
-practice/acronym/acronym	core	core	
-practice/acronym/lib/cmprep	core	core	
+practice/acronym/acronym	chunk:01	dir:practice/acronym	
+practice/acronym/lib/cmprep	chunk:01	dir:practice/acronym/lib	
 practice/acronym/lib/inhale	chunk:01	dir:practice/acronym/lib	
 practice/acronym/lib/listtests	chunk:01	dir:practice/acronym/lib	
 practice/acronym/lib/nextword	chunk:01	dir:practice/acronym/lib	
 practice/acronym/lib/whereami	chunk:01	dir:practice/acronym/lib	
 practice/acronym/test	chunk:01	dir:practice/acronym	
-practice/hello-world/hello-world	core	core	
-practice/hello-world/lib/cmprep	core	core	
+practice/hello-world/hello-world	core	core	dump
+practice/hello-world/lib/cmprep	chunk:01	dir:practice/hello-world/lib	
 practice/hello-world/lib/inhale	chunk:01	dir:practice/hello-world/lib	
 practice/hello-world/lib/listtests	chunk:01	dir:practice/hello-world/lib	
 practice/hello-world/lib/nextword	chunk:01	dir:practice/hello-world/lib	

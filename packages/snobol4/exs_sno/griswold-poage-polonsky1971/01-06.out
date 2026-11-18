@@ -1,0 +1,43 @@
+
+
+
+dump of natural variables
+
+ARB = PATTERN
+ch = '0'
+dec = 0
+res = 123456
+sz = 0
+t = TABLE(11) #1
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = '01-06.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = '01-06.sno'
+&LASTLINE = 65
+&LASTNO = 38
+&LINE = 67
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 42
+&STLIMIT = 2147483647
+&STNO = 40
+&TRACE = 0
+&TRIM = 1
+
+
+

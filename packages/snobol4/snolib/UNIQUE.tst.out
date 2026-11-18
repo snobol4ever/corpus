@@ -1,0 +1,42 @@
+
+
+
+dump of natural variables
+
+U1 = 'U1_'
+U2 = 'U2_'
+U3 = 'U3_'
+U3_ = 3
+UNIQUE__ = 0
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'UNIQUE.lss'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'UNIQUE.lss'
+&LASTLINE = 79
+&LASTNO = 38
+&LINE = 80
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 89
+&STLIMIT = 2147483647
+&STNO = 39
+&TRACE = 0
+&TRIM = 1
+
+
+

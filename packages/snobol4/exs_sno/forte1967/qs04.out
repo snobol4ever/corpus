@@ -1,0 +1,40 @@
+
+
+
+dump of natural variables
+
+str1 = 'fiddle'
+str2 = 'faddle'
+str3 = 'faddlefiddle'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'qs04.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'qs04.sno'
+&LASTLINE = 24
+&LASTNO = 19
+&LINE = 27
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 12
+&STLIMIT = 2147483647
+&STNO = 22
+&TRACE = 0
+&TRIM = 1
+
+
+
