@@ -1,5 +1,6 @@
 # CONVERSION-PROOF.tsv -- each entry of rosetta-unicon and what unicon -c says of the original against the converted text (its ucode, the uid line aside) (util_icon_semicolons.py,
 # the grader 2026-11-13): same-code (kept), unchanged (no semicolon added, kept), differs-code or one-refused (left out: its conversion is owed), both-refused (left out: icont refuses the original too)
+# same-refusal (kept; officer_04 2026-11-17, row unicon-a-procedure-declared-twice-is-refused-as-icont-links-it): the entry IS a refusal, so unicon -c writes no ucode for either text; the original and the converted text give unicon -c the same diagnostics, line for line
 entry	verdict
 accumulator-factory	same-code
 arithmetic-complex	same-code
@@ -40,3 +41,4 @@ walsh-matrix	same-code
 web-scraping	same-code
 window-creation	same-code
 animation-1-three-ticks	same-code
+walk-a-directory-recursively	same-refusal
