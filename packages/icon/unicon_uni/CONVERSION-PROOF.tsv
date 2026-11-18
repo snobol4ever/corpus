@@ -371,3 +371,16 @@ uscribe/node.icn	same-code
 uscribe/outputter.icn	same-code
 uscribe/parser.icn	same-code
 uscribe/scan.icn	same-code
+unicon/ca.icn	same-code
+unicon/cfy.icn	same-code
+unicon/idol.icn	same-code
+unicon/nocc.icn	same-code
+unicon/parserr.icn	same-code
+unicon/preproce.icn	same-code
+unicon/tokens.icn	same-code
+unicon/tree.icn	same-code
+unicon/tstcls.icn	same-code
+unicon/unicon.icn	same-code
+unicon/unilex.icn	same-code
+unicon/unix.icn	same-code
+unicon/yyerror.icn	same-code

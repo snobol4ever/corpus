@@ -1,0 +1,18 @@
+#
+# @(#)unix.icn  1.8 3/29/92
+# OS-specific code for UNIX Idol
+#
+global icontopt,env,sysok,comp
+
+procedure mysystem(s)
+   if \loud then
+      if /silent then write(s);
+  return system(s);
+end
+
+
+procedure sysinitialize()
+  icontopt := " ";
+  env := getenv("IDOLENV") | "uniclass";
+  sysok := 0;
+end
