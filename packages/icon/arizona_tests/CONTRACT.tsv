@@ -1,3 +1,5 @@
 # CONTRACT.tsv -- this package's own run contract, read by SCRIP scripts/util_build_package_suite.py (key<TAB>value<TAB>evidence).
 stderr	merged	upstream's general/Test-icon feeds NAME.dat and diffs the 2>&1 capture; test_icon_arizona_suite.sh grades > 2>&1 the same way (CEO-445)
 units	ref-beside	test_icon_arizona_suite.sh grades every .ref beside its .icn in general/ and special/; a library is graded through its driver
+fpath	/home/resources/icon-master/ipl/cfuncs	Icon's loadfunc loads libcfunc.so from the folders of FPATH; the library is the oracle's own build for the box (never built by SCRIP's make or by a run), so the cut's and the grade's runs find the same file; iconx's own default FPATH names its library the same way (the cto 2026-11-17, row icon-unicon-loadfunc-is-built-and-its-seven-programs-are-entries)
+ipath	/home/resources/icon-master/ipl/cfuncs	the folder of the oracle's own cfunc.icn (the wrapper that a link of cfunc loads, one .icn there and no other), so a program that links cfunc finds it in the cut and in the grade alike; no other entry of the package links a file of it

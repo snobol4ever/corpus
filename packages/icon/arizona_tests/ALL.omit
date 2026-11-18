@@ -1,12 +1,9 @@
 general/cfunc: no cfunc.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
-general/cfunc_driver: loads C through cfunc_driver.clib -- the package's board builds that library and runs it with FPATH; a container entry carries no FPATH contract yet, so it is graded by the board, not here
-general/cfuncs: loads C through cfuncs.clib -- the package's board builds that library and runs it with FPATH; a container entry carries no FPATH contract yet, so it is graded by the board, not here
 general/convert: no convert.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 general/core: no core.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 general/datetime: no datetime.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 general/echo: no echo.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 general/equiv: no equiv.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
-general/extlvals: loads C through extlvals.clib -- the package's board builds that library and runs it with FPATH; a container entry carries no FPATH contract yet, so it is graded by the board, not here
 general/factors: no factors.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 general/hexcvt: no hexcvt.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
 general/indices: no indices.ref beside it -- the package grades it through another unit (a library through its driver, an include through its includer) or not at all (CONTRACT.tsv units=ref-beside)
