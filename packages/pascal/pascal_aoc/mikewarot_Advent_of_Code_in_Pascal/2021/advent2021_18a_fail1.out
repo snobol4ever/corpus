@@ -1,0 +1,119 @@
+After Addition, before reduction
+    --> [[1,2],[[3,4],5]]
+After Start5, S = [[1,2],[[3,4],5]]
+Snail Addition passed!
+
+
+Left   = 0
+Start5 = 5
+A      = 9
+B      = 8
+Right  = 11
+Right->1New B = 9
+After Start5, S = [[[[0,9],2],3],4]
+After Start5, S = [[[[0,9],2],3],4]
+Snail Reduction passed!
+
+
+Left   = 11
+Left-->4Start5 = 13
+A      = 3
+B      = 2
+Right  = 0
+New A = 7
+After Start5, S = [7,[6,[5,[7,0]]]]
+After Start5, S = [7,[6,[5,[7,0]]]]
+Snail Reduction passed!
+
+
+Left   = 9
+Left-->4Start5 = 11
+A      = 3
+B      = 2
+Right  = 20
+Right->1New A = 7
+New B = 3
+After Start5, S = [[6,[5,[7,0]]],3]
+After Start5, S = [[6,[5,[7,0]]],3]
+Snail Reduction passed!
+
+
+Left   = 9
+Left-->1Start5 = 11
+A      = 7
+B      = 3
+Right  = 21
+Right->6New A = 8
+New B = 9
+After Start5, S = [[3,[2,[8,0]]],[9,[5,[4,[3,2]]]]]
+Left   = 23
+Left-->4Start5 = 25
+A      = 3
+B      = 2
+Right  = 0
+New A = 7
+After Start5, S = [[3,[2,[8,0]]],[9,[5,[7,0]]]]
+After Start5, S = [[3,[2,[8,0]]],[9,[5,[7,0]]]]
+Snail Reduction passed!
+
+
+Left   = 0
+Start5 = 5
+A      = 4
+B      = 3
+Right  = 11
+Right->4New B = 7
+After Start5, S = [[[[0,7],4],[7,[[8,4],9]]],[1,1]]
+Left   = 14
+Left-->7Start5 = 17
+A      = 8
+B      = 4
+Right  = 23
+Right->9New A = 15
+New B = 13
+B was 13  becomes [6,7]
+A was 15  becomes [7,8]
+After Start5, S = [[[[0,7],4],[[7,8],[0,[6,7]]]],[1,1]]
+Left   = 21
+Left-->0Start5 = 23
+A      = 6
+B      = 7
+Right  = 33
+Right->1New A = 6
+New B = 8
+After Start5, S = [[[[0,7],4],[[7,8],[6,0]]],[8,1]]
+After Start5, S = [[[[0,7],4],[[7,8],[6,0]]],[8,1]]
+Snail Reduction passed!
+
+
+After Addition, before reduction
+    --> [[[[[4,3],4],4],[7,[[8,4],9]]],[1,1]]
+Left   = 0
+Start5 = 5
+A      = 4
+B      = 3
+Right  = 11
+Right->4New B = 7
+After Start5, S = [[[[0,7],4],[7,[[8,4],9]]],[1,1]]
+Left   = 14
+Left-->7Start5 = 17
+A      = 8
+B      = 4
+Right  = 23
+Right->9New A = 15
+New B = 13
+B was 13  becomes [6,7]
+A was 15  becomes [7,8]
+After Start5, S = [[[[0,7],4],[[7,8],[0,[6,7]]]],[1,1]]
+Left   = 21
+Left-->0Start5 = 23
+A      = 6
+B      = 7
+Right  = 33
+Right->1New A = 6
+New B = 8
+After Start5, S = [[[[0,7],4],[[7,8],[6,0]]],[8,1]]
+After Start5, S = [[[[0,7],4],[[7,8],[6,0]]],[8,1]]
+Snail Addition passed!
+
+

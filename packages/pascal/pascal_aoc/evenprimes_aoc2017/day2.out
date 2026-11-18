@@ -1,0 +1,42 @@
+Starting part 1 --------------------------------------
+Test data run:
+Final checksum is 18
+
+Prod data run:
+Final checksum is 50376
+
+Press enter to continue...
+
+
+Starting part 2 --------------------------------------
+First, test the new checksum...
+Expected 4, got: 4
+Create multiple rows
+Prep to call process_spreadsheet
+starting part2_process_spreadsheet...
+4
+3
+2
+finishing part2_process_spreadsheet...
+Expected 9, got: 9
+
+Prod data run:
+Prod part 2 checksum is starting part2_process_spreadsheet...
+31
+13
+5
+2
+27
+21
+32
+2
+3
+16
+12
+22
+29
+7
+30
+15
+finishing part2_process_spreadsheet...
+267

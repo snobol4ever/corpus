@@ -1,0 +1,136 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=132 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=50 chunks=3 sizes=60,60,9
+entry	part	cluster	shells
+ALANVF_advent-of-code-2019/day 3/part1	chunk:02	dir:ALANVF_advent-of-code-2019/day 3	
+CharlesAverill_aoc23/day04/part2/scratchcards	core	core	want_rc
+CharlesAverill_aoc23/day05/part1/seeds	core	core	want_rc
+CharlesAverill_aoc23/day05/part2/seeds	core	core	want_rc
+CharlesAverill_aoc23/day06/part1/race	chunk:01	feat:want_rc	want_rc
+CharlesAverill_aoc23/day07/part1/camel	chunk:01	feat:want_rc	want_rc
+CharlesAverill_aoc23/day07/part2/camel	chunk:01	feat:want_rc	want_rc
+CharlesAverill_aoc23/day08/part1/wasteland	chunk:01	feat:want_rc	want_rc
+CharlesAverill_aoc23/helloworld	chunk:02	dir:CharlesAverill_aoc23	
+Dhole_aoc-2015/day01/day01	chunk:02	dir:Dhole_aoc-2015/day01	
+Dhole_aoc-2015/day07/day07	chunk:02	dir:Dhole_aoc-2015/day07	
+Dhole_aoc-2015/day12/day12	chunk:02	dir:Dhole_aoc-2015/day12	
+Dhole_aoc-2015/day17/day17	chunk:02	dir:Dhole_aoc-2015/day17	
+Dhole_aoc-2015/day18/day18	chunk:02	dir:Dhole_aoc-2015/day18	
+Dhole_aoc-2015/day21/day21	chunk:02	dir:Dhole_aoc-2015/day21	
+Dhole_aoc-2015/day22/day22	chunk:02	dir:Dhole_aoc-2015/day22	
+Dhole_aoc-2015/day25/day25	chunk:02	dir:Dhole_aoc-2015/day25	
+GeorgiiVoyakin_advent-of-code-2021/day01/day01	chunk:02	dir:GeorgiiVoyakin_advent-of-code-2021/day01	
+MashiroIsAsleep_AdventOfCode2025/day11/day11	chunk:02	dir:MashiroIsAsleep_AdventOfCode2025/day11	
+MashiroIsAsleep_AdventOfCode2025/day11/day11part2	chunk:02	dir:MashiroIsAsleep_AdventOfCode2025/day11	
+TalkoDenis_advent_of_code/2025/01_day/01_task/main	chunk:02	dir:TalkoDenis_advent_of_code/2025/01_day/01_task	
+TalkoDenis_advent_of_code/2025/01_day/02_task/main	chunk:02	dir:TalkoDenis_advent_of_code/2025/01_day/02_task	
+TalkoDenis_advent_of_code/2025/02_day/01_task/main	chunk:03	dir:TalkoDenis_advent_of_code/2025/02_day/01_task	
+buhman_aop/day1/day1	chunk:03	dir:buhman_aop/day1	
+buhman_aop/day3/day3	chunk:03	dir:buhman_aop/day3	
+clamy54_adventofcode2023/day1/part1	chunk:02	dir:clamy54_adventofcode2023/day1	
+clamy54_adventofcode2023/day1/part2	chunk:02	dir:clamy54_adventofcode2023/day1	
+clamy54_adventofcode2023/day2/part1	chunk:02	dir:clamy54_adventofcode2023/day2	
+clamy54_adventofcode2023/day2/part2	chunk:02	dir:clamy54_adventofcode2023/day2	
+clamy54_adventofcode2023/day3/part1	chunk:02	dir:clamy54_adventofcode2023/day3	
+clamy54_adventofcode2023/day3/part2	chunk:02	dir:clamy54_adventofcode2023/day3	
+clamy54_adventofcode2023/day4/part1	chunk:03	dir:clamy54_adventofcode2023/day4	
+clamy54_adventofcode2023/day5/part1	chunk:03	dir:clamy54_adventofcode2023/day5	
+clamy54_adventofcode2023/day6/part1	chunk:02	dir:clamy54_adventofcode2023/day6	
+clamy54_adventofcode2023/day6/part2	chunk:02	dir:clamy54_adventofcode2023/day6	
+clamy54_adventofcode2023/day7/part1	chunk:02	dir:clamy54_adventofcode2023/day7	
+clamy54_adventofcode2023/day7/part2	chunk:02	dir:clamy54_adventofcode2023/day7	
+clamy54_adventofcode2023/day8/part1	chunk:02	dir:clamy54_adventofcode2023/day8	
+clamy54_adventofcode2023/day8/part2	chunk:02	dir:clamy54_adventofcode2023/day8	
+clamy54_adventofcode2023/day9/part1	chunk:02	dir:clamy54_adventofcode2023/day9	
+clamy54_adventofcode2023/day9/part2	chunk:02	dir:clamy54_adventofcode2023/day9	
+clamy54_adventofcode2024/day1/part1	chunk:02	dir:clamy54_adventofcode2024/day1	
+clamy54_adventofcode2024/day1/part2	chunk:02	dir:clamy54_adventofcode2024/day1	
+clamy54_adventofcode2024/day2/part1	chunk:02	dir:clamy54_adventofcode2024/day2	
+clamy54_adventofcode2024/day2/part2	chunk:02	dir:clamy54_adventofcode2024/day2	
+clamy54_adventofcode2024/day3/part1	chunk:02	dir:clamy54_adventofcode2024/day3	
+clamy54_adventofcode2024/day3/part2-with-regex	chunk:02	dir:clamy54_adventofcode2024/day3	
+clamy54_adventofcode2024/day3/part2	chunk:02	dir:clamy54_adventofcode2024/day3	
+clamy54_adventofcode2024/day4/part1	chunk:02	dir:clamy54_adventofcode2024/day4	
+clamy54_adventofcode2024/day4/part2	chunk:02	dir:clamy54_adventofcode2024/day4	
+clamy54_adventofcode2024/day5/part1	chunk:02	dir:clamy54_adventofcode2024/day5	
+clamy54_adventofcode2024/day5/part2	chunk:02	dir:clamy54_adventofcode2024/day5	
+clamy54_adventofcode2024/day6/part1	chunk:02	dir:clamy54_adventofcode2024/day6	
+clamy54_adventofcode2024/day6/part2	chunk:02	dir:clamy54_adventofcode2024/day6	
+clamy54_adventofcode2024/day8/part1	chunk:02	dir:clamy54_adventofcode2024/day8	
+clamy54_adventofcode2024/day8/part2	chunk:02	dir:clamy54_adventofcode2024/day8	
+clamy54_adventofcode2024/day9/part1	chunk:02	dir:clamy54_adventofcode2024/day9	
+clamy54_adventofcode2024/day9/part2	chunk:02	dir:clamy54_adventofcode2024/day9	
+edmarkovich_AdventOfCode2023/day1	chunk:02	dir:edmarkovich_AdventOfCode2023	
+edmarkovich_AdventOfCode2023/day2	chunk:02	dir:edmarkovich_AdventOfCode2023	
+erniebondy_Advent-of-Code-2024/main	chunk:03	dir:erniebondy_Advent-of-Code-2024	
+evenprimes_aoc2017/day1	chunk:01	dir:evenprimes_aoc2017	
+evenprimes_aoc2017/day2	chunk:01	dir:evenprimes_aoc2017	
+evenprimes_aoc2017/day20	chunk:01	dir:evenprimes_aoc2017	
+evenprimes_aoc2017/day3	chunk:01	dir:evenprimes_aoc2017	
+evenprimes_aoc2017/day4	chunk:01	dir:evenprimes_aoc2017	
+evenprimes_aoc2017/day5	chunk:01	dir:evenprimes_aoc2017	
+evenprimes_aoc2017/day6	chunk:01	dir:evenprimes_aoc2017	
+hanst99_advent-of-code-2025/pascal/day2_p1	chunk:03	dir:hanst99_advent-of-code-2025/pascal	
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 1/D1P1	chunk:02	dir:lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 1	
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 1/D1P2	chunk:02	dir:lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 1	
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 2/D2P1	chunk:02	dir:lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 2	
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 2/D2P2	chunk:02	dir:lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 2	
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 3/D3P1	chunk:02	dir:lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 3	
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 3/D3P2	chunk:02	dir:lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 3	
+mcebular_advent-of-code-2025/day00	chunk:02	dir:mcebular_advent-of-code-2025	
+mcebular_advent-of-code-2025/day01	chunk:02	dir:mcebular_advent-of-code-2025	
+mcebular_advent-of-code-2025/day02	chunk:02	dir:mcebular_advent-of-code-2025	
+mcebular_advent-of-code-2025/day03	chunk:02	dir:mcebular_advent-of-code-2025	
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_01a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2015	
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_02a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2015	
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_02b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2015	
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_03a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2015	
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_03b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2015	
+mikewarot_Advent_of_Code_in_Pascal/2020/a_better_regex	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2020	
+mikewarot_Advent_of_Code_in_Pascal/2020/advent01	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2020	
+mikewarot_Advent_of_Code_in_Pascal/2020/advent01_b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2020	
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_09a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2020	
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_14_redo	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2020	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_04a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_04b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_05a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_05b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_06a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_06b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_07a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_07b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_08a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_08b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_09a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_09b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_10a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_10b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_11a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_11b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_12a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_12b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_13a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_14a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_14b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_15a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_15b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_17a	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_17b	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_18a_fail1	chunk:01	feat:want_rc	want_rc
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_19_try2	chunk:01	dir:mikewarot_Advent_of_Code_in_Pascal/2021	
+pereszlenyi_aoc2022/day_05/stacks	chunk:01	feat:want_rc	want_rc
+plasmaofthedawn_adventofcode/src/pascal/2023/day6/part1	chunk:02	dir:plasmaofthedawn_adventofcode/src/pascal/2023/day6	
+plasmaofthedawn_adventofcode/src/pascal/2023/day6/part2	chunk:02	dir:plasmaofthedawn_adventofcode/src/pascal/2023/day6	
+psychotimmy_aoc2023-cpm/day21-1	chunk:01	feat:want_rc	want_rc
+psychotimmy_aoc2023-cpm/day4-1	chunk:01	feat:want_rc	want_rc
+psychotimmy_aoc2023-cpm/day8-1	chunk:01	feat:want_rc	want_rc
+rnbastos_adventofcode2022/backup/project1	chunk:03	dir:rnbastos_adventofcode2022/backup	
+rnbastos_adventofcode2022/project1	chunk:01	dir:rnbastos_adventofcode2022	
+rnbastos_adventofcode2022/project2	chunk:01	dir:rnbastos_adventofcode2022	
+rnbastos_adventofcode2022/project3	chunk:01	dir:rnbastos_adventofcode2022	
+rnbastos_adventofcode2022/project4	chunk:01	dir:rnbastos_adventofcode2022	
+rnbastos_adventofcode2022/project5	chunk:01	dir:rnbastos_adventofcode2022	
+rnbastos_adventofcode2022/project6	chunk:01	dir:rnbastos_adventofcode2022	
+rnbastos_adventofcode2022/project7	chunk:01	dir:rnbastos_adventofcode2022	
+rnbastos_adventofcode2022/project8	chunk:01	dir:rnbastos_adventofcode2022	
+swork1_advent-of-code-2022/main	chunk:03	dir:swork1_advent-of-code-2022	

@@ -1,0 +1,1697 @@
+Phrase a tester : 6green,3blue;3red,1green;4green,3red,5blue
+element 0: 6green,3blue
+6green
+3blue
+element 1: 3red,1green
+3red
+1green
+element 2: 4green,3red,5blue
+4green
+3red
+5blue
+Phrase a tester : 2red,7green;13green,2blue,4red;4green,5red,1blue;1blue,9red,1green
+element 0: 2red,7green
+2red
+7green
+element 1: 13green,2blue,4red
+13green
+2blue
+4red
+element 2: 4green,5red,1blue
+4green
+5red
+1blue
+element 3: 1blue,9red,1green
+1blue
+9red
+1green
+Phrase a tester : 2green,3blue,9red;3red,2green;6red,4blue;6red
+element 0: 2green,3blue,9red
+2green
+3blue
+9red
+element 1: 3red,2green
+3red
+2green
+element 2: 6red,4blue
+6red
+4blue
+element 3: 6red
+6red
+Phrase a tester : 9red,3green;3green,8red,6blue;12blue,4green,6red;4green,18blue,11red;9blue,2green,3red;14blue,7red
+element 0: 9red,3green
+9red
+3green
+element 1: 3green,8red,6blue
+3green
+8red
+6blue
+element 2: 12blue,4green,6red
+12blue
+4green
+6red
+element 3: 4green,18blue,11red
+4green
+18blue
+11red
+element 4: 9blue,2green,3red
+9blue
+2green
+3red
+element 5: 14blue,7red
+14blue
+7red
+Phrase a tester : 1blue,2green,3red;16red,6green;6green,2red;9red,1green
+element 0: 1blue,2green,3red
+1blue
+2green
+3red
+element 1: 16red,6green
+16red
+6green
+element 2: 6green,2red
+6green
+2red
+element 3: 9red,1green
+9red
+1green
+Phrase a tester : 4green,7red,1blue;18green,6blue,7red;1blue,3red,9green;9red,19green,1blue;7red,9green,4blue;5red,5blue,10green
+element 0: 4green,7red,1blue
+4green
+7red
+1blue
+element 1: 18green,6blue,7red
+18green
+6blue
+7red
+element 2: 1blue,3red,9green
+1blue
+3red
+9green
+element 3: 9red,19green,1blue
+9red
+19green
+1blue
+element 4: 7red,9green,4blue
+7red
+9green
+4blue
+element 5: 5red,5blue,10green
+5red
+5blue
+10green
+Phrase a tester : 16blue,5green,6red;1blue,6red,9green;6green,3red,2blue;2red,12blue,2green
+element 0: 16blue,5green,6red
+16blue
+5green
+6red
+element 1: 1blue,6red,9green
+1blue
+6red
+9green
+element 2: 6green,3red,2blue
+6green
+3red
+2blue
+element 3: 2red,12blue,2green
+2red
+12blue
+2green
+Phrase a tester : 6green,10red;7red,6green,17blue;13blue,1red
+element 0: 6green,10red
+6green
+10red
+element 1: 7red,6green,17blue
+7red
+6green
+17blue
+element 2: 13blue,1red
+13blue
+1red
+Phrase a tester : 2red,4green,5blue;2green,5blue;4green,1blue;3green,3red,6blue;3green
+element 0: 2red,4green,5blue
+2red
+4green
+5blue
+element 1: 2green,5blue
+2green
+5blue
+element 2: 4green,1blue
+4green
+1blue
+element 3: 3green,3red,6blue
+3green
+3red
+6blue
+element 4: 3green
+3green
+Phrase a tester : 3green,5red,6blue;4blue,4red,5green;5green,9red,5blue;4green,6blue,10red
+element 0: 3green,5red,6blue
+3green
+5red
+6blue
+element 1: 4blue,4red,5green
+4blue
+4red
+5green
+element 2: 5green,9red,5blue
+5green
+9red
+5blue
+element 3: 4green,6blue,10red
+4green
+6blue
+10red
+Phrase a tester : 1blue,7red,9green;1blue,13red,7green;5red;4red,7green,2blue;7green,12red;13red,2blue,12green
+element 0: 1blue,7red,9green
+1blue
+7red
+9green
+element 1: 1blue,13red,7green
+1blue
+13red
+7green
+element 2: 5red
+5red
+element 3: 4red,7green,2blue
+4red
+7green
+2blue
+element 4: 7green,12red
+7green
+12red
+element 5: 13red,2blue,12green
+13red
+2blue
+12green
+Phrase a tester : 4blue,2red;9blue,2green,3red;8blue,1green,1red;2red,3green,11blue
+element 0: 4blue,2red
+4blue
+2red
+element 1: 9blue,2green,3red
+9blue
+2green
+3red
+element 2: 8blue,1green,1red
+8blue
+1green
+1red
+element 3: 2red,3green,11blue
+2red
+3green
+11blue
+Phrase a tester : 6red,8green,2blue;6red,7green;3green,3red;2blue;3red,5green
+element 0: 6red,8green,2blue
+6red
+8green
+2blue
+element 1: 6red,7green
+6red
+7green
+element 2: 3green,3red
+3green
+3red
+element 3: 2blue
+2blue
+element 4: 3red,5green
+3red
+5green
+Phrase a tester : 2green,11blue,1red;5blue,1red,1green;3green,12blue,2red
+element 0: 2green,11blue,1red
+2green
+11blue
+1red
+element 1: 5blue,1red,1green
+5blue
+1red
+1green
+element 2: 3green,12blue,2red
+3green
+12blue
+2red
+Phrase a tester : 4blue,6red,7green;1red,2blue,5green;6red,3green,8blue;7green,8blue,4red
+element 0: 4blue,6red,7green
+4blue
+6red
+7green
+element 1: 1red,2blue,5green
+1red
+2blue
+5green
+element 2: 6red,3green,8blue
+6red
+3green
+8blue
+element 3: 7green,8blue,4red
+7green
+8blue
+4red
+Phrase a tester : 2red,16blue;2green,7red;15blue,7red;2red,3green,3blue;3red,1green,4blue;4blue,3green
+element 0: 2red,16blue
+2red
+16blue
+element 1: 2green,7red
+2green
+7red
+element 2: 15blue,7red
+15blue
+7red
+element 3: 2red,3green,3blue
+2red
+3green
+3blue
+element 4: 3red,1green,4blue
+3red
+1green
+4blue
+element 5: 4blue,3green
+4blue
+3green
+Phrase a tester : 2red,3green,10blue;9red,4blue,3green;3green,11red,6blue
+element 0: 2red,3green,10blue
+2red
+3green
+10blue
+element 1: 9red,4blue,3green
+9red
+4blue
+3green
+element 2: 3green,11red,6blue
+3green
+11red
+6blue
+Phrase a tester : 1red;6green,1red,9blue;4blue,2green;6blue,10green
+element 0: 1red
+1red
+element 1: 6green,1red,9blue
+6green
+1red
+9blue
+element 2: 4blue,2green
+4blue
+2green
+element 3: 6blue,10green
+6blue
+10green
+Phrase a tester : 2red,9green;2red,1blue;5blue,12green;5green;8green,2red,3blue;1red,11green
+element 0: 2red,9green
+2red
+9green
+element 1: 2red,1blue
+2red
+1blue
+element 2: 5blue,12green
+5blue
+12green
+element 3: 5green
+5green
+element 4: 8green,2red,3blue
+8green
+2red
+3blue
+element 5: 1red,11green
+1red
+11green
+Phrase a tester : 3green,2red,7blue;1blue,10green;1red,14blue,13green;3green,19blue,4red
+element 0: 3green,2red,7blue
+3green
+2red
+7blue
+element 1: 1blue,10green
+1blue
+10green
+element 2: 1red,14blue,13green
+1red
+14blue
+13green
+element 3: 3green,19blue,4red
+3green
+19blue
+4red
+Phrase a tester : 8red,10blue,8green;2red,7green,18blue;4green,11blue,4red;5green,3blue,10red
+element 0: 8red,10blue,8green
+8red
+10blue
+8green
+element 1: 2red,7green,18blue
+2red
+7green
+18blue
+element 2: 4green,11blue,4red
+4green
+11blue
+4red
+element 3: 5green,3blue,10red
+5green
+3blue
+10red
+Phrase a tester : 17blue,2green,2red;8red,7blue;1red,9blue,1green
+element 0: 17blue,2green,2red
+17blue
+2green
+2red
+element 1: 8red,7blue
+8red
+7blue
+element 2: 1red,9blue,1green
+1red
+9blue
+1green
+Phrase a tester : 4blue,18red,4green;3blue,7red;11red;3blue,6red;19red
+element 0: 4blue,18red,4green
+4blue
+18red
+4green
+element 1: 3blue,7red
+3blue
+7red
+element 2: 11red
+11red
+element 3: 3blue,6red
+3blue
+6red
+element 4: 19red
+19red
+Phrase a tester : 10red,1blue,17green;17green,6red;14green,4blue
+element 0: 10red,1blue,17green
+10red
+1blue
+17green
+element 1: 17green,6red
+17green
+6red
+element 2: 14green,4blue
+14green
+4blue
+Phrase a tester : 4blue,9green,4red;3green,5blue;5blue,8green;3green,3blue,1red;10green,1blue,4red;2green,2blue,1red
+element 0: 4blue,9green,4red
+4blue
+9green
+4red
+element 1: 3green,5blue
+3green
+5blue
+element 2: 5blue,8green
+5blue
+8green
+element 3: 3green,3blue,1red
+3green
+3blue
+1red
+element 4: 10green,1blue,4red
+10green
+1blue
+4red
+element 5: 2green,2blue,1red
+2green
+2blue
+1red
+Phrase a tester : 18green,3red,12blue;2red,7green;11blue,17green;12green,11blue;12green,4blue,3red
+element 0: 18green,3red,12blue
+18green
+3red
+12blue
+element 1: 2red,7green
+2red
+7green
+element 2: 11blue,17green
+11blue
+17green
+element 3: 12green,11blue
+12green
+11blue
+element 4: 12green,4blue,3red
+12green
+4blue
+3red
+Phrase a tester : 1red,3blue,8green;15blue,8red,4green;6red,9blue;6red,12blue,9green;4red,7blue,15green
+element 0: 1red,3blue,8green
+1red
+3blue
+8green
+element 1: 15blue,8red,4green
+15blue
+8red
+4green
+element 2: 6red,9blue
+6red
+9blue
+element 3: 6red,12blue,9green
+6red
+12blue
+9green
+element 4: 4red,7blue,15green
+4red
+7blue
+15green
+Phrase a tester : 1red,14green;1blue,11green;2green;4red,6green,1blue
+element 0: 1red,14green
+1red
+14green
+element 1: 1blue,11green
+1blue
+11green
+element 2: 2green
+2green
+element 3: 4red,6green,1blue
+4red
+6green
+1blue
+Phrase a tester : 1green,13red;4red,16green,7blue;2red,4blue;12green,8blue,4red;2red;12red,5green
+element 0: 1green,13red
+1green
+13red
+element 1: 4red,16green,7blue
+4red
+16green
+7blue
+element 2: 2red,4blue
+2red
+4blue
+element 3: 12green,8blue,4red
+12green
+8blue
+4red
+element 4: 2red
+2red
+element 5: 12red,5green
+12red
+5green
+Phrase a tester : 3green,4blue,3red;5blue,4green,7red;5blue,2green,2red;3red,1blue
+element 0: 3green,4blue,3red
+3green
+4blue
+3red
+element 1: 5blue,4green,7red
+5blue
+4green
+7red
+element 2: 5blue,2green,2red
+5blue
+2green
+2red
+element 3: 3red,1blue
+3red
+1blue
+Phrase a tester : 1blue,8green;9green,2blue,1red;1red,2blue
+element 0: 1blue,8green
+1blue
+8green
+element 1: 9green,2blue,1red
+9green
+2blue
+1red
+element 2: 1red,2blue
+1red
+2blue
+Phrase a tester : 11red,5green,4blue;3blue,11red,8green;6blue,3green,17red;4red,7green,10blue
+element 0: 11red,5green,4blue
+11red
+5green
+4blue
+element 1: 3blue,11red,8green
+3blue
+11red
+8green
+element 2: 6blue,3green,17red
+6blue
+3green
+17red
+element 3: 4red,7green,10blue
+4red
+7green
+10blue
+Phrase a tester : 6blue,4red;1green;1green,4red,4blue;1green,3red,10blue;10blue,1red
+element 0: 6blue,4red
+6blue
+4red
+element 1: 1green
+1green
+element 2: 1green,4red,4blue
+1green
+4red
+4blue
+element 3: 1green,3red,10blue
+1green
+3red
+10blue
+element 4: 10blue,1red
+10blue
+1red
+Phrase a tester : 2green,3blue,3red;4red;2red,2blue
+element 0: 2green,3blue,3red
+2green
+3blue
+3red
+element 1: 4red
+4red
+element 2: 2red,2blue
+2red
+2blue
+Phrase a tester : 9green,13blue;13blue,14red,1green;11blue,4red,7green;5blue,5red,8green;4red,2blue,2green
+element 0: 9green,13blue
+9green
+13blue
+element 1: 13blue,14red,1green
+13blue
+14red
+1green
+element 2: 11blue,4red,7green
+11blue
+4red
+7green
+element 3: 5blue,5red,8green
+5blue
+5red
+8green
+element 4: 4red,2blue,2green
+4red
+2blue
+2green
+Phrase a tester : 9red,5blue,8green;7red,20blue;6green,16blue,5red;12red,3blue,3green;3green,6blue,11red;11red,8blue,3green
+element 0: 9red,5blue,8green
+9red
+5blue
+8green
+element 1: 7red,20blue
+7red
+20blue
+element 2: 6green,16blue,5red
+6green
+16blue
+5red
+element 3: 12red,3blue,3green
+12red
+3blue
+3green
+element 4: 3green,6blue,11red
+3green
+6blue
+11red
+element 5: 11red,8blue,3green
+11red
+8blue
+3green
+Phrase a tester : 10green,11red,3blue;2blue,6green,11red;9green,8red,2blue
+element 0: 10green,11red,3blue
+10green
+11red
+3blue
+element 1: 2blue,6green,11red
+2blue
+6green
+11red
+element 2: 9green,8red,2blue
+9green
+8red
+2blue
+Phrase a tester : 2red,2green,4blue;3red,4green,3blue;8green,1blue,1red;3red,5blue,5green
+element 0: 2red,2green,4blue
+2red
+2green
+4blue
+element 1: 3red,4green,3blue
+3red
+4green
+3blue
+element 2: 8green,1blue,1red
+8green
+1blue
+1red
+element 3: 3red,5blue,5green
+3red
+5blue
+5green
+Phrase a tester : 3green,17red,4blue;2green,20red;4blue,4red,5green;5blue,7green,7red;4blue,5green,16red
+element 0: 3green,17red,4blue
+3green
+17red
+4blue
+element 1: 2green,20red
+2green
+20red
+element 2: 4blue,4red,5green
+4blue
+4red
+5green
+element 3: 5blue,7green,7red
+5blue
+7green
+7red
+element 4: 4blue,5green,16red
+4blue
+5green
+16red
+Phrase a tester : 2green,2blue,4red;3blue,16green;1green,2blue;1red;3blue,15green;13green,1red,2blue
+element 0: 2green,2blue,4red
+2green
+2blue
+4red
+element 1: 3blue,16green
+3blue
+16green
+element 2: 1green,2blue
+1green
+2blue
+element 3: 1red
+1red
+element 4: 3blue,15green
+3blue
+15green
+element 5: 13green,1red,2blue
+13green
+1red
+2blue
+Phrase a tester : 12red,10blue,9green;1green,15red,4blue;2green,8blue,12red;3red,4green,2blue;8blue,14red,10green;9blue,7green,6red
+element 0: 12red,10blue,9green
+12red
+10blue
+9green
+element 1: 1green,15red,4blue
+1green
+15red
+4blue
+element 2: 2green,8blue,12red
+2green
+8blue
+12red
+element 3: 3red,4green,2blue
+3red
+4green
+2blue
+element 4: 8blue,14red,10green
+8blue
+14red
+10green
+element 5: 9blue,7green,6red
+9blue
+7green
+6red
+Phrase a tester : 5red,3green,6blue;4blue,6green,2red;10blue;3red,6green,10blue
+element 0: 5red,3green,6blue
+5red
+3green
+6blue
+element 1: 4blue,6green,2red
+4blue
+6green
+2red
+element 2: 10blue
+10blue
+element 3: 3red,6green,10blue
+3red
+6green
+10blue
+Phrase a tester : 9blue,7green,1red;2green,2red,8blue;3red,15blue,11green;1red,6blue,1green;2red,1blue;1red,3green,7blue
+element 0: 9blue,7green,1red
+9blue
+7green
+1red
+element 1: 2green,2red,8blue
+2green
+2red
+8blue
+element 2: 3red,15blue,11green
+3red
+15blue
+11green
+element 3: 1red,6blue,1green
+1red
+6blue
+1green
+element 4: 2red,1blue
+2red
+1blue
+element 5: 1red,3green,7blue
+1red
+3green
+7blue
+Phrase a tester : 4green,6red;15green,6red;9green,16red,7blue;11green,4blue,12red
+element 0: 4green,6red
+4green
+6red
+element 1: 15green,6red
+15green
+6red
+element 2: 9green,16red,7blue
+9green
+16red
+7blue
+element 3: 11green,4blue,12red
+11green
+4blue
+12red
+Phrase a tester : 3blue,6green,1red;4green,3blue;8green,3blue
+element 0: 3blue,6green,1red
+3blue
+6green
+1red
+element 1: 4green,3blue
+4green
+3blue
+element 2: 8green,3blue
+8green
+3blue
+Phrase a tester : 10red,8blue;12red,2green,17blue;17blue,6red,1green;18red,6green,3blue;16blue,2green,3red
+element 0: 10red,8blue
+10red
+8blue
+element 1: 12red,2green,17blue
+12red
+2green
+17blue
+element 2: 17blue,6red,1green
+17blue
+6red
+1green
+element 3: 18red,6green,3blue
+18red
+6green
+3blue
+element 4: 16blue,2green,3red
+16blue
+2green
+3red
+Phrase a tester : 8green,13red;8green,8red,4blue;10red,3green;14red,5green,8blue;7green,19red,3blue;2red,5green,5blue
+element 0: 8green,13red
+8green
+13red
+element 1: 8green,8red,4blue
+8green
+8red
+4blue
+element 2: 10red,3green
+10red
+3green
+element 3: 14red,5green,8blue
+14red
+5green
+8blue
+element 4: 7green,19red,3blue
+7green
+19red
+3blue
+element 5: 2red,5green,5blue
+2red
+5green
+5blue
+Phrase a tester : 7green,9blue,3red;7blue,1green,9red;7green,4red,1blue;6green,3red,1blue
+element 0: 7green,9blue,3red
+7green
+9blue
+3red
+element 1: 7blue,1green,9red
+7blue
+1green
+9red
+element 2: 7green,4red,1blue
+7green
+4red
+1blue
+element 3: 6green,3red,1blue
+6green
+3red
+1blue
+Phrase a tester : 2red,3green;3blue,2red;4red,3blue
+element 0: 2red,3green
+2red
+3green
+element 1: 3blue,2red
+3blue
+2red
+element 2: 4red,3blue
+4red
+3blue
+Phrase a tester : 3red,7blue,4green;2green,1blue,7red;4red,1green,5blue
+element 0: 3red,7blue,4green
+3red
+7blue
+4green
+element 1: 2green,1blue,7red
+2green
+1blue
+7red
+element 2: 4red,1green,5blue
+4red
+1green
+5blue
+Phrase a tester : 11red,6green,1blue;7red,1blue,9green;15red,18green;11green,1blue,11red;10green,14red;1red,11green,1blue
+element 0: 11red,6green,1blue
+11red
+6green
+1blue
+element 1: 7red,1blue,9green
+7red
+1blue
+9green
+element 2: 15red,18green
+15red
+18green
+element 3: 11green,1blue,11red
+11green
+1blue
+11red
+element 4: 10green,14red
+10green
+14red
+element 5: 1red,11green,1blue
+1red
+11green
+1blue
+Phrase a tester : 18blue,1red,2green;18blue,3green,1red;2green,13blue,1red
+element 0: 18blue,1red,2green
+18blue
+1red
+2green
+element 1: 18blue,3green,1red
+18blue
+3green
+1red
+element 2: 2green,13blue,1red
+2green
+13blue
+1red
+Phrase a tester : 2blue,9red,6green;1blue,3red;7red,6blue,8green;2red,3blue,4green;1green,2blue,2red
+element 0: 2blue,9red,6green
+2blue
+9red
+6green
+element 1: 1blue,3red
+1blue
+3red
+element 2: 7red,6blue,8green
+7red
+6blue
+8green
+element 3: 2red,3blue,4green
+2red
+3blue
+4green
+element 4: 1green,2blue,2red
+1green
+2blue
+2red
+Phrase a tester : 16red,4blue;1green,3blue,3red;2green,12red;2green,1blue,3red;10blue,6red,2green
+element 0: 16red,4blue
+16red
+4blue
+element 1: 1green,3blue,3red
+1green
+3blue
+3red
+element 2: 2green,12red
+2green
+12red
+element 3: 2green,1blue,3red
+2green
+1blue
+3red
+element 4: 10blue,6red,2green
+10blue
+6red
+2green
+Phrase a tester : 1blue,4red,1green;2blue,2red;13red,4blue,1green;4blue,9red;1green,1blue,16red
+element 0: 1blue,4red,1green
+1blue
+4red
+1green
+element 1: 2blue,2red
+2blue
+2red
+element 2: 13red,4blue,1green
+13red
+4blue
+1green
+element 3: 4blue,9red
+4blue
+9red
+element 4: 1green,1blue,16red
+1green
+1blue
+16red
+Phrase a tester : 12blue,12green;4blue,1red,3green;2red,12green;1red,11green,13blue;16blue,5green
+element 0: 12blue,12green
+12blue
+12green
+element 1: 4blue,1red,3green
+4blue
+1red
+3green
+element 2: 2red,12green
+2red
+12green
+element 3: 1red,11green,13blue
+1red
+11green
+13blue
+element 4: 16blue,5green
+16blue
+5green
+Phrase a tester : 1blue,3red;10green,5red;5green,2red;1red,13green
+element 0: 1blue,3red
+1blue
+3red
+element 1: 10green,5red
+10green
+5red
+element 2: 5green,2red
+5green
+2red
+element 3: 1red,13green
+1red
+13green
+Phrase a tester : 6blue,1red,6green;3red,9blue;4red,9blue,5green;1green,5red,7blue
+element 0: 6blue,1red,6green
+6blue
+1red
+6green
+element 1: 3red,9blue
+3red
+9blue
+element 2: 4red,9blue,5green
+4red
+9blue
+5green
+element 3: 1green,5red,7blue
+1green
+5red
+7blue
+Phrase a tester : 10red,3green,3blue;6blue,11red,1green;5green,10red;16red,2blue,4green;3green,10red
+element 0: 10red,3green,3blue
+10red
+3green
+3blue
+element 1: 6blue,11red,1green
+6blue
+11red
+1green
+element 2: 5green,10red
+5green
+10red
+element 3: 16red,2blue,4green
+16red
+2blue
+4green
+element 4: 3green,10red
+3green
+10red
+Phrase a tester : 2green,1blue;1green,1blue,4red;3blue,1red,1green;2red,2green;4red
+element 0: 2green,1blue
+2green
+1blue
+element 1: 1green,1blue,4red
+1green
+1blue
+4red
+element 2: 3blue,1red,1green
+3blue
+1red
+1green
+element 3: 2red,2green
+2red
+2green
+element 4: 4red
+4red
+Phrase a tester : 5red,1green,10blue;9red,10blue;1red,2green,4blue;10blue,2green,9red;1red,12blue,2green
+element 0: 5red,1green,10blue
+5red
+1green
+10blue
+element 1: 9red,10blue
+9red
+10blue
+element 2: 1red,2green,4blue
+1red
+2green
+4blue
+element 3: 10blue,2green,9red
+10blue
+2green
+9red
+element 4: 1red,12blue,2green
+1red
+12blue
+2green
+Phrase a tester : 1blue,5green;4blue,12green,1red;7blue,3green;7blue,3green;3blue,1green,2red;7blue,1red,12green
+element 0: 1blue,5green
+1blue
+5green
+element 1: 4blue,12green,1red
+4blue
+12green
+1red
+element 2: 7blue,3green
+7blue
+3green
+element 3: 7blue,3green
+7blue
+3green
+element 4: 3blue,1green,2red
+3blue
+1green
+2red
+element 5: 7blue,1red,12green
+7blue
+1red
+12green
+Phrase a tester : 4blue,2green,5red;1green,2red,2blue;4blue,2red,2green;1blue,6red,2green;6blue,1red;1green,9red,6blue
+element 0: 4blue,2green,5red
+4blue
+2green
+5red
+element 1: 1green,2red,2blue
+1green
+2red
+2blue
+element 2: 4blue,2red,2green
+4blue
+2red
+2green
+element 3: 1blue,6red,2green
+1blue
+6red
+2green
+element 4: 6blue,1red
+6blue
+1red
+element 5: 1green,9red,6blue
+1green
+9red
+6blue
+Phrase a tester : 1green;3green,5blue,5red;3red,3blue,3green;1green,4red,6blue;5red
+element 0: 1green
+1green
+element 1: 3green,5blue,5red
+3green
+5blue
+5red
+element 2: 3red,3blue,3green
+3red
+3blue
+3green
+element 3: 1green,4red,6blue
+1green
+4red
+6blue
+element 4: 5red
+5red
+Phrase a tester : 2red;1blue,1red;7red,2blue;1green,4blue,3red
+element 0: 2red
+2red
+element 1: 1blue,1red
+1blue
+1red
+element 2: 7red,2blue
+7red
+2blue
+element 3: 1green,4blue,3red
+1green
+4blue
+3red
+Phrase a tester : 3red,9blue;1red,6blue,15green;3green,3red,11blue
+element 0: 3red,9blue
+3red
+9blue
+element 1: 1red,6blue,15green
+1red
+6blue
+15green
+element 2: 3green,3red,11blue
+3green
+3red
+11blue
+Phrase a tester : 2red,1green,2blue;6red,1green;1blue,1red,4green
+element 0: 2red,1green,2blue
+2red
+1green
+2blue
+element 1: 6red,1green
+6red
+1green
+element 2: 1blue,1red,4green
+1blue
+1red
+4green
+Phrase a tester : 3red,1blue;1green,3red,2blue;1green,8red;2blue,3red
+element 0: 3red,1blue
+3red
+1blue
+element 1: 1green,3red,2blue
+1green
+3red
+2blue
+element 2: 1green,8red
+1green
+8red
+element 3: 2blue,3red
+2blue
+3red
+Phrase a tester : 5blue,6red;1green,15blue,10red;1green,2red,4blue;5blue,7red;3red,1green,11blue
+element 0: 5blue,6red
+5blue
+6red
+element 1: 1green,15blue,10red
+1green
+15blue
+10red
+element 2: 1green,2red,4blue
+1green
+2red
+4blue
+element 3: 5blue,7red
+5blue
+7red
+element 4: 3red,1green,11blue
+3red
+1green
+11blue
+Phrase a tester : 4green,2red,8blue;5red,3blue;10green,5blue
+element 0: 4green,2red,8blue
+4green
+2red
+8blue
+element 1: 5red,3blue
+5red
+3blue
+element 2: 10green,5blue
+10green
+5blue
+Phrase a tester : 1red,2blue,9green;3red,8green;1red,2blue,6green;3red,6blue,8green;6green,3blue,2red;3red,8green,6blue
+element 0: 1red,2blue,9green
+1red
+2blue
+9green
+element 1: 3red,8green
+3red
+8green
+element 2: 1red,2blue,6green
+1red
+2blue
+6green
+element 3: 3red,6blue,8green
+3red
+6blue
+8green
+element 4: 6green,3blue,2red
+6green
+3blue
+2red
+element 5: 3red,8green,6blue
+3red
+8green
+6blue
+Phrase a tester : 1red,11green;1blue,7green,1red;2red,12green;10green,6red
+element 0: 1red,11green
+1red
+11green
+element 1: 1blue,7green,1red
+1blue
+7green
+1red
+element 2: 2red,12green
+2red
+12green
+element 3: 10green,6red
+10green
+6red
+Phrase a tester : 9green,2red;1blue,3green;1blue,1red,7green;2blue,9green,4red;2blue,3red,8green;2green,9red
+element 0: 9green,2red
+9green
+2red
+element 1: 1blue,3green
+1blue
+3green
+element 2: 1blue,1red,7green
+1blue
+1red
+7green
+element 3: 2blue,9green,4red
+2blue
+9green
+4red
+element 4: 2blue,3red,8green
+2blue
+3red
+8green
+element 5: 2green,9red
+2green
+9red
+Phrase a tester : 2green,7red;1green,3blue,6red;4green,3blue,6red;2green,3blue,1red;3red,2blue,1green
+element 0: 2green,7red
+2green
+7red
+element 1: 1green,3blue,6red
+1green
+3blue
+6red
+element 2: 4green,3blue,6red
+4green
+3blue
+6red
+element 3: 2green,3blue,1red
+2green
+3blue
+1red
+element 4: 3red,2blue,1green
+3red
+2blue
+1green
+Phrase a tester : 15green,2blue;15green,6red,2blue;12green,2blue,1red
+element 0: 15green,2blue
+15green
+2blue
+element 1: 15green,6red,2blue
+15green
+6red
+2blue
+element 2: 12green,2blue,1red
+12green
+2blue
+1red
+Phrase a tester : 1red,9green,12blue;6red,12green,1blue;7green,2blue,1red
+element 0: 1red,9green,12blue
+1red
+9green
+12blue
+element 1: 6red,12green,1blue
+6red
+12green
+1blue
+element 2: 7green,2blue,1red
+7green
+2blue
+1red
+Phrase a tester : 11blue,1red;7blue,2red,13green;10blue,10green;12blue,3red
+element 0: 11blue,1red
+11blue
+1red
+element 1: 7blue,2red,13green
+7blue
+2red
+13green
+element 2: 10blue,10green
+10blue
+10green
+element 3: 12blue,3red
+12blue
+3red
+Phrase a tester : 4green;1blue,5green;5green,1blue,1red
+element 0: 4green
+4green
+element 1: 1blue,5green
+1blue
+5green
+element 2: 5green,1blue,1red
+5green
+1blue
+1red
+Phrase a tester : 4green,7blue,16red;1blue,10red,5green;3green,4red,3blue;11blue,18red,5green
+element 0: 4green,7blue,16red
+4green
+7blue
+16red
+element 1: 1blue,10red,5green
+1blue
+10red
+5green
+element 2: 3green,4red,3blue
+3green
+4red
+3blue
+element 3: 11blue,18red,5green
+11blue
+18red
+5green
+Phrase a tester : 1red,4blue,6green;14blue,16red,2green;2blue,5red,4green;2green,8red;18red,6green,2blue;18red,9blue
+element 0: 1red,4blue,6green
+1red
+4blue
+6green
+element 1: 14blue,16red,2green
+14blue
+16red
+2green
+element 2: 2blue,5red,4green
+2blue
+5red
+4green
+element 3: 2green,8red
+2green
+8red
+element 4: 18red,6green,2blue
+18red
+6green
+2blue
+element 5: 18red,9blue
+18red
+9blue
+Phrase a tester : 11red,8blue,1green;12blue,2green,14red;16red,2green,6blue;17red,2green;3green,3blue,15red
+element 0: 11red,8blue,1green
+11red
+8blue
+1green
+element 1: 12blue,2green,14red
+12blue
+2green
+14red
+element 2: 16red,2green,6blue
+16red
+2green
+6blue
+element 3: 17red,2green
+17red
+2green
+element 4: 3green,3blue,15red
+3green
+3blue
+15red
+Phrase a tester : 13red,1blue,6green;3green,12red,3blue;5red,3green,18blue;15blue,8red
+element 0: 13red,1blue,6green
+13red
+1blue
+6green
+element 1: 3green,12red,3blue
+3green
+12red
+3blue
+element 2: 5red,3green,18blue
+5red
+3green
+18blue
+element 3: 15blue,8red
+15blue
+8red
+Phrase a tester : 9green,5blue,5red;8green,15blue,7red;4green,6red,10blue;5green,2red
+element 0: 9green,5blue,5red
+9green
+5blue
+5red
+element 1: 8green,15blue,7red
+8green
+15blue
+7red
+element 2: 4green,6red,10blue
+4green
+6red
+10blue
+element 3: 5green,2red
+5green
+2red
+Phrase a tester : 2blue,2green,6red;2green,7red,1blue;3green,3blue;2green,3red,3blue;6green,4red
+element 0: 2blue,2green,6red
+2blue
+2green
+6red
+element 1: 2green,7red,1blue
+2green
+7red
+1blue
+element 2: 3green,3blue
+3green
+3blue
+element 3: 2green,3red,3blue
+2green
+3red
+3blue
+element 4: 6green,4red
+6green
+4red
+Phrase a tester : 1blue,3green,5red;2green,2red;4red,3blue;2green,3blue,1red;4red,2green,4blue
+element 0: 1blue,3green,5red
+1blue
+3green
+5red
+element 1: 2green,2red
+2green
+2red
+element 2: 4red,3blue
+4red
+3blue
+element 3: 2green,3blue,1red
+2green
+3blue
+1red
+element 4: 4red,2green,4blue
+4red
+2green
+4blue
+Phrase a tester : 6red,1blue;1green,16red;2green,1red;12red,1blue
+element 0: 6red,1blue
+6red
+1blue
+element 1: 1green,16red
+1green
+16red
+element 2: 2green,1red
+2green
+1red
+element 3: 12red,1blue
+12red
+1blue
+Phrase a tester : 6red,12green,1blue;5blue,6red,4green;2blue,5red,8green
+element 0: 6red,12green,1blue
+6red
+12green
+1blue
+element 1: 5blue,6red,4green
+5blue
+6red
+4green
+element 2: 2blue,5red,8green
+2blue
+5red
+8green
+Phrase a tester : 3green,6red,2blue;3blue,2green,6red;1red,11blue,2green
+element 0: 3green,6red,2blue
+3green
+6red
+2blue
+element 1: 3blue,2green,6red
+3blue
+2green
+6red
+element 2: 1red,11blue,2green
+1red
+11blue
+2green
+Phrase a tester : 7red,3blue,9green;6red,3blue,15green;2blue,6red,12green;5red,8green;3blue,7red,9green;5red,7green
+element 0: 7red,3blue,9green
+7red
+3blue
+9green
+element 1: 6red,3blue,15green
+6red
+3blue
+15green
+element 2: 2blue,6red,12green
+2blue
+6red
+12green
+element 3: 5red,8green
+5red
+8green
+element 4: 3blue,7red,9green
+3blue
+7red
+9green
+element 5: 5red,7green
+5red
+7green
+Phrase a tester : 2green,4red,19blue;13blue,4red,1green;14blue,8green
+element 0: 2green,4red,19blue
+2green
+4red
+19blue
+element 1: 13blue,4red,1green
+13blue
+4red
+1green
+element 2: 14blue,8green
+14blue
+8green
+Phrase a tester : 12green,5blue,4red;9green,10blue,1red;13green,1blue,4red;2red,5blue;2blue,7green,2red;5blue,5green,3red
+element 0: 12green,5blue,4red
+12green
+5blue
+4red
+element 1: 9green,10blue,1red
+9green
+10blue
+1red
+element 2: 13green,1blue,4red
+13green
+1blue
+4red
+element 3: 2red,5blue
+2red
+5blue
+element 4: 2blue,7green,2red
+2blue
+7green
+2red
+element 5: 5blue,5green,3red
+5blue
+5green
+3red
+Phrase a tester : 9red,6blue,16green;11green,2red,7blue;1green,1red,3blue;4green,8red
+element 0: 9red,6blue,16green
+9red
+6blue
+16green
+element 1: 11green,2red,7blue
+11green
+2red
+7blue
+element 2: 1green,1red,3blue
+1green
+1red
+3blue
+element 3: 4green,8red
+4green
+8red
+Phrase a tester : 1green,4blue,8red;2red,1green,2blue;2blue,9red;1green,4blue,3red;3red,1green,4blue
+element 0: 1green,4blue,8red
+1green
+4blue
+8red
+element 1: 2red,1green,2blue
+2red
+1green
+2blue
+element 2: 2blue,9red
+2blue
+9red
+element 3: 1green,4blue,3red
+1green
+4blue
+3red
+element 4: 3red,1green,4blue
+3red
+1green
+4blue
+Phrase a tester : 1green,7red,4blue;4red,3blue;16blue,9red,7green;9red,15blue;15blue,3red,6green;7red,10blue,12green
+element 0: 1green,7red,4blue
+1green
+7red
+4blue
+element 1: 4red,3blue
+4red
+3blue
+element 2: 16blue,9red,7green
+16blue
+9red
+7green
+element 3: 9red,15blue
+9red
+15blue
+element 4: 15blue,3red,6green
+15blue
+3red
+6green
+element 5: 7red,10blue,12green
+7red
+10blue
+12green
+Phrase a tester : 5green,6blue;10green,9blue;4blue,8green,2red;5blue,5green,1red
+element 0: 5green,6blue
+5green
+6blue
+element 1: 10green,9blue
+10green
+9blue
+element 2: 4blue,8green,2red
+4blue
+8green
+2red
+element 3: 5blue,5green,1red
+5blue
+5green
+1red
+Phrase a tester : 13blue,10red,2green;10red,2green,1blue;6blue,5red,3green;11red,3green,5blue;11red,2green;3green,6blue
+element 0: 13blue,10red,2green
+13blue
+10red
+2green
+element 1: 10red,2green,1blue
+10red
+2green
+1blue
+element 2: 6blue,5red,3green
+6blue
+5red
+3green
+element 3: 11red,3green,5blue
+11red
+3green
+5blue
+element 4: 11red,2green
+11red
+2green
+element 5: 3green,6blue
+3green
+6blue
+Phrase a tester : 9green,11red,8blue;6red,9blue,2green;3red,17blue,1green
+element 0: 9green,11red,8blue
+9green
+11red
+8blue
+element 1: 6red,9blue,2green
+6red
+9blue
+2green
+element 2: 3red,17blue,1green
+3red
+17blue
+1green
+Phrase a tester : 14blue,3green;2red,15blue,3green;15blue,8green,1red;1red,8green
+element 0: 14blue,3green
+14blue
+3green
+element 1: 2red,15blue,3green
+2red
+15blue
+3green
+element 2: 15blue,8green,1red
+15blue
+8green
+1red
+element 3: 1red,8green
+1red
+8green
+Phrase a tester : 2green,7blue;14red,1green,4blue;8blue,13red,2green;10green,7red,10blue
+element 0: 2green,7blue
+2green
+7blue
+element 1: 14red,1green,4blue
+14red
+1green
+4blue
+element 2: 8blue,13red,2green
+8blue
+13red
+2green
+element 3: 10green,7red,10blue
+10green
+7red
+10blue
+Phrase a tester : 5green,11blue,6red;5green,12blue;1green,14blue,1red;3blue,5red,6green;9blue;6red
+element 0: 5green,11blue,6red
+5green
+11blue
+6red
+element 1: 5green,12blue
+5green
+12blue
+element 2: 1green,14blue,1red
+1green
+14blue
+1red
+element 3: 3blue,5red,6green
+3blue
+5red
+6green
+element 4: 9blue
+9blue
+element 5: 6red
+6red
+total : 2683

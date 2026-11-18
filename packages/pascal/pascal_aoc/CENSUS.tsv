@@ -1,0 +1,1226 @@
+# the census of /home/packages/pascal/pascal_aoc by fpc (shallow clones of each default branch, 2026-11-18 (72 repositories)), 2026-11-18: path from the root, verdict, note
+6lv1-blr_AdventOfCode/2021/Day10/Unit4.pas	LIBRARY	the source names unit Unit4;
+6lv1-blr_AdventOfCode/2021/Day11/Unit3.pas	LIBRARY	the source names unit Unit3;
+6lv1-blr_AdventOfCode/2021/Day12/Unit4.pas	LIBRARY	the source names unit Unit4;
+6lv1-blr_AdventOfCode/2021/Day14/UnitDay14.pas	LIBRARY	the source names unit UnitDay14;
+6lv1-blr_AdventOfCode/2021/Day15/UnitDay15.pas	LIBRARY	the source names unit UnitDay15;
+6lv1-blr_AdventOfCode/2021/Day16/UnitDay16.pas	LIBRARY	the source names unit UnitDay16;
+6lv1-blr_AdventOfCode/2021/Day17/UnitDay17.pas	LIBRARY	the source names unit UnitDay17;
+6lv1-blr_AdventOfCode/2021/Day22/UnitDay22.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: UnitDay22.pas(6,3) Fatal: Can't find unit Winapi.Windows used by UnitDay22
+6lv1-blr_AdventOfCode/2021/Day6/Day6Delphi/Unit2.pas	LIBRARY	the source names unit Unit2;
+6lv1-blr_AdventOfCode/2021/Day8/uMain.pas	LIBRARY	the source names unit uMain;
+6lv1-blr_AdventOfCode/2021/Day9/Unit3.pas	LIBRARY	the source names unit Unit3;
+ALANVF_advent-of-code-2019/day 16/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004013CE:
+ALANVF_advent-of-code-2019/day 16/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004013FE:
+ALANVF_advent-of-code-2019/day 3/part1.pas	ENTRY	
+CharlesAverill_aoc23/day01/part1/trebuchet.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day01/part2/trebuchet.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day02/part1/cubes.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day02/part2/cubes.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day03/part1/partnums.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day03/part2/partnums.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day04/part1/scratchcards.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day04/part2/scratchcards.pas	ENTRY	stderr not graded: An unhandled exception occurred at $00000000004019B1:
+CharlesAverill_aoc23/day05/part1/seeds.pas	ENTRY	stderr not graded: An unhandled exception occurred at $000000000040188D:
+CharlesAverill_aoc23/day05/part2/seeds.pas	ENTRY	stderr not graded: An unhandled exception occurred at $0000000000401FA3:
+CharlesAverill_aoc23/day06/part1/race.pas	ENTRY	stderr not graded: An unhandled exception occurred at $00000000004015BF:
+CharlesAverill_aoc23/day06/part2/race.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day07/part1/camel.pas	ENTRY	stderr not graded: An unhandled exception occurred at $0000000000401894:
+CharlesAverill_aoc23/day07/part2/camel.pas	ENTRY	stderr not graded: An unhandled exception occurred at $00000000004024D4:
+CharlesAverill_aoc23/day08/part1/wasteland.pas	ENTRY	stderr not graded: An unhandled exception occurred at $00000000004017F1:
+CharlesAverill_aoc23/day08/part2/wasteland.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day09/part1/oasis.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day09/part2/oasis.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day10/part1/pipes.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/day10/part2/pipes.pas	NEEDS-INPUT	its answer changes with what standard input holds
+CharlesAverill_aoc23/helloworld.pas	ENTRY	
+DGhost001_aoc/TEST/prog.pas	NEEDS-DISPLAY	the source names uses App, progressbar, crt
+DGhost001_aoc/TEST/stdintTest.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: stdintTest.pas(2,6) Fatal: Can't find unit stdint used by stdintTest
+DGhost001_aoc/TEST/testAtariASM.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: testAtariASM.pas(3,6) Fatal: Can't find unit stdint used by testAtariASM
+DGhost001_aoc/TEST/ticker.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: ticker.pas(3,6) Fatal: Can't find unit gemdos used by Ticker
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2020/01/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2020/02/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2020/03/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2020/04/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2020/05/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2020/06/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2020/07/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2020/08/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2020/09/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2021/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-1/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-10/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-11/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-12/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-13/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-14/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-15/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-16/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-17/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-18/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-19/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-2/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-20/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-21/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-22/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-23/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-24/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-25/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-3/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-4/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-5/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-6/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-7/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-8/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-9/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2023/Day-Template/Unit1.pas	LIBRARY	the source names unit Unit1;
+DeveloppeurPascal_My-Advent-Of-Code-Delphi-Projects/2024/Day-Template/Unit1.pas	LIBRARY	the source names unit Unit1;
+Dhole_aoc-2015/day01/day01.pp	ENTRY	
+Dhole_aoc-2015/day02/day02.pp	NEEDS-INPUT	its answer changes with what standard input holds
+Dhole_aoc-2015/day03/day03.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day03.pp(3,6) Fatal: Can't find unit Quicksort used by day03
+Dhole_aoc-2015/day04/day04.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day04.pp(9,13) Error: Identifier not found "Hash"
+Dhole_aoc-2015/day05/day05.pp	NEEDS-INPUT	its answer changes with what standard input holds
+Dhole_aoc-2015/day06/day06.pp	NEEDS-INPUT	its answer changes with what standard input holds
+Dhole_aoc-2015/day07/day07.pp	ENTRY	
+Dhole_aoc-2015/day08/day08.pp	NEEDS-INPUT	its answer changes with what standard input holds
+Dhole_aoc-2015/day09/day09.pp	NEEDS-INPUT	its answer changes with what standard input holds
+Dhole_aoc-2015/day10/day10.pp	NEEDS-INPUT	its answer changes with what standard input holds
+Dhole_aoc-2015/day11/day11.pp	NO-OUTPUT	nothing on standard output, exit 216; a dead engine would earn the same; stderr: Runtime error 216 at $00000000004013AA
+Dhole_aoc-2015/day12/day12.pp	ENTRY	
+Dhole_aoc-2015/day13/day13.pp	NEEDS-INPUT	its answer changes with what standard input holds
+Dhole_aoc-2015/day14/day14.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day14.pp(4,38) Fatal: Can't find unit Quicksort used by day14
+Dhole_aoc-2015/day15/day15.pp	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004014E8:
+Dhole_aoc-2015/day16/day16.pp	NEEDS-INPUT	its answer changes with what standard input holds
+Dhole_aoc-2015/day17/day17.pp	ENTRY	
+Dhole_aoc-2015/day18/day18.pp	ENTRY	
+Dhole_aoc-2015/day19/day19.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day19.pp(4,32) Fatal: Can't find unit quicksortU64 used by day19
+Dhole_aoc-2015/day20/day20.pp	DOES-NOT-END	no answer inside 60 s
+Dhole_aoc-2015/day21/day21.pp	ENTRY	
+Dhole_aoc-2015/day22/day22.pp	ENTRY	
+Dhole_aoc-2015/day23/day23.pp	NEEDS-INPUT	its answer changes with what standard input holds
+Dhole_aoc-2015/day24/day24.pp	NEEDS-INPUT	its answer changes with what standard input holds
+Dhole_aoc-2015/day25/day25.pp	ENTRY	
+Dhole_aoc-2015/md5.pp	LIBRARY	the source names unit md5;
+Dhole_aoc-2015/quicksort.pp	LIBRARY	the source names unit Quicksort;
+Dhole_aoc-2015/quicksortU64.pp	LIBRARY	the source names unit QuicksortU64;
+GeorgiiVoyakin_advent-of-code-2021/day01/day01.pas	ENTRY	
+GolezTrol_AdventOfCode2021/Delphi/Lib.pas	LIBRARY	the source names unit Lib;
+GolezTrol_AdventOfCode2021/Delphi/Snailfish.Number.Intf.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Snailfish.Number.Intf.pas(8,12) Fatal: You need ObjFpc (-S2) or Delphi (-Sd) mode to compile this module
+GolezTrol_AdventOfCode2021/Delphi/Snailfish.Number.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Snailfish.Number.Intf.pas(8,12) Fatal: You need ObjFpc (-S2) or Delphi (-Sd) mode to compile this module
+GolezTrol_delphi-aoc-2019/source/Solvers/AoC.Mainform.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Mainform.pas(6,3) Fatal: Can't find unit Winapi.Windows used by AoC.Mainform
+GolezTrol_delphi-aoc-2019/source/Solvers/AoC.Types.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Types.pas(6,9) Fatal: Can't find unit Spring.Collections used by AoC.Types
+GolezTrol_delphi-aoc-2019/source/Solvers/ArcadeGame.pas	LIBRARY	the source names unit ArcadeGame;
+GolezTrol_delphi-aoc-2019/source/Solvers/Asteroid.Map.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Types.pas(6,9) Fatal: Can't find unit Spring.Collections used by AoC.Types
+GolezTrol_delphi-aoc-2019/source/Solvers/Bootstrapper.pas	LIBRARY	the source names unit Bootstrapper;
+GolezTrol_delphi-aoc-2019/source/Solvers/InputUtils.pas	LIBRARY	the source names unit InputUtils;
+GolezTrol_delphi-aoc-2019/source/Solvers/IntCode.IO.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Types.pas(6,9) Fatal: Can't find unit Spring.Collections used by AoC.Types
+GolezTrol_delphi-aoc-2019/source/Solvers/IntCode.Processor.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Types.pas(6,9) Fatal: Can't find unit Spring.Collections used by AoC.Types
+GolezTrol_delphi-aoc-2019/source/Solvers/IntCode.Types.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Types.pas(6,9) Fatal: Can't find unit Spring.Collections used by AoC.Types
+GolezTrol_delphi-aoc-2019/source/Solvers/Module.Fuel.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Module.Fuel.pas(6,23) Error: Identifier not found "class"
+GolezTrol_delphi-aoc-2019/source/Solvers/Moon.Motion.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Types.pas(6,9) Fatal: Can't find unit Spring.Collections used by AoC.Types
+GolezTrol_delphi-aoc-2019/source/Solvers/Orbit.Map.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Types.pas(6,9) Fatal: Can't find unit Spring.Collections used by AoC.Types
+GolezTrol_delphi-aoc-2019/source/Solvers/Password.pas	LIBRARY	the source names unit Password;
+GolezTrol_delphi-aoc-2019/source/Solvers/Permutation.pas	LIBRARY	the source names unit Permutation;
+GolezTrol_delphi-aoc-2019/source/Solvers/Processor.IntCode.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Types.pas(6,9) Fatal: Can't find unit Spring.Collections used by AoC.Types
+GolezTrol_delphi-aoc-2019/source/Solvers/Robot.Painter.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Types.pas(6,9) Fatal: Can't find unit Spring.Collections used by AoC.Types
+GolezTrol_delphi-aoc-2019/source/Solvers/Solver.Intf.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Solver.Intf.pas(6,17) Error: Identifier not found "reference"
+GolezTrol_delphi-aoc-2019/source/Solvers/Solver.PathSolver.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Solver.PathSolver.pas(6,3) Fatal: Can't find unit Spring used by Solver.PathSolver
+GolezTrol_delphi-aoc-2019/source/Solvers/Solver.Registration.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Solver.Registration.pas(6,3) Fatal: Can't find unit Spring.Container used by Solver.Registration
+GolezTrol_delphi-aoc-2019/source/Solvers/Solver.Resolver.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Solver.Resolver.pas(6,3) Fatal: Can't find unit Spring.Container used by Solver.Resolver
+GolezTrol_delphi-aoc-2019/source/Solvers/Solver.Y2019.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Types.pas(6,9) Fatal: Can't find unit Spring.Collections used by AoC.Types
+GolezTrol_delphi-aoc-2019/source/Solvers/Space.Image.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Types.pas(6,9) Fatal: Can't find unit Spring.Collections used by AoC.Types
+GolezTrol_delphi-aoc-2019/source/Solvers/Wiring.pas	LIBRARY	the source names unit Wiring;
+GolezTrol_delphi-aoc-2019/source/Test/AoC.Assert.Helper.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Assert.Helper.pas(6,3) Fatal: Can't find unit DUnitX.TestFramework used by AoC.Assert.Helper
+GolezTrol_delphi-aoc-2019/source/Test/Aoc.TestCase.Attribute.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Aoc.TestCase.Attribute.pas(6,3) Fatal: Can't find unit DUnitX.TestFramework used by Aoc.TestCase.Attribute
+GolezTrol_delphi-aoc-2019/source/Test/ArcadeGame.Tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: ArcadeGame.Tests.pas(6,3) Fatal: Can't find unit DUnitX.TestFramework used by ArcadeGame.Tests
+GolezTrol_delphi-aoc-2019/source/Test/Asteroid.Map.Tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Asteroid.Map.Tests.pas(6,3) Fatal: Can't find unit DUnitX.TestFramework used by Asteroid.Map.Tests
+GolezTrol_delphi-aoc-2019/source/Test/AsteroidTrackerTests.pas	LIBRARY	the source names unit AsteroidTrackerTests;
+GolezTrol_delphi-aoc-2019/source/Test/IntCode.Processor.Tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: IntCode.Processor.Tests.pas(7,3) Fatal: Can't find unit DUnitX.TestFramework used by IntCode.Processor.Tests
+GolezTrol_delphi-aoc-2019/source/Test/Module.Fuel.Tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Module.Fuel.Tests.pas(6,3) Fatal: Can't find unit DUnitX.TestFramework used by Module.Fuel.Tests
+GolezTrol_delphi-aoc-2019/source/Test/Moon.Motion.Tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Moon.Motion.Tests.pas(6,3) Fatal: Can't find unit DUnitX.TestFramework used by Moon.Motion.Tests
+GolezTrol_delphi-aoc-2019/source/Test/Orbit.Map.Tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Orbit.Map.Tests.pas(6,3) Fatal: Can't find unit AoC.Types used by Orbit.Map.Tests
+GolezTrol_delphi-aoc-2019/source/Test/Password.Tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Password.Tests.pas(5,3) Fatal: Can't find unit DUnitX.TestFramework used by Password.Tests
+GolezTrol_delphi-aoc-2019/source/Test/Permutation.Tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Permutation.Tests.pas(6,3) Fatal: Can't find unit DUnitX.TestFramework used by Permutation.Tests
+GolezTrol_delphi-aoc-2019/source/Test/Puzzle.Y2019.Tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Puzzle.Y2019.Tests.pas(6,3) Fatal: Can't find unit Bootstrapper used by Puzzle.Y2019.Tests
+GolezTrol_delphi-aoc-2019/source/Test/Space.Image.Tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Space.Image.Tests.pas(6,3) Fatal: Can't find unit DUnitX.TestFramework used by Space.Image.Tests
+GolezTrol_delphi-aoc-2019/source/Test/Wiring.Tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Wiring.Tests.pas(5,3) Fatal: Can't find unit DUnitX.TestFramework used by Wiring.Tests
+HalidOdat_advent-of-code-2021/09-pascal/main.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+Lotharingie88_monAdventofcode/src/Unit1.pas	LIBRARY	the source names unit Unit1;
+MashiroIsAsleep_AdventOfCode2025/day11/day11.pas	ENTRY	
+MashiroIsAsleep_AdventOfCode2025/day11/day11part2.pas	ENTRY	
+NGLN_AdventOfCode2023/Aw.Types.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Aw.Types.pas(9,5) Fatal: Syntax error, "END" expected but "CONSTRUCTOR" found
+NicolaWidmer_AdventOfCode2025/Code/Day1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040110E:
+NicolaWidmer_AdventOfCode2025/Code/Day10.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040265C:
+NicolaWidmer_AdventOfCode2025/Code/Day11.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401480:
+NicolaWidmer_AdventOfCode2025/Code/Day12.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401121:
+NicolaWidmer_AdventOfCode2025/Code/Day2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401648:
+NicolaWidmer_AdventOfCode2025/Code/Day3.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401100:
+NicolaWidmer_AdventOfCode2025/Code/Day4.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000455F99:
+NicolaWidmer_AdventOfCode2025/Code/Day5.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401195:
+NicolaWidmer_AdventOfCode2025/Code/Day6.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040128E:
+NicolaWidmer_AdventOfCode2025/Code/Day7.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401136:
+NicolaWidmer_AdventOfCode2025/Code/Day8.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Day8.pas(6,12) Fatal: Can't find unit AnySort used by Day9
+NicolaWidmer_AdventOfCode2025/Code/Day9.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004012CC:
+PanjoNL_AOC2018/AOCBase.pas	LIBRARY	the source names unit AOCBase;
+PanjoNL_AOC2018/AOCSolutions.pas	LIBRARY	the source names unit AOCSolutions;
+PanjoNL_AOC2018/Main.pas	LIBRARY	the source names unit Main;
+PanjoNL_AOC2019/AOCBase.pas	LIBRARY	the source names unit AOCBase;
+PanjoNL_AOC2019/AOCSolutions.pas	LIBRARY	the source names unit AOCSolutions;
+PanjoNL_AOC2019/IntComputers.pas	LIBRARY	the source names unit IntComputers;
+PanjoNL_AOC2019/Main.pas	LIBRARY	the source names unit Main;
+PanjoNL_AOC2019/Test.pas	LIBRARY	the source names unit Test;
+PanjoNL_AOC2019/uAOCTests.pas	LIBRARY	the source names unit uAOCTests;
+PanjoNL_AOC2019/uAOCUtils.pas	LIBRARY	the source names unit uAOCUtils;
+PanjoNL_AOC2019/uCryostasis.pas	LIBRARY	the source names unit uCryostasis;
+PanjoNL_AOC2020/AOCBase.pas	LIBRARY	the source names unit AOCBase;
+PanjoNL_AOC2020/AOCSolutions.pas	LIBRARY	the source names unit AOCSolutions;
+PanjoNL_AOC2020/Main.pas	LIBRARY	the source names unit Main;
+PanjoNL_AOC2020/uAOCTests.pas	LIBRARY	the source names unit uAOCTests;
+PanjoNL_AOC2020/uAOCUtils.pas	LIBRARY	the source names unit uAOCUtils;
+PanjoNL_AdventOfCode/2015/AOC2015Solutions.pas	LIBRARY	the source names unit AOC2015Solutions;
+PanjoNL_AdventOfCode/2024/AOC2024Solutions.pas	LIBRARY	the source names unit AOC2024Solutions;
+PanjoNL_AdventOfCode/AOCBase.pas	LIBRARY	the source names unit AOCBase;
+PanjoNL_AdventOfCode/AOCLetterReader.pas	LIBRARY	the source names unit AOCLetterReader;
+PanjoNL_AdventOfCode/Main.pas	LIBRARY	the source names unit Main;
+PanjoNL_AdventOfCode/PriorityQueue/PriorityQueues.Detail.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: PriorityQueues.Detail.pas(8,3) Fatal: Can't find unit System.SysUtils used by PriorityQueues.Detail
+PanjoNL_AdventOfCode/PriorityQueue/PriorityQueues.pas	LIBRARY	the source names unit PriorityQueues;
+PanjoNL_AdventOfCode/uAOCTests.pas	LIBRARY	the source names unit uAOCTests;
+PanjoNL_AdventOfCode/uAOCTimer.pas	LIBRARY	the source names unit uAOCTimer;
+PanjoNL_AdventOfCode/uAOCUtils.pas	LIBRARY	the source names unit uAOCUtils;
+PanjoNL_AdventOfCode/uAocConfig.pas	LIBRARY	the source names unit uAocConfig;
+PanjoNL_AdventOfCode/uAocGrid.pas	LIBRARY	the source names unit uAocGrid;
+PanjoNL_AdventOfCode/uAocManager.pas	LIBRARY	the source names unit uAocManager;
+PanjoNL_AdventOfCode/uAocTypes.pas	LIBRARY	the source names unit uAocTypes;
+PeteTurtle_AdventOfCode/AoC.Frames.Day1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Frames.Day1.pas(6,3) Fatal: Can't find unit FMX.Forms used by AoC.Frames.Day1
+PeteTurtle_AdventOfCode/AoC.Frames.Day2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Frames.Day2.pas(6,3) Fatal: Can't find unit FMX.Forms used by AoC.Frames.Day2
+PeteTurtle_AdventOfCode/AoC.Frames.Day3.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Frames.Day3.pas(6,3) Fatal: Can't find unit FMX.Forms used by AoC.Frames.Day3
+PeteTurtle_AdventOfCode/AoC.Frames.Day4.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Frames.Day4.pas(6,3) Fatal: Can't find unit System.SysUtils used by AoC.Frames.Day4
+PeteTurtle_AdventOfCode/AoC.Frames.Day5.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Frames.Day5.pas(6,3) Fatal: Can't find unit System.Classes used by AoC.Frames.Day5
+PeteTurtle_AdventOfCode/TabbedTemplate.pas	LIBRARY	the source names unit TabbedTemplate;
+TalkoDenis_advent_of_code/2025/01_day/01_task/main.pas	ENTRY	
+TalkoDenis_advent_of_code/2025/01_day/02_task/main.pas	ENTRY	
+TalkoDenis_advent_of_code/2025/02_day/01_task/main.pas	ENTRY	
+WyrdOne_AdventofCode2016/AdventofCode.lpr	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 38 and 38 bytes
+WyrdOne_AdventofCode2016/day1.pas	LIBRARY	the source names unit Day1;
+WyrdOne_AdventofCode2016/day10.pas	LIBRARY	the source names unit Day10;
+WyrdOne_AdventofCode2016/day11.pas	LIBRARY	the source names unit Day11;
+WyrdOne_AdventofCode2016/day12.pas	LIBRARY	the source names unit Day12;
+WyrdOne_AdventofCode2016/day13.pas	LIBRARY	the source names unit Day13;
+WyrdOne_AdventofCode2016/day14.pas	LIBRARY	the source names unit Day14;
+WyrdOne_AdventofCode2016/day15.pas	LIBRARY	the source names unit Day15;
+WyrdOne_AdventofCode2016/day16.pas	LIBRARY	the source names unit Day16;
+WyrdOne_AdventofCode2016/day17.pas	LIBRARY	the source names unit Day17;
+WyrdOne_AdventofCode2016/day18.pas	LIBRARY	the source names unit Day18;
+WyrdOne_AdventofCode2016/day19.pas	LIBRARY	the source names unit Day19;
+WyrdOne_AdventofCode2016/day2.pas	LIBRARY	the source names unit Day2;
+WyrdOne_AdventofCode2016/day20.pas	LIBRARY	the source names unit Day20;
+WyrdOne_AdventofCode2016/day21.pas	LIBRARY	the source names unit Day21;
+WyrdOne_AdventofCode2016/day22.pas	LIBRARY	the source names unit Day22;
+WyrdOne_AdventofCode2016/day23.pas	LIBRARY	the source names unit Day23;
+WyrdOne_AdventofCode2016/day24.pas	LIBRARY	the source names unit Day24;
+WyrdOne_AdventofCode2016/day25.pas	LIBRARY	the source names unit Day25;
+WyrdOne_AdventofCode2016/day3.pas	LIBRARY	the source names unit Day3;
+WyrdOne_AdventofCode2016/day4.pas	LIBRARY	the source names unit Day4;
+WyrdOne_AdventofCode2016/day5.pas	LIBRARY	the source names unit Day5;
+WyrdOne_AdventofCode2016/day6.pas	LIBRARY	the source names unit Day6;
+WyrdOne_AdventofCode2016/day7.pas	LIBRARY	the source names unit Day7;
+WyrdOne_AdventofCode2016/day8.pas	LIBRARY	the source names unit Day8;
+WyrdOne_AdventofCode2016/day9.pas	LIBRARY	the source names unit Day9;
+Yves848_advent/2021/DAY6/Delphi/Unit1.pas	LIBRARY	the source names unit Unit1;
+albertjol_AoC2024/01/AdvCode01.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode01.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode01
+albertjol_AoC2024/01/uAdvCode01.pas	LIBRARY	the source names unit uAdvCode01;
+albertjol_AoC2024/02/AdvCode02.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode02.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode02
+albertjol_AoC2024/02/uAdvCode02.pas	LIBRARY	the source names unit uAdvCode02;
+albertjol_AoC2024/03/AdvCode03.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode03.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode03
+albertjol_AoC2024/03/uAdvCode03.pas	LIBRARY	the source names unit uAdvCode03;
+albertjol_AoC2024/04/AdvCode04.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode04.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode04
+albertjol_AoC2024/04/uAdvCode04.pas	LIBRARY	the source names unit uAdvCode04;
+albertjol_AoC2024/05/AdvCode05.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode05.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode05
+albertjol_AoC2024/05/uAdvCode05.pas	LIBRARY	the source names unit uAdvCode05;
+albertjol_AoC2024/06/AdvCode06.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode06.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode06
+albertjol_AoC2024/06/uAdvCode06.pas	LIBRARY	the source names unit uAdvCode06;
+albertjol_AoC2024/07/AdvCode07.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode07.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode07
+albertjol_AoC2024/07/uAdvCode07.pas	LIBRARY	the source names unit uAdvCode07;
+albertjol_AoC2024/08/AdvCode08.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode08.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode08
+albertjol_AoC2024/08/uAdvCode08.pas	LIBRARY	the source names unit uAdvCode08;
+albertjol_AoC2024/09/AdvCode09.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode09.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode09
+albertjol_AoC2024/09/uAdvCode09.pas	LIBRARY	the source names unit uAdvCode09;
+albertjol_AoC2024/11/AdvCode11.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode11.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode11
+albertjol_AoC2024/11/uAdvCode11.pas	LIBRARY	the source names unit uAdvCode11;
+albertjol_AoC2024/13/AdvCode13.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode13.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode13
+albertjol_AoC2024/13/uAdvCode13.pas	LIBRARY	the source names unit uAdvCode13;
+albertjol_AoC2024/14/AdvCode14.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCode14.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCode14
+albertjol_AoC2024/14/uAdvCode14.pas	LIBRARY	the source names unit uAdvCode14;
+albertjol_AoC2024/Template/AdvCodeTemplate.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AdvCodeTemplate.lpr(12,3) Fatal: Can't find unit Interfaces used by AdvCodeTemplate
+albertjol_AoC2024/Template/uAdvCodeTemplate.pas	LIBRARY	the source names unit uAdvCodeTemplate;
+buhman_aop/day1/day1.pas	ENTRY	
+buhman_aop/day1/sort.pas	LIBRARY	the source names unit sort;
+buhman_aop/day3/day3.pas	ENTRY	
+buhman_aop/sort.pas	LIBRARY	the source names unit sort;
+clamy54_adventofcode2023/day1/part1.pas	ENTRY	
+clamy54_adventofcode2023/day1/part2.pas	ENTRY	
+clamy54_adventofcode2023/day10/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, graph,wincrt
+clamy54_adventofcode2023/day10/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, graph,wincrt
+clamy54_adventofcode2023/day11/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004011ED:
+clamy54_adventofcode2023/day2/part1.pas	ENTRY	
+clamy54_adventofcode2023/day2/part2.pas	ENTRY	
+clamy54_adventofcode2023/day3/part1.pas	ENTRY	
+clamy54_adventofcode2023/day3/part2.pas	ENTRY	
+clamy54_adventofcode2023/day4/part1.pas	ENTRY	
+clamy54_adventofcode2023/day4/part2.pas	DOES-NOT-END	no answer inside 60 s
+clamy54_adventofcode2023/day5/part1.pas	ENTRY	
+clamy54_adventofcode2023/day5/part2.pas	DOES-NOT-END	no answer inside 60 s
+clamy54_adventofcode2023/day6/part1.pas	ENTRY	
+clamy54_adventofcode2023/day6/part2.pas	ENTRY	
+clamy54_adventofcode2023/day7/part1.pas	ENTRY	
+clamy54_adventofcode2023/day7/part2.pas	ENTRY	
+clamy54_adventofcode2023/day8/part1.pas	ENTRY	
+clamy54_adventofcode2023/day8/part2.pas	ENTRY	
+clamy54_adventofcode2023/day9/part1.pas	ENTRY	
+clamy54_adventofcode2023/day9/part2.pas	ENTRY	
+clamy54_adventofcode2024/day1/part1.pas	ENTRY	
+clamy54_adventofcode2024/day1/part2.pas	ENTRY	
+clamy54_adventofcode2024/day10/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day10/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day11/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day11/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day12/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day12/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day13/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day13/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day14/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day14/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day15/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day15/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day16/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day16/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day17/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day17/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day18/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day18/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day19/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day19/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day2/part1.pas	ENTRY	
+clamy54_adventofcode2024/day2/part2.pas	ENTRY	
+clamy54_adventofcode2024/day20/part1.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day20/part2.pas	NEEDS-DISPLAY	the source names uses Sysutils, Classes, Crt
+clamy54_adventofcode2024/day3/part1.pas	ENTRY	
+clamy54_adventofcode2024/day3/part2-with-regex.pas	ENTRY	
+clamy54_adventofcode2024/day3/part2.pas	ENTRY	
+clamy54_adventofcode2024/day4/part1.pas	ENTRY	
+clamy54_adventofcode2024/day4/part2.pas	ENTRY	
+clamy54_adventofcode2024/day5/part1.pas	ENTRY	
+clamy54_adventofcode2024/day5/part2.pas	ENTRY	
+clamy54_adventofcode2024/day6/part1.pas	ENTRY	
+clamy54_adventofcode2024/day6/part2.pas	ENTRY	
+clamy54_adventofcode2024/day7/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004019D2:
+clamy54_adventofcode2024/day7/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401C42:
+clamy54_adventofcode2024/day8/part1.pas	ENTRY	
+clamy54_adventofcode2024/day8/part2.pas	ENTRY	
+clamy54_adventofcode2024/day9/part1.pas	ENTRY	
+clamy54_adventofcode2024/day9/part2.pas	ENTRY	
+corneliusdavid_AdventOfCode2024/uAoCCommon.pas	LIBRARY	the source names unit uAoCCommon;
+dalibor-osu_aoc_2025/day_2/main.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040170F
+deebr_Advent-of-code-2020/Advent 2001/Advent2001.pas	NEEDS-DISPLAY	the source names uses crt
+deebr_Advent-of-code-2020/Advent 2002/david.pas	NEEDS-DISPLAY	the source names uses crt
+deebr_Advent-of-code-2020/Advent 2002/passwords1.pas	NEEDS-DISPLAY	the source names uses crt
+deebr_Advent-of-code-2020/Advent 2002/passwords2.pas	NEEDS-DISPLAY	the source names uses crt
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 1/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 10/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 11/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 2/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 3/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 4/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 5/UClasses.pas	LIBRARY	the source names unit UClasses;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 5/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 6/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 7/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 8/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Day 9/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2023/Template/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 1/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 10/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 11/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 12/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 13/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 14/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 15/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 16/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 2/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 23/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 24/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 25/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 3/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 4/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 5/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 6/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 6/UGardianWalk.pas	LIBRARY	the source names unit UGardianWalk;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 7/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 8/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Day 9/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2024/Template/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2025/Day 1/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2025/Day 2/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2025/Day 3/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2025/Day 4/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2025/Day 5/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2025/Day 6/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2025/Day 7/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+dl-Solutions-dev_AdventOfCode-With-Delphi/2025/Template/UFrmMain.pas	LIBRARY	the source names unit UFrmMain;
+edmarkovich_AdventOfCode2023/day1.pas	ENTRY	
+edmarkovich_AdventOfCode2023/day2.pas	ENTRY	
+edmarkovich_AdventOfCode2023/day3.pas	NEEDS-DISPLAY	the source names USES Crt
+erniebondy_Advent-of-Code-2024/_main.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: _main.pas(109,5) Fatal: Syntax error, "BEGIN" expected but "identifier TD" found
+erniebondy_Advent-of-Code-2024/day5.pas	NEEDS-INPUT	its answer changes with what standard input holds
+erniebondy_Advent-of-Code-2024/main.pas	ENTRY	
+erniebondy_Advent-of-Code-2024/main04.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: main04.pas(52,17) Error: Identifier not found "Found"
+evenprimes_aoc2017/aocutils.pas	LIBRARY	the source names unit aocutils;
+evenprimes_aoc2017/day1.lpr	ENTRY	
+evenprimes_aoc2017/day10.pas	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/day11.lpr	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/day12.lpr	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/day13.lpr	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/day14.lpr	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/day15.lpr	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/day16.lpr	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/day17.lpr	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/day18.lpr	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/day19.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day19.pas(101,12) Error: Identifier not found "isletter"
+evenprimes_aoc2017/day2.lpr	ENTRY	
+evenprimes_aoc2017/day20.pas	ENTRY	
+evenprimes_aoc2017/day3.lpr	ENTRY	
+evenprimes_aoc2017/day4.lpr	ENTRY	
+evenprimes_aoc2017/day5.lpr	ENTRY	
+evenprimes_aoc2017/day6.lpr	ENTRY	
+evenprimes_aoc2017/day7.lpr	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/day8.lpr	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/day9.lpr	NEEDS-DISPLAY	the source names uses //crt
+evenprimes_aoc2017/examplecrt.lpr	NEEDS-DISPLAY	the source names uses crt
+f-fr_aoc24/fpmake.pp	LIBRARY	the source names uses fpmkunit
+f-fr_aoc24/src/aoc.generic.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+f-fr_aoc24/src/aoc.pas	LIBRARY	the source names unit AOC;
+f-fr_aoc24/src/aoc.tests.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+f-fr_aoc24/src/aoc24.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000052E3A9:
+f-fr_aoc24/src/day01.pas	LIBRARY	the source names unit Day01;
+f-fr_aoc24/src/day02.pas	LIBRARY	the source names unit Day02;
+f-fr_aoc24/src/day03.pas	LIBRARY	the source names unit Day03;
+f-fr_aoc24/src/day04.pas	LIBRARY	the source names unit Day04;
+f-fr_aoc24/src/day05.pas	LIBRARY	the source names unit Day05;
+f-fr_aoc24/src/day06.pas	LIBRARY	the source names unit Day06;
+f-fr_aoc24/src/day07.pas	LIBRARY	the source names unit Day07;
+f-fr_aoc24/src/day08.pas	LIBRARY	the source names unit Day08;
+f-fr_aoc24/src/day09.pas	LIBRARY	the source names unit Day09;
+f-fr_aoc24/src/day10.pas	LIBRARY	the source names unit Day10;
+f-fr_aoc24/src/day11.pas	LIBRARY	the source names unit Day11;
+f-fr_aoc24/src/day12.pas	LIBRARY	the source names unit Day12;
+f-fr_aoc24/src/day13.pas	LIBRARY	the source names unit Day13;
+f-fr_aoc24/src/day14.pas	LIBRARY	the source names unit Day14;
+f-fr_aoc24/src/day15.pas	LIBRARY	the source names unit Day15;
+f-fr_aoc24/src/day16.pas	LIBRARY	the source names unit Day16;
+f-fr_aoc24/src/day17.pas	LIBRARY	the source names unit Day17;
+f-fr_aoc24/src/day18.pas	LIBRARY	the source names unit Day18;
+f-fr_aoc24/src/day19.pas	LIBRARY	the source names unit Day19;
+f-fr_aoc24/src/day20.pas	LIBRARY	the source names unit Day20;
+f-fr_aoc24/src/day21.pas	LIBRARY	the source names unit Day21;
+f-fr_aoc24/src/day22.pas	LIBRARY	the source names unit Day22;
+f-fr_aoc24/src/day23.pas	LIBRARY	the source names unit Day23;
+f-fr_aoc24/src/day24.pas	LIBRARY	the source names unit Day24;
+f-fr_aoc24/src/day25.pas	LIBRARY	the source names unit Day25;
+f-fr_aoc24/src/dayTPL.pas	LIBRARY	the source names unit DayDAY;
+f-fr_aoc24/src/easycsv.pas	LIBRARY	the source names unit EasyCSV;
+f-fr_aoc24/src/priqueue.pas	LIBRARY	the source names unit PriQueue;
+f-fr_aoc24/src/sorting.pas	LIBRARY	the source names unit Sorting;
+f-fr_aoc24/src/testrunner.pas	READS-THE-ENVIRONMENT	its answer holds TMPDIR of the process that runs it
+f-fr_aoc24/src/testrunnergui.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: testrunnergui.pas(6,3) Fatal: Can't find unit Interfaces used by aoc24testsgui
+frogfather_advent-of-code/2021/advent.pas	LIBRARY	the source names unit advent;
+frogfather_advent-of-code/2021/adventOfCode.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adventOfCode.lpr(9,3) Fatal: Can't find unit Interfaces used by adventOfCode
+frogfather_advent-of-code/2021/anysort.pas	LIBRARY	the source names unit anysort;
+frogfather_advent-of-code/2021/aocutils.pas	LIBRARY	the source names unit aocUtils;
+frogfather_advent-of-code/2021/backup/advent.pas	LIBRARY	the source names unit advent;
+frogfather_advent-of-code/2021/backup/adventOfCode.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adventOfCode.lpr(9,3) Fatal: Can't find unit Interfaces used by adventOfCode
+frogfather_advent-of-code/2021/backup/anysort.pas	LIBRARY	the source names unit anysort;
+frogfather_advent-of-code/2021/backup/aocutils.pas	LIBRARY	the source names unit aocUtils;
+frogfather_advent-of-code/2021/backup/arrayutils.pas	LIBRARY	the source names unit arrayUtils;
+frogfather_advent-of-code/2021/backup/bingo.pas	LIBRARY	the source names unit bingo;
+frogfather_advent-of-code/2021/backup/bingocard.pas	LIBRARY	the source names unit bingoCard;
+frogfather_advent-of-code/2021/backup/cave.pas	LIBRARY	the source names unit cave;
+frogfather_advent-of-code/2021/backup/cavepassage.pas	LIBRARY	the source names unit cavePassage;
+frogfather_advent-of-code/2021/backup/chiton.pas	LIBRARY	the source names unit chiton;
+frogfather_advent-of-code/2021/backup/fileutilities.pas	LIBRARY	the source names unit fileUtilities;
+frogfather_advent-of-code/2021/backup/lanternfish.pas	LIBRARY	the source names unit lanternfish;
+frogfather_advent-of-code/2021/backup/node.pas	LIBRARY	the source names unit node;
+frogfather_advent-of-code/2021/backup/octopus.pas	LIBRARY	the source names unit octopus;
+frogfather_advent-of-code/2021/backup/origami.pas	LIBRARY	the source names unit origami;
+frogfather_advent-of-code/2021/backup/packet.pas	LIBRARY	the source names unit packet;
+frogfather_advent-of-code/2021/backup/paintbox.pas	LIBRARY	the source names unit paintbox;
+frogfather_advent-of-code/2021/backup/polymer.pas	LIBRARY	the source names unit polymer;
+frogfather_advent-of-code/2021/backup/rangecalc.pas	LIBRARY	the source names unit rangecalc;
+frogfather_advent-of-code/2021/backup/snailfish.pas	LIBRARY	the source names unit snailfish;
+frogfather_advent-of-code/2021/backup/treeview.pas	LIBRARY	the source names unit treeView;
+frogfather_advent-of-code/2021/backup/trickshot.pas	LIBRARY	the source names unit trickshot;
+frogfather_advent-of-code/2021/backup/ventmap.pas	LIBRARY	the source names unit ventMap;
+frogfather_advent-of-code/2021/bingo.pas	LIBRARY	the source names unit bingo;
+frogfather_advent-of-code/2021/cave.pas	LIBRARY	the source names unit cave;
+frogfather_advent-of-code/2021/cavepassage.pas	LIBRARY	the source names unit cavePassage;
+frogfather_advent-of-code/2021/chiton.pas	LIBRARY	the source names unit chiton;
+frogfather_advent-of-code/2021/fileutilities.pas	LIBRARY	the source names unit fileUtilities;
+frogfather_advent-of-code/2021/lanternfish.pas	LIBRARY	the source names unit lanternfish;
+frogfather_advent-of-code/2021/node.pas	LIBRARY	the source names unit node;
+frogfather_advent-of-code/2021/octopus.pas	LIBRARY	the source names unit octopus;
+frogfather_advent-of-code/2021/origami.pas	LIBRARY	the source names unit origami;
+frogfather_advent-of-code/2021/packet.pas	LIBRARY	the source names unit packet;
+frogfather_advent-of-code/2021/paintbox.pas	LIBRARY	the source names unit paintbox;
+frogfather_advent-of-code/2021/polymer.pas	LIBRARY	the source names unit polymer;
+frogfather_advent-of-code/2021/snailfish.pas	LIBRARY	the source names unit snailfish;
+frogfather_advent-of-code/2021/treeview.pas	LIBRARY	the source names unit treeView;
+frogfather_advent-of-code/2021/trickshot.pas	LIBRARY	the source names unit trickshot;
+frogfather_advent-of-code/2021/ventmap.pas	LIBRARY	the source names unit ventMap;
+frogfather_advent-of-code/2022/adventOfCode.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adventOfCode.lpr(9,3) Fatal: Can't find unit Interfaces used by adventOfCode
+frogfather_advent-of-code/2022/aoc_22.pas	LIBRARY	the source names unit aoc_22;
+frogfather_advent-of-code/2022/aocpuzzle.pas	LIBRARY	the source names unit aocPuzzle;
+frogfather_advent-of-code/2022/backup/adventOfCode.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adventOfCode.lpr(9,3) Fatal: Can't find unit Interfaces used by adventOfCode
+frogfather_advent-of-code/2022/backup/aoc_22.pas	LIBRARY	the source names unit aoc_22;
+frogfather_advent-of-code/2022/backup/aocpuzzle.pas	LIBRARY	the source names unit aocPuzzle;
+frogfather_advent-of-code/2022/backup/aocutils.pas	LIBRARY	the source names unit aocUtils;
+frogfather_advent-of-code/2022/backup/day1.pas	LIBRARY	the source names unit day1;
+frogfather_advent-of-code/2022/backup/day10.pas	LIBRARY	the source names unit day10;
+frogfather_advent-of-code/2022/backup/day11.pas	LIBRARY	the source names unit day11;
+frogfather_advent-of-code/2022/backup/day12.pas	LIBRARY	the source names unit day12;
+frogfather_advent-of-code/2022/backup/day13.pas	LIBRARY	the source names unit day13;
+frogfather_advent-of-code/2022/backup/day14.pas	LIBRARY	the source names unit day14;
+frogfather_advent-of-code/2022/backup/day15.pas	LIBRARY	the source names unit day15;
+frogfather_advent-of-code/2022/backup/day2.pas	LIBRARY	the source names unit day2;
+frogfather_advent-of-code/2022/backup/day3.pas	LIBRARY	the source names unit day3;
+frogfather_advent-of-code/2022/backup/day4.pas	LIBRARY	the source names unit day4;
+frogfather_advent-of-code/2022/backup/day5.pas	LIBRARY	the source names unit day5;
+frogfather_advent-of-code/2022/backup/day6.pas	LIBRARY	the source names unit day6;
+frogfather_advent-of-code/2022/backup/day7.pas	LIBRARY	the source names unit day7;
+frogfather_advent-of-code/2022/backup/day8.pas	LIBRARY	the source names unit day8;
+frogfather_advent-of-code/2022/backup/day9.pas	LIBRARY	the source names unit day9;
+frogfather_advent-of-code/2022/backup/fileutilities.pas	LIBRARY	the source names unit fileUtilities;
+frogfather_advent-of-code/2022/backup/iaoc.pas	LIBRARY	the source names unit iAoc;
+frogfather_advent-of-code/2022/backup/routefind.pas	LIBRARY	the source names unit routeFind;
+frogfather_advent-of-code/2022/backup/visualise.pas	LIBRARY	the source names unit visualise;
+frogfather_advent-of-code/2022/day1.pas	LIBRARY	the source names unit day1;
+frogfather_advent-of-code/2022/day10.pas	LIBRARY	the source names unit day10;
+frogfather_advent-of-code/2022/day11.pas	LIBRARY	the source names unit day11;
+frogfather_advent-of-code/2022/day12.pas	LIBRARY	the source names unit day12;
+frogfather_advent-of-code/2022/day13.pas	LIBRARY	the source names unit day13;
+frogfather_advent-of-code/2022/day14.pas	LIBRARY	the source names unit day14;
+frogfather_advent-of-code/2022/day15.pas	LIBRARY	the source names unit day15;
+frogfather_advent-of-code/2022/day2.pas	LIBRARY	the source names unit day2;
+frogfather_advent-of-code/2022/day3.pas	LIBRARY	the source names unit day3;
+frogfather_advent-of-code/2022/day4.pas	LIBRARY	the source names unit day4;
+frogfather_advent-of-code/2022/day5.pas	LIBRARY	the source names unit day5;
+frogfather_advent-of-code/2022/day6.pas	LIBRARY	the source names unit day6;
+frogfather_advent-of-code/2022/day7.pas	LIBRARY	the source names unit day7;
+frogfather_advent-of-code/2022/day8.pas	LIBRARY	the source names unit day8;
+frogfather_advent-of-code/2022/day9.pas	LIBRARY	the source names unit day9;
+frogfather_advent-of-code/2022/iaoc.pas	LIBRARY	the source names unit iAoc;
+frogfather_advent-of-code/2022/routefind.pas	LIBRARY	the source names unit routeFind;
+frogfather_advent-of-code/2022/visualise.pas	LIBRARY	the source names unit visualise;
+frogfather_advent-of-code/2023/adventOfCode.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adventOfCode.lpr(12,3) Fatal: Can't find unit Interfaces used by adventOfCode
+frogfather_advent-of-code/2023/aoc23.pas	LIBRARY	the source names unit aoc23;
+frogfather_advent-of-code/2023/aocpuzzle.pas	LIBRARY	the source names unit aocPuzzle;
+frogfather_advent-of-code/2023/carddata.pas	LIBRARY	the source names unit cardData;
+frogfather_advent-of-code/2023/day1.pas	LIBRARY	the source names unit day1;
+frogfather_advent-of-code/2023/day10.pas	LIBRARY	the source names unit day10;
+frogfather_advent-of-code/2023/day11.pas	LIBRARY	the source names unit day11;
+frogfather_advent-of-code/2023/day12.pas	LIBRARY	the source names unit day12;
+frogfather_advent-of-code/2023/day13.pas	LIBRARY	the source names unit day13;
+frogfather_advent-of-code/2023/day14.pas	LIBRARY	the source names unit day14;
+frogfather_advent-of-code/2023/day15.pas	LIBRARY	the source names unit day15;
+frogfather_advent-of-code/2023/day16.pas	LIBRARY	the source names unit day16;
+frogfather_advent-of-code/2023/day17.pas	LIBRARY	the source names unit day17;
+frogfather_advent-of-code/2023/day18.pas	LIBRARY	the source names unit day18;
+frogfather_advent-of-code/2023/day19.pas	LIBRARY	the source names unit day19;
+frogfather_advent-of-code/2023/day2.pas	LIBRARY	the source names unit day2;
+frogfather_advent-of-code/2023/day20.pas	LIBRARY	the source names unit day20;
+frogfather_advent-of-code/2023/day21.pas	LIBRARY	the source names unit day21;
+frogfather_advent-of-code/2023/day22.pas	LIBRARY	the source names unit day22;
+frogfather_advent-of-code/2023/day23.pas	LIBRARY	the source names unit day23;
+frogfather_advent-of-code/2023/day24.pas	LIBRARY	the source names unit day24;
+frogfather_advent-of-code/2023/day25.pas	LIBRARY	the source names unit day25;
+frogfather_advent-of-code/2023/day3.pas	LIBRARY	the source names unit day3;
+frogfather_advent-of-code/2023/day4.pas	LIBRARY	the source names unit day4;
+frogfather_advent-of-code/2023/day5.pas	LIBRARY	the source names unit day5;
+frogfather_advent-of-code/2023/day6.pas	LIBRARY	the source names unit day6;
+frogfather_advent-of-code/2023/day7.pas	LIBRARY	the source names unit day7;
+frogfather_advent-of-code/2023/day8.pas	LIBRARY	the source names unit day8;
+frogfather_advent-of-code/2023/day9.pas	LIBRARY	the source names unit day9;
+frogfather_advent-of-code/2023/gridelement.pas	LIBRARY	the source names unit gridElement;
+frogfather_advent-of-code/2023/hand.pas	LIBRARY	the source names unit hand;
+frogfather_advent-of-code/2023/iaoc.pas	LIBRARY	the source names unit iAoc;
+frogfather_advent-of-code/2023/pipenode.pas	LIBRARY	the source names unit pipenode;
+frogfather_advent-of-code/2023/rangeconvert.pas	LIBRARY	the source names unit rangeConvert;
+frogfather_advent-of-code/2023/tests/fpcunitaoc23.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: fpcunitaoc23.lpr(6,3) Fatal: Can't find unit Interfaces used by fpcunitaoc23
+frogfather_advent-of-code/2023/tests/testday12.pas	LIBRARY	the source names unit testday12;
+frogfather_advent-of-code/2023/visualise.pas	LIBRARY	the source names unit visualise;
+frogfather_advent-of-code/2024/adventOfCode.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adventOfCode.lpr(12,3) Fatal: Can't find unit Interfaces used by adventOfCode
+frogfather_advent-of-code/2024/aoc24.pas	LIBRARY	the source names unit aoc24;
+frogfather_advent-of-code/2024/aocpuzzle.pas	LIBRARY	the source names unit aocPuzzle;
+frogfather_advent-of-code/2024/backup/adventOfCode.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adventOfCode.lpr(12,3) Fatal: Can't find unit Interfaces used by adventOfCode
+frogfather_advent-of-code/2024/backup/aoc24.pas	LIBRARY	the source names unit aoc24;
+frogfather_advent-of-code/2024/backup/aocpuzzle.pas	LIBRARY	the source names unit aocPuzzle;
+frogfather_advent-of-code/2024/backup/day1.pas	LIBRARY	the source names unit day1;
+frogfather_advent-of-code/2024/backup/day10.pas	LIBRARY	the source names unit day10;
+frogfather_advent-of-code/2024/backup/day11.pas	LIBRARY	the source names unit day11;
+frogfather_advent-of-code/2024/backup/day12.pas	LIBRARY	the source names unit day12;
+frogfather_advent-of-code/2024/backup/day13.pas	LIBRARY	the source names unit day13;
+frogfather_advent-of-code/2024/backup/day14.pas	LIBRARY	the source names unit day14;
+frogfather_advent-of-code/2024/backup/day15.pas	LIBRARY	the source names unit day15;
+frogfather_advent-of-code/2024/backup/day16.pas	LIBRARY	the source names unit day16;
+frogfather_advent-of-code/2024/backup/day17.pas	LIBRARY	the source names unit day17;
+frogfather_advent-of-code/2024/backup/day19.pas	LIBRARY	the source names unit day19;
+frogfather_advent-of-code/2024/backup/day2.pas	LIBRARY	the source names unit day2;
+frogfather_advent-of-code/2024/backup/day21.pas	LIBRARY	the source names unit day21;
+frogfather_advent-of-code/2024/backup/day22.pas	LIBRARY	the source names unit day22;
+frogfather_advent-of-code/2024/backup/day23.pas	LIBRARY	the source names unit day23;
+frogfather_advent-of-code/2024/backup/day25.pas	LIBRARY	the source names unit day25;
+frogfather_advent-of-code/2024/backup/day3.pas	LIBRARY	the source names unit day3;
+frogfather_advent-of-code/2024/backup/day4.pas	LIBRARY	the source names unit day4;
+frogfather_advent-of-code/2024/backup/day5.pas	LIBRARY	the source names unit day5;
+frogfather_advent-of-code/2024/backup/day6.pas	LIBRARY	the source names unit day6;
+frogfather_advent-of-code/2024/backup/day7.pas	LIBRARY	the source names unit day7;
+frogfather_advent-of-code/2024/backup/day8.pas	LIBRARY	the source names unit day8;
+frogfather_advent-of-code/2024/backup/day9.pas	LIBRARY	the source names unit day9;
+frogfather_advent-of-code/2024/backup/int64cache.pas	LIBRARY	the source names unit int64Cache;
+frogfather_advent-of-code/2024/backup/pointvisitcount.pas	LIBRARY	the source names unit pointVisitCount;
+frogfather_advent-of-code/2024/backup/visualise.pas	LIBRARY	the source names unit visualise;
+frogfather_advent-of-code/2024/day1.pas	LIBRARY	the source names unit day1;
+frogfather_advent-of-code/2024/day10.pas	LIBRARY	the source names unit day10;
+frogfather_advent-of-code/2024/day11.pas	LIBRARY	the source names unit day11;
+frogfather_advent-of-code/2024/day12.pas	LIBRARY	the source names unit day12;
+frogfather_advent-of-code/2024/day13.pas	LIBRARY	the source names unit day13;
+frogfather_advent-of-code/2024/day14.pas	LIBRARY	the source names unit day14;
+frogfather_advent-of-code/2024/day15.pas	LIBRARY	the source names unit day15;
+frogfather_advent-of-code/2024/day16.pas	LIBRARY	the source names unit day16;
+frogfather_advent-of-code/2024/day17.pas	LIBRARY	the source names unit day17;
+frogfather_advent-of-code/2024/day18.pas	LIBRARY	the source names unit day18;
+frogfather_advent-of-code/2024/day19.pas	LIBRARY	the source names unit day19;
+frogfather_advent-of-code/2024/day2.pas	LIBRARY	the source names unit day2;
+frogfather_advent-of-code/2024/day20.pas	LIBRARY	the source names unit day20;
+frogfather_advent-of-code/2024/day21.pas	LIBRARY	the source names unit day21;
+frogfather_advent-of-code/2024/day22.pas	LIBRARY	the source names unit day22;
+frogfather_advent-of-code/2024/day23.pas	LIBRARY	the source names unit day23;
+frogfather_advent-of-code/2024/day24.pas	LIBRARY	the source names unit day24;
+frogfather_advent-of-code/2024/day25.pas	LIBRARY	the source names unit day25;
+frogfather_advent-of-code/2024/day3.pas	LIBRARY	the source names unit day3;
+frogfather_advent-of-code/2024/day4.pas	LIBRARY	the source names unit day4;
+frogfather_advent-of-code/2024/day5.pas	LIBRARY	the source names unit day5;
+frogfather_advent-of-code/2024/day6.pas	LIBRARY	the source names unit day6;
+frogfather_advent-of-code/2024/day7.pas	LIBRARY	the source names unit day7;
+frogfather_advent-of-code/2024/day8.pas	LIBRARY	the source names unit day8;
+frogfather_advent-of-code/2024/day9.pas	LIBRARY	the source names unit day9;
+frogfather_advent-of-code/2024/iaoc.pas	LIBRARY	the source names unit iAoc;
+frogfather_advent-of-code/2024/int64cache.pas	LIBRARY	the source names unit int64Cache;
+frogfather_advent-of-code/2024/pointvisitcount.pas	LIBRARY	the source names unit pointVisitCount;
+frogfather_advent-of-code/2024/visualise.pas	LIBRARY	the source names unit visualise;
+frogfather_advent-of-code/2025/adventOfCode.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adventOfCode.lpr(12,3) Fatal: Can't find unit Interfaces used by adventOfCode
+frogfather_advent-of-code/2025/aoc24.pas	LIBRARY	the source names unit aoc24;
+frogfather_advent-of-code/2025/aocpuzzle.pas	LIBRARY	the source names unit aocPuzzle;
+frogfather_advent-of-code/2025/backup/adventOfCode.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adventOfCode.lpr(12,3) Fatal: Can't find unit Interfaces used by adventOfCode
+frogfather_advent-of-code/2025/backup/aoc24.pas	LIBRARY	the source names unit aoc24;
+frogfather_advent-of-code/2025/backup/day1.pas	LIBRARY	the source names unit day1;
+frogfather_advent-of-code/2025/day1.pas	LIBRARY	the source names unit day1;
+frogfather_advent-of-code/2025/day10.pas	LIBRARY	the source names unit day10;
+frogfather_advent-of-code/2025/day11.pas	LIBRARY	the source names unit day11;
+frogfather_advent-of-code/2025/day12.pas	LIBRARY	the source names unit day12;
+frogfather_advent-of-code/2025/day13.pas	LIBRARY	the source names unit day13;
+frogfather_advent-of-code/2025/day14.pas	LIBRARY	the source names unit day14;
+frogfather_advent-of-code/2025/day15.pas	LIBRARY	the source names unit day15;
+frogfather_advent-of-code/2025/day16.pas	LIBRARY	the source names unit day16;
+frogfather_advent-of-code/2025/day17.pas	LIBRARY	the source names unit day17;
+frogfather_advent-of-code/2025/day18.pas	LIBRARY	the source names unit day18;
+frogfather_advent-of-code/2025/day19.pas	LIBRARY	the source names unit day19;
+frogfather_advent-of-code/2025/day2.pas	LIBRARY	the source names unit day2;
+frogfather_advent-of-code/2025/day20.pas	LIBRARY	the source names unit day20;
+frogfather_advent-of-code/2025/day21.pas	LIBRARY	the source names unit day21;
+frogfather_advent-of-code/2025/day22.pas	LIBRARY	the source names unit day22;
+frogfather_advent-of-code/2025/day23.pas	LIBRARY	the source names unit day23;
+frogfather_advent-of-code/2025/day24.pas	LIBRARY	the source names unit day24;
+frogfather_advent-of-code/2025/day25.pas	LIBRARY	the source names unit day25;
+frogfather_advent-of-code/2025/day3.pas	LIBRARY	the source names unit day3;
+frogfather_advent-of-code/2025/day4.pas	LIBRARY	the source names unit day4;
+frogfather_advent-of-code/2025/day5.pas	LIBRARY	the source names unit day5;
+frogfather_advent-of-code/2025/day6.pas	LIBRARY	the source names unit day6;
+frogfather_advent-of-code/2025/day7.pas	LIBRARY	the source names unit day7;
+frogfather_advent-of-code/2025/day8.pas	LIBRARY	the source names unit day8;
+frogfather_advent-of-code/2025/day9.pas	LIBRARY	the source names unit day9;
+frogfather_advent-of-code/2025/iaoc.pas	LIBRARY	the source names unit iAoc;
+frogfather_advent-of-code/2025/visualise.pas	LIBRARY	the source names unit visualise;
+frogfather_advent-of-code/aoc-generator/aocgen.pas	LIBRARY	the source names unit aocgen;
+frogfather_advent-of-code/aoc-generator/backup/aocgen.pas	LIBRARY	the source names unit aocgen;
+frogfather_advent-of-code/aoc-generator/project1.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: project1.lpr(12,3) Fatal: Can't find unit Interfaces used by project1
+frogfather_advent-of-code/aoc-generator/source_files/adventOfCode.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adventOfCode.lpr(12,3) Fatal: Can't find unit Interfaces used by adventOfCode
+frogfather_advent-of-code/aoc-generator/source_files/aoc_year_.pas	LIBRARY	the source names unit aoc24;
+frogfather_advent-of-code/aoc-generator/source_files/aocpuzzle.pas	LIBRARY	the source names unit aocPuzzle;
+frogfather_advent-of-code/common/anysort.pas	LIBRARY	the source names unit anysort;
+frogfather_advent-of-code/common/aocutils.pas	LIBRARY	the source names unit aocUtils;
+frogfather_advent-of-code/common/arrayutils.pas	LIBRARY	the source names unit arrayUtils;
+frogfather_advent-of-code/common/fileutilities.pas	LIBRARY	the source names unit fileUtilities;
+frogfather_advent-of-code/common/tests/aocutiltests.pas	LIBRARY	the source names unit aocUtilTests;
+frogfather_advent-of-code/common/tests/commonTest.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: commonTest.lpr(6,3) Fatal: Can't find unit Interfaces used by commonTest
+gabr42_AdventOfCode/2024/WardenWalk/wwMain.pas	LIBRARY	the source names unit wwMain;
+hanst99_advent-of-code-2025/pascal/day1_p1.pp	NEEDS-INPUT	its answer changes with what standard input holds
+hanst99_advent-of-code-2025/pascal/day1_p2.pp	NEEDS-INPUT	its answer changes with what standard input holds
+hanst99_advent-of-code-2025/pascal/day2_p1.pp	ENTRY	
+ikari-pl_advent-of-code-2023/Pascal/FreePascal/04.pas	NEEDS-DISPLAY	the source names Uses crt
+kawaii-Code_aoc2024/day1-p1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day1-p1.pas(3,3) Error: Illegal expression
+kawaii-Code_aoc2024/day1-p2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day1-p2.pas(3,3) Error: Illegal expression
+kawaii-Code_aoc2024/day2-p2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day2-p2.pas(5,3) Error: Identifier not found "Result"
+kawaii-Code_aoc2024/day3-p1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day3-p1.pas(5,23) Error: Illegal qualifier
+kawaii-Code_aoc2024/day3-p2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day3-p2.pas(6,23) Error: Illegal qualifier
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 1/D1P1.pas	ENTRY	
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 1/D1P2.pas	ENTRY	
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 2/D2P1.pas	ENTRY	
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 2/D2P2.pas	ENTRY	
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 3/D3P1.pas	ENTRY	
+lolpeecard_Advent-of-Code-2021---Peecard-Edition/Day 3/D3P2.pas	ENTRY	
+maico-smaniotto_AdventOfCode2023-pas/Day2/Day2.lpr	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000428279:
+maico-smaniotto_AdventOfCode2023-pas/Day3/Day3.lpr	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000438139:
+marvin-schultz_AoC-2024-Delphi/Source/2024/01/Y2024_D01_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D01_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D01_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/01/Y2024_D01_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D01_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D01_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/02/Y2024_D02_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D02_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D02_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/02/Y2024_D02_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D02_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D02_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/03/Y2024_D03_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D03_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D03_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/03/Y2024_D03_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D03_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D03_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/04/Y2024_D04_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D04_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D04_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/04/Y2024_D04_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D04_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D04_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/05/Y2024_D05_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D05_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D05_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/05/Y2024_D05_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D05_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D05_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/06/Y2024_D06_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D06_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D06_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/06/Y2024_D06_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D06_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D06_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/07/Y2024_D07_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D07_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D07_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/07/Y2024_D07_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D07_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D07_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/08/Y2024_D08_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D08_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D08_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/08/Y2024_D08_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D08_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D08_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/09/Y2024_D09_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D09_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D09_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/09/Y2024_D09_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D09_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D09_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/10/Y2024_D10_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D10_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D10_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/10/Y2024_D10_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D10_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D10_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/11/Y2024_D11_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D11_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D11_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/11/Y2024_D11_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D11_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D11_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/12/Y2024_D12_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D12_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D12_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/12/Y2024_D12_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D12_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D12_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/13/Y2024_D13_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D13_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D13_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/13/Y2024_D13_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D13_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D13_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/14/Y2024_D14_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D14_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D14_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/14/Y2024_D14_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D14_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D14_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/15/Y2024_D15_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D15_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D15_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/15/Y2024_D15_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D15_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D15_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/16/Y2024_D16_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D16_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D16_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/16/Y2024_D16_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D16_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D16_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/17/Y2024_D17_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D17_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D17_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/17/Y2024_D17_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D17_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D17_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/18/Y2024_D18_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D18_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D18_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/18/Y2024_D18_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D18_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D18_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/19/Y2024_D19_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D19_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D19_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/19/Y2024_D19_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D19_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D19_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/20/Y2024_D20_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D20_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D20_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/20/Y2024_D20_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D20_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D20_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/21/Y2024_D21_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D21_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D21_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/21/Y2024_D21_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D21_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D21_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/22/Y2024_D22_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D22_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D22_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/22/Y2024_D22_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D22_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D22_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/23/Y2024_D23_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D23_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D23_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/23/Y2024_D23_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D23_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D23_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/24/Y2024_D24_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D24_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D24_P1
+marvin-schultz_AoC-2024-Delphi/Source/2024/24/Y2024_D24_P2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D24_P2.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D24_P2
+marvin-schultz_AoC-2024-Delphi/Source/2024/25/Y2024_D25_P1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Y2024_D25_P1.pas(8,3) Fatal: Can't find unit AOCTool used by Y2024_D25_P1
+marvin-schultz_AoC-2024-Delphi/Source/AOCTool.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AOCTool.pas(6,3) Fatal: Can't find unit Spring used by AOCTool
+mcebular_advent-of-code-2025/day00.pas	ENTRY	
+mcebular_advent-of-code-2025/day01.pas	ENTRY	
+mcebular_advent-of-code-2025/day02.pas	ENTRY	
+mcebular_advent-of-code-2025/day03.pas	ENTRY	
+mikewarot_Advent_of_Code_in_BitGrid/2023/Advent2023_01_a.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Advent2023_01_a.lpr(3,24) Fatal: Can't find unit Windows used by Advent2023_01_a
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_01a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_02a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_02b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_03a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_03b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_04a.pas	DOES-NOT-END	no answer inside 60 s
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_04b.pas	DOES-NOT-END	no answer inside 60 s
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_05a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_05b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_06a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_06b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_07a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_08a.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_08b.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_09a.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_10a.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_11a.lpr	DOES-NOT-END	no answer inside 60 s
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_12a.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_12b.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_13a.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: advent2015_13a.lpr(3,17) Fatal: Can't find unit my_permute used by advent2015_13a
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_13b.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: advent2015_13b.lpr(3,17) Fatal: Can't find unit my_permute used by advent2015_13b
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_14a.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: advent2015_14a.lpr(3,3) Fatal: Can't find unit mystrings used by advent2015_14a
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_14b.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: advent2015_14b.lpr(3,3) Fatal: Can't find unit mystrings used by advent2015_14b
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_15a.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: advent2015_15a.lpr(3,3) Fatal: Can't find unit mystrings used by advent2015_15a
+mikewarot_Advent_of_Code_in_Pascal/2015/advent2015_16a.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: advent2015_16a.lpr(3,3) Fatal: Can't find unit mystrings used by advent2015_16a
+mikewarot_Advent_of_Code_in_Pascal/2020/a_better_regex.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2020/advent01.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2020/advent01_b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_02a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_02b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_03a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_03b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_04a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_04b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_05a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_05b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_06a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_06b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_07_redo.pas	DOES-NOT-END	no answer inside 60 s
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_07a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_07b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_07c.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_08a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_08b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_09a.pas	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_09b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_10_util.lpr	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_10a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_10b.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 59 and 59 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_11a.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 91 and 91 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_11b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_12a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_12b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_13a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_13b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_13c.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_14_redo.pas	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_14a.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 78 and 78 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_14b.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: advent2020_14b.pas(145,31) Error: Can't evaluate constant expression
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_15a.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 5487 and 5487 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_15b.pas	DIFFERS-BETWEEN-RUNS	exit -11 and -11, 46 and 44 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_16a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_16b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_17a.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 301 and 301 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_17b.pas	DOES-NOT-END	no answer inside 60 s
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_18a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_18b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_19a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_19b.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 119 and 119 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_20a.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 1655 and 1655 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_20b.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 69971 and 69971 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_20find_sea_mosnter.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 10380 and 10380 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_21a.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_22a.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 560081 and 560081 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_22a_fancy_premature_optimization.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 560081 and 560081 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_22b.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_23a.pas	DOES-NOT-END	no answer inside 60 s
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_23b.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 96 and 96 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_23b_crunched.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 132 and 132 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_24a.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 36 and 36 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_24b.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 7846 and 7846 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/advent2020_25a.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 22289 and 22289 bytes
+mikewarot_Advent_of_Code_in_Pascal/2020/grouped_lines_base.pas	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_01a.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_01b.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_02a.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_02b.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_03a.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_03b.lpr	DOES-NOT-END	no answer inside 60 s
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_04a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_04b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_05a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_05b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_06a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_06b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_07a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_07b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_08a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_08b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_09a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_09b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_10a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_10b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_11a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_11b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_12a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_12b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_13a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_14a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_14b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_15a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_15b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_16a.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_16b.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_17a.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_17b.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_18a.lpr	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000402122:
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_18a_fail1.lpr	ENTRY	stderr not graded: Runtime error 2 at $0000000000401E06
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_18a_fail2.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: advent2021_18a_fail2.lpr(94,35) Fatal: Syntax error, ")" expected but "," found
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_18b.lpr	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401D00:
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_19_spin.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: advent2021_19_spin.lpr(5,1) Fatal: Syntax error, "identifier" expected but "BEGIN" found
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_19_try2.lpr	ENTRY	
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_19a.lpr	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040111A:
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_20a.lpr	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040174B:
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_21a.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_21b.lpr	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 387 and 387 bytes
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_22a.lpr	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 6319 and 6319 bytes
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_22b.pas	DOES-NOT-END	no answer inside 60 s
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_23a.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000402C30:
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_23a_abandoned.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: advent2021_23a_abandoned.pas(36,27) Fatal: Syntax error, ":" expected but ")" found
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_24a.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040156E:
+mikewarot_Advent_of_Code_in_Pascal/2021/advent2021_25a.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004010FC:
+mikewarot_Advent_of_Code_in_Pascal/2021/mystrings.pas	LIBRARY	the source names unit MyStrings;
+mikewarot_Advent_of_Code_in_Pascal/2022/advent2022_01a.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2022/advent2022_01b.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2022/advent2022_02a.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2022/advent2022_02b.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+mikewarot_Advent_of_Code_in_Pascal/2022/mystrings.pas	LIBRARY	the source names unit MyStrings;
+mikewarot_Advent_of_Code_in_Pascal/my_permute.pas	LIBRARY	the source names unit my_permute;
+mikewarot_Advent_of_Code_in_Pascal/mystrings.pas	LIBRARY	the source names unit MyStrings;
+mikewarot_Advent_of_Code_in_Pascal/permute_experiment.lpr	NEEDS-INPUT	its answer changes with what standard input holds
+owen-dearman_AdventOfCode2024_Delphi/Common/Common.pas	LIBRARY	the source names unit Common;
+owen-dearman_AdventOfCode2024_Delphi/Common/MatrixUnit.pas	LIBRARY	the source names unit MatrixUnit;
+owen-dearman_AdventOfCode2024_Delphi/Day 1/src/Utils.pas	LIBRARY	the source names unit Utils;
+owen-dearman_AdventOfCode2024_Delphi/Day 2/src/Utils.pas	LIBRARY	the source names unit Utils;
+owen-dearman_AdventOfCode2024_Delphi/Day 3/src/Utils.pas	LIBRARY	the source names unit Utils;
+owen-dearman_AdventOfCode2024_Delphi/Day 4/src/Utils.pas	LIBRARY	the source names unit Utils;
+owen-dearman_AdventOfCode2024_Delphi/Day 5/src/Utils.pas	LIBRARY	the source names unit Utils;
+owen-dearman_AdventOfCode2024_Delphi/Day 6/src/Utils.pas	LIBRARY	the source names unit Utils;
+owen-dearman_AdventOfCode2024_Delphi/Day 7/src/Utils.pas	LIBRARY	the source names unit Utils;
+owen-dearman_AdventOfCode2024_Delphi/Day 8/src/Utils.pas	LIBRARY	the source names unit Utils;
+owen-dearman_AdventOfCode2024_Delphi/Day 9/src/Utils.pas	LIBRARY	the source names unit Utils;
+pascalecu_AdventOfCodeD7/Core/AoC.Day.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Day.pas(6,14) Error: Identifier not found "class"
+pascalecu_AdventOfCodeD7/Core/AoC.Input.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Input.pas(19,7) Error: Identifier not found "Result"
+pascalecu_AdventOfCodeD7/Core/AoC.Registry.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Day.pas(6,14) Error: Identifier not found "class"
+pascalecu_AdventOfCodeD7/Core/AoC.Result.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+pascalecu_AdventOfCodeD7/Core/AoC.Runtime.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Day.pas(6,14) Error: Identifier not found "class"
+pascalecu_AdventOfCodeD7/Core/AoC.Solver.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Day.pas(6,14) Error: Identifier not found "class"
+pascalecu_AdventOfCodeD7/Core/AoC.Timer.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Timer.pas(6,4) Fatal: Can't find unit Windows used by AoC.Timer
+pascalecu_AdventOfCodeD7/Core/AoC.Types.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+pascalecu_AdventOfCodeD7/Core/AoC.UI.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoC.Day.pas(6,14) Error: Identifier not found "class"
+pascalecu_AdventOfCodeD7/Forms/FMain.pas	LIBRARY	the source names unit FMain;
+pascalecu_AdventOfCodeD7/Solutions/Y2025.pas	LIBRARY	the source names unit Y2025;
+pascalecu_AdventOfCodeD7/Solutions/Y2025_Day01.pas	LIBRARY	the source names unit Y2025_Day01;
+pascalecu_AdventOfCodeD7/Solutions/Y2025_Day02.pas	LIBRARY	the source names unit Y2025_Day02;
+pascalecu_AdventOfCodeD7/Solutions/Y2025_Day03.pas	LIBRARY	the source names unit Y2025_Day03;
+pascalecu_AdventOfCodeD7/Solutions/Y2025_Day04.pas	LIBRARY	the source names unit Y2025_Day04;
+pascalecu_AdventOfCodeD7/Tests/TestDay2025_01.pas	LIBRARY	the source names unit TestDay2025_01;
+pascalecu_AdventOfCodeD7/Tests/TestDay2025_02.pas	LIBRARY	the source names unit TestDay2025_02;
+pascalecu_AdventOfCodeD7/Tests/TestDay2025_03.pas	LIBRARY	the source names unit TestDay2025_03;
+pascalecu_AdventOfCodeD7/Tests/TestDay2025_04.pas	LIBRARY	the source names unit TestDay2025_04;
+pereszlenyi_aoc2022/day_05/stacks.pas	ENTRY	
+plasmaofthedawn_adventofcode/src/pascal/2023/day1/part1.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $00000000004010D8
+plasmaofthedawn_adventofcode/src/pascal/2023/day1/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401115:
+plasmaofthedawn_adventofcode/src/pascal/2023/day10/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401292:
+plasmaofthedawn_adventofcode/src/pascal/2023/day10/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004014EA:
+plasmaofthedawn_adventofcode/src/pascal/2023/day11/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004013C6:
+plasmaofthedawn_adventofcode/src/pascal/2023/day11/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004013D6:
+plasmaofthedawn_adventofcode/src/pascal/2023/day12/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401998:
+plasmaofthedawn_adventofcode/src/pascal/2023/day12/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401FCD:
+plasmaofthedawn_adventofcode/src/pascal/2023/day13/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004015A8:
+plasmaofthedawn_adventofcode/src/pascal/2023/day13/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401648:
+plasmaofthedawn_adventofcode/src/pascal/2023/day14/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004010DE:
+plasmaofthedawn_adventofcode/src/pascal/2023/day14/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000402476:
+plasmaofthedawn_adventofcode/src/pascal/2023/day15/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004013ED:
+plasmaofthedawn_adventofcode/src/pascal/2023/day15/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004018E8:
+plasmaofthedawn_adventofcode/src/pascal/2023/day16/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401A92:
+plasmaofthedawn_adventofcode/src/pascal/2023/day16/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401B02:
+plasmaofthedawn_adventofcode/src/pascal/2023/day17/part1.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+plasmaofthedawn_adventofcode/src/pascal/2023/day17/queue.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: queue.pas(5,30) Error: Identifier not found "Tnode"
+plasmaofthedawn_adventofcode/src/pascal/2023/day2/part1.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $00000000004010DF
+plasmaofthedawn_adventofcode/src/pascal/2023/day2/part2.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $00000000004010DF
+plasmaofthedawn_adventofcode/src/pascal/2023/day3/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040137D:
+plasmaofthedawn_adventofcode/src/pascal/2023/day3/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004012DF:
+plasmaofthedawn_adventofcode/src/pascal/2023/day4/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004010DF:
+plasmaofthedawn_adventofcode/src/pascal/2023/day4/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004010DF:
+plasmaofthedawn_adventofcode/src/pascal/2023/day5/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004010DF:
+plasmaofthedawn_adventofcode/src/pascal/2023/day5/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040114F:
+plasmaofthedawn_adventofcode/src/pascal/2023/day6/part1.pas	ENTRY	
+plasmaofthedawn_adventofcode/src/pascal/2023/day6/part2.pas	ENTRY	
+plasmaofthedawn_adventofcode/src/pascal/2023/day7/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040155F:
+plasmaofthedawn_adventofcode/src/pascal/2023/day7/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040162F:
+plasmaofthedawn_adventofcode/src/pascal/2023/day8/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040111B:
+plasmaofthedawn_adventofcode/src/pascal/2023/day8/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $0000000000401122:
+plasmaofthedawn_adventofcode/src/pascal/2023/day9/bigint.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: bigint.pas(10,10) Fatal: Syntax error, "=" expected but ":=" found
+plasmaofthedawn_adventofcode/src/pascal/2023/day9/fraction.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: bigint.pas(10,10) Fatal: Syntax error, "=" expected but ":=" found
+plasmaofthedawn_adventofcode/src/pascal/2023/day9/part1.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040451F:
+plasmaofthedawn_adventofcode/src/pascal/2023/day9/part2.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040451F:
+plasmaofthedawn_adventofcode/src/pascal/2023/day9/polynomial.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: polynomial.pas(171) Fatal: Syntax error, "BEGIN" expected but "end of file" found
+pmcgee69_Advent-of-Code-2022/Problem 7/U_dir_types.pas	LIBRARY	the source names unit U_dir_types;
+pmcgee69_Advent-of-Code-2022/Tests/Project_UFP_Tests_DUnitX.pas	LIBRARY	the source names unit Project_UFP_Tests_DUnitX;
+pmcgee69_Advent-of-Code-2022/Tests/TestU_Utils_Functional.pas	LIBRARY	the source names unit TestU_Utils_Functional;
+pmcgee69_Advent-of-Code-2022/Tests/Test_UFP_Tests_DUnitX.pas	LIBRARY	the source names unit Test_UFP_Tests_DUnitX;
+pmcgee69_Advent-of-Code-2022/U_Utils_Functional.pas	LIBRARY	the source names unit U_Utils_Functional;
+pmcgee69_Advent-of-Code-2024/Problem 1/Problem_1_1_UData.pas	LIBRARY	the source names unit Problem_1_1_UData;
+pmcgee69_Advent-of-Code-2024/Problem 2/UProblem2_Data.pas	LIBRARY	the source names unit UProblem2_Data;
+pmcgee69_Advent-of-Code-2024/Problem 3/U_Parsers.pas	LIBRARY	the source names unit U_Parsers;
+pmcgee69_Advent-of-Code-2024/Problem 3/Unit1.pas	LIBRARY	the source names unit Unit1;
+pmcgee69_Advent-of-Code-2024/Problem 4/Problem_4_Data.pas	LIBRARY	the source names unit Problem_4_Data;
+pmcgee69_Advent-of-Code-2024/Problem 4/U_Patterns.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+pmcgee69_Advent-of-Code-2024/Problem 5/Problem_5_Data.pas	LIBRARY	the source names unit Problem_5_Data;
+pmcgee69_Advent-of-Code-2024/Problem 5/U_Bad_Shuffle.pas	LIBRARY	the source names unit U_Bad_Shuffle;
+pmcgee69_Advent-of-Code-2024/Problem 5/U_Shuffle.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: U_Shuffle.pas(4,6) Fatal: Can't find unit System.SysUtils used by U_Shuffle
+pmcgee69_Advent-of-Code-2024/Problem 5/U_next_permutation.pas	LIBRARY	the source names unit U_next_permutation;
+pmcgee69_Advent-of-Code-2024/Problem 6/Problem_6_Data.pas	LIBRARY	the source names unit Problem_6_Data;
+pmcgee69_Advent-of-Code-2024/U_Utils_Functional.pas	LIBRARY	the source names unit U_Utils_Functional;
+pmcgee69_Advent-of-Code-2024/WC_ArrayHelper.pas	LIBRARY	the source names unit WC_ArrayHelper;
+psychotimmy_aoc2023-cpm/day1-1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day1-1.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day1-2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day1-2.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day11-1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day11-1.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day11-2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day11-2.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day13-1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day13-1.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day13-2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day13-2.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day15-1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day15-1.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day16-1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day16-1.pas(22,9) Fatal: Syntax error, ":" expected but "PROCEDURE" found
+psychotimmy_aoc2023-cpm/day16-2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day16-2.pas(22,9) Fatal: Syntax error, ":" expected but "PROCEDURE" found
+psychotimmy_aoc2023-cpm/day18-1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day18-1.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day2-1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day2-1.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day2-2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day2-2.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day21-1.pas	ENTRY	stderr not graded: Runtime error 2 at $00000000004013F1
+psychotimmy_aoc2023-cpm/day3-1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day3-1.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day4-1.pas	ENTRY	stderr not graded: Runtime error 2 at $0000000000401334
+psychotimmy_aoc2023-cpm/day4-2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day4-2.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day6-1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day6-1.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day6-2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day6-2.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day7-1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day7-1.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day7-2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day7-2.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day8-1.pas	ENTRY	stderr not graded: Runtime error 2 at $00000000004014F1
+psychotimmy_aoc2023-cpm/day9-1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day9-1.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+psychotimmy_aoc2023-cpm/day9-2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day9-2.pas(2,2) Fatal: Cannot open include file "BIGILIB.PAS"
+rMX666_advent-of-code/AoC2015/Task01/uTask_2015_01.pas	LIBRARY	the source names unit uTask_2015_01;
+rMX666_advent-of-code/AoC2015/Task02/uTask_2015_02.pas	LIBRARY	the source names unit uTask_2015_02;
+rMX666_advent-of-code/AoC2015/Task03/uTask_2015_03.pas	LIBRARY	the source names unit uTask_2015_03;
+rMX666_advent-of-code/AoC2015/Task04/uTask_2015_04.pas	LIBRARY	the source names unit uTask_2015_04;
+rMX666_advent-of-code/AoC2015/Task05/uTask_2015_05.pas	LIBRARY	the source names unit uTask_2015_05;
+rMX666_advent-of-code/AoC2015/Task06/uTask_2015_06.pas	LIBRARY	the source names unit uTask_2015_06;
+rMX666_advent-of-code/AoC2015/Task07/uTask_2015_07.pas	LIBRARY	the source names unit uTask_2015_07;
+rMX666_advent-of-code/AoC2015/Task08/uTask_2015_08.pas	LIBRARY	the source names unit uTask_2015_08;
+rMX666_advent-of-code/AoC2015/Task09/uForm_2015_09.pas	LIBRARY	the source names unit uForm_2015_09;
+rMX666_advent-of-code/AoC2015/Task09/uTask_2015_09.pas	LIBRARY	the source names unit uTask_2015_09;
+rMX666_advent-of-code/AoC2015/Task10/uTask_2015_10.pas	LIBRARY	the source names unit uTask_2015_10;
+rMX666_advent-of-code/AoC2015/Task11/uTask_2015_11.pas	LIBRARY	the source names unit uTask_2015_11;
+rMX666_advent-of-code/AoC2015/Task12/uForm_2015_12.pas	LIBRARY	the source names unit uForm_2015_12;
+rMX666_advent-of-code/AoC2015/Task12/uJSON_2015_12.pas	LIBRARY	the source names unit uJSON_2015_12;
+rMX666_advent-of-code/AoC2015/Task12/uTask_2015_12.pas	LIBRARY	the source names unit uTask_2015_12;
+rMX666_advent-of-code/AoC2015/Task13/uTask_2015_13.pas	LIBRARY	the source names unit uTask_2015_13;
+rMX666_advent-of-code/AoC2015/Task14/uTask_2015_14.pas	LIBRARY	the source names unit uTask_2015_14;
+rMX666_advent-of-code/AoC2015/Task15/uTask_2015_15.pas	LIBRARY	the source names unit uTask_2015_15;
+rMX666_advent-of-code/AoC2015/Task16/uTask_2015_16.pas	LIBRARY	the source names unit uTask_2015_16;
+rMX666_advent-of-code/AoC2015/Task17/uTask_2015_17.pas	LIBRARY	the source names unit uTask_2015_17;
+rMX666_advent-of-code/AoC2015/Task18/uForm_2015_18.pas	LIBRARY	the source names unit uForm_2015_18;
+rMX666_advent-of-code/AoC2015/Task18/uTask_2015_18.pas	LIBRARY	the source names unit uTask_2015_18;
+rMX666_advent-of-code/AoC2015/Task19/uTask_2015_19.pas	LIBRARY	the source names unit uTask_2015_19;
+rMX666_advent-of-code/AoC2015/Task20/uTask_2015_20.pas	LIBRARY	the source names unit uTask_2015_20;
+rMX666_advent-of-code/AoC2015/Task21/uTask_2015_21.pas	LIBRARY	the source names unit uTask_2015_21;
+rMX666_advent-of-code/AoC2015/Task22/uGame_2015_22.pas	LIBRARY	the source names unit uGame_2015_22;
+rMX666_advent-of-code/AoC2015/Task22/uTask_2015_22.pas	LIBRARY	the source names unit uTask_2015_22;
+rMX666_advent-of-code/AoC2015/Task23/uTask_2015_23.pas	LIBRARY	the source names unit uTask_2015_23;
+rMX666_advent-of-code/AoC2015/Task24/uTask_2015_24.pas	LIBRARY	the source names unit uTask_2015_24;
+rMX666_advent-of-code/AoC2015/Task25/uTask_2015_25.pas	LIBRARY	the source names unit uTask_2015_25;
+rMX666_advent-of-code/AoC2016/Task01/uTask_2016_01.pas	LIBRARY	the source names unit uTask_2016_01;
+rMX666_advent-of-code/AoC2016/Task02/uTask_2016_02.pas	LIBRARY	the source names unit uTask_2016_02;
+rMX666_advent-of-code/AoC2016/Task03/uTask_2016_03.pas	LIBRARY	the source names unit uTask_2016_03;
+rMX666_advent-of-code/AoC2016/Task04/uTask_2016_04.pas	LIBRARY	the source names unit uTask_2016_04;
+rMX666_advent-of-code/AoC2016/Task05/uForm_2016_05.pas	LIBRARY	the source names unit uForm_2016_05;
+rMX666_advent-of-code/AoC2016/Task05/uTask_2016_05.pas	LIBRARY	the source names unit uTask_2016_05;
+rMX666_advent-of-code/AoC2016/Task06/uTask_2016_06.pas	LIBRARY	the source names unit uTask_2016_06;
+rMX666_advent-of-code/AoC2016/Task07/uTask_2016_07.pas	LIBRARY	the source names unit uTask_2016_07;
+rMX666_advent-of-code/AoC2016/Task08/uForm_2016_08.pas	LIBRARY	the source names unit uForm_2016_08;
+rMX666_advent-of-code/AoC2016/Task08/uTask_2016_08.pas	LIBRARY	the source names unit uTask_2016_08;
+rMX666_advent-of-code/AoC2016/Task09/uTask_2016_09.pas	LIBRARY	the source names unit uTask_2016_09;
+rMX666_advent-of-code/AoC2016/Task10/uTask_2016_10.pas	LIBRARY	the source names unit uTask_2016_10;
+rMX666_advent-of-code/AoC2016/Task11/uSet_2016_11.pas	LIBRARY	the source names unit uSet_2016_11;
+rMX666_advent-of-code/AoC2016/Task11/uTask_2016_11.pas	LIBRARY	the source names unit uTask_2016_11;
+rMX666_advent-of-code/AoC2016/Task12/uTask_2016_12.pas	LIBRARY	the source names unit uTask_2016_12;
+rMX666_advent-of-code/AoC2016/Task13/uForm_2016_13.pas	LIBRARY	the source names unit uForm_2016_13;
+rMX666_advent-of-code/AoC2016/Task13/uTask_2016_13.pas	LIBRARY	the source names unit uTask_2016_13;
+rMX666_advent-of-code/AoC2016/Task14/uTask_2016_14.pas	LIBRARY	the source names unit uTask_2016_14;
+rMX666_advent-of-code/AoC2016/Task15/uTask_2016_15.pas	LIBRARY	the source names unit uTask_2016_15;
+rMX666_advent-of-code/AoC2016/Task16/uTask_2016_16.pas	LIBRARY	the source names unit uTask_2016_16;
+rMX666_advent-of-code/AoC2016/Task17/uTask_2016_17.pas	LIBRARY	the source names unit uTask_2016_17;
+rMX666_advent-of-code/AoC2016/Task18/uTask_2016_18.pas	LIBRARY	the source names unit uTask_2016_18;
+rMX666_advent-of-code/AoC2016/Task19/uTask_2016_19.pas	LIBRARY	the source names unit uTask_2016_19;
+rMX666_advent-of-code/AoC2016/Task20/uTask_2016_20.pas	LIBRARY	the source names unit uTask_2016_20;
+rMX666_advent-of-code/AoC2016/Task21/uTask_2016_21.pas	LIBRARY	the source names unit uTask_2016_21;
+rMX666_advent-of-code/AoC2016/Task22/uForm_2016_22.pas	LIBRARY	the source names unit uForm_2016_22;
+rMX666_advent-of-code/AoC2016/Task22/uSolver_2016_22.pas	LIBRARY	the source names unit uSolver_2016_22;
+rMX666_advent-of-code/AoC2016/Task22/uTask_2016_22.pas	LIBRARY	the source names unit uTask_2016_22;
+rMX666_advent-of-code/AoC2016/Task23/uTask_2016_23.pas	LIBRARY	the source names unit uTask_2016_23;
+rMX666_advent-of-code/AoC2016/Task24/uMain_2016_24.pas	LIBRARY	the source names unit uMain_2016_24;
+rMX666_advent-of-code/AoC2016/Task24/uSolver_2016_24.pas	LIBRARY	the source names unit uSolver_2016_24;
+rMX666_advent-of-code/AoC2016/Task24/uTask_2016_24.pas	LIBRARY	the source names unit uTask_2016_24;
+rMX666_advent-of-code/AoC2016/Task25/uTask_2016_25.pas	LIBRARY	the source names unit uTask_2016_25;
+rMX666_advent-of-code/AoC2017/Task01/uTask_2017_01.pas	LIBRARY	the source names unit uTask_2017_01;
+rMX666_advent-of-code/AoC2017/Task02/uTask_2017_02.pas	LIBRARY	the source names unit uTask_2017_02;
+rMX666_advent-of-code/AoC2017/Task03/uTask_2017_03.pas	LIBRARY	the source names unit uTask_2017_03;
+rMX666_advent-of-code/AoC2017/Task04/uTask_2017_04.pas	LIBRARY	the source names unit uTask_2017_04;
+rMX666_advent-of-code/AoC2017/Task05/uTask_2017_05.pas	LIBRARY	the source names unit uTask_2017_05;
+rMX666_advent-of-code/AoC2017/Task06/uTask_2017_06.pas	LIBRARY	the source names unit uTask_2017_06;
+rMX666_advent-of-code/AoC2017/Task07/uTask_2017_07.pas	LIBRARY	the source names unit uTask_2017_07;
+rMX666_advent-of-code/AoC2017/Task08/uTask_2017_08.pas	LIBRARY	the source names unit uTask_2017_08;
+rMX666_advent-of-code/AoC2017/Task09/uTask_2017_09.pas	LIBRARY	the source names unit uTask_2017_09;
+rMX666_advent-of-code/AoC2017/Task10/uTask_2017_10.pas	LIBRARY	the source names unit uTask_2017_10;
+rMX666_advent-of-code/AoC2017/Task11/uTask_2017_11.pas	LIBRARY	the source names unit uTask_2017_11;
+rMX666_advent-of-code/AoC2017/Task12/uTask_2017_12.pas	LIBRARY	the source names unit uTask_2017_12;
+rMX666_advent-of-code/AoC2017/Task13/uTask_2017_13.pas	LIBRARY	the source names unit uTask_2017_13;
+rMX666_advent-of-code/AoC2017/Task14/uTask_2017_14.pas	LIBRARY	the source names unit uTask_2017_14;
+rMX666_advent-of-code/AoC2017/Task15/uTask_2017_15.pas	LIBRARY	the source names unit uTask_2017_15;
+rMX666_advent-of-code/AoC2017/Task16/uTask_2017_16.pas	LIBRARY	the source names unit uTask_2017_16;
+rMX666_advent-of-code/AoC2017/Task17/uTask_2017_17.pas	LIBRARY	the source names unit uTask_2017_17;
+rMX666_advent-of-code/AoC2017/Task18/uTask_2017_18.pas	LIBRARY	the source names unit uTask_2017_18;
+rMX666_advent-of-code/AoC2017/Task19/uTask_2017_19.pas	LIBRARY	the source names unit uTask_2017_19;
+rMX666_advent-of-code/AoC2017/Task20/uTask_2017_20.pas	LIBRARY	the source names unit uTask_2017_20;
+rMX666_advent-of-code/AoC2017/Task21/uForm_2017_21.pas	LIBRARY	the source names unit uForm_2017_21;
+rMX666_advent-of-code/AoC2017/Task21/uTask_2017_21.pas	LIBRARY	the source names unit uTask_2017_21;
+rMX666_advent-of-code/AoC2017/Task22/uForm_2017_22.pas	LIBRARY	the source names unit uForm_2017_22;
+rMX666_advent-of-code/AoC2017/Task22/uTask_2017_22.pas	LIBRARY	the source names unit uTask_2017_22;
+rMX666_advent-of-code/AoC2017/Task23/uTask_2017_23.pas	LIBRARY	the source names unit uTask_2017_23;
+rMX666_advent-of-code/AoC2017/Task24/uTask_2017_24.pas	LIBRARY	the source names unit uTask_2017_24;
+rMX666_advent-of-code/AoC2017/Task25/uTask_2017_25.pas	LIBRARY	the source names unit uTask_2017_25;
+rMX666_advent-of-code/AoC2017/uKnotHash.pas	LIBRARY	the source names unit uKnotHash;
+rMX666_advent-of-code/AoC2018/Task01/uTask_2018_01.pas	LIBRARY	the source names unit uTask_2018_01;
+rMX666_advent-of-code/AoC2018/Task02/uTask_2018_02.pas	LIBRARY	the source names unit uTask_2018_02;
+rMX666_advent-of-code/AoC2018/Task03/uTask_2018_03.pas	LIBRARY	the source names unit uTask_2018_03;
+rMX666_advent-of-code/AoC2018/Task04/uTask_2018_04.pas	LIBRARY	the source names unit uTask_2018_04;
+rMX666_advent-of-code/AoC2018/Task05/uTask_2018_05.pas	LIBRARY	the source names unit uTask_2018_05;
+rMX666_advent-of-code/AoC2018/Task06/uForm_2018_06.pas	LIBRARY	the source names unit uForm_2018_06;
+rMX666_advent-of-code/AoC2018/Task06/uTask_2018_06.pas	LIBRARY	the source names unit uTask_2018_06;
+rMX666_advent-of-code/AoC2018/Task07/uTask_2018_07.pas	LIBRARY	the source names unit uTask_2018_07;
+rMX666_advent-of-code/AoC2018/Task08/uTask_2018_08.pas	LIBRARY	the source names unit uTask_2018_08;
+rMX666_advent-of-code/AoC2018/Task09/uTask_2018_09.pas	LIBRARY	the source names unit uTask_2018_09;
+rMX666_advent-of-code/AoC2018/Task10/uForm_2018_10.pas	LIBRARY	the source names unit uForm_2018_10;
+rMX666_advent-of-code/AoC2018/Task10/uStars_2018_10.pas	LIBRARY	the source names unit uStars_2018_10;
+rMX666_advent-of-code/AoC2018/Task10/uTask_2018_10.pas	LIBRARY	the source names unit uTask_2018_10;
+rMX666_advent-of-code/AoC2018/Task11/uTask_2018_11.pas	LIBRARY	the source names unit uTask_2018_11;
+rMX666_advent-of-code/AoC2018/Task12/uTask_2018_12.pas	LIBRARY	the source names unit uTask_2018_12;
+rMX666_advent-of-code/AoC2018/Task13/uCarts_2018_13.pas	LIBRARY	the source names unit uCarts_2018_13;
+rMX666_advent-of-code/AoC2018/Task13/uForm_2018_13.pas	LIBRARY	the source names unit uForm_2018_13;
+rMX666_advent-of-code/AoC2018/Task13/uTask_2018_13.pas	LIBRARY	the source names unit uTask_2018_13;
+rMX666_advent-of-code/AoC2018/Task14/uTask_2018_14.pas	LIBRARY	the source names unit uTask_2018_14;
+rMX666_advent-of-code/AoC2018/Task15/uForm_2018_15.pas	LIBRARY	the source names unit uForm_2018_15;
+rMX666_advent-of-code/AoC2018/Task15/uTask_2018_15.pas	LIBRARY	the source names unit uTask_2018_15;
+rMX666_advent-of-code/AoC2018/Task16/uTask_2018_16.pas	LIBRARY	the source names unit uTask_2018_16;
+rMX666_advent-of-code/AoC2018/Task17/uForm_2018_17.pas	LIBRARY	the source names unit uForm_2018_17;
+rMX666_advent-of-code/AoC2018/Task17/uTask_2018_17.pas	LIBRARY	the source names unit uTask_2018_17;
+rMX666_advent-of-code/AoC2018/Task17/uWater_2018_17.pas	LIBRARY	the source names unit uWater_2018_17;
+rMX666_advent-of-code/AoC2018/Task18/uTask_2018_18.pas	LIBRARY	the source names unit uTask_2018_18;
+rMX666_advent-of-code/AoC2018/Task19/uForm_2018_19.pas	LIBRARY	the source names unit uForm_2018_19;
+rMX666_advent-of-code/AoC2018/Task19/uProgram_2018_19.pas	LIBRARY	the source names unit uProgram_2018_19;
+rMX666_advent-of-code/AoC2018/Task19/uTask_2018_19.pas	LIBRARY	the source names unit uTask_2018_19;
+rMX666_advent-of-code/AoC2018/Task20/uForm_2018_20.pas	LIBRARY	the source names unit uForm_2018_20;
+rMX666_advent-of-code/AoC2018/Task20/uTask_2018_20.pas	LIBRARY	the source names unit uTask_2018_20;
+rMX666_advent-of-code/AoC2018/Task21/uTask_2018_21.pas	LIBRARY	the source names unit uTask_2018_21;
+rMX666_advent-of-code/AoC2018/Task22/uTask_2018_22.pas	LIBRARY	the source names unit uTask_2018_22;
+rMX666_advent-of-code/AoC2018/Task23/uTask_2018_23.pas	LIBRARY	the source names unit uTask_2018_23;
+rMX666_advent-of-code/AoC2018/Task24/uTask_2018_24.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uTask_2018_24.pas(6,3) Fatal: Can't find unit System.Generics.Collections used by uTask_2018_24
+rMX666_advent-of-code/AoC2018/Task25/uTask_2018_25.pas	LIBRARY	the source names unit uTask_2018_25;
+rMX666_advent-of-code/AoC2019/IntCode.pas	LIBRARY	the source names unit IntCode;
+rMX666_advent-of-code/AoC2019/Task01/uTask_2019_01.pas	LIBRARY	the source names unit uTask_2019_01;
+rMX666_advent-of-code/AoC2019/Task02/uTask_2019_02.pas	LIBRARY	the source names unit uTask_2019_02;
+rMX666_advent-of-code/AoC2019/Task03/uTask_2019_03.pas	LIBRARY	the source names unit uTask_2019_03;
+rMX666_advent-of-code/AoC2019/Task04/uTask_2019_04.pas	LIBRARY	the source names unit uTask_2019_04;
+rMX666_advent-of-code/AoC2019/Task05/uTask_2019_05.pas	LIBRARY	the source names unit uTask_2019_05;
+rMX666_advent-of-code/AoC2019/Task06/uTask_2019_06.pas	LIBRARY	the source names unit uTask_2019_06;
+rMX666_advent-of-code/AoC2019/Task07/uTask_2019_07.pas	LIBRARY	the source names unit uTask_2019_07;
+rMX666_advent-of-code/AoC2019/Task08/uForm_2019_08.pas	LIBRARY	the source names unit uForm_2019_08;
+rMX666_advent-of-code/AoC2019/Task08/uTask_2019_08.pas	LIBRARY	the source names unit uTask_2019_08;
+rMX666_advent-of-code/AoC2019/Task09/uTask_2019_09.pas	LIBRARY	the source names unit uTask_2019_09;
+rMX666_advent-of-code/AoC2019/Task10/uForm_2019_10.pas	LIBRARY	the source names unit uForm_2019_10;
+rMX666_advent-of-code/AoC2019/Task10/uTask_2019_10.pas	LIBRARY	the source names unit uTask_2019_10;
+rMX666_advent-of-code/AoC2019/Task11/uForm_2019_11.pas	LIBRARY	the source names unit uForm_2019_11;
+rMX666_advent-of-code/AoC2019/Task11/uTask_2019_11.pas	LIBRARY	the source names unit uTask_2019_11;
+rMX666_advent-of-code/AoC2019/Task12/uTask_2019_12.pas	LIBRARY	the source names unit uTask_2019_12;
+rMX666_advent-of-code/AoC2019/Task13/uTask_2019_13.pas	LIBRARY	the source names unit uTask_2019_13;
+rMX666_advent-of-code/AoC2019/Task14/uTask_2019_14.pas	LIBRARY	the source names unit uTask_2019_14;
+rMX666_advent-of-code/AoC2019/Task15/uTask_2019_15.pas	LIBRARY	the source names unit uTask_2019_15;
+rMX666_advent-of-code/AoC2019/Task16/uTask_2019_16.pas	LIBRARY	the source names unit uTask_2019_16;
+rMX666_advent-of-code/AoC2019/Task17/uTask_2019_17.pas	LIBRARY	the source names unit uTask_2019_17;
+rMX666_advent-of-code/AoC2019/Task18/uForm_2019_18.pas	LIBRARY	the source names unit uForm_2019_18;
+rMX666_advent-of-code/AoC2019/Task18/uTask_2019_18.pas	LIBRARY	the source names unit uTask_2019_18;
+rMX666_advent-of-code/AoC2019/Task19/uTask_2019_19.pas	LIBRARY	the source names unit uTask_2019_19;
+rMX666_advent-of-code/AoC2019/Task20/uTask_2019_20.pas	LIBRARY	the source names unit uTask_2019_20;
+rMX666_advent-of-code/AoC2019/Task21/uForm_2019_21.pas	LIBRARY	the source names unit uForm_2019_21;
+rMX666_advent-of-code/AoC2019/Task21/uTask_2019_21.pas	LIBRARY	the source names unit uTask_2019_21;
+rMX666_advent-of-code/AoC2019/Task22/uTask_2019_22.pas	LIBRARY	the source names unit uTask_2019_22;
+rMX666_advent-of-code/AoC2019/Task23/uTask_2019_23.pas	LIBRARY	the source names unit uTask_2019_23;
+rMX666_advent-of-code/AoC2019/Task24/uTask_2019_24.pas	LIBRARY	the source names unit uTask_2019_24;
+rMX666_advent-of-code/AoC2019/Task25/uForm_2019_25.pas	LIBRARY	the source names unit uForm_2019_25;
+rMX666_advent-of-code/AoC2019/Task25/uTask_2019_25.pas	LIBRARY	the source names unit uTask_2019_25;
+rMX666_advent-of-code/AoC2020/Task01/uTask_2020_01.pas	LIBRARY	the source names unit uTask_2020_01;
+rMX666_advent-of-code/AoC2020/Task02/uTask_2020_02.pas	LIBRARY	the source names unit uTask_2020_02;
+rMX666_advent-of-code/AoC2020/Task03/uTask_2020_03.pas	LIBRARY	the source names unit uTask_2020_03;
+rMX666_advent-of-code/AoC2020/Task04/uTask_2020_04.pas	LIBRARY	the source names unit uTask_2020_04;
+rMX666_advent-of-code/AoC2020/Task05/uTask_2020_05.pas	LIBRARY	the source names unit uTask_2020_05;
+rMX666_advent-of-code/AoC2020/Task06/uTask_2020_06.pas	LIBRARY	the source names unit uTask_2020_06;
+rMX666_advent-of-code/AoC2020/Task07/uTask_2020_07.pas	LIBRARY	the source names unit uTask_2020_07;
+rMX666_advent-of-code/AoC2020/Task08/uTask_2020_08.pas	LIBRARY	the source names unit uTask_2020_08;
+rMX666_advent-of-code/AoC2020/Task09/uTask_2020_09.pas	LIBRARY	the source names unit uTask_2020_09;
+rMX666_advent-of-code/AoC2020/Task10/uTask_2020_10.pas	LIBRARY	the source names unit uTask_2020_10;
+rMX666_advent-of-code/AoC2020/Task11/uTask_2020_11.pas	LIBRARY	the source names unit uTask_2020_11;
+rMX666_advent-of-code/AoC2020/Task12/uTask_2020_12.pas	LIBRARY	the source names unit uTask_2020_12;
+rMX666_advent-of-code/AoC2020/Task13/uTask_2020_13.pas	LIBRARY	the source names unit uTask_2020_13;
+rMX666_advent-of-code/AoC2020/Task14/uBitmaskProcessor.pas	LIBRARY	the source names unit uBitmaskProcessor;
+rMX666_advent-of-code/AoC2020/Task14/uTask_2020_14.pas	LIBRARY	the source names unit uTask_2020_14;
+rMX666_advent-of-code/AoC2020/Task15/uTask_2020_15.pas	LIBRARY	the source names unit uTask_2020_15;
+rMX666_advent-of-code/AoC2020/Task18/uTask_2020_18.pas	LIBRARY	the source names unit uTask_2020_18;
+rMX666_advent-of-code/AoC2021/Task01/uTask_2021_01.pas	LIBRARY	the source names unit uTask_2021_01;
+rMX666_advent-of-code/AoC2021/Task02/uTask_2021_02.pas	LIBRARY	the source names unit uTask_2021_02;
+rMX666_advent-of-code/Generics.PriorityQueue.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Generics.PriorityQueue.pas(11,3) Fatal: Can't find unit System.SysUtils used by Generics.PriorityQueue
+rMX666_advent-of-code/Template/uTask_Tpl.pas	LIBRARY	the source names unit uTask_Tpl;
+rMX666_advent-of-code/uHeuristics.pas	LIBRARY	the source names unit uHeuristics;
+rMX666_advent-of-code/uMain.pas	LIBRARY	the source names unit uMain;
+rMX666_advent-of-code/uTask.pas	LIBRARY	the source names unit uTask;
+rMX666_advent-of-code/uUtil.pas	LIBRARY	the source names unit uUtil;
+reinvantveer_AoC2022/AoCd1.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoCd1.pas(51,37) Error: Incompatible type for arg no. 2: Got "Constant String", expected "LongInt"
+reinvantveer_AoC2022/AoCd2.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoCd2.pas(64,36) Error: Incompatible type for arg no. 2: Got "Constant String", expected "LongInt"
+reinvantveer_AoC2022/AoCd3.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: AoCd3.pas(34,54) Error: Identifier not found "Leave"
+reinvantveer_AoC2022/day4.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day4.pas(3,3) Fatal: Can't find unit SharedAoC used by AoCd3
+reinvantveer_AoC2022/day5.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: day5.pas(4,3) Fatal: Can't find unit SharedAoC used by AoCd5
+rnbastos_adventofcode2022/backup/project1.lpr	ENTRY	
+rnbastos_adventofcode2022/project1.pas	ENTRY	
+rnbastos_adventofcode2022/project10.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004012A9:
+rnbastos_adventofcode2022/project2.pas	ENTRY	
+rnbastos_adventofcode2022/project3.pas	ENTRY	
+rnbastos_adventofcode2022/project4.pas	ENTRY	
+rnbastos_adventofcode2022/project5.pas	ENTRY	
+rnbastos_adventofcode2022/project6.pas	ENTRY	
+rnbastos_adventofcode2022/project7.pas	ENTRY	
+rnbastos_adventofcode2022/project8.pas	ENTRY	
+rnbastos_adventofcode2022/project9.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004012D9:
+silvercoder70_AdventOfCode2024/Day1.lpr	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004560C9:
+smullyanparadise_aoc/2015/pascal/1.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $00000000004010D7
+swork1_advent-of-code-2022/main.pas	ENTRY	
+vrruiz_aoc2023/01/fp01-1.pas	NEEDS-DISPLAY	the source names uses Classes, FGL, Crt
+vrruiz_aoc2023/01/fp01-2.pas	NEEDS-DISPLAY	the source names uses Classes, FGL, Crt
+vrruiz_aoc2023/02/fp02-1.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/02/fp02-2.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/03/fp03-1.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/03/fp03-2.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/04/fp04-1.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/04/fp04-2.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/05/fp05_1.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/05/fp05_2.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/06/fp06_1.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/06/fp06_2.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/08/fp08_1.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/08/fp08_2.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/09/fp09_1.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/09/fp09_2.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/10/fp10_1.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/10/fp10_2.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/11/fp11_1.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+vrruiz_aoc2023/11/fp11_2.pas	NEEDS-DISPLAY	the source names uses Classes, Crt
+wgorajek_AoC2019/Day18AB.pas	LIBRARY	the source names unit Day18AB;
+wgorajek_AoC2019/Day18B.pas	LIBRARY	the source names unit Day18B;
+wgorajek_AoC2019/Day20A.pas	LIBRARY	the source names unit Day20A;
+wgorajek_AoC2019/Day20B.pas	LIBRARY	the source names unit Day20B;
+wgorajek_AoC2019/WGUtils.pas	LIBRARY	the source names unit WGUtils;
+wgorajek_AoC2020/WGUtils.pas	LIBRARY	the source names unit WGUtils;
+worms618_AoC2023/Days/Day1.pas	LIBRARY	the source names unit Day1;
+worms618_AoC2023/Days/Day2.pas	LIBRARY	the source names unit Day2;
+worms618_AoC2023/Days/Day3.pas	LIBRARY	the source names unit Day3;
+worms618_AoC2023/Days/DayX.pas	LIBRARY	the source names unit DayX;
+xunil_aoc2022_hp3000/adv01.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adv01.pas(3,2) Fatal: Syntax error, "BEGIN" expected but "ordinal const" found
+xunil_aoc2022_hp3000/adv01b.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adv01b.pas(3,2) Fatal: Syntax error, "BEGIN" expected but "ordinal const" found
+xunil_aoc2022_hp3000/adv02.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adv02.pas(20,50) Fatal: Syntax error, "BEGIN" expected but "identifier INTRINSIC" found
+xunil_aoc2022_hp3000/adv02b.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: adv02b.pas(21,50) Fatal: Syntax error, "BEGIN" expected but "identifier INTRINSIC" found
+xunil_aoc2022_hp3000/typeconv.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: typeconv.pas(1,7) Fatal: Syntax error, "BEGIN" expected but "identifier MODULE" found
+evenprimes_aoc2017/day10.lpr	SHARES-A-STEM	its answer would be the NAME.out of evenprimes_aoc2017/day10.pas, which is the candidate
+rnbastos_adventofcode2022/project1.lpr	SHARES-A-STEM	its answer would be the NAME.out of rnbastos_adventofcode2022/project1.pas, which is the candidate
