@@ -1,0 +1,1640 @@
+# the census of /home/packages/raku/raku_aoc by rakudo (shallow clones of each default branch, 2026-11-18 (59 repositories)), 2026-11-18: path from the root, verdict, note
+ALANVF_aoc2022/01/part1.raku	ENTRY	
+ALANVF_aoc2022/01/part2.raku	ENTRY	
+ALANVF_aoc2022/02/part1.raku	ENTRY	
+ALANVF_aoc2022/02/part2.raku	ENTRY	
+ALANVF_aoc2022/03/part1.raku	ENTRY	
+ALANVF_aoc2022/03/part2.raku	ENTRY	
+ALANVF_aoc2022/04/part1.raku	ENTRY	
+ALANVF_aoc2022/04/part2.raku	ENTRY	
+ALANVF_aoc2022/05/part1.raku	ENTRY	
+ALANVF_aoc2022/05/part2.raku	ENTRY	
+ALANVF_aoc2022/06/part1.raku	ENTRY	
+ALANVF_aoc2022/06/part2.raku	ENTRY	
+ALANVF_aoc2022/07/part1.raku	ENTRY	
+ALANVF_aoc2022/07/part2.raku	ENTRY	
+ArneBouillon_advent-of-code-golf-2023/1/1a.raku	NEEDS-INPUT	its answer changes with what standard input holds
+ArneBouillon_advent-of-code-golf-2023/1/1b.raku	NEEDS-INPUT	its answer changes with what standard input holds
+ArneBouillon_advent-of-code-golf-2023/2/2a.raku	NEEDS-INPUT	its answer changes with what standard input holds
+ArneBouillon_advent-of-code-golf-2023/2/2b.raku	NEEDS-INPUT	its answer changes with what standard input holds
+ArneBouillon_advent-of-code-golf-2023/4/4a.raku	ENTRY	
+ArneBouillon_advent-of-code-golf-2023/4/4b.raku	NEEDS-INPUT	its answer changes with what standard input holds
+ArneBouillon_advent-of-code-golf-2023/6/6a.raku	NEEDS-INPUT	its answer changes with what standard input holds
+ArneBouillon_advent-of-code-golf-2023/6/6b.raku	NEEDS-INPUT	its answer changes with what standard input holds
+CDamianS_aoc-2023/day11/day11.raku	NEEDS-INPUT	its answer changes with what standard input holds
+CDamianS_aoc-2023/day12/day12.raku	NEEDS-INPUT	its answer changes with what standard input holds
+CDamianS_aoc-2023/day3/day3.raku	ENTRY	
+CDamianS_aoc-2023/day9/day9_1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+CDamianS_aoc-2023/day9/day9_2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+Kyntaz_aoc-raku/2015/01/main.raku	ENTRY	
+Scimon_advent-of-code/2017/day10.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2017/day11.pl6	ENTRY	stderr not graded: Use of uninitialized value $dx of type Any in numeric context
+Scimon_advent-of-code/2017/day12-1.pl6	NEEDS-INPUT	its answer changes with what standard input holds
+Scimon_advent-of-code/2017/day12.pl6	NEEDS-INPUT	its answer changes with what standard input holds
+Scimon_advent-of-code/2017/day13-1.pl6	NEEDS-INPUT	its answer changes with what standard input holds
+Scimon_advent-of-code/2017/day13-2.pl6	NEEDS-INPUT	its answer changes with what standard input holds
+Scimon_advent-of-code/2017/day14-2.pl6	DOES-NOT-END	no answer inside 60 s
+Scimon_advent-of-code/2017/day14.pl6	DOES-NOT-END	no answer inside 60 s
+Scimon_advent-of-code/2017/day6.pl6	ENTRY	
+Scimon_advent-of-code/2017/day7.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2017/day8.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2017/day9.pl6	ENTRY	
+Scimon_advent-of-code/2017/jumper.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2017/spiral.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2017/spiral2.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/01/part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/01/part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/02/part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/02/part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/03/part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/03/part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/04/passports.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/05/part1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/06/part1.raku	DOES-NOT-END	no answer inside 60 s
+Scimon_advent-of-code/2020/06/part2.raku	DOES-NOT-END	no answer inside 60 s
+Scimon_advent-of-code/2020/07/part-1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/08/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/08/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/09/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/09/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/10/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/10/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/11/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/11/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/12/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/12/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/13/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/13/part2-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/13/part2-3.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/13/part2-cmt.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/13/part2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/14/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/14/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/15/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/16/run.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/17/life3d.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/17/life4d.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/18/part1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/18/part2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2020/19/check-files.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2020/19/make-grammars.raku	ENTRY	stderr not graded: Failed to open file input: No such file or directory
+Scimon_advent-of-code/2022/day-10.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day-11.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day-12.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day-13.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day-14.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day-15.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day-16.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day-17.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day-6.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day-7.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day-8.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day-9.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2022/day5.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day1/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day10/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day11/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day12/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day13/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day14/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day15/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day16/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day17/code.raku	ORACLE-REFUSES	Error while compiling code.raku
+Scimon_advent-of-code/2023/day18/code.raku	ORACLE-REFUSES	Error while compiling code.raku
+Scimon_advent-of-code/2023/day2/part1.raku	ORACLE-REFUSES	Error while compiling part1.raku
+Scimon_advent-of-code/2023/day3/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day4/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day5/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day6/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day7/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day7/code2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day8/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2023/day9/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day1/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day1/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day10/code.raku	ORACLE-REFUSES	Error while compiling code.raku
+Scimon_advent-of-code/2024/day11/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day12/code.raku	ORACLE-REFUSES	Error while compiling code.raku
+Scimon_advent-of-code/2024/day13/code.raku	ORACLE-REFUSES	Error while compiling code.raku
+Scimon_advent-of-code/2024/day2/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day2/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day3/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day3/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day4/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day4/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day5/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day6/code.raku	ORACLE-REFUSES	Error while compiling code.raku
+Scimon_advent-of-code/2024/day7/code.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+Scimon_advent-of-code/2024/day8/code.raku	ORACLE-REFUSES	Error while compiling code.raku
+Scimon_advent-of-code/2024/day9/code.raku	ORACLE-REFUSES	Error while compiling code.raku
+andinus_aoc/2020/day-01/day-01.raku	ENTRY	
+andinus_aoc/2020/day-02/day-02.raku	ENTRY	
+andinus_aoc/2020/day-03/day-03.raku	ENTRY	
+andinus_aoc/2020/day-04/day-04.raku	ENTRY	
+andinus_aoc/2020/day-05/day-05.raku	ENTRY	
+andinus_aoc/2020/day-06/day-06.raku	ENTRY	
+andinus_aoc/2020/day-07/day-07.raku	ENTRY	
+andinus_aoc/2020/day-08/day-08.raku	ENTRY	
+andinus_aoc/2020/day-09/day-09.raku	ENTRY	
+andinus_aoc/2020/day-10/day-10.raku	ENTRY	
+andinus_aoc/2020/day-11/day-11.partial.raku	ENTRY	
+andinus_aoc/2020/day-11/day-11.raku	ENTRY	
+andinus_aoc/2020/day-12/day-12.raku	ENTRY	
+andinus_aoc/2020/day-13/day-13.raku	ENTRY	
+andinus_aoc/2021/day-01/day-01.raku	ENTRY	
+andinus_aoc/2022/day-01/day-01.raku	ENTRY	
+arodland_Advent-of-Code-2022/1/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2022/1/2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2022/10/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/10/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/10/2b.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/11/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2022/11/2-compiled-routine.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Ambiguous call to 'infix:<lcm>(...)'; these signatures all match:
+arodland_Advent-of-Code-2022/11/2-more-types.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Ambiguous call to 'infix:<lcm>(...)'; these signatures all match:
+arodland_Advent-of-Code-2022/11/2-noprint.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Ambiguous call to 'infix:<lcm>(...)'; these signatures all match:
+arodland_Advent-of-Code-2022/11/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Ambiguous call to 'infix:<lcm>(...)'; these signatures all match:
+arodland_Advent-of-Code-2022/12/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/12/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/13/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/13/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/14/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/14/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/15/1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+arodland_Advent-of-Code-2022/15/2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+arodland_Advent-of-Code-2022/2/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/2/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/3/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/3/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/4/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/4/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/5/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/5/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/6/1.raku	ENTRY	stderr not graded: Use of Nil.comb coerced to empty string
+arodland_Advent-of-Code-2022/6/2.raku	ENTRY	stderr not graded: Use of Nil.comb coerced to empty string
+arodland_Advent-of-Code-2022/6/ungolf.raku	ENTRY	stderr not graded: Use of Nil.comb coerced to empty string
+arodland_Advent-of-Code-2022/7/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/7/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/8/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/8/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/9/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2022/9/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'IO::Special'
+arodland_Advent-of-Code-2023/1/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/1/2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/10/1.raku	ENTRY	stderr not graded: Use of uninitialized value element of type Any in string context.
+arodland_Advent-of-Code-2023/10/2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/11/combined.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot shift from an empty Array
+arodland_Advent-of-Code-2023/12/combined.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot shift from an empty Array
+arodland_Advent-of-Code-2023/13/combined.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot shift from an empty Array
+arodland_Advent-of-Code-2023/14/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/14/2.raku	ENTRY	
+arodland_Advent-of-Code-2023/15/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/15/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Use of Nil in string context
+arodland_Advent-of-Code-2023/16/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/16/2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/17/1.raku	ORACLE-REFUSES	Error while compiling 1.raku
+arodland_Advent-of-Code-2023/17/2.raku	ORACLE-REFUSES	Error while compiling 2.raku
+arodland_Advent-of-Code-2023/18/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/18/2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/19/1.raku	ENTRY	
+arodland_Advent-of-Code-2023/19/2.raku	DOES-NOT-END	no answer inside 60 s
+arodland_Advent-of-Code-2023/2/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/2/2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/3/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/3/2.raku	ENTRY	
+arodland_Advent-of-Code-2023/4/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/4/2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/5/1.raku	ENTRY	
+arodland_Advent-of-Code-2023/5/2.raku	ENTRY	
+arodland_Advent-of-Code-2023/6/1.raku	ENTRY	stderr not graded: Use of Nil in string context
+arodland_Advent-of-Code-2023/6/2.raku	ENTRY	stderr not graded: Use of Nil in string context
+arodland_Advent-of-Code-2023/7/1.raku	ENTRY	
+arodland_Advent-of-Code-2023/7/2.raku	ENTRY	
+arodland_Advent-of-Code-2023/8/1.raku	DOES-NOT-END	no answer inside 60 s
+arodland_Advent-of-Code-2023/8/2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Use of Nil.comb coerced to empty string
+arodland_Advent-of-Code-2023/9/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+arodland_Advent-of-Code-2023/9/2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2021/day-01-part-1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2021/day-01-part-2.raku	ENTRY	
+bduggan_advent-of-code/2021/day-02-part-1.raku	ENTRY	
+bduggan_advent-of-code/2021/day-02-part-2.raku	ENTRY	
+bduggan_advent-of-code/2021/day-03-part-1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2021/day-03-part-2.raku	DOES-NOT-END	no answer inside 60 s
+bduggan_advent-of-code/2021/day-04-part-1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2021/day-04-part-2.raku	ENTRY	stderr not graded: Use of uninitialized value of type Any in string context.
+bduggan_advent-of-code/2021/day-05-part-1.raku	ENTRY	
+bduggan_advent-of-code/2021/day-10-part-1.raku	ENTRY	
+bduggan_advent-of-code/2021/day-10-part-2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2022/day-01.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2022/day-02-part-1.raku	ENTRY	
+bduggan_advent-of-code/2022/day-02-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-02.input: No such file or directory
+bduggan_advent-of-code/2022/day-03-part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-03.input: No such file or directory
+bduggan_advent-of-code/2022/day-03-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-03.input: No such file or directory
+bduggan_advent-of-code/2022/day-04-part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-04.input: No such file or directory
+bduggan_advent-of-code/2022/day-04-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-04.input: No such file or directory
+bduggan_advent-of-code/2022/day-05.raku	ENTRY	
+bduggan_advent-of-code/2022/day-06.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-06.input: No such file or directory
+bduggan_advent-of-code/2022/day-07.raku	ENTRY	
+bduggan_advent-of-code/2022/day-08.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-08.input: No such file or directory
+bduggan_advent-of-code/2022/day-09.raku	ENTRY	
+bduggan_advent-of-code/2022/day-10.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-10.input2: No such file or directory
+bduggan_advent-of-code/2022/day-11.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-11.input-sample: No such file or directory
+bduggan_advent-of-code/2022/day-12.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-12.input: No such file or directory
+bduggan_advent-of-code/2022/day-13.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-13.input: No such file or directory
+bduggan_advent-of-code/2022/day-14.raku	ENTRY	
+bduggan_advent-of-code/2022/day-15-part-1.raku	ENTRY	
+bduggan_advent-of-code/2022/day-15-part-2.raku	ORACLE-REFUSES	Error while compiling day-15-part-2.raku
+bduggan_advent-of-code/2022/day-16-part-2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+bduggan_advent-of-code/2022/day-16.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+bduggan_advent-of-code/2022/day-17.raku	NEEDS-DISPLAY	the source names Terminal::
+bduggan_advent-of-code/2022/day-18-part-1.raku	ENTRY	
+bduggan_advent-of-code/2022/day-18-part-2.raku	ORACLE-REFUSES	Error while compiling day-18-part-2.raku
+bduggan_advent-of-code/2022/day-19.raku	ORACLE-REFUSES	Error while compiling day-19.raku
+bduggan_advent-of-code/2022/day-20.raku	ENTRY	
+bduggan_advent-of-code/2022/day-21-part-1.raku	ORACLE-REFUSES	Error while compiling day-21-part-1.raku
+bduggan_advent-of-code/2022/day-21-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file day-21.input: No such file or directory
+bduggan_advent-of-code/2022/day-22-part-1.raku	ORACLE-REFUSES	Error while compiling day-22-part-1.raku
+bduggan_advent-of-code/2022/day-22-part-2-verbose.raku	ORACLE-REFUSES	Error while compiling day-22-part-2-verbose.raku
+bduggan_advent-of-code/2022/day-22-part-2.raku	ENTRY	
+bduggan_advent-of-code/2022/day-23.raku	ENTRY	
+bduggan_advent-of-code/2022/day-24-part-1.raku	ENTRY	
+bduggan_advent-of-code/2022/day-24-part-2.raku	NEEDS-DISPLAY	the source names Terminal::
+bduggan_advent-of-code/2022/day-24-verbose.raku	NEEDS-DISPLAY	the source names Terminal::
+bduggan_advent-of-code/2022/day-25.raku	ENTRY	
+bduggan_advent-of-code/2023/day-01.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/day-02.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/day-03-part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/day-03-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/day-04.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2023/day-05-part-1.raku	ENTRY	stderr not graded: Use of Nil in string context
+bduggan_advent-of-code/2023/day-05-part-2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+bduggan_advent-of-code/2023/day-06.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Too few positionals passed to '<unit>'; expected 2 arguments but got 0
+bduggan_advent-of-code/2023/day-07.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2023/day-08-part-2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2023/day-08.raku	DOES-NOT-END	no answer inside 60 s
+bduggan_advent-of-code/2023/day-09.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2023/day-10-part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.real: No such file or directory
+bduggan_advent-of-code/2023/day-10-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file path: No such file or directory
+bduggan_advent-of-code/2023/day-11.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/day-12.raku	ORACLE-REFUSES	Error while compiling day-12.raku
+bduggan_advent-of-code/2023/day-13-part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/day-13-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/day-14-part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.real: No such file or directory
+bduggan_advent-of-code/2023/day-14-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/day-15-part-1.raku	ENTRY	
+bduggan_advent-of-code/2023/day-15-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/day-16.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.real: No such file or directory
+bduggan_advent-of-code/2023/day-17-part-1.raku	NEEDS-DISPLAY	the source names Terminal::
+bduggan_advent-of-code/2023/day-17.raku	NEEDS-DISPLAY	the source names Terminal::
+bduggan_advent-of-code/2023/day-18-part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/day-18.raku	ORACLE-REFUSES	Error while compiling day-18.raku
+bduggan_advent-of-code/2023/day-19.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.real: No such file or directory
+bduggan_advent-of-code/2023/day-21.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/day-23.raku	ORACLE-REFUSES	Error while compiling day-23.raku
+bduggan_advent-of-code/2023/day-24-part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.real: No such file or directory
+bduggan_advent-of-code/2023/day-24.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.real: No such file or directory
+bduggan_advent-of-code/2023/extra/day-04-golf.raku	ENTRY	
+bduggan_advent-of-code/2023/extra/day-04-part-2-golf.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2023/extra/day-04-part-2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2023/extra/day-04.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2023/extra/day-05-part-2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+bduggan_advent-of-code/2023/extra/day-08-part-2-brute.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2023/extra/day-10.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Unable to call postcircumfix @grid[ (Any) ] with a type object
+bduggan_advent-of-code/2023/extra/day-11-part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.real: No such file or directory
+bduggan_advent-of-code/2023/extra/day-12-part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/extra/day-13.eg.raku	ENTRY	
+bduggan_advent-of-code/2023/extra/day-14.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2023/extra/day-17.raku	ORACLE-REFUSES	Error while compiling day-17.raku
+bduggan_advent-of-code/2024/alt/day-07-atomic.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2024/alt/day-07-locks.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2024/alt/day-14-colors.raku	NEEDS-DISPLAY	the source names Terminal::
+bduggan_advent-of-code/2024/alt/day-14-entropy.raku	NEEDS-DISPLAY	the source names Terminal::
+bduggan_advent-of-code/2024/day-01.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2024/day-02.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2024/day-03.raku	ENTRY	
+bduggan_advent-of-code/2024/day-04.raku	ENTRY	
+bduggan_advent-of-code/2024/day-05.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'Any'
+bduggan_advent-of-code/2024/day-06.raku	NEEDS-DISPLAY	the source names Terminal::
+bduggan_advent-of-code/2024/day-07.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2024/day-08.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2024/day-09.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2024/day-10.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2024/day-11.raku	ENTRY	
+bduggan_advent-of-code/2024/day-12.raku	ORACLE-REFUSES	Error while compiling day-12.raku
+bduggan_advent-of-code/2024/day-13.raku	ORACLE-REFUSES	Error while compiling day-13.raku
+bduggan_advent-of-code/2024/day-14.raku	NEEDS-DISPLAY	the source names Terminal::
+bduggan_advent-of-code/2024/day-15.raku	NEEDS-DISPLAY	the source names Terminal::
+bduggan_advent-of-code/2024/orig/day-01.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2024/orig/day-02.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2024/orig/day-03.raku	ENTRY	
+bduggan_advent-of-code/2024/orig/day-04-part-1.raku	ENTRY	
+bduggan_advent-of-code/2024/orig/day-04.raku	ORACLE-REFUSES	Error while compiling day-04.raku
+bduggan_advent-of-code/2024/orig/day-05.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file in/real: No such file or directory
+bduggan_advent-of-code/2024/orig/day-07.raku	NEEDS-INPUT	its answer changes with what standard input holds
+bduggan_advent-of-code/2024/orig/day-09-part-1.raku	ORACLE-REFUSES	Error while compiling day-09-part-1.raku
+bduggan_advent-of-code/2024/orig/day-09-part-2.raku	ORACLE-REFUSES	Error while compiling day-09-part-2.raku
+bduggan_advent-of-code/2024/orig/day-11.raku	ENTRY	
+bduggan_advent-of-code/2025/day-05.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.real: No such file or directory
+bduggan_advent-of-code/2025/day-1-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2025/day-1.raku	ORACLE-REFUSES	Error while compiling day-1.raku
+bduggan_advent-of-code/2025/day-2-opt.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2025/day-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2025/day-3-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.real: No such file or directory
+bduggan_advent-of-code/2025/day-3.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2025/day-4-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input-4: No such file or directory
+bduggan_advent-of-code/2025/day-4.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input-4: No such file or directory
+bduggan_advent-of-code/2025/day-5-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.real: No such file or directory
+bduggan_advent-of-code/2025/day-6-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input-real-6: No such file or directory
+bduggan_advent-of-code/2025/day-6.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input-6: No such file or directory
+bduggan_advent-of-code/2025/day-7-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input-real: No such file or directory
+bduggan_advent-of-code/2025/day-7.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input-real: No such file or directory
+bduggan_advent-of-code/2025/day-8.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2025/day-9-part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+bduggan_advent-of-code/2025/day-9.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+belluzj_aoc25-raku/day1-part1.raku	ENTRY	
+belluzj_aoc25-raku/day1-part2.raku	ENTRY	
+belluzj_aoc25-raku/day10-part1.raku	ENTRY	
+belluzj_aoc25-raku/day10-part2-failed.raku	DOES-NOT-END	no answer inside 60 s
+belluzj_aoc25-raku/day10-part2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file /tmp/s4e/grader/sol0.pl: No such file or directory
+belluzj_aoc25-raku/day11-part1.raku	ENTRY	
+belluzj_aoc25-raku/day11-part2.raku	ENTRY	
+belluzj_aoc25-raku/day2-part1.raku	DOES-NOT-END	no answer inside 60 s
+belluzj_aoc25-raku/day2-part2.raku	DOES-NOT-END	no answer inside 60 s
+belluzj_aoc25-raku/day3-part1.raku	ENTRY	
+belluzj_aoc25-raku/day3-part2.raku	ENTRY	
+belluzj_aoc25-raku/day4-part1.raku	ENTRY	
+belluzj_aoc25-raku/day4-part2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+belluzj_aoc25-raku/day5-part1.raku	ENTRY	
+belluzj_aoc25-raku/day5-part2.raku	ENTRY	
+belluzj_aoc25-raku/day6-part1.raku	ENTRY	
+belluzj_aoc25-raku/day6-part2.raku	ENTRY	
+belluzj_aoc25-raku/day7-part1.raku	ENTRY	
+belluzj_aoc25-raku/day7-part2.raku	ENTRY	
+belluzj_aoc25-raku/day8-part1.raku	DOES-NOT-END	no answer inside 60 s
+belluzj_aoc25-raku/day8-part2.raku	DOES-NOT-END	no answer inside 60 s
+belluzj_aoc25-raku/day9-part1.raku	ENTRY	
+belluzj_aoc25-raku/day9-part2.raku	DOES-NOT-END	no answer inside 60 s
+bmatcuk_adventofcode2022/day01/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day01/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day02/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day02/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day03/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day03/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day04/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day04/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day05/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day05/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day06/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day06/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day07/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day07/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day08/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day08/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day09/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day09/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day10/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day10/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day11/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day11/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day12/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day12/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day13/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day13/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day14/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day14/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day15/part1.raku	DOES-NOT-END	no answer inside 60 s
+bmatcuk_adventofcode2022/day15/part2.raku	DOES-NOT-END	no answer inside 60 s
+bmatcuk_adventofcode2022/day16/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day16/part2.raku	DOES-NOT-END	no answer inside 60 s
+bmatcuk_adventofcode2022/day17/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day17/part2.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 34 and 34 bytes
+bmatcuk_adventofcode2022/day18/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day18/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day19/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day19/part2.raku	DOES-NOT-END	no answer inside 60 s
+bmatcuk_adventofcode2022/day20/part1.raku	DOES-NOT-END	no answer inside 60 s
+bmatcuk_adventofcode2022/day20/part2.raku	DOES-NOT-END	no answer inside 60 s
+bmatcuk_adventofcode2022/day21/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day21/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day22/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day22/part2.raku	ENTRY	
+bmatcuk_adventofcode2022/day23/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day23/part2.raku	DOES-NOT-END	no answer inside 60 s
+bmatcuk_adventofcode2022/day24/part1.raku	ENTRY	
+bmatcuk_adventofcode2022/day24/part2.raku	DOES-NOT-END	no answer inside 60 s
+bmatcuk_adventofcode2022/day25/part1.raku	ENTRY	
+braden337_advent22/day_1.raku	ENTRY	
+braden337_advent22/day_2.raku	ENTRY	
+braden337_advent22/day_3.raku	ENTRY	
+braden337_advent22/day_4.raku	ENTRY	
+braden337_advent22/day_5.raku	ENTRY	
+braden337_advent22/day_6.raku	ENTRY	
+braden337_advent22/day_7.raku	ENTRY	
+braden337_advent22/day_8.raku	ENTRY	
+braden337_advent22/day_9.raku	ENTRY	
+braden337_advent22/starter.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day.txt: No such file or directory
+clarkema_advent-of-code/2017/day_01/day_01.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_02/day_02.pl6	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+clarkema_advent-of-code/2017/day_03/day_03.pl6	ORACLE-REFUSES	Error while compiling day_03.pl6
+clarkema_advent-of-code/2017/day_04/day_04.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_05/day_05.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_06/day_06.pl6	ENTRY	stderr not graded: Saw 1 occurrence of deprecated code.
+clarkema_advent-of-code/2017/day_07/day_07.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_08/day_08.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_09/day_09.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_10/day_10.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_11/day_11.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_12/day_12.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_13/day_13.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_14/day_14.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_16/day_16.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_17/day_17.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_18/day_18.pl6	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: RCVing 2258 into A
+clarkema_advent-of-code/2017/day_18/day_18p2.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_19/day_19.pl6	ENTRY	
+clarkema_advent-of-code/2017/day_22/day_22p1.pl6	ENTRY	
+clarkema_advent-of-code/2018/day_01/day_01.p6	ENTRY	
+clarkema_advent-of-code/2018/day_02/day_02.p6	ENTRY	
+clarkema_advent-of-code/2018/day_03/day_03.p6	ENTRY	
+clarkema_advent-of-code/2018/day_04/perl6_04/day_04.p6	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../day_04.input: No such file or directory
+clarkema_advent-of-code/2018/day_04/perl6_04/t/01-test.p6	ORACLE-REFUSES	Error while compiling 01-test.p6
+clarkema_advent-of-code/2022/day_01/day_01.raku	ENTRY	
+clarkema_advent-of-code/2022/day_02/day_02.raku	ENTRY	
+clarkema_advent-of-code/2022/day_03/day_03.raku	ENTRY	
+codesections_advent-of-raku-2020/Scimon/01/part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/01/part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/02/part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/02/part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/03/part-1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/03/part-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/04/passports.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/05/part1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/06/part1.raku	DOES-NOT-END	no answer inside 60 s
+codesections_advent-of-raku-2020/Scimon/06/part2.raku	DOES-NOT-END	no answer inside 60 s
+codesections_advent-of-raku-2020/Scimon/07/part-1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/08/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/08/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/09/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/09/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/10/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/10/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/11/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/11/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/12/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/12/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/13/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/13/part2-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/13/part2-3.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/13/part2-cmt.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/13/part2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/14/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/14/part2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/15/part1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/16/run.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/17/life3d.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/17/life4d.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/18/part1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/18/part2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Scimon/19/check-files.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/Scimon/19/make-grammars.raku	ENTRY	stderr not graded: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/Xliff/01.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/1.input: No such file or directory
+codesections_advent-of-raku-2020/Xliff/02.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/02.input: No such file or directory
+codesections_advent-of-raku-2020/Xliff/03.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/03.input: No such file or directory
+codesections_advent-of-raku-2020/Xliff/04.raku	ORACLE-REFUSES	Error while compiling 04.raku
+codesections_advent-of-raku-2020/Xliff/05.raku	ORACLE-REFUSES	Error while compiling 05.raku
+codesections_advent-of-raku-2020/Xliff/06.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/06.raku: No such file or directory
+codesections_advent-of-raku-2020/Xliff/07.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/07.input: No such file or directory
+codesections_advent-of-raku-2020/Xliff/09.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/09.input: No such file or directory
+codesections_advent-of-raku-2020/Xliff/11.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/11.input: No such file or directory
+codesections_advent-of-raku-2020/Xliff/12.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/12.input: No such file or directory
+codesections_advent-of-raku-2020/Xliff/13.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/13.input: No such file or directory
+codesections_advent-of-raku-2020/Xliff/15.raku	DOES-NOT-END	no answer inside 60 s
+codesections_advent-of-raku-2020/Xliff/19.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2020/andinus/day-01/day-01.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-02/day-02.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-03/day-03.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-04/day-04.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-05/day-05.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-06/day-06.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-07/day-07.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-08/day-08.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-09/day-09.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-10/day-10.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-11/day-11.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-12/day-12.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/andinus/day-13/day-13.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/ash/01/01.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file data.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/02/02-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/02/02.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/03/03-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file forest.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/03/03.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file forest.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/04/04-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/04/04.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/05/05-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/05/05.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/06/06-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/06/06.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/07/07-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/07/07.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/08/08-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/08/08.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/09/09-2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/09/09.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ash/10/10.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2020/ash/12/12.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/cary-geoffroy/01/find_the_two_entries_that_sum_to_2020.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/example: No such file or directory
+codesections_advent-of-raku-2020/cary-geoffroy/02/How_many_passwords_are_valid.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/example: No such file or directory
+codesections_advent-of-raku-2020/cary-geoffroy/03/how_many_trees_would_you_encounter.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/example: No such file or directory
+codesections_advent-of-raku-2020/dantecatalfamo/day1/day1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/dantecatalfamo/day2/day2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/dantecatalfamo/day3/day3.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/dantecatalfamo/day4/day4.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2020/ggoebel/01.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/ggoebel/02.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/ggoebel/03.raku	ENTRY	stderr not graded: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/ggoebel/04.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/ggoebel/04b.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/ggoebel/05.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/ggoebel/06.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/ggoebel/07.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/ggoebel/08.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/ggoebel/09.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/ggoebel/10.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/ggoebel/11.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/ggoebel/12.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/ggoebel/13.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day01prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day01.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day01prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day01.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day02prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day02.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day02prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day02.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day03prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day03.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day03prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day03.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day04prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day04.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day04prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day04.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day05prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day05.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day05prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day05.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day06prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day06.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day06prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day06.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day07prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day07.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day07prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day07.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day08prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day08.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day08prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day08.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day09prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day09.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day09prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day09.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day10prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day10.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day10prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day10.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day11prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day11.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day11prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day11.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day12prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day12.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day12prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day12.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day13prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day13.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day13prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day13.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day14prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day14.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day14prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day14.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day15prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day15.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day15prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day15.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day16prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day16.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day16prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day16.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day18prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day18.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day18prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day18.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day19prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day19.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day19prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day19.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day22prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day22.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day22prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day22.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day24prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day24.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day24prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day24.input: No such file or directory
+codesections_advent-of-raku-2020/jaldhar/day25prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day25.input: No such file or directory
+codesections_advent-of-raku-2020/mienaikage/01.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/mienaikage/02.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/mienaikage/03.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/mienaikage/04.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/mienaikage/05.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/mienaikage/06.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/mienaikage/07.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/mienaikage/08.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/mienaikage/09.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/mienaikage/10.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/pkmnx/01.raku	ENTRY	
+codesections_advent-of-raku-2020/pkmnx/02.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/pkmnx/03.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/pkmnx/04.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2020/pkmnx/10.02.raku	NEEDS-INPUT	its answer changes with what standard input holds
+codesections_advent-of-raku-2020/pkmnx/11.02.raku	ENTRY	
+codesections_advent-of-raku-2020/pkmnx/13.02.raku	ENTRY	
+codesections_advent-of-raku-2020/pkmnx/15.02.raku	DOES-NOT-END	no answer inside 60 s
+codesections_advent-of-raku-2020/pkmnx/20.02.raku	ORACLE-REFUSES	Error while compiling 20.02.raku
+codesections_advent-of-raku-2020/pkmnx/21.raku	ENTRY	
+codesections_advent-of-raku-2020/pkmnx/22.01.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Type Num does not support associative indexing.
+codesections_advent-of-raku-2020/pkmnx/22.02.raku	DOES-NOT-END	no answer inside 60 s
+codesections_advent-of-raku-2020/pkmnx/23.02.raku	DOES-NOT-END	no answer inside 60 s
+codesections_advent-of-raku-2020/pkmnx/24.02.raku	DOES-NOT-END	no answer inside 60 s
+codesections_advent-of-raku-2020/thundergnat/aoc2020-01-a-and-b.raku	ENTRY	stderr not graded: Use of Nil in numeric context
+codesections_advent-of-raku-2020/thundergnat/aoc2020-02-a-and-b.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 32 and 32 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-03-a-and-b.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 40 and 40 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-04-a-and-b.raku	NEEDS-INPUT	its answer changes with what standard input holds
+codesections_advent-of-raku-2020/thundergnat/aoc2020-05-a-and-b.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'key' for invocant of type 'Num'. Did you mean 'keys'?
+codesections_advent-of-raku-2020/thundergnat/aoc2020-06-a-and-b.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 40 and 40 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-07-a-and-b.raku	DIFFERS-BETWEEN-RUNS	exit 1 and 1, 20 and 20 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-08-a-and-b.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'words' for invocant of type 'Any'
+codesections_advent-of-raku-2020/thundergnat/aoc2020-09-a-and-b.raku	NEEDS-INPUT	its answer changes with what standard input holds
+codesections_advent-of-raku-2020/thundergnat/aoc2020-10-a-and-b.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 40 and 40 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-11-a-and-b.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 40 and 40 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-12-a-and-b.raku	ENTRY	
+codesections_advent-of-raku-2020/thundergnat/aoc2020-13-a-and-b.raku	NEEDS-INPUT	its answer changes with what standard input holds
+codesections_advent-of-raku-2020/thundergnat/aoc2020-14-a-and-b.raku	NEEDS-INPUT	its answer changes with what standard input holds
+codesections_advent-of-raku-2020/thundergnat/aoc2020-15-a-and-b.raku	DOES-NOT-END	no answer inside 60 s
+codesections_advent-of-raku-2020/thundergnat/aoc2020-16-a-and-b.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'Any'
+codesections_advent-of-raku-2020/thundergnat/aoc2020-17-a.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 20 and 20 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-17-b.raku	DOES-NOT-END	no answer inside 60 s
+codesections_advent-of-raku-2020/thundergnat/aoc2020-18-a.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 20 and 20 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-18-b.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 20 and 20 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-19-a.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'comb' for invocant of type 'Any'
+codesections_advent-of-raku-2020/thundergnat/aoc2020-19-b.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'comb' for invocant of type 'Any'
+codesections_advent-of-raku-2020/thundergnat/aoc2020-20-a.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Use of Nil.comb coerced to empty string
+codesections_advent-of-raku-2020/thundergnat/aoc2020-21-a-and-b.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 39 and 39 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-22-a.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: WARNING: unhandled Failure detected in DESTROY. If you meant to ignore it, you can mark it as handled by calling .Bool, .so, .not, or .defined methods. The Fail
+codesections_advent-of-raku-2020/thundergnat/aoc2020-23-a.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 27 and 27 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-24-a-and-b.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 4972 and 4972 bytes
+codesections_advent-of-raku-2020/thundergnat/aoc2020-25-a.raku	DOES-NOT-END	no answer inside 60 s
+codesections_advent-of-raku-2021/cnx/03/part-two.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2021/cnx/07/part-one.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2021/cnx/07/part-two.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2021/cnx/11/part-one.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2021/cnx/11/part-two.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+codesections_advent-of-raku-2021/codesections/01/main.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2021/codesections/02/main.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day01prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day01.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day01prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day01.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day02prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day02.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day02prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day02.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day03prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day03.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day03prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day03.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day04prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day04.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day04prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day04.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day05prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day05.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day05prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day05.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day06prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day06.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day06prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day06.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day07prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day07.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day07prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day07.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day08prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day08.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day08prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day08.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day09prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day09.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day09prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day09.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day10prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day10.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day10prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day10.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day11prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day11.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day11prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day11.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day12prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day12.test: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day12prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day12.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day13prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day13.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day13prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day13.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day14prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day14.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day14prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day14.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day15prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day15.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day15prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day15.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day16prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day16.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day16prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day16.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day17prob1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day17.input: No such file or directory
+codesections_advent-of-raku-2021/jaldhar/day17prob2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day17.input: No such file or directory
+codesections_advent-of-raku-2022/helper.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-01/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-01/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-02/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-02/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-03/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-03/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-04/2colours-1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+codesections_advent-of-raku-2022/solutions/day-04/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-04/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-05/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-05/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-05/scimon-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-06/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-06/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-06/scimon-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-07/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-07/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-07/scimon-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-08/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-08/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-08/scimon-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-09/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-09/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-09/scimon-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-10/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-10/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-10/scimon-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-11/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-11/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-11/scimon-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-12/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-12/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-12/scimon-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-13/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-13/mscha-both.raku	ORACLE-REFUSES	Error while compiling mscha-both.raku
+codesections_advent-of-raku-2022/solutions/day-13/scimon-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-14/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-14/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-15/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-15/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-16/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-17/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-17/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-18/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-18/mscha-both.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+codesections_advent-of-raku-2022/solutions/day-19/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-20/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-21/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-22/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-23/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-24/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+codesections_advent-of-raku-2022/solutions/day-25/RakuGenie-both.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+crnkofe_aoc2025/day1.raku	ENTRY	stderr not graded: No such method 'IO' for invocant of type 'Any'. Did you mean 'so'?
+crnkofe_aoc2025/day2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+crnkofe_aoc2025/day3.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+crnkofe_aoc2025/day4.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+dantecatalfamo_advent2020/day1/day1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+dantecatalfamo_advent2020/day2/day2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+dantecatalfamo_advent2020/day3/day3.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+dantecatalfamo_advent2020/day4/day4.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+dcsjulio_advent-of-code/2020/01/01.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+dcsjulio_advent-of-code/2020/02/02.raku	ENTRY	
+dcsjulio_advent-of-code/2020/03/03.raku	ENTRY	
+dcsjulio_advent-of-code/2020/04/04.raku	ENTRY	
+dcsjulio_advent-of-code/2020/05/05.raku	ENTRY	
+dcsjulio_advent-of-code/2020/06/06.raku	ENTRY	
+dcsjulio_advent-of-code/2020/07/07.raku	ENTRY	
+dcsjulio_advent-of-code/2020/08/08.raku	ENTRY	
+dcsjulio_advent-of-code/2020/09/09.raku	ENTRY	
+dcsjulio_advent-of-code/2020/10/10.raku	ENTRY	
+dcsjulio_advent-of-code/2020/11/11.raku	DOES-NOT-END	no answer inside 60 s
+dcsjulio_advent-of-code/2020/12/12.raku	ENTRY	
+dcsjulio_advent-of-code/2020/13/13-part-1-and-2.raku	DOES-NOT-END	no answer inside 60 s
+dcsjulio_advent-of-code/2020/13/13-part-2-new.raku	ENTRY	
+dcsjulio_advent-of-code/2020/14/14.raku	ENTRY	
+dcsjulio_advent-of-code/2020/15/15.raku	DOES-NOT-END	no answer inside 60 s
+dcsjulio_advent-of-code/2020/16/16.raku	ENTRY	
+dcsjulio_advent-of-code/2020/17/17.raku	DOES-NOT-END	no answer inside 60 s
+dcsjulio_advent-of-code/2020/18/18-case-1-2-with-eval.raku	ENTRY	
+dcsjulio_advent-of-code/2020/18/18-case-1-with-grammar.raku	ENTRY	
+dcsjulio_advent-of-code/2020/19/19.raku	ENTRY	
+dcsjulio_advent-of-code/2020/20/20.raku	DOES-NOT-END	no answer inside 60 s
+dcsjulio_advent-of-code/2020/21/21.raku	ENTRY	
+dcsjulio_advent-of-code/2020/22/22.raku	ENTRY	
+dcsjulio_advent-of-code/2020/23/23.raku	DOES-NOT-END	no answer inside 60 s
+dcsjulio_advent-of-code/2020/24/24.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 124, 25 and 12 bytes
+dcsjulio_advent-of-code/2020/25/25.raku	ENTRY	
+dcsjulio_advent-of-code/2021/01/01.raku	ENTRY	
+dcsjulio_advent-of-code/2021/02/02.raku	ENTRY	
+dcsjulio_advent-of-code/2021/03/03.raku	ENTRY	
+dcsjulio_advent-of-code/2021/04/04.raku	ENTRY	
+dcsjulio_advent-of-code/2021/05/05.raku	ENTRY	
+dcsjulio_advent-of-code/2021/06/06.raku	ENTRY	
+dcsjulio_advent-of-code/2021/07/07.raku	ENTRY	
+dcsjulio_advent-of-code/2021/08/08.raku	ENTRY	
+dcsjulio_advent-of-code/2021/09/09.raku	ENTRY	
+dcsjulio_advent-of-code/2021/09/09a-regex-version.raku	ENTRY	
+dcsjulio_advent-of-code/2021/10/10-grammar.raku	ENTRY	
+dcsjulio_advent-of-code/2021/10/10.raku	ENTRY	
+dcsjulio_advent-of-code/2021/11/11.raku	ENTRY	
+dcsjulio_advent-of-code/2021/12/12.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 124, 36 and 17 bytes
+dcsjulio_advent-of-code/2021/13/13.raku	ENTRY	
+dcsjulio_advent-of-code/2021/skeleton.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+donaldh_advent-of-code/2016/1.p6	ENTRY	
+donaldh_advent-of-code/2016/10a.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 1147 and 1110 bytes
+donaldh_advent-of-code/2016/10b.p6	ENTRY	
+donaldh_advent-of-code/2016/11a.p6	ORACLE-REFUSES	Calling move(Int, Str, Str) will never work with signature of the proto ($, $, *%)
+donaldh_advent-of-code/2016/12a.p6	ENTRY	
+donaldh_advent-of-code/2016/12b.p6	ENTRY	
+donaldh_advent-of-code/2016/2.p6	ENTRY	
+donaldh_advent-of-code/2016/3a.p6	ENTRY	
+donaldh_advent-of-code/2016/3b.p6	ENTRY	
+donaldh_advent-of-code/2016/4a.p6	ENTRY	
+donaldh_advent-of-code/2016/4b.p6	ENTRY	
+donaldh_advent-of-code/2016/5a.p6	ORACLE-REFUSES	Error while compiling 5a.p6
+donaldh_advent-of-code/2016/6a.p6	ENTRY	
+donaldh_advent-of-code/2016/7a.p6	ENTRY	
+donaldh_advent-of-code/2016/7b.p6	ENTRY	
+donaldh_advent-of-code/2016/8a.p6	ENTRY	
+donaldh_advent-of-code/2016/9a.p6	ENTRY	
+donaldh_advent-of-code/2016/9b.p6	DOES-NOT-END	no answer inside 60 s
+donaldh_advent-of-code/2017/10a.p6	ENTRY	
+donaldh_advent-of-code/2017/10b.p6	ENTRY	
+donaldh_advent-of-code/2017/11a.p6	ENTRY	
+donaldh_advent-of-code/2017/11b.p6	ENTRY	
+donaldh_advent-of-code/2017/12a.p6	ENTRY	
+donaldh_advent-of-code/2017/12b.p6	ENTRY	
+donaldh_advent-of-code/2017/13a.p6	ENTRY	
+donaldh_advent-of-code/2017/13b-2.p6	DOES-NOT-END	no answer inside 60 s
+donaldh_advent-of-code/2017/13b-3.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 595 and 595 bytes
+donaldh_advent-of-code/2017/13b.p6	DOES-NOT-END	no answer inside 60 s
+donaldh_advent-of-code/2017/14a.p6	ENTRY	
+donaldh_advent-of-code/2017/14b-curses.p6	NEEDS-DISPLAY	the source names NCurses
+donaldh_advent-of-code/2017/14b.p6	ENTRY	
+donaldh_advent-of-code/2017/15a.p6	DOES-NOT-END	no answer inside 60 s
+donaldh_advent-of-code/2017/15b.p6	DOES-NOT-END	no answer inside 60 s
+donaldh_advent-of-code/2017/16a.p6	ENTRY	
+donaldh_advent-of-code/2017/16b.p6	ENTRY	
+donaldh_advent-of-code/2017/17a.p6	ENTRY	
+donaldh_advent-of-code/2017/17b.p6	ENTRY	
+donaldh_advent-of-code/2017/18a.p6	ENTRY	
+donaldh_advent-of-code/2017/18b.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 9353390 and 9353390 bytes
+donaldh_advent-of-code/2017/19-anim.p6	NEEDS-DISPLAY	the source names Terminal::
+donaldh_advent-of-code/2017/19.p6	ENTRY	stderr not graded: Ignoring [Nil] as shape specification, did you mean 'my Nil @foo' ?
+donaldh_advent-of-code/2017/1a.p6	ENTRY	
+donaldh_advent-of-code/2017/1b.p6	ENTRY	
+donaldh_advent-of-code/2017/20a.p6	ENTRY	
+donaldh_advent-of-code/2017/20b.p6	ENTRY	
+donaldh_advent-of-code/2017/21a.p6	ENTRY	stderr not graded: Ignoring [Nil] as shape specification, did you mean 'my Nil @foo' ?
+donaldh_advent-of-code/2017/2a.p6	ENTRY	
+donaldh_advent-of-code/2017/2b.p6	ENTRY	
+donaldh_advent-of-code/2017/3a.p6	ENTRY	
+donaldh_advent-of-code/2017/3b.p6	ENTRY	
+donaldh_advent-of-code/2017/4a.p6	ENTRY	
+donaldh_advent-of-code/2017/4b.p6	ENTRY	
+donaldh_advent-of-code/2017/5a.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 49 and 49 bytes
+donaldh_advent-of-code/2017/5b-slow.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 52 and 52 bytes
+donaldh_advent-of-code/2017/5b.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 51 and 51 bytes
+donaldh_advent-of-code/2017/6a.p6	ENTRY	
+donaldh_advent-of-code/2017/7a.p6	ENTRY	
+donaldh_advent-of-code/2017/7b.p6	ENTRY	stderr not graded: Cannot modify an immutable 'Any' type object
+donaldh_advent-of-code/2017/8a.p6	ENTRY	
+donaldh_advent-of-code/2017/8b.p6	ENTRY	
+donaldh_advent-of-code/2017/9a.p6	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+donaldh_advent-of-code/2017/9b.p6	ENTRY	
+donaldh_advent-of-code/2018/10a.p6	ENTRY	
+donaldh_advent-of-code/2018/11a.p6	DOES-NOT-END	no answer inside 60 s
+donaldh_advent-of-code/2018/11b.p6	DOES-NOT-END	no answer inside 60 s
+donaldh_advent-of-code/2018/12a.p6	ENTRY	
+donaldh_advent-of-code/2018/12b.p6	ENTRY	
+donaldh_advent-of-code/2018/13a.p6	NEEDS-DISPLAY	the source names NCurses
+donaldh_advent-of-code/2018/13b.p6	NEEDS-DISPLAY	the source names NCurses
+donaldh_advent-of-code/2018/14a.p6	ENTRY	
+donaldh_advent-of-code/2018/14b.p6	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Effective index out of range. Is: -2, should be in 0..^Inf
+donaldh_advent-of-code/2018/15a.p6	NEEDS-DISPLAY	the source names NCurses
+donaldh_advent-of-code/2018/1a.p6	ENTRY	
+donaldh_advent-of-code/2018/1b.p6	ENTRY	
+donaldh_advent-of-code/2018/2a.p6	ENTRY	
+donaldh_advent-of-code/2018/2b.p6	ENTRY	
+donaldh_advent-of-code/2018/3a.p6	ENTRY	
+donaldh_advent-of-code/2018/3b.p6	ENTRY	
+donaldh_advent-of-code/2018/4a.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 3448 and 3448 bytes
+donaldh_advent-of-code/2018/4b.p6	ENTRY	
+donaldh_advent-of-code/2018/5a.p6	ENTRY	
+donaldh_advent-of-code/2018/5b.p6	ENTRY	
+donaldh_advent-of-code/2018/6a.p6	ENTRY	
+donaldh_advent-of-code/2018/6b.p6	ENTRY	
+donaldh_advent-of-code/2018/7a.p6	ENTRY	
+donaldh_advent-of-code/2018/7b.p6	ENTRY	
+donaldh_advent-of-code/2018/8a.p6	ENTRY	
+donaldh_advent-of-code/2018/8b.p6	ENTRY	
+donaldh_advent-of-code/2018/9a.p6	DOES-NOT-END	no answer inside 60 s
+donaldh_advent-of-code/2018/9b.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 229 and 229 bytes
+donaldh_advent-of-code/2019/1a.p6	ENTRY	
+donaldh_advent-of-code/2019/1b.p6	ENTRY	
+donaldh_advent-of-code/2019/day10.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 417 and 417 bytes
+donaldh_advent-of-code/2019/day2.p6	ENTRY	
+donaldh_advent-of-code/2019/day3a.p6	ENTRY	
+donaldh_advent-of-code/2019/day4.p6	ENTRY	
+donaldh_advent-of-code/2019/day5.p6	ENTRY	
+donaldh_advent-of-code/2019/day6.p6	ENTRY	
+donaldh_advent-of-code/2019/day7.p6	ENTRY	
+donaldh_advent-of-code/2019/day7b.p6	ENTRY	stderr not graded: WARNING: unhandled Failure detected in DESTROY. If you meant to ignore it, you can mark it as handled by calling .Bool, .so, .not, or .defined methods. The Fail
+donaldh_advent-of-code/2019/day8.p6	ENTRY	
+donaldh_advent-of-code/2019/day9.p6	DOES-NOT-END	no answer inside 60 s
+ggoebel_AoC2020/01/01.raku	ENTRY	
+ggoebel_AoC2020/02/02.raku	ENTRY	
+ggoebel_AoC2020/03/03.raku	ENTRY	
+ggoebel_AoC2020/04/04.raku	ENTRY	
+ggoebel_AoC2020/04/04b.raku	ENTRY	
+ggoebel_AoC2020/05/05.raku	ENTRY	
+ggoebel_AoC2020/06/06.raku	ENTRY	
+ggoebel_AoC2020/07/07.raku	ENTRY	
+ggoebel_AoC2020/08/08.raku	ENTRY	
+ggoebel_AoC2020/09/09.raku	ENTRY	
+ggoebel_AoC2020/10/10.raku	ENTRY	
+ggoebel_AoC2020/11/11.raku	DOES-NOT-END	no answer inside 60 s
+ggoebel_AoC2020/12/12.raku	ENTRY	
+ggoebel_AoC2020/13/13.raku	ENTRY	
+gugod_advent-of-code/2015/day-22/raku/p1.raku	DOES-NOT-END	no answer inside 60 s
+gugod_advent-of-code/2015/day-22/raku/p2.raku	DOES-NOT-END	no answer inside 60 s
+gugod_advent-of-code/2015/day-23/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2015/day-24/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2015/day-25/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2016/1/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2016/1/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2016/2/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2017/1/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2018/1/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2019/1/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2019/1/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2019/2/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2019/2/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2019/3/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2019/3/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2019/4/raku/solve.raku	ENTRY	
+gugod_advent-of-code/2019/5/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2020/1/solve.raku	ENTRY	
+gugod_advent-of-code/2020/10/solve.raku	ENTRY	
+gugod_advent-of-code/2020/11/solve.raku	DOES-NOT-END	no answer inside 60 s
+gugod_advent-of-code/2020/12/solve.raku	ENTRY	
+gugod_advent-of-code/2020/13/solve.raku	ENTRY	
+gugod_advent-of-code/2020/14/solve.raku	ENTRY	
+gugod_advent-of-code/2020/15/solve.raku	DOES-NOT-END	no answer inside 60 s
+gugod_advent-of-code/2020/16/solve.raku	ENTRY	
+gugod_advent-of-code/2020/17/solve.raku	DOES-NOT-END	no answer inside 60 s
+gugod_advent-of-code/2020/18/solve.raku	ENTRY	
+gugod_advent-of-code/2020/19/gen-grammar-part1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input-example-part2: No such file or directory
+gugod_advent-of-code/2020/19/solve.raku	ORACLE-REFUSES	Error while compiling solve.raku
+gugod_advent-of-code/2020/2/solve.raku	ENTRY	
+gugod_advent-of-code/2020/20/solve.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 95 and 95 bytes
+gugod_advent-of-code/2020/21/solve.raku	ENTRY	
+gugod_advent-of-code/2020/22/solve.raku	ENTRY	
+gugod_advent-of-code/2020/23/solve.raku	DOES-NOT-END	no answer inside 60 s
+gugod_advent-of-code/2020/24/solve.raku	NEEDS-INPUT	its answer changes with what standard input holds
+gugod_advent-of-code/2020/25/solve.raku	ENTRY	
+gugod_advent-of-code/2020/3/solve.raku	ENTRY	
+gugod_advent-of-code/2020/4/solve.raku	ENTRY	
+gugod_advent-of-code/2020/5/solve.raku	ENTRY	
+gugod_advent-of-code/2020/6/solve.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Too few positionals passed; expected 2 arguments but got 1
+gugod_advent-of-code/2020/7/solve.raku	ENTRY	
+gugod_advent-of-code/2020/8/solve.raku	ENTRY	
+gugod_advent-of-code/2020/9/solve.raku	ENTRY	
+gugod_advent-of-code/2021/1/solve-1.raku	ENTRY	
+gugod_advent-of-code/2021/1/solve-2.raku	ENTRY	
+gugod_advent-of-code/2021/10/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/10/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/11/raku/p1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/11/raku/p2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/12/raku/p1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/12/raku/p2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/13/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/14/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/15/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/15/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/16/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/16/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/17/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/18/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/19/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/2/raku/solve1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input-1: No such file or directory
+gugod_advent-of-code/2021/2/raku/solve2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input-1: No such file or directory
+gugod_advent-of-code/2021/20/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/21/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/22/raku/solve.raku	ORACLE-REFUSES	Error while compiling solve.raku
+gugod_advent-of-code/2021/23/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/24/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/25/raku/solve1.raku	ORACLE-REFUSES	Error while compiling solve1.raku
+gugod_advent-of-code/2021/3/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/3/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/4/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/4/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/5/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/5/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/6/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/7/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/7/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/8/raku/solve.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/9/raku/solve1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2021/9/raku/solve2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+gugod_advent-of-code/2022/11/p1.raku	ENTRY	
+gugod_advent-of-code/2022/11/p2.raku	ENTRY	
+gugod_advent-of-code/2022/12/p1.raku	ENTRY	
+gugod_advent-of-code/2022/12/p2.raku	DOES-NOT-END	no answer inside 60 s
+gugod_advent-of-code/2022/13/p1.raku	ENTRY	
+gugod_advent-of-code/2022/13/p2.raku	ENTRY	
+gugod_advent-of-code/2022/2/solve-1.raku	ENTRY	
+gugod_advent-of-code/2022/2/solve-2.raku	ENTRY	
+gugod_advent-of-code/2022/3/p1.raku	ENTRY	
+gugod_advent-of-code/2022/3/p2.raku	ENTRY	
+gugod_advent-of-code/2022/4/p1.raku	ENTRY	
+gugod_advent-of-code/2022/4/p2.raku	ENTRY	
+gugod_advent-of-code/2022/5/p1.raku	ENTRY	
+gugod_advent-of-code/2022/5/p2.raku	ENTRY	
+gugod_advent-of-code/2022/6/p1.raku	ENTRY	
+gugod_advent-of-code/2022/6/p2.raku	ENTRY	
+gugod_advent-of-code/2022/8/p1.raku	ENTRY	
+gugod_advent-of-code/2022/8/p2.raku	ENTRY	
+gugod_advent-of-code/2022/9/p1.raku	ENTRY	
+gugod_advent-of-code/2022/9/p2.raku	ENTRY	
+gugod_advent-of-code/perl5/t/MaxHeap.t	ORACLE-REFUSES	Error while compiling MaxHeap.t
+gugod_advent-of-code/perl5/t/MinHeap.t	ORACLE-REFUSES	Error while compiling MinHeap.t
+gugod_advent-of-code/perl5/t/arrayindices.t	ORACLE-REFUSES	Error while compiling arrayindices.t
+gugod_advent-of-code/perl5/t/chars.t	ORACLE-REFUSES	Error while compiling chars.t
+gugod_advent-of-code/perl5/t/comb.t	ORACLE-REFUSES	Error while compiling comb.t
+gugod_advent-of-code/perl5/t/count.t	ORACLE-REFUSES	Error while compiling count.t
+gugod_advent-of-code/perl5/t/elems.t	ORACLE-REFUSES	Error while compiling elems.t
+gugod_advent-of-code/perl5/t/minToMax.t	ORACLE-REFUSES	Error while compiling minToMax.t
+gugod_advent-of-code/perl5/t/parse-2d-map-of-chars.t	ORACLE-REFUSES	Error while compiling parse-2d-map-of-chars.t
+gugod_advent-of-code/perl5/t/rotor.t	ORACLE-REFUSES	Error while compiling rotor.t
+gugod_advent-of-code/perl5/t/slip.t	ORACLE-REFUSES	Error while compiling slip.t
+hubertwas_aoc/1/1.raku	ENTRY	
+hubertwas_aoc/2/2.raku	ENTRY	
+interlab_advent-of-code/2020/raku/day-10/solution-10-1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 41 and 41 bytes
+interlab_advent-of-code/2020/raku/day-10/solution-10-2.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 51 and 51 bytes
+interlab_advent-of-code/2020/raku/day-6/solution-6-1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 33 and 33 bytes
+interlab_advent-of-code/2020/raku/day-6/solution-6-2.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 33 and 33 bytes
+interlab_advent-of-code/2020/raku/day-7/solution-7-1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 32 and 32 bytes
+interlab_advent-of-code/2020/raku/day-7/solution-7-2.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 35 and 35 bytes
+interlab_advent-of-code/2020/raku/day-8/solution-8-1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 61 and 61 bytes
+interlab_advent-of-code/2020/raku/day-8/solution-8-2.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 61 and 61 bytes
+interlab_advent-of-code/2020/raku/day-9/solution-9-1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 66 and 65 bytes
+interlab_advent-of-code/2020/raku/day-9/solution-9-2.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 83 and 83 bytes
+interlab_advent-of-code/2021/raku/day-1/solution-1-1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 41 and 41 bytes
+interlab_advent-of-code/2021/raku/day-1/solution-1-2.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 41 and 41 bytes
+interlab_advent-of-code/2021/raku/day-2/solution-2-1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 44 and 44 bytes
+interlab_advent-of-code/2021/raku/day-2/solution-2-2.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 47 and 47 bytes
+interlab_advent-of-code/2021/raku/day-3/solution-3-1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 44 and 43 bytes
+interlab_advent-of-code/2021/raku/day-3/solution-3-2-bit.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 44 and 44 bytes
+interlab_advent-of-code/2021/raku/day-3/solution-3-2.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 44 and 44 bytes
+interlab_advent-of-code/2021/raku/day-4/solution-4-1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 44 and 44 bytes
+interlab_advent-of-code/2021/raku/day-4/solution-4-2.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 44 and 44 bytes
+jakeactually_advent-of-code-2016/01/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/01/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/02/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/02/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/03/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/03/b.p6	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: This type cannot unbox to a native integer: P6opaque, Failure
+jakeactually_advent-of-code-2016/04/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/04/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/06/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/06/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/07/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/07/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/08/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/08/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/09/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/09/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/10/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/10/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/11/a.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 39280 and 39280 bytes
+jakeactually_advent-of-code-2016/11/b.p6	DOES-NOT-END	no answer inside 60 s
+jakeactually_advent-of-code-2016/12/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/12/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/13/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/13/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/14/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2016/14/b.p6	NEEDS-DISPLAY	the source names NativeCall
+jakeactually_advent-of-code-2016/15/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/15/b.p6	DOES-NOT-END	no answer inside 60 s
+jakeactually_advent-of-code-2016/16/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/17/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2016/17/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2016/18/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/18/b.p6	DOES-NOT-END	no answer inside 60 s
+jakeactually_advent-of-code-2016/19/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/19/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/20/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/20/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/21/a.p6	ENTRY	stderr not graded: No such method 'succ' for invocant of type 'Match'. Did you mean any of
+jakeactually_advent-of-code-2016/21/b.p6	ENTRY	stderr not graded: No such method 'succ' for invocant of type 'Match'. Did you mean any of
+jakeactually_advent-of-code-2016/22/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/22/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/23/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/23/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/24/a.p6	ENTRY	
+jakeactually_advent-of-code-2016/24/b.p6	ENTRY	
+jakeactually_advent-of-code-2016/25/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/01/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/01/b.p6	ENTRY	
+jakeactually_advent-of-code-2019/02/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2019/02/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2019/03/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/03/b.p6	ENTRY	
+jakeactually_advent-of-code-2019/04/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/04/b.p6	ENTRY	
+jakeactually_advent-of-code-2019/05/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2019/05/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2019/06/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/06/b.p6	ENTRY	
+jakeactually_advent-of-code-2019/07/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2019/07/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2019/08/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/08/b.p6	ENTRY	
+jakeactually_advent-of-code-2019/09/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2019/09/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2019/10/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/10/b.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 5159 and 5159 bytes
+jakeactually_advent-of-code-2019/11/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2019/11/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2019/12/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/12/b.p6	ENTRY	
+jakeactually_advent-of-code-2019/13/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2019/13/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2019/14/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/14/b.p6	ENTRY	
+jakeactually_advent-of-code-2019/15/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2019/15/b.p6	ENTRY	
+jakeactually_advent-of-code-2019/16/a.p6	DOES-NOT-END	no answer inside 60 s
+jakeactually_advent-of-code-2019/16/b.p6	DOES-NOT-END	no answer inside 60 s
+jakeactually_advent-of-code-2019/17/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2019/17/a2.p6	ENTRY	
+jakeactually_advent-of-code-2019/17/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2019/17/test.p6	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+jakeactually_advent-of-code-2019/18/a.p6	DOES-NOT-END	no answer inside 60 s
+jakeactually_advent-of-code-2019/18/b.p6	DOES-NOT-END	no answer inside 60 s
+jakeactually_advent-of-code-2019/19/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2019/19/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2019/20/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/20/b.p6	ENTRY	
+jakeactually_advent-of-code-2019/21/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2019/21/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2019/22/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/22/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2019/23/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jakeactually_advent-of-code-2019/23/b.p6	ORACLE-REFUSES	Error while compiling b.p6
+jakeactually_advent-of-code-2019/24/a.p6	ENTRY	
+jakeactually_advent-of-code-2019/24/b.p6	ENTRY	
+jakeactually_advent-of-code-2019/25/a.p6	ORACLE-REFUSES	Error while compiling a.p6
+jbert_aoc2020/raku/day1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day1.txt: No such file or directory
+jbert_aoc2020/raku/day2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input/day2.txt: No such file or directory
+jonasgheer_advent-of-code/2025/day01/main.raku	ENTRY	
+jonasgheer_advent-of-code/2025/day01/main2.raku	ENTRY	
+jonasgheer_advent-of-code/2025/day02/main.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Range cannot be iterated over because its starting point 'Any' does not
+jonasgheer_advent-of-code/2025/day02/main2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Range cannot be iterated over because its starting point 'Any' does not
+jonasgheer_advent-of-code/2025/day03/p1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+jonasgheer_advent-of-code/2025/day03/p2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+jonasgheer_advent-of-code/2025/day04/p1.raku	ENTRY	
+jonasgheer_advent-of-code/2025/day04/p2.raku	ENTRY	
+jonasgheer_advent-of-code/2025/day05/p1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'Any'
+jonasgheer_advent-of-code/2025/day05/p2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+jonasgheer_advent-of-code/2025/day06/p1.raku	ENTRY	
+jonasgheer_advent-of-code/2025/day06/p2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+jpcornwell_advent-of-code/4-2018/01-Day/pl6/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/01-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/01-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/02-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/02-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/03-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/03-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/04-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/04-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/05-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/05-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/06-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/06-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/07-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/07-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/08-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/08-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/09-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/09-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/10-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/10-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/11-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/11-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/12-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/12-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/13-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/13-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/14-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/14-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/15-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/15-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/16-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/16-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/5-2019/16-Day/raku/extra.pl6	ORACLE-REFUSES	Error while compiling extra.pl6
+jpcornwell_advent-of-code/5-2019/17-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/5-2019/17-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/6-2020/01-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/6-2020/01-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/6-2020/02-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/6-2020/02-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/6-2020/03-Day/raku/1-part.pl6	ORACLE-REFUSES	Error while compiling 1-part.pl6
+jpcornwell_advent-of-code/6-2020/03-Day/raku/2-part.pl6	ORACLE-REFUSES	Error while compiling 2-part.pl6
+jpcornwell_advent-of-code/6-2020/04-Day/raku/1-part.raku	ORACLE-REFUSES	Error while compiling 1-part.raku
+jpcornwell_advent-of-code/6-2020/04-Day/raku/2-part.raku	ORACLE-REFUSES	Error while compiling 2-part.raku
+jpcornwell_advent-of-code/6-2020/05-Day/raku/1-part.raku	ORACLE-REFUSES	Error while compiling 1-part.raku
+jpcornwell_advent-of-code/6-2020/05-Day/raku/2-part.raku	ORACLE-REFUSES	Error while compiling 2-part.raku
+jpcornwell_advent-of-code/6-2020/06-Day/raku/1-part.raku	ORACLE-REFUSES	Error while compiling 1-part.raku
+jpcornwell_advent-of-code/6-2020/06-Day/raku/2-part.raku	ORACLE-REFUSES	Error while compiling 2-part.raku
+jpcornwell_advent-of-code/6-2020/07-Day/raku/1-part.raku	ORACLE-REFUSES	Error while compiling 1-part.raku
+jpcornwell_advent-of-code/6-2020/07-Day/raku/2-part.raku	ORACLE-REFUSES	Error while compiling 2-part.raku
+jpcornwell_advent-of-code/6-2020/08-Day/raku/1-part.raku	ORACLE-REFUSES	Error while compiling 1-part.raku
+jpcornwell_advent-of-code/6-2020/08-Day/raku/2-part.raku	ORACLE-REFUSES	Error while compiling 2-part.raku
+jpcornwell_advent-of-code/6-2020/09-Day/raku/1-part.raku	ORACLE-REFUSES	Error while compiling 1-part.raku
+jpcornwell_advent-of-code/6-2020/09-Day/raku/2-part.raku	ORACLE-REFUSES	Error while compiling 2-part.raku
+jpcornwell_advent-of-code/6-2020/10-Day/raku/1-part.raku	ORACLE-REFUSES	Error while compiling 1-part.raku
+jpcornwell_advent-of-code/6-2020/10-Day/raku/2-part.raku	ORACLE-REFUSES	Error while compiling 2-part.raku
+jpcornwell_advent-of-code/6-2020/10-Day/raku/improved-2-part.raku	ORACLE-REFUSES	Error while compiling improved-2-part.raku
+jpcornwell_advent-of-code/6-2020/11-Day/raku/1-part.raku	ORACLE-REFUSES	Error while compiling 1-part.raku
+jpcornwell_advent-of-code/6-2020/11-Day/raku/2-part.raku	ORACLE-REFUSES	Error while compiling 2-part.raku
+jpcornwell_advent-of-code/6-2020/12-Day/raku/1-part.raku	ORACLE-REFUSES	Error while compiling 1-part.raku
+jpcornwell_advent-of-code/6-2020/12-Day/raku/2-part.raku	ORACLE-REFUSES	Error while compiling 2-part.raku
+jt1796_AOC/2019/1.raku	ENTRY	
+jt1796_AOC/2019/10.raku	ENTRY	
+jt1796_AOC/2019/12.raku	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2019/13.raku	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2019/14.raku	ENTRY	
+jt1796_AOC/2019/15.raku	ENTRY	
+jt1796_AOC/2019/16.raku	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2019/17.raku	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2019/18.raku	ORACLE-REFUSES	Error while compiling 18.raku
+jt1796_AOC/2019/19.raku	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2019/21.raku	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2019/23.raku	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2019/25.raku	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2019/4.raku	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2019/5.raku	ENTRY	
+jt1796_AOC/2019/6.raku	ENTRY	
+jt1796_AOC/2019/7.raku	ENTRY	
+jt1796_AOC/2019/8.raku	ENTRY	
+jt1796_AOC/2019/9.raku	ENTRY	
+jt1796_AOC/2020/d1.p6	ENTRY	
+jt1796_AOC/2020/d10.p6	ENTRY	
+jt1796_AOC/2020/d11.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2020/d12.p6	ENTRY	
+jt1796_AOC/2020/d13.p6	ENTRY	
+jt1796_AOC/2020/d14.p6	ENTRY	
+jt1796_AOC/2020/d15.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2020/d16.p6	ENTRY	
+jt1796_AOC/2020/d17.p6	ENTRY	
+jt1796_AOC/2020/d18.p6	ENTRY	
+jt1796_AOC/2020/d19.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2020/d2.p6	ENTRY	
+jt1796_AOC/2020/d20.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2020/d21.p6	ENTRY	
+jt1796_AOC/2020/d22.p6	NEEDS-INPUT	its answer changes with what standard input holds
+jt1796_AOC/2020/d23.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2020/d24.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2020/d25.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2020/d3.p6	ENTRY	stderr not graded: Use of uninitialized value element[13] of type Any in string context.
+jt1796_AOC/2020/d4.p6	ENTRY	stderr not graded: Use of uninitialized value %passport{'iyr'} of type Any in numeric context
+jt1796_AOC/2020/d5.p6	ENTRY	
+jt1796_AOC/2020/d6.p6	ENTRY	
+jt1796_AOC/2020/d7.p6	ENTRY	
+jt1796_AOC/2020/d8.p6	ENTRY	
+jt1796_AOC/2020/d9.p6	ENTRY	stderr not graded: Died
+jt1796_AOC/2021/d10.p6	ENTRY	
+jt1796_AOC/2021/d11.p6	ENTRY	stderr not graded: Died
+jt1796_AOC/2021/d12.p6	ENTRY	
+jt1796_AOC/2021/d13.p6	ENTRY	
+jt1796_AOC/2021/d14.p6	ENTRY	
+jt1796_AOC/2021/d15.p6	ORACLE-REFUSES	Error while compiling d15.p6
+jt1796_AOC/2021/d16.p6	ENTRY	
+jt1796_AOC/2021/d2.p6	ENTRY	
+jt1796_AOC/2021/d3.p6	ENTRY	
+jt1796_AOC/2021/d4.p6	ENTRY	
+jt1796_AOC/2021/d5.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2021/d6.p6	ENTRY	
+jt1796_AOC/2021/d7.p6	ENTRY	
+jt1796_AOC/2021/d8.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2021/d9.p6	ENTRY	stderr not graded: WARNING: unhandled Failure detected in DESTROY. If you meant to ignore it, you can mark it as handled by calling .Bool, .so, .not, or .defined methods. The Fail
+jt1796_AOC/2022/d1.p6	ENTRY	
+jt1796_AOC/2022/d10.p6	ENTRY	
+jt1796_AOC/2022/d11.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2022/d12.p6	ENTRY	stderr not graded: Died
+jt1796_AOC/2022/d13.p6	ENTRY	
+jt1796_AOC/2022/d14.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2022/d15.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2022/d16.p6	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 2173 and 2173 bytes
+jt1796_AOC/2022/d17.p6	ENTRY	
+jt1796_AOC/2022/d18.p6	ENTRY	
+jt1796_AOC/2022/d19.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2022/d2.p6	ENTRY	
+jt1796_AOC/2022/d3.p6	ENTRY	
+jt1796_AOC/2022/d4.p6	ENTRY	
+jt1796_AOC/2022/d5.p6	ENTRY	
+jt1796_AOC/2022/d6.p6	ENTRY	
+jt1796_AOC/2022/d7.p6	ENTRY	
+jt1796_AOC/2022/d8.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2022/d9.p6	ENTRY	
+jt1796_AOC/2023/d1.p6	ENTRY	
+jt1796_AOC/2023/d10.p6	ORACLE-REFUSES	Error while compiling d10.p6
+jt1796_AOC/2023/d11.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2023/d12.p6	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file d12.txt: No such file or directory
+jt1796_AOC/2023/d13.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2023/d14.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2023/d15.p6	ENTRY	
+jt1796_AOC/2023/d16.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2023/d17.p6	ORACLE-REFUSES	Error while compiling d17.p6
+jt1796_AOC/2023/d18.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2023/d2.p6	ENTRY	
+jt1796_AOC/2023/d3.p6	ENTRY	
+jt1796_AOC/2023/d4.p6	ENTRY	
+jt1796_AOC/2023/d5.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2023/d6.p6	DOES-NOT-END	no answer inside 60 s
+jt1796_AOC/2023/d7.p6	ENTRY	
+jt1796_AOC/2023/d8.p6	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+jt1796_AOC/2023/d9.p6	ENTRY	
+k3ut0i_aoc23/day05/day5.raku	ORACLE-REFUSES	Error while compiling day5.raku
+k3ut0i_aoc23/day06/day06.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+k3ut0i_aoc23/day07/day07.raku	ORACLE-REFUSES	Error while compiling day07.raku
+k3ut0i_aoc23/day08/day08.raku	ORACLE-REFUSES	Error while compiling day08.raku
+k3ut0i_aoc23/day08/t/00-multi-periodic.t	ORACLE-REFUSES	Error while compiling 00-multi-periodic.t
+k3ut0i_aoc23/day1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+k3ut0i_aoc23/day2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+k3ut0i_aoc23/day3.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+k3ut0i_aoc23/day4.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+keymaster777_AdventOfCode2024/day_5/i.t	ORACLE-REFUSES	Error while compiling i.t
+kylerisse_advent-of-code-2021/day1/sonar-sweep.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot resolve caller slurp(IO::Path:U: :enc(Any)); none of these signatures matches:
+kylerisse_advent-of-code-2021/day2/dive.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot resolve caller slurp(IO::Path:U: :enc(Any)); none of these signatures matches:
+kylerisse_advent-of-code-2021/day3/binary-diagnostics.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot resolve caller slurp(IO::Path:U: :enc(Any)); none of these signatures matches:
+kylerisse_advent-of-code-2021/day4/giant-squid.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot resolve caller slurp(IO::Path:U: :enc(Any)); none of these signatures matches:
+kylerisse_advent-of-code-2021/day5/hydrothermal-venture.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot resolve caller slurp(IO::Path:U: :enc(Any)); none of these signatures matches:
+kylerisse_advent-of-code-2021/day6/lanternfish.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot resolve caller slurp(IO::Path:U: :enc(Any)); none of these signatures matches:
+kylerisse_advent-of-code-2021/day7/the-treachery-of-whales.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot resolve caller slurp(IO::Path:U: :enc(Any)); none of these signatures matches:
+m-dango_advent-of-code/2024/01/01.rakutest	ORACLE-REFUSES	Error while compiling 01.rakutest
+m-dango_advent-of-code/2024/01/solution.raku	ORACLE-REFUSES	Error while compiling solution.raku
+marty777_adventofcode2023/adventofcode2023.raku	DOES-NOT-END	no answer inside 60 s
+nfg_advent-of-code-2020/01/answer.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+nfg_advent-of-code-2020/01/extra.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+nfg_advent-of-code-2020/02/answer.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+nfg_advent-of-code-2020/02/extra.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+nfg_advent-of-code-2020/03/answer.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+nfg_advent-of-code-2020/04/answer.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+nfg_advent-of-code-2020/04/golf.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+nfg_advent-of-code-2020/05/answer.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+nfg_advent-of-code-2020/06/ans.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input: No such file or directory
+nikola-benes_aoc2021raku/01.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/01_golf.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/02.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/03.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/04.raku	ENTRY	stderr not graded: Use of Nil in string context
+nikola-benes_aoc2021raku/05.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/06.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/07.raku	ENTRY	stderr not graded: Use of Nil.comb coerced to empty string
+nikola-benes_aoc2021raku/08.raku	ENTRY	
+nikola-benes_aoc2021raku/09.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/10.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/11.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/12.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lc' for invocant of type 'Any'
+nikola-benes_aoc2021raku/13.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'lines' for invocant of type 'Any'
+nikola-benes_aoc2021raku/14.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'comb' for invocant of type 'Any'
+nikola-benes_aoc2021raku/14_bu.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/15.raku	ORACLE-REFUSES	Error while compiling 15.raku
+nikola-benes_aoc2021raku/15_alt.raku	ORACLE-REFUSES	Error while compiling 15_alt.raku
+nikola-benes_aoc2021raku/16.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Use of Nil.comb coerced to empty string
+nikola-benes_aoc2021raku/17.raku	ENTRY	stderr not graded: Use of Nil in string context
+nikola-benes_aoc2021raku/18.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Too few positionals passed; expected 2 arguments but got 0
+nikola-benes_aoc2021raku/19.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/20.raku	ENTRY	stderr not graded: Use of Nil.comb coerced to empty string
+nikola-benes_aoc2021raku/21.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nikola-benes_aoc2021raku/22a.raku	ENTRY	
+nikola-benes_aoc2021raku/22b.raku	ENTRY	
+nikola-benes_aoc2021raku/23.raku	ORACLE-REFUSES	Error while compiling 23.raku
+nikola-benes_aoc2021raku/24.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+nikola-benes_aoc2021raku/25.raku	NEEDS-INPUT	its answer changes with what standard input holds
+nsvedberg_advent-of-code-2025/1/1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+nsvedberg_advent-of-code-2025/2/2-1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+nsvedberg_advent-of-code-2025/2/2-2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+nsvedberg_advent-of-code-2025/3/3.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+patch_aoc/2019/day1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+patch_aoc/2020/day1.raku	ENTRY	stderr not graded: Use of Nil in numeric context
+patch_aoc/2020/day2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+patch_aoc/2021/day1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+patch_aoc/2021/day2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot resolve caller sum(Any:U: ); none of these signatures matches:
+patch_aoc/2021/day3.raku	NEEDS-INPUT	its answer changes with what standard input holds
+patch_aoc/2021/day4.raku	NEEDS-INPUT	its answer changes with what standard input holds
+patch_aoc/2021/day5.raku	ENTRY	
+patch_aoc/2021/day6.raku	NEEDS-INPUT	its answer changes with what standard input holds
+patch_aoc/2021/day7.raku	ENTRY	stderr not graded: Use of Nil in string context
+patch_aoc/2022/day1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+patch_aoc/2022/day11.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Use of Nil in numeric context
+patch_aoc/2022/day3.raku	ENTRY	
+patch_aoc/2022/day4.raku	NEEDS-INPUT	its answer changes with what standard input holds
+patch_aoc/2022/day6.raku	ENTRY	stderr not graded: Use of Nil in string context
+patch_aoc/2022/day7.raku	ENTRY	
+patch_aoc/2022/day8.raku	NEEDS-INPUT	its answer changes with what standard input holds
+patch_aoc/2023/day01.raku	NEEDS-INPUT	its answer changes with what standard input holds
+patch_aoc/2023/day02.raku	NEEDS-INPUT	its answer changes with what standard input holds
+pjdurai_advent-of-code-2020/day-01/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+pjdurai_advent-of-code-2020/day-02/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+pjdurai_advent-of-code-2020/day-03/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+pjdurai_advent-of-code-2020/day-04/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+pjdurai_advent-of-code-2020/day-05/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+pjdurai_advent-of-code-2020/day-06/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+pjdurai_advent-of-code-2020/day-07/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+pjdurai_advent-of-code-2020/day-08/solution.pl6	ORACLE-REFUSES	Error while compiling solution.pl6
+pjdurai_advent-of-code-2020/day-09/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+pjdurai_advent-of-code-2020/day-11/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+pjdurai_advent-of-code-2020/day-12/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+pjdurai_advent-of-code-2020/day-15/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+pjdurai_advent-of-code-2020/misc/solution.pl6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+rawleyfowler_aoc-2022/2022/1/day1.raku	ENTRY	
+rawleyfowler_aoc-2022/2022/1/day1_async.raku	ENTRY	
+rawleyfowler_aoc-2022/2022/10/day10.raku	ENTRY	
+rawleyfowler_aoc-2022/2022/12/day12.raku	ORACLE-REFUSES	Error while compiling day12.raku
+rawleyfowler_aoc-2022/2022/2/day2.raku	ENTRY	
+rawleyfowler_aoc-2022/2022/3/day3.raku	ENTRY	
+rawleyfowler_aoc-2022/2022/4/day4.raku	ENTRY	
+rawleyfowler_aoc-2022/2022/5/day5.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file bigboy.txt: No such file or directory
+rawleyfowler_aoc-2022/2022/6/day6.raku	ENTRY	
+rawleyfowler_aoc-2022/2022/7/day7.raku	ENTRY	
+rawleyfowler_aoc-2022/2022/8/day8.raku	ENTRY	
+rawleyfowler_aoc-2022/2022/9/day9.raku	ENTRY	
+rcmlz_aoc/raku/bin/AOC.raku	ORACLE-REFUSES	Error while compiling AOC.raku
+rcmlz_aoc/raku/t/AOC.rakutest	ORACLE-REFUSES	Error while compiling AOC.rakutest
+s-kro_aoc-2021-raku/aoc_2021-10a.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file aoc_2021-10.dat: No such file or directory
+s-kro_aoc-2021-raku/aoc_2021-10b.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file aoc_2021-10.dat: No such file or directory
+s-kro_aoc-2021-raku/aoc_2021-1a.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file aoc_2021-1.dat: No such file or directory
+s-kro_aoc-2021-raku/aoc_2021-1b.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file aoc_2021-1.dat: No such file or directory
+s-kro_aoc-2021-raku/aoc_2021-7a.raku	NEEDS-DISPLAY	the source names NativeCall
+s-kro_aoc-2021-raku/aoc_2021-7b.raku	NEEDS-DISPLAY	the source names NativeCall
+sbiickert_AdventOfCode2024/Perl/t/aoc_geometry.t	ORACLE-REFUSES	Error while compiling aoc_geometry.t
+sbiickert_AdventOfCode2024/Perl/t/aoc_grid.t	ORACLE-REFUSES	Error while compiling aoc_grid.t
+sbiickert_AdventOfCode2024/Perl/t/aoc_util.t	ORACLE-REFUSES	Error while compiling aoc_util.t
+sbiickert_AdventOfCode2024/Raku/aoc_template.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day<##>_test.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day01.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day01_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day02.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day02_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day03.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day03_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day04.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day04_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day05.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day05_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day06.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day06_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day07.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day07_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day08.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day08_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day09.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day09_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day10.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day10_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day11.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day11_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day12.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day12_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day13.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day13_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day14.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day14_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day15.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day15_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day16.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day16_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day17.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day17_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day18.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day18_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day19.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day19_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day20.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day20_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day21.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day21_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day22.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day22_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day23.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day23_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day24.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day24_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/day25.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file ../Input/day25_challenge.txt: No such file or directory
+sbiickert_AdventOfCode2024/Raku/setup.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+sbiickert_AdventOfCode2024/Raku/t/Geometry.rakutest	ORACLE-REFUSES	Error while compiling Geometry.rakutest
+sbiickert_AdventOfCode2024/Raku/t/Grid.rakutest	ORACLE-REFUSES	Error while compiling Grid.rakutest
+sbiickert_AdventOfCode2024/Raku/t/Util.rakutest	ORACLE-REFUSES	Error while compiling Util.rakutest
+seaker_advent-of-code/2020/01/s.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+seaker_advent-of-code/2020/02/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/03/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/04/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/05/s.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+seaker_advent-of-code/2020/06/s.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+seaker_advent-of-code/2020/07/s.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+seaker_advent-of-code/2020/07/t.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/08/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/09/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/10/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/10/tribonacci.raku	ENTRY	
+seaker_advent-of-code/2020/11/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/12/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/13/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/14/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/15/orig.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/15/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/18/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/18/t.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/19/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/19/tool.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/20/s.raku	ORACLE-REFUSES	Error while compiling s.raku
+seaker_advent-of-code/2020/20/t.raku	ENTRY	
+seaker_advent-of-code/2020/21/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/22/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2020/25/s.raku	ENTRY	
+seaker_advent-of-code/2021/01/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/01/t.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/02/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/03/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/04/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/05/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/06/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/07/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/08/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/09/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/10/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/11/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/12/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/13/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/14/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/15/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/16/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/17/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/19/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/20/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/21/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2021/25/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/01/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/02/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/03/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/04/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/05/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/05/t.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+seaker_advent-of-code/2024/06/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/07/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/08/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/09/s-p1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+seaker_advent-of-code/2024/09/s-p2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file input.txt: No such file or directory
+seaker_advent-of-code/2024/10/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/11/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/12/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/13/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/14/s-p1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/14/s-p2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/15/s-p1.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/15/s-p2.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/16/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/17/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/18/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/19/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/20/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/21/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/21/t.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/22/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/23/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/24/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/24/t.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2024/25/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2025/01/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2025/02/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2025/03/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2025/03/t.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2025/04/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2025/05/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2025/06/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2025/07/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2025/08/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/2025/11/s.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+seaker_advent-of-code/templ.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+sven-hluchy_aoc23/day01/part2.raku	NEEDS-INPUT	its answer changes with what standard input holds
+sven-hluchy_aoc23/day02/part1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2015/01/perl6/solution.p6	ENTRY	
+tsmall_advent-of-code/2015/02/perl6/solution.p6	ENTRY	
+tsmall_advent-of-code/2015/03/perl6/solution.p6	ENTRY	
+tsmall_advent-of-code/2015/04/perl6/solution.p6	ORACLE-REFUSES	Error while compiling solution.p6
+tsmall_advent-of-code/2015/05/perl6/solution.p6	ENTRY	
+tsmall_advent-of-code/2015/06/perl6/solution.p6	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2015/07/perl6/solution.p6	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2015/08/perl6/solution.p6	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2015/09/perl6/solution.p6	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2015/10/perl6/solution.p6	DOES-NOT-END	no answer inside 60 s
+tsmall_advent-of-code/2015/11/perl6/solution.p6	DOES-NOT-END	no answer inside 60 s
+tsmall_advent-of-code/2015/12/perl6/solution.p6	ORACLE-REFUSES	Error while compiling solution.p6
+tsmall_advent-of-code/2015/13/perl6/solution.p6	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2015/14/perl6/solution.p6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+tsmall_advent-of-code/2015/15/perl6/solution.p6	ENTRY	stderr not graded: Effective index out of range. Is: -1, should be in 0..^Inf
+tsmall_advent-of-code/2015/16/perl6/solution.p6	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2015/17/perl6/solution.p6	ENTRY	
+tsmall_advent-of-code/2015/18/perl6/solution.p6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+tsmall_advent-of-code/2015/19/perl6/solution.p6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+tsmall_advent-of-code/2015/20/perl6/solution.p6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+tsmall_advent-of-code/2015/21/perl6/solution.p6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+tsmall_advent-of-code/2015/22/perl6/solution.p6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+tsmall_advent-of-code/2015/23/perl6/solution.p6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+tsmall_advent-of-code/2015/24/perl6/solution.p6	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+tsmall_advent-of-code/2022/01/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/02/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/03/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/04/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/05/raku/solution.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+tsmall_advent-of-code/2022/06/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/07/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/08/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/09/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/10/raku/solution.raku	ENTRY	
+tsmall_advent-of-code/2022/11/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/12/raku/solution.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'char' for invocant of type 'Any'. Did you mean any of
+tsmall_advent-of-code/2022/13/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/14/raku/solution.raku	DOES-NOT-END	no answer inside 60 s
+tsmall_advent-of-code/2022/15/raku/solution.raku	NEEDS-INPUT	it asks for arguments (rakudo prints its usage, exit 2)
+tsmall_advent-of-code/2022/16/raku/solution.raku	ENTRY	
+tsmall_advent-of-code/2022/17/raku/solution.raku	ENTRY	stderr not graded: Use of Nil.comb coerced to empty string
+tsmall_advent-of-code/2022/18/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/19/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/20/raku/solution.raku	NEEDS-INPUT	its answer changes with what standard input holds
+tsmall_advent-of-code/2022/21/raku/solution.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'number' for invocant of type 'Any'
+tsmall_advent-of-code/2022/22/raku/solution.raku	ENTRY	stderr not graded: Use of Nil.comb coerced to empty string
+vaskozl_AdventOfCode/2021/1/part_1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+vaskozl_AdventOfCode/2021/1/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/10/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/10/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/11/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/11/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/12/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/12/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/13/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/13/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/14/part_1_and_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/2/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/2/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/3/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/3/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/4/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/4/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/5/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/5/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/6/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/6/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/7/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/7/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/8/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/8/part_2.raku	ENTRY	
+vaskozl_AdventOfCode/2021/9/part_1.raku	ENTRY	
+vaskozl_AdventOfCode/2021/9/part_2.raku	ENTRY	
+wiebecommajonas_aoc-2023/Days/day1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file Inputs/day1.txt: No such file or directory
+wiebecommajonas_aoc-2023/Days/day2.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file Inputs/day2.txt: No such file or directory
+wiebecommajonas_aoc-2023/Days/day3.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file Inputs/day3.txt: No such file or directory
+wiebecommajonas_aoc-2023/Days/day4.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file Inputs/day4.txt: No such file or directory
+wiebecommajonas_aoc-2023/Days/day5.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file Inputs/day5.txt: No such file or directory
+wiebecommajonas_aoc-2023/Days/day6.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file Inputs/day6.txt: No such file or directory
+wiebecommajonas_aoc-2023/Days/day7.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file Inputs/day7.txt: No such file or directory
+wiebecommajonas_aoc-2023/Days/day8.raku	ORACLE-REFUSES	Error while compiling day8.raku

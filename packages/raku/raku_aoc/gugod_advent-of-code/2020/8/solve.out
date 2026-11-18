@@ -1,0 +1,5 @@
+# Part 1
+Accumulator=1818
+# Part 2
+Terminated after tweaking instruction 429: jmp 93
+Accumulator=631

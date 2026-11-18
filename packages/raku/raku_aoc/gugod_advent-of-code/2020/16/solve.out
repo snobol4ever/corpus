@@ -1,0 +1,22 @@
+Part 1: 21996
+    arrival platform must be index 11
+    duration must be index 10
+    arrival station must be index 7
+    wagon must be index 12
+    price must be index 18
+    class must be index 4
+    departure time must be index 16
+    departure date must be index 6
+    departure location must be index 19
+    departure track must be index 2
+    departure platform must be index 15
+    departure station must be index 17
+    train must be index 0
+    row must be index 8
+    arrival location must be index 1
+    zone must be index 14
+    arrival track must be index 5
+    type must be index 9
+    seat must be index 3
+    route must be index 13
+Part 2: 650080463519

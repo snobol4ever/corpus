@@ -1,0 +1,29 @@
+Sensor at x=2, y=18: closest beacon is at x=-2, y=15
+added sensor at 2 18 with range 7.  min x is -5, max is 9
+Sensor at x=9, y=16: closest beacon is at x=10, y=16
+added sensor at 9 16 with range 1.  min x is -5, max is 10
+Sensor at x=13, y=2: closest beacon is at x=15, y=3
+added sensor at 13 2 with range 3.  min x is -5, max is 16
+Sensor at x=12, y=14: closest beacon is at x=10, y=16
+added sensor at 12 14 with range 4.  min x is -5, max is 16
+Sensor at x=10, y=20: closest beacon is at x=10, y=16
+added sensor at 10 20 with range 4.  min x is -5, max is 16
+Sensor at x=14, y=17: closest beacon is at x=10, y=16
+added sensor at 14 17 with range 5.  min x is -5, max is 19
+Sensor at x=8, y=7: closest beacon is at x=2, y=10
+added sensor at 8 7 with range 9.  min x is -5, max is 19
+Sensor at x=2, y=0: closest beacon is at x=2, y=10
+added sensor at 2 0 with range 10.  min x is -8, max is 19
+Sensor at x=0, y=11: closest beacon is at x=2, y=10
+added sensor at 0 11 with range 3.  min x is -8, max is 19
+Sensor at x=20, y=14: closest beacon is at x=25, y=17
+added sensor at 20 14 with range 8.  min x is -8, max is 28
+Sensor at x=17, y=20: closest beacon is at x=21, y=22
+added sensor at 17 20 with range 6.  min x is -8, max is 28
+Sensor at x=16, y=7: closest beacon is at x=15, y=3
+added sensor at 16 7 with range 5.  min x is -8, max is 28
+Sensor at x=14, y=3: closest beacon is at x=15, y=3
+added sensor at 14 3 with range 1.  min x is -8, max is 28
+Sensor at x=20, y=1: closest beacon is at x=15, y=3
+added sensor at 20 1 with range 7.  min x is -8, max is 28
+  10: 26

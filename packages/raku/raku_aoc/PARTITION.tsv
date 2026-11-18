@@ -1,0 +1,524 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=520 features=3 ubiquitous=1(package) distinctive=2 core=3 clusters=182 chunks=9 sizes=60,60,60,60,60,60,60,60,37
+entry	part	cluster	shells
+ALANVF_aoc2022/01/part1	chunk:05	dir:ALANVF_aoc2022/01	
+ALANVF_aoc2022/01/part2	chunk:05	dir:ALANVF_aoc2022/01	
+ALANVF_aoc2022/02/part1	chunk:05	dir:ALANVF_aoc2022/02	
+ALANVF_aoc2022/02/part2	chunk:05	dir:ALANVF_aoc2022/02	
+ALANVF_aoc2022/03/part1	chunk:05	dir:ALANVF_aoc2022/03	
+ALANVF_aoc2022/03/part2	chunk:05	dir:ALANVF_aoc2022/03	
+ALANVF_aoc2022/04/part1	chunk:05	dir:ALANVF_aoc2022/04	
+ALANVF_aoc2022/04/part2	chunk:05	dir:ALANVF_aoc2022/04	
+ALANVF_aoc2022/05/part1	chunk:05	dir:ALANVF_aoc2022/05	
+ALANVF_aoc2022/05/part2	chunk:05	dir:ALANVF_aoc2022/05	
+ALANVF_aoc2022/06/part1	chunk:05	dir:ALANVF_aoc2022/06	
+ALANVF_aoc2022/06/part2	chunk:05	dir:ALANVF_aoc2022/06	
+ALANVF_aoc2022/07/part1	chunk:05	dir:ALANVF_aoc2022/07	
+ALANVF_aoc2022/07/part2	chunk:06	dir:ALANVF_aoc2022/07	
+ArneBouillon_advent-of-code-golf-2023/4/4a	chunk:07	dir:ArneBouillon_advent-of-code-golf-2023/4	
+CDamianS_aoc-2023/day3/day3	chunk:07	dir:CDamianS_aoc-2023/day3	
+Kyntaz_aoc-raku/2015/01/main	chunk:07	dir:Kyntaz_aoc-raku/2015/01	
+Scimon_advent-of-code/2017/day11	chunk:01	feat:language	language
+Scimon_advent-of-code/2017/day6	chunk:01	feat:language	language
+Scimon_advent-of-code/2017/day9	chunk:01	feat:language	language
+Scimon_advent-of-code/2020/19/make-grammars	chunk:05	feat:want_rc	want_rc
+andinus_aoc/2020/day-01/day-01	chunk:07	dir:andinus_aoc/2020/day-01	
+andinus_aoc/2020/day-02/day-02	chunk:07	dir:andinus_aoc/2020/day-02	
+andinus_aoc/2020/day-03/day-03	chunk:07	dir:andinus_aoc/2020/day-03	
+andinus_aoc/2020/day-04/day-04	chunk:07	dir:andinus_aoc/2020/day-04	
+andinus_aoc/2020/day-05/day-05	chunk:07	dir:andinus_aoc/2020/day-05	
+andinus_aoc/2020/day-06/day-06	chunk:07	dir:andinus_aoc/2020/day-06	
+andinus_aoc/2020/day-07/day-07	chunk:07	dir:andinus_aoc/2020/day-07	
+andinus_aoc/2020/day-08/day-08	chunk:07	dir:andinus_aoc/2020/day-08	
+andinus_aoc/2020/day-09/day-09	chunk:08	dir:andinus_aoc/2020/day-09	
+andinus_aoc/2020/day-10/day-10	chunk:08	dir:andinus_aoc/2020/day-10	
+andinus_aoc/2020/day-11/day-11.partial	chunk:06	dir:andinus_aoc/2020/day-11	
+andinus_aoc/2020/day-11/day-11	chunk:06	dir:andinus_aoc/2020/day-11	
+andinus_aoc/2020/day-12/day-12	chunk:08	dir:andinus_aoc/2020/day-12	
+andinus_aoc/2020/day-13/day-13	chunk:08	dir:andinus_aoc/2020/day-13	
+andinus_aoc/2021/day-01/day-01	chunk:08	dir:andinus_aoc/2021/day-01	
+andinus_aoc/2022/day-01/day-01	chunk:08	dir:andinus_aoc/2022/day-01	
+arodland_Advent-of-Code-2022/6/1	chunk:05	dir:arodland_Advent-of-Code-2022/6	
+arodland_Advent-of-Code-2022/6/2	chunk:05	dir:arodland_Advent-of-Code-2022/6	
+arodland_Advent-of-Code-2022/6/ungolf	chunk:05	dir:arodland_Advent-of-Code-2022/6	
+arodland_Advent-of-Code-2023/10/1	chunk:08	dir:arodland_Advent-of-Code-2023/10	
+arodland_Advent-of-Code-2023/14/2	chunk:08	dir:arodland_Advent-of-Code-2023/14	
+arodland_Advent-of-Code-2023/19/1	chunk:08	dir:arodland_Advent-of-Code-2023/19	
+arodland_Advent-of-Code-2023/3/2	chunk:08	dir:arodland_Advent-of-Code-2023/3	
+arodland_Advent-of-Code-2023/5/1	chunk:06	dir:arodland_Advent-of-Code-2023/5	
+arodland_Advent-of-Code-2023/5/2	chunk:06	dir:arodland_Advent-of-Code-2023/5	
+arodland_Advent-of-Code-2023/6/1	chunk:06	dir:arodland_Advent-of-Code-2023/6	
+arodland_Advent-of-Code-2023/6/2	chunk:06	dir:arodland_Advent-of-Code-2023/6	
+arodland_Advent-of-Code-2023/7/1	chunk:06	dir:arodland_Advent-of-Code-2023/7	
+arodland_Advent-of-Code-2023/7/2	chunk:06	dir:arodland_Advent-of-Code-2023/7	
+bduggan_advent-of-code/2021/day-01-part-2	chunk:05	dir:bduggan_advent-of-code/2021	
+bduggan_advent-of-code/2021/day-02-part-1	chunk:05	dir:bduggan_advent-of-code/2021	
+bduggan_advent-of-code/2021/day-02-part-2	chunk:05	dir:bduggan_advent-of-code/2021	
+bduggan_advent-of-code/2021/day-04-part-2	chunk:05	dir:bduggan_advent-of-code/2021	
+bduggan_advent-of-code/2021/day-05-part-1	chunk:05	dir:bduggan_advent-of-code/2021	
+bduggan_advent-of-code/2021/day-10-part-1	chunk:05	dir:bduggan_advent-of-code/2021	
+bduggan_advent-of-code/2022/day-02-part-1	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2022/day-05	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2022/day-07	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2022/day-09	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2022/day-14	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2022/day-15-part-1	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2022/day-18-part-1	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2022/day-20	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2022/day-22-part-2	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2022/day-23	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2022/day-24-part-1	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2022/day-25	chunk:04	dir:bduggan_advent-of-code/2022	
+bduggan_advent-of-code/2023/day-05-part-1	chunk:06	dir:bduggan_advent-of-code/2023	
+bduggan_advent-of-code/2023/day-15-part-1	chunk:06	dir:bduggan_advent-of-code/2023	
+bduggan_advent-of-code/2023/extra/day-04-golf	chunk:06	dir:bduggan_advent-of-code/2023/extra	
+bduggan_advent-of-code/2023/extra/day-13.eg	chunk:06	dir:bduggan_advent-of-code/2023/extra	
+bduggan_advent-of-code/2024/day-03	chunk:05	dir:bduggan_advent-of-code/2024	
+bduggan_advent-of-code/2024/day-04	chunk:05	dir:bduggan_advent-of-code/2024	
+bduggan_advent-of-code/2024/day-11	chunk:05	dir:bduggan_advent-of-code/2024	
+bduggan_advent-of-code/2024/orig/day-03	chunk:05	dir:bduggan_advent-of-code/2024/orig	
+bduggan_advent-of-code/2024/orig/day-04-part-1	chunk:05	dir:bduggan_advent-of-code/2024/orig	
+bduggan_advent-of-code/2024/orig/day-11	chunk:05	dir:bduggan_advent-of-code/2024/orig	
+belluzj_aoc25-raku/day1-part1	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day1-part2	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day10-part1	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day11-part1	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day11-part2	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day3-part1	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day3-part2	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day4-part1	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day5-part1	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day5-part2	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day6-part1	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day6-part2	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day7-part1	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day7-part2	chunk:04	dir:belluzj_aoc25-raku	
+belluzj_aoc25-raku/day9-part1	chunk:04	dir:belluzj_aoc25-raku	
+bmatcuk_adventofcode2022/day01/part1	chunk:06	dir:bmatcuk_adventofcode2022/day01	
+bmatcuk_adventofcode2022/day01/part2	chunk:06	dir:bmatcuk_adventofcode2022/day01	
+bmatcuk_adventofcode2022/day02/part1	chunk:06	dir:bmatcuk_adventofcode2022/day02	
+bmatcuk_adventofcode2022/day02/part2	chunk:06	dir:bmatcuk_adventofcode2022/day02	
+bmatcuk_adventofcode2022/day03/part1	chunk:06	dir:bmatcuk_adventofcode2022/day03	
+bmatcuk_adventofcode2022/day03/part2	chunk:06	dir:bmatcuk_adventofcode2022/day03	
+bmatcuk_adventofcode2022/day04/part1	chunk:06	dir:bmatcuk_adventofcode2022/day04	
+bmatcuk_adventofcode2022/day04/part2	chunk:06	dir:bmatcuk_adventofcode2022/day04	
+bmatcuk_adventofcode2022/day05/part1	chunk:06	dir:bmatcuk_adventofcode2022/day05	
+bmatcuk_adventofcode2022/day05/part2	chunk:06	dir:bmatcuk_adventofcode2022/day05	
+bmatcuk_adventofcode2022/day06/part1	chunk:06	dir:bmatcuk_adventofcode2022/day06	
+bmatcuk_adventofcode2022/day06/part2	chunk:06	dir:bmatcuk_adventofcode2022/day06	
+bmatcuk_adventofcode2022/day07/part1	chunk:06	dir:bmatcuk_adventofcode2022/day07	
+bmatcuk_adventofcode2022/day07/part2	chunk:06	dir:bmatcuk_adventofcode2022/day07	
+bmatcuk_adventofcode2022/day08/part1	chunk:06	dir:bmatcuk_adventofcode2022/day08	
+bmatcuk_adventofcode2022/day08/part2	chunk:06	dir:bmatcuk_adventofcode2022/day08	
+bmatcuk_adventofcode2022/day09/part1	chunk:06	dir:bmatcuk_adventofcode2022/day09	
+bmatcuk_adventofcode2022/day09/part2	chunk:06	dir:bmatcuk_adventofcode2022/day09	
+bmatcuk_adventofcode2022/day10/part1	chunk:06	dir:bmatcuk_adventofcode2022/day10	
+bmatcuk_adventofcode2022/day10/part2	chunk:06	dir:bmatcuk_adventofcode2022/day10	
+bmatcuk_adventofcode2022/day11/part1	chunk:06	dir:bmatcuk_adventofcode2022/day11	
+bmatcuk_adventofcode2022/day11/part2	chunk:06	dir:bmatcuk_adventofcode2022/day11	
+bmatcuk_adventofcode2022/day12/part1	chunk:06	dir:bmatcuk_adventofcode2022/day12	
+bmatcuk_adventofcode2022/day12/part2	chunk:06	dir:bmatcuk_adventofcode2022/day12	
+bmatcuk_adventofcode2022/day13/part1	chunk:06	dir:bmatcuk_adventofcode2022/day13	
+bmatcuk_adventofcode2022/day13/part2	chunk:06	dir:bmatcuk_adventofcode2022/day13	
+bmatcuk_adventofcode2022/day14/part1	chunk:06	dir:bmatcuk_adventofcode2022/day14	
+bmatcuk_adventofcode2022/day14/part2	chunk:06	dir:bmatcuk_adventofcode2022/day14	
+bmatcuk_adventofcode2022/day16/part1	chunk:08	dir:bmatcuk_adventofcode2022/day16	
+bmatcuk_adventofcode2022/day17/part1	chunk:08	dir:bmatcuk_adventofcode2022/day17	
+bmatcuk_adventofcode2022/day18/part1	chunk:06	dir:bmatcuk_adventofcode2022/day18	
+bmatcuk_adventofcode2022/day18/part2	chunk:06	dir:bmatcuk_adventofcode2022/day18	
+bmatcuk_adventofcode2022/day19/part1	chunk:08	dir:bmatcuk_adventofcode2022/day19	
+bmatcuk_adventofcode2022/day21/part1	chunk:06	dir:bmatcuk_adventofcode2022/day21	
+bmatcuk_adventofcode2022/day21/part2	chunk:06	dir:bmatcuk_adventofcode2022/day21	
+bmatcuk_adventofcode2022/day22/part1	chunk:06	dir:bmatcuk_adventofcode2022/day22	
+bmatcuk_adventofcode2022/day22/part2	chunk:06	dir:bmatcuk_adventofcode2022/day22	
+bmatcuk_adventofcode2022/day23/part1	chunk:08	dir:bmatcuk_adventofcode2022/day23	
+bmatcuk_adventofcode2022/day24/part1	chunk:08	dir:bmatcuk_adventofcode2022/day24	
+bmatcuk_adventofcode2022/day25/part1	chunk:08	dir:bmatcuk_adventofcode2022/day25	
+braden337_advent22/day_1	chunk:04	dir:braden337_advent22	
+braden337_advent22/day_2	chunk:04	dir:braden337_advent22	
+braden337_advent22/day_3	chunk:04	dir:braden337_advent22	
+braden337_advent22/day_4	chunk:04	dir:braden337_advent22	
+braden337_advent22/day_5	chunk:04	dir:braden337_advent22	
+braden337_advent22/day_6	chunk:04	dir:braden337_advent22	
+braden337_advent22/day_7	chunk:04	dir:braden337_advent22	
+braden337_advent22/day_8	chunk:04	dir:braden337_advent22	
+braden337_advent22/day_9	chunk:05	dir:braden337_advent22	
+clarkema_advent-of-code/2017/day_01/day_01	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_04/day_04	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_05/day_05	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_06/day_06	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_07/day_07	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_08/day_08	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_09/day_09	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_10/day_10	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_11/day_11	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_12/day_12	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_13/day_13	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_14/day_14	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_16/day_16	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_17/day_17	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_18/day_18p2	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_19/day_19	chunk:01	feat:language	language
+clarkema_advent-of-code/2017/day_22/day_22p1	chunk:01	feat:language	language
+clarkema_advent-of-code/2018/day_01/day_01	chunk:01	feat:language	language
+clarkema_advent-of-code/2018/day_02/day_02	chunk:01	feat:language	language
+clarkema_advent-of-code/2018/day_03/day_03	chunk:01	feat:language	language
+clarkema_advent-of-code/2022/day_01/day_01	chunk:08	dir:clarkema_advent-of-code/2022/day_01	
+clarkema_advent-of-code/2022/day_02/day_02	chunk:08	dir:clarkema_advent-of-code/2022/day_02	
+clarkema_advent-of-code/2022/day_03/day_03	chunk:08	dir:clarkema_advent-of-code/2022/day_03	
+codesections_advent-of-raku-2020/Scimon/19/make-grammars	chunk:05	feat:want_rc	want_rc
+codesections_advent-of-raku-2020/ggoebel/03	chunk:05	feat:want_rc	want_rc
+codesections_advent-of-raku-2020/pkmnx/01	chunk:05	dir:codesections_advent-of-raku-2020/pkmnx	
+codesections_advent-of-raku-2020/pkmnx/11.02	chunk:05	dir:codesections_advent-of-raku-2020/pkmnx	
+codesections_advent-of-raku-2020/pkmnx/13.02	chunk:05	dir:codesections_advent-of-raku-2020/pkmnx	
+codesections_advent-of-raku-2020/pkmnx/21	chunk:05	dir:codesections_advent-of-raku-2020/pkmnx	
+codesections_advent-of-raku-2020/thundergnat/aoc2020-01-a-and-b	chunk:06	dir:codesections_advent-of-raku-2020/thundergnat	
+codesections_advent-of-raku-2020/thundergnat/aoc2020-12-a-and-b	chunk:06	dir:codesections_advent-of-raku-2020/thundergnat	
+crnkofe_aoc2025/day1	chunk:05	feat:want_rc	want_rc
+dcsjulio_advent-of-code/2020/02/02	chunk:08	dir:dcsjulio_advent-of-code/2020/02	
+dcsjulio_advent-of-code/2020/03/03	chunk:08	dir:dcsjulio_advent-of-code/2020/03	
+dcsjulio_advent-of-code/2020/04/04	chunk:08	dir:dcsjulio_advent-of-code/2020/04	
+dcsjulio_advent-of-code/2020/05/05	chunk:08	dir:dcsjulio_advent-of-code/2020/05	
+dcsjulio_advent-of-code/2020/06/06	chunk:08	dir:dcsjulio_advent-of-code/2020/06	
+dcsjulio_advent-of-code/2020/07/07	chunk:08	dir:dcsjulio_advent-of-code/2020/07	
+dcsjulio_advent-of-code/2020/08/08	chunk:08	dir:dcsjulio_advent-of-code/2020/08	
+dcsjulio_advent-of-code/2020/09/09	chunk:08	dir:dcsjulio_advent-of-code/2020/09	
+dcsjulio_advent-of-code/2020/10/10	chunk:08	dir:dcsjulio_advent-of-code/2020/10	
+dcsjulio_advent-of-code/2020/12/12	chunk:08	dir:dcsjulio_advent-of-code/2020/12	
+dcsjulio_advent-of-code/2020/13/13-part-2-new	chunk:08	dir:dcsjulio_advent-of-code/2020/13	
+dcsjulio_advent-of-code/2020/14/14	chunk:08	dir:dcsjulio_advent-of-code/2020/14	
+dcsjulio_advent-of-code/2020/16/16	chunk:08	dir:dcsjulio_advent-of-code/2020/16	
+dcsjulio_advent-of-code/2020/18/18-case-1-2-with-eval	chunk:06	dir:dcsjulio_advent-of-code/2020/18	
+dcsjulio_advent-of-code/2020/18/18-case-1-with-grammar	chunk:06	dir:dcsjulio_advent-of-code/2020/18	
+dcsjulio_advent-of-code/2020/19/19	chunk:08	dir:dcsjulio_advent-of-code/2020/19	
+dcsjulio_advent-of-code/2020/21/21	chunk:08	dir:dcsjulio_advent-of-code/2020/21	
+dcsjulio_advent-of-code/2020/22/22	chunk:08	dir:dcsjulio_advent-of-code/2020/22	
+dcsjulio_advent-of-code/2020/25/25	chunk:08	dir:dcsjulio_advent-of-code/2020/25	
+dcsjulio_advent-of-code/2021/01/01	chunk:08	dir:dcsjulio_advent-of-code/2021/01	
+dcsjulio_advent-of-code/2021/02/02	chunk:08	dir:dcsjulio_advent-of-code/2021/02	
+dcsjulio_advent-of-code/2021/03/03	chunk:08	dir:dcsjulio_advent-of-code/2021/03	
+dcsjulio_advent-of-code/2021/04/04	chunk:08	dir:dcsjulio_advent-of-code/2021/04	
+dcsjulio_advent-of-code/2021/05/05	chunk:08	dir:dcsjulio_advent-of-code/2021/05	
+dcsjulio_advent-of-code/2021/06/06	chunk:08	dir:dcsjulio_advent-of-code/2021/06	
+dcsjulio_advent-of-code/2021/07/07	chunk:08	dir:dcsjulio_advent-of-code/2021/07	
+dcsjulio_advent-of-code/2021/08/08	chunk:08	dir:dcsjulio_advent-of-code/2021/08	
+dcsjulio_advent-of-code/2021/09/09	chunk:06	dir:dcsjulio_advent-of-code/2021/09	
+dcsjulio_advent-of-code/2021/09/09a-regex-version	chunk:06	dir:dcsjulio_advent-of-code/2021/09	
+dcsjulio_advent-of-code/2021/10/10-grammar	chunk:06	dir:dcsjulio_advent-of-code/2021/10	
+dcsjulio_advent-of-code/2021/10/10	chunk:06	dir:dcsjulio_advent-of-code/2021/10	
+dcsjulio_advent-of-code/2021/11/11	chunk:08	dir:dcsjulio_advent-of-code/2021/11	
+dcsjulio_advent-of-code/2021/13/13	chunk:08	dir:dcsjulio_advent-of-code/2021/13	
+donaldh_advent-of-code/2016/1	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/10b	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/12a	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/12b	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/2	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/3a	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/3b	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/4a	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/4b	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/6a	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/7a	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/7b	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/8a	chunk:01	feat:language	language
+donaldh_advent-of-code/2016/9a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/10a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/10b	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/11a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/11b	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/12a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/12b	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/13a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/14a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/14b	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/16a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/16b	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/17a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/17b	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/18a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/19	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/1a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/1b	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/20a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/20b	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/21a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/2a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/2b	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/3a	chunk:01	feat:language	language
+donaldh_advent-of-code/2017/3b	chunk:02	feat:language	language
+donaldh_advent-of-code/2017/4a	chunk:02	feat:language	language
+donaldh_advent-of-code/2017/4b	chunk:02	feat:language	language
+donaldh_advent-of-code/2017/6a	chunk:02	feat:language	language
+donaldh_advent-of-code/2017/7a	chunk:02	feat:language	language
+donaldh_advent-of-code/2017/7b	core	core	language want_rc
+donaldh_advent-of-code/2017/8a	chunk:02	feat:language	language
+donaldh_advent-of-code/2017/8b	chunk:02	feat:language	language
+donaldh_advent-of-code/2017/9b	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/10a	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/12a	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/12b	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/14a	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/1a	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/1b	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/2a	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/2b	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/3a	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/3b	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/4b	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/5a	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/5b	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/6a	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/6b	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/7a	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/7b	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/8a	chunk:02	feat:language	language
+donaldh_advent-of-code/2018/8b	chunk:02	feat:language	language
+donaldh_advent-of-code/2019/1a	chunk:02	feat:language	language
+donaldh_advent-of-code/2019/1b	chunk:02	feat:language	language
+donaldh_advent-of-code/2019/day2	chunk:02	feat:language	language
+donaldh_advent-of-code/2019/day3a	chunk:02	feat:language	language
+donaldh_advent-of-code/2019/day4	chunk:02	feat:language	language
+donaldh_advent-of-code/2019/day5	chunk:02	feat:language	language
+donaldh_advent-of-code/2019/day6	chunk:02	feat:language	language
+donaldh_advent-of-code/2019/day7	chunk:02	feat:language	language
+donaldh_advent-of-code/2019/day7b	chunk:02	feat:language	language
+donaldh_advent-of-code/2019/day8	chunk:02	feat:language	language
+ggoebel_AoC2020/01/01	chunk:08	dir:ggoebel_AoC2020/01	
+ggoebel_AoC2020/02/02	chunk:08	dir:ggoebel_AoC2020/02	
+ggoebel_AoC2020/03/03	chunk:08	dir:ggoebel_AoC2020/03	
+ggoebel_AoC2020/04/04	chunk:06	dir:ggoebel_AoC2020/04	
+ggoebel_AoC2020/04/04b	chunk:06	dir:ggoebel_AoC2020/04	
+ggoebel_AoC2020/05/05	chunk:08	dir:ggoebel_AoC2020/05	
+ggoebel_AoC2020/06/06	chunk:08	dir:ggoebel_AoC2020/06	
+ggoebel_AoC2020/07/07	chunk:08	dir:ggoebel_AoC2020/07	
+ggoebel_AoC2020/08/08	chunk:08	dir:ggoebel_AoC2020/08	
+ggoebel_AoC2020/09/09	chunk:08	dir:ggoebel_AoC2020/09	
+ggoebel_AoC2020/10/10	chunk:08	dir:ggoebel_AoC2020/10	
+ggoebel_AoC2020/12/12	chunk:08	dir:ggoebel_AoC2020/12	
+ggoebel_AoC2020/13/13	chunk:08	dir:ggoebel_AoC2020/13	
+gugod_advent-of-code/2019/4/raku/solve	chunk:08	dir:gugod_advent-of-code/2019/4/raku	
+gugod_advent-of-code/2020/1/solve	chunk:08	dir:gugod_advent-of-code/2020/1	
+gugod_advent-of-code/2020/10/solve	chunk:08	dir:gugod_advent-of-code/2020/10	
+gugod_advent-of-code/2020/12/solve	chunk:09	dir:gugod_advent-of-code/2020/12	
+gugod_advent-of-code/2020/13/solve	chunk:09	dir:gugod_advent-of-code/2020/13	
+gugod_advent-of-code/2020/14/solve	chunk:09	dir:gugod_advent-of-code/2020/14	
+gugod_advent-of-code/2020/16/solve	chunk:09	dir:gugod_advent-of-code/2020/16	
+gugod_advent-of-code/2020/18/solve	chunk:09	dir:gugod_advent-of-code/2020/18	
+gugod_advent-of-code/2020/2/solve	chunk:09	dir:gugod_advent-of-code/2020/2	
+gugod_advent-of-code/2020/21/solve	chunk:09	dir:gugod_advent-of-code/2020/21	
+gugod_advent-of-code/2020/22/solve	chunk:09	dir:gugod_advent-of-code/2020/22	
+gugod_advent-of-code/2020/25/solve	chunk:09	dir:gugod_advent-of-code/2020/25	
+gugod_advent-of-code/2020/3/solve	chunk:09	dir:gugod_advent-of-code/2020/3	
+gugod_advent-of-code/2020/4/solve	chunk:09	dir:gugod_advent-of-code/2020/4	
+gugod_advent-of-code/2020/5/solve	chunk:09	dir:gugod_advent-of-code/2020/5	
+gugod_advent-of-code/2020/7/solve	chunk:09	dir:gugod_advent-of-code/2020/7	
+gugod_advent-of-code/2020/8/solve	chunk:09	dir:gugod_advent-of-code/2020/8	
+gugod_advent-of-code/2020/9/solve	chunk:09	dir:gugod_advent-of-code/2020/9	
+gugod_advent-of-code/2021/1/solve-1	chunk:06	dir:gugod_advent-of-code/2021/1	
+gugod_advent-of-code/2021/1/solve-2	chunk:06	dir:gugod_advent-of-code/2021/1	
+gugod_advent-of-code/2022/11/p1	chunk:06	dir:gugod_advent-of-code/2022/11	
+gugod_advent-of-code/2022/11/p2	chunk:07	dir:gugod_advent-of-code/2022/11	
+gugod_advent-of-code/2022/12/p1	chunk:09	dir:gugod_advent-of-code/2022/12	
+gugod_advent-of-code/2022/13/p1	chunk:07	dir:gugod_advent-of-code/2022/13	
+gugod_advent-of-code/2022/13/p2	chunk:07	dir:gugod_advent-of-code/2022/13	
+gugod_advent-of-code/2022/2/solve-1	chunk:07	dir:gugod_advent-of-code/2022/2	
+gugod_advent-of-code/2022/2/solve-2	chunk:07	dir:gugod_advent-of-code/2022/2	
+gugod_advent-of-code/2022/3/p1	chunk:07	dir:gugod_advent-of-code/2022/3	
+gugod_advent-of-code/2022/3/p2	chunk:07	dir:gugod_advent-of-code/2022/3	
+gugod_advent-of-code/2022/4/p1	chunk:07	dir:gugod_advent-of-code/2022/4	
+gugod_advent-of-code/2022/4/p2	chunk:07	dir:gugod_advent-of-code/2022/4	
+gugod_advent-of-code/2022/5/p1	chunk:07	dir:gugod_advent-of-code/2022/5	
+gugod_advent-of-code/2022/5/p2	chunk:07	dir:gugod_advent-of-code/2022/5	
+gugod_advent-of-code/2022/6/p1	chunk:07	dir:gugod_advent-of-code/2022/6	
+gugod_advent-of-code/2022/6/p2	chunk:07	dir:gugod_advent-of-code/2022/6	
+gugod_advent-of-code/2022/8/p1	chunk:07	dir:gugod_advent-of-code/2022/8	
+gugod_advent-of-code/2022/8/p2	chunk:07	dir:gugod_advent-of-code/2022/8	
+gugod_advent-of-code/2022/9/p1	chunk:07	dir:gugod_advent-of-code/2022/9	
+gugod_advent-of-code/2022/9/p2	chunk:07	dir:gugod_advent-of-code/2022/9	
+hubertwas_aoc/1/1	chunk:09	dir:hubertwas_aoc/1	
+hubertwas_aoc/2/2	chunk:09	dir:hubertwas_aoc/2	
+jakeactually_advent-of-code-2016/01/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/01/b	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/02/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/02/b	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/03/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/04/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/04/b	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/06/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/06/b	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/07/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/07/b	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/08/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/08/b	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/09/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/09/b	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/10/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/10/b	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/12/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/12/b	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/13/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/13/b	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/15/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/16/a	chunk:02	feat:language	language
+jakeactually_advent-of-code-2016/18/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2016/19/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2016/19/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2016/20/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2016/20/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2016/21/a	core	core	language want_rc
+jakeactually_advent-of-code-2016/21/b	core	core	language want_rc
+jakeactually_advent-of-code-2016/22/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2016/22/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2016/23/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2016/23/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2016/24/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2016/24/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2016/25/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/01/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/01/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/03/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/03/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/04/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/04/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/06/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/06/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/08/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/08/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/10/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/12/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/12/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/14/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/14/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/15/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/17/a2	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/20/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/20/b	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/22/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/24/a	chunk:03	feat:language	language
+jakeactually_advent-of-code-2019/24/b	chunk:03	feat:language	language
+jonasgheer_advent-of-code/2025/day01/main	chunk:07	dir:jonasgheer_advent-of-code/2025/day01	
+jonasgheer_advent-of-code/2025/day01/main2	chunk:07	dir:jonasgheer_advent-of-code/2025/day01	
+jonasgheer_advent-of-code/2025/day04/p1	chunk:07	dir:jonasgheer_advent-of-code/2025/day04	
+jonasgheer_advent-of-code/2025/day04/p2	chunk:07	dir:jonasgheer_advent-of-code/2025/day04	
+jonasgheer_advent-of-code/2025/day06/p1	chunk:09	dir:jonasgheer_advent-of-code/2025/day06	
+jt1796_AOC/2019/1	chunk:05	dir:jt1796_AOC/2019	
+jt1796_AOC/2019/10	chunk:05	dir:jt1796_AOC/2019	
+jt1796_AOC/2019/14	chunk:05	dir:jt1796_AOC/2019	
+jt1796_AOC/2019/15	chunk:05	dir:jt1796_AOC/2019	
+jt1796_AOC/2019/5	chunk:05	dir:jt1796_AOC/2019	
+jt1796_AOC/2019/6	chunk:05	dir:jt1796_AOC/2019	
+jt1796_AOC/2019/7	chunk:05	dir:jt1796_AOC/2019	
+jt1796_AOC/2019/8	chunk:05	dir:jt1796_AOC/2019	
+jt1796_AOC/2019/9	chunk:05	dir:jt1796_AOC/2019	
+jt1796_AOC/2020/d1	chunk:03	feat:language	language
+jt1796_AOC/2020/d10	chunk:03	feat:language	language
+jt1796_AOC/2020/d12	chunk:03	feat:language	language
+jt1796_AOC/2020/d13	chunk:03	feat:language	language
+jt1796_AOC/2020/d14	chunk:03	feat:language	language
+jt1796_AOC/2020/d16	chunk:03	feat:language	language
+jt1796_AOC/2020/d17	chunk:03	feat:language	language
+jt1796_AOC/2020/d18	chunk:03	feat:language	language
+jt1796_AOC/2020/d2	chunk:03	feat:language	language
+jt1796_AOC/2020/d21	chunk:03	feat:language	language
+jt1796_AOC/2020/d3	chunk:03	feat:language	language
+jt1796_AOC/2020/d4	chunk:03	feat:language	language
+jt1796_AOC/2020/d5	chunk:03	feat:language	language
+jt1796_AOC/2020/d6	chunk:03	feat:language	language
+jt1796_AOC/2020/d7	chunk:03	feat:language	language
+jt1796_AOC/2020/d8	chunk:03	feat:language	language
+jt1796_AOC/2020/d9	chunk:05	feat:want_rc	language want_rc
+jt1796_AOC/2021/d10	chunk:03	feat:language	language
+jt1796_AOC/2021/d11	chunk:05	feat:want_rc	language want_rc
+jt1796_AOC/2021/d12	chunk:03	feat:language	language
+jt1796_AOC/2021/d13	chunk:03	feat:language	language
+jt1796_AOC/2021/d14	chunk:03	feat:language	language
+jt1796_AOC/2021/d16	chunk:03	feat:language	language
+jt1796_AOC/2021/d2	chunk:03	feat:language	language
+jt1796_AOC/2021/d3	chunk:03	feat:language	language
+jt1796_AOC/2021/d4	chunk:03	feat:language	language
+jt1796_AOC/2021/d6	chunk:03	feat:language	language
+jt1796_AOC/2021/d7	chunk:03	feat:language	language
+jt1796_AOC/2021/d9	chunk:04	feat:language	language
+jt1796_AOC/2022/d1	chunk:04	feat:language	language
+jt1796_AOC/2022/d10	chunk:04	feat:language	language
+jt1796_AOC/2022/d12	chunk:05	feat:want_rc	language want_rc
+jt1796_AOC/2022/d13	chunk:04	feat:language	language
+jt1796_AOC/2022/d17	chunk:04	feat:language	language
+jt1796_AOC/2022/d18	chunk:04	feat:language	language
+jt1796_AOC/2022/d2	chunk:04	feat:language	language
+jt1796_AOC/2022/d3	chunk:04	feat:language	language
+jt1796_AOC/2022/d4	chunk:04	feat:language	language
+jt1796_AOC/2022/d5	chunk:04	feat:language	language
+jt1796_AOC/2022/d6	chunk:04	feat:language	language
+jt1796_AOC/2022/d7	chunk:04	feat:language	language
+jt1796_AOC/2022/d9	chunk:04	feat:language	language
+jt1796_AOC/2023/d1	chunk:04	feat:language	language
+jt1796_AOC/2023/d15	chunk:04	feat:language	language
+jt1796_AOC/2023/d2	chunk:04	feat:language	language
+jt1796_AOC/2023/d3	chunk:04	feat:language	language
+jt1796_AOC/2023/d4	chunk:04	feat:language	language
+jt1796_AOC/2023/d7	chunk:04	feat:language	language
+jt1796_AOC/2023/d9	chunk:04	feat:language	language
+nikola-benes_aoc2021raku/04	chunk:05	feat:want_rc	want_rc
+nikola-benes_aoc2021raku/07	chunk:05	dir:nikola-benes_aoc2021raku	
+nikola-benes_aoc2021raku/08	chunk:05	dir:nikola-benes_aoc2021raku	
+nikola-benes_aoc2021raku/17	chunk:05	dir:nikola-benes_aoc2021raku	
+nikola-benes_aoc2021raku/20	chunk:05	dir:nikola-benes_aoc2021raku	
+nikola-benes_aoc2021raku/22a	chunk:05	dir:nikola-benes_aoc2021raku	
+nikola-benes_aoc2021raku/22b	chunk:05	dir:nikola-benes_aoc2021raku	
+patch_aoc/2020/day1	chunk:09	dir:patch_aoc/2020	
+patch_aoc/2021/day5	chunk:07	dir:patch_aoc/2021	
+patch_aoc/2021/day7	chunk:07	dir:patch_aoc/2021	
+patch_aoc/2022/day3	chunk:05	dir:patch_aoc/2022	
+patch_aoc/2022/day6	chunk:05	dir:patch_aoc/2022	
+patch_aoc/2022/day7	chunk:05	dir:patch_aoc/2022	
+rawleyfowler_aoc-2022/2022/1/day1	chunk:07	dir:rawleyfowler_aoc-2022/2022/1	
+rawleyfowler_aoc-2022/2022/1/day1_async	chunk:07	dir:rawleyfowler_aoc-2022/2022/1	
+rawleyfowler_aoc-2022/2022/10/day10	chunk:09	dir:rawleyfowler_aoc-2022/2022/10	
+rawleyfowler_aoc-2022/2022/2/day2	chunk:09	dir:rawleyfowler_aoc-2022/2022/2	
+rawleyfowler_aoc-2022/2022/3/day3	chunk:09	dir:rawleyfowler_aoc-2022/2022/3	
+rawleyfowler_aoc-2022/2022/4/day4	chunk:09	dir:rawleyfowler_aoc-2022/2022/4	
+rawleyfowler_aoc-2022/2022/6/day6	chunk:09	dir:rawleyfowler_aoc-2022/2022/6	
+rawleyfowler_aoc-2022/2022/7/day7	chunk:09	dir:rawleyfowler_aoc-2022/2022/7	
+rawleyfowler_aoc-2022/2022/8/day8	chunk:09	dir:rawleyfowler_aoc-2022/2022/8	
+rawleyfowler_aoc-2022/2022/9/day9	chunk:09	dir:rawleyfowler_aoc-2022/2022/9	
+seaker_advent-of-code/2020/10/tribonacci	chunk:09	dir:seaker_advent-of-code/2020/10	
+seaker_advent-of-code/2020/20/t	chunk:09	dir:seaker_advent-of-code/2020/20	
+seaker_advent-of-code/2020/25/s	chunk:09	dir:seaker_advent-of-code/2020/25	
+tsmall_advent-of-code/2015/01/perl6/solution	chunk:04	feat:language	language
+tsmall_advent-of-code/2015/02/perl6/solution	chunk:04	feat:language	language
+tsmall_advent-of-code/2015/03/perl6/solution	chunk:04	feat:language	language
+tsmall_advent-of-code/2015/05/perl6/solution	chunk:04	feat:language	language
+tsmall_advent-of-code/2015/15/perl6/solution	chunk:05	feat:want_rc	language want_rc
+tsmall_advent-of-code/2015/17/perl6/solution	chunk:04	feat:language	language
+tsmall_advent-of-code/2022/10/raku/solution	chunk:09	dir:tsmall_advent-of-code/2022/10/raku	
+tsmall_advent-of-code/2022/16/raku/solution	chunk:09	dir:tsmall_advent-of-code/2022/16/raku	
+tsmall_advent-of-code/2022/17/raku/solution	chunk:09	dir:tsmall_advent-of-code/2022/17/raku	
+tsmall_advent-of-code/2022/22/raku/solution	chunk:09	dir:tsmall_advent-of-code/2022/22/raku	
+vaskozl_AdventOfCode/2021/1/part_2	chunk:09	dir:vaskozl_AdventOfCode/2021/1	
+vaskozl_AdventOfCode/2021/10/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/10	
+vaskozl_AdventOfCode/2021/10/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/10	
+vaskozl_AdventOfCode/2021/11/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/11	
+vaskozl_AdventOfCode/2021/11/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/11	
+vaskozl_AdventOfCode/2021/12/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/12	
+vaskozl_AdventOfCode/2021/12/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/12	
+vaskozl_AdventOfCode/2021/13/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/13	
+vaskozl_AdventOfCode/2021/13/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/13	
+vaskozl_AdventOfCode/2021/14/part_1_and_2	chunk:09	dir:vaskozl_AdventOfCode/2021/14	
+vaskozl_AdventOfCode/2021/2/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/2	
+vaskozl_AdventOfCode/2021/2/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/2	
+vaskozl_AdventOfCode/2021/3/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/3	
+vaskozl_AdventOfCode/2021/3/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/3	
+vaskozl_AdventOfCode/2021/4/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/4	
+vaskozl_AdventOfCode/2021/4/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/4	
+vaskozl_AdventOfCode/2021/5/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/5	
+vaskozl_AdventOfCode/2021/5/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/5	
+vaskozl_AdventOfCode/2021/6/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/6	
+vaskozl_AdventOfCode/2021/6/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/6	
+vaskozl_AdventOfCode/2021/7/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/7	
+vaskozl_AdventOfCode/2021/7/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/7	
+vaskozl_AdventOfCode/2021/8/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/8	
+vaskozl_AdventOfCode/2021/8/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/8	
+vaskozl_AdventOfCode/2021/9/part_1	chunk:07	dir:vaskozl_AdventOfCode/2021/9	
+vaskozl_AdventOfCode/2021/9/part_2	chunk:07	dir:vaskozl_AdventOfCode/2021/9	
