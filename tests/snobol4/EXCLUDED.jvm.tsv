@@ -1,4 +1,7 @@
 # EXCLUDED.jvm.tsv -- tests/snobol4 (the SNOBOL4 rungs master): the entries that leave snobol4jvm's denominator ALONE, read by util_score_row.py only for a key @jvm
 # (R-1864 (4); harness of 2026-11-17 reads a master's engine list). SCRIP's rows and the dotnet engine's never read it. Class NO_CASE_FOLDING_BY_LON (Lon
 # 2026-11-17 18:2x CST, in the JVM window, verbatim: "We WILL NEVER support case-folding."): an entry whose sbl -bf answer turns on the folding &CASE = 1 turns on.
+# Class SNOBOL4PP_EXTENSION_KEPT_BY_LON (Lon 2026-11-17 18:1x CST, in the JVM window: "let's do more of a SNOBOL4++ where it has all extensions and keeps the dynamic
+# power of SNOBOL4"): an entry whose sbl -bf answer turns on a SPITBOL restriction snobol4jvm lifts; its SPITBOL ref stands.
 keyword_replace_branch_14	NO_CASE_FOLDING_BY_LON	sets &CASE = 1, after which sbl -bf folds the lower case names EVAL and CODE read; snobol4jvm never folds case (Lon 2026-11-17 18:2x CST, measured on 1e740ad)
+test_smoke_expr_parser	SNOBOL4PP_EXTENSION_KEPT_BY_LON	sbl -bf ends line 20, DEFINE('ITEM()'), with ERROR 248 (attempted redefinition of system function); CSNOBOL4 -b and snobol4jvm ccbd25c let a DEFINE replace a system function, and both then end at line 28, statement 9, an undefined function (CSNOBOL4 Error 5, the port 022)
