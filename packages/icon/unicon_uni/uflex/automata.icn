@@ -1,0 +1,287 @@
+#
+# functions that allow the automata to operate.
+# inspired by code by Katie Ray
+#
+
+record edge(symbol, destinations)
+# record edgelist(current, _next)
+record anode(label, rulenum, edges, epsilon, dot, semaction)
+record anodelist(current, _next)
+record automata(start, states, accepting)
+record automatadfa(start, states, accepting, dfatable)
+
+procedure alcedge(sym)
+   return edge(sym);
+end
+
+procedure alcanode(lab)
+   local a := anode(lab);
+   a.rulenum := 0;
+   return a;
+end
+
+procedure alcnodelist()
+   return anodelist();
+end
+
+procedure alcautomata()
+   return automata();
+end
+
+#
+# label all states in an automaton with an increasing numeric sequence.
+#
+procedure labelaut(aut)
+   local statelist := aut.states;
+   local lab := 0;
+
+#   every i := 1 to *statelist do {
+#      statelist[i].label := lab
+   while \statelist do {
+      statelist.current.label := lab;
+      statelist := statelist._next;
+      lab +:= 1
+      };
+end
+
+procedure printautomata(myautomata)
+   local state, states, states2, edges, edge;
+
+   states := myautomata.states;
+   while \states do {
+      state := states.current;
+      printf("state %d rule %d %s\n",
+             state.label, state.rulenum,
+             (if nodemember(state.label, myautomata.accepting) then "acc" else ""));
+      edges := state.edges;
+      every edge := !\edges do {
+         writes("   ", if edge.symbol~=="\n"then edge.symbol else "\\n",
+                " -> ");
+
+         states2 := edge.destinations;
+         while \states2 do {
+            writes( states2.current.label, " ");
+            states2 := states2._next
+            };
+         write()
+         };
+      states := states._next
+      };
+end
+
+procedure createicon(myautomata)
+   local state, states, states2, edges, edge, maxrulenum := 0, i, action;
+
+   if \debugautomaton then {
+      printautomata(myautomata);
+      exit(0)
+      };
+
+   if not (outfile := open(outfilename, "w")) then {
+      fprintf(stderr, "Unable to open output file %s\n", outfilename);
+      exit(1)
+      };
+
+   # -dfa option - convert to dfa using automatadfa.icn
+   if \debugdfa then {
+       states2dfatable(myautomata, outfile);
+       return
+   };
+
+   #
+   # write out the standard skeleton automata code
+   #
+   ulexskel(outfile);
+
+   if \begintext then {
+      fprintf(outfile, "%s\n", begintext)
+      };
+
+   fprintf(outfile,
+           "global semantic_action\n\n_
+           procedure yylex()\n_
+           static myautomata\n_
+           local currstate, state2, tempedge\n\n_
+           \   myautomata := automata()\n\n_
+           \   myautomata.states := []\n_
+           \   myautomata.accepting := []\n");
+
+   states := myautomata.states;
+   while \states do {
+      state := states.current;
+      fprintf(outfile,
+         "   put(myautomata.states, currstate := anode(%d, %d, [], [], []))\n",
+              states.current.label, states.current.rulenum);
+
+      if state.label == myautomata.start.label then
+        fprintf(outfile, "   myautomata.start := currstate\n");
+
+      if nodemember(state.label, myautomata.accepting) then {
+         fprintf(outfile, "   put(myautomata.accepting, currstate)\n");
+         if state.rulenum > maxrulenum then
+            maxrulenum := state.rulenum
+         };
+
+      fprintf(outfile, "\n");
+      states := states._next
+      };
+
+   states := myautomata.states;
+   while \states do {
+      state := states.current;
+      fprintf(outfile,
+              "   currstate := pop(myautomata.states)\n_
+              \   put(myautomata.states, currstate)\n\n_
+              \   while currstate.label ~= %d do {\n_
+              \      currstate := pop(myautomata.states)\n_
+              \      put(myautomata.states, currstate)\n      }\n_
+              \   state2 := currstate\n\n",
+              state.label);
+
+      states2 := state.epsilon;
+      while \states2 do {
+         fprintf(outfile,
+                 "   currstate := pop(myautomata.states)\n_
+                 \   put(myautomata.states, currstate)\n\n_
+                 \   while currstate.label ~= %d do {\n_
+                 \      currstate := pop(myautomata.states)\n_
+                 \      put(myautomata.states, currstate)\n      }\n_
+                 \   put(state2.epsilon, currstate)\n\n",
+                 states2.current.label);
+         states2 := states2._next
+         };
+
+      states2 := state.dot;
+      while \states2 do {
+         fprintf(outfile,
+                 "   currstate := pop(myautomata.states)\n_
+                 \   put(myautomata.states, currstate)\n\n_
+                 \   while currstate.label ~= %d do {\n_
+                 \      currstate := pop(myautomata.states)\n_
+                 \      put(myautomata.states, currstate)\n      }\n_
+                 \   put(state2.dot, currstate)\n\n",
+                 states2.current.label);
+         states2 := states2._next
+         };
+
+      edges := state.edges;
+      every edge := !\edges do {
+         fprintf(outfile, "   tempedge := edge()\n");
+
+         if edge.symbol == "\n" then
+            fprintf(outfile, "   tempedge.symbol := \"\\n\"\n")
+         else {
+            if ((edge.symbol[1] == "[") & (*edge.symbol> 1))  then
+              fprintf(outfile, "   tempedge.symbol := csetfromrecset(\"%s\")\n",
+                  escapify(edge.symbol))
+            else fprintf(outfile, "   tempedge.symbol := \"%s\"\n",
+              escapify(edge.symbol))
+         };
+
+         fprintf(outfile, "   tempedge.destinations := []\n");
+
+         states2 := edge.destinations;
+         while \states2 do {
+            fprintf(outfile, "   currstate := pop(myautomata.states)\n_
+                    \   put(myautomata.states, currstate)\n\n_
+                    \   while currstate.label ~= %d do {\n_
+                    \      currstate := pop(myautomata.states)\n_
+                    \      put(myautomata.states, currstate)\n      }\n_
+                    \   put(tempedge.destinations, currstate)\n\n_
+                    \   put(state2.edges, tempedge)\n",
+                    states2.current.label);
+            states2 := states2._next
+            }
+	 };
+
+      states := states._next
+      };
+
+   fprintf(outfile,
+           "   init_semantic_actions()\n\n_
+           \   return yyulex(myautomata)\n\n_
+           end\n\n_
+           procedure init_semantic_actions()\n\n_
+           \   semantic_action := table()\n");
+
+   action := list(maxrulenum+1, 0);
+
+   every i := 1 to maxrulenum do {
+      fprintf(outfile, "   semantic_action[%d] := semantic_action_%d\n", i, i)
+      };
+
+   fprintf(outfile, "\nend\n\n");
+
+   states := myautomata.accepting;
+   while \states do {
+      state := states.current;
+      if action[state.rulenum] == 0 then {
+         fprintf(outfile,
+                 "procedure semantic_action_%d()\n_
+                 \   %s\n_
+                 end\n\n",
+                 state.rulenum,
+                 state.semaction);
+         action[state.rulenum] := 1
+         };
+      states := states._next
+      };
+end
+
+procedure nodemember(nodelabel, nodelist)
+   local traverse := nodelist;
+
+   while \traverse do {
+      if traverse.current.label == nodelabel then
+         return 1;
+      traverse := traverse._next
+      };
+end
+
+# Escape things that appeared in Lex source code for
+# semantic preservation within a Unicon string literal.
+# Should do all legal lex escapes, many of which are
+# identical in a Unicon string literal.  May be applied
+# at present only to single-characters by themselves,
+# and entire square bracket cset [].
+# Escapify rules might be different in [] re-csets
+# Might also want to do flex octal, hex, and nul here.
+# Note: The flex manual defines as \a having the ANSI-C
+# interpretation, but \a is famously not in Icon.
+procedure escapify(s)
+   if *s > 1 then {
+      if s[1] == "\\" then {
+         # a flex in-cset escape should not result in
+         # extra piling-up of backslashes, etc. On the other hand,
+         # a flex escape eaten by Unicon string literal syntax will
+         # not be the escaped thing at the other end that is needed.
+         case s[2] of {
+         "a": { return "\\\\a" || escapify(s[3:0]) };
+         "b": { return "\\\\b" || escapify(s[3:0]) };
+         "f": { return "\\\\f" || escapify(s[3:0]) };
+         "n": { return "\\\\n" || escapify(s[3:0]) };
+         "r": { return "\\\\r" || escapify(s[3:0]) };
+         "t": { return "\\\\t" || escapify(s[3:0]) };
+         "v": { return "\\\\v" || escapify(s[3:0]) };
+         "\"": { return "\\\"" || escapify(s[3:0]) };
+         "\\": { return "\\\\\\\\" || escapify(s[3:0]) }
+         }
+         };
+      return escapify(s[1])||escapify(s[2:0])
+      };
+   case s of  {
+#      "\a": { return "\\a"; } # doesn't work \a is a in Unicon
+      "\b": { return "\\b"; };
+      "\f": { return "\\f"; };
+      "\n": { return "\\n"; };
+      "\r": { return "\\r"; };
+      "\t": { return "\\t"; };
+      "\v": { return "\\v"; };
+      "\"": { return "\\\""; };
+      "\\": { return "\\\\"; }
+#      default: {
+          # by default \\X means X, literally, as in \*
+#      }
+      };
+   return s;
+end
