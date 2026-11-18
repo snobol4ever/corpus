@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=43 features=65 ubiquitous=12(package write read every while procedure local alternation to_by assign aug_assign gen_with_alternation) distinctive=53 core=14 clusters=19 chunks=1 sizes=29
+# shape: entries=45 features=65 ubiquitous=12(package write read every while procedure local alternation to_by assign aug_assign gen_with_alternation) distinctive=53 core=14 clusters=19 chunks=1 sizes=31
 entry	part	cluster	shells
 gprogs/breakout	chunk:01	dir:gprogs	
 gprogs/browser	chunk:01	dir:gprogs	
@@ -45,3 +45,5 @@ progs/headicon	chunk:01	feat:want_rc	fixtures image scan scan_with_tab section s
 progs/hr	core	core	break case element_gen global integer keyword_ref limitation list many map next put repeat repl return scan scan_with_tab section sort static stop tab table trim upto want_rc writes
 progs/newicon	chunk:01	feat:fixtures	fixtures limitation section stop
 progs/parens	chunk:01	feat:global	global limitation return scan
+progs/isd2wif	chunk:01	feat:coexpr_activate	coexpr_activate fixtures keyword_ref return scan section stop upto
+progs/isize	chunk:01	feat:want_rc	fixtures limitation many pos scan scan_with_tab stop tab want_rc writes

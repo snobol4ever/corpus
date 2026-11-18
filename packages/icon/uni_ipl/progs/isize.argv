@@ -1,0 +1,2 @@
+# isize.argv -- the declared argv sidecar: the file to measure, staged by isize.fixtures/
+isize_sample.txt

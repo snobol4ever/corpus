@@ -9,3 +9,4 @@ progs/lcn	LCN_Mixed.TXT
 progs/headicon	hdr_demo	Ada Lovelace
 progs/newicon	newi_demo	Ada Lovelace
 progs/parens	-v	-b	4	-l	begin 	-r	end 
+progs/isize	isize_sample.txt

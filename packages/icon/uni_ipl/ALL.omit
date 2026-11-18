@@ -1,6 +1,4 @@
 progs/hebeng: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/htget: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/isd2wif: oracle produced EMPTY output -- refusing to mint a vacuous ref
-progs/isize: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/snake: oracle produced EMPTY output -- refusing to mint a vacuous ref
 progs/weblinks: oracle produced EMPTY output -- refusing to mint a vacuous ref
