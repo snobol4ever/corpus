@@ -1,0 +1,37 @@
+d/dx 7
+     = 0                                           the slope agrees at three points
+d/dx x
+     = 1                                           the slope agrees at three points
+d/dx 3*x + 5
+     = 3                                           the slope agrees at three points
+d/dx x^4
+     = 4*x^3                                       the slope agrees at three points
+d/dx x^3 - 2*x^2 + x - 9
+     = 3*x^2 - 4*x + 1                             the slope agrees at three points
+d/dx x*sin(x)
+     = sin(x) + x*cos(x)                           the slope agrees at three points
+d/dx sin(x)/x
+     = (x*cos(x) - sin(x))/x^2                     the slope agrees at three points
+d/dx sin(x^2)
+     = 2*x*cos(x^2)                                the slope agrees at three points
+d/dx exp(-x^2)
+     = -2*x*exp(-x^2)                              the slope agrees at three points
+d/dx ln(3*x + 1)
+     = 3/(3*x + 1)                                 the slope agrees at three points
+d/dx sqrt(x)*cos(x)
+     = cos(x)/(2*sqrt(x)) - sin(x)*sqrt(x)         the slope agrees at three points
+d/dx tan(2*x)
+     = 2/cos(2*x)^2                                the slope agrees at three points
+d/dx (x^2 + 1)^3
+     = 6*x*(x^2 + 1)^2                             the slope agrees at three points
+d/dt a*t^2 + b*t + c
+     = 2*a*t + b                                   the slope agrees at three points
+d/dx x^x
+     = (ln(x) + 1)*x^x                             the slope agrees at three points
+d/dx 3*x + * 5
+           ^ not a formula from column 12
+d/dx sin(x
+          ^ not a formula from column 11
+d/dx sin(x)^2 + cos(x)^2
+     = 0                                           the slope agrees at three points
+18 lines read by SNOBOL4, 16 derivatives proved by Prolog, 16 checked by Icon and found to agree
