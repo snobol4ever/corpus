@@ -1,0 +1,37 @@
+# browser: its work is a file chosen in its navigator, whose title and list name the run folder, which differs between the oracle cut and a graded run.
+# So the navigator is opened (Alt-f, after the opening still picture, the window mapped), taken up to the root by ../ (more clicks than any run folder is
+# deep; at / a ../ stays at /), then into /cdrom, a folder of the machine that is empty on every road; no picture is taken between, so each line is the same
+# on every road. Then the program quits by its own key, Alt-q.
+move 100 100
+keydown Alt_L
+key f
+keyup Alt_L
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 72
+click 1 50 125
+wait
+keydown Alt_L
+key q
+keyup Alt_L
