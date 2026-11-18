@@ -60,7 +60,7 @@ end
 
 procedure lock_object()
    repeat{
-      @>>  
+      @>>;  
          <<@ 
          };
 end
