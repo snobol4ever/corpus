@@ -1,0 +1,34 @@
+
+
+
+dump of natural variables
+
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 10
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'setexit2.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'setexit2.sno'
+&LASTLINE = 11
+&LASTNO = 10
+&LINE = 12
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 5
+&STLIMIT = 2147483647
+&STNO = 11
+&TRACE = 0
+&TRIM = 1

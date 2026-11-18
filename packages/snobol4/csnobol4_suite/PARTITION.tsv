@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=95 features=35 ubiquitous=1(package) distinctive=34 core=19 clusters=38 chunks=1 sizes=76
+# shape: entries=101 features=36 ubiquitous=1(package) distinctive=35 core=22 clusters=37 chunks=1 sizes=79
 entry	part	cluster	shells
 100func	chunk:01	feat:DEFINE	DEFINE
 8bit	core	core	BREAK DEFINE LEN POS TAB cond_assign keyword_ref
@@ -76,24 +76,30 @@ uneval2	chunk:01	family:uneval
 tab	core	core	ARRAY CONVERT REPLACE SPAN TABLE cond_assign keyword_ref
 base	chunk:01	family:base	
 breakline	chunk:01	family:breakline	
-digits	chunk:01	feat:keyword_ref	keyword_ref
 file	core	core	APPLY DEFINE
 float2	chunk:01	feat:CONVERT	CONVERT goto_success
 func2	chunk:01	feat:DEFINE	DEFINE
-function	chunk:01	feat:DEFINE	DEFINE keyword_ref
 json1	core	core	ARRAY CODE DEFINE goto_fail goto_success keyword_ref
 k	chunk:01	family:k	
-label	chunk:01	feat:DEFINE	DEFINE keyword_ref
-labelcode	chunk:01	family:labelcode	
 loaderr	chunk:01	feat:DEFINE	DEFINE
-maxint	chunk:01	feat:keyword_ref	keyword_ref
 openi	chunk:01	feat:goto_success	goto_success
 openo	chunk:01	family:openo	
 openo2	chunk:01	feat:goto_success	goto_success
 popen	chunk:01	feat:alternation	alternation
 popen2	chunk:01	feat:alternation	alternation
 random	chunk:01	family:random	
-setexit4	chunk:01	feat:DEFINE	DEFINE keyword_ref
 t	chunk:01	feat:DEFINE	DEFINE keyword_ref
 update	chunk:01	family:update	
-vdiffer	chunk:01	family:vdiffer	
+collect	chunk:01	feat:dump	dump
+end	chunk:01	feat:dump	dump
+include2	chunk:01	feat:dump	dump
+include3	chunk:01	feat:dump	dump
+include4	chunk:01	feat:dump	dump
+loop	core	core	dump goto_success keyword_ref
+matchloop	core	core	dump goto_success keyword_ref
+preload1	chunk:01	feat:dump	dump
+preload2	chunk:01	feat:dump	dump
+preload3	chunk:01	feat:dump	dump
+preload4	chunk:01	feat:dump	dump
+punch	chunk:01	feat:dump	dump
+setexit2	core	core	dump keyword_ref
