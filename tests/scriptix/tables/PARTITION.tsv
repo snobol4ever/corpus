@@ -1,0 +1,29 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=25 features=1 ubiquitous=1(package) distinctive=0 core=2 clusters=23 chunks=1 sizes=23
+entry	part	cluster	shells
+snobol4_to_snobol4	core	core	
+snobol4_to_snocone	core	core	
+snobol4_to_rebus	chunk:01	family:snobol_to_rebus	
+snobol4_to_icon	chunk:01	family:snobol_to_icon	
+snobol4_to_raku	chunk:01	family:snobol_to_raku	
+snocone_to_snobol4	chunk:01	family:snocone_to_snobol	
+snocone_to_snocone	chunk:01	family:snocone_to_snocone	
+snocone_to_rebus	chunk:01	family:snocone_to_rebus	
+snocone_to_icon	chunk:01	family:snocone_to_icon	
+snocone_to_raku	chunk:01	family:snocone_to_raku	
+rebus_to_snobol4	chunk:01	family:rebus_to_snobol	
+rebus_to_snocone	chunk:01	family:rebus_to_snocone	
+rebus_to_rebus	chunk:01	family:rebus_to_rebus	
+rebus_to_icon	chunk:01	family:rebus_to_icon	
+rebus_to_raku	chunk:01	family:rebus_to_raku	
+icon_to_snobol4	chunk:01	family:icon_to_snobol	
+icon_to_snocone	chunk:01	family:icon_to_snocone	
+icon_to_rebus	chunk:01	family:icon_to_rebus	
+icon_to_icon	chunk:01	family:icon_to_icon	
+icon_to_raku	chunk:01	family:icon_to_raku	
+raku_to_snobol4	chunk:01	family:raku_to_snobol	
+raku_to_snocone	chunk:01	family:raku_to_snocone	
+raku_to_rebus	chunk:01	family:raku_to_rebus	
+raku_to_icon	chunk:01	family:raku_to_icon	
+raku_to_raku	chunk:01	family:raku_to_raku	

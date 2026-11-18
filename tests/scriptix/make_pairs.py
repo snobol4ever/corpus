@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # THE CROSS-LANGUAGE PAIRS (the cao 2026-11-18, on Lon's four words of that morning through the chairman).
-# One table, two sets (variables, functions), the full square of the seven languages (49 ordered pairs each,
-# a language against itself included). THE SOURCE OF TRUTH IS THIS TABLE: it writes each pair's SCRIPtix
+# One table, five sets: variables and functions (two cells a pair) and records, sequences and tables (three cells a pair: A makes, B reads and makes one back, A reads it),
+# the full square of the seven languages (49 ordered pairs each, a language against itself included; the tables set has no Pascal and no Prolog, which have no table). THE SOURCE OF TRUTH IS THIS TABLE: it writes each pair's SCRIPtix
 # document A_to_B.md and, from the same two cells in the same order, its Jupyter notebook A_to_B.ipynb, and the one
 # expected output A_to_B.out, cut by construction (no oracle runs a document of two languages).
 # Every Pascal cell carries {$mode objfpc}: a Pascal text with no mode line is graded ISO (skill pascal), where an
@@ -64,6 +64,114 @@ def fun_use(b, a):
                    "say \"twice {TWICE(7)}\";\nsay \"shout {SHOUT('seven')}\";\n",
     }[b]
 
+
+S4 = "        "
+STRUCT_LANGS = {"records": LANGS, "sequences": LANGS, "tables": ["snobol4", "snocone", "rebus", "icon", "raku"]}
+PAS_TREE = "type\n  ptree = ^tree;\n  tree = record t: string; v: string; n: integer; c: array[1..2] of ptree end;\n"
+PAS_NODE = "  new(%s); %s^.t := '%s'; %s^.v := '%s'; %s^.n := %s; %s^.c[1] := %s; %s^.c[2] := %s;\n"
+
+def pas_leaf(x, v):
+    return PAS_NODE % (x, x, "num", x, v, x, 0, x, "nil", x, "nil")
+
+def pas_root(x, t, v, l, r):
+    return PAS_NODE % (x, x, t, x, v, x, 2, x, l, x, r)
+
+STRUCT_DEF = {
+    "records": {
+        "snobol4": "        DATA('tree(t,v,n,c)')\n        K = ARRAY(2)\n        K[1] = tree('num', '1', 0)\n        K[2] = tree('num', '2', 0)\n        ROOT = tree('plus', '+', 2, K)\nEND\n",
+        "snocone": "DATA('tree(t,v,n,c)');\nK = ARRAY(2);\nK[1] = tree('num', '1', 0);\nK[2] = tree('num', '2', 0);\nROOT = tree('plus', '+', 2, K);\n",
+        "rebus":   "record tree(t, v, n, c)\nfunction main()\n  K := ARRAY(2)\n  K[1] := tree(\"num\", \"1\", 0)\n  K[2] := tree(\"num\", \"2\", 0)\n  ROOT := tree(\"plus\", \"+\", 2, K)\nend\n",
+        "icon":    "record tree(t, v, n, c)\nglobal ROOT\nprocedure main();\n  ROOT := tree(\"plus\", \"+\", 2, [tree(\"num\", \"1\", 0), tree(\"num\", \"2\", 0)]);\nend\n",
+        "pascal":  "{$mode objfpc}\nprogram define;\n" + PAS_TREE + "var ROOT: ptree;\n    a, b: ptree;\nbegin\n" + pas_leaf("a", "1") + pas_leaf("b", "2") + pas_root("ROOT", "plus", "+", "a", "b").rstrip(";\n") + "\nend.\n",
+        "prolog":  ":- nb_setval('ROOT', tree(plus, '+', 2, [tree(num, '1', 0, []), tree(num, '2', 0, [])])).\n",
+        "raku":    "class tree { has $.t; has $.v; has $.n; has $.c; }\nour $ROOT = tree.new(t => 'plus', v => '+', n => 2, c => [tree.new(t => 'num', v => '1', n => 0), tree.new(t => 'num', v => '2', n => 0)]);\n",
+    },
+    "sequences": {
+        "snobol4": "        SEQ = ARRAY(3)\n        SEQ[1] = 10\n        SEQ[2] = 20\n        SEQ[3] = 30\nEND\n",
+        "snocone": "SEQ = ARRAY(3);\nSEQ[1] = 10;\nSEQ[2] = 20;\nSEQ[3] = 30;\n",
+        "rebus":   "function main()\n  SEQ := ARRAY(3)\n  SEQ[1] := 10\n  SEQ[2] := 20\n  SEQ[3] := 30\nend\n",
+        "icon":    "global SEQ\nprocedure main();\n  SEQ := [10, 20, 30];\nend\n",
+        "pascal":  "{$mode objfpc}\nprogram define;\nvar SEQ: array[1..3] of integer;\nbegin\n  SEQ[1] := 10;\n  SEQ[2] := 20;\n  SEQ[3] := 30\nend.\n",
+        "prolog":  ":- nb_setval('SEQ', [10, 20, 30]).\n",
+        "raku":    "our $SEQ = [10, 20, 30];\n",
+    },
+    "tables": {
+        "snobol4": "        TAB = TABLE()\n        TAB['one'] = 1\n        TAB['two'] = 2\nEND\n",
+        "snocone": "TAB = TABLE();\nTAB['one'] = 1;\nTAB['two'] = 2;\n",
+        "rebus":   "function main()\n  TAB := TABLE()\n  TAB[\"one\"] := 1\n  TAB[\"two\"] := 2\nend\n",
+        "icon":    "global TAB\nprocedure main();\n  TAB := table();\n  TAB[\"one\"] := 1;\n  TAB[\"two\"] := 2;\nend\n",
+        "raku":    "our $TAB = {one => 1, two => 2};\n",
+    },
+}
+
+def struct_use(kind, b, a):
+    same = a == b
+    if kind == "records":
+        return {
+            "snobol4": "        DATA('tree(t,v,n,c)')\n        OUTPUT = 'root ' t(ROOT) ' ' n(ROOT)\n        K = c(ROOT)\n        OUTPUT = 'leaves ' v(K[1]) ' ' v(K[2])\n        J = ARRAY(2)\n        J[1] = tree('num', '3', 0)\n        J[2] = tree('num', '4', 0)\n        BACK = tree('times', '*', 2, J)\nEND\n",
+            "snocone": "DATA('tree(t,v,n,c)');\nOUTPUT = 'root ' t(ROOT) ' ' n(ROOT);\nK = c(ROOT);\nOUTPUT = 'leaves ' v(K[1]) ' ' v(K[2]);\nJ = ARRAY(2);\nJ[1] = tree('num', '3', 0);\nJ[2] = tree('num', '4', 0);\nBACK = tree('times', '*', 2, J);\n",
+            "rebus":   "record tree(t, v, n, c)\nfunction main()\n  OUTPUT := \"root \" || t(ROOT) || \" \" || n(ROOT)\n  K := c(ROOT)\n  OUTPUT := \"leaves \" || v(K[1]) || \" \" || v(K[2])\n  J := ARRAY(2)\n  J[1] := tree(\"num\", \"3\", 0)\n  J[2] := tree(\"num\", \"4\", 0)\n  BACK := tree(\"times\", \"*\", 2, J)\nend\n",
+            "icon":    "record tree(t, v, n, c)\nglobal ROOT, BACK\nprocedure main();\n  write(\"root \", ROOT.t, \" \", ROOT.n);\n  write(\"leaves \", ROOT.c[1].v, \" \", ROOT.c[2].v);\n  BACK := tree(\"times\", \"*\", 2, [tree(\"num\", \"3\", 0), tree(\"num\", \"4\", 0)]);\nend\n",
+            "pascal":  "{$mode objfpc}\nprogram use;\n" + PAS_TREE +
+                       ("var ROOT: ptree;\n    BACK: ptree;\n" if same else "var ROOT: ptree; external name 'ROOT';\n    BACK: ptree; external name 'BACK';\n") +
+                       "    a, b: ptree;\nbegin\n  writeln('root ', ROOT^.t, ' ', ROOT^.n);\n  writeln('leaves ', ROOT^.c[1]^.v, ' ', ROOT^.c[2]^.v);\n" +
+                       pas_leaf("a", "3") + pas_leaf("b", "4") + pas_root("BACK", "times", "*", "a", "b").rstrip(";\n") + "\nend.\n",
+            "prolog":  ":- nb_getval('ROOT', R), R = tree(T, _, N, [tree(_, V1, _, _), tree(_, V2, _, _)]), write('root '), write(T), write(' '), write(N), nl, write('leaves '), write(V1), write(' '), write(V2), nl.\n:- nb_setval('BACK', tree(times, '*', 2, [tree(num, '3', 0, []), tree(num, '4', 0, [])])).\n",
+            "raku":    "class tree { has $.t; has $.v; has $.n; has $.c; }\nour $ROOT;\nour $BACK;\nsay \"root {$ROOT.t} {$ROOT.n}\";\nsay \"leaves {$ROOT.c[0].v} {$ROOT.c[1].v}\";\n$BACK = tree.new(t => 'times', v => '*', n => 2, c => [tree.new(t => 'num', v => '3', n => 0), tree.new(t => 'num', v => '4', n => 0)]);\n",
+        }[b]
+    if kind == "sequences":
+        return {
+            "snobol4": "        OUTPUT = 'size ' PROTOTYPE(SEQ)\n        OUTPUT = 'second ' SEQ[2]\n        BACK = ARRAY(3)\n        BACK[1] = 40\n        BACK[2] = 50\n        BACK[3] = 60\nEND\n",
+            "snocone": "OUTPUT = 'size ' PROTOTYPE(SEQ);\nOUTPUT = 'second ' SEQ[2];\nBACK = ARRAY(3);\nBACK[1] = 40;\nBACK[2] = 50;\nBACK[3] = 60;\n",
+            "rebus":   "function main()\n  OUTPUT := \"size \" || PROTOTYPE(SEQ)\n  OUTPUT := \"second \" || SEQ[2]\n  BACK := ARRAY(3)\n  BACK[1] := 40\n  BACK[2] := 50\n  BACK[3] := 60\nend\n",
+            "icon":    "global SEQ, BACK\nprocedure main();\n  write(\"size \", *SEQ);\n  write(\"second \", SEQ[2]);\n  BACK := [40, 50, 60];\nend\n",
+            "pascal":  "{$mode objfpc}\nprogram use;\n" +
+                       ("var SEQ: array[1..3] of integer;\n    BACK: array[1..3] of integer;\n" if same else "var SEQ: array[1..3] of integer; external name 'SEQ';\n    BACK: array[1..3] of integer; external name 'BACK';\n") +
+                       "begin\n  writeln('size ', high(SEQ) - low(SEQ) + 1);\n  writeln('second ', SEQ[2]);\n  BACK[1] := 40;\n  BACK[2] := 50;\n  BACK[3] := 60\nend.\n",
+            "prolog":  ":- nb_getval('SEQ', S), length(S, N), write('size '), write(N), nl, nth1(2, S, E), write('second '), write(E), nl.\n:- nb_setval('BACK', [40, 50, 60]).\n",
+            "raku":    "our $SEQ;\nour $BACK;\nsay \"size {$SEQ.elems}\";\nsay \"second {$SEQ[1]}\";\n$BACK = [40, 50, 60];\n",
+        }[b]
+    return {
+        "snobol4": "        OUTPUT = 'one ' TAB['one']\n        OUTPUT = 'two ' TAB['two']\n        BACK = TABLE()\n        BACK['three'] = 3\n        BACK['four'] = 4\nEND\n",
+        "snocone": "OUTPUT = 'one ' TAB['one'];\nOUTPUT = 'two ' TAB['two'];\nBACK = TABLE();\nBACK['three'] = 3;\nBACK['four'] = 4;\n",
+        "rebus":   "function main()\n  OUTPUT := \"one \" || TAB[\"one\"]\n  OUTPUT := \"two \" || TAB[\"two\"]\n  BACK := TABLE()\n  BACK[\"three\"] := 3\n  BACK[\"four\"] := 4\nend\n",
+        "icon":    "global TAB, BACK\nprocedure main();\n  write(\"one \", TAB[\"one\"]);\n  write(\"two \", TAB[\"two\"]);\n  BACK := table();\n  BACK[\"three\"] := 3;\n  BACK[\"four\"] := 4;\nend\n",
+        "raku":    "our $TAB;\nour $BACK;\nsay \"one {$TAB<one>}\";\nsay \"two {$TAB<two>}\";\n$BACK = {three => 3, four => 4};\n",
+    }[b]
+
+def struct_fin(kind, a):
+    if kind == "records":
+        return {
+            "snobol4": "        OUTPUT = 'back ' t(BACK) ' ' n(BACK)\n        K = c(BACK)\n        OUTPUT = 'back leaves ' v(K[1]) ' ' v(K[2])\nEND\n",
+            "snocone": "OUTPUT = 'back ' t(BACK) ' ' n(BACK);\nK = c(BACK);\nOUTPUT = 'back leaves ' v(K[1]) ' ' v(K[2]);\n",
+            "rebus":   "function main()\n  OUTPUT := \"back \" || t(BACK) || \" \" || n(BACK)\n  K := c(BACK)\n  OUTPUT := \"back leaves \" || v(K[1]) || \" \" || v(K[2])\nend\n",
+            "icon":    "record tree(t, v, n, c)\nglobal BACK\nprocedure main();\n  write(\"back \", BACK.t, \" \", BACK.n);\n  write(\"back leaves \", BACK.c[1].v, \" \", BACK.c[2].v);\nend\n",
+            "pascal":  "{$mode objfpc}\nprogram final;\n" + PAS_TREE + "var BACK: ptree;\nbegin\n  writeln('back ', BACK^.t, ' ', BACK^.n);\n  writeln('back leaves ', BACK^.c[1]^.v, ' ', BACK^.c[2]^.v)\nend.\n",
+            "prolog":  ":- nb_getval('BACK', R), R = tree(T, _, N, [tree(_, V1, _, _), tree(_, V2, _, _)]), write('back '), write(T), write(' '), write(N), nl, write('back leaves '), write(V1), write(' '), write(V2), nl.\n",
+            "raku":    "our $BACK;\nsay \"back {$BACK.t} {$BACK.n}\";\nsay \"back leaves {$BACK.c[0].v} {$BACK.c[1].v}\";\n",
+        }[a]
+    if kind == "sequences":
+        return {
+            "snobol4": "        OUTPUT = 'back size ' PROTOTYPE(BACK)\n        OUTPUT = 'back second ' BACK[2]\nEND\n",
+            "snocone": "OUTPUT = 'back size ' PROTOTYPE(BACK);\nOUTPUT = 'back second ' BACK[2];\n",
+            "rebus":   "function main()\n  OUTPUT := \"back size \" || PROTOTYPE(BACK)\n  OUTPUT := \"back second \" || BACK[2]\nend\n",
+            "icon":    "global BACK\nprocedure main();\n  write(\"back size \", *BACK);\n  write(\"back second \", BACK[2]);\nend\n",
+            "pascal":  "{$mode objfpc}\nprogram final;\nvar BACK: array[1..3] of integer;\nbegin\n  writeln('back size ', high(BACK) - low(BACK) + 1);\n  writeln('back second ', BACK[2])\nend.\n",
+            "prolog":  ":- nb_getval('BACK', S), length(S, N), write('back size '), write(N), nl, nth1(2, S, E), write('back second '), write(E), nl.\n",
+            "raku":    "our $BACK;\nsay \"back size {$BACK.elems}\";\nsay \"back second {$BACK[1]}\";\n",
+        }[a]
+    return {
+        "snobol4": "        OUTPUT = 'back three ' BACK['three']\n        OUTPUT = 'back four ' BACK['four']\nEND\n",
+        "snocone": "OUTPUT = 'back three ' BACK['three'];\nOUTPUT = 'back four ' BACK['four'];\n",
+        "rebus":   "function main()\n  OUTPUT := \"back three \" || BACK[\"three\"]\n  OUTPUT := \"back four \" || BACK[\"four\"]\nend\n",
+        "icon":    "global BACK\nprocedure main();\n  write(\"back three \", BACK[\"three\"]);\n  write(\"back four \", BACK[\"four\"]);\nend\n",
+        "raku":    "our $BACK;\nsay \"back three {$BACK<three>}\";\nsay \"back four {$BACK<four>}\";\n",
+    }[a]
+
+STRUCT_REF = {"records": "root plus 2\nleaves 1 2\nback times 2\nback leaves 3 4\n",
+              "sequences": "size 3\nsecond 20\nback size 3\nback second 50\n",
+              "tables": "one 1\ntwo 2\nback three 3\nback four 4\n"}
+
 REF = {"variables": "count 7\nword seven\n", "functions": "twice 14\nshout seven!\n"}
 
 def notebook(cells):
@@ -73,37 +181,42 @@ def notebook(cells):
                        "metadata": {"scrip": {"language": lang}},
                        "source": ("%%" + lang + "\n" + src).splitlines(keepends=True)} for i, (lang, src) in enumerate(cells)]}
 
-def pair_files(kind, defs, use):
+def pair_files(kind, cells_of, langs, ref):
     """{relative path: text} of one set: for each pair the SCRIPtix document, the Jupyter notebook, its one answer NAME.out (the files form's name; no NAME.ref stands
-    beside it, and one on disk reads as drift), and the set's ALL.csv, the index the harness grades from."""
+    beside it, and one on disk reads as drift), and the set's ALL.csv, the index the harness grades from. A pair of the structure sets is THREE cells: A makes the
+    structure, B reads it and makes one back, A reads that; a language with no such structure (Pascal and Prolog have no table) has no pair in that set."""
     files, rows = {}, []
-    for a in LANGS:
-        for b in LANGS:
-            cells = [(a, defs[a]), (b, use(b, a))]
+    for a in langs:
+        for b in langs:
+            cells = cells_of(a, b)
             n = "%s_to_%s" % (a, b)
             md = "\n".join("```%s\n%s```\n" % (l, s) for l, s in cells)
             files[n + ".md"] = md
             files[n + ".ipynb"] = json.dumps(notebook(cells), indent=1) + "\n"
-            files[n + ".out"] = REF[kind]
+            files[n + ".out"] = ref
             rows.append("%d,%s,%s.md,tests__scriptix_%s/%s,scriptix-%s,%d,0,131072,4096,120,,,"
                         % (len(rows) + 1, n, n, kind, n, kind, md.count("\n")))
     files["ALL.csv"] = "rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,fixtures,grader\n" + "\n".join(rows) + "\n"
     return files
 
-SETS = (("variables", VAR_DEF, var_use), ("functions", FUN_DEF, fun_use))
+def structure_cells(kind):
+    return lambda a, b: [(a, STRUCT_DEF[kind][a]), (b, struct_use(kind, b, a)), (a, struct_fin(kind, a))]
+
+SETS = tuple((k, (lambda d, u: (lambda a, b: [(a, d[a]), (b, u(b, a))]))(dd, uu), LANGS, REF[k]) for k, dd, uu in (("variables", VAR_DEF, var_use), ("functions", FUN_DEF, fun_use))) + \
+       tuple((k, structure_cells(k), STRUCT_LANGS[k], STRUCT_REF[k]) for k in ("records", "sequences", "tables"))
 
 def write_all(out):
-    for kind, defs, use in SETS:
+    for kind, cells_of, langs, ref in SETS:
         d = os.path.join(out, kind); os.makedirs(d, exist_ok=True)
-        for rel, text in pair_files(kind, defs, use).items():
+        for rel, text in pair_files(kind, cells_of, langs, ref).items():
             with open(os.path.join(d, rel), "w") as f:
                 f.write(text)
 
 def check(here):
     """rc 0 when every file the generator writes is on disk with its bytes and no pair file of a set is on disk that it does not write; rc 1
     naming the first file that drifted (a hand edit of a pair reads red here)."""
-    for kind, defs, use in SETS:
-        want, d = pair_files(kind, defs, use), os.path.join(here, kind)
+    for kind, cells_of, langs, ref in SETS:
+        want, d = pair_files(kind, cells_of, langs, ref), os.path.join(here, kind)
         for rel, text in want.items():
             p = os.path.join(d, rel)
             if not os.path.isfile(p):
@@ -113,7 +226,7 @@ def check(here):
         for rel in sorted(os.listdir(d)):
             if rel not in want and rel.endswith((".md", ".ipynb", ".ref", ".out")):
                 print("DRIFT %s/%s: no pair writes it" % (kind, rel)); return 1
-    print("PAIRS-OK %d files in %d sets equal what make_pairs.py writes" % (sum(len(pair_files(k, d, u)) for k, d, u in SETS), len(SETS)))
+    print("PAIRS-OK %d files in %d sets equal what make_pairs.py writes" % (sum(len(pair_files(k, c, l, r)) for k, c, l, r in SETS), len(SETS)))
     return 0
 
 def main():

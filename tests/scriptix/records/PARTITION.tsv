@@ -1,0 +1,53 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=49 features=1 ubiquitous=1(package) distinctive=0 core=4 clusters=45 chunks=1 sizes=45
+entry	part	cluster	shells
+snobol4_to_snobol4	core	core	
+snobol4_to_snocone	core	core	
+snobol4_to_rebus	core	core	
+snobol4_to_icon	core	core	
+snobol4_to_pascal	chunk:01	family:snobol_to_pascal	
+snobol4_to_prolog	chunk:01	family:snobol_to_prolog	
+snobol4_to_raku	chunk:01	family:snobol_to_raku	
+snocone_to_snobol4	chunk:01	family:snocone_to_snobol	
+snocone_to_snocone	chunk:01	family:snocone_to_snocone	
+snocone_to_rebus	chunk:01	family:snocone_to_rebus	
+snocone_to_icon	chunk:01	family:snocone_to_icon	
+snocone_to_pascal	chunk:01	family:snocone_to_pascal	
+snocone_to_prolog	chunk:01	family:snocone_to_prolog	
+snocone_to_raku	chunk:01	family:snocone_to_raku	
+rebus_to_snobol4	chunk:01	family:rebus_to_snobol	
+rebus_to_snocone	chunk:01	family:rebus_to_snocone	
+rebus_to_rebus	chunk:01	family:rebus_to_rebus	
+rebus_to_icon	chunk:01	family:rebus_to_icon	
+rebus_to_pascal	chunk:01	family:rebus_to_pascal	
+rebus_to_prolog	chunk:01	family:rebus_to_prolog	
+rebus_to_raku	chunk:01	family:rebus_to_raku	
+icon_to_snobol4	chunk:01	family:icon_to_snobol	
+icon_to_snocone	chunk:01	family:icon_to_snocone	
+icon_to_rebus	chunk:01	family:icon_to_rebus	
+icon_to_icon	chunk:01	family:icon_to_icon	
+icon_to_pascal	chunk:01	family:icon_to_pascal	
+icon_to_prolog	chunk:01	family:icon_to_prolog	
+icon_to_raku	chunk:01	family:icon_to_raku	
+pascal_to_snobol4	chunk:01	family:pascal_to_snobol	
+pascal_to_snocone	chunk:01	family:pascal_to_snocone	
+pascal_to_rebus	chunk:01	family:pascal_to_rebus	
+pascal_to_icon	chunk:01	family:pascal_to_icon	
+pascal_to_pascal	chunk:01	family:pascal_to_pascal	
+pascal_to_prolog	chunk:01	family:pascal_to_prolog	
+pascal_to_raku	chunk:01	family:pascal_to_raku	
+prolog_to_snobol4	chunk:01	family:prolog_to_snobol	
+prolog_to_snocone	chunk:01	family:prolog_to_snocone	
+prolog_to_rebus	chunk:01	family:prolog_to_rebus	
+prolog_to_icon	chunk:01	family:prolog_to_icon	
+prolog_to_pascal	chunk:01	family:prolog_to_pascal	
+prolog_to_prolog	chunk:01	family:prolog_to_prolog	
+prolog_to_raku	chunk:01	family:prolog_to_raku	
+raku_to_snobol4	chunk:01	family:raku_to_snobol	
+raku_to_snocone	chunk:01	family:raku_to_snocone	
+raku_to_rebus	chunk:01	family:raku_to_rebus	
+raku_to_icon	chunk:01	family:raku_to_icon	
+raku_to_pascal	chunk:01	family:raku_to_pascal	
+raku_to_prolog	chunk:01	family:raku_to_prolog	
+raku_to_raku	chunk:01	family:raku_to_raku	
