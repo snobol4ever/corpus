@@ -1,0 +1,5 @@
+record RotateKey record constructor graphics3d__RotateKey 2
+record ScaleKey record constructor graphics3d__ScaleKey 2
+record PositionKey record constructor graphics3d__PositionKey 2
+record MatrixKey record constructor graphics3d__MatrixKey 2
+class AnimationKeys procedure graphics3d__AnimationKeys 5

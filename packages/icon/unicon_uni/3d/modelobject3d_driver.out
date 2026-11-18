@@ -1,0 +1,2 @@
+procedure load3DModel procedure graphics3d__load3DModel 2
+class ModelObject3D procedure graphics3d__ModelObject3D 1

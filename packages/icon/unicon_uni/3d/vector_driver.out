@@ -1,0 +1,4 @@
+record Vector2 record constructor graphics3d__Vector2 2
+record TextureVector2 record constructor graphics3d__TextureVector2 2
+class Vector4 procedure graphics3d__Vector4 4
+class Vector3 procedure graphics3d__Vector3 3

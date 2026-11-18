@@ -1,0 +1,6 @@
+record partRecord record constructor graphics3d__partRecord 5
+record triangleRecord record constructor graphics3d__triangleRecord 10
+record vertexRecord record constructor graphics3d__vertexRecord 3
+record lightRecord record constructor graphics3d__lightRecord 9
+record cameraRecord record constructor graphics3d__cameraRecord 20
+class S3DFile procedure graphics3d__S3DFile 0

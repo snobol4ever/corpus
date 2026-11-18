@@ -1,0 +1,14 @@
+class XFile procedure graphics3d__XFile 0
+procedure parseArray procedure graphics3d__parseArray 2
+procedure parseVertex procedure graphics3d__parseVertex 0
+procedure parseFace procedure graphics3d__parseFace 0
+procedure parseTextureCoords procedure graphics3d__parseTextureCoords 0
+procedure parseFaceNormals procedure graphics3d__parseFaceNormals 0
+procedure parse_identifier procedure graphics3d__parse_identifier 0
+procedure parse_int_add_one procedure graphics3d__parse_int_add_one 0
+procedure parse_int procedure graphics3d__parse_int 0
+procedure parse_real procedure graphics3d__parse_real 0
+procedure nextline procedure graphics3d__nextline 0
+procedure coma procedure graphics3d__coma 0
+procedure semicolon procedure graphics3d__semicolon 0
+procedure skip_whitespace procedure graphics3d__skip_whitespace 0

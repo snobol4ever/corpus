@@ -1,0 +1,8 @@
+procedure deepcopy procedure graphics3d__deepcopy 2
+procedure directory_name procedure graphics3d__directory_name 1
+procedure file_name procedure graphics3d__file_name 1
+procedure matrixTranspose procedure graphics3d__matrixTranspose 1
+procedure printrow procedure graphics3d__printrow 1
+procedure matrixMul procedure graphics3d__matrixMul 2
+procedure matrixMulVector procedure graphics3d__matrixMulVector 2
+procedure matrixRotate procedure graphics3d__matrixRotate 2

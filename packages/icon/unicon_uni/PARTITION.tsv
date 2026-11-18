@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=439 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=21 chunks=5 sizes=100,100,100,100,33
+# shape: entries=464 features=3 ubiquitous=1(package) distinctive=2 core=6 clusters=23 chunks=5 sizes=100,100,100,100,58
 entry	part	cluster	shells
 gprogs/kaleid	chunk:05	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:03	dir:gui/guidemos	
@@ -130,22 +130,22 @@ lib/label_driver	chunk:01	dir:lib
 lib/langprocs_driver	chunk:01	dir:lib	
 lib/listener_driver	chunk:01	dir:lib	
 parser/showtree	core	core	want_rc
-progs/cleanup	chunk:04	dir:progs	
+progs/cleanup	chunk:05	dir:progs	
 progs/complex_ex	chunk:02	feat:want_rc	want_rc
-progs/csv	chunk:04	dir:progs	
-progs/exception_demo	chunk:04	dir:progs	
-progs/gcfreq	chunk:04	dir:progs	
-progs/genAcc	chunk:04	dir:progs	
-progs/htmltex	chunk:04	dir:progs	
+progs/csv	chunk:05	dir:progs	
+progs/exception_demo	chunk:05	dir:progs	
+progs/gcfreq	chunk:05	dir:progs	
+progs/genAcc	chunk:05	dir:progs	
+progs/htmltex	chunk:05	dir:progs	
 progs/ie	chunk:02	feat:want_rc	want_rc
 progs/jsvalid	chunk:02	feat:want_rc	want_rc
-progs/mtrace	chunk:04	dir:progs	
-progs/rankvote	chunk:04	dir:progs	
-progs/rpn	chunk:04	dir:progs	
-progs/splitmail	chunk:04	dir:progs	
+progs/mtrace	chunk:05	dir:progs	
+progs/rankvote	chunk:05	dir:progs	
+progs/rpn	chunk:05	dir:progs	
+progs/splitmail	chunk:05	dir:progs	
 progs/uget	chunk:02	feat:want_rc	want_rc
-progs/ush	chunk:04	dir:progs	
-progs/uwc	chunk:04	dir:progs	
+progs/ush	chunk:05	dir:progs	
+progs/uwc	chunk:05	dir:progs	
 udb/lib/memory_alloc	chunk:05	dir:udb/lib	
 uflex/test/hello	chunk:05	dir:uflex/test	
 ulsp/launch-lsp	chunk:02	feat:want_rc	want_rc
@@ -170,15 +170,15 @@ unidoc/UniFile_driver	chunk:05	dir:unidoc
 unidoc/UniForm_driver	chunk:05	dir:unidoc	
 unidoc/UniHTML_driver	chunk:05	dir:unidoc	
 unidoc/UniToken_driver	chunk:05	dir:unidoc	
-uscribe/bib_driver	chunk:04	dir:uscribe	
-uscribe/config_driver	chunk:04	dir:uscribe	
-uscribe/directive_driver	chunk:04	dir:uscribe	
-uscribe/inline_driver	chunk:04	dir:uscribe	
-uscribe/labeltable_driver	chunk:04	dir:uscribe	
-uscribe/manifest_driver	chunk:04	dir:uscribe	
-uscribe/node_driver	chunk:04	dir:uscribe	
-uscribe/outputter_driver	chunk:04	dir:uscribe	
-uscribe/parser_driver	chunk:04	dir:uscribe	
+uscribe/bib_driver	chunk:05	dir:uscribe	
+uscribe/config_driver	chunk:05	dir:uscribe	
+uscribe/directive_driver	chunk:05	dir:uscribe	
+uscribe/inline_driver	chunk:05	dir:uscribe	
+uscribe/labeltable_driver	chunk:05	dir:uscribe	
+uscribe/manifest_driver	chunk:05	dir:uscribe	
+uscribe/node_driver	chunk:05	dir:uscribe	
+uscribe/outputter_driver	chunk:05	dir:uscribe	
+uscribe/parser_driver	chunk:05	dir:uscribe	
 uscribe/scan_driver	chunk:05	dir:uscribe	
 ide/about_driver	chunk:04	dir:ide	
 ide/buffertabitem_driver	chunk:04	dir:ide	
@@ -244,8 +244,8 @@ parser/parsedrecord_driver	chunk:04	dir:parser
 parser/parser_driver	chunk:04	dir:parser	
 parser/preproce_driver	chunk:04	dir:parser	
 parser/unigram_driver	chunk:04	dir:parser	
-parser/unilex_driver	chunk:04	dir:parser	
-parser/ytab_h_driver	chunk:04	dir:parser	
+parser/unilex_driver	chunk:05	dir:parser	
+parser/ytab_h_driver	chunk:05	dir:parser	
 uflex/automata_driver	chunk:02	feat:want_rc	want_rc
 uflex/convert_driver	chunk:05	dir:uflex	
 uflex/dfadebug_driver	chunk:05	dir:uflex	
@@ -441,3 +441,28 @@ gui/toolbar_driver	chunk:02	dir:gui
 gui/tree_driver	chunk:02	dir:gui	
 gui/treetable_driver	chunk:02	dir:gui	
 gui/yesnodialog_driver	chunk:02	dir:gui	
+3d/animationcontroller_driver	chunk:04	dir:3d	
+3d/animationkeys_driver	chunk:04	dir:3d	
+3d/animationset_driver	chunk:04	dir:3d	
+3d/basicanimationobject3d_driver	chunk:04	dir:3d	
+3d/basicobject3d_driver	chunk:04	dir:3d	
+3d/bone_driver	chunk:04	dir:3d	
+3d/camera_driver	chunk:04	dir:3d	
+3d/face_driver	chunk:04	dir:3d	
+3d/graphics3dh_driver	chunk:04	dir:3d	
+3d/material_driver	chunk:04	dir:3d	
+3d/matrix_driver	chunk:04	dir:3d	
+3d/mesh_driver	chunk:04	dir:3d	
+3d/modelobject3d_driver	chunk:04	dir:3d	
+3d/node_driver	chunk:04	dir:3d	
+3d/quaternion_driver	chunk:04	dir:3d	
+3d/s3dparse_driver	chunk:04	dir:3d	
+3d/selection3D_driver	chunk:04	dir:3d	
+3d/skeleton_driver	chunk:04	dir:3d	
+3d/skinnedmodelobject3d_driver	chunk:04	dir:3d	
+3d/viewer/subwin3d_driver	chunk:05	dir:3d/viewer	
+3d/terrain_driver	chunk:04	dir:3d	
+3d/util3d_driver	chunk:04	dir:3d	
+3d/vector_driver	chunk:04	dir:3d	
+3d/viewer/world_driver	chunk:05	dir:3d/viewer	
+3d/xparse_driver	chunk:04	dir:3d	
