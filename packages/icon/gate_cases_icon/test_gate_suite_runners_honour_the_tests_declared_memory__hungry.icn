@@ -1,5 +1,5 @@
 procedure main()
    L := list();
-   every i := 1 to $FIX_N do put(L, repl("x", 32768));
+   every i := 1 to 200 do put(L, repl("x", 32768));
    write(*L);
 end

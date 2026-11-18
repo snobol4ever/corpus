@@ -52640,3 +52640,148 @@ fixed three
 
 #---------- 335 test_gate_tree_type_is_a_static_record_not_parsed_at_start_up__e
 
+#------------- 336 test_gate_builder_mines_an_icon_collection_by_unicon__display
+File test_gate_builder_mines_an_icon_collection_by_unicon__display.icn; Line 1 # "import": invalid declaration
+#------------- 337 test_gate_builder_mines_an_icon_collection_by_unicon__refused
+File test_gate_builder_mines_an_icon_collection_by_unicon__refused.icn; Line 2 # ";": missing right parenthesis
+#--------------------------- 338 test_gate_gc_differential_configs_agree__broken
+File test_gate_gc_differential_configs_agree__broken.icn; Line 3 # ":=": invalid argument in assignment
+File test_gate_gc_differential_configs_agree__broken.icn; Line 4 # "end": invalid argument for unary operator
+#------------------------------- 339 test_gate_icn_alternation_beyond_32_arms__a
+plain s1
+plain s2
+plain s3
+plain s4
+plain s5
+plain s6
+plain s7
+plain s8
+plain s9
+plain s10
+plain s11
+plain s12
+plain s13
+plain s14
+plain s15
+plain s16
+plain s17
+plain s18
+plain s19
+plain s20
+plain s21
+plain s22
+plain s23
+plain s24
+plain s25
+plain s26
+plain s27
+plain s28
+plain s29
+plain s30
+plain s31
+plain s32
+plain s33
+plain s34
+plain s35
+plain s36
+plain s37
+plain s38
+plain s39
+plain s40
+coex 1 "s1"
+coex 2 "s2"
+coex 3 "s3"
+coex 4 "s4"
+coex 5 "s5"
+coex 6 "s6"
+coex 7 "s7"
+coex 8 "s8"
+coex 9 "s9"
+coex 10 "s10"
+coex 11 "s11"
+coex 12 "s12"
+coex 13 "s13"
+coex 14 "s14"
+coex 15 "s15"
+coex 16 "s16"
+coex 17 "s17"
+coex 18 "s18"
+coex 19 "s19"
+coex 20 "s20"
+coex 21 "s21"
+coex 22 "s22"
+coex 23 "s23"
+coex 24 "s24"
+coex 25 "s25"
+coex 26 "s26"
+coex 27 "s27"
+coex 28 "s28"
+coex 29 "s29"
+coex 30 "s30"
+coex 31 "s31"
+coex 32 "s32"
+coex 33 "s33"
+coex 34 "s34"
+coex 35 "s35"
+coex 36 "s36"
+coex 37 "s37"
+coex 38 "s38"
+coex 39 "s39"
+coex 40 "s40"
+coex 41 failed
+coex 42 failed
+#----------------------------------------- 340 test_gate_icn_local_no_nv__global
+File test_gate_icn_local_no_nv__global.icn; Line 1 # ";": invalid declaration
+#----------- 341 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_lib2
+
+Run-time error 117 in startup code
+missing main procedure
+#-------------------------------------- 342 test_gate_icn_semicolon_required__nl
+File test_gate_icn_semicolon_required__nl.icn; Line 3 # "y": missing semicolon or operator
+#----- 343 test_gate_icn_unicon_pattern_operators_parse_at_unicons_precedence__p
+File test_gate_icn_unicon_pattern_operators_parse_at_unicons_precedence__p.icn; Line 2 # ">": invalid argument
+File test_gate_icn_unicon_pattern_operators_parse_at_unicons_precedence__p.icn; Line 2 # invalid character
+File test_gate_icn_unicon_pattern_operators_parse_at_unicons_precedence__p.icn; Line 2 # invalid character
+File test_gate_icn_unicon_pattern_operators_parse_at_unicons_precedence__p.icn; Line 3 # "|": invalid field name
+File test_gate_icn_unicon_pattern_operators_parse_at_unicons_precedence__p.icn; Line 4 # "|": invalid field name
+File test_gate_icn_unicon_pattern_operators_parse_at_unicons_precedence__p.icn; Line 5 # "|": invalid field name
+File test_gate_icn_unicon_pattern_operators_parse_at_unicons_precedence__p.icn; Line 6 # ">": invalid argument for unary operator
+#-------- 344 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__plib
+
+Run-time error 117 in startup code
+missing main procedure
+#--------------------------------- 345 test_gate_icn_zk5_gva__zk5_global_witness
+File test_gate_icn_zk5_gva__zk5_global_witness.icn; Line 1 # ";": invalid declaration
+#- 346 test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__helper~2
+
+Run-time error 117 in startup code
+missing main procedure
+#- 347 test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__geo
+File test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__geo.icn; Line 8 # "class": invalid declaration
+#- 348 test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__globals
+
+Run-time error 117 in startup code
+missing main procedure
+#- 349 test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__pkf
+File test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__pkf.icn; Line 1 # "package": invalid declaration
+File test_gate_icon_library_drivers_are_generated_and_answered_by_the_oracle__pkf.icn; Line 5 # "class": invalid declaration
+#--------------- 350 test_gate_icon_package_units_carry_their_attribute_row__lib
+
+Run-time error 117 in startup code
+missing main procedure
+#------------- 351 test_gate_icon_package_units_carry_their_attribute_row__lib~2
+
+Run-time error 117 in startup code
+missing main procedure
+#- 352 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__M
+
+Run-time error 117 in startup code
+missing main procedure
+#- 353 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__options
+
+Run-time error 117 in startup code
+missing main procedure
+#------------- 354 test_gate_suite_runners_honour_the_tests_declared_memory__fam
+File test_gate_suite_runners_honour_the_tests_declared_memory__fam.icn; Line 1 # "x": invalid declaration
+#---------- 355 test_gate_suite_runners_honour_the_tests_declared_memory__hungry
+200
