@@ -1,0 +1,7 @@
+procedure p(x)
+   write("in p ", &file, " ", &line);
+   return x + 1;
+end
+procedure q(x)
+   return x + "abc";
+end

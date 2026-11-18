@@ -52785,3 +52785,100 @@ missing main procedure
 File test_gate_suite_runners_honour_the_tests_declared_memory__fam.icn; Line 1 # "x": invalid declaration
 #---------- 355 test_gate_suite_runners_honour_the_tests_declared_memory__hungry
 200
+#--------------- 356 test_gate_builder_mines_an_icon_collection_by_unicon__links
+helped
+#-------------- 357 test_gate_demos_suite_grades_each_demo_in_both_modes__linked
+linked
+#-------- 358 test_gate_icn_a_clib_sidecar_builds_the_library_a_program_loads__w
+8
+#--------- 359 test_gate_icn_a_large_integer_crosses_into_a_loaded_c_function__w
+integer(~10^30) -> 1000000000000000000000000000000
+integer(~10^30) -> -1267650600228229401496703205376
+18446744073709551616 -> 18446744073709551616
+9223372036854775807 -> 9223372036854775807
+-9223372036854775808 -> -9223372036854775808
+12345 -> 12345
+1701209964
+"DP\x00\x00\x00\x00\x00\x00"
+-1e+30
+#-------------- 360 test_gate_icn_a_linked_procedure_reports_its_own_file__plain
+in p lib1.icn 2
+2
+test_gate_icn_a_linked_procedure_reports_its_own_file__plain.icn 4
+
+Run-time error 102
+File lib1.icn; Line 6
+numeric expected
+offending value: "abc"
+Traceback:
+main()
+q(2) from line 5 in test_gate_icn_a_linked_procedure_reports_its_own_file__plain.icn
+{2 + "abc"} from line 6 in lib1.icn
+#------------- 361 test_gate_icn_a_linked_procedure_reports_its_own_file__traced
+e__traced.icn:    4  | p(1)
+in p lib1.icn 2
+lib1.icn     :    3  | p returned 2
+2
+test_gate_icn_a_linked_procedure_reports_its_own_file__traced.icn 5
+
+Run-time error 102
+File lib1.icn; Line 6
+numeric expected
+offending value: "abc"
+Traceback:
+main()
+q(2) from line 7 in test_gate_icn_a_linked_procedure_reports_its_own_file__traced.icn
+{2 + "abc"} from line 6 in lib1.icn
+#- 362 test_gate_icn_an_external_value_answers_type_image_copy_identity_and_sort_as_iconx__w
+external external_1(0)
+external external_2(0)
+external external_1(0)
+xstr xstr_3(00324:bite)
+xstr xstr_4(46645:tadpole)
+xreal xreal_5(2.5)
+xreal xreal_6(1.5)
+xreal xreal_7(2.5)
+copy is identical
+rcopy differs
+v1 is not v2
+sorted 3
+sorted "str"
+sorted record pt_1(2)
+sorted external_1(0)
+sorted external_2(0)
+sorted xreal_6(1.5)
+sorted xreal_5(2.5)
+sorted xreal_7(2.5)
+sorted xstr_3(00324:bite)
+sorted xstr_4(46645:tadpole)
+#----------- 363 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_lib1
+
+Run-time error 117 in startup code
+missing main procedure
+#----------- 364 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_main
+42
+84
+#---------- 365 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p1
+used
+#---------- 366 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p2
+used
+#---------- 367 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p3
+used
+procedure unused
+#----- 368 test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__lib
+
+Run-time error 117 in startup code
+missing main procedure
+#- 369 test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__lib_driver
+helper(3) = 21
+#-------- 370 test_gate_icon_package_units_carry_their_attribute_row__lib_driver
+lib.icn      :    6  | | libp(1)
+lib.icn      :    2  | | libp returned 2
+2
+#------ 371 test_gate_icon_package_units_carry_their_attribute_row__lib_driver~2
+2
+_driver~2.icn:    8  | q(1)
+_driver~2.icn:    3  | q returned 2
+2
+#- 372 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__L
+from M

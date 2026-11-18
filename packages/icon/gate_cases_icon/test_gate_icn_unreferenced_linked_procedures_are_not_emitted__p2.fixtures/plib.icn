@@ -1,0 +1,6 @@
+procedure used()
+   return "used";
+end
+procedure unused()
+   return "unused";
+end

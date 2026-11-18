@@ -1,8 +1,8 @@
 procedure main()
    local lg, pk, up, x;
-   lg := loadfunc("$LIB", "lgconv");
-   pk := loadfunc("$LIB", "pack");
-   up := loadfunc("$LIB", "unpack");
+   lg := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "lgconv");
+   pk := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "pack");
+   up := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "unpack");
    every x := 10 ^ 30 | -(2 ^ 100) | 2 ^ 64 | 2 ^ 63 - 1 | -(2 ^ 63) | 12345 do
       write(image(x), " -> ", lg(x) | "[failed]");
    write(up("abcdefgh", "b") | "[failed]");

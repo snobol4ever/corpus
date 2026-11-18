@@ -1,4 +1,4 @@
-link "../../../packages/gate/mod"
+link mod
 procedure main();
    greet();
 end

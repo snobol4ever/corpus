@@ -3438,3 +3438,131 @@ procedure main()
    every i := 1 to 200 do put(L, repl("x", 32768));
    write(*L);
 end
+#--------------- 356 test_gate_builder_mines_an_icon_collection_by_unicon__links
+link helper
+procedure main()
+   write(helped());
+end
+#-------------- 357 test_gate_demos_suite_grades_each_demo_in_both_modes__linked
+link mod
+procedure main();
+   greet();
+end
+#-------- 358 test_gate_icn_a_clib_sidecar_builds_the_library_a_program_loads__w
+link io
+procedure main()
+   local f;
+   f := pathload("libcfunc.so", "bitcount") | stop("no library");
+   write(f(255));
+end
+#--------- 359 test_gate_icn_a_large_integer_crosses_into_a_loaded_c_function__w
+procedure main()
+   local lg, pk, up, x;
+   lg := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "lgconv");
+   pk := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "pack");
+   up := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "unpack");
+   every x := 10 ^ 30 | -(2 ^ 100) | 2 ^ 64 | 2 ^ 63 - 1 | -(2 ^ 63) | 12345 do
+      write(image(x), " -> ", lg(x) | "[failed]");
+   write(up("abcdefgh", "b") | "[failed]");
+   write(image(pk(2 ^ 70, "rb", 8)) | "[failed]");
+   write(up(pk(-(10 ^ 30), "rb", 8), "rb") | "[failed]");
+   &error := 1;
+   write(up(2 ^ 70) | (&errornumber || " " || image(&errorvalue)));
+end
+#-------------- 360 test_gate_icn_a_linked_procedure_reports_its_own_file__plain
+link lib1
+procedure main()
+   write(p(1));
+   write(&file, " ", &line);
+   write(q(2));
+end
+#------------- 361 test_gate_icn_a_linked_procedure_reports_its_own_file__traced
+link lib1
+procedure main()
+   &trace := -1;
+   write(p(1));
+   write(&file, " ", &line);
+   &trace := 0;
+   write(q(2));
+end
+#- 362 test_gate_icn_an_external_value_answers_type_image_copy_identity_and_sort_as_iconx__w
+record pt(x, y)
+procedure main()
+   local mn, xs, xr, v1, v2, s1, s2, r1, r2, r3, l, x;
+   mn := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "extxmin");
+   xs := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "extxstr");
+   xr := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "extxreal");
+   v1 := mn(); v2 := mn(); s1 := xs("bite"); s2 := xs("tadpole");
+   r1 := xr(2.5); r2 := xr(1.5); r3 := copy(r1);
+   every x := v1 | v2 | copy(v1) | s1 | s2 | r1 | r2 | r3 do write(type(x), " ", image(x));
+   write(if v1 === copy(v1) then "copy is identical" else "copy differs");
+   write(if r1 === r3 then "rcopy is identical" else "rcopy differs");
+   write(if v1 === v2 then "v1 is v2" else "v1 is not v2");
+   l := [r1, s2, pt(1, 2), v2, s1, r2, v1, r3, "str", 3];
+   every write("sorted ", image(!sort(l)));
+end
+#----------- 363 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_lib1
+link gate_icx_lib2
+procedure twice(x)
+   local y;
+   y := 2 * x;
+   return inc(y) - 1;
+end
+#----------- 364 test_gate_icn_monitor_icx_links_what_scrip_links__gate_icx_main
+link gate_icx_lib1
+procedure main()
+   local n;
+   n := twice(21);
+   write(n);
+   write(twice(n));
+end
+#---------- 365 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p1
+link plib
+procedure main()
+   write(used());
+end
+#---------- 366 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p2
+link plib
+procedure main()
+   write(used());
+   write(proc("unused")());
+end
+#---------- 367 test_gate_icn_unreferenced_linked_procedures_are_not_emitted__p3
+link plib
+invocable all
+procedure main()
+   write(used());
+   write(image(proc("unused")));
+end
+#----- 368 test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__lib
+link helper
+procedure run();
+   write("helper(3) = ", helper(3));
+   return;
+end
+#- 369 test_gate_icon_arizona_driver_ipath_names_libraries_not_programs__lib_driver
+link lib
+procedure main();
+   run();
+end
+#-------- 370 test_gate_icon_package_units_carry_their_attribute_row__lib_driver
+link lib
+procedure main();
+  run();
+end
+#------ 371 test_gate_icon_package_units_carry_their_attribute_row__lib_driver~2
+link lib
+procedure q(x);
+  return x + 1;
+end
+procedure main();
+  write(libp(1));
+  &trace := -1;
+  write(q(1));
+  &trace := 0;
+end
+#- 372 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__L
+link M
+procedure main();
+   write(m());
+end

@@ -1,0 +1,5 @@
+link helper
+procedure run();
+   write("helper(3) = ", helper(3));
+   return;
+end

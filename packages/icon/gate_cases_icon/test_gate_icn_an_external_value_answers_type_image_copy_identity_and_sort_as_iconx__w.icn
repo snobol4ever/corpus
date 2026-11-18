@@ -1,9 +1,9 @@
 record pt(x, y)
 procedure main()
    local mn, xs, xr, v1, v2, s1, s2, r1, r2, r3, l, x;
-   mn := loadfunc("$LIB", "extxmin");
-   xs := loadfunc("$LIB", "extxstr");
-   xr := loadfunc("$LIB", "extxreal");
+   mn := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "extxmin");
+   xs := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "extxstr");
+   xr := loadfunc("/home/resources/icon-master/ipl/cfuncs/libcfunc.so", "extxreal");
    v1 := mn(); v2 := mn(); s1 := xs("bite"); s2 := xs("tadpole");
    r1 := xr(2.5); r2 := xr(1.5); r3 := copy(r1);
    every x := v1 | v2 | copy(v1) | s1 | s2 | r1 | r2 | r3 do write(type(x), " ", image(x));

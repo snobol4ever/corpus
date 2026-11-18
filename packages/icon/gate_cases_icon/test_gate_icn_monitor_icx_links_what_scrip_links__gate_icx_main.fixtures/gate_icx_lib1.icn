@@ -1,0 +1,6 @@
+link gate_icx_lib2
+procedure twice(x)
+   local y;
+   y := 2 * x;
+   return inc(y) - 1;
+end
