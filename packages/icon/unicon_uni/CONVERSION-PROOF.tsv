@@ -347,3 +347,17 @@ ide/verifymake.icn	same-code
 3d/viewer/world.icn	same-code
 3d/xparse.icn	same-code
 parser/showtree.icn	same-code
+shell/dist/Stream.icn	same-code
+unidep/filearg.icn	same-code
+unidep/fileargclass.icn	same-code
+unidep/symbolinfo.icn	same-code
+unidep/symboltable.icn	same-code
+unidep/util.icn	same-code
+unidoc/parlett/comment.icn	same-code
+unidoc/parlett/file.icn	same-code
+unidoc/parlett/filepos.icn	same-code
+unidoc/parlett/groffoutputter.icn	same-code
+unidoc/parlett/htmloutputter.icn	same-code
+unidoc/parlett/linkfiles.icn	same-code
+unidoc/parlett/package.icn	same-code
+unidoc/parlett/packageset.icn	same-code
