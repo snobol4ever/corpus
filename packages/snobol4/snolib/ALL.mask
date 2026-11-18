@@ -5,3 +5,5 @@
 *	^stmts executed       ([0-9]+|-)$	CEO-1344 (a SPITBOL fatal is gradable, the coo 2026-09-28): SPITBOL's own statement counter, printed in its fatal block -- oracle-internal until SCRIP reports its own count; SCRIP's rendered block carries a dash.
 *	^execution time msec  ([0-9]+|-)$	CEO-1344: SPITBOL's own clock reading in its fatal block, a duration and never a program's answer; SCRIP's rendered block carries a dash.
 *	^REGENERATIONS        ([0-9]+|-)$	CEO-1344: SPITBOL's own collector count in its fatal block, engine bookkeeping and not the program's data; SCRIP's rendered block carries a dash.
+g360	^(macro spitbol|snobol4dotnet|snobol4jvm) version [0-9][0-9.a-z]*$	CEO-1344 ORACLE-IDENTITY (CEO-1907): the listing page's version line names the engine, macro spitbol under sbl -bf, each port its own name; masked in both streams (seat jvm 2026-11-17: graded on snobol4jvm, this entry read FAIL on that line alone)
+g360	^x86-64  [A-Z][a-z][a-z] [A-Z][a-z][a-z] [ 0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9] [0-9]{4}$	CEO-409 CLOCK: the listing page's date-time line, the wall clock when the page was printed, never equal between two runs (seat jvm 2026-11-17)
