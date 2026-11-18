@@ -18,6 +18,7 @@ $BACK = tree.new(t => 'times', v => '*', n => 2, c => [tree.new(t => 'num', v =>
 ```
 
 ```rebus
+record tree(t, v, n, c)
 function main()
   OUTPUT := "back " || t(BACK) || " " || n(BACK)
   K := c(BACK)

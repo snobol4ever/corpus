@@ -20,6 +20,7 @@ BACK = tree('times', '*', 2, J);
 ```
 
 ```rebus
+record tree(t, v, n, c)
 function main()
   OUTPUT := "back " || t(BACK) || " " || n(BACK)
   K := c(BACK)

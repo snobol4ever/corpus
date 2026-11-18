@@ -144,7 +144,7 @@ def struct_fin(kind, a):
         return {
             "snobol4": "        OUTPUT = 'back ' t(BACK) ' ' n(BACK)\n        K = c(BACK)\n        OUTPUT = 'back leaves ' v(K[1]) ' ' v(K[2])\nEND\n",
             "snocone": "OUTPUT = 'back ' t(BACK) ' ' n(BACK);\nK = c(BACK);\nOUTPUT = 'back leaves ' v(K[1]) ' ' v(K[2]);\n",
-            "rebus":   "function main()\n  OUTPUT := \"back \" || t(BACK) || \" \" || n(BACK)\n  K := c(BACK)\n  OUTPUT := \"back leaves \" || v(K[1]) || \" \" || v(K[2])\nend\n",
+            "rebus":   "record tree(t, v, n, c)\nfunction main()\n  OUTPUT := \"back \" || t(BACK) || \" \" || n(BACK)\n  K := c(BACK)\n  OUTPUT := \"back leaves \" || v(K[1]) || \" \" || v(K[2])\nend\n",
             "icon":    "record tree(t, v, n, c)\nglobal BACK\nprocedure main();\n  write(\"back \", BACK.t, \" \", BACK.n);\n  write(\"back leaves \", BACK.c[1].v, \" \", BACK.c[2].v);\nend\n",
             "pascal":  "{$mode objfpc}\nprogram final;\n" + PAS_TREE + "var BACK: ptree;\nbegin\n  writeln('back ', BACK^.t, ' ', BACK^.n);\n  writeln('back leaves ', BACK^.c[1]^.v, ' ', BACK^.c[2]^.v)\nend.\n",
             "prolog":  ":- nb_getval('BACK', R), R = tree(T, _, N, [tree(_, V1, _, _), tree(_, V2, _, _)]), write('back '), write(T), write(' '), write(N), nl, write('back leaves '), write(V1), write(' '), write(V2), nl.\n",
