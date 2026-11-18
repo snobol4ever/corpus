@@ -28,7 +28,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 27,gui/guidemos/ticks,gui/guidemos/ticks.icn,unicon_uni__gui/guidemos/ticks,unicon_uni,58,0,131072,4096,1800,,unicon,screen.dump,,
 28,gui/guidemos/toolbar,gui/guidemos/toolbar.icn,unicon_uni__gui/guidemos/toolbar,unicon_uni,87,0,131072,4096,1800,,unicon,screen.dump,,
 29,ide/ivib/icon/xpmtoims,ide/ivib/icon/xpmtoims.icn,unicon_uni__ide/ivib/icon/xpmtoims,unicon_uni,102,0,131072,4096,1800,,unicon,screen.dump,,
-30,ide/wu,ide/wu.icn,unicon_uni__ide/wu,unicon_uni,820,1,131072,4096,1800,,unicon,screen.dump,,
+30,ide/wu,ide/wu.icn,unicon_uni__ide/wu,unicon_uni,820,1,131072,4096,1800,,unicon,screen.dump,merged,
 31,lib/_button_driver,lib/_button_driver.icn,unicon_uni__lib/_button_driver,unicon_uni,5,0,131072,4096,120,,unicon,,,
 32,lib/address_driver,lib/address_driver.icn,unicon_uni__lib/address_driver,unicon_uni,5,0,131072,4096,120,,unicon,,,
 33,lib/addressdb_driver,lib/addressdb_driver.icn,unicon_uni__lib/addressdb_driver,unicon_uni,11,0,131072,4096,120,,unicon,,,
