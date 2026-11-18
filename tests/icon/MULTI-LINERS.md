@@ -1262,6 +1262,23 @@ two
 three
 ```
 
+## ladder__rung43_a_class_written_with_no_semicolons_unicon_takes_and_scrip_refuses
+
+```Icon
+class C()
+  method m()
+    write("m")
+  end
+end
+procedure main()
+  C().m()
+end
+```
+
+```stdout
+m
+```
+
 ## unicon__uni_pp_macro_spaces
 
 ```Icon
@@ -1665,6 +1682,19 @@ end
 ```stdout
 1
 1 &null
+```
+
+## ladder__rung45_a_statement_ended_by_a_newline_unicon_takes_and_scrip_refuses_under_the_dialect_switch
+
+```Icon
+procedure main();
+  x := 1
+  write(x);
+end
+```
+
+```stdout
+1
 ```
 
 ## ladder_rung39_numbit_large_integer_ops
