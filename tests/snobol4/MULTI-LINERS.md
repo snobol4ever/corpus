@@ -17338,6 +17338,20 @@ END
 ****4*******  N = 'E'
 ```
 
+## eval_line__a1_a_second_argument
+
+```SNOBOL4
+        DEFINE("F()")  :(E)
+F       :(RETURN)
+E       X = EVAL("F()", 1)
+        OUTPUT = &LASTLINE
+END
+```
+
+```stdout
+5
+```
+
 ## fence_branch_5
 
 ```SNOBOL4
@@ -21908,6 +21922,20 @@ END
 match
 ```
 
+## eval_line__a2_apply_of_eval
+
+```SNOBOL4
+        DEFINE("F()")  :(E)
+F       :(RETURN)
+E       X = APPLY("EVAL", "F()")
+        OUTPUT = &LASTLINE
+END
+```
+
+```stdout
+5
+```
+
 ## fence_alt_branch_1
 
 ```SNOBOL4
@@ -22050,6 +22078,51 @@ END
 
 ```stdout
 hello
+```
+
+## eval_line__a3_an_opsyn_alias_of_eval
+
+```SNOBOL4
+        DEFINE("F()")  :(E)
+F       :(RETURN)
+E       OPSYN("EV", "EVAL")
+        X = EV("F()")
+        OUTPUT = &LASTLINE
+END
+```
+
+```stdout
+6
+```
+
+## eval_line__a4_a_name_found_at_run_time
+
+```SNOBOL4
+        DEFINE("F()")  :(E)
+F       :(RETURN)
+E       N = "EVAL"
+        X = APPLY(N, "F()")
+        OUTPUT = &LASTLINE
+END
+```
+
+```stdout
+6
+```
+
+## eval_line__b1_one_code_call_before_the_eval
+
+```SNOBOL4
+        DEFINE("F()")  :(E)
+F       :(RETURN)
+E       C = CODE(" Y = 1")
+        X = EVAL("F()")
+        OUTPUT = &LASTLINE
+END
+```
+
+```stdout
+7
 ```
 
 ## gc_hb_deferexpr_d_substr
@@ -22229,6 +22302,22 @@ A
 AB
 ABC
 done
+```
+
+## eval_line__b2_two_code_calls_before_the_eval
+
+```SNOBOL4
+        DEFINE("F()")  :(E)
+F       :(RETURN)
+E       C = CODE(" Y = 1")
+        C = CODE(" Y = 2")
+        X = EVAL("F()")
+        OUTPUT = &LASTLINE
+END
+```
+
+```stdout
+9
 ```
 
 ## fence_len_capture_branch_1
