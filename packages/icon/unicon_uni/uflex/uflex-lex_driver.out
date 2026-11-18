@@ -1,0 +1,6 @@
+record yylextoken record constructor yylextoken 1
+procedure yylex procedure yylex 0
+procedure token procedure token 1
+procedure grab_semantic_action procedure grab_semantic_action 0
+procedure yywrap procedure yywrap 0
+procedure yyinput procedure yyinput 0

@@ -1,0 +1,8 @@
+procedure print_debug_automata_nfa procedure print_debug_automata_nfa 1
+procedure print_debug_input_row procedure print_debug_input_row 1
+procedure print_debug_nfa_acceptlst procedure print_debug_nfa_acceptlst 1
+procedure print_debug_ec_tble procedure print_debug_ec_tble 1
+procedure print_debug_eclosure procedure print_debug_eclosure 3
+procedure print_debug_dfa_accepting procedure print_debug_dfa_accepting 2
+procedure print_debug_dfa_state_names procedure print_debug_dfa_state_names 1
+procedure print_debugdfa_instatelist procedure print_debugdfa_instatelist 4

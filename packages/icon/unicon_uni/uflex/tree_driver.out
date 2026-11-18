@@ -1,0 +1,5 @@
+record tree record constructor tree 3
+procedure alcnode procedure alcnode -2
+procedure alcleaf procedure alcleaf 2
+procedure labelstr procedure labelstr 1
+procedure treeprint procedure treeprint 2

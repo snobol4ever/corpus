@@ -1,0 +1,12 @@
+record edge record constructor edge 2
+record anode record constructor anode 6
+record anodelist record constructor anodelist 2
+record automata record constructor automata 3
+record automatadfa record constructor automatadfa 4
+procedure alcedge procedure alcedge 1
+procedure alcanode procedure alcanode 1
+procedure alcnodelist procedure alcnodelist 0
+procedure alcautomata procedure alcautomata 0
+procedure labelaut procedure labelaut 1
+procedure printautomata procedure printautomata 1
+procedure createicon procedure createicon 1

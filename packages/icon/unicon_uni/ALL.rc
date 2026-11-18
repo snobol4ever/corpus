@@ -10,3 +10,6 @@ progs/ie	1
 parser/showtree	1
 lib/FxPt_driver	1
 ide/utags_driver	1
+uflex/automata_driver	1
+uflex/uflexskel_driver	1
+uflex/ulexskel_driver	1
