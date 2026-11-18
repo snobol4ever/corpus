@@ -1,0 +1,17 @@
+# explorer, a 750 by 440 dialog over the fixture folder root/top/: a Tree (pos 10 10) of directories and a Table of the selected one's contents; the tree's rows
+# are 18 high from y 24 with its plus signs at x 47 and 67 and labels from x 78. alpha is selected (the table lists its a.txt), then beta is expanded by its plus
+# and selected (one.dat and inner/), then inner is expanded below it and selected (ten.dat); Alt-q (the program's own quit_check, a meta key) ends the dialog
+move 100 150
+click 1 95 43
+wait
+click 1 47 61
+wait
+click 1 95 61
+wait
+click 1 67 79
+wait
+click 1 115 79
+wait
+keydown Alt_L
+key q
+keyup Alt_L

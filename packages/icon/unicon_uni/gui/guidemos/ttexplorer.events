@@ -1,0 +1,13 @@
+# ttexplorer, a 495 by 315 dialog: a TreeTable of the fixture folder root/top/, its rows 18 high from y 52 (plus signs at x 47 and 67) and its columns
+# File, Size, Date and Bits. alpha is expanded by its plus (a.txt appears under it), then beta (its inner/ and one.dat), then inner below it (ten.dat), the
+# row data.bin is selected by a click, and Quit (248 294) ends the program by itself
+move 100 150
+click 1 47 71
+wait
+click 1 47 107
+wait
+click 1 67 125
+wait
+click 1 95 197
+wait
+click 1 248 294
