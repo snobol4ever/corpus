@@ -62,7 +62,7 @@ cd /tmp && $ICONT -s t.icn && $ICONX t
 them (`icont` `-u` flag or `$include`). Cross-directory links are the library's NORMAL
 shape, which is why the compile tier exports `IPATH`/`ICONPATH` (SCRIP `55fae9091`).
 
-Graphics programs (`gprogs/`, `gprocs/`) require X11 and will not run headless.
+Graphics programs (`gprogs/`, `gprocs/`) require X11 and will not run headless. The 149 `gprogs/` programs ship here and are graded as entries of the packages `ipl_gprogs` and `ipl_gpacks` on the screen road (a graphics-built oracle under a virtual display); their lines in `EXCLUDED.tsv` are class `GRADED_IN_ANOTHER_PACKAGE`, each naming the package and the entry, so ipl counts each program once. The 33 `gprocs/` library files stay `NEEDS_GRAPHICS_FACILITY` until their library drivers are entries.
 
 ## License
 
