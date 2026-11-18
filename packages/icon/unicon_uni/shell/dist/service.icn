@@ -15,17 +15,17 @@ invocable all        # do not discard any procedure names when linking
                      #   this is necessary for string invocation
 
 procedure main( argv )
-  local routine, source
+  local routine, source;
 
-  source := &source # save the first source
+  source := &source; # save the first source
   
   # enable tracing if applicable (if so, must be argv[1])
   if
     ( type(argv[1]) == "string", argv[1] == "-t" )
   then {
-    StreamC_trace := "service.icn"
+    StreamC_trace := "service.icn";
     pop( argv )
-  }
+  };
   
   # enable logging if applicable (if so, the -o logstream 
   #   argument must appear after tracing and 
@@ -33,10 +33,10 @@ procedure main( argv )
   if
     ( type(argv[1]) == "string", argv[1] == "-o" )
   then {
-    pop( argv )
+    pop( argv );
     logstream := Stream( pop( argv ), "w" ) | 
       stop( "service.icn: could not open log Stream" )
-  }
+  };
   
   # get the callback routine
   if
@@ -44,13 +44,13 @@ procedure main( argv )
   then
     routine := argv[1]
   else
-    stop( "service.icn: fatal error - argv[1] is " || image(argv[1]) )
+    stop( "service.icn: fatal error - argv[1] is " || image(argv[1]) );
   
   # start the service (never returns)
-  service( routine, argv[2:0] | &null, source )
+  service( routine, argv[2:0] | &null, source );
   
   # next line never is reached
-  stop( "FATAL ERROR: ... service stops" )
+  stop( "FATAL ERROR: ... service stops" );
 end
 
 procedure my_map( s, m )
@@ -61,14 +61,14 @@ procedure my_map( s, m )
                    "," || ( m[1] || "" ) ||
                    "," || ( m[2] || "" ) ||
                    ")"
-                 )
-  /m := [ ]
-  return map ! ( [ s ] ||| m )
+                 );
+  /m := [ ];
+  return map ! ( [ s ] ||| m );
 end
 
 procedure my_reverse( s )
-  (\logstream).Put( "service: my_reverse("||image(s)||")" )
-  return reverse( s )
+  (\logstream).Put( "service: my_reverse("||image(s)||")" );
+  return reverse( s );
 end
 
 #vim :set syntax=icon ai ts=2 sw=2:

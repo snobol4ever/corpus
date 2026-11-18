@@ -348,6 +348,17 @@ ide/verifymake.icn	same-code
 3d/xparse.icn	same-code
 parser/showtree.icn	same-code
 shell/dist/Stream.icn	same-code
+shell/dist/client.icn	same-code
+shell/dist/consumer.icn	same-code
+shell/dist/producer.icn	same-code
+shell/dist/queue_get.icn	same-code
+shell/dist/queue_put.icn	same-code
+shell/dist/s_file.icn	same-code
+shell/dist/s_file_consumer_test.icn	same-code
+shell/dist/service.icn	same-code
+shell/dist/shell.icn	same-code
+shell/dist/t_cat.icn	same-code
+shell/dist/ush.icn	same-code
 unidep/filearg.icn	same-code
 unidep/fileargclass.icn	same-code
 unidep/symbolinfo.icn	same-code
