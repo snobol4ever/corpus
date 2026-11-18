@@ -1,0 +1,12 @@
+procedure states2dfatable procedure states2dfatable 1
+procedure create_input_row procedure create_input_row 2
+procedure nfa2dfa procedure nfa2dfa 5
+procedure get_moves procedure get_moves 5
+procedure epsilon_closure procedure epsilon_closure 3
+procedure get_eclosure procedure get_eclosure 4
+procedure list2string procedure list2string 1
+procedure check_membership procedure check_membership 2
+procedure build_dfa_accept procedure build_dfa_accept 4
+procedure create_dfa_accepting procedure create_dfa_accepting 5
+procedure dfa2auto procedure dfa2auto 5
+procedure createicondfa procedure createicondfa 2

@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=356 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=20 chunks=4 sizes=100,100,100,51
+# shape: entries=364 features=3 ubiquitous=1(package) distinctive=2 core=5 clusters=20 chunks=4 sizes=100,100,100,59
 entry	part	cluster	shells
 gprogs/kaleid	chunk:04	dir:gprogs	
 gui/guidemos/componentscrollareatest	chunk:03	dir:gui/guidemos	
@@ -130,9 +130,9 @@ lib/label_driver	chunk:01	dir:lib
 lib/langprocs_driver	chunk:01	dir:lib	
 lib/listener_driver	chunk:01	dir:lib	
 parser/showtree	chunk:02	feat:want_rc	want_rc
-progs/cleanup	chunk:03	dir:progs	
+progs/cleanup	chunk:04	dir:progs	
 progs/complex_ex	chunk:02	feat:want_rc	want_rc
-progs/csv	chunk:03	dir:progs	
+progs/csv	chunk:04	dir:progs	
 progs/exception_demo	chunk:04	dir:progs	
 progs/gcfreq	chunk:04	dir:progs	
 progs/genAcc	chunk:04	dir:progs	
@@ -218,18 +218,18 @@ xml/elementdecl_driver	chunk:02	dir:xml
 xml/entitydef_driver	chunk:02	dir:xml	
 xml/errorhandler_driver	chunk:02	dir:xml	
 xml/externalid_driver	chunk:02	dir:xml	
-xml/formatter_driver	chunk:03	dir:xml	
-xml/globalname_driver	chunk:03	dir:xml	
-xml/node_driver	chunk:03	dir:xml	
-xml/notationdecl_driver	chunk:03	dir:xml	
-xml/parser_driver	chunk:03	dir:xml	
-xml/processinginstruction_driver	chunk:03	dir:xml	
-xml/resolver_driver	chunk:03	dir:xml	
-xml/xmldecl_driver	chunk:03	dir:xml	
-xml/xmldocument_driver	chunk:03	dir:xml	
-xml/xmlelement_driver	chunk:03	dir:xml	
-xml/xmlformatter_driver	chunk:03	dir:xml	
-xml/xmlparser_driver	chunk:03	dir:xml	
+xml/formatter_driver	chunk:02	dir:xml	
+xml/globalname_driver	chunk:02	dir:xml	
+xml/node_driver	chunk:02	dir:xml	
+xml/notationdecl_driver	chunk:02	dir:xml	
+xml/parser_driver	chunk:02	dir:xml	
+xml/processinginstruction_driver	chunk:02	dir:xml	
+xml/resolver_driver	chunk:02	dir:xml	
+xml/xmldecl_driver	chunk:02	dir:xml	
+xml/xmldocument_driver	chunk:02	dir:xml	
+xml/xmlelement_driver	chunk:02	dir:xml	
+xml/xmlformatter_driver	chunk:02	dir:xml	
+xml/xmlparser_driver	chunk:02	dir:xml	
 parser/classinfo_driver	chunk:03	dir:parser	
 parser/databaseinfo_driver	chunk:03	dir:parser	
 parser/packageinfo_driver	chunk:03	dir:parser	
@@ -241,11 +241,11 @@ parser/parsedobject_driver	chunk:03	dir:parser
 parser/parsedprocedure_driver	chunk:03	dir:parser	
 parser/parsedprogram_driver	chunk:03	dir:parser	
 parser/parsedrecord_driver	chunk:03	dir:parser	
-parser/parser_driver	chunk:03	dir:parser	
-parser/preproce_driver	chunk:03	dir:parser	
-parser/unigram_driver	chunk:03	dir:parser	
-parser/unilex_driver	chunk:03	dir:parser	
-parser/ytab_h_driver	chunk:03	dir:parser	
+parser/parser_driver	chunk:04	dir:parser	
+parser/preproce_driver	chunk:04	dir:parser	
+parser/unigram_driver	chunk:04	dir:parser	
+parser/unilex_driver	chunk:04	dir:parser	
+parser/ytab_h_driver	chunk:04	dir:parser	
 uflex/automata_driver	chunk:02	feat:want_rc	want_rc
 uflex/convert_driver	chunk:04	dir:uflex	
 uflex/dfadebug_driver	chunk:04	dir:uflex	
@@ -339,22 +339,30 @@ ide/ivib/canvasbutton_driver	chunk:02	dir:ide/ivib
 ide/ivib/canvasbuttondialog_driver	chunk:02	dir:ide/ivib	
 ide/ivib/canvasbuttongroup_driver	chunk:02	dir:ide/ivib	
 ide/ivib/canvascheckbox_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascheckboxdialog_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascheckboxgroup_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascheckboxmenuedit_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascheckboxmenuitem_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascheckboxui_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascomponent_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascomponentdialog_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascomponentui_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascustom_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascustomdialog_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvascustomui_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvaseditabletextlist_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvaseditabletextlistdialog_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvaseditabletextlistui_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvaseditlist_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvaseditlistdialog_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvaseditlistui_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvashlineui_driver	chunk:02	dir:ide/ivib	
-ide/ivib/canvashscrollbarui_driver	chunk:02	dir:ide/ivib	
+ide/ivib/canvascheckboxdialog_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascheckboxgroup_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascheckboxmenuedit_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascheckboxmenuitem_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascheckboxui_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascomponent_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascomponentdialog_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascomponentui_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascustom_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascustomdialog_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvascustomui_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvaseditabletextlist_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvaseditabletextlistdialog_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvaseditabletextlistui_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvaseditlist_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvaseditlistdialog_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvaseditlistui_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvashlineui_driver	chunk:03	dir:ide/ivib	
+ide/ivib/canvashscrollbarui_driver	chunk:03	dir:ide/ivib	
+uflex/automatadfa_driver	chunk:02	feat:want_rc	want_rc
+uflex/flexgram_driver	chunk:04	dir:uflex	
+xml/canonicalxmlformatter_driver	chunk:02	dir:xml	
+xml/htmldocument_driver	chunk:02	dir:xml	
+xml/htmlelement_driver	chunk:02	dir:xml	
+xml/htmlformatter_driver	chunk:02	dir:xml	
+xml/htmlparser_driver	chunk:02	dir:xml	
+xml/webscraper_driver	chunk:02	dir:xml	
