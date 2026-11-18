@@ -1,0 +1,4 @@
+# EXCLUDED.dotnet.tsv -- vanilla: the entries that leave snobol4dotnet's denominator ALONE, read for a key @dotnet (R-1864 (4)). SCRIP's rows and the
+# jvm engine's never read it. Class LON_UNICODE_BY_DESIGN (R-1859, Lon, verbatim: "Continue having snobol4dotnet support Unicode as designed."): an entry whose
+# one difference from sbl -bf is bytes against characters, its evidence the measured difference (seat dotnet 2026-11-18).
+wdstar	LON_UNICODE_BY_DESIGN	measured 2026-11-18 on snobol4dotnet 484efba against sbl -bf, its input wdstar.in holding UTF-8 text: the program clears each byte's high bit, and the one differing line of the file 5000 it writes is that text, sbl's from the bytes (cafC), naC/ve, Cber), snobol4dotnet's from the characters (cafi, naove, \ber)

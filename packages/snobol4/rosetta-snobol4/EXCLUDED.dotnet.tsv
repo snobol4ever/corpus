@@ -1,0 +1,5 @@
+# EXCLUDED.dotnet.tsv -- rosetta-snobol4: the entries that leave snobol4dotnet's denominator ALONE, read for a key @dotnet (R-1864 (4)). SCRIP's rows and the
+# jvm engine's never read it. Class LON_UNICODE_BY_DESIGN (R-1859, Lon, verbatim: "Continue having snobol4dotnet support Unicode as designed."): an entry whose
+# one difference from sbl -bf is bytes against characters, its evidence the measured difference (seat dotnet 2026-11-18).
+string-length-1	LON_UNICODE_BY_DESIGN	measured 2026-11-17 on snobol4dotnet 2da541f against sbl -bf: SIZE(TRIM(INPUT)) of its UTF-8 input line answers its bytes under sbl (Byte length: 7) and its characters under snobol4dotnet (Byte length: 5); the program's one line
+strip-whitespace-from-a-string-top-and-tail	LON_UNICODE_BY_DESIGN	measured 2026-11-18 on snobol4dotnet 484efba against sbl -bf: line 3 prints a string holding the byte 0x86, one byte under sbl and the character U+0086 as two-byte UTF-8 under snobol4dotnet; every other line equal
