@@ -3,3 +3,4 @@
 # verbatim: "let's do more of a SNOBOL4++ where it has all extensions and keeps the dynamic power of SNOBOL4. Have the INPUT and HOST be just like SPITBOL."):
 # an entry whose sbl -bf answer turns on a SPITBOL restriction snobol4jvm lifts; its SPITBOL ref stands, its evidence the oracle's answer and the port's.
 deal	SNOBOL4PP_EXTENSION_KEPT_BY_LON	sbl -bf ends line 3, TRACE('random','function') ahead of its DEFINE, with ERROR 198 (trace first argument is not appropriate name); CSNOBOL4 -b and snobol4jvm 02f1a64 arm the trace, and past it the port ends line 6 with ERROR 160 exactly as sbl -bf does with lines 2 and 3 removed
+ali	SNOBOL4PP_EXTENSION_KEPT_BY_LON	sbl -bf ends line 23, OPSYN('sum','+',2), with ERROR 156 (opsyn first arg is not correct operator name); CSNOBOL4 (snobol4 -b) makes sum a synonym of + and prints the powers of 256, and snobol4jvm's output equals CSNOBOL4's byte for byte (measured 2026-11-18 on 0912956)
