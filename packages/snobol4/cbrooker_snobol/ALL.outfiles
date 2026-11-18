@@ -1,0 +1,3 @@
+# the files a program writes its answer to (util_build_package_suite.py _mine_outfiles): entry, a tab, the out_files cell
+# wdstar: OUTPUT(.OUTPUT,6,5000) gives a record length; SPITBOL reads 5000 as the file name, as in vanilla wdstar (the grader 2026-11-18)
+wdstar	5000

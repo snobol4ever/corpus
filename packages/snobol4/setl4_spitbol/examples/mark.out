@@ -1,0 +1,8 @@
+ a plain comment
+def[ double(x)]
+#  double(x)
+def[s nothing here]
+# s nothing here
+
+define tight(y)
+ last comment

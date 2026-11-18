@@ -1,0 +1,7 @@
+* a plain comment
+*  define double(x)
+*  defines nothing here
+        x = 1
+
+*define tight(y)
+* last comment
