@@ -309,7 +309,7 @@ end
 #	quit / wraP
 #
 # Characters permitted in the edited field
-    n_blank := &ucase ++ &lcase ++ &digits ++ 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½?.,;!';
+    n_blank := &ucase ++ &lcase ++ &digits ++ '„”™šá?.,;!';
     byte_input := n_blank ++ ' ';
 # Characters for the editing functions
     e1 := set([char(1),char(2),char(4),char(5),char(6),char(7),char(8)]);
@@ -641,7 +641,7 @@ end
 #	    locate(23,40)
 #	    write("ZEILENTYP: ",type(startline))
 #	    read()
-	    liste := line(startline,byte_n,1,"ï¿½ ",feld[lin_nm]);
+	    liste := line(startline,byte_n,1,"Ü ",feld[lin_nm]);
 	    feld[lin_nm] := liste[1];
 	    locate(startline,1);
 	    writes(feld[lin_nm],repl(" ",byte_n-*feld[lin_nm]+1));
