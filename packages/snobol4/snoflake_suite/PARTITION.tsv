@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=140 features=41 ubiquitous=1(package) distinctive=40 core=23 clusters=48 chunks=1 sizes=117
+# shape: entries=145 features=42 ubiquitous=1(package) distinctive=41 core=26 clusters=49 chunks=1 sizes=119
 entry	part	cluster	shells
 alphabet-keyword	chunk:01	feat:DATATYPE	DATATYPE SIZE keyword_ref
 arbno-alternative-backtracking	chunk:01	feat:ARBNO	ARBNO RPOS alternation arbno_with_alt imm_assign keyword_ref
@@ -120,7 +120,7 @@ letter-counter	chunk:01	feat:TABLE	LEN TABLE TRIM arith cond_assign goto_fail ke
 replacement-substitution-cipher	chunk:01	feat:CODE	CODE REPLACE TRIM goto_fail keyword_ref
 reverse-input-array	chunk:01	feat:ARRAY	ARRAY TRIM arith goto_fail goto_success keyword_ref
 unevaluated-common-characters	chunk:01	feat:capture_plus_defer	BREAK LEN TRIM capture_plus_defer cond_assign deferred_eval goto_fail keyword_ref
-unevaluated-common-words	chunk:01	feat:ANY	ANY BREAK SPAN TRIM capture_plus_defer cond_assign deferred_eval goto_fail keyword_ref
+unevaluated-common-words	chunk:01	feat:capture_plus_defer	ANY BREAK SPAN TRIM capture_plus_defer cond_assign deferred_eval goto_fail keyword_ref
 wang-theorem-prover	core	core	BAL BREAK DEFINE NOTANY REM TRIM alternation cond_assign goto_fail goto_success indirect_ref keyword_ref
 word-count-table-convert	chunk:01	feat:CONVERT	ARRAY BREAK CONVERT SPAN TABLE TRIM arith cond_assign goto_fail keyword_ref
 word-ending-analysis	core	core	ANY BREAK DEFINE LEN POS REM REPLACE RPOS TABLE TRIM alternation arith capture_plus_defer cond_assign deferred_eval goto_fail goto_success imm_assign keyword_ref
@@ -142,3 +142,8 @@ twelve-days	chunk:01	feat:BREAK	BREAK DEFINE LEN cond_assign goto_fail goto_succ
 unload-builtin	chunk:01	feat:SIZE	SIZE
 control-hide-list-control-line	chunk:01	feat:keyword_ref	keyword_ref
 control-hide-statement-numbers	chunk:01	feat:keyword_ref	keyword_ref
+case-folding	chunk:01	feat:dump	dump
+errlimit	core	core	dump indirect_ref keyword_ref
+indirect-real-illegal-type	chunk:01	feat:dump	dump
+recursive-expression-recognizer	core	core	ANY RPOS TRIM alternation deferred_eval dump goto_fail keyword_ref
+stlimit-host-option	core	core	arith dump goto_success
