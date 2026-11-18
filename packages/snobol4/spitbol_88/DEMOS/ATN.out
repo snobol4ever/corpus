@@ -53,7 +53,7 @@
 	END S5
  END PARSE_CLAUSE
 
-531352 milliseconds compile time
+1296007 milliseconds compile time
 
 
 **********************************
@@ -83,7 +83,7 @@
 	END S2
  END PARSE_NOUN_GROUP
 
-238741 milliseconds compile time
+507052 milliseconds compile time
 
 
 **********************************
@@ -95,7 +95,7 @@
 	END S1
  END PARSE_WORD
 
-97273 milliseconds compile time
+237101 milliseconds compile time
 
 
 **********************************
@@ -105,7 +105,7 @@
 	REMAINING_WORDS (BREAK(" ") | null) $ CURRENT_WORD	:(RETURN) ;
  END PARSE_WORD_1
 
-19567 milliseconds compile time
+59398 milliseconds compile time
 
 
 **********************************
@@ -113,7 +113,7 @@
 	PUT(THIS_NODE,VALUE,REGISTER)		:(RETURN) ;
  END SETR
 
-12273 milliseconds compile time
+38330 milliseconds compile time
 
 
 **********************************
@@ -121,7 +121,7 @@
 	GETR = GET(THIS_NODE,REGISTER)		:(RETURN) ;
  END GETR
 
-15739 milliseconds compile time
+39422 milliseconds compile time
 
 
 **********************************
@@ -129,7 +129,7 @@
 	SETR(REGISTER,GETR(REGISTER) VALUE " ")	:(RETURN) ;
  END ADDR
 
-14667 milliseconds compile time
+30095 milliseconds compile time
 
 
 **********************************
@@ -139,7 +139,7 @@
 		:(RETURN) ;
  END GENNAME
 
-12924 milliseconds compile time
+36316 milliseconds compile time
 
 
 **********************************
@@ -149,7 +149,7 @@
 		:(RETURN) ;
  END ATTACH
 
-12373 milliseconds compile time
+25746 milliseconds compile time
 
 
 **********************************
@@ -159,7 +159,7 @@
 		:S(RETURN)F(SELECT) ;
  END SELECT
 
-16942 milliseconds compile time
+37859 milliseconds compile time
 
 
 **********************************
@@ -171,15 +171,15 @@ TESTF1
 	G (POS(0) | " ") W " "	:S(TESTF)F(FRETURN) ;
  END TESTF
 
-19837 milliseconds compile time
+40514 milliseconds compile time
 
 
 **********************************
  FUNCTION GETF (X) ()
-	GETF = LEXICAL_FEATURES<X> :(RETURN) ;
+	GETF = LEXICAL_FEATURES[X] :(RETURN) ;
  END GETF
 
-11401 milliseconds compile time
+21108 milliseconds compile time
 
 
 **********************************
@@ -203,7 +203,7 @@ TESTF1
      | RED:  ADJECTIVE 
      | BY:  PREPOSITION 
 
-82646 milliseconds compile time
+159250 milliseconds compile time
 
 
 **********************************
@@ -214,7 +214,7 @@ TESTF1
 	THE BLOCK DROPPED ;
  END S1
 
-7494 milliseconds compile time
+13945 milliseconds compile time
 
 
 **********************************
@@ -234,7 +234,7 @@ THE BLOCK DROPPED
 
 Parsing Succeeded
 
-71815 milliseconds used
+141848 milliseconds used
 
 
 NODE: 
@@ -259,7 +259,7 @@ A BLOCK WAS DROPPED
 
 Parsing Succeeded
 
-54362 milliseconds used
+130728 milliseconds used
 
 
 NODE: 
@@ -284,7 +284,7 @@ THE BOY DROPPED A BIG RED BLOCK
 
 Parsing Succeeded
 
-79369 milliseconds used
+151416 milliseconds used
 
 
 NODE: 
@@ -310,7 +310,7 @@ A BIG RED BLOCK WAS DROPPED BY THE BOY
 
 Parsing Succeeded
 
-83758 milliseconds used
+243392 milliseconds used
 
 
 NODE: 
@@ -326,6 +326,6 @@ NODE:
 NODE: SENTENCE
           CHILDREN =  
 
-132550 milliseconds compile time
+318048 milliseconds compile time
 
 
