@@ -8053,6 +8053,54 @@ integer
 8
 ```
 
+## a_swap_or_reversible_assign_onto_a_literal__revassign_onto_a_literal
+
+```Icon
+procedure main()
+   local s;
+   s := "abc";
+   write("before");
+   ("lit" <- s) | write("failed");
+   write(s);
+end
+```
+
+```stdout
+before
+
+Run-time error 111
+File revassign_onto_a_literal.icn; Line 5
+variable expected
+offending value: "lit"
+Traceback:
+main()
+{"lit" <- "abc"} from line 5 in revassign_onto_a_literal.icn
+```
+
+## a_swap_or_reversible_assign_onto_a_literal__revswap_a_literal_on_the_right
+
+```Icon
+procedure main()
+   local s;
+   s := "abc";
+   write("before");
+   (s <-> "lit") | write("failed");
+   write(s);
+end
+```
+
+```stdout
+before
+
+Run-time error 111
+File revswap_a_literal_on_the_right.icn; Line 5
+variable expected
+offending value: "lit"
+Traceback:
+main()
+{(variable = "abc") <-> "lit"} from line 5 in revswap_a_literal_on_the_right.icn
+```
+
 ## error_line_in_a_continued_call__lf
 
 ```Icon
@@ -10878,6 +10926,54 @@ end
 5
 6
 7
+```
+
+## a_swap_or_reversible_assign_onto_a_literal__swap_a_literal_on_the_left
+
+```Icon
+procedure main()
+   local s;
+   s := "abc";
+   write("before");
+   ("lit" :=: s) | write("failed");
+   write(s);
+end
+```
+
+```stdout
+before
+
+Run-time error 111
+File swap_a_literal_on_the_left.icn; Line 5
+variable expected
+offending value: "lit"
+Traceback:
+main()
+{"lit" :=: (variable = "abc")} from line 5 in swap_a_literal_on_the_left.icn
+```
+
+## a_swap_or_reversible_assign_onto_a_literal__swap_a_literal_on_the_right
+
+```Icon
+procedure main()
+   local s;
+   s := "abc";
+   write("before");
+   (s :=: "lit") | write("failed");
+   write(s);
+end
+```
+
+```stdout
+before
+
+Run-time error 111
+File swap_a_literal_on_the_right.icn; Line 5
+variable expected
+offending value: "lit"
+Traceback:
+main()
+{(variable = "abc") :=: "lit"} from line 5 in swap_a_literal_on_the_right.icn
 ```
 
 ## ladder__rung14_limit_a_limitation_in_a_conjunction_resumes
