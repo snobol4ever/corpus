@@ -1,0 +1,4 @@
+# EXCLUDED.jvm.tsv -- tests/snobol4 (the SNOBOL4 rungs master): the entries that leave snobol4jvm's denominator ALONE, read by util_score_row.py only for a key @jvm
+# (R-1864 (4); harness of 2026-11-17 reads a master's engine list). SCRIP's rows and the dotnet engine's never read it. Class NO_CASE_FOLDING_BY_LON (Lon
+# 2026-11-17 18:2x CST, in the JVM window, verbatim: "We WILL NEVER support case-folding."): an entry whose sbl -bf answer turns on the folding &CASE = 1 turns on.
+keyword_replace_branch_14	NO_CASE_FOLDING_BY_LON	sets &CASE = 1, after which sbl -bf folds the lower case names EVAL and CODE read; snobol4jvm never folds case (Lon 2026-11-17 18:2x CST, measured on 1e740ad)
