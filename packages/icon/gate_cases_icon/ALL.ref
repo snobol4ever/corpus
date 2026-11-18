@@ -52882,3 +52882,20 @@ _driver~2.icn:    3  | q returned 2
 2
 #- 372 test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__L
 from M
+#------------------------------ 373 test_gate_icn_loadfunc_returns_a_callable__w
+int  :3
+img  :function bitcount
+type :procedure
+coerce:1
+clash :function bitcount
+proc  :procedure bitcount
+end
+#------------- 374 test_gate_icon_m4_invocation_is_pinned__pinned_in_a_container
+&progname: test_gate_icon_m4_invocation_is_pinned__pinned_in_a_container
+#------------------------------------- 375 test_gate_suite_argv_sidecar__control
+control
+#--------------------------------------- 376 test_gate_suite_argv_sidecar__plain
+control
+#---------------------------------- 377 test_gate_suite_argv_sidecar__takes_args
+n=41
+also=two words

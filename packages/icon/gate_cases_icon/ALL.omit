@@ -1,2 +1,1 @@
-test_gate_icn_loadfunc_returns_a_callable__w: oracle produced EMPTY output -- refusing to mint a vacuous ref
 test_gate_icn_pow_large_integer_exponent__armB: oracle timed out -- non-terminating or too slow for the grading timeout

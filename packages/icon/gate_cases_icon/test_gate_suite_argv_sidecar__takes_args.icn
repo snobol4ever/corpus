@@ -1,0 +1,5 @@
+procedure main(args)
+   if *args = 0 then args := [41, "two words"];
+   write("n=", integer(args[1]) | 6);
+   write("also=", args[2] | "none");
+end

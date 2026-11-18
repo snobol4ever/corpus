@@ -3566,3 +3566,36 @@ link M
 procedure main();
    write(m());
 end
+#------------------------------ 373 test_gate_icn_loadfunc_returns_a_callable__w
+procedure main()
+   local d;
+   d := "/home/resources/icon-master/ipl/cfuncs/libcfunc.so";
+   write("int  :", loadfunc(d,"bitcount")(21));
+   write("img  :", image(loadfunc(d,"bitcount")));
+   write("type :", type(loadfunc(d,"bitcount")));
+   write("coerce:", loadfunc(d,"bitcount")("16"));
+   write("clash :", image(loadfunc(d,"bitcount")));
+   write("proc  :", image(bitcount));
+   write("end");
+end
+procedure bitcount(a)
+   return "stub";
+end
+#------------- 374 test_gate_icon_m4_invocation_is_pinned__pinned_in_a_container
+procedure main()
+   write("&progname: ", &progname);
+end
+#------------------------------------- 375 test_gate_suite_argv_sidecar__control
+procedure main()
+   write("control");
+end
+#--------------------------------------- 376 test_gate_suite_argv_sidecar__plain
+procedure main()
+   write("control");
+end
+#---------------------------------- 377 test_gate_suite_argv_sidecar__takes_args
+procedure main(args)
+   if *args = 0 then args := [41, "two words"];
+   write("n=", integer(args[1]) | 6);
+   write("also=", args[2] | "none");
+end
