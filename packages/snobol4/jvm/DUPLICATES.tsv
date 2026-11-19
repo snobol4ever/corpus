@@ -1,0 +1,129 @@
+# DUPLICATES.tsv -- programs of snobol4jvm's lein test suite the corpus already holds, so no entry here: test<TAB>where the corpus has it.
+SNOBOL4clojure.core-test/a-source-with-no-end-statement-is-not-run	/home/corpus/tests/snobol4/MULTI-LINERS.md#compile_diag__p10
+SNOBOL4clojure.core-test/a-listing-line-ends-at-its-last-nonblank-character	/home/corpus/tests/snobol4/MULTI-LINERS.md#compile_diag__p35
+SNOBOL4clojure.core-test/an-integer-past-64-bits-is-231-at-its-start	/home/corpus/tests/snobol4/MULTI-LINERS.md#compile_diag__p13c
+SNOBOL4clojure.core-test/the-errors-of-one-line-are-placed-in-the-line-and-listed-once	/home/corpus/tests/snobol4/MULTI-LINERS.md#compile_diag__p22
+SNOBOL4clojure.core-test/a-parameter-named-like-its-function-starts-the-result	/home/corpus/tests/snobol4/MULTI-LINERS.md#user_function_replace_2
+SNOBOL4clojure.core-test/host-zero-is-the-u-text-or-the-programs-arguments	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_scrip_switches_are_spitbols__u.sno
+SNOBOL4clojure.test-bootstrap/band0-end-uppercase	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-spit	/home/corpus/packages/snobol4/csnobol4_suite/spit.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-include	/home/corpus/packages/snobol4/csnobol4_suite/include.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-digits	/home/corpus/packages/snobol4/csnobol4_suite/digits.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-labelcode	/home/corpus/packages/snobol4/csnobol4_suite/labelcode.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-match	/home/corpus/packages/snobol4/csnobol4_suite/match.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-bal	/home/corpus/packages/snobol4/csnobol4_suite/bal.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-len	/home/corpus/packages/snobol4/csnobol4_suite/len.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-fun2	/home/corpus/packages/snobol4/csnobol4_suite/fun2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-trfunc	/home/corpus/packages/snobol4/csnobol4_suite/trfunc.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-collect2	/home/corpus/packages/snobol4/csnobol4_suite/collect2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-preload1	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-cat	/home/corpus/packages/snobol4/csnobol4_suite/cat.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-scanerr	/home/corpus/packages/snobol4/csnobol4_suite/scanerr.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-local	/home/corpus/packages/snobol4/csnobol4_suite/local.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-longrec	/home/corpus/packages/snobol4/csnobol4_suite/longrec.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-base	/home/corpus/packages/snobol4/csnobol4_suite/base.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-a	/home/corpus/packages/snobol4/csnobol4_suite/a.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-8bit	/home/corpus/packages/snobol4/csnobol4_suite/8bit.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-t	/home/corpus/packages/snobol4/csnobol4_suite/t.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-match4	/home/corpus/packages/snobol4/csnobol4_suite/match4.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-setexit2	/home/corpus/packages/snobol4/csnobol4_suite/setexit2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-err	/home/corpus/packages/snobol4/csnobol4_suite/err.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-popen2	/home/corpus/packages/snobol4/csnobol4_suite/popen2.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-8bit2	/home/corpus/packages/snobol4/csnobol4_suite/8bit2.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-hide	/home/corpus/packages/snobol4/csnobol4_suite/hide.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-openo	/home/corpus/packages/snobol4/csnobol4_suite/openo.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-uneval	/home/corpus/packages/snobol4/csnobol4_suite/uneval.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-setexit5	/home/corpus/packages/snobol4/csnobol4_suite/setexit5.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-trace2	/home/corpus/packages/snobol4/csnobol4_suite/trace2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-function	/home/corpus/packages/snobol4/csnobol4_suite/function.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-atn	/home/corpus/packages/snobol4/csnobol4_suite/atn.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-match2	/home/corpus/packages/snobol4/csnobol4_suite/match2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-repl	/home/corpus/packages/snobol4/csnobol4_suite/repl.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-file	/home/corpus/packages/snobol4/csnobol4_suite/file.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-pad	/home/corpus/packages/snobol4/csnobol4_suite/pad.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-lexcmp	/home/corpus/packages/snobol4/csnobol4_suite/lexcmp.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-intval	/home/corpus/packages/snobol4/csnobol4_suite/intval.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-setexit7	/home/corpus/packages/snobol4/csnobol4_suite/setexit7.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-func2	/home/corpus/packages/snobol4/csnobol4_suite/func2.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-diag1	/home/corpus/packages/snobol4/csnobol4_suite/diag1.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-comment	/home/corpus/packages/snobol4/csnobol4_suite/comment.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-sudoku	/home/corpus/packages/snobol4/csnobol4_suite/sudoku.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-random	/home/corpus/packages/snobol4/csnobol4_suite/random.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-dump	/home/corpus/packages/snobol4/csnobol4_suite/dump.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-breakx	/home/corpus/packages/snobol4/csnobol4_suite/breakx.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-words	/home/corpus/packages/snobol4/csnobol4_suite/words.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-longline	/home/corpus/packages/snobol4/csnobol4_suite/longline.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-uneval2	/home/corpus/packages/snobol4/csnobol4_suite/uneval2.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-convert	/home/corpus/packages/snobol4/csnobol4_suite/convert.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-alt2	/home/corpus/packages/snobol4/csnobol4_suite/alt2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-case1	/home/corpus/packages/snobol4/csnobol4_suite/case1.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-tab	/home/corpus/packages/snobol4/csnobol4_suite/tab.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-loop	/home/corpus/packages/snobol4/csnobol4_suite/loop.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-reverse	/home/corpus/packages/snobol4/csnobol4_suite/reverse.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-float	/home/corpus/packages/snobol4/csnobol4_suite/float.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-match3	/home/corpus/packages/snobol4/csnobol4_suite/match3.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-trim0	/home/corpus/packages/snobol4/csnobol4_suite/trim0.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-noexec	/home/corpus/packages/snobol4/csnobol4_suite/noexec.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-str	/home/corpus/packages/snobol4/csnobol4_suite/str.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-ops	/home/corpus/packages/snobol4/csnobol4_suite/ops.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-setexit4	/home/corpus/packages/snobol4/csnobol4_suite/setexit4.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-trace1	/home/corpus/packages/snobol4/csnobol4_suite/trace1.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-alph	/home/corpus/packages/snobol4/csnobol4_suite/alph.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-label	/home/corpus/packages/snobol4/csnobol4_suite/label.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-include4	/home/corpus/packages/snobol4/csnobol4_suite/include4.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-100func	/home/corpus/packages/snobol4/csnobol4_suite/100func.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-space2	/home/corpus/packages/snobol4/csnobol4_suite/space2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-setexit3	/home/corpus/packages/snobol4/csnobol4_suite/setexit3.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-trim1	/home/corpus/packages/snobol4/csnobol4_suite/trim1.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-float2	/home/corpus/packages/snobol4/csnobol4_suite/float2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-preload3	/home/corpus/packages/snobol4/csnobol4_suite/preload3.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-crlf	/home/corpus/packages/snobol4/csnobol4_suite/crlf.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-punch	/home/corpus/packages/snobol4/csnobol4_suite/punch.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-maxint	/home/corpus/packages/snobol4/csnobol4_suite/maxint.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-space	/home/corpus/packages/snobol4/csnobol4_suite/space.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-nqueens	/home/corpus/packages/snobol4/csnobol4_suite/nqueens.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-fun1	/home/corpus/packages/snobol4/csnobol4_suite/fun1.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-alis	/home/corpus/packages/snobol4/csnobol4_suite/alis.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-fact	/home/corpus/packages/snobol4/csnobol4_suite/fact.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-alt1	/home/corpus/packages/snobol4/csnobol4_suite/alt1.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-case2	/home/corpus/packages/snobol4/csnobol4_suite/case2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-popen	/home/corpus/packages/snobol4/csnobol4_suite/popen.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-openi	/home/corpus/packages/snobol4/csnobol4_suite/openi.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-ftrace	/home/corpus/packages/snobol4/csnobol4_suite/ftrace.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-substr	/home/corpus/packages/snobol4/csnobol4_suite/substr.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-loaderr	/home/corpus/packages/snobol4/csnobol4_suite/loaderr.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-line	/home/corpus/packages/snobol4/csnobol4_suite/line.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-unsc	/home/corpus/packages/snobol4/csnobol4_suite/unsc.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-any	/home/corpus/packages/snobol4/csnobol4_suite/any.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-update	/home/corpus/packages/snobol4/csnobol4_suite/update.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-rewind1	/home/corpus/packages/snobol4/csnobol4_suite/rewind1.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-hello	/home/corpus/packages/snobol4/csnobol4_suite/hello.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-char	/home/corpus/packages/snobol4/csnobol4_suite/char.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-contin	/home/corpus/packages/snobol4/csnobol4_suite/contin.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-conv2	/home/corpus/packages/snobol4/csnobol4_suite/conv2.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-setexit	/home/corpus/packages/snobol4/csnobol4_suite/setexit.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-matchloop	/home/corpus/packages/snobol4/csnobol4_suite/matchloop.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-ord	/home/corpus/packages/snobol4/csnobol4_suite/ord.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-keytrace	/home/corpus/packages/snobol4/csnobol4_suite/keytrace.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-factor	/home/corpus/packages/snobol4/csnobol4_suite/factor.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-vdiffer	/home/corpus/packages/snobol4/csnobol4_suite/vdiffer.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-words1	/home/corpus/packages/snobol4/csnobol4_suite/words1.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-json1	/home/corpus/packages/snobol4/csnobol4_suite/json1.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-setexit6	/home/corpus/packages/snobol4/csnobol4_suite/setexit6.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-include2	/home/corpus/packages/snobol4/csnobol4_suite/include2.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-collect	/home/corpus/packages/snobol4/csnobol4_suite/collect.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-diag2	/home/corpus/packages/snobol4/csnobol4_suite/diag2.sno (adapted)
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-roman	/home/corpus/packages/snobol4/csnobol4_suite/roman.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-ind	/home/corpus/packages/snobol4/csnobol4_suite/ind.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-pow	/home/corpus/packages/snobol4/csnobol4_suite/pow.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-lgt	/home/corpus/packages/snobol4/csnobol4_suite/lgt.sno
+SNOBOL4clojure.test-csnobol4-suite/csnobol4-openo2	/home/corpus/packages/snobol4/csnobol4_suite/openo2.sno
+SNOBOL4clojure.test-spitbol-rules-1118/the-d-switch-sets-dump-before-the-first-statement	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__Q.sno
+SNOBOL4clojure.test-spitbol-rules-1118/a-trace-function-is-called-as-any-function	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_a_trace_callback_is_ftraced_like_any_called_function__call.sno
+SNOBOL4clojure.test-spitbol-rules-1118/a-trace-function-is-called-as-any-function	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_a_return_trace_function_sees_the_returning_functions_names_still_bound__fret.sno
+SNOBOL4clojure.test-spitbol-rules-1118/a-trace-function-is-called-as-any-function	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_a_traced_call_keeps_its_procedure_and_its_value_across_a_collection__wb.sno
+SNOBOL4clojure.test-spitbol-rules-1118/a-trace-function-is-called-as-any-function	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_a_value_trace_callback_is_entered_by_the_assignment_box_and_not_by_c__e.sno
+SNOBOL4clojure.test-spitbol-rules-1118/a-trace-function-is-called-as-any-function	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_a_return_trace_callback_prints_the_deferred_banner_with_the_callers_statement_number__nest.sno
+SNOBOL4clojure.test-spitbol-rules-1118/sort-orders-mixed-keys-as-spitbols-sortc	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_aggregate_registry_keys_are_descrs__w3.sno
+SNOBOL4clojure.test-spitbol-rules-1118/a-non-pattern-operand-is-its-operators-error	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_an_array_or_table_as_a_pattern_operand_raises_the_operand_errors_of_spitbol_in_both_modes__a.sno
+SNOBOL4clojure.test-spitbol-rules-1118/control-cards-chain-with-commas	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_snobol4_list_listing_matches_sbl__p_chain.sno

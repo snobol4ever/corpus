@@ -1,0 +1,4 @@
+# EXCLUDED.tsv -- programs of snobol4jvm's lein test suite that are not entries, one row each: name<TAB>CLASS<TAB>the measurement.
+t_io_channels__prog-reads-file-via-named-channel	NO_ORACLE_ANSWER	sbl -bf ran past its 15 s bound on both cuts (rc 124); the program of SNOBOL4clojure.catalog.t-io-channels/prog-reads-file-via-named-channel
+core_test__a-recursion-runs-on-the-stack-it-declares-and-outgrowing-it-is-error-246	NO_ORACLE_ANSWER	sbl -bf answered differently on two runs (rc 0); the program of SNOBOL4clojure.core-test/a-recursion-runs-on-the-stack-it-declares-and-outgrowing-it-is-error-246
+test_trace__stlimit-terminates-loop	NO_ORACLE_ANSWER	sbl -bf ran past its 15 s bound on both cuts (rc 124); the program of SNOBOL4clojure.test-trace/stlimit-terminates-loop
