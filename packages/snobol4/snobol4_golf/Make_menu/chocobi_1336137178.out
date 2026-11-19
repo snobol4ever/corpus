@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Wed Nov 18 18:13:08 2026
+
+
+
+                                                                                                                page 1
+
+2       L OUTPUT =N =(EQ(C =ORD(S),43) N + 1,(EQ(C,47) N / 2,(EQ(C,94) N * N))) :F()
+
+chocobi_1336137178.sno(2) : ERROR 212 -- syntax error: value used where name is required
+

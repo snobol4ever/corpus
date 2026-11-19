@@ -1,0 +1,15 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Wed Nov 18 18:10:07 2026
+
+
+
+                                                                                                                page 1
+
+1       L A =REPLACE(INPUT 0,&ALPHABET 1023456789 &UCASE &LCASE,DUPL(3,33) DUPL(2,94) DUPL($0 =$1 =$2 =0,129) DUPL(1,62)
+) :F(); A LEN(1) $ I *~($I =$I + 1); OUTPUT =$0 'B / ' $1 'B / ' $2 .B :(L);END
+
+teebee_1677196879.sno(1) : ERROR 212 -- syntax error: value used where name is required
+

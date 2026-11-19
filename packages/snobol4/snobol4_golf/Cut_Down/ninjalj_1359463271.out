@@ -1,0 +1,15 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Wed Nov 18 18:11:03 2026
+
+
+
+                                                                                                                page 1
+
+1       L S =INPUT :F(); S "u" :F(M); S "I" ="i";M S ANY(&UCASE) . U =" " REPLACE(U,&UCASE,&LCASE) :S(M); OUTPUT =S :(L)
+;END
+
+ninjalj_1359463271.sno(1) : ERROR 212 -- syntax error: value used where name is required
+

@@ -1,0 +1,124 @@
+100/lynn_1531586406.raku: ORACLE-REFUSES: Error while compiling lynn_1531586406.raku
+123/kt3k_1183966544.raku: ORACLE-REFUSES: Error while compiling kt3k_1183966544.raku
+123/pooq_1281272002.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 2 and 2 bytes
+128_bits/murky-satyr_1281599820.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1281599820.raku
+128_bits/ott_1185201113.raku: ORACLE-REFUSES: Argument to "say" seems to be malformed
+32_div_0/2520_1467809796.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: /bin/sh: 1: 0/@: not found
+42/jonathan_camacho_1427156491.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 26 and 19 bytes
+A000217/teebee_1413147495.raku: ORACLE-REFUSES: Error while compiling teebee_1413147495.raku
+Alnum_challenge/murky-satyr_1281521951.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1281521951.raku
+Big_Number/murky-satyr_1281244093.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot modify an immutable Nil value
+Biggest_Number/TAKO_2Fj0nKI_1270486677.raku: ORACLE-REFUSES: Error while compiling TAKO_2Fj0nKI_1270486677.raku
+Biggest_Number/dcutter_1270562337.raku: ORACLE-REFUSES: Error while compiling dcutter_1270562337.raku
+Biggest_Number/prakash_1270482737.raku: ORACLE-REFUSES: Error while compiling prakash_1270482737.raku
+Buffalo/dcutter_1265980930.raku: ORACLE-REFUSES: Error while compiling dcutter_1265980930.raku
+Buffalo/murky-satyr_1281368506.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1281368506.raku
+Calculator/murky-satyr_1281641517.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1281641517.raku
+Calculator/pooq_1281473917.raku: ORACLE-REFUSES: Error while compiling pooq_1281473917.raku
+Circumference_of_circle/murky-satyr_1299518904.raku: DOES-NOT-END: no answer inside 30 s
+Convert_Radians_to_Degrees/ludo_1462062983.raku: DOES-NOT-END: no answer inside 30 s
+Convert_Radians_to_Degrees/olf_1461428461.raku: DOES-NOT-END: no answer inside 30 s
+Convert_Radians_to_Degrees/teebee_1460934028.raku: DOES-NOT-END: no answer inside 30 s
+Convert_to_hex/teebee_1333659235.raku: DOES-NOT-END: no answer inside 30 s
+DiCaprio_Sequence/Fleur_1701993481.raku: ORACLE-REFUSES: Error while compiling Fleur_1701993481.raku
+Difference_of/murky-satyr_1308038273.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1308038273.raku
+Disagree/yuruhiya_1616458591.raku: ORACLE-REFUSES: Error while compiling yuruhiya_1616458591.raku
+Duplicate_characters/murky-satyr_1281521745.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1281521745.raku
+Error/40tttttanaka_1332498123.raku: ORACLE-REFUSES: Error while compiling 40tttttanaka_1332498123.raku
+Error/jonas_1413374097.raku: ORACLE-REFUSES: Error while compiling jonas_1413374097.raku
+Error/leonid_1226850206.raku: ORACLE-REFUSES: Error while compiling leonid_1226850206.raku
+Error_result/lynn_1531577748.raku: ORACLE-REFUSES: Argument to "print" seems to be malformed
+Five_Little_Ducks___Next_Verse/Hydrazer_1623791729.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: The iterator of this Seq is already in use/consumed by another Seq (you
+GCD_of_1_to_n/murky-satyr_1281641805.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1281641805.raku
+Half_Sierpinski/murky-satyr_1281238144.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1281238144.raku
+Levenshtein_Distance/dcutter_1269863214.raku: ORACLE-REFUSES: Error while compiling dcutter_1269863214.raku
+Levenshtein_Distance/pooq_1281414147.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 2 and 2 bytes
+List_of_numbers_to_factor/dcutter_1294226810.raku: ORACLE-REFUSES: Error while compiling dcutter_1294226810.raku
+MIDI_note_number_to_frequency/ludo_1464267900.raku: DOES-NOT-END: no answer inside 30 s
+MIDI_note_number_to_frequency/teebee_1464131924.raku: DOES-NOT-END: no answer inside 30 s
+Merry_Christmas_2022/Fleur_1671170984.raku: ORACLE-REFUSES: Error while compiling Fleur_1671170984.raku
+Multiplication_Table/dcutter_1279610940.raku: ORACLE-REFUSES: Error while compiling dcutter_1279610940.raku
+Multiply/pooq_1281367166.raku: ORACLE-REFUSES: Error while compiling pooq_1281367166.raku
+Multiply_long_version/murky-satyr_1281641091.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'eval' for invocant of type 'Int'. Did you mean any of
+NABEATSU_of_the_world/murky-satyr_1308291877.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1308291877.raku
+NABEATSU_of_the_world/murky-satyr_1309824796.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1309824796.raku
+NOT_gate/ott_1193951259.raku: ORACLE-REFUSES: Error while compiling ott_1193951259.raku
+NOT_gate/tabasa_1193970189.raku: ORACLE-REFUSES: Error while compiling tabasa_1193970189.raku
+Network_mask/pooq_1281413544.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 4 and 4 bytes
+Nothing/kt3k_1194791683.raku: ORACLE-REFUSES: Error while compiling kt3k_1194791683.raku
+Nothing/ott_1195434086.raku: ORACLE-REFUSES: Error while compiling ott_1195434086.raku
+Nothing/tabasa_1195440180.raku: ORACLE-REFUSES: Error while compiling tabasa_1195440180.raku
+Number_Sequence/murky-satyr_1309826260.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1309826260.raku
+Number_Sequence/teebee_1356863662.raku: ORACLE-REFUSES: Error while compiling teebee_1356863662.raku
+Pendulum/teebee_1383673931.raku: ORACLE-REFUSES: Error while compiling teebee_1383673931.raku
+Print_Nothing_3/McBusLuck_1562672865.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Print_O/lynn_1531577617.raku: ORACLE-REFUSES: Error while compiling lynn_1531577617.raku
+Print_at/lynn_1531579278.raku: ORACLE-REFUSES: Error while compiling lynn_1531579278.raku
+Print_curve/lynn_1531578730.raku: ORACLE-REFUSES: Error while compiling lynn_1531578730.raku
+Print_your_source_code/lynn_1531579091.raku: ORACLE-REFUSES: Argument to "print" seems to be malformed
+Quine/kt3k_1182158646.raku: ORACLE-REFUSES: Error while compiling kt3k_1182158646.raku
+Quine/kt3k_28alt_29_1184060953.raku: ORACLE-REFUSES: Error while compiling kt3k_28alt_29_1184060953.raku
+Quine/kt3k_28read_file_29_1184061277.raku: ORACLE-REFUSES: Error while compiling kt3k_28read_file_29_1184061277.raku
+Quine/matyr_1281587854.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file test.pl6: No such file or directory
+Quine/murky-satyr_1281591664.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1281591664.raku
+RPN_calculator_FIXED_NO_REALLY/pooq_1281444482.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 8 and 13 bytes
+Repair_Lorem_Ipsum/jonathan_camacho_1427296158.raku: DOES-NOT-END: no answer inside 30 s
+Replace_exercise/tails_1515122513.raku: DOES-NOT-END: no answer inside 30 s
+Replace_exercise/teebee_1515120511.raku: DOES-NOT-END: no answer inside 30 s
+Replace_exercise_2/2520_1516602768.raku: DOES-NOT-END: no answer inside 30 s
+Replace_exercise_2/brx_1517318410.raku: DOES-NOT-END: no answer inside 30 s
+Replace_exercise_2/kotatsugame_1517672482.raku: DOES-NOT-END: no answer inside 30 s
+Replace_exercise_2/mitchs_1517318946.raku: DOES-NOT-END: no answer inside 30 s
+Replace_exercise_2/tails_1516582824.raku: DOES-NOT-END: no answer inside 30 s
+Replace_exercise_2/tanon_1516547564.raku: DOES-NOT-END: no answer inside 30 s
+Replace_exercise_2/teebee_1516570622.raku: DOES-NOT-END: no answer inside 30 s
+Rounding_off/ludo_1468766709.raku: DOES-NOT-END: no answer inside 30 s
+Rounding_off/teebee_1467846082.raku: DOES-NOT-END: no answer inside 30 s
+SMRPG_Level_Up_Bonus/teebee_1656803238.raku: DOES-NOT-END: no answer inside 30 s
+Sharkovskii_order/murky-satyr_1281239806.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot modify an immutable Nil value
+Stop_on_nonzero/teebee_1653342081.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Ten_Count/teebee_1402089043.raku: ORACLE-REFUSES: Error while compiling teebee_1402089043.raku
+The_Golden_Ratio/primo_1538470731.raku: ORACLE-REFUSES: Error while compiling primo_1538470731.raku
+Timeout/jonathan_camacho_1426364925.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Timeout/kt3k_1190005182.raku: ORACLE-REFUSES: Error while compiling kt3k_1190005182.raku
+Timeout/leonid_1220747278.raku: ORACLE-REFUSES: Error while compiling leonid_1220747278.raku
+Timeout/murky-satyr_1281441321.raku: DOES-NOT-END: no answer inside 30 s
+Twelve_Days_of_Christmas/dcutter_1291021032.raku: ORACLE-REFUSES: Error while compiling dcutter_1291021032.raku
+Value/murky-satyr_1301990469.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1301990469.raku
+Vertical_writing/dcutter_1269866618.raku: ORACLE-REFUSES: Error while compiling dcutter_1269866618.raku
+Vertical_writing/pooq_1281233363.raku: ORACLE-REFUSES: Error while compiling pooq_1281233363.raku
+Walk_the_line/murky-satyr_1281525073.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1281525073.raku
+Wide_Periodic_Table/dcutter_1279530392.raku: ORACLE-REFUSES: Error while compiling dcutter_1279530392.raku
+a_prime_number/pooq_1281365557.raku: ORACLE-REFUSES: Error while compiling pooq_1281365557.raku
+absolute_value/teebee_1443340408.raku: DOES-NOT-END: no answer inside 30 s
+baker_problem/pooq_1242640066.raku: ORACLE-REFUSES: Error while compiling pooq_1242640066.raku
+box_in_box/dcutter_1276766093.raku: ORACLE-REFUSES: Error while compiling dcutter_1276766093.raku
+chemical_equation/pooq_1281501477.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 13 and 21 bytes
+floor_log2/teebee_1508273297.raku: DOES-NOT-END: no answer inside 30 s
+flower/ais523_1242244975.raku: ORACLE-REFUSES: Error while compiling ais523_1242244975.raku
+minesweeper/Hydrazer_1623504306.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Too few positionals passed; expected 2 arguments but got 1
+minus_infinity/TAKO_2Fj0nKI_1270492088.raku: ORACLE-REFUSES: Error while compiling TAKO_2Fj0nKI_1270492088.raku
+minus_infinity/dcutter_1270562458.raku: ORACLE-REFUSES: Error while compiling dcutter_1270562458.raku
+moo_FIXED/murky-satyr_1308299611.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: The spawned command 'apt-get moo' exited unsuccessfully (exit code: -1, signal: 254)
+moo_FIXED/teebee_1297642718.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: The spawned command 'apt-get moo' exited unsuccessfully (exit code: -1, signal: 254)
+next_odd_number/murky-satyr_1282037890.raku: DOES-NOT-END: no answer inside 30 s
+nop/40tttttanaka_1332569590.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/BioFALSE_1359491427.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/Fleur_1652579471.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/ais523_1204732299.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/hitsuji_1212484028.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/idealmachine_1293089817.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/kt3k_1204645185.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: WARNINGS for kt3k_1204645185.raku:
+nop/leonid_1204677051.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/narb_1283701385.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/xdigit_1204677180.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+odd_lines/murky-satyr_1281229179.raku: DOES-NOT-END: no answer inside 30 s
+odd_lines/shinh_1281201320.raku: DOES-NOT-END: no answer inside 30 s
+print_file/kt3k_1186113601.raku: ORACLE-REFUSES: Error while compiling kt3k_1186113601.raku
+print_file/kt3k__1186908051.raku: ORACLE-REFUSES: Error while compiling kt3k__1186908051.raku
+print_this_triangle/tails_1510131360.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot assign to an immutable value
+seq/pooq_1281367796.raku: ORACLE-REFUSES: Error while compiling pooq_1281367796.raku
+sum_input/niha_1281232068.raku: ORACLE-REFUSES: Error while compiling niha_1281232068.raku
+sum_input/shinh_1281232652.raku: ORACLE-REFUSES: Error while compiling shinh_1281232652.raku
+weekday_names/dcutter_1289562192.raku: ORACLE-REFUSES: Error while compiling dcutter_1289562192.raku
+weekday_names/murky-satyr_1308299713.raku: ORACLE-REFUSES: Error while compiling murky-satyr_1308299713.raku

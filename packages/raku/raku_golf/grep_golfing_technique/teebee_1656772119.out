@@ -1,0 +1,3 @@
+grep "abc
+de*f
+g[hij]k"

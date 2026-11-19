@@ -1,0 +1,3 @@
+# the launch of prolog_golf (CIO-83): each solution, then drive.pl, ours, which calls m/0 as Anarchy Golf does
+scrip	around	-	drive.pl
+oracle	around	-	drive.pl

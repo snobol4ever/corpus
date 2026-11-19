@@ -1,0 +1,65 @@
+100/lynn_1531586413.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: lynn_1531586413.pl:1:1158: Syntax error: Unexpected end of file
+123/Robert_1179925495.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 1 and 1 bytes
+123/mskzzzz_1180017752.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 1 and 1 bytes
+128_bits/breadbox_1179008925.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: breadbox_1179008925.pl:2:19: Syntax error: Operator expected
+32_div_0/teebee_1430732407.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: sh: 1: ../s/bef: not found
+A_plus_B_plus_C/lynn_1531579238.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: lynn_1531579238.pl:1:11: Syntax error: Unexpected end of file
+Binary_Multiplication/pooq_1220374727.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 8 and 8 bytes
+Bracket_Matching/mskzzzz_1181066902.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Calculator/pooq_1235684269.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 2 and 4 bytes
+Carriage_no_return/grumzik_1279049067.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: grumzik_1279049067.pl:2:135: Syntax error: Unexpected end of file
+Coasters/grumzik_1277728313.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: grumzik_1277728313.pl:1:31: Syntax error: Operator expected
+Compound_interest/pooq_1214239136.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: pooq_1214239136.pl:1:
+Error/leonid_1226891905.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: leonid_1226891905.pl:1:
+Error/okina_1226892550.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: okina_1226892550.pl:1:
+Error/pooq_1226886692.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: pooq_1226886692.pl:1:
+Error_result/lynn_1531578654.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Factorial/pooq_1218962561.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: pooq_1218962561.pl:1:
+Farey_sequence/pooq_28hirose_29_1313193352.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: pooq_28hirose_29_1313193352.pl:1:
+IPv6_Compress/pooq_1271597391.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 21 and 3 bytes
+Line_counter/clock_1351832465.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 1 and 1 bytes
+Line_counter/teebee_1351817014.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 1 and 1 bytes
+Linux_words/pooq_1287096994.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+NABEATSU_of_the_world/Grumzik_1308149925.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: Grumzik_1308149925.pl:1:43: Syntax error: Operator expected
+Network_mask/pooq_1270801362.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 3 and 3 bytes
+PATHS/pooq_1299816363.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: pooq_1299816363.pl:1:
+Print_at/lynn_1531579264.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: lynn_1531579264.pl:1:5: Syntax error: Unexpected end of file
+Print_curve/lynn_1531578718.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: lynn_1531578718.pl:1:1: Syntax error: End of file in quoted codes
+Print_your_source_code/lynn_1531579077.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: lynn_1531579077.pl:1:26: Syntax error: Unexpected end of file
+Quine/mskzzzz_1182078969.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: mskzzzz_1182078969.pl:2:0: Syntax error: Operator expected
+RPN_calculator_FIXED_NO_REALLY/pooq_1227371408.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 12 and 53 bytes
+Rockstar_2/teebee_1735466656.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Sierpinski_Fractal/mskzzzz_1179846136.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: mskzzzz_1179846136.pl:5:
+Sierpinski_Fractal/mskzzzz_1180176165.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: mskzzzz_1180176165.pl:5:
+Tetris/mskzzzz_1180369428.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: mskzzzz_1180369428.pl:4:
+The_Golden_Ratio/mskzzzz_1181401662.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: mskzzzz_1181401662.pl:1:
+Timeout/elb_1190042630.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: elb_1190042630.pl:1:1: Syntax error: Unexpected end of file
+Timeout/elb_28bin_29_1190043273.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: elb_28bin_29_1190043273.pl:1:30: Syntax error: Unexpected end of file
+Timeout/nazo_1190040226.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: nazo_1190040226.pl:1:1: Syntax error: Unexpected end of file
+Timeout/okina_1190042777.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: okina_1190042777.pl:1:1: Syntax error: Unexpected end of clause
+Timeout/pooq_1190138039.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: pooq_1190138039.pl:1:1: Syntax error: Unexpected end of file
+Twin_primes/yooskeh_1187764109.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: yooskeh_1187764109.pl:1:
+Vertical_writing/pooq_1269756161.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+box_in_box/grumzik_1277479917.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: grumzik_1277479917.pl:1:21: Syntax error: Operator expected
+chemical_equation/pooq_1218993810.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 20 and 12 bytes
+edge_of_cuboid/Grumzik_1326671566.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: Grumzik_1326671566.pl:1:19: Syntax error: Operator expected
+edlin/mskzzzz_1181548816.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: Warning: mskzzzz_1181548816.pl:1:
+ehangc/pooq_1294150851.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:5: user:golf_m '$memberchk'/3: Type error: `list' expected, found `" 0468+-#"' (a string)
+ehangc/teebee_28pooq_29_1331504956.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:5: user:golf_m '$memberchk'/3: Type error: `list' expected, found `" 0468+-#"' (a string)
+happy_new_year/pooq_1231081401.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 21 and 29 bytes
+kaprekars_constant/fuzzylojik_1765896053.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: fuzzylojik_1765896053.pl:1:
+nop/leonid_1204680326.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/narb_1283701496.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/pooq_1204649058.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/tabasa_1204778552.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+nop/xdigit_1204790212.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+not_echo/pooq_1303076004.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 18 and 32 bytes
+print_file/kt3k_1186142459.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: 0+1 records in
+print_the_2nd/pooq_1278126592.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: sh: 1: gawk: not found
+quote_box/pooq_1235776926.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+quote_box/pooq_1237109519.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+quote_box/teebee_28pooq_29_1331776656.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+right_time/mskzzzz_1180181389.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: mskzzzz_1180181389.pl:3:54: Syntax error: Operator expected
+simple_language/pooq_1235663172.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 1 and 6 bytes
+testing_23/teebee_1390176240.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 1 and 1 bytes
+three_times_x_plus_one/lynn_1531579102.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: lynn_1531579102.pl:1:11: Syntax error: Unexpected end of file

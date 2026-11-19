@@ -1,0 +1,22 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Wed Nov 18 18:22:34 2026
+
+
+
+                                                                                                                page 1
+
+1       l v =INPUT :F()<span class="gray">\x0d</span>
+                                  !
+ninjalj_1342788324.sno(1,27) : ERROR 233 -- syntax error: invalid use of operator
+
+2        OUTPUT =v<span class="gray">\x0d</span>
+                             !
+ninjalj_1342788324.sno(2,22) : ERROR 233 -- syntax error: invalid use of operator
+
+3        OUTPUT =v :(l)<span class="gray">\x0d</span>
+                                  !
+ninjalj_1342788324.sno(3,27) : ERROR 233 -- syntax error: invalid use of operator
+

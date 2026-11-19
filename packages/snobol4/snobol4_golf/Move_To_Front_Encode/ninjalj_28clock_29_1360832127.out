@@ -1,0 +1,34 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Wed Nov 18 18:15:25 2026
+
+
+
+                                                                                                                page 1
+
+1        S =INPUT<span class="gray">\x0d</span>
+                            !
+ninjalj_28clock_29_1360832127.sno(1,21) : ERROR 233 -- syntax error: invalid use of operator
+
+2        A =0 123456789<span class="gray">\x0d</span>
+                                  !
+ninjalj_28clock_29_1360832127.sno(2,27) : ERROR 233 -- syntax error: invalid use of operator
+
+3       L A ARB . X @P C =C X<span class="gray">\x0d</span>
+                                        !
+ninjalj_28clock_29_1360832127.sno(3,33) : ERROR 233 -- syntax error: invalid use of operator
+
+4        O =O P<span class="gray">\x0d</span>
+                          !
+ninjalj_28clock_29_1360832127.sno(4,19) : ERROR 233 -- syntax error: invalid use of operator
+
+5        S 0 LEN(1) . C =0 :S(L)<span class="gray">\x0d</span>
+                                           !
+ninjalj_28clock_29_1360832127.sno(5,36) : ERROR 233 -- syntax error: invalid use of operator
+
+6        OUTPUT =O<span class="gray">\x0d</span>
+                             !
+ninjalj_28clock_29_1360832127.sno(6,22) : ERROR 233 -- syntax error: invalid use of operator
+

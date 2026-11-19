@@ -1,0 +1,4 @@
+root	/home/packages/raku/raku_golf
+origin	Anarchy Golf (http://golf.shinh.org), every revealed raku solution, one folder a problem, <problem>/<user>.raku, with the problem's tests (tests.json) and its first test's input (input.txt), fetched by /home/packages/tools/golf_fetch.py
+version	fetched 2026-11-18 (501 solutions)
+licence	none stated by the site; read in place, only the tables and the answers stored here

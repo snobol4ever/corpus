@@ -1,0 +1,502 @@
+# the census of /home/packages/raku/raku_golf by rakudo (fetched 2026-11-18 (501 solutions)), 2026-11-18: path from the root, verdict, note
+0/pooq_1599852696.raku	ENTRY	standard input is the collection's 0/input.txt
+0/yuruhiya_1607324131.raku	ENTRY	standard input is the collection's 0/input.txt
+0_5_broken_keyboard/Fleur_1644800566.raku	ENTRY	
+0_5_broken_keyboard/McBusLuck_1644574244.raku	ENTRY	
+0_5_broken_keyboard/rotary-o_1644677265.raku	ENTRY	
+1/2520_1481812663.raku	ENTRY	
+1/kaki_1482421002.raku	ENTRY	
+1/tanon_1481818969.raku	ENTRY	
+100/lynn_1531586406.raku	ORACLE-REFUSES	Error while compiling lynn_1531586406.raku
+114514/Fleur_1752836930.raku	ENTRY	standard input is the collection's 114514/input.txt
+121212/Dingledooper_1634176969.raku	ENTRY	
+121212/Fleur_1635150416.raku	ENTRY	
+121212/Fleur_1635305765.raku	ENTRY	
+121212/JoKing_1634105400.raku	ENTRY	
+12121212/Fleur_1738047042.raku	ENTRY	standard input is the collection's 12121212/input.txt
+123/kt3k_1183966544.raku	ORACLE-REFUSES	Error while compiling kt3k_1183966544.raku
+123/pooq_1281272002.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 2 and 2 bytes
+128_bits/kt3k_1178434797.raku	ENTRY	
+128_bits/murky-satyr_1281599820.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1281599820.raku
+128_bits/ott_1185201113.raku	ORACLE-REFUSES	Argument to "say" seems to be malformed
+128_bits/pooq_1281500360.raku	ENTRY	
+1_11_14_20_f/Fleur_1667641371.raku	ENTRY	standard input is the collection's 1_11_14_20_f/input.txt
+1_2_32_4_512/2520_1522491342.raku	ENTRY	
+1_2_32_4_512/tanon_1435578717.raku	ENTRY	
+257/yuruhiya_1616578553.raku	ENTRY	
+27/Fleur_1740613691.raku	ENTRY	
+32_div_0/2520_1467809796.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: /bin/sh: 1: 0/@: not found
+32_div_0/brx_1429690856.raku	ENTRY	
+32_div_0/nooodl_1429663527.raku	ENTRY	
+32bit_integer/dico_leque_1302370189.raku	ENTRY	
+32bit_integer/murky-satyr_1302345564.raku	ENTRY	
+32bit_integer/teebee_1302385664.raku	ENTRY	
+35/2520_1512105620.raku	ENTRY	
+35/Hendrik_1512220612.raku	ENTRY	
+35/rotary-o_1512219501.raku	ENTRY	
+42/jonathan_camacho_1427156491.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 26 and 19 bytes
+73_is_not_a_number/Fleur_1708902955.raku	ENTRY	
+81_digit_number/Fleur_1701397906.raku	ENTRY	
+81_digit_number/Fleur_1702435093.raku	ENTRY	
+81_digit_number/Sisyphus_1702439257.raku	ENTRY	
+A000217/teebee_1413147495.raku	ORACLE-REFUSES	Error while compiling teebee_1413147495.raku
+A001037/Fleur_1690776811.raku	ENTRY	
+A001037/Fleur_28_29_1690874775.raku	ENTRY	
+A001037/Fleur_28_29_1690887001.raku	ENTRY	
+A001037/teebee_1690826372.raku	ENTRY	
+A001037_long/Fleur_1691021574.raku	ENTRY	
+ABBA/dcutter_1319658394.raku	ENTRY	standard input is the collection's ABBA/input.txt
+ABBA/teebee_1319837876.raku	ENTRY	standard input is the collection's ABBA/input.txt
+ADD/Hydrazer_1623626105.raku	ENTRY	stderr not graded: Use of Nil in string context
+ASCII_Table/dcutter_1279459926.raku	ENTRY	
+AWK_Golf/23c0ffee_28Fleur_29_1741555134.raku	ENTRY	standard input is the collection's AWK_Golf/input.txt
+AWK_Golf/Fleur_1740842740.raku	ENTRY	standard input is the collection's AWK_Golf/input.txt
+A_plus_B_plus_C/kotatsugame_1530906881.raku	ENTRY	standard input is the collection's A_plus_B_plus_C/input.txt
+A_plus_B_plus_C/lynn_1531524474.raku	ENTRY	standard input is the collection's A_plus_B_plus_C/input.txt
+Accumulate_Value_in_Reverse/Fleur_1652148352.raku	ENTRY	standard input is the collection's Accumulate_Value_in_Reverse/input.txt
+Accumulate_Value_in_Reverse/teebee_1652208025.raku	ENTRY	standard input is the collection's Accumulate_Value_in_Reverse/input.txt
+Addition/Fleur_1635410063.raku	ENTRY	standard input is the collection's Addition/input.txt
+Addition/Fleur_1654503168.raku	ENTRY	standard input is the collection's Addition/input.txt
+Alnum_challenge/murky-satyr_1281521951.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1281521951.raku
+Alnum_challenge/pooq_1281520692.raku	ENTRY	
+Alphabet_Magic_Eye_Wall/lynn_1531576791.raku	ENTRY	
+Anno_Satanae/Fleur_1653878295.raku	ENTRY	
+Another_Table/dcutter_1279539878.raku	ENTRY	
+Apple_tree/pooq_1571001693.raku	ENTRY	standard input is the collection's Apple_tree/input.txt
+Big_Number/TAKO_2Fj0nKI_1270237902.raku	ENTRY	
+Big_Number/murky-satyr_1281244093.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot modify an immutable Nil value
+Biggest_Number/TAKO_2Fj0nKI_1270486677.raku	ORACLE-REFUSES	Error while compiling TAKO_2Fj0nKI_1270486677.raku
+Biggest_Number/dcutter_1270562337.raku	ORACLE-REFUSES	Error while compiling dcutter_1270562337.raku
+Biggest_Number/prakash_1270482737.raku	ORACLE-REFUSES	Error while compiling prakash_1270482737.raku
+Bloody_Mary/Fleur_1714049696.raku	ENTRY	standard input is the collection's Bloody_Mary/input.txt
+Bloody_Mary/teebee_1714442724.raku	ENTRY	standard input is the collection's Bloody_Mary/input.txt
+Boolean/murky-satyr_1301988877.raku	ENTRY	standard input is the collection's Boolean/input.txt
+Boolean/tails_1501132076.raku	ENTRY	standard input is the collection's Boolean/input.txt
+Boolean/tails_28alnum_29_1501132416.raku	ENTRY	standard input is the collection's Boolean/input.txt
+Brainfuck_FIXED_FIXED/Dingledooper_1571889116.raku	ENTRY	standard input is the collection's Brainfuck_FIXED_FIXED/input.txt
+Brainfuck_FIXED_FIXED/morio___1571832838.raku	ENTRY	standard input is the collection's Brainfuck_FIXED_FIXED/input.txt
+Brainfuck_FIXED_FIXED/pooq_1571826465.raku	ENTRY	standard input is the collection's Brainfuck_FIXED_FIXED/input.txt
+Break_Lorem_Ipsum/jonathan_camacho_1428625371.raku	ENTRY	standard input is the collection's Break_Lorem_Ipsum/input.txt
+Break_Lorem_Ipsum_fixed/jonathan_camacho_1428624672.raku	ENTRY	standard input is the collection's Break_Lorem_Ipsum_fixed/input.txt
+Buffalo/dcutter_1265980930.raku	ORACLE-REFUSES	Error while compiling dcutter_1265980930.raku
+Buffalo/murky-satyr_1281368506.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1281368506.raku
+Calculator/murky-satyr_1281641517.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1281641517.raku
+Calculator/pooq_1281473917.raku	ORACLE-REFUSES	Error while compiling pooq_1281473917.raku
+Cat_program/2520_28alnum_29_1467814849.raku	ENTRY	standard input is the collection's Cat_program/input.txt
+Cat_program/olf_1467814744.raku	ENTRY	standard input is the collection's Cat_program/input.txt
+Center_text/Hydrazer_1623623307.raku	ENTRY	standard input is the collection's Center_text/input.txt
+Check_for_brainwave_activity/TAKO_2Fj0nKI_1269858012.raku	ENTRY	standard input is the collection's Check_for_brainwave_activity/input.txt
+Check_for_brainwave_activity/dcutter_1269866937.raku	ENTRY	standard input is the collection's Check_for_brainwave_activity/input.txt
+Circumference_of_circle/murky-satyr_1299518904.raku	DOES-NOT-END	no answer inside 30 s
+Clarify_time_FIXED/Hydrazer_1623625049.raku	ENTRY	standard input is the collection's Clarify_time_FIXED/input.txt; stderr not graded: Use of uninitialized value element of type Any in string context.
+CobolTree/Hydrazer_1623792357.raku	ENTRY	standard input is the collection's CobolTree/input.txt
+Convert_Radians_to_Degrees/ludo_1462062983.raku	DOES-NOT-END	no answer inside 30 s
+Convert_Radians_to_Degrees/olf_1461428461.raku	DOES-NOT-END	no answer inside 30 s
+Convert_Radians_to_Degrees/tanon_1462037948.raku	ENTRY	standard input is the collection's Convert_Radians_to_Degrees/input.txt
+Convert_Radians_to_Degrees/teebee_1460934028.raku	DOES-NOT-END	no answer inside 30 s
+Convert_to_hex/Hydrazer_1623793381.raku	ENTRY	standard input is the collection's Convert_to_hex/input.txt
+Convert_to_hex/migo_1333645356.raku	ENTRY	standard input is the collection's Convert_to_hex/input.txt
+Convert_to_hex/teebee_1333659235.raku	DOES-NOT-END	no answer inside 30 s
+Count_asterisks/dcutter_1274207773.raku	ENTRY	standard input is the collection's Count_asterisks/input.txt
+Count_asterisks/pooq_1281217644.raku	ENTRY	standard input is the collection's Count_asterisks/input.txt
+Count_in_Base_10/Fleur_1654060566.raku	ENTRY	
+Count_in_Base_2/Fleur_1654220506.raku	ENTRY	
+DiCaprio_Sequence/Fleur_1701993481.raku	ORACLE-REFUSES	Error while compiling Fleur_1701993481.raku
+Dice_Antipodes/Fleur_1655346663.raku	ENTRY	standard input is the collection's Dice_Antipodes/input.txt
+Difference_of/Fleur_1751652860.raku	ENTRY	standard input is the collection's Difference_of/input.txt
+Difference_of/murky-satyr_1308038273.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1308038273.raku
+Disagree/Hydrazer_1623412757.raku	ENTRY	standard input is the collection's Disagree/input.txt
+Disagree/yuruhiya_1615195247.raku	ENTRY	standard input is the collection's Disagree/input.txt
+Disagree/yuruhiya_1616458591.raku	ORACLE-REFUSES	Error while compiling yuruhiya_1616458591.raku
+Double_quote/pooq_1317008666.raku	ENTRY	standard input is the collection's Double_quote/input.txt
+Double_quote/teebee_1317073725.raku	ENTRY	standard input is the collection's Double_quote/input.txt
+Doubly_Triangular_Numbers/Fleur_1730433888.raku	ENTRY	
+Drop_first_line/niha_1281233149.raku	ENTRY	standard input is the collection's Drop_first_line/input.txt
+Duplicate_characters/murky-satyr_1281521745.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1281521745.raku
+Duplicate_characters/pooq_1281519645.raku	ENTRY	standard input is the collection's Duplicate_characters/input.txt
+Error/40tttttanaka_1332498123.raku	ORACLE-REFUSES	Error while compiling 40tttttanaka_1332498123.raku
+Error/jonas_1413374097.raku	ORACLE-REFUSES	Error while compiling jonas_1413374097.raku
+Error/leonid_1226850206.raku	ORACLE-REFUSES	Error while compiling leonid_1226850206.raku
+Error_result/lynn_1531577748.raku	ORACLE-REFUSES	Argument to "print" seems to be malformed
+Excess3/murky-satyr_1310321452.raku	ENTRY	standard input is the collection's Excess3/input.txt
+Exclamation_Point/2520_1467880924.raku	ENTRY	
+Find_the_impostors/Fleur_1653952573.raku	ENTRY	standard input is the collection's Find_the_impostors/input.txt
+Five_Little_Ducks___Next_Verse/Hydrazer_1623791729.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: The iterator of this Seq is already in use/consumed by another Seq (you
+GCD_of_1_to_n/murky-satyr_1281641805.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1281641805.raku
+GCD_of_1_to_n/pooq_1242639468.raku	ENTRY	standard input is the collection's GCD_of_1_to_n/input.txt
+GCD_of_1_to_n/yuruhiya_1616554764.raku	ENTRY	standard input is the collection's GCD_of_1_to_n/input.txt
+Growing_alphabet/tanon_1473086692.raku	ENTRY	standard input is the collection's Growing_alphabet/input.txt
+HCPC_Print_ASCII_building/Fleur_1707221048.raku	ENTRY	
+HQ9_plus_Interpreter/Hydrazer_1623633445.raku	ENTRY	standard input is the collection's HQ9_plus_Interpreter/input.txt
+Half_Sierpinski/dcutter_1271668934.raku	ENTRY	
+Half_Sierpinski/murky-satyr_1281238144.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1281238144.raku
+Half_Tree/Fleur_1706022622.raku	ENTRY	
+Hello_World/2520_1467896888.raku	ENTRY	
+Hello_World/ludo_1467896769.raku	ENTRY	
+Hello_transposable_world/2520_1424429443.raku	ENTRY	
+Hello_transposable_world/brx_1424367123.raku	ENTRY	
+Hraogreining/Fleur_1715560549.raku	ENTRY	standard input is the collection's Hraogreining/input.txt
+Implement_MiniStringFuck/tanon_1485270831.raku	ENTRY	standard input is the collection's Implement_MiniStringFuck/input.txt
+Implement_MiniStringFuck/tanon_28cheat_29_1485320681.raku	ENTRY	standard input is the collection's Implement_MiniStringFuck/input.txt
+Implement_Pluso/tanon_1485269567.raku	ENTRY	standard input is the collection's Implement_Pluso/input.txt
+Implement_Pluso/tanon_28cheat_29_1485321545.raku	ENTRY	standard input is the collection's Implement_Pluso/input.txt
+Interpret_Perl_Code/TAKO_2Fj0nKI_1273763787.raku	ENTRY	standard input is the collection's Interpret_Perl_Code/input.txt
+Interpret_Perl_Code/dcutter_1273762310.raku	ENTRY	standard input is the collection's Interpret_Perl_Code/input.txt
+Interpret_Perl_Code/leonid_1273767361.raku	ENTRY	standard input is the collection's Interpret_Perl_Code/input.txt
+Is_Trivia_Done_Yet/Fleur_1687394451.raku	ENTRY	
+Is_Trivia_Done_Yet/Fleur_28btnlq_29_1688539091.raku	ENTRY	
+Leap_Year/Hydrazer_1634090927.raku	ENTRY	standard input is the collection's Leap_Year/input.txt
+Legendre_constant/Fleur_1648788638.raku	ENTRY	
+Levenshtein_Distance/dcutter_1269863214.raku	ORACLE-REFUSES	Error while compiling dcutter_1269863214.raku
+Levenshtein_Distance/pooq_1281414147.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 2 and 2 bytes
+Life_game/pooq_1281450666.raku	ENTRY	standard input is the collection's Life_game/input.txt
+List_of_numbers_to_factor/dcutter_1294226810.raku	ORACLE-REFUSES	Error while compiling dcutter_1294226810.raku
+MIDI_note_number_to_frequency/ludo_1464267900.raku	DOES-NOT-END	no answer inside 30 s
+MIDI_note_number_to_frequency/teebee_1464131924.raku	DOES-NOT-END	no answer inside 30 s
+Mental_calculation/Hydrazer_1623793241.raku	ENTRY	standard input is the collection's Mental_calculation/input.txt
+Merry_Christmas_2022/Fleur_1671170984.raku	ORACLE-REFUSES	Error while compiling Fleur_1671170984.raku
+Mersenne/Fleur_1745593316.raku	ENTRY	standard input is the collection's Mersenne/input.txt
+Minimal_scheme_interpreter/pooq_1281436080.raku	ENTRY	standard input is the collection's Minimal_scheme_interpreter/input.txt
+Monster_group/pooq_1242633879.raku	ENTRY	
+Multiplication_Table/dcutter_1279610940.raku	ORACLE-REFUSES	Error while compiling dcutter_1279610940.raku
+Multiply/pooq_1281367166.raku	ORACLE-REFUSES	Error while compiling pooq_1281367166.raku
+Multiply_long_version/murky-satyr_1281641091.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: No such method 'eval' for invocant of type 'Int'. Did you mean any of
+NABEATSU_of_the_world/murky-satyr_1308291877.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1308291877.raku
+NABEATSU_of_the_world/murky-satyr_1309824796.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1309824796.raku
+NABEATSU_of_the_world/risou_1307352463.raku	ENTRY	
+NOT_gate/eban_1281198919.raku	ENTRY	standard input is the collection's NOT_gate/input.txt
+NOT_gate/ott_1193951259.raku	ORACLE-REFUSES	Error while compiling ott_1193951259.raku
+NOT_gate/shinh_1281199198.raku	ENTRY	standard input is the collection's NOT_gate/input.txt
+NOT_gate/tabasa_1193970189.raku	ORACLE-REFUSES	Error while compiling tabasa_1193970189.raku
+Neighbours_on_a_Numpad/tanon_1473825720.raku	ENTRY	standard input is the collection's Neighbours_on_a_Numpad/input.txt
+Network_mask/pooq_1281413544.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 4 and 4 bytes
+Nice_Numbers/Fleur_1697496663.raku	ENTRY	
+Nice_Numbers/fuzzylojik_1697471917.raku	ENTRY	
+Nice_Numbers/fuzzylojik_28alnum_29_1698066342.raku	ENTRY	
+No/Fleur_1726496703.raku	ENTRY	standard input is the collection's No/input.txt
+No/Joon_Yorigami_1728188789.raku	ENTRY	standard input is the collection's No/input.txt
+Nothing/kt3k_1194791683.raku	ORACLE-REFUSES	Error while compiling kt3k_1194791683.raku
+Nothing/ninjalj_1297623465.raku	ENTRY	standard input is the collection's Nothing/input.txt
+Nothing/ott_1195434086.raku	ORACLE-REFUSES	Error while compiling ott_1195434086.raku
+Nothing/tabasa_1195440180.raku	ORACLE-REFUSES	Error while compiling tabasa_1195440180.raku
+Nth_FizzBuzz/Hydrazer_1623443353.raku	ENTRY	standard input is the collection's Nth_FizzBuzz/input.txt
+Number_Sequence/murky-satyr_1309826260.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1309826260.raku
+Number_Sequence/teebee_1356863662.raku	ORACLE-REFUSES	Error while compiling teebee_1356863662.raku
+Odd_Three_Digit_Numbers_Divisible_By_Three/Fleur_1753694343.raku	ENTRY	
+Odd_Three_Digit_Numbers_Divisible_By_Three/fuzzylojik_1753706524.raku	ENTRY	
+Odd_Three_Digit_Numbers_Divisible_By_Three/teebee_1754681619.raku	ENTRY	
+One_char_CAT/2520_1530891094.raku	ENTRY	standard input is the collection's One_char_CAT/input.txt
+One_char_CAT/kotatsugame_1530302959.raku	ENTRY	standard input is the collection's One_char_CAT/input.txt
+Oyster/Hydrazer_1623877824.raku	ENTRY	standard input is the collection's Oyster/input.txt
+PATHS/Hydrazer_1623762901.raku	ENTRY	standard input is the collection's PATHS/input.txt
+PalindromemordnilaP/Fleur_1725238808.raku	ENTRY	standard input is the collection's PalindromemordnilaP/input.txt
+Palindromic_Quine/jonathan_camacho_1427777302.raku	ENTRY	stderr not graded: Saw 1 occurrence of deprecated code.
+Pandigital_Roman_Numerals/Fleur_1635487874.raku	ENTRY	
+Paying_in_Pennies/Fleur_1699573751.raku	ENTRY	standard input is the collection's Paying_in_Pennies/input.txt
+Pendulum/teebee_1383673931.raku	ORACLE-REFUSES	Error while compiling teebee_1383673931.raku
+Perfect_power_logarithms/1479522321.raku	ENTRY	standard input is the collection's Perfect_power_logarithms/input.txt
+Perfect_power_logarithms/tanon_1479522353.raku	ENTRY	standard input is the collection's Perfect_power_logarithms/input.txt
+Permutations/Fleur_1650332356.raku	ENTRY	
+Pi_inside_Pi/Fleur_1706709248.raku	ENTRY	
+Pi_inside_Pi/camelCasedSnivy_1706703854.raku	ENTRY	
+Primarily_Prime_Primes/2520_28tanon_2Cmitchs_29_1481931990.raku	ENTRY	
+Primarily_Prime_Primes/mitchs_1481290326.raku	ENTRY	
+Primarily_Prime_Primes/tanon_1480934296.raku	ENTRY	
+Prime_ruin/Hydrazer_1624115358.raku	ENTRY	
+Print_Anarchy_Golf_Site_Info/Hydrazer_1623634619.raku	ENTRY	
+Print_ERROR/dcutter_1293550928.raku	ENTRY	
+Print_ERROR/narb_1293692527.raku	ENTRY	
+Print_ERROR/nooodl_1293392946.raku	ENTRY	
+Print_Fractions/Fleur_1736486679.raku	ENTRY	
+Print_HhX/lynn_1531577040.raku	ENTRY	
+Print_Nothing/Hydrazer_1623637288.raku	ENTRY	
+Print_Nothing_3/McBusLuck_1562672865.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+Print_O/lynn_1531577617.raku	ORACLE-REFUSES	Error while compiling lynn_1531577617.raku
+Print_a_quine/Hydrazer_1623635079.raku	ENTRY	
+Print_a_teapot/2520_1469412680.raku	ENTRY	standard input is the collection's Print_a_teapot/input.txt
+Print_a_teapot/ludo_1469375985.raku	ENTRY	standard input is the collection's Print_a_teapot/input.txt
+Print_a_teapot/tanon_28Please_update_Perl6_21_29_1468339965.raku	ENTRY	standard input is the collection's Print_a_teapot/input.txt
+Print_at/lynn_1531579278.raku	ORACLE-REFUSES	Error while compiling lynn_1531579278.raku
+Print_below/Hydrazer_1623634100.raku	ENTRY	
+Print_bottle/Hydrazer_1623637105.raku	ENTRY	
+Print_challenge_EASY/JOrE20_1784809812.raku	ENTRY	
+Print_curve/lynn_1531578730.raku	ORACLE-REFUSES	Error while compiling lynn_1531578730.raku
+Print_curve/yuruhiya_1616969941.raku	ENTRY	
+Print_nothing_2/lynn_1531573626.raku	ENTRY	
+Print_number_list/tails_1532080968.raku	ENTRY	
+Print_numbers__Revised/pooq_1281472485.raku	ENTRY	
+Print_out_a_lot__56K_BEWARE/yuruhiya_1616813152.raku	ENTRY	
+Print_reversed_ASCII/tails_1531472414.raku	ENTRY	
+Print_sequence_ten/2520_1530418062.raku	ENTRY	
+Print_your_source_code/lynn_1531579091.raku	ORACLE-REFUSES	Argument to "print" seems to be malformed
+PrinterOriented_Banner/dcutter_1271841261.raku	ENTRY	standard input is the collection's PrinterOriented_Banner/input.txt
+PubSubHubbub/pooq_1258337440.raku	ENTRY	
+Pythagorean_triple/Hydrazer_1623670108.raku	ENTRY	
+Quine/kt3k_1182158646.raku	ORACLE-REFUSES	Error while compiling kt3k_1182158646.raku
+Quine/kt3k_28alt_29_1184060953.raku	ORACLE-REFUSES	Error while compiling kt3k_28alt_29_1184060953.raku
+Quine/kt3k_28read_file_29_1184061277.raku	ORACLE-REFUSES	Error while compiling kt3k_28read_file_29_1184061277.raku
+Quine/matyr_1281587854.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Failed to open file test.pl6: No such file or directory
+Quine/murky-satyr_1281591664.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1281591664.raku
+Quote/2520_1467897289.raku	ENTRY	
+RPN_calculator_FIXED_NO_REALLY/pooq_1281444482.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 8 and 13 bytes
+Raus_Sequence/Fleur_1701139066.raku	ENTRY	
+Raus_Sequence/Natte_1701053725.raku	ENTRY	
+Real_Numbers/Fleur_1699597373.raku	ENTRY	
+Real_Zero/clock_1329041824.raku	ENTRY	
+Real_Zero/dalinaum_1328597927.raku	ENTRY	
+Real_Zero/hakusui_1328795012.raku	ENTRY	
+Real_Zero/leonid_1328662342.raku	ENTRY	
+Real_Zero/teebee_1328919151.raku	ENTRY	
+Repair_Lorem_Ipsum/jonathan_camacho_1427296158.raku	DOES-NOT-END	no answer inside 30 s
+Repair_Lorem_Ipsum/mitchs_1428031112.raku	ENTRY	standard input is the collection's Repair_Lorem_Ipsum/input.txt
+Repeated_Number/murky-satyr_1360711157.raku	ENTRY	
+Replace_exercise/2520_1514729057.raku	ENTRY	standard input is the collection's Replace_exercise/input.txt
+Replace_exercise/tails_1515122513.raku	DOES-NOT-END	no answer inside 30 s
+Replace_exercise/teebee_1515120511.raku	DOES-NOT-END	no answer inside 30 s
+Replace_exercise_2/2520_1516602768.raku	DOES-NOT-END	no answer inside 30 s
+Replace_exercise_2/brx_1517318410.raku	DOES-NOT-END	no answer inside 30 s
+Replace_exercise_2/kotatsugame_1517672482.raku	DOES-NOT-END	no answer inside 30 s
+Replace_exercise_2/mitchs_1517318946.raku	DOES-NOT-END	no answer inside 30 s
+Replace_exercise_2/tails_1516582824.raku	DOES-NOT-END	no answer inside 30 s
+Replace_exercise_2/tanon_1516547564.raku	DOES-NOT-END	no answer inside 30 s
+Replace_exercise_2/teebee_1516570622.raku	DOES-NOT-END	no answer inside 30 s
+Reverse_lines_and_words/tanon_1486827474.raku	ENTRY	standard input is the collection's Reverse_lines_and_words/input.txt
+Rotate_letters_FIXED/Hydrazer_1623418620.raku	ENTRY	standard input is the collection's Rotate_letters_FIXED/input.txt
+Rounding_off/2520_1468177671.raku	ENTRY	standard input is the collection's Rounding_off/input.txt
+Rounding_off/Fleur_1745572456.raku	ENTRY	standard input is the collection's Rounding_off/input.txt; stderr not graded: Use of Nil in numeric context
+Rounding_off/ludo_1468766709.raku	DOES-NOT-END	no answer inside 30 s
+Rounding_off/tanon_1467805423.raku	ENTRY	standard input is the collection's Rounding_off/input.txt
+Rounding_off/teebee_1467846082.raku	DOES-NOT-END	no answer inside 30 s
+Ruby_Quine/Hydrazer_1623635325.raku	ENTRY	
+SMRPG_Level_Up_Bonus/Fleur_1655940301.raku	ENTRY	standard input is the collection's SMRPG_Level_Up_Bonus/input.txt
+SMRPG_Level_Up_Bonus/teebee_1656803238.raku	DOES-NOT-END	no answer inside 30 s
+SQR/tails_1502256760.raku	ENTRY	standard input is the collection's SQR/input.txt
+Sharkovskii_order/murky-satyr_1281239806.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot modify an immutable Nil value
+Simple_Python_calculator/tanon_1482030355.raku	ENTRY	standard input is the collection's Simple_Python_calculator/input.txt
+Sisyphus_Sequence/Fleur_1690951327.raku	ENTRY	
+Sokoban/murky-satyr_1283850364.raku	ENTRY	standard input is the collection's Sokoban/input.txt
+Sort_Suffixes/tails_1561370863.raku	ENTRY	standard input is the collection's Sort_Suffixes/input.txt
+Steps_to_Miles/Fleur_1737616218.raku	ENTRY	
+Stop_at_anomalous_data/tanon_1473822142.raku	ENTRY	standard input is the collection's Stop_at_anomalous_data/input.txt; stderr not graded: Died
+Stop_five_after_nonzero/Fleur_1653024195.raku	ENTRY	standard input is the collection's Stop_five_after_nonzero/input.txt
+Stop_five_after_nonzero/Fleur_1654135674.raku	ENTRY	standard input is the collection's Stop_five_after_nonzero/input.txt
+Stop_on_nonzero/Fleur_1653347019.raku	ENTRY	standard input is the collection's Stop_on_nonzero/input.txt; stderr not graded: Index out of range. Is: 11, should be in 0..0
+Stop_on_nonzero/teebee_1653342081.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+Stringify_index/Hydrazer_1623625706.raku	ENTRY	standard input is the collection's Stringify_index/input.txt
+Subfactorial_FIXED/HPWiz_28tails_29_1543970198.raku	ENTRY	stderr not graded: Potential difficulties:
+Subfactorial_FIXED/tails_1502333396.raku	ENTRY	
+Sum_the_deltas/tails_1508821455.raku	ENTRY	standard input is the collection's Sum_the_deltas/input.txt
+Sumo_Record_By_Day/Fleur_1715820100.raku	ENTRY	
+Swoosh/Fleur_1727403608.raku	ENTRY	
+Ten_Count/Fleur_1645006702.raku	ENTRY	standard input is the collection's Ten_Count/input.txt
+Ten_Count/kotatsugame_1537677829.raku	ENTRY	standard input is the collection's Ten_Count/input.txt
+Ten_Count/teebee_1402089043.raku	ORACLE-REFUSES	Error while compiling teebee_1402089043.raku
+Test_prometeo/Fleur_1734043522.raku	ENTRY	standard input is the collection's Test_prometeo/input.txt
+Tetration_Mod/Hydrazer_1623670752.raku	ENTRY	standard input is the collection's Tetration_Mod/input.txt
+Text_Compression/pooq_1281259674.raku	ENTRY	
+The_Golden_Ratio/primo_1538470731.raku	ORACLE-REFUSES	Error while compiling primo_1538470731.raku
+Timeout/jonathan_camacho_1426364925.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+Timeout/kt3k_1190005182.raku	ORACLE-REFUSES	Error while compiling kt3k_1190005182.raku
+Timeout/leonid_1220747278.raku	ORACLE-REFUSES	Error while compiling leonid_1220747278.raku
+Timeout/murky-satyr_1281441321.raku	DOES-NOT-END	no answer inside 30 s
+Tinder_sequence/Fleur_1704900015.raku	ENTRY	
+Turn_a_1d_array_into_a_5d_array/ludo_1467509804.raku	ENTRY	standard input is the collection's Turn_a_1d_array_into_a_5d_array/input.txt
+Turn_a_1d_array_into_a_5d_array/tanon_1467120226.raku	ENTRY	standard input is the collection's Turn_a_1d_array_into_a_5d_array/input.txt
+Twelve_Days_of_Christmas/dcutter_1291021032.raku	ORACLE-REFUSES	Error while compiling dcutter_1291021032.raku
+UPPERCASE/2520_1475395308.raku	ENTRY	standard input is the collection's UPPERCASE/input.txt
+Unsighned_int_Max/yuruhiya_1616577139.raku	ENTRY	
+Uppercase_the_string/2520_28alnum_29_1467805907.raku	ENTRY	standard input is the collection's Uppercase_the_string/input.txt
+Uppercase_the_string/ludo_1468318072.raku	ENTRY	standard input is the collection's Uppercase_the_string/input.txt
+Uppercase_the_string/mitchs_1467806005.raku	ENTRY	standard input is the collection's Uppercase_the_string/input.txt
+Uppercase_the_string/tanon_1467805053.raku	ENTRY	standard input is the collection's Uppercase_the_string/input.txt
+Uppercase_the_string/teebee_1467829291.raku	ENTRY	standard input is the collection's Uppercase_the_string/input.txt
+Uppercase_the_string/teebee_28alnum_29_1467829257.raku	ENTRY	standard input is the collection's Uppercase_the_string/input.txt
+Value/murky-satyr_1301990469.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1301990469.raku
+Vertical_writing/Fleur_1646724029.raku	ENTRY	
+Vertical_writing/dcutter_1269866618.raku	ORACLE-REFUSES	Error while compiling dcutter_1269866618.raku
+Vertical_writing/murky-satyr_1281234557.raku	ENTRY	
+Vertical_writing/pooq_1281233363.raku	ORACLE-REFUSES	Error while compiling pooq_1281233363.raku
+Very_small_number/inaniwa_1264738025.raku	ENTRY	
+Very_small_number/leonid_1264757201.raku	ENTRY	
+Very_small_number/prakash_1264739108.raku	ENTRY	
+Walk_the_line/murky-satyr_1281525073.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1281525073.raku
+Walk_the_line/pooq_1281521649.raku	ENTRY	standard input is the collection's Walk_the_line/input.txt
+What_sound_does_a_duck_and_a_chicken_make/Fleur_1635289583.raku	ENTRY	
+What_sound_does_a_duck_make/1633799724.raku	ENTRY	
+What_sound_does_a_duck_make/Fleur_1633918887.raku	ENTRY	
+What_sound_does_a_duck_make/Fleur_1635231819.raku	ENTRY	
+Whitespaceless_Hello_world/leonid_1227409056.raku	ENTRY	
+Whitespaceless_Hello_world/pooq_1242635263.raku	ENTRY	
+Wide_Periodic_Table/dcutter_1279530392.raku	ORACLE-REFUSES	Error while compiling dcutter_1279530392.raku
+ZunDokoKiyoshi/Fleur_1658387360.raku	ENTRY	standard input is the collection's ZunDokoKiyoshi/input.txt; stderr not graded: Use of Nil in numeric context
+ZunDokoKiyoshi/teebee_1658365151.raku	ENTRY	standard input is the collection's ZunDokoKiyoshi/input.txt
+a/McBusLuck_1598596268.raku	ENTRY	standard input is the collection's a/input.txt
+a_prime_number/TAKO_2Fj0nKI_1268414301.raku	ENTRY	
+a_prime_number/murky-satyr_1281366019.raku	ENTRY	
+a_prime_number/pooq_1281365557.raku	ORACLE-REFUSES	Error while compiling pooq_1281365557.raku
+a_prime_number/yibe_1268414961.raku	ENTRY	
+a_prime_number/yuruhiya_1616890161.raku	ENTRY	
+abbccc/Fleur_1678729780.raku	ENTRY	standard input is the collection's abbccc/input.txt
+absolute_value/tanon_1443339869.raku	ENTRY	standard input is the collection's absolute_value/input.txt
+absolute_value/teebee_1443340408.raku	DOES-NOT-END	no answer inside 30 s
+add_1_to_numbers/kotatsugame_1552574478.raku	ENTRY	standard input is the collection's add_1_to_numbers/input.txt
+apery_constant/pooq_1258845106.raku	ENTRY	standard input is the collection's apery_constant/input.txt
+arrays_start_at_a/Fleur_1735048659.raku	ENTRY	standard input is the collection's arrays_start_at_a/input.txt
+atomic_numbers/Hydrazer_1623676228.raku	ENTRY	standard input is the collection's atomic_numbers/input.txt; stderr not graded: The iterator of this Seq is already in use/consumed by another Seq (you
+baker_problem/pooq_1242640066.raku	ORACLE-REFUSES	Error while compiling pooq_1242640066.raku
+base_2_to_36/shlomif_1559817553.raku	ENTRY	standard input is the collection's base_2_to_36/input.txt
+base_2_to_36/tails_1559116564.raku	ENTRY	standard input is the collection's base_2_to_36/input.txt
+base_previous/Fleur_1689416679.raku	ENTRY	
+binary/Fleur_1674189525.raku	ENTRY	standard input is the collection's binary/input.txt
+binary/yuruhiya_1607327154.raku	ENTRY	standard input is the collection's binary/input.txt
+box_in_box/dcutter_1276766093.raku	ORACLE-REFUSES	Error while compiling dcutter_1276766093.raku
+bye/Fleur_1679749681.raku	ENTRY	
+certain_numbers_will_make_you_print_a_string_of_2s/Fleur_1704267917.raku	ENTRY	standard input is the collection's certain_numbers_will_make_you_print_a_string_of_2s/input.txt
+chemical_equation/pooq_1281501477.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 13 and 21 bytes
+code_dot_golf_sample_code/Fleur_1670572089.raku	ENTRY	standard input is the collection's code_dot_golf_sample_code/input.txt
+code_dot_golf_sample_code/teebee_1670570405.raku	ENTRY	standard input is the collection's code_dot_golf_sample_code/input.txt
+code_golf_meetup_2025/Fleur_1748929214.raku	ENTRY	standard input is the collection's code_golf_meetup_2025/input.txt
+code_golf_meetup_2025/fuzzylojik_28Fleur_2Cj4at_29_1749922568.raku	ENTRY	standard input is the collection's code_golf_meetup_2025/input.txt
+compress_letter_rectangles/tails_1503982974.raku	ENTRY	standard input is the collection's compress_letter_rectangles/input.txt; stderr not graded: WARNINGS for tails_1503982974.raku:
+concat_all_signed_bytes/tails_1555914344.raku	ENTRY	
+count_lattice/Hydrazer_1623792422.raku	ENTRY	
+count_trailing_LFs/Dingledooper_1635020846.raku	ENTRY	standard input is the collection's count_trailing_LFs/input.txt
+digit_square/Fleur_1750846827.raku	ENTRY	standard input is the collection's digit_square/input.txt
+duplicate_lines/murky-satyr_1281414127.raku	ENTRY	standard input is the collection's duplicate_lines/input.txt
+e_or_x/Fleur_1670376293.raku	ENTRY	standard input is the collection's e_or_x/input.txt
+e_or_x/Fleur_28_29_1670314575.raku	ENTRY	standard input is the collection's e_or_x/input.txt
+e_or_x/teebee_1670274549.raku	ENTRY	standard input is the collection's e_or_x/input.txt
+eight_hundred/jonathan_camacho_1425392819.raku	ENTRY	standard input is the collection's eight_hundred/input.txt
+falling_number/hirose_1287180252.raku	ENTRY	
+fibo_combo_numbers/Fleur_1715352327.raku	ENTRY	
+flipped_chessboard/Fleur_1720661826.raku	ENTRY	standard input is the collection's flipped_chessboard/input.txt
+floor_log2/2520_1507366652.raku	ENTRY	standard input is the collection's floor_log2/input.txt
+floor_log2/tails_1507792271.raku	ENTRY	standard input is the collection's floor_log2/input.txt
+floor_log2/teebee_1508273297.raku	DOES-NOT-END	no answer inside 30 s
+flower/ais523_1242244975.raku	ORACLE-REFUSES	Error while compiling ais523_1242244975.raku
+frowny_or_smiley/Fleur_1690211492.raku	ENTRY	standard input is the collection's frowny_or_smiley/input.txt
+frowny_or_smiley/rotary-o_1690241465.raku	ENTRY	standard input is the collection's frowny_or_smiley/input.txt
+frowny_or_smiley/teebee_1690228193.raku	ENTRY	standard input is the collection's frowny_or_smiley/input.txt
+gooooooooooolf/Fleur_1721699493.raku	ENTRY	standard input is the collection's gooooooooooolf/input.txt
+grep_golfing_technique/Fleur_1656893785.raku	ENTRY	standard input is the collection's grep_golfing_technique/input.txt
+grep_golfing_technique/teebee_1656772119.raku	ENTRY	standard input is the collection's grep_golfing_technique/input.txt
+grow_letter_rectangles/tails_1502024723.raku	ENTRY	standard input is the collection's grow_letter_rectangles/input.txt; stderr not graded: WARNINGS for tails_1502024723.raku:
+gs2_example/Fleur_1764054148.raku	ENTRY	standard input is the collection's gs2_example/input.txt
+gs2_example/teebee_1764745283.raku	ENTRY	standard input is the collection's gs2_example/input.txt
+hardcode_or_not/Fleur_1753796172.raku	ENTRY	
+hardcode_or_not/fuzzylojik_1753794035.raku	ENTRY	
+hello_golfers/pooq_1571698288.raku	ENTRY	standard input is the collection's hello_golfers/input.txt
+i_had_an_idea_for_a_golfing_problem_last_night/Fleur_1689331500.raku	ENTRY	
+interleave_first_every_third/Fleur_1723014400.raku	ENTRY	standard input is the collection's interleave_first_every_third/input.txt
+irc/pooq_1281475056.raku	ENTRY	standard input is the collection's irc/input.txt
+its_raining_cats_and_dogs/Fleur_1685489718.raku	ENTRY	standard input is the collection's its_raining_cats_and_dogs/input.txt
+join_lines/pooq_1281399819.raku	ENTRY	standard input is the collection's join_lines/input.txt
+kaprekars_constant/fuzzylojik_1765896055.raku	ENTRY	
+leap_year/2520_1499166845.raku	ENTRY	standard input is the collection's leap_year/input.txt
+leap_year/tails_28_2520_29_1499312455.raku	ENTRY	standard input is the collection's leap_year/input.txt; stderr not graded: Use of uninitialized value element of type Any in string context.
+lower_bounds_for_acceptable_dating/Fleur_1639524468.raku	ENTRY	
+main/TAKO_2Fj0nKI_1267988976.raku	ENTRY	
+main/pooq_1258849255.raku	ENTRY	
+make_100_FIXED/Fleur_1632724519.raku	ENTRY	standard input is the collection's make_100_FIXED/input.txt
+make_100_FIXED/Fleur_1632977781.raku	ENTRY	standard input is the collection's make_100_FIXED/input.txt
+make_100_ver2/Fleur_1632730491.raku	ENTRY	standard input is the collection's make_100_ver2/input.txt
+make_100_ver2/Fleur_1655854645.raku	ENTRY	standard input is the collection's make_100_ver2/input.txt
+maximum_word/Fleur_1695617075.raku	ENTRY	standard input is the collection's maximum_word/input.txt; stderr not graded: Use of Nil.comb coerced to empty string
+middle_lines/Hydrazer_1623677704.raku	ENTRY	standard input is the collection's middle_lines/input.txt
+minesweeper/Hydrazer_1623504306.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Too few positionals passed; expected 2 arguments but got 1
+minus_infinity/TAKO_2Fj0nKI_1270492088.raku	ORACLE-REFUSES	Error while compiling TAKO_2Fj0nKI_1270492088.raku
+minus_infinity/dcutter_1270562458.raku	ORACLE-REFUSES	Error while compiling dcutter_1270562458.raku
+moo_FIXED/dcutter_1297692399.raku	ENTRY	
+moo_FIXED/murky-satyr_1308299611.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: The spawned command 'apt-get moo' exited unsuccessfully (exit code: -1, signal: 254)
+moo_FIXED/teebee_1297642718.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: The spawned command 'apt-get moo' exited unsuccessfully (exit code: -1, signal: 254)
+mystery_js_problem_2/Fleur_1722603032.raku	ENTRY	
+mystery_js_problem_2/teebee_1722634744.raku	ENTRY	
+next_odd_number/msk_1281875413.raku	ENTRY	standard input is the collection's next_odd_number/input.txt
+next_odd_number/murky-satyr_1282037890.raku	DOES-NOT-END	no answer inside 30 s
+nine_thirteen/Fleur_1699227122.raku	ENTRY	standard input is the collection's nine_thirteen/input.txt; stderr not graded: Use of Nil in string context
+nine_thirteen/Fleur_1700179518.raku	ENTRY	standard input is the collection's nine_thirteen/input.txt
+nine_thirteen/fuzzylojik_1699536594.raku	ENTRY	standard input is the collection's nine_thirteen/input.txt
+nine_thirteen/fuzzylojik_28Fleur_29_1700183514.raku	ENTRY	standard input is the collection's nine_thirteen/input.txt
+nine_thirteen/teebee_1699574628.raku	ENTRY	standard input is the collection's nine_thirteen/input.txt
+nop/40tttttanaka_1332569590.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+nop/BioFALSE_1359491427.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+nop/Fleur_1652579471.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+nop/ais523_1204732299.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+nop/hitsuji_1212484028.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+nop/idealmachine_1293089817.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+nop/kt3k_1204645185.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: WARNINGS for kt3k_1204645185.raku:
+nop/leonid_1204677051.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+nop/narb_1283701385.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+nop/xdigit_1204677180.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+number_stairs/Fleur_1724281580.raku	ENTRY	
+numeros_1_to_324/Fleur_1708484390.raku	ENTRY	
+odd_lines/eban_1281201054.raku	ENTRY	standard input is the collection's odd_lines/input.txt
+odd_lines/murky-satyr_1281229179.raku	DOES-NOT-END	no answer inside 30 s
+odd_lines/shinh_1281201320.raku	DOES-NOT-END	no answer inside 30 s
+pascal_golf/Fleur_1693458941.raku	ENTRY	standard input is the collection's pascal_golf/input.txt
+perfect_square_free/murky-satyr_1287368588.raku	ENTRY	
+picket_fence/Fleur_1716248883.raku	ENTRY	
+picket_fence_v2/Fleur_1716763723.raku	ENTRY	standard input is the collection's picket_fence_v2/input.txt
+plastic_constant/pooq_1242558335.raku	ENTRY	standard input is the collection's plastic_constant/input.txt
+plexplexplex/Fleur_1713230346.raku	ENTRY	standard input is the collection's plexplexplex/input.txt
+prepared_statement/Fleur_1738717783.raku	ENTRY	standard input is the collection's prepared_statement/input.txt
+press_row/Fleur_1719970003.raku	ENTRY	standard input is the collection's press_row/input.txt
+primitive_brainfuck_code/dcutter_1279608987.raku	ENTRY	standard input is the collection's primitive_brainfuck_code/input.txt
+primitive_brainfuck_code/pooq_1281215281.raku	ENTRY	standard input is the collection's primitive_brainfuck_code/input.txt
+print_asdf_hello_world/Hydrazer_1623634019.raku	ENTRY	
+print_current_date/Hydrazer_1623673746.raku	ENTRY	
+print_current_date/yuruhiya_1621979341.raku	ENTRY	
+print_file/kt3k_1186113601.raku	ORACLE-REFUSES	Error while compiling kt3k_1186113601.raku
+print_file/kt3k__1186908051.raku	ORACLE-REFUSES	Error while compiling kt3k__1186908051.raku
+print_file/murky-satyr_1281228250.raku	ENTRY	standard input is the collection's print_file/input.txt
+print_the_numeros_1_to_100/Fleur_1708562525.raku	ENTRY	
+print_this_triangle/tails_1510131360.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot assign to an immutable value
+putter_golf_for_Ruby_kaigi/40tttttanaka_1333379292.raku	ENTRY	
+putter_golf_for_Ruby_kaigi/tabasa_1214029977.raku	ENTRY	
+python_formatting_tragedy/Fleur_1698188649.raku	ENTRY	standard input is the collection's python_formatting_tragedy/input.txt
+quickly_submit/pooq_1296222981.raku	ENTRY	
+rad_math/Fleur_1673494825.raku	ENTRY	standard input is the collection's rad_math/input.txt; stderr not graded: Index out of range. Is: -1, should be in 0..^Inf
+read_the_data/tails_1501549289.raku	ENTRY	standard input is the collection's read_the_data/input.txt; stderr not graded: Saw 1 occurrence of deprecated code.
+repeat_line/msk_1282055794.raku	ENTRY	standard input is the collection's repeat_line/input.txt
+repeat_line/yuruhiya_1615171900.raku	ENTRY	standard input is the collection's repeat_line/input.txt
+reverse_entire_input/tails_1504069217.raku	ENTRY	standard input is the collection's reverse_entire_input/input.txt
+reversed_even_or_odd_first/JoKing_1615863334.raku	ENTRY	standard input is the collection's reversed_even_or_odd_first/input.txt
+reversed_even_or_odd_first/Sisyphus_1615863366.raku	ENTRY	standard input is the collection's reversed_even_or_odd_first/input.txt
+reversed_even_or_odd_first/ludo_1615810753.raku	ENTRY	standard input is the collection's reversed_even_or_odd_first/input.txt
+reversed_even_or_odd_first/lynn_1615897905.raku	ENTRY	standard input is the collection's reversed_even_or_odd_first/input.txt
+rising_number/tanon_1498145999.raku	ENTRY	
+seq/pooq_1281367796.raku	ORACLE-REFUSES	Error while compiling pooq_1281367796.raku
+seven_is_zero/Fleur_1725584442.raku	ENTRY	standard input is the collection's seven_is_zero/input.txt
+simple_language/pooq_1281411764.raku	ENTRY	standard input is the collection's simple_language/input.txt
+sort/teebee_1292107426.raku	ENTRY	standard input is the collection's sort/input.txt
+sort_numbers/TAKO_2Fj0nKI_1270491236.raku	ENTRY	standard input is the collection's sort_numbers/input.txt
+sort_numbers/murky-satyr_1281236876.raku	ENTRY	standard input is the collection's sort_numbers/input.txt
+sort_permutations/Fleur_1634861722.raku	ENTRY	standard input is the collection's sort_permutations/input.txt
+sort_permutations/Fleur_1655451946.raku	ENTRY	standard input is the collection's sort_permutations/input.txt
+stop/Fleur_1685580211.raku	ENTRY	standard input is the collection's stop/input.txt
+sum_input/niha_1281232068.raku	ORACLE-REFUSES	Error while compiling niha_1281232068.raku
+sum_input/shinh_1281232652.raku	ORACLE-REFUSES	Error while compiling shinh_1281232652.raku
+sum_of_numbers/Hydrazer_1623676706.raku	ENTRY	standard input is the collection's sum_of_numbers/input.txt
+sum_of_numbers/kotatsugame_1544462117.raku	ENTRY	standard input is the collection's sum_of_numbers/input.txt
+sum_of_numbers/ludo_1544024703.raku	ENTRY	standard input is the collection's sum_of_numbers/input.txt
+swap_adjacent_bits/tails_28teebee_29_1718868900.raku	ENTRY	
+swap_adjacent_bits/teebee_1717792314.raku	ENTRY	
+test/yuruhiya_1616893667.raku	ENTRY	standard input is the collection's test/input.txt
+testing_23/jonathan_camacho_1425393177.raku	ENTRY	standard input is the collection's testing_23/input.txt
+the_remains_of_qwerty/Fleur_1702251032.raku	ENTRY	standard input is the collection's the_remains_of_qwerty/input.txt
+three_piece_puzzle/Fleur_1700634617.raku	ENTRY	standard input is the collection's three_piece_puzzle/input.txt
+three_times_x_plus_one/lynn_1531579115.raku	ENTRY	standard input is the collection's three_times_x_plus_one/input.txt
+uppercase_the_17th_letter/Fleur_1684499009.raku	ENTRY	standard input is the collection's uppercase_the_17th_letter/input.txt
+uwu/Fleur_1750947153.raku	ENTRY	standard input is the collection's uwu/input.txt; stderr not graded: Use of uninitialized value of type Any in string context.
+v/TAKO_2Fj0nKI_1267979886.raku	ENTRY	
+v/jonathan_camacho_1411104185.raku	ENTRY	
+v/leonid_1220746992.raku	ENTRY	
+wat/olf_1483845339.raku	ENTRY	
+weekday_names/Hydrazer_1623793281.raku	ENTRY	
+weekday_names/dcutter_1289562192.raku	ORACLE-REFUSES	Error while compiling dcutter_1289562192.raku
+weekday_names/murky-satyr_1308299713.raku	ORACLE-REFUSES	Error while compiling murky-satyr_1308299713.raku
+xnor/Fleur_1675487799.raku	ENTRY	standard input is the collection's xnor/input.txt; stderr not graded: Use of Nil in string context
+xnor/teebee_1676094820.raku	ENTRY	standard input is the collection's xnor/input.txt
+yesno/yuruhiya_1616892781.raku	ENTRY	standard input is the collection's yesno/input.txt
+zero_lines/murky-satyr_1281414525.raku	ENTRY	standard input is the collection's zero_lines/input.txt
+zottffssentettffssen/Fleur_1665098779.raku	ENTRY	

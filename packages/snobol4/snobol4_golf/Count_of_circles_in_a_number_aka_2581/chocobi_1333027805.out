@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Wed Nov 18 18:11:01 2026
+
+
+
+                                                                                                                page 1
+
+1       M S =REPLACE(INPUT,'012356789','100001021') :F()
+
+chocobi_1333027805.sno(1) : ERROR 212 -- syntax error: value used where name is required
+

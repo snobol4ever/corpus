@@ -1,0 +1,2 @@
+# CONTRACT.tsv -- the run contract of prolog_golf, read by util_build_package_suite.py: key<TAB>value<TAB>evidence.
+fatal	gradable	Lon 2026-11-15: an error from the oracle is an answer (CEO-1344)

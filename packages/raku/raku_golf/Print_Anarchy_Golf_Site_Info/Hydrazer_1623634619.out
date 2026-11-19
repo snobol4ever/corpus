@@ -1,0 +1,131 @@
+Anarchy Golf
+This is a golf server. You can enjoy short coding here in several languages (111 languages). The purpose of this server is not serious competition. Joke problems are welcomed and you can speak freely about problems and can release spoilers. For serious competition with ranking, enter Code Golf. 
+IRC channel for this golf server: #anagol in freenode. Please feel free to join the channel to talk about various things around golf. 
+Mark Byers kindly prepared a site for this golf server. If you would like to join to add tips, please ask Mark to add you as a collaborator (supposedly, in IRC?). 
+Active problems
+1047. variables 14:01:09 left (06/14 07:03:56 JST)
+1048. variables fixed 1day(s) and 2:32:36 left (06/14 19:35:23 JST)
+1052. Make a bf interpreter changed 9day(s) and 2:45:29 left (06/22 19:48:16 JST)
+1053. 99 Bottles of Beer 9day(s) and 2:56:38 left (06/22 19:59:25 JST)
+1054. CAT program string 9day(s) and 3:04:00 left (06/22 20:06:47 JST)
+1055. HQ9 plus Interpreter 9day(s) and 3:26:11 left (06/22 20:28:58 JST)
+1058. Print a quine 12day(s) and 1:00:07 left (06/25 18:02:54 JST)
+1060. World hardest printing problem 12day(s) and 4:25:33 left (06/25 21:28:20 JST)
+1063. Function usable printing problem 12day(s) and 4:55:35 left (06/25 21:58:22 JST)
+1064. endless functional printing problem 12day(s) and 4:58:18 left (06/25 22:01:05 JST)
+1066. C code errored 12day(s) and 5:13:14 left (06/25 22:16:01 JST)
+1068. Random generated numbers 13day(s) and 17:09:18 left (06/27 10:12:05 JST)
+1070. Harder randomly generated numbers 13day(s) and 17:15:12 left (06/27 10:17:59 JST)
+1071. Still print randomly generated numbers 13day(s) and 17:17:30 left (06/27 10:20:17 JST)
+1072. Ruby Quine 13day(s) and 17:26:20 left (06/27 10:29:07 JST)
+1074. print asdf hello world 13day(s) and 17:31:38 left (06/27 10:34:25 JST)
+1075. Print below 13day(s) and 23:58:51 left (06/27 17:01:38 JST)
+Hot post mortems
+1049. build a Hill 3day(s) and 9:05:00 before
+Recent endless problems
+1062. Brain burning printing problem
+1065. endless functional printint prob
+1067. Hardest printing problem in the world
+1069. Randomly generated numbers
+1073. Print The Beatnik program below
+Some links
+The list of all problems 
+
+Create a new problem 
+Recent records 
+Language ranking 
+User ranking 
+Results by a language 
+Performance checker 
+A tool to change the PID 
+Version info of languages 
+caddy, a testing/squeezing/submission helper tool for golfers 
+News
+Updated Go to 1.9.2 
+Added Labyrinth. 
+Added Hexagony. 
+Updated rust. 
+Now you should be able to use $(STDIN) in GNU make. Also shell scripts won't run as "x86" (aka ELF) anymore. 
+Added Bash again as Bash (builtins). This is the same as the previous Bash, but in problems where exec is denied, you cannot use any external commands. 
+Added the experimental rejudge feature. 
+Added Crystal. 
+Problems for Code Festival have been modified several times. Thanks a lot for feedbacks. Especially, mitchs gave me a lot, thanks! 
+Added four problems for a golfing event called <span class="gray">\xe7</span><span class="gray">\x9f</span><span class="gray">\xad</span><span class="gray">\xe7</span><span class="gray">\xb8</span><span class="gray">\xae</span><span class="gray">\xe7</span><span class="gray">\x8e</span><span class="gray">\x8b</span> in Code Festival. 
+Added Ruby 2. 
+Added ><>. 
+Updated gs2. 
+Added Make. 
+Updated the interpreter of Perl6 (2015-03-15). Old solutions may stop working but the preious version was way too old. 
+Updated the interpreter of Aheui, so you should be able to solve problems with inputs now. 
+Added Aheui. 
+Now we pass -s flag to jq. I may remove some entries which don't pass without -s flag anymore. 
+Added jq. 
+Wrote a document for the sandbox of this server. 
+Added gs2. 
+Added MNNBFSL. 
+Added Befunge-98. Thanks Damon for suggestion! 
+Added Pike-7.6. Thanks hallvabo for the suggestion! 
+Added Squirrel-3.1 beta and Chapel-1.7.0. Thanks Nova and flagitious for suggestions! 
+Added Rust 0.6 and upgraded Burlesque. Also upgraded GHC from 7.0.4-6 to 7.4.1-4. 
+Added Python 3, and upgrade Python 2.5 to 2.7. 
+Added Burlesque. Updated J from 601c to 602a. 
+Updated FerNANDo interpreter from 0.2 to 0.5. Removed Empty program as people seem to dislike duplication. 
+Added CLC-INTERCAL, Icon, SNOBOL, REXX, PARI/GP, gnuplot, and Malbolge (thanks again for KirarinSnow) 
+Added Euphoria, K, and Piet (thanks joel, twobit, and KirarinSnow, for suggestion). 
+For PHP golfers: visit phpGolf.org for more competitive golf courses! 
+Now PHP doesn't report E_NOTICE error so you may see less annoying timeouts. 
+Downgraded python 2.7 => 2.5.5 as 2.7 is not backward compatible with the previous version (2.5.4). 
+The golf server has migrated to a VPS (http://vps.sakura.ad.jp/). 
+Debian squeeze (with sid packages) => Debian wheezy/sid (with squeeze/lenny)
+linux-2.6.26-2 => linux-3.0.0-1
+Intel(R) Core(TM)2 CPU T5600 @ 1.83GHz => Intel(R) Core(TM)2 Duo CPU T7700 @ 2.40GHz (2 virtual CPUs)
+1GB/256MB => 1GB/256MB (web server / execution server)
+I've upgraded several languages, and fixed a few broken languages (e.g., com). You can see which languages were updated by this github commit. Please let me know if you see some issues. 
+Added octave and ucblogo. Updated the version of scala (2.8.1) and gauche (0.9.1). Thanks KirarinSnow, gengar68, and m_satyr for these suggestions! 
+Due to the big earthquake, we will have planned power outages several times. I think this site may be down occasionally. Sorry for inconvenience. Update: they say the power company is planning not to stop power for my area. So, maybe this site won't be down. 
+Added scala, finally. Thanks for folks who suggested this language to me. 
+I've just removed Just random data from the list as it seems this problems is a copy of SPOJ's MONS and people don't like this problem so much. Also, I made Yin Yang endless because SPOJ also has the same challenge. Please refrain from copying problems from SPOJ. 
+There were two directories where we can write permanent files and one of this was used in http://golf.shinh.org/p.rb?27c3_Generate+C . I've already fixed the permission of this directory and removed the entries. Thanks 27c3 guys for finding this issue! 
+I removed Sokoban challenge by mistake but it recovered now. Sorry for inconvenience. 
+Updated the version of Perl6. Now it uses rakudo-star-2010.07. 
+Added dc. I also added BC_LINE_LENGTH=9999 environment variable for bc so it can solve more problems. Thanks Carlos for these suggestions! 
+Added FlogScript and FerNANDo. Thanks leonid and asiekierka for the suggestions! 
+Added Zsh, fish, and bc. 
+Sorry for confusing, but python entries for Buffalo need to be fixed. Please wait for a while.... Fixed. 
+Added Clojure. Though I forgot to mention, I think this loophole was closed two weeks ago. It seems sometimes you cannot run C# and Nemerle programs due to this fix. Until I fix this issue, please let me know if you notice you cannot run them on this server. Thanks John for finding and reporting this! 2009-01-29 
+Updated the version info of languages. 
+Added user ranking, and re-organized this site. 
+Added LilyPond. Thanks KirarinSnow for suggesting this. 
+Now, you have setpid interface. You can adjust the PID without attacking the server! 
+The golf server was upgraded. The new system should be faster than before. 
+Ubuntu hardy => Debian squeeze (with sid packages)
+linux-2.6.19-4 => linux-2.6.26-2
+Mobile Intel(R) Celeron(R) CPU 1.70GHz => Intel(R) Core(TM)2 CPU T5600 @ 1.83GHz
+384MB/128MB => 1GB/256MB (web server / execution server)
+Many languages were upgrade. I'll work on gathering the version information of them. You can see the source code of this system in github. 
+Some submissions were gone due to disk full. I'm sorry about this. Please re-post your code again. 
+added Go. 
+Now the execution server removes written files and directories using tmpfs. Please tell me if you can create a file and utilize the file content by another submission. Also, I removed some records in "hello world" problem as I guess they used file creation. If you didn't, please re-submit the code. 
+created a graph which shows the best solutions size and speed, inspired by Computer Language Benchmarks Game. Another graph whose size is shown by score (10000 * size_of_best_lang / size_of_the_lang). 
+added Arc. Thanks flagitious for suggestion and yhara for investigating how to run it in this system. 
+To support OCaml golf competition, OCaml will be in the top of the language lists for a while. 
+added Asymptote (thanks notogawa for suggestion!). 
+added Maxima (thanks yshl!) and REBOL (thanks Jos'h!). I couldn't find the best suffixes for them. I couldn't find commonly used suffix for Maxima. REBOL's "r" was already used by R. If you know better suffixes for them, please let me know. 
+added LMNtal. 
+I forgot to mention this... There is a twitter account which reports the recent activities: http://twitter.com/mircbot. You may able to use its RSS as well. 
+updated the interpreter of Universal Lambda. See the official site for the information how this changed. Also, added disassembled view of Universal Lambda. See this code for example. 
+added Universal Lambda. Thanks flagitious! 
+added Cyan (sorry, there seem to be no English docs). 
+added Nemerle 0.9.3, QCL 0.6.3 with this patch, and Kite 1.0b6. 
+added DOS using dosemu. 
+now grass interpreter is OCaml version. Thanks YT! 
+submission size limit (CONTENT_LENGTH) was relaxed from 10k to 20k. 
+added Grass. Now we are using grass.rb. If you want to use faster implementation, please recommend me better implementations. 
+ruby 1.8.7. 
+allow more time for R (you have 2 sec for 3 test cases problems, 2.5 secs for 2 test cases, and 4 secs for 1 test case) since its invocation seems to take more than one second. 
+updated execution server (Ubuntu edgy => gutsy). Many languages are updated (the detail will be described). Maybe now you can use standard input from /dev/fd/0. As usual :(, there may be several bugs. Please report me if you find bugs. 
+
+Source code. 
+Contact: shinichiro.hamaji _at_ gmail.com . If you found some bugs or you have some requests (fix problem you submitted, add language XXX, and etc.), please email me. 
+return to the top page
+

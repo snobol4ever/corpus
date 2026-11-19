@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Wed Nov 18 18:28:46 2026
+
+
+
+                                                                                                                page 1
+
+1       L A =INPUT :F(); I =1; A 0 *(I =1 - I); OUTPUT =I :(L);END
+
+teebee_1676124386.sno(1) : ERROR 212 -- syntax error: value used where name is required
+
