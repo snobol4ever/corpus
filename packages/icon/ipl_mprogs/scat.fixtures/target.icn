@@ -1,14 +1,14 @@
 procedure main()
-   local L, s, i
-   L := []
-   s := ""
+   local L, s, i;
+   L := [];
+   s := "";
    every i := 1 to 300 do {
-      put(L, f(i))
+      put(L, f(i));
       s ||:= string(i % 10)
-      }
-   write(*L, " ", *s)
-   delay(100000)
+      };
+   write(*L, " ", *s);
+   delay(100000);
 end
 procedure f(i)
-   return [i, i * 2, repl("x", i % 7)]
+   return [i, i * 2, repl("x", i % 7)];
 end
