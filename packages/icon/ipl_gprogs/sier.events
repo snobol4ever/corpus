@@ -1,0 +1,10 @@
+# sier: the polygon's side count by its digit keys, each a redraw of the vertices with no point drawn (setsides: erase, configure), 5, 8, 0 (ten
+# sides), then q; the chaos game itself is never started, since how many points it draws before Stop is the box's timing (EVENTS-NONE's measurement)
+move 200 200
+key 5
+wait
+key 8
+wait
+key 0
+wait
+key q
