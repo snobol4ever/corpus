@@ -1,0 +1,6 @@
+ipath	../ipl/gprocs	the graphics procedures of the Icon program library that the monitors link (vsetup, interact and kin), semicolon-ready in the sibling ipl
+ipath	../ipl/procs	the basic procedures of the library that they link, semicolon-ready in the sibling ipl
+ipath	mprocs	the monitoring procedures of Arizona 9.4.3's ipl/mprocs (evinit, em_setup, emutils, evutils, colormap and kin), semicolon-ready here; searched first, since 9.4.3's colormap is the monitors' own
+lpath	../ipl/gincl	the graphics $include files of the library, in the sibling ipl
+lpath	../ipl/incl	the basic $include files of the library, in the sibling ipl
+lpath	.	evdefs.icn, the event codes of 9.4.3's ipl/mincl, beside the monitors
