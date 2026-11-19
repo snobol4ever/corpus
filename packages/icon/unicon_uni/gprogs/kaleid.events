@@ -1,0 +1,6 @@
+# kaleid, a 595 by 457 dialog (it opens at 0 0 with no window manager): a File menu, a toggling run button and reset, four sliders and a discs/rings radio
+# pair, beside a black canvas it draws only while run is on. The rings radio (69 397) is pressed, which moves the diamond from discs to rings, and the canvas
+# stays black. run is not pressed: MEASURED by the grader 2026-11-19, while it runs no screen holds still, and run pressed and pressed again in one step drew
+# a disc between the two presses on one SCRIP run of two, so its drawing reads the clock (as the Icon kaleido's, a STAND-IN)
+click 1 69 397
+wait

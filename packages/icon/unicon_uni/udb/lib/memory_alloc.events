@@ -1,0 +1,3 @@
+# memory_alloc, the memory monitor of udb, reads no event here: the entry has no ALL.args line and so no target program, so it writes its heading line and ends
+# by itself with status 0 before any window stands (the cqo's ruling 2026-11-18 13:0x CST: a target built for the event monitor is a row of its own); this
+# script has no step (the grader 2026-11-19, on Lon's word: "Is 155/159 scripted and 27/34 scripted considered complete? if not finish.")

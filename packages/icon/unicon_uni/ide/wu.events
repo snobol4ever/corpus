@@ -1,0 +1,3 @@
+# wu, the Wu programming environment, reads no event here: unicon's X11 build raises run-time error 121, function not supported, at its first Win function,
+# WinMenuBar at its line 214, before any window stands (the Win functions are MS Windows only), so the program ends by itself and that error, graded, is its
+# whole answer; this script has no step (the grader 2026-11-19, on Lon's word: "Is 155/159 scripted and 27/34 scripted considered complete? if not finish.")

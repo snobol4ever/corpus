@@ -1,0 +1,3 @@
+# i, a TestDialog of the old one-file gui library, reads no event here: its constructor fails before show() with run-time error 103, string expected, at
+# gui.icn line 555 (MetaComponent.set_field), on unicon and on SCRIP alike, so the program ends by itself and that error, graded, is its whole answer; this
+# script has no step (the grader 2026-11-19, on Lon's word: "Is 155/159 scripted and 27/34 scripted considered complete? if not finish.")

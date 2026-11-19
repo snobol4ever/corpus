@@ -1,0 +1,6 @@
+# getweb, a 423 by 450 dialog (it opens at 0 0 with no window manager): a TextDisplay over a TextField that init_dialog fills with http://news.bbc.co.uk,
+# and a Panel of three buttons centred 398 down, Close at its left, Start in its middle, Stop at its right; Start is pressed, which starts the fetch through
+# package ipc, whose C library the graphics unicon has not: the oracle ends there with run-time error 216, and that error is the answer
+move 211 398
+click 1 211 398
+wait

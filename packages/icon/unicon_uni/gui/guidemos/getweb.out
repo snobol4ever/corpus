@@ -1,1 +1,24 @@
+
+loadfunc("uniipclib.so","msg_create_private"): cannot open file
+
+Run-time error 216
+File msg.icn; Line 125
+external function not found
+Traceback:
+   main(list_1 = [])
+   gui__Dialog_show_modal(GetWeb_1,&null) from line 163 in getweb.icn
+   gui__Dispatcher_message_loop(gui__Dispatcher_1,GetWeb_1) from line 202 in dialog.icn
+   gui__Dispatcher_do_event(gui__Dispatcher_1) from line 142 in dispatcher.icn
+   gui__Dialog_process_event(GetWeb_1,-4) from line 166 in dispatcher.icn
+   gui__Dialog_process_normal(GetWeb_1,-4) from line 431 in dialog.icn
+   gui__Component_do_handle_event(GetWeb_1,-4) from line 456 in dialog.icn
+   gui__Component_handle_event(GetWeb_1,-4) from line 324 in component.icn
+   gui__Component_handle_event(gui__Panel_1,-4) from line 311 in component.icn
+   gui__Button_handle_event(gui__TextButton_2,-4) from line 311 in component.icn
+   gui__Button_handle_release(gui__TextButton_2,-4) from line 165 in button.icn
+   gui__Button_on_action(gui__TextButton_2,-4) from line 130 in button.icn
+   util__Connectable_fire(gui__TextButton_2,60,-4) from line 143 in button.icn
+   GetWeb_handle_start(GetWeb_1,util__Notification_31) from line 60 in connectable.icn
+   ipc__create_private_msg() from line 67 in getweb.icn
+   loadfunc("uniipclib.so\x00","msg_create_priva...") from line 125 in msg.icn
 screen 1024x768 md5 4494632058c70ba2def18a996a2af8d4
