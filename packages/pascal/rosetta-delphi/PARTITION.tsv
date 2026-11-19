@@ -1,0 +1,98 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=94 features=41 ubiquitous=6(package program var for writeln assign) distinctive=35 core=23 clusters=30 chunks=2 sizes=60,11
+entry	part	cluster	shells
+abc-problem	core	core	array const for_with_array function in nested_proc ord procedure readln set set_literal subrange type while
+abundant-odd-numbers	core	core	const div function mod odd sqrt while
+almost-prime	chunk:01	feat:div	const div function mod while write
+anonymous-recursion	chunk:01	feat:nested_proc	function nested_proc readln
+apply-a-callback-to-an-array	chunk:01	feat:set_literal	array const for_with_array function nested_proc procedure set_literal subrange
+arithmetic-numbers	core	core	case div mod procedure readln repeat want_rc while with write
+array-concatenation-1	chunk:01	feat:with	array for_with_array function in nested_proc type with
+averages-simple-moving-average	core	core	downto function mod nested_proc procedure read readln record type write
+bell-numbers	core	core	array const downto for_with_array in procedure set_literal subrange type while
+binary-digits	core	core	chr div function ord repeat
+bitwise-operations	chunk:01	feat:in	in readln
+cantor-set	chunk:01	feat:div	const div nested_proc procedure readln write
+case-sensitivity-of-identifiers	chunk:01	family:case-sensitivity-of-identifiers	
+character-codes	chunk:02	feat:chr	chr ord readln
+check-that-file-exists	core	core	file
+code-golf	chunk:01	family:code-golf	
+copy-a-string	core	core	new
+count-in-octal	chunk:01	feat:repeat	div function mod repeat
+count-occurrences-of-a-substring	chunk:01	feat:while	const function while
+count-the-coins	chunk:02	feat:for_with_array	array for_with_array function readln
+create-an-object-at-a-given-address	chunk:01	feat:readln	readln
+cumulative-standard-deviation	chunk:01	feat:in	array const for_with_array function in readln set_literal subrange
+date-manipulation	chunk:01	feat:nested_proc	function nested_proc readln
+detect-division-by-zero	chunk:01	family:detect-division-by-zero	
+dijkstras-algorithm	core	core	array const for_with_array function in new record repeat set_literal subrange type while with with_record
+dot-product	chunk:01	feat:type	array const for_with_array function readln type
+draw-a-sphere	core	core	array for_with_array function nested_proc procedure readln set_literal sqrt subrange trunc type write
+empty-string	chunk:01	feat:const	const function
+entropy	chunk:01	feat:type	array for_with_array function in nested_proc readln type
+environment-variables	chunk:01	family:environment-variables	
+evaluate-binomial-coefficients	chunk:01	feat:div	div function readln while
+exceptions-catch-an-exception-thrown-in-a-nested-call	chunk:02	feat:want_rc	nested_proc procedure type want_rc
+extreme-floating-point-values	chunk:01	feat:readln	readln
+factorial-1	chunk:01	feat:function	function
+factorial-2	chunk:01	feat:function	function
+factorial-3	chunk:01	feat:nested_proc	function nested_proc
+file-size	core	core	const file function in read want_rc
+filter-1	core	core	array const for_with_array in odd set_literal subrange write
+five-weekends	chunk:01	feat:with	with
+fizzbuzz	chunk:01	feat:mod	mod
+formatted-numeric-output	chunk:01	feat:readln	const readln
+generate-lower-case-ascii-alphabet	chunk:01	feat:in	in set_literal subrange write
+generic-swap-2	chunk:01	feat:type	nested_proc procedure type
+gray-code	chunk:01	feat:while	function nested_proc while
+greatest-element-of-a-list	chunk:01	feat:with	array const with
+haversine-formula	core	core	const function sqr sqrt
+hello-world-newline-omission	chunk:01	feat:write	write
+hello-world-text	chunk:01	family:hello-world-text	
+host-introspection	chunk:02	family:host-introspection	
+identity-matrix	core	core	array for_with_array readln want_rc write
+increment-a-numerical-string	chunk:01	feat:readln	const readln
+jump-anywhere-1	core	core	goto label readln
+leap-year	chunk:01	feat:write	readln write
+loop-over-multiple-arrays-simultaneously	chunk:01	feat:set_literal	array const for_with_array readln set_literal subrange
+loops-continue	chunk:01	feat:mod	mod write
+loops-do-while	chunk:01	feat:repeat	mod readln repeat write
+loops-for-with-a-specified-step	chunk:01	feat:while	while
+loops-for	chunk:01	feat:write	write
+loops-foreach	chunk:01	feat:in	in
+loops-n-plus-one-half	chunk:01	feat:write	const write
+multiplication-tables	chunk:01	feat:write	const write
+number-names	core	core	array const div function mod nested_proc readln set_literal subrange while
+numerical-integration-gauss-legendre-quadrature	core	core	abs array const downto for_with_array function nested_proc procedure readln repeat set_literal subrange write
+pangram-checker	chunk:01	feat:const	const function
+pascals-triangle	chunk:01	feat:div	div procedure write
+permutations	core	core	array const div for_with_array mod procedure readln set_literal subrange type while
+polymorphic-copy-1	chunk:01	feat:type	function nested_proc procedure type
+random-numbers	chunk:01	feat:set_literal	array for_with_array readln set_literal subrange
+return-multiple-values	chunk:02	feat:procedure	procedure
+roman-numerals-decode	chunk:01	feat:case	case const downto function nested_proc
+roman-numerals-encode	chunk:01	feat:while	array const for_with_array function set_literal subrange while
+sedols	core	core	array case chr const for_with_array function in mod nested_proc ord procedure readln set_literal subrange
+short-circuit-evaluation	chunk:01	feat:in	function in nested_proc
+show-ascii-table	chunk:01	feat:case	case chr readln while write
+show-the-epoch	chunk:02	family:show-the-epoch	
+sierpinski-triangle	chunk:02	feat:downto	downto procedure write
+sleep	chunk:02	family:sleep	
+sorting-algorithms-bead-sort	chunk:01	feat:while	array const for_with_array procedure readln set_literal subrange while
+sparkline-in-unicode	core	core	const function in nested_proc procedure readln trunc
+special-divisors	chunk:01	feat:div	const div mod procedure readln write
+strange-plus-numbers-2	chunk:01	feat:div	array const div for_with_array mod set_literal subrange write
+string-concatenation	chunk:02	family:string-concatenation	
+string-matching	chunk:02	family:string-matching	
+strip-a-set-of-characters-from-a-string	chunk:01	feat:in	const function in
+strip-comments-from-a-string	chunk:01	feat:readln	const function readln
+strip-whitespace-from-a-string-top-and-tail	chunk:01	feat:with	const with
+substring-top-and-tail	chunk:01	feat:readln	const readln
+substring	chunk:01	feat:in	const in
+sum-and-product-of-an-array	chunk:01	feat:set_literal	array for_with_array set_literal subrange write
+sum-multiples-of-3-and-5	chunk:01	feat:mod	function mod
+symmetric-difference-2	core	core	in set type write
+temperature-conversion	core	core	read readln type want_rc write
+terminal-control-ringing-the-terminal-bell	chunk:02	family:terminal-control-ringing-the-terminal-bell	
+the-isaac-cipher	core	core	array case chr for_with_array function in mod nested_proc ord procedure repeat set set_literal subrange with

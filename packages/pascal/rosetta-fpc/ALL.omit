@@ -1,0 +1,101 @@
+abc-correlation: oracle produced EMPTY output -- refusing to mint a vacuous ref
+abc-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+abundant-deficient-and-perfect-number-classifications: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+adfgvx-cipher: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+anadromes: oracle produced EMPTY output -- refusing to mint a vacuous ref
+append-a-record-to-the-end-of-a-text-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
+arithmetic-numbers-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+array-concatenation-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+array-concatenation-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+associative-array-creation-1: oracle produced EMPTY output -- refusing to mint a vacuous ref
+associative-array-creation-2: oracle produced EMPTY output -- refusing to mint a vacuous ref
+bell-numbers: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+best-shuffle: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+brazilian-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+brilliant-numbers: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+changeable-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+circular-primes-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+closures-value-capture: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+colorful-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+command-line-arguments: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+composite-numbers-k-with-no-single-digit-factors-whose-factors-are-all-substrings-of-k: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+de-polignac-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+define-a-primitive-data-type: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+delete-a-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
+determine-if-a-string-is-numeric-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+dijkstras-algorithm: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+disarium-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+distance-and-bearing: oracle produced EMPTY output -- refusing to mint a vacuous ref
+dutch-national-flag-problem: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+earliest-difference-between-prime-gaps: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+empty-string-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+empty-string-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+empty-string-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+endless-maze: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+erd-s-nicolas-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+extend-your-language: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+fibonacci-sequence: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+find-prime-numbers-of-the-form-n-n-n_2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+find-the-last-sunday-of-each-month: oracle produced EMPTY output -- refusing to mint a vacuous ref
+fractal-tree: oracle produced EMPTY output -- refusing to mint a vacuous ref
+function-definition: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+generate-lower-case-ascii-alphabet: oracle produced EMPTY output -- refusing to mint a vacuous ref
+giuga-numbers-1: oracle timed out -- non-terminating or too slow for the grading timeout
+giuga-numbers-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+greatest-prime-dividing-the-n-th-cubefree-number-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+greatest-prime-dividing-the-n-th-cubefree-number-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+hello-world-web-server: oracle timed out -- non-terminating or too slow for the grading timeout
+hex-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+honaker-primes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+idoneal-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+increment-a-numerical-string: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+input-output-for-lines-of-text: oracle produced EMPTY output -- refusing to mint a vacuous ref
+largest-difference-between-adjacent-primes: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+largest-number-divisible-by-its-digits: oracle produced EMPTY output -- refusing to mint a vacuous ref
+linux-cpu-utilization: oracle timed out -- non-terminating or too slow for the grading timeout
+long-stairs: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+mac-vendor-lookup: oracle produced EMPTY output -- refusing to mint a vacuous ref
+magic-8-ball: the oracle's output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) and the run was killed -- no answer
+magic-constant: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+narcissistic-decimal-number-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+nested-function: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+non-decimal-radices-input: oracle produced EMPTY output -- refusing to mint a vacuous ref
+numbers-k-whose-divisor-sum-is-equal-to-the-divisor-sum-of-k-_-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+odd-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ordered-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+parallel-brute-force: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+prime-numbers-which-contain-123-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+prime-numbers-which-contain-123-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+prime-numbers-whose-neighboring-pairs-are-tetraprimes: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+prime-reciprocal-sum: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+prime-words: oracle produced EMPTY output -- refusing to mint a vacuous ref
+probabilistic-choice: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+random-number-generator-included-: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+random-numbers: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+remove-vowels-from-a-string: oracle produced EMPTY output -- refusing to mint a vacuous ref
+repeat-a-string-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+repeat-a-string-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+repeat-a-string-3: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+reverse-the-order-of-lines-in-a-text-file-while-preserving-the-contents-of-each-line: oracle produced EMPTY output -- refusing to mint a vacuous ref
+ruth-aaron-numbers: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sattolo-cycle-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sattolo-cycle-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+send-_-more-_-money: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sha-256: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sha-256-merkle-tree: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+shell-one-liner: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+sisyphus-sequence: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+smallest-power-of-6-whose-decimal-expansion-contains-n: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+smallest-square-that-begins-with-n-1: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+smallest-square-that-begins-with-n-2: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+sorting-algorithms-shell-sort: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+square-free-integers: EXCLUDED.tsv NO_ORACLE_ANSWER: MEASURED by the grader 2026-11-18: the program allocates a 10 GB sieve by design (setlength(sieve,BigLimit+1), BigLimit = 10*1000*1000*1000; its own comment: needs 1e10 Byte = 10 Gb), and its fpc run was killed twice by the 8192 MB cap of the cut's memory scope (oom_kill=1, the cut at 211/235 refused UNPROVEN in wt-fixes and in wt-rosettapas); no oracle answer can be had on this box
+substring: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+ternary-logic-1: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+ternary-logic-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+twin-primes-whose-sum-is-square-number: the oracle answers differently on two runs (time, randomness or addresses in its output) -- no one ground truth
+url-decoding: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+url-encoding: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+variable-size-set: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+variadic-function-2: fpc refuses to compile it in every mode (iso, default, objfpc, delphi, tp)
+write-entire-file: oracle produced EMPTY output -- refusing to mint a vacuous ref
