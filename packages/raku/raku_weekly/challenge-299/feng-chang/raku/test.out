@@ -1,0 +1,6 @@
+ok 1 - Replace Words: <cat bat rat>, "the cattle was rattle by the battery" => "the cat was rat by the bat"
+ok 2 - Replace Words: <a b c>,       "aab aac and cac bab"                  => "a a a c b"
+ok 3 - Replace Words: <man bike>,    "the manager was hit by a biker"       => "the man was hit by a bike"
+ok 4 - Word Search: <ABDE CBCA BAAD DBBC>, BDCA  => true
+ok 5 - Word Search: <AABB CCBA CAAA BBBB>, ABAC  => false
+ok 6 - Word Search: <BABA CCCC ABAB BBAA>, CCCAA => true

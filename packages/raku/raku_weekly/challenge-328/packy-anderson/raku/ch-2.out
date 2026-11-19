@@ -1,0 +1,11 @@
+Example 1:
+Input: $str = "WeEeekly"
+Output: "Weekly"
+
+Example 2:
+Input: $str = "abBAdD"
+Output: ""
+
+Example 3:
+Input: $str = "abc"
+Output: "abc"

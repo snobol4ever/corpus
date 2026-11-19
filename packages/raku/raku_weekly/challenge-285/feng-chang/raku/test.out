@@ -1,0 +1,5 @@
+ok 1 - No Connection: B=>C,D=>B,C=>A  => A
+ok 2 - No Connection: A=>Z            => Z
+ok 3 - Maing Change:   9 =>   2
+ok 4 - Maing Change:  15 =>   6
+ok 5 - Maing Change: 100 => 292

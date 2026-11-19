@@ -1,0 +1,9 @@
+1..8
+ok 1 - 12->24am
+ok 2 - 12->24pm
+ok 3 - 12->24am-mid
+ok 4 - 12->24pm-noon
+ok 5 - 24->12am
+ok 6 - 12->24am
+ok 7 - 24->12-noon
+ok 8 - 24->12-mid

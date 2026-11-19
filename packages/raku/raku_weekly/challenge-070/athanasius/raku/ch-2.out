@@ -1,0 +1,7 @@
+
+Challenge 070, Task #2: Gray Code Sequence (Raku)
+
+Usage:
+  raku ch-2.raku <N>
+  
+    <N>    Number of bits: integer >= 2 and <= 5

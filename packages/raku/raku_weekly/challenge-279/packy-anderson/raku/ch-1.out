@@ -1,0 +1,19 @@
+Example 1:
+Input: @letters = ('R', 'E', 'P', 'L')
+       @weights = (3, 2, 1, 4)
+Output: PERL
+
+Example 2:
+Input: @letters = ('A', 'U', 'R', 'K')
+       @weights = (2, 4, 1, 3)
+Output: RAKU
+
+Example 3:
+Input: @letters = ('O', 'H', 'Y', 'N', 'P', 'T')
+       @weights = (5, 4, 2, 6, 1, 3)
+Output: PYTHON
+
+Example 4:
+Input: @letters = ('C', 'd', 'F', 'i', 'l', 'n', 'o', 'o', 's', 'u')
+       @weights = (1, 4, 5, 8, 3, 10, 9, 2, 7, 6)
+Output: ColdFusion

@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "aeiou"
+Output: ("aeiou")
+
+Example 2:
+Input: $str = "aaeeeiioouu"
+Output: ("aaeeeiioou", "aaeeeiioouu", "aeeeiioou", "aeeeiioouu")
+
+Example 3:
+Input: $str = "aeiouuaxaeiou"
+Output: ("aeiou", "aeiou", "aeiouu", "aeiouua", "eiouua")
+
+Example 4:
+Input: $str = "uaeiou"
+Output: ("aeiou", "uaeio", "uaeiou")
+
+Example 5:
+Input: $str = "aeioaeioa"
+Output: ()

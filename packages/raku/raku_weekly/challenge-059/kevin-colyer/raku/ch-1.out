@@ -1,0 +1,14 @@
+ok 1 - test empty
+ok 2 - test add to tail
+ok 3 - test add to tail
+ok 4 - test add to tail
+ok 5 - test add to head
+ok 6 - test tail remove
+ok 7 - test head remove
+ok 8 - test tail remove
+ok 9 - test head remove
+ok 10 - test add after
+ok 11 - test add after
+ok 12 - before partitioned sort
+ok 13 - after partitioned sort
+1..13

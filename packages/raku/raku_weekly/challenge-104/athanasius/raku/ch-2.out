@@ -1,0 +1,8 @@
+
+Challenge 104, Task #2: NIM Game (Raku)
+
+Usage:
+  raku ch-2.raku [--name=<Str where { ... }>] [--first]
+  
+    --name=<Str where { ... }>    Player's name (1-8 chars)
+    --first                       Human player moves first? [default: False]

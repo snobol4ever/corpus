@@ -1,0 +1,12 @@
+Weak palindromes:
+([a a baab] [a a b a a b] [a a b a a] [a a b a b] [a a b a] [a a b a b] [a a b a] [a a b b] [a a b aa b] [a a b aa] [a a b b] [a a b] [a a b a b] [a a b a] [a a b b] [a a b] [a a b b] [a a b] [a a b] [a a b] [a a b] [a a] [a baab] [a a a a b] [a a a a] [a a a b] [a a a] [a a a b] [a a a] [a a b] [a a aa b] [a a aa] [a a b] [a a] [a a a b] [a a a] [a a b] [a a] [a a b] [a a] [a b] [a b] [a aba a b] [a aba a] [a aba b] [a aba] [a aba b] [a aba] [a b] [a b] [a] [a baab] [a b a a b] [a b a a] [a b a b] [a b a] [a b a b] [a b a] [a b b] [a b aa b] [a b aa] [a b b] [a b] [a b a b] [a b a] [a b b] [a b] [a b b] [a b] [a b] [a b] [a b] [a] [baab] [a a a b] [a a a] [a a b] [a a] [a a b] [a a] [a b] [a aa b] [a aa] [a b] [a] [a a b] [a a] [a b] [a] [a b] [a] [b] [aa baab] [aa b a a b] [aa b a a] [aa b a b] [aa b a] [aa b a b] [aa b a] [aa b b] ...)
+([a b b aba] [a b b a b a] [a b b a b] [a b b a a] [a b b a] [a b b a a] [a b b a] [a b b a] [a b b a] [a b b] [a b aba] [a b b b a] [a b b b] [a b b a] [a b b] [a b b a] [a b b] [a b a] [a b a] [a b bab a] [a b bab] [a b a] [a b] [a b aba] [a b a b a] [a b a b] [a b a a] [a b a] [a b a a] [a b a] [a b a] [a b a] [a b] [a aba] [a b b a] [a b b] [a b a] [a b] [a b a] [a b] [a a] [a bb aba] [a bb a b a] [a bb a b] [a bb a a] [a bb a] [a bb a a] [a bb a] [a bb a] [a bb a] [a bb] [a aba] [a bb b a] [a bb b] [a bb a] [a bb] [a bb a] [a bb] [a a] [a a] [a a] [a] [a b aba] [a b a b a] [a b a b] [a b a a] [a b a] [a b a a] [a b a] [a b a] [a b a] [a b] [a aba] [a b b a] [a b b] [a b a] [a b] [a b a] [a b] [a a] [a a] [a bab a] [a bab] [a a] [a] [a aba] [a a b a] [a a b] [a a a] [a a] [a a a] [a a] [a a] [a a] [a] [aba] [a b a] [a b] [a a] [a] ...)
+Strong palindromes:
+([a a baab] [a a b a a b] [a a b aa b] [a aba a b] [aa baab] [aa b a a b] [aa b aa b] [aabaa b])
+([a b b aba] [a b b a b a] [a b bab a] [a bb aba] [a bb a b a] [abba b a])
+Weak palindromes (len > 1):
+([baab] [aa baab] [aa] [baab] [aa aa] [aa] [aa] [aa] [aabaa])
+([aba] [aba] [aba] [abba] [abba])
+Strong palindromes (len > 1):
+([aa baab])
+()

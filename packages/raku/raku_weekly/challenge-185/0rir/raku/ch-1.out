@@ -1,0 +1,49 @@
+1..48
+ok 1 - dot -> dot
+ok 2 - uc dot -> dot
+ok 3 - dot -> uc dot
+ok 4 - canonic -> canonic
+ok 5 - canonic -> canonic
+ok 6 - uc canonic -> canonic
+ok 7 - integer -> integer
+ok 8 - integer -> uc integer
+ok 9 - dot -> *
+ok 10 - dot -> uc *
+ok 11 - dot -> canonic
+ok 12 - dot -> uc canonic
+ok 13 - uc dot -> uc canonic
+ok 14 - uc dot -> canonic
+ok 15 - canonic -> dot
+ok 16 - uc canonic -> dot
+ok 17 - canonic -> integer
+ok 18 - uc canonic -> integer
+ok 19 - integer -> *
+ok 20 - integer -> canonic
+ok 21 - integer -> uc canonic
+ok 22 - integer -> uc canonic
+ok 23 - integer -> dot
+ok 24 - integer -> dot
+ok 25 - dot -> dot
+ok 26 - uc dot -> dot
+ok 27 - dot -> uc dot
+ok 28 - canonic -> canonic
+ok 29 - canonic -> canonic
+ok 30 - uc canonic -> canonic
+ok 31 - integer -> integer
+ok 32 - integer -> uc integer
+ok 33 - dot -> *
+ok 34 - dot -> uc *
+ok 35 - dot -> canonic
+ok 36 - dot -> uc canonic
+ok 37 - uc dot -> uc canonic
+ok 38 - uc dot -> canonic
+ok 39 - canonic -> dot
+ok 40 - uc canonic -> dot
+ok 41 - canonic -> integer
+ok 42 - uc canonic -> integer
+ok 43 - integer -> *
+ok 44 - integer -> canonic
+ok 45 - integer -> uc canonic
+ok 46 - integer -> uc canonic
+ok 47 - integer -> dot
+ok 48 - integer -> dot

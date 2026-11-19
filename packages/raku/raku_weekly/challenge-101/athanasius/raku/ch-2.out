@@ -1,0 +1,7 @@
+
+Challenge 101, Task #2: Origin-containing Triangle (Raku)
+
+Usage:
+  raku ch-2.raku [<coords> ...]
+  
+    [<coords> ...]    X-Y co-ordinates of the 3 vertices of a triangle

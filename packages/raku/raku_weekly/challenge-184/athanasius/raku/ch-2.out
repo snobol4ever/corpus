@@ -1,0 +1,7 @@
+
+Challenge 184, Task #2: Split Array (Raku)
+
+Usage:
+  raku ch-2.raku [<list> ...]
+  
+    [<list> ...]    List of strings: single chars (0-9, a-z), space-separated

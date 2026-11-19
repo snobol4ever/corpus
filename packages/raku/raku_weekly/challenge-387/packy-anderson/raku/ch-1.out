@@ -1,0 +1,37 @@
+Example 1:
+Input: $str = "111000"
+Output: 0
+
+Example 2:
+Input: $str = "00011"
+Output: 4
+
+Step 1: "00101"
+Step 2: "01010"
+Step 3: "10100"
+Step 4: "11000"
+
+Example 3:
+Input: $str = "01011"
+Output: 3
+
+Step 1: "10101"
+Step 2: "11010"
+Step 3: "11100"
+
+Example 4:
+Input: $str = "010101"
+Output: 3
+
+Step 1: "101010"
+Step 2: "110100"
+Step 3: "111000"
+
+Example 5:
+Input: $str = "00001"
+Output: 4
+
+Step 1: "00010"
+Step 2: "00100"
+Step 3: "01000"
+Step 4: "10000"

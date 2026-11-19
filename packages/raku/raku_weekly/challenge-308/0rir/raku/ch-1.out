@@ -1,0 +1,14 @@
+1..9
+ok 1 - 2 <- ["perl", "weekly", "challenge"] ∘ ["raku", "weekly", "challenge"]
+ok 2 - 1 <- ["perl", "raku", "python"] ∘ ["python", "java"]
+ok 3 - 0 <- ["guest", "contribution"] ∘ ["fun", "weekly", "challenge"]
+ok 4 - 1 <- ["a", "b", "b", "a"] ∘ ["a", "a", "a"]
+ok 5 - 1 <- ["a", "b", "a"] ∘ ["a", "a", "a"]
+ok 6 - 1 <- ["a", "b", "a"] ∘ ["a", "a", "a", "a"]
+ok 7 - 0 <- [] ∘ []
+ok 8 - 0 <- [] ∘ ["a"]
+ok 9 - 0 <- [] ∘ ["a", "b", "c"]
+
+Input: @str1 = perl weekly perl challenge
+       @str2 = raku weekly weekly challenge
+Output: 2

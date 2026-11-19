@@ -1,0 +1,13 @@
+1..12
+ok 1 - ex-1
+ok 2 - ex-2
+ok 3 - ex-3
+ok 4 - ex-4
+ok 5 - no head
+ok 6 - * cannot be empty
+ok 7 - ? cannot be empty
+ok 8 - no tail
+ok 9 - ? in input
+ok 10 - * in input
+ok 11 - line noise
+ok 12 - password

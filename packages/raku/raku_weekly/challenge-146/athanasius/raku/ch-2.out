@@ -1,0 +1,8 @@
+
+Challenge 146, Task #2: Curious Fraction Tree (Raku)
+
+Usage:
+  raku ch-2.raku <num> <den>
+  
+    <num>    Numerator: positive integer
+    <den>    Denominator: positive integer, coprime to the numerator

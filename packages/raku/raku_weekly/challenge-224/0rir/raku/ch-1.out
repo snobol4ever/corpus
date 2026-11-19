@@ -1,0 +1,27 @@
+1..14
+ok 1 - abc <- aabbcc (set)
+ok 2 - abc <- aabbcc (bag)
+ok 3 - perl <- scriptinglanguage (set)
+ok 4 - perl <- scriptinglanguage (bag)
+ok 5 - xyz <- abc (set)
+ok 6 - xyz <- abc (bag)
+ok 7 - a <- a (set)
+ok 8 - a <- a (bag)
+ok 9 - a <- aa (set)
+ok 10 - a <- aa (bag)
+ok 11 - aa <- aa (set)
+ok 12 - aa <- aa (bag)
+ok 13 - ab <- aa (set)
+ok 14 - ab <- aa (bag)
+
+$source = "apple"
+$target = "leap"
+Output: True             set required
+
+$source = "apple"
+$target = "apple"
+Output: False             set required
+
+$source = "apple"
+$target = "apple"
+Output: True          dupes per source

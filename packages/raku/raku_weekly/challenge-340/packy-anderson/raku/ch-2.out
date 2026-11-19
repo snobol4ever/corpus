@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = 'The cat has 3 kittens 7 toys 10 beds'
+Output: True
+
+Example 2:
+Input: $str = 'Alice bought 5 apples 2 oranges 9 bananas'
+Output: False
+
+Example 3:
+Input: $str = 'I ran 1 mile 2 days 3 weeks 4 months'
+Output: True
+
+Example 4:
+Input: $str = 'Bob has 10 cars 10 bikes'
+Output: False
+
+Example 5:
+Input: $str = 'Zero is 0 one is 1 two is 2'
+Output: True

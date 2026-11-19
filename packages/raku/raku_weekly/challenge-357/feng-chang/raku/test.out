@@ -1,0 +1,11 @@
+ok 1 - Kaprekar Constant: 3524 => 3
+ok 2 - Kaprekar Constant: 6174 => 0
+ok 3 - Kaprekar Constant: 9998 => 5
+ok 4 - Kaprekar Constant: 1001 => 4
+ok 5 - Kaprekar Constant: 9000 => 4
+ok 6 - Kaprekar Constant: 1111 => -1
+ok 7 - Unique Fraction Generator: 3
+ok 8 - Unique Fraction Generator: 4
+ok 9 - Unique Fraction Generator: 1
+ok 10 - Unique Fraction Generator: 6
+ok 11 - Unique Fraction Generator: 5

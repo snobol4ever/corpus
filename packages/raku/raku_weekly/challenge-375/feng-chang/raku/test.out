@@ -1,0 +1,10 @@
+ok 1 - Single Common Word: @array1=<apple banana cherry>, @array2=<banana cherry date> => 2
+ok 2 - Single Common Word: @array1=<a ab abc>,            @array2=<a a ab abc>         => 2
+ok 3 - Single Common Word: @array1=<orange lemon>,        @array2=<grape melon>        => 0
+ok 4 - Single Common Word: @array1=<test test demo>,      @array2=<test demo demo>     => 0
+ok 5 - Single Common Word: @array1=<Hello world>,         @array2=<hello world>        => 1
+ok 6 - Find K-Beauty: $num=240, $k=2 => 2
+ok 7 - Find K-Beauty: $num=1020,$k=2 => 3
+ok 8 - Find K-Beauty: $num=444, $k=2 => 0
+ok 9 - Find K-Beauty: $num=17,  $k=2 => 1
+ok 10 - Find K-Beauty: $num=123, $k=1 => 2

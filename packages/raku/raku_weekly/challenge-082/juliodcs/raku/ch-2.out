@@ -1,0 +1,16 @@
+1..15
+ok 1 - missing char from a
+ok 2 - missing char from b
+ok 3 - missing char from a,b
+ok 4 - two letters v1
+ok 5 - two letters v2
+ok 6 - two letters v3
+ok 7 - two letters v4
+ok 8 - a=b
+ok 9 - long a=b
+ok 10 - long a=b, single char
+ok 11 - ACB basket v1
+ok 12 - ACB basket v2
+ok 13 - Example 1
+ok 14 - Example 2
+ok 15 - Example 3

@@ -1,0 +1,4 @@
+1..3
+ok 1 - prime-partitions(18, 2)
+ok 2 - prime-partitions(19, 3)
+ok 3 - prime-partitions(77, 8)

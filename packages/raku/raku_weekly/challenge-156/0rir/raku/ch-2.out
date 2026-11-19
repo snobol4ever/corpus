@@ -1,0 +1,4 @@
+Input: $n = 70
+Output: 1
+
+Since the proper divisors of 70 are 1, 2, 5, 7, 10, 14 and 35 sums to 74 and no subset of divisors sums to 70.

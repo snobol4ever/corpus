@@ -1,0 +1,22 @@
+1..18
+ok 1 - 42 <- 101010 ∘∘ 2
+ok 2 - 15642094 <- EEADEE ∘∘ 16
+ok 3 - 493 <- 755 ∘∘ 8
+ok 4 - 2228519 <- 1BRJB ∘∘ 36
+ok 5 - 123456789 <- 7MyqL ∘∘ 64
+ok 6 - -123456789 <- -7MyqL ∘∘ 64
+ok 7 - 123456789 <- +7MyqL ∘∘ 64
+ok 8 - dead ok 7Myql- ∘∘ 64
+ok 9 - dead ok 7M-yql ∘∘ 64
+ok 10 - dead ok 7Myql ∘∘ 36
+ok 11 - dead ok 1043 ∘∘ 4
+ok 12 - dead ok  ∘∘ 64
+ok 13 - dead ok - ∘∘ 10
+ok 14 - dead ok + ∘∘ 10
+ok 15 - dead ok -A ∘∘ 10
+ok 16 - dead ok +A ∘∘ 10
+ok 17 - dead ok 0 ∘∘ 1
+ok 18 - dead ok 1 ∘∘ 65
+
+Input: $num = "1BRJB", $base = 33"
+Output: 1611269

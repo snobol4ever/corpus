@@ -1,0 +1,6 @@
+Input: @words = (Perl Rust Raku)
+Output: (r)
+ 
+Input: @words = (love live leave)
+Output: (e l v)
+ 

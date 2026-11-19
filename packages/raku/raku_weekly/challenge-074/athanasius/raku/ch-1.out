@@ -1,0 +1,7 @@
+
+Challenge 074, Task #1: Majority Element (Raku)
+
+Usage:
+  raku ch-1.raku [<A> ...]
+  
+    [<A> ...]    Non-empty integer sequence

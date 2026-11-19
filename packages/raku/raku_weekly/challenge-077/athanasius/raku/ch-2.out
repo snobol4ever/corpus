@@ -1,0 +1,7 @@
+
+Challenge 077, Task #2: Lonely X (Raku)
+
+Usage:
+  raku ch-2.raku [<rows> ...]
+  
+    [<rows> ...]    1+ same-width rows, each a string of 'O' and 'X' chars

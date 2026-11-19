@@ -1,0 +1,4 @@
+Is the queue empty initially? True
+Queue after adding some items: [Item.new(val => -1, priority => 0) Item.new(val => 3, priority => 2) Item.new(val => 1, priority => 2) Item.new(val => 10, priority => 5)]
+Is the queue empty now? False
+Highest-priority item: 10

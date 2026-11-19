@@ -1,0 +1,9 @@
+
+Challenge 180, Task #1: First Unique Character (Raku)
+
+ok 1 - "Perl Weekly Challenge"
+ok 2 - "Long Live Perl"
+ok 3 - "AaBbCcDdEeFfGgHhIiJj"
+ok 4 - "AaBbCcDdEeFfGgHhIiJjK"
+ok 5 - " abB"
+1..5

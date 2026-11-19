@@ -1,0 +1,19 @@
+Example 1:
+Input: $word = "aabbccdd"
+Output: ""
+
+Example 2:
+Input: $word = "abccba"
+Output: ""
+
+Example 3:
+Input: $word = "abcdef"
+Output: "abcdef"
+
+Example 4:
+Input: $word = "aabbaeaccdd"
+Output: "aea"
+
+Example 5:
+Input: $word = "mississippi"
+Output: "m"

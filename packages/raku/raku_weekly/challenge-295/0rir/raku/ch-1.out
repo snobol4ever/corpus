@@ -1,0 +1,19 @@
+1..15
+ok 1 - Dies-ok <- a ∘/ $( ) /
+ok 2 - Dies-ok <- a ∘/ $("",) /
+ok 3 - Dies-ok <- a ∘/ $("", "a") /
+ok 4 - False <-  ∘ a a
+ok 5 - True <- weeklyweekly ∘ weekly
+ok 6 - True <- weekly ∘ weekly weekly
+ok 7 - True <- weekly ∘ challenge weekly
+ok 8 - True <- weeklychallenge ∘ challenge weekly
+ok 9 - True <- perlrakuperl ∘ raku perl
+ok 10 - True <- sonsanddaughters ∘ sons and daughters
+ok 11 - False <- sonsanddaughters ∘ sons sand daughters
+ok 12 - True <- sonssanddaughters ∘ sons sand daughters
+ok 13 - True <- eeeee ∘ a b c d e
+ok 14 - True <- eweweweek ∘ e we ewe wee week
+ok 15 - True <- eweweweek ∘ we ewe wee week
+
+Input: $str = thisisastringofcarrottiersthis, @word = str tiers this in isa gof carrot
+Output: True

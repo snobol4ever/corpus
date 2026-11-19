@@ -1,0 +1,5 @@
+ok 1 - Lexicographic Order: ("abc", "bce", "cae") => 1
+ok 2 - Lexicographic Order: ("yxz", "cba", "mon") => 2
+ok 3 - Two out of Three: data01.txt => 2, 4
+ok 4 - Two out of Three: data02.txt => 1, 2, 4
+1..4

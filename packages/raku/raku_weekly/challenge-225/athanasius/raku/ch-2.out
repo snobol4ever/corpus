@@ -1,0 +1,17 @@
+
+Challenge 225, Task #2: Left Right Sum Diff (Raku)
+
+Running the test suite
+ok 1 - Example 1: left
+ok 2 - Example 1: right
+ok 3 - Example 1: left-right-sum-diff
+ok 4 - Example 2: left
+ok 5 - Example 2: right
+ok 6 - Example 2: left-right-sum-diff
+ok 7 - Example 3: left
+ok 8 - Example 3: right
+ok 9 - Example 3: left-right-sum-diff
+ok 10 - Negatives: left
+ok 11 - Negatives: right
+ok 12 - Negatives: left-right-sum-diff
+1..12

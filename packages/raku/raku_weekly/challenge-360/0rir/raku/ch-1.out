@@ -1,0 +1,10 @@
+1..6
+ok 1 - *Hi** <- Hi ∘∘ 5
+ok 2 - ***Code*** <- Code ∘∘ 10
+ok 3 - **Hello** <- Hello ∘∘ 9
+ok 4 - Perl <- Perl ∘∘ 4
+ok 5 - ***A*** <- A ∘∘ 7
+ok 6 - ***** <-  ∘∘ 5
+
+Input: $str = "Postgres", $width = 11
+Output: "*Postgres**"

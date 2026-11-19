@@ -1,0 +1,7 @@
+
+Challenge 073, Task #2: Smallest Neighbour (Raku)
+
+Usage:
+  raku ch-2.raku [<A> ...]
+  
+    [<A> ...]    Sequence of one or more integers

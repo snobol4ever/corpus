@@ -1,0 +1,19 @@
+Example 1:
+Input: $from = 1, $to = 1000, $count = 1
+Output: 0
+
+Example 2:
+Input: $from = 1500, $to = 2500, $count = 1
+Output: 3
+
+Example 3:
+Input: $from = 1000000, $to = 1500000, $count = 5
+Output: 2
+
+Example 4:
+Input: $from = 13427000, $to = 14100000, $count = 2
+Output: 11
+
+Example 5:
+Input: $from = 1030, $to = 1130, $count = 1
+Output: 2

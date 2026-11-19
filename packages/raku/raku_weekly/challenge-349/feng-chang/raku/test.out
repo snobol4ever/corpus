@@ -1,0 +1,10 @@
+ok 1 - Power String: textbook             => 2
+ok 2 - Power String: aaaaa                => 5
+ok 3 - Power String: hoorayyy             => 3
+ok 4 - Power String: x                    => 1
+ok 5 - Power String: aabcccddeeffffghijjk => 4
+ok 6 - Meeting Point: ULD          => false
+ok 7 - Meeting Point: ULDR         => true
+ok 8 - Meeting Point: UUURRRDDD    => false
+ok 9 - Meeting Point: UURRRDDLLL   => true
+not ok 10 - Meeting Point: RRUULLDDRRUU => true

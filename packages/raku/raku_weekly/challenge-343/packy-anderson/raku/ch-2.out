@@ -1,0 +1,43 @@
+Example 1:
+Input: @grid = [
+                 [0, 1, 1],
+                 [0, 0, 1],
+                 [0, 0, 0]
+               ]
+Output: Team 0
+
+Example 2:
+Input: @grid = [
+                 [0, 1, 0, 0],
+                 [0, 0, 0, 0],
+                 [1, 1, 0, 0],
+                 [1, 1, 1, 0]
+               ]
+Output: Team 3
+
+Example 3:
+Input: @grid = [
+                 [0, 1, 0, 1],
+                 [0, 0, 1, 1],
+                 [1, 0, 0, 0],
+                 [0, 0, 1, 0]
+               ]
+Output: Team 0
+
+Example 4:
+Input: @grid = [
+                 [0, 1, 1],
+                 [0, 0, 0],
+                 [0, 1, 0]
+               ]
+Output: Team 0
+
+Example 5:
+Input: @grid = [
+                 [0, 0, 0, 0, 0],
+                 [1, 0, 0, 0, 0],
+                 [1, 1, 0, 1, 1],
+                 [1, 1, 0, 0, 0],
+                 [1, 1, 0, 1, 0]
+               ]
+Output: Team 2

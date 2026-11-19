@@ -1,0 +1,10 @@
+1..6
+ok 1 - True ∘∘ acb + cba == cdb
+ok 2 - True ∘∘ aab + aac == ad
+ok 3 - False ∘∘ bc + je == jg
+ok 4 - True ∘∘ a + aaaa == aa
+ok 5 - False ∘∘ c + d == h
+ok 6 - True ∘∘ gfi + hbf == bdhd
+
+Input: $str1 = "gfi", $str2 = "hbf", $str3 = "bdhd"
+Output: True

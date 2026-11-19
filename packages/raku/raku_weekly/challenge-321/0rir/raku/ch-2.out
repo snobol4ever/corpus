@@ -1,0 +1,25 @@
+1..20
+ok 1 - c <- "***c"
+ok 2 - ac <- "ab*c"
+ok 3 -  <- "ab**"
+ok 4 -  <- "a*b*"
+ok 5 -  <- "***ab**"
+ok 6 -  <- "***ab****"
+ok 7 -  <- "*a*b*"
+ok 8 -  <- "ab**"
+ok 9 -  <- "ab****"
+ok 10 - b <- "a*b"
+ok 11 - c <- "c"
+ok 12 - b <- "*a*b"
+ok 13 -  <- "*"
+ok 14 - True  <- ab*c ∘∘ ad*c
+ok 15 - True  <- ab** ∘∘ a*b*
+ok 16 - True  <- ***ab** ∘∘ **a*b*
+ok 17 - True  <- ab** ∘∘ ***a*b*
+ok 18 - False  <- a*b ∘∘ c
+ok 19 - False  <- *a*b ∘∘ c
+ok 20 - False  <- *a*b ∘∘ ***c
+
+Input: $str1 = ab#xy##c#####a#b#abcdefg######ce###acb#
+       $str2 = ad#c
+Output: True

@@ -1,0 +1,7 @@
+
+Challenge 143, Task #2: Stealthy Number (Raku)
+
+Usage:
+  raku ch-2.raku <n>
+  
+    <n>    A positive integer

@@ -1,0 +1,10 @@
+
+Challenge 230, Task #2: Count Words (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - No matches
+ok 4 - Non-prefix
+ok 5 - Mixed
+1..5

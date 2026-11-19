@@ -1,0 +1,5 @@
+Comparing 0.1 vs 1.1 -> -1
+Comparing 2.0 vs 1.2 -> 1
+Comparing 1.2 vs 1.2_5 -> -1
+Comparing 1.2.1 vs 1.2_1 -> 1
+Comparing 1.2.1 vs 1.2.1 -> 0

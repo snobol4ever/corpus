@@ -1,0 +1,13 @@
+
+Challenge 233, Task #1: Similar Words (Raku)
+
+Running the test suite
+ok 1 - Example 1: Count
+ok 2 - Example 1: Pairs
+ok 3 - Example 2: Count
+ok 4 - Example 2: Pairs
+ok 5 - Example 3: Count
+ok 6 - Example 3: Pairs
+ok 7 - Upper case: Count
+ok 8 - Upper case: Pairs
+1..8

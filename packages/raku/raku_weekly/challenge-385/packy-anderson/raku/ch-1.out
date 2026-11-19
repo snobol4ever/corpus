@@ -1,0 +1,24 @@
+Example 1:
+Input: $sentence1 = "apple banana apple"
+       $sentence2 = "banana orange"
+Output: ("orange")
+
+Example 2:
+Input: $sentence1 = "cat dog"
+       $sentence2 = "bird fish"
+Output: ("bird", "cat", "dog", "fish")
+
+Example 3:
+Input: $sentence1 = "the quick brown fox"
+       $sentence2 = "the quick"
+Output: ("brown", "fox")
+
+Example 4:
+Input: $sentence1 = "hello"
+       $sentence2 = "hello"
+Output: ()
+
+Example 5:
+Input: $sentence1 = "blue blue red"
+       $sentence2 = "red green green yellow"
+Output: ("yellow")

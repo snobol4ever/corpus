@@ -1,0 +1,34 @@
+Example 1:
+Input: $str = "textbook"
+Output: False
+
+1st half: "text" (1 vowel)
+2nd half: "book" (2 vowels)
+
+Example 2:
+Input: $str = "book"
+Output: True
+
+1st half: "bo" (1 vowel)
+2nd half: "ok" (1 vowel)
+
+Example 3:
+Input: $str = "AbCdEfGh"
+Output: True
+
+1st half: "AbCd" (1 vowel)
+2nd half: "EfGh" (1 vowel)
+
+Example 4:
+Input: $str = "rhythmmyth"
+Output: False
+
+1st half: "rhyth" (0 vowels)
+2nd half: "mmyth" (0 vowels)
+
+Example 5:
+Input: $str = "UmpireeAudio"
+Output: False
+
+1st half: "Umpire" (3 vowels)
+2nd half: "eAudio" (5 vowels)

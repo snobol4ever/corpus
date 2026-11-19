@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "cat and dog"
+Output: 3
+
+Example 2:
+Input: $str = "a-b c! d,e"
+Output: 2
+
+Example 3:
+Input: $str = "hello-world! this is fun"
+Output: 4
+
+Example 4:
+Input: $str = "ab- cd-ef gh- ij!"
+Output: 2
+
+Example 5:
+Input: $str = "wow! a-b-c nice."
+Output: 2

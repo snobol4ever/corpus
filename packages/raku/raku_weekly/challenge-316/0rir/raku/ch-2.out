@@ -1,0 +1,17 @@
+1..13
+ok 1 - True <- "uvw" ∘∘ "bcudvew"
+ok 2 - False <- "aec" ∘∘ "abcde"
+ok 3 - True <- "sip" ∘∘ "javascript"
+ok 4 - True <- "uvw" ∘∘ "uvw"
+ok 5 - True <- "a" ∘∘ "a"
+ok 6 - True <- "aaa" ∘∘ "aaaa"
+ok 7 - False <- "a" ∘∘ "b"
+ok 8 - False <- "aa" ∘∘ "a"
+ok 9 - Bool <- "" ∘∘ "a"
+ok 10 - Bool <- "a" ∘∘ ""
+ok 11 - Bool <- Any ∘∘ "a"
+ok 12 - Bool <- "a" ∘∘ Any
+ok 13 - Bool <- Any ∘∘ Any
+
+Input: $str1 = "avast", $str2 = "javascript"
+Output: True

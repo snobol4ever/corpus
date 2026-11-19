@@ -1,0 +1,12 @@
+
+Challenge 245, Task #2: Largest of Three (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Multiples
+ok 5 - Small
+ok 6 - Tens
+ok 7 - Hundreds
+1..7

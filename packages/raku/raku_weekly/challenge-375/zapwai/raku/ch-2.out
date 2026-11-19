@@ -1,0 +1,10 @@
+Input: $num = 240, $k = 2
+Output: 2
+Input: $num = 1020, $k = 2
+Output: 3
+Input: $num = 444, $k = 2
+Output: 0
+Input: $num = 17, $k = 2
+Output: 1
+Input: $num = 123, $k = 1
+Output: 2

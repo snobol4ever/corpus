@@ -1,0 +1,11 @@
+Example 1:
+Input: $str = "PERL IS gREAT"
+Output: "Perl is Great"
+
+Example 2:
+Input: $str = "THE weekly challenge"
+Output: "The Weekly Challenge"
+
+Example 3:
+Input: $str = "YoU ARE A stAR"
+Output: "You Are a Star"

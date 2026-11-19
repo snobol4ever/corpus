@@ -1,0 +1,5 @@
+ok 1 - Defrang IP Address: 1.1.1.1      => 1[.]1[.]1[.]1
+ok 2 - Defrang IP Address: 255.101.1.0  => 255[.]101[.]1[.]0
+ok 3 - String Score: hello => 13
+ok 4 - String Score: perl  => 30
+ok 5 - String Score: raku  => 37

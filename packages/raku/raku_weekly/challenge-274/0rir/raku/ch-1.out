@@ -1,0 +1,7 @@
+1..3
+ok 1 - Imaa ovelmaaa erlPmaaaa <- I love Perl
+ok 2 - erlPmaa andmaaa akuRmaaaa aremaaaaa riendsfmaaaaaa <- Perl and Raku are friends
+ok 3 - heTmaa eeklyWmaaa hallengeCmaaaa <- The Weekly Challenge
+
+Input: $sentence = "built for two"
+Output: uiltbmaa orfmaaa wotmaaaa"

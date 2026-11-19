@@ -1,0 +1,6 @@
+ok 1 - testing A=1, B=3
+ok 2 - testing A=2, B=4
+ok 3 - testing A=3, B=5
+ok 4 - testing A=4, B=6
+ok 5 - testing A=5, B=7
+1..5

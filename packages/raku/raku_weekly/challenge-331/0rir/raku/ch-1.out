@@ -1,0 +1,14 @@
+1..10
+ok 1 - 9 <- The Weekly Challenge
+ok 2 - 5 <-    Hello   World    
+ok 3 - 3 <- Let's begin the fun
+ok 4 - 3 <- Let's begin the fun...
+ok 5 - 0 <-  ' " ... " - + @ .
+ok 6 - 1 <-  Let's " ... " - + @ .
+ok 7 - 2 <-  Let's " ... " - + @ .so
+ok 8 - 0 <- 
+ok 9 - 0 <-    . 
+ok 10 - 0 <- '
+
+Input: $str = "Let's begin the fun now..."
+Output: 3

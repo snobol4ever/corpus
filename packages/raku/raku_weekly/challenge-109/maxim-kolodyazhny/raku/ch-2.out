@@ -1,0 +1,3 @@
+    Usage: ch-2.raku [1,2,3,...,7] or [1 2 3 ... 7]
+
+    Prints the answer for "Four Squares Puzzle"

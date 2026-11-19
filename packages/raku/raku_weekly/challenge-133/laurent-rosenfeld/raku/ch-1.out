@@ -1,0 +1,59 @@
+	Intermediate values: 1, 5, and 10
+	Intermediate values: 1, 3, and 5
+	Intermediate values: 3, 4, and 5
+	Intermediate values: 3, 3, and 4
+10	3
+	Intermediate values: 1, 14, and 27
+	Intermediate values: 1, 7, and 14
+	Intermediate values: 1, 4, and 7
+	Intermediate values: 4, 5, and 7
+	Intermediate values: 5, 6, and 7
+	Intermediate values: 5, 5, and 6
+27	5
+	Intermediate values: 1, 43, and 85
+	Intermediate values: 1, 22, and 43
+	Intermediate values: 1, 11, and 22
+	Intermediate values: 1, 6, and 11
+	Intermediate values: 6, 8, and 11
+	Intermediate values: 8, 9, and 11
+	Intermediate values: 9, 10, and 11
+	Intermediate values: 9, 9, and 10
+85	9
+	Intermediate values: 1, 51, and 101
+	Intermediate values: 1, 26, and 51
+	Intermediate values: 1, 13, and 26
+	Intermediate values: 1, 7, and 13
+	Intermediate values: 7, 10, and 13
+	Intermediate values: 10, 11, and 13
+	Intermediate values: 10, 10, and 11
+101	10
+	Intermediate values: 1, 100000000, and 200000000
+	Intermediate values: 1, 50000000, and 100000000
+	Intermediate values: 1, 25000000, and 50000000
+	Intermediate values: 1, 12500000, and 25000000
+	Intermediate values: 1, 6250000, and 12500000
+	Intermediate values: 1, 3125000, and 6250000
+	Intermediate values: 1, 1562500, and 3125000
+	Intermediate values: 1, 781250, and 1562500
+	Intermediate values: 1, 390625, and 781250
+	Intermediate values: 1, 195313, and 390625
+	Intermediate values: 1, 97657, and 195313
+	Intermediate values: 1, 48829, and 97657
+	Intermediate values: 1, 24415, and 48829
+	Intermediate values: 1, 12208, and 24415
+	Intermediate values: 12208, 18311, and 24415
+	Intermediate values: 12208, 15259, and 18311
+	Intermediate values: 12208, 13733, and 15259
+	Intermediate values: 13733, 14496, and 15259
+	Intermediate values: 13733, 14114, and 14496
+	Intermediate values: 14114, 14305, and 14496
+	Intermediate values: 14114, 14209, and 14305
+	Intermediate values: 14114, 14161, and 14209
+	Intermediate values: 14114, 14137, and 14161
+	Intermediate values: 14137, 14149, and 14161
+	Intermediate values: 14137, 14143, and 14149
+	Intermediate values: 14137, 14140, and 14143
+	Intermediate values: 14140, 14141, and 14143
+	Intermediate values: 14141, 14142, and 14143
+	Intermediate values: 14142, 14142, and 14143
+200000000	14142

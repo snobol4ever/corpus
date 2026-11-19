@@ -1,0 +1,2 @@
+word:'Perl' jump:(2,22,19,9) => 'Raku';
+word:'Raku' jump:(24,4,7,17) => 'Perl';

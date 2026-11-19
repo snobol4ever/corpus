@@ -1,0 +1,13 @@
+1..8
+ok 1 - bjb      <- JB 007   <- jj bb bjb           
+ok 2 - baacd    <- Da2 abc  <- abcm baacd abaadc   
+ok 3 - accbbb   <- aBc 11c  <- accbbb abc abbc     
+ok 4 -          <- abb cDE  <- abcDE abcde abcdde  
+ok 5 - ABcbde   <- abb cDE  <- abcDE abcde ABcbde  
+ok 6 - abcdbe   <- abb cDE  <- abBCDEE abcde abcdbe
+ok 7 - abcdbe   <- abb cDE  <- abcde abcdbe abBCDEE
+ok 8 - ABc      <- ab       <- abcde ABc abB       
+
+Input: $str = abb cDE
+       @str = abcDE abcde ABcbde
+Output: ABcbde

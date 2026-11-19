@@ -1,0 +1,23 @@
+Example 1:
+Input: $str = "pinnipeds"
+Output: "sdepinnipeds"
+
+Example 2:
+Input: $str = "abcd"
+Output: "dcbabcd"
+
+Example 3:
+Input: $str = "bananas"
+Output: "sananabananas"
+
+Example 4:
+Input: $str = "dissident"
+Output: "tnedissident"
+
+Example 5:
+Input: $str = "cailliachs"
+Output: "shcailliachs"
+
+Example 6:
+Input: $str = "gohangasalamiimalasagnahog"
+Output: "gohangasalamiimalasagnahog"

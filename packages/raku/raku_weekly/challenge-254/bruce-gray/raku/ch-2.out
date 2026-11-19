@@ -1,0 +1,22 @@
+1..21
+ok 1 - task2_substr Raku -> Ruka
+ok 2 - task2_substr Perl -> Perl
+ok 3 - task2_substr Julia -> Jaliu
+ok 4 - task2_substr Uiua -> Auiu
+ok 5 - task2_substr Bcdf -> Bcdf
+ok 6 - task2_substr Alphabet -> Elphabat
+ok 7 - task2_substr Zoologicoarchaeologist -> Ziologecaarchoiologost
+ok 8 - task2_array Raku -> Ruka
+ok 9 - task2_array Perl -> Perl
+ok 10 - task2_array Julia -> Jaliu
+ok 11 - task2_array Uiua -> Auiu
+ok 12 - task2_array Bcdf -> Bcdf
+ok 13 - task2_array Alphabet -> Elphabat
+ok 14 - task2_array Zoologicoarchaeologist -> Ziologecaarchoiologost
+ok 15 - task2_split Raku -> Ruka
+ok 16 - task2_split Perl -> Perl
+ok 17 - task2_split Julia -> Jaliu
+ok 18 - task2_split Uiua -> Auiu
+ok 19 - task2_split Bcdf -> Bcdf
+ok 20 - task2_split Alphabet -> Elphabat
+ok 21 - task2_split Zoologicoarchaeologist -> Ziologecaarchoiologost

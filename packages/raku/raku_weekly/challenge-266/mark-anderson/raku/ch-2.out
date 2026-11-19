@@ -1,0 +1,9 @@
+ok 1 - example 1
+ok 2 - example 2
+ok 3 - example 3
+ok 4 - 20 X 20
+ok 5 - 20 X 20 diagonal zero
+ok 6 - 20 X 20 non-diagonal non-zero
+ok 7 - 21 X 21
+ok 8 - 21 X 21 diagonal zero
+ok 9 - 21 X 21 non-diagonal non-zero

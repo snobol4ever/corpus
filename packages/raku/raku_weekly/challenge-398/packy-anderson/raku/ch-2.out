@@ -1,0 +1,19 @@
+Example 1
+Input: @words = ("ab", "bc", "cd", "zy")
+Output: "zy"
+
+Example 2
+Input: @words = ("cba", "fed", "azy")
+Output: "azy"
+
+Example 3
+Input: @words = ("pop", "ada", "beb", "cfc")
+Output: "pop"
+
+Example 4
+Input: @words = ("aaaa", "zzzz", "mmmm", "aaba")
+Output: "aaba"
+
+Example 5
+Input: @words = ("aceg", "bdfh", "cegi", "azbz")
+Output: "azbz"

@@ -1,0 +1,17 @@
+
+Challenge 396, Task #2: Trionic Array (Raku)
+
+Running the test suite
+ok 1 - Example 1: trionic
+ok 2 - Example 1: p
+ok 3 - Example 1: q
+ok 4 - Example 2: trionic
+ok 5 - Example 3: trionic
+ok 6 - Example 3: p
+ok 7 - Example 3: q
+ok 8 - Example 4: trionic
+ok 9 - Example 5: trionic
+ok 10 - Negatives: trionic
+ok 11 - Negatives: p
+ok 12 - Negatives: q
+1..12

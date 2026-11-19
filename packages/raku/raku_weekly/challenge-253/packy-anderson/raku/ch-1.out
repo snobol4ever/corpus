@@ -1,0 +1,9 @@
+Example 1:
+Input: @words = ("one.two.three', 'four.five', 'six")
+       $separator = "."
+Output: "one", "two", "three", "four", "five", "six"
+
+Example 2:
+Input: @words = ("$perl$$', '$$raku$")
+       $separator = "$"
+Output: "perl", "raku"

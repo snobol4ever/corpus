@@ -1,0 +1,4 @@
+Input: $n = 5724
+Output: True as it is a valid number
+Input: $n = 5727
+Output: False as it is a invalid number

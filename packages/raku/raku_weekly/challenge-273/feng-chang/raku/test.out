@@ -1,0 +1,10 @@
+ok 1 - Percentage of Character: $str = "perl",      $char = "e" => 25
+ok 2 - Percentage of Character: $str = "java",      $char = "a" => 50
+ok 3 - Percentage of Character: $str = "phthon",    $char = "m" => 0
+ok 4 - Percentage of Character: $str = "ada",       $char = "a" => 67
+ok 5 - Percentage of Character: $str = "ballerina", $char = "l" => 22
+ok 6 - Percentage of Character: $str = "analitik",  $char = "k" => 13
+ok 7 - B After A: aabb => true
+ok 8 - B After A: abab => false
+ok 9 - B After A: aaa  => false
+ok 10 - B After A: bbb  => true

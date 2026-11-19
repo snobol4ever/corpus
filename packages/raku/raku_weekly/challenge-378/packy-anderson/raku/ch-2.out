@@ -1,0 +1,47 @@
+Example 1:
+Input: $str1 = "acb", $str2 = "cba", $str3 = "cdb"
+Output: True
+
+$str1 = "acb" = 021
+$str2 = "cba" = 210
+$str3 = "cdb" = 231
+
+Example 2:
+Input: $str1 = "aab", $str2 = "aac", $str3 = "ad"
+Output: True
+
+$str1 = "aab" = 001
+$str2 = "aac" = 002
+$str3 =  "ad" =  03
+
+Example 3:
+Input: $str1 = "bc", $str2 = "je", $str3 = "jg"
+Output: False
+
+$str1 = "bc" = 12
+$str2 = "je" = 94
+$str3 = "jg" = 96
+
+Example 4:
+Input: $str1 = "a", $str2 = "aaaa", $str3 = "aa"
+Output: True
+
+$str1 =    "a" =    0
+$str2 = "aaaa" = 0000
+$str3 =   "aa" =   00
+
+Example 5:
+Input: $str1 = "c", $str2 = "d", $str3 = "h"
+Output: False
+
+$str1 = "c" = 2
+$str2 = "d" = 3
+$str3 = "h" = 7
+
+Example 6:
+Input: $str1 = "gfi", $str2 = "hbf", $str3 = "bdhd"
+Output: True
+
+$str1 =  "gfi" =  658
+$str2 =  "hbf" =  715
+$str3 = "bdhd" = 1373

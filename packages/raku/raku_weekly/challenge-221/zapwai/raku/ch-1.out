@@ -1,0 +1,6 @@
+Input: @words = (cat,bt,hat,tree)
+       $chars = atach
+Output: 6
+Input: @words = (hello,world,challenge)
+       $chars = welldonehopper
+Output: 10

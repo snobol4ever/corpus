@@ -1,0 +1,8 @@
+Input:  @words = [pay attention practice attend]
+	$prefix = "at"
+Output: 2
+
+Input:  @words = [janet julia java javascript]
+	$prefix = "ja"
+Output: 3
+

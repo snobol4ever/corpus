@@ -1,0 +1,5 @@
+1..4
+ok 1 - Fibonacci_partitions(16)==4
+ok 2 - Fibonacci_partitions(9)==2
+ok 3 - Fibonacci_partitions(15)==2
+ok 4 - Whole A000119 list matches

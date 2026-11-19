@@ -1,0 +1,14 @@
+1..10
+ok 1 - Int <- Str
+ok 2 - Int <- ""
+ok 3 - 1 <- "XYZ"
+ok 4 - 1 <- "ooO"
+ok 5 - 1 <- "Deet"
+ok 6 - 3 <- "CAT"
+ok 7 - 19 <- "TADE"
+ok 8 - 3 <- "Cat"
+ok 9 - 88 <- "GOOGLE"
+ok 10 - 255 <- "SECRET"
+
+Input: $word = Supercad
+Output: 35133

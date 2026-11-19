@@ -1,0 +1,61 @@
+
+A AXXZ 
+B XXYZ 
+C AXXYXZXZ
+took A target now XXYXZXZ
+
+A XXZ 
+B XXYZ 
+C XXYXZXZ
+took X target now XYXZXZ
+
+A XZ 
+B XXYZ 
+C XYXZXZ
+took X target now YXZXZ
+
+A Z 
+B XXYZ 
+C YXZXZ
+took X target now YXZXZ
+
+A XYZ 
+B XZ 
+C YXZXZ
+took X target now XYXZXZ
+
+A XYZ 
+B XXZ 
+C XYXZXZ
+took X target now YXZXZ
+
+A YZ 
+B XXZ 
+C YXZXZ
+took Y target now XZXZ
+
+A Z 
+B XXZ 
+C XZXZ
+took X target now ZXZ
+
+A XZ 
+B Z 
+C ZXZ
+took Z target now XZ
+
+A  
+B XZ 
+C XZ
+took X target now Z
+
+A Z 
+B  
+C Z
+took Z target now 
+
+A  
+B  
+C 
+
+output: 1

@@ -1,0 +1,23 @@
+1..19
+ok 1 - fill-in(1)-> $(0,)
+ok 2 - fill-in(2)-> $(1, 0)
+ok 3 - fill-in(3)-> $(1, 1, 0)
+ok 4 - fill-in(4)-> $(1, 2, 1, 0)
+ok 5 - fill-in(5)-> $(1, 2, 2, 1, 0)
+ok 6 -  <- a * bb
+ok 7 - 3 2 1 0 <- a * bbba
+ok 8 - 3 2 1 0 1 2 3 <- a * bbbabbb
+ok 9 - 0 <- a * a
+ok 10 - 0 0 <- a * aa
+ok 11 - 0 0 0 <- a * aaa
+ok 12 - 0 0 0 0 0 <- a * aaaaa
+ok 13 - 0 1 0 <- a * aba
+ok 14 - 0 1 2 1 0 <- a * abbba
+ok 15 - 0 1 2 2 1 0 <- a * abbbba
+ok 16 - 0 1 2 2 1 0 1 2 3 2 1 0 <- a * abcdeabcdefa
+ok 17 - 2 1 0 1 2 2 1 0 1 2 3 2 1 0 1 2 <- a * zyabcdeabcdefabc
+ok 18 - 3 2 1 0 1 0 0 1 2 2 1 0 <- e * loveleetcode
+ok 19 - 3 2 1 0 1 0 0 1 2 2 1 0 1 2 <- e * loveleetcodeax
+
+Input: $str = 1oveVe1eetaCodex
+Output: 3 2 1 0 1 0 1 0 0 1 2 3 2 1 0 1

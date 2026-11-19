@@ -1,0 +1,8 @@
+
+Challenge 121, Task #1: Invert Bit (Raku)
+
+Usage:
+  raku ch-1.raku <m> <n>
+  
+    <m>    Decimal: an integer between 0 and 255
+    <n>    Bit count: an integer between 1 and 8

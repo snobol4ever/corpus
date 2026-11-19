@@ -1,0 +1,9 @@
+ok 1 - Check Color: d3 => true
+ok 2 - Check Color: g5 => false
+ok 3 - Check Color: e6 => true
+ok 4 - Knight's Move: g2, a8 => 4
+ok 5 - Knight's Move: g2, h2 => 3
+ok 6 - Knight's Move: a1, b4 => 2
+ok 7 - Knight's Move: a1, a4 => 3
+ok 8 - Knight's Move: a1, a5 => 2
+ok 9 - Knight's Move: a1, a6 => 3

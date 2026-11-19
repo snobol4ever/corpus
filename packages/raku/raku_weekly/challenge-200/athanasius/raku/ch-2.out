@@ -1,0 +1,7 @@
+
+Challenge 200, Task #2: Seven Segment 200 (Raku)
+
+Usage:
+  raku ch-2.raku <decimal>
+  
+    <decimal>    A non-negative integer

@@ -1,0 +1,12 @@
+
+Challenge 317, Task #2: Friendly Strings (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Example 4
+ok 5 - Identical 1
+ok 6 - Identical 2
+ok 7 - Bookends
+1..7

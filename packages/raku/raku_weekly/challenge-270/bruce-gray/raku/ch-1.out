@@ -1,0 +1,15 @@
+1..14
+ok 1 - task1_single_expression : 1 0 0 0 0 1 1 0 0
+ok 2 - task1_single_expression : 1 0 0 0 1 0 0 0 1
+ok 3 - task1_original : 1 0 0 0 0 1 1 0 0
+ok 4 - task1_original : 1 0 0 0 1 0 0 0 1
+ok 5 - task1_original_reduced_1 : 1 0 0 0 0 1 1 0 0
+ok 6 - task1_original_reduced_1 : 1 0 0 0 1 0 0 0 1
+ok 7 - task1_original_reduced_2 : 1 0 0 0 0 1 1 0 0
+ok 8 - task1_original_reduced_2 : 1 0 0 0 1 0 0 0 1
+ok 9 - task1_original_reduced_3 : 1 0 0 0 0 1 1 0 0
+ok 10 - task1_original_reduced_3 : 1 0 0 0 1 0 0 0 1
+ok 11 - task1_original_reduced_4 : 1 0 0 0 0 1 1 0 0
+ok 12 - task1_original_reduced_4 : 1 0 0 0 1 0 0 0 1
+ok 13 - task1_original_reduced_5 : 1 0 0 0 0 1 1 0 0
+ok 14 - task1_original_reduced_5 : 1 0 0 0 1 0 0 0 1

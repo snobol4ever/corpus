@@ -1,0 +1,12 @@
+1..7
+ok 1 - ball <- hit <-Joe hit a ball, the hit ball flew far after it was hit.
+ok 2 - Perl <- the <-Perl and Raku belong to the same family. Perl is the most popular language in the weekly challenge.
+ok 3 - like <- Dogs <-Dogs like cats, cats like mice, mice like cheese.
+ok 4 - a <- seafood <-Pearl bought a pearl at a seafood shop.
+ok 5 - like <- cheese <-Dogs like cats, cats like mice, mice like cheese.
+ok 6 - a <- e <-a a a  b b c d e
+ok 7 - DIES <- like <-Dogs like cats, cats like mice, mice like cheese.
+
+Input: $p = "Joe hit a ball, the hit ball flew far after it was hit."
+       $w = "hit"
+Output: "ball"

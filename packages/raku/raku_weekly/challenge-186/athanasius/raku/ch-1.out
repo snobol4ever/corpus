@@ -1,0 +1,9 @@
+
+Challenge 186, Task #1: Zip List (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Odd/even
+ok 4 - Sentence
+1..4

@@ -1,0 +1,13 @@
+
+Challenge 259, Task #1: Banking Day Offset (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - 2 holidays
+ok 4 - Zero offset 1
+ok 5 - Zero offset 2
+ok 6 - Zero offset 3
+ok 7 - Weekend start
+ok 8 - Holiday start
+1..8

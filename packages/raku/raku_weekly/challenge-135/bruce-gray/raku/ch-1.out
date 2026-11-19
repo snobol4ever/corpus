@@ -1,0 +1,5 @@
+1..4
+ok 1 - middle_three_digits(1234567)
+ok 2 - middle_three_digits(-123)
+ok 3 - middle_three_digits(1)
+ok 4 - middle_three_digits(10)

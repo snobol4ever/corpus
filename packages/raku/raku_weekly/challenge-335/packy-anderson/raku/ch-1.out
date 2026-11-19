@@ -1,0 +1,19 @@
+Example 1:
+Input: @words = ("bella", "label", "roller")
+Output: ("e", "l", "l")
+
+Example 2:
+Input: @words = ("cool", "lock", "cook")
+Output: ("c", "o")
+
+Example 3:
+Input: @words = ("hello", "world", "pole")
+Output: ("l", "o")
+
+Example 4:
+Input: @words = ("abc", "def", "ghi")
+Output: ()
+
+Example 5:
+Input: @words = ("aab", "aac", "aaa")
+Output: ("a", "a")

@@ -1,0 +1,9 @@
+1..8
+ok 1 - task1 abc xyz tsu
+ok 2 - task1 rat cab dad
+ok 3 - task1 x y z
+ok 4 - task1 aaa bbb ccc
+ok 5 - task1_more_correct abc xyz
+ok 6 - task1_more_correct 
+ok 7 - task1_more_correct x y z
+ok 8 - task1_more_correct aaa bbb ccc

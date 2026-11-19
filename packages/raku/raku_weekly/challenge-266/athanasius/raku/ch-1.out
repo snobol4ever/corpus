@@ -1,0 +1,15 @@
+
+Challenge 266, Task #1: Uncommon Words (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Case
+ok 5 - Plurals
+ok 6 - Possessives
+ok 7 - Dash
+ok 8 - Hyphen
+ok 9 - Punctuation
+ok 10 - Quotes
+1..10

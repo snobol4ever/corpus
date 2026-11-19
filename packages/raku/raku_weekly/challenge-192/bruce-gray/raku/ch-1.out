@@ -1,0 +1,5 @@
+1..4
+ok 1 - task1(5) == 2
+ok 2 - task1(4) == 3
+ok 3 - task1(6) == 1
+ok 4 - Two different approaches over 1..16384

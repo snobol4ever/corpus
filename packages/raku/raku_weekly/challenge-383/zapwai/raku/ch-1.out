@@ -1,0 +1,8 @@
+Input: $list1 = great acting
+ $list2 = fine drama
+ $list3: great fine; acting drama; 
+Output: true
+Input: $list1 = enjoy challenge
+ $list2 = love weekly challenge
+ $list3: enjoy love; ; 
+Output: false

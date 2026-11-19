@@ -1,0 +1,24 @@
+
+Challenge 279, Task #2: Split String (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 2
+ok 4 - Example 2
+ok 5 - Example 3
+ok 6 - Example 3
+ok 7 - Example 3
+ok 8 - No vowels 1
+ok 9 - No vowels 1
+ok 10 - No vowels 1
+ok 11 - No vowels 2
+ok 12 - No vowels 2
+ok 13 - No vowels 2
+ok 14 - All vowels
+ok 15 - All vowels
+ok 16 - All vowels
+ok 17 - Empty
+ok 18 - Empty
+ok 19 - Empty
+1..19

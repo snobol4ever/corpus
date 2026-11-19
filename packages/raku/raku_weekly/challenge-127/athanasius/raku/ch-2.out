@@ -1,0 +1,5 @@
+
+Challenge 127, Task #2: Conflict Intervals (Raku)
+
+Input:  @Intervals = [  ]
+Output: @Conflicts = [  ]

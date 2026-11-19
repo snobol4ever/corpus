@@ -1,0 +1,10 @@
+ok 1 - Missing Letter: a c ? g i => e
+ok 2 - Missing Letter: a d ? j m => g
+ok 3 - Missing Letter: a e ? m q => i
+ok 4 - Missing Letter: a c f ? k => h
+ok 5 - Missing Letter: b e g ? l => j
+ok 6 - Subset Equilibrium: 2,1,4,3     => (2, 1), (2, 3), (1, 4), (4, 3)
+ok 7 - Subset Equilibrium: 3,0,3,0     => (3, 0), (3, 0, 3)
+ok 8 - Subset Equilibrium: 5,1,1,1     => (5, 1, 1)
+ok 9 - Subset Equilibrium: 3,-1,4,2    => (3, 2), (3, -1, 4)
+ok 10 - Subset Equilibrium: 10,20,30,40 => ()

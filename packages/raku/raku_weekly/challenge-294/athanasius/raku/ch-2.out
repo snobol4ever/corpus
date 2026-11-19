@@ -1,0 +1,12 @@
+
+Challenge 294, Task #2: Next Permutation (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Inc 1st 1
+ok 5 - Inc 1st 2
+ok 6 - Negatives
+ok 7 - Last perm
+1..7

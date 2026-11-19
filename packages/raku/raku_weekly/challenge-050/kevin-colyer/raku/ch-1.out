@@ -1,0 +1,5 @@
+ok 1 - test merging range works
+ok 2 - test merging range does not works
+ok 3 - test merging range works in wrong order
+ok 4 - Merges multiple ranges
+1..4

@@ -1,0 +1,11 @@
+1..7
+ok 1 - 1 <- ("abc", "bce", "cae")
+ok 2 - 2 <- ("yxz", "cba", "mon")
+ok 3 - 3 <- ("bac", "bcd", "ced", "def", "feg")
+ok 4 - 4 <- ("bac", "cbd", "ced", "def", "feg")
+ok 5 - 5 <- ("bac", "cbd", "ced", "edf", "feg")
+ok 6 - 0 <- ("abc", "bcd", "cde", "def", "efg")
+ok 7 - 0 <- ("A", "Bb", "cCc", "ddDd", "eeeeE")
+
+Input: @str = a b cc ccC aBc cba ab cb
+Output: 0

@@ -1,0 +1,5 @@
+1234567 -> 345
+-123 -> 123
+1 -> Too short
+10 -> Even number of digits
+-54321 -> 432

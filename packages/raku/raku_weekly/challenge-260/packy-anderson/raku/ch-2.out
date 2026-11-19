@@ -1,0 +1,11 @@
+Example 1:
+Input: $word = 'CAT'
+Output: 3
+
+Example 2:
+Input: $word = 'GOOGLE'
+Output: 88
+
+Example 3:
+Input: $word = 'SECRET'
+Output: 255

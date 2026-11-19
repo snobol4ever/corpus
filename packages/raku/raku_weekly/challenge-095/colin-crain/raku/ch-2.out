@@ -1,0 +1,43 @@
+
+method 'push 2'
+stack now:            2
+
+method 'push -1'
+stack now:           -1  →   2
+
+method 'push 0'
+stack now:            0  →  -1  →   2
+
+method 'pop'
+stack now:           -1  →   2
+returns: 0
+
+method 'top'
+stack now:           -1  →   2
+returns: -1
+
+method 'push 0'
+stack now:            0  →  -1  →   2
+
+method 'min'
+stack now:            0  →  -1  →   2
+returns: -1
+
+method 'pop'
+stack now:           -1  →   2
+returns: 0
+
+method 'pop'
+stack now:            2
+returns: -1
+
+method 'min'
+stack now:            2
+returns: 2
+
+method 'push 5'
+stack now:            5  →   2
+
+method 'max'
+stack now:            5  →   2
+returns: 5

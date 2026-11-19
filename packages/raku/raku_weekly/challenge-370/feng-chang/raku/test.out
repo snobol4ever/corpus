@@ -1,0 +1,10 @@
+not ok 1 - Popular Words: "Bob hit a ball, the hit BALL flew far after it was hit.", @banned=<hit> => ball
+not ok 2 - Popular Words: "Apple? apple! Apple, pear, orange, pear, apple, orange.", @banned=<apple pear> => orange
+not ok 3 - Popular Words: "A. a, a! A. B. b. b.", @banned=<b> => a
+not ok 4 - Popular Words: "Ball.ball,ball:apple!apple.banana", @banned=<ball> => apple
+not ok 5 - Popular Words: "The dog chased the cat, but the dog was faster than the cat.", @banned=<the dog> => cat
+ok 6 - Scramble String: abc,   acb   => true
+ok 7 - Scramble String: abcd,  cdba  => true
+ok 8 - Scramble String: hello, hiiii => false
+ok 9 - Scramble String: ateer, eater => true
+ok 10 - Scramble String: abcd,  bdac  => false

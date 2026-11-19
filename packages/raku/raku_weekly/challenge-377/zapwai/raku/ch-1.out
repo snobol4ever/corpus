@@ -1,0 +1,10 @@
+Input: $s = abcba
+Output: true
+Input: $s = racecar
+Output: true
+Input: $s = abcd
+Output: false
+Input: $s = banana
+Output: true
+Input: $s = hello
+Output: true

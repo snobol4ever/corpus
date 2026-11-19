@@ -1,0 +1,22 @@
+Example 1:
+Input: $str = "abcdefghijklmnopqrstuvwxyz"
+       @widths = (10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10)
+Output: (3, 60)
+Line 1: abcdefghij (100 pixels)
+Line 2: klmnopqrst (100 pixels)
+Line 3: uvwxyz (60 pixels)
+
+Example 2:
+Input: $str = "bbbcccdddaaa"
+       @widths = (4, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10)
+Output: (2, 4)
+Line 1: bbbcccdddaa (98 pixels)
+Line 2: a (4 pixels)
+
+Example 3:
+Input: $str = "thequickbrownfoxjumpedoverthelazydog"
+       @widths = (7, 8, 7, 8, 7, 5, 8, 8, 4, 4, 8, 4, 12, 8, 8, 8, 8, 5, 6, 4, 8, 8, 12, 8, 8, 7)
+Output: (3, 65)
+Line 1: thequickbrownf (100 pixels)
+Line 2: oxjumpedovert (95 pixels)
+Line 3: helazydog (65 pixels)

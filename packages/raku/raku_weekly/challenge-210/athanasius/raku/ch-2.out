@@ -1,0 +1,12 @@
+
+Challenge 210, Task #2: Number Collision (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - No collision
+ok 5 - Adjacent collision
+ok 6 - Meet in the middle
+ok 7 - Combination
+1..7

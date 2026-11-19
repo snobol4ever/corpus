@@ -1,0 +1,24 @@
+Example 1:
+Input: $number = 100061
+       $mode = 0
+Output: 3
+
+Example 2:
+Input: $number = 971088
+       $mode = 0
+Output: 3
+
+Example 3:
+Input: $number = 63640
+       $mode = 1
+Output: 6
+
+Example 4:
+Input: $number = 988841
+       $mode = 1
+Output: 2
+
+Example 5:
+Input: $number = 211529
+       $mode = 0
+Output: 2

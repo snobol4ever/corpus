@@ -1,0 +1,4 @@
+Before
+Current Sets {:black(0), :black_green(0), :blue(8), :blue_yellow(0), :green(5), :green_red(0), :red(9), :yellow(7), :yellow_black(0)} : Totals : Blue 8 : Yellow 7 : Black 0 : Green 5 : Red 9 : Complete? False
+Solution
+Current Sets {:black(6), :black_green(4), :blue(8), :blue_yellow(3), :green(5), :green_red(2), :red(9), :yellow(7), :yellow_black(1)} : Totals : Blue 11 : Yellow 11 : Black 11 : Green 11 : Red 11 : Complete? True

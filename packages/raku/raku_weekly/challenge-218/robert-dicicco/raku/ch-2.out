@@ -1,0 +1,23 @@
+[0 0 1 1]
+[1 0 1 0]
+[1 1 0 0]
+Total = 25
+
+Toggled row 0
+[1 1 0 0]
+[1 0 1 0]
+[1 1 0 0]
+Total = 34
+
+Toggled column 2
+[1 1 1 0]
+[1 0 0 0]
+[1 1 1 0]
+Total = 36
+
+Toggled column 3
+[1 1 1 1]
+[1 0 0 1]
+[1 1 1 1]
+Total = 39
+

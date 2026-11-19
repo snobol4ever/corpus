@@ -1,0 +1,3 @@
+ok 1 - all elements are lexicographically sorted.
+ok 2 - 'cae' is the only element which is not lexicographically sorted.
+ok 3 - 'yxz' and 'mon' are not lexicographically sorted.

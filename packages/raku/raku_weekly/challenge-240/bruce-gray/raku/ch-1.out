@@ -1,0 +1,10 @@
+1..9
+ok 1 - task1_first_letters : ppp, Perl Python Pascal
+ok 2 - task1_first_letters : rp, Perl Raku
+ok 3 - task1_first_letters : oac, Oracle Awk C
+ok 4 -   task1_starts_with : ppp, Perl Python Pascal
+ok 5 -   task1_starts_with : rp, Perl Raku
+ok 6 -   task1_starts_with : oac, Oracle Awk C
+ok 7 -         task1_regex : ppp, Perl Python Pascal
+ok 8 -         task1_regex : rp, Perl Raku
+ok 9 -         task1_regex : oac, Oracle Awk C

@@ -1,0 +1,10 @@
+Input: aacecaaa
+Output: aaacecaaa
+Input: abcd
+Output: dcbabcd
+Input: racecar
+Output: racecar
+Input: bananas
+Output: sananabananas
+Input: aaaaa
+Output: aaaaa

@@ -1,0 +1,11 @@
+
+Challenge 309, Task #2: Min Diff (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Identical
+ok 4 - Negatives
+ok 5 - Big gaps
+ok 6 - Pair
+1..6

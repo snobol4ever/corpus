@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "123"
+Output:  "121"
+
+Example 2:
+Input: $str = "2"
+Output:  "1"
+
+Example 3:
+Input: $str = "1400"
+Output:  "1441"
+
+Example 4:
+Input: $str = "1001"
+Output:  "999"
+
+Example 5: (it doesn't say the input is a POSITIVE int)
+Input: $str = "-1"
+Output:  "0"

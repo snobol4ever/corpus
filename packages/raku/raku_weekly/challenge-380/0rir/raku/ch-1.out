@@ -1,0 +1,12 @@
+1..8
+ok 1 - 5 <- "banana"
+ok 2 - 7 <- "teestett"
+ok 3 - 3 <- "aeiouuaa"
+ok 4 - 2 <- "rhythm"
+ok 5 - 1 <- "x"
+ok 6 - 0 <- ""
+ok 7 - 7 <- "tEesteTt"
+ok 8 - 4 <- "bbiixxaa"
+
+Input: $str = "teestett"
+Output: 7

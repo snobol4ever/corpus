@@ -1,0 +1,11 @@
+1..6
+ok 1 - 0 <-  +/+ 
+ok 2 - 0 <-  +/+ Pi is positive and is long
+ok 3 - 1 <- red +/+ Red dog
+ok 4 - 2 <- Perl is my friend +/+ Perl and Raku are friend
+ok 5 - 1 <- Perl and Python are very similar +/+ Python is top in guest languages
+ok 6 - 0 <- Perl is imperative Lisp is functional +/+ Crystal is similar to Ruby
+
+Input: @words1 = ("I", "am", "positive")
+       @words2 = ("Pi", "is", "positive")
+ Output: 1

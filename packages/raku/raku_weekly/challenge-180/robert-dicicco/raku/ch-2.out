@@ -1,0 +1,6 @@
+
+Input: @n = (@1 4 2 3 5) and $i = 3
+Output: (4 3 5)
+
+Input: @n = (@9 0 6 2 3 8 5) and $i = 4
+Output: (9 6 8 5)

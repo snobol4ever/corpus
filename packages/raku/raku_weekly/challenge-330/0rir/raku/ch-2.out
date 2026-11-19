@@ -1,0 +1,6 @@
+1..2
+ok 1 - Perl is Great <- "PERL IS gREAT"
+ok 2 - Raku is Smores <- "RaKU iS sMorES"
+
+Input: $str = "PERL IS gREAT"
+Output: "Perl is Great"

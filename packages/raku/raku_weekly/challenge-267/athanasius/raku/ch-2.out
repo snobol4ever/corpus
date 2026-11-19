@@ -1,0 +1,15 @@
+
+Challenge 267, Task #2: Line Counts (Raku)
+
+Running the test suite
+ok 1 - Example 1: total lines
+ok 2 - Example 1: width of last line
+ok 3 - Example 2: total lines
+ok 4 - Example 2: width of last line
+ok 5 - Empty string: total lines
+ok 6 - Empty string: width of last line
+ok 7 - Wide chars: total lines
+ok 8 - Wide chars: width of last line
+ok 9 - Narrow chars: total lines
+ok 10 - Narrow chars: width of last line
+1..10

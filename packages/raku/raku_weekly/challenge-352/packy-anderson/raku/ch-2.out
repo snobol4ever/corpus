@@ -1,0 +1,65 @@
+Example 1:
+Input: @nums = (0, 1, 1, 0, 0, 1, 0, 1, 1, 1)
+Output: (true, false, false, false, false, true, true, false, false, false)
+
+Binary numbers formed (decimal values):
+         0: 0
+        01: 1
+       011: 3
+      0110: 6
+     01100: 12
+    011001: 25
+   0110010: 50
+  01100101: 101
+ 011001011: 203
+0110010111: 407
+
+Example 2:
+Input: @nums = (1, 0, 1, 0, 1, 0)
+Output: (false, false, true, true, false, false)
+
+Binary numbers formed (decimal values):
+     1: 1
+    10: 2
+   101: 5
+  1010: 10
+ 10101: 21
+101010: 42
+
+Example 3:
+Input: @nums = (0, 0, 1, 0, 1)
+Output: (true, true, false, false, true)
+
+Binary numbers formed (decimal values):
+    0: 0
+   00: 0
+  001: 1
+ 0010: 2
+00101: 5
+
+Example 4:
+Input: @nums = (1, 1, 1, 1, 1)
+Output: (false, false, false, true, false)
+
+Binary numbers formed (decimal values):
+    1: 1
+   11: 3
+  111: 7
+ 1111: 15
+11111: 31
+
+Example 5:
+Input: @nums = (1, 0, 1, 1, 0, 1, 0, 0, 1, 1)
+Output: (false, false, true, false, false, true, true, true, false, false)
+
+Binary numbers formed (decimal values):
+         1: 1
+        10: 2
+       101: 5
+      1011: 11
+     10110: 22
+    101101: 45
+   1011010: 90
+  10110100: 180
+ 101101001: 361
+1011010011: 723

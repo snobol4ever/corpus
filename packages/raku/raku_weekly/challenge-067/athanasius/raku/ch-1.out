@@ -1,0 +1,6 @@
+
+Usage:
+  raku ch-1.raku <m> <n>
+  
+    <m>    Integer > 0: maximum of numbers to select
+    <n>    Integer > 0: size of each n-combination

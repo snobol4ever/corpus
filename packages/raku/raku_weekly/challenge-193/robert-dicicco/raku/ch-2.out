@@ -1,0 +1,6 @@
+Input: @n = [adc wzy abc]
+Output: abc
+
+Input: @n = [aaa bob ccc ddd]
+Output: bob
+

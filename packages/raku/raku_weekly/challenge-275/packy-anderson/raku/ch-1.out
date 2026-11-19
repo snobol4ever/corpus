@@ -1,0 +1,15 @@
+Example 1:
+Input: $sentence = "Perl Weekly Challenge", @keys = ('l', 'a')
+Output: 0
+
+Example 2:
+Input: $sentence = "Perl and Raku", @keys = ('a')
+Output: 1
+
+Example 3:
+Input: $sentence = "Well done Team PWC", @keys = ('l', 'o')
+Output: 2
+
+Example 4:
+Input: $sentence = "The joys of polyglottism", @keys = ('T')
+Output: 2

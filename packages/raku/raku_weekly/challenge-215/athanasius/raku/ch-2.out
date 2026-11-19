@@ -1,0 +1,12 @@
+
+Challenge 215, Task #2: Number Placement (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Beginning
+ok 5 - Ending
+ok 6 - Start and end
+ok 7 - One too many
+1..7

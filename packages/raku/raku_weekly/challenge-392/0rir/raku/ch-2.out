@@ -1,0 +1,11 @@
+1..7
+ok 1 - 9 <- ("a", "ab", "abc", "d", "de", "def")
+ok 2 - 0 <- ("a", "aa", "aaa", "aaaa")
+ok 3 - 16 <- ("meet", "app", "code", "sky", "bold")
+ok 4 - 20 <- ("a", "ab", "abc", "abcd", "efghi")
+ok 5 - 21 <- ("xyz", "w", "abcdefg", "hij")
+ok 6 - 0 <- ("xyz",)
+ok 7 - 0 <- ()
+
+Input: @words = ("xyz", "w", "abcdefg", "hij")
+Output: 21

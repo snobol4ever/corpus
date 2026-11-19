@@ -1,0 +1,9 @@
+
+Challenge 184, Task #1: Sequence Number (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Same nums
+ok 4 - Same letters
+1..4

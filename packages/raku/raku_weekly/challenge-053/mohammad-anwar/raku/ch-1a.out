@@ -1,0 +1,4 @@
+ok 1 - rotation by 90.
+ok 2 - rotation by 180.
+ok 3 - rotation by 270.
+1..3

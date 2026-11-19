@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "you're given the job of checking the pages on a\nweb server for doubled words (such as 'this this'), a common problem\nwith documents subject to heavy editing."
+Output: "web server for doubled words (such as '[this] [this]'), a common problem"
+
+Example 2:
+Input: $str = "Find doubled words despite capitalization differences, such as with 'The\nthe...', as well as allow differing amounts of whitespace (spaces,\ntabs, newlines, and the like) to lie between the words."
+Output: "Find doubled words despite capitalization differences, such as with '[The]\n[the]...', as well as allow differing amounts of whitespace (spaces,"
+
+Example 3:
+Input: $str = "to make a word bold: '...it is <B>very</B> very important...'."
+Output: "to make a word bold: '...it is <B>[very]</B> [very] important...'."
+
+Example 4:
+Input: $str = "Perl officially stands for Practical Extraction and Report Language, except when it doesn't."
+Output: ""
+
+Example 5:
+Input: $str = "There's more than one one way to do it.\nEasy things should be easy and hard things should be possible."
+Output: "There's more than [one] [one] way to do it."

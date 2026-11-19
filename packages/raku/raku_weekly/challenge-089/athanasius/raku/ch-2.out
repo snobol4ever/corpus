@@ -1,0 +1,8 @@
+
+Challenge 089, Task #2: Magical Matrix (Raku)
+
+A normal magic square of order 3:
+
+ [ 8 1 6 ]
+ [ 3 5 7 ]
+ [ 4 9 2 ]

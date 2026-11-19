@@ -1,0 +1,14 @@
+Example 1:
+Input: $str1 = "ab#c"
+       $str2 = "ad#c"
+Output: True
+
+Example 2:
+Input: $str1 = "ab##"
+       $str2 = "a#b#"
+Output: True
+
+Example 3:
+Input: $str1 = "a#b"
+       $str2 = "c"
+Output: False

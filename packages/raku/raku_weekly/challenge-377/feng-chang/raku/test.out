@@ -1,0 +1,11 @@
+ok 1 - Reverse Existence: abcba   => true
+ok 2 - Reverse Existence: racecar => true
+ok 3 - Reverse Existence: abcd    => false
+ok 4 - Reverse Existence: banana  => true
+ok 5 - Reverse Existence: hello   => true
+ok 6 - Prefix Suffix: <a aba ababa aa>  => 4
+ok 7 - Prefix Suffix: <pa papa ma mama> => 2
+ok 8 - Prefix Suffix: <abao ab>         => 0
+ok 9 - Prefix Suffix: <abab abab>       => 1
+ok 10 - Prefix Suffix: <ab abab ababab>  => 3
+ok 11 - Prefix Suffix: <abc def ghij> a  => 0

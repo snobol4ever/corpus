@@ -1,0 +1,27 @@
+1..11
+ok 1 - 4 <- 4 Against known.
+ok 2 - 36 <- 36 Against known.
+ok 3 - 624 <- 624 Against known.
+ok 4 - 3744 <- 3744 Against known.
+ok 5 - 5108 <- 5108 Against known.
+ok 6 - 10200 <- 10200 Against known.
+ok 7 - 54912 <- 54912 Against known.
+ok 8 - 123552 <- 123552 Against known.
+ok 9 - 1098240 <- 1098240 Against known.
+ok 10 - 1302540 <- 1302540 Against known.
+ok 11 - 2598960 <- 2598960 Against known.
+
+Count of all hands:   2,598,960
+
+Count of hand ranks:
+                     Royal Flush               4
+                     Straight Flush           36
+                     Four of a Kind          624
+                     Full House            3,744
+                     Flush                 5,108
+                     Straight             10,200
+                     Three of a Kind      54,912
+                     Two Pair            123,552
+                     High Card         1,302,540
+                                    ____________
+                     Total             2,598,960

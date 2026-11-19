@@ -1,0 +1,10 @@
+1..6
+ok 1 - False <- "textbook"
+ok 2 - True <- "book"
+ok 3 - True <- "AbCdEfGh"
+ok 4 - False <- "rhythmmyth"
+ok 5 - False <- "UmpireeAudio"
+ok 6 - True <- "ai"
+
+Input: $str = "book"
+Output: { &task book }

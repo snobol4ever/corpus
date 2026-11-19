@@ -1,0 +1,13 @@
+1..9
+ok 1 - True <- perl ∘∘ perrrl
+ok 2 - True <- raku ∘∘ rrakuuuu
+ok 3 - False <- raku ∘∘ rrakuuuur
+ok 4 - False <- python ∘∘ perl
+ok 5 - True <- coffeescript ∘∘ cofffeescccript
+ok 6 - False <- aa ∘∘ a
+ok 7 - True <- a ∘∘ aa
+ok 8 - True <-  ∘∘ 
+ok 9 - True <-  ∘∘ a
+
+Input: $name = "coffeescript", $typed = "coffescript"
+Output: False

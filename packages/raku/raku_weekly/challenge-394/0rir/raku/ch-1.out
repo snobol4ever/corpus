@@ -1,0 +1,12 @@
+1..8
+ok 1 - 0 <- aAbB
+ok 2 - 1 <- AAbb
+ok 3 - 3 <- AAAbbb
+ok 4 - 1 <- aABb
+ok 5 - 2 <- bBBAaa
+ok 6 - 0 <- Aa
+ok 7 - 10 <- AAAAAaaaaa
+ok 8 - 10 <- aaaaaAAAAA
+
+Input: $str = "aABbaaaaaAAAAAaABb"
+Output: 12

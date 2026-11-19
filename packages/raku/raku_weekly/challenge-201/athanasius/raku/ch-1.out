@@ -1,0 +1,11 @@
+
+Challenge 201, Task #1: Missing Numbers (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Multi    
+ok 4 - Negatives
+ok 5 - Single   
+ok 6 - Evens    
+1..6

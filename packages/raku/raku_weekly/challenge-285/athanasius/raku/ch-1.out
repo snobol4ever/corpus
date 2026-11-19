@@ -1,0 +1,10 @@
+
+Challenge 285, Task #1: No Connection (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Trivial cycle
+ok 4 - Long cycle
+ok 5 - Forest
+1..5

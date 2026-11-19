@@ -1,0 +1,10 @@
+
+Challenge 255, Task #2: Most Frequent Word (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Gettysburg
+ok 4 - Case 1
+ok 5 - Case 2
+1..5

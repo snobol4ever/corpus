@@ -1,0 +1,11 @@
+
+Challenge 243, Task #1: Reverse Pairs (Raku)
+
+Running the test suite
+ok 1 - Example 1: count
+ok 2 - Example 1: pairs
+ok 3 - Example 2: count
+ok 4 - Example 2: pairs
+ok 5 - Negatives: count
+ok 6 - Negatives: pairs
+1..6

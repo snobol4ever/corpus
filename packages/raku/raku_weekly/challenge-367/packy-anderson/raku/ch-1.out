@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "1011"
+Output: "1101"
+
+Example 2:
+Input: $str = "100"
+Output: "001"
+
+Example 3:
+Input: $str = "111000"
+Output: "110001"
+
+Example 4:
+Input: $str = "0101"
+Output: "1001"
+
+Example 5:
+Input: $str = "1111"
+Output: "1111"

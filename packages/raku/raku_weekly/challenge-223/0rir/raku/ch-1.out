@@ -1,0 +1,23 @@
+1..19
+ok 1 - 0 primes ≤ 1
+ok 2 - 1 primes ≤ 2
+ok 3 - 2 primes ≤ 3
+ok 4 - 2 primes ≤ 4
+ok 5 - 3 primes ≤ 5
+ok 6 - 3 primes ≤ 6
+ok 7 - 4 primes ≤ 7
+ok 8 - 4 primes ≤ 8
+ok 9 - 4 primes ≤ 9
+ok 10 - 4 primes ≤ 10
+ok 11 - 8 primes ≤ 20
+ok 12 - 30 primes ≤ 113
+ok 13 - 48 primes ≤ 225
+ok 14 - 58 primes ≤ 271
+ok 15 - 124 primes ≤ 684
+ok 16 - 95 primes ≤ 499
+ok 17 - 95 primes ≤ 502
+ok 18 - 96 primes ≤ 503
+ok 19 - 96 primes ≤ 504
+
+Input: $n = 499
+Output: 95

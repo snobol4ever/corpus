@@ -1,0 +1,15 @@
+Example 1:
+Input: $s = "Raku"
+Output: "Ruka"
+
+Example 2:
+Input: $s = "Perl"
+Output: "Perl"
+
+Example 3:
+Input: $s = "Julia"
+Output: "Jaliu"
+
+Example 4:
+Input: $s = "Uiua"
+Output: "Auiu"

@@ -1,0 +1,2 @@
+Input: @list = ["ab-cde-123", "123.abc.420", "3abc-0010.xy", "1234567.a", "a-1234-bc", "a.b.c.d.e.f", "a_bcde_f", "a bc e f", "(abc) def", "a.b.c"]
+Output:         ["xx-xxe-123", "xxx.xbc.420", "xxxx-0010.xy", "xxxx567.a", "x-xxx4-bc", "x.x.x.x.e.f", "x_xxxe_f", "x xx x f", "(xxx) xef", "x.x.x"]

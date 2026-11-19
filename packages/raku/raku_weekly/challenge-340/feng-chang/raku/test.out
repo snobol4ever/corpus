@@ -1,0 +1,10 @@
+ok 1 - Duplicate Removals: abbaca   => ca
+ok 2 - Duplicate Removals: azxxzy   => ay
+ok 3 - Duplicate Removals: aaaaaaaa => ""
+ok 4 - Duplicate Removals: aabccba  => a
+ok 5 - Duplicate Removals: abcddcba => ""
+ok 6 - Ascending Numbers: "The cat has 3 kittens 7 toys 10 beds"      => true
+ok 7 - Ascending Numbers: "Alice bought 5 apples 2 oranges 9 bananas" => false
+ok 8 - Ascending Numbers: "I ran 1 mile 2 days 3 weeks 4 months"      => true
+ok 9 - Ascending Numbers: "Bob has 10 cars 10 bikes"                  => false
+ok 10 - Ascending Numbers: "Zero is 0 one is 1 two is 2"               => Ture

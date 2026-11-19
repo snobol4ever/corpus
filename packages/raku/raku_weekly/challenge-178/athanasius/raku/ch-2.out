@@ -1,0 +1,8 @@
+
+Challenge 178, Task #2: Business Date (Raku)
+
+Usage:
+  raku ch-2.raku <timestamp> <duration>
+  
+    <timestamp>    Timestamp, e.g., "2022-08-01 10:30"
+    <duration>     Duration in hours

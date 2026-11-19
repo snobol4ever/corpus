@@ -1,0 +1,10 @@
+ok 1 - Alphabet Index Digit Sum: abc  1 => 6
+ok 2 - Alphabet Index Digit Sum: az   2 => 9
+ok 3 - Alphabet Index Digit Sum: cat  1 => 6
+ok 4 - Alphabet Index Digit Sum: dog  2 => 8
+ok 5 - Alphabet Index Digit Sum: perl 3 => 6
+ok 6 - Valid Token Counter: cat and dog              => 3
+ok 7 - Valid Token Counter: a-b c! d,e               => 2
+ok 8 - Valid Token Counter: hello-world! this is fun => 4
+ok 9 - Valid Token Counter: ab- cd-ef gh- ij!        => 2
+ok 10 - Valid Token Counter: wow! a-b-c nice.         => 2

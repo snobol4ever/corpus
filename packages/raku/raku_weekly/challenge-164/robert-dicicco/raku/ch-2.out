@@ -1,0 +1,2 @@
+    Usage: ch-2.raku [number]
+    Number must be an integer between 1 and 20

@@ -1,0 +1,20 @@
+1..16
+ok 1 -   task  <- 
+ok 2 - untask  <- 
+ok 3 -   task a <- a
+ok 4 - untask a <- a
+ok 5 -   task 2a <- aa
+ok 6 - untask aa <- 2a
+ok 7 -   task a2bc <- abbc
+ok 8 - untask abbc <- a2bc
+ok 9 -   task 3ab3c <- aaabccc
+ok 10 - untask aaabccc <- 3ab3c
+ok 11 -   task ab2c <- abcc
+ok 12 - untask abcc <- ab2c
+ok 13 -   task 2a2b2c <- aabbcc
+ok 14 - untask aabbcc <- 2a2b2c
+ok 15 -   task b101a3be <- baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbe
+ok 16 - untask baaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbe <- b101a3be
+Input: $chars = aaabccc
+Output: 3ab3c
+Reput: aaabccc

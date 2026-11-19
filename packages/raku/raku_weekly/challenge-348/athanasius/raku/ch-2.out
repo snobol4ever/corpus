@@ -1,0 +1,13 @@
+
+Challenge 348, Task #2: Convert Time (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Example 4
+ok 5 - Example 5
+ok 6 - Same time
+ok 7 - One minute
+ok 8 - Almost 1 day
+1..8

@@ -1,0 +1,12 @@
+Input: [a aba ababa aa]
+Output: 4
+Input: [pa papa ma mama]
+Output: 2
+Input: [abao ab]
+Output: 0
+Input: [abab abab]
+Output: 2
+Input: [ab abab ababab]
+Output: 3
+Input: [abc def ghij]
+Output: 0

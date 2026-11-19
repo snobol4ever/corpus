@@ -1,0 +1,6 @@
+("Perl","Raku","Love") ,
+("Raku","Perl","Hate") => ("Perl","Raku");
+("A","B","C") ,
+("D","E","F") => ();
+("A","B","C") ,
+("C","A","B") => ("A");

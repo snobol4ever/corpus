@@ -1,0 +1,14 @@
+1..9
+ok 1 - 2 <- $("apple", "banana", "cherry") ∘∘ $("banana", "cherry", "date")
+ok 2 - 2 <- $("a", "ab", "abc") ∘∘ $("a", "a", "ab", "abc")
+ok 3 - 0 <- $("orange", "lemon") ∘∘ $("grape", "melon")
+ok 4 - 0 <- $("test", "test", "demo") ∘∘ $("test", "demo", "demo")
+ok 5 - 1 <- $("Hello", "world") ∘∘ $("hello", "world")
+ok 6 - 2 <- $("", "world") ∘∘ $("", "world")
+ok 7 - 0 <- $("", "world") ∘∘ $("", "")
+ok 8 - 0 <- $("",) ∘∘ $( )
+ok 9 - 0 <- $( ) ∘∘ $( )
+
+Input: @array1 = ["demo", "demo", "hi", "hmm", "test", "test", "ya"];
+       @array2 = ["demo", "demo", "hi", "hi", "hmm", "test", "ya"];
+Output: 2

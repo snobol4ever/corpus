@@ -1,0 +1,14 @@
+Example 1:
+Input: @str = ("Perl", "Python", "Pascal")
+       $chk = ("ppp")
+Output: true
+
+Example 2:
+Input: @str = ("Perl", "Raku")
+       $chk = ("rp")
+Output: false
+
+Example 3:
+Input: @str = ("Oracle", "Awk", "C")
+       $chk = ("oac")
+Output: true

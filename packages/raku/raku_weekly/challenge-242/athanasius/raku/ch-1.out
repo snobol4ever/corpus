@@ -1,0 +1,13 @@
+
+Challenge 242, Task #1: Missing Members (Raku)
+
+Running the test suite
+ok 1 - Example 1: array 1
+ok 2 - Example 1: array 2
+ok 3 - Example 2: array 1
+ok 4 - Example 2: array 2
+ok 5 - Example 2a: array 1
+ok 6 - Example 2a: array 2
+ok 7 - Negatives: array 1
+ok 8 - Negatives: array 2
+1..8

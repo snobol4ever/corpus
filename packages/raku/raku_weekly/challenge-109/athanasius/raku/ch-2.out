@@ -1,0 +1,32 @@
+
+Challenge 109, Task #2: Four Squares Puzzle (Raku)
+
+Input: 1, 2, 3, 4, 5, 6, 7
+
+Output:
+
+  Solution 1: a = 3, b = 7, c = 2, d = 1, e = 5, f = 4, g = 6
+    Each box sums to 10
+
+  Solution 2: a = 4, b = 5, c = 3, d = 1, e = 6, f = 2, g = 7
+    Each box sums to 9
+
+  Solution 3: a = 4, b = 7, c = 1, d = 3, e = 2, f = 6, g = 5
+    Each box sums to 11
+
+  Solution 4: a = 5, b = 6, c = 2, d = 3, e = 1, f = 7, g = 4
+    Each box sums to 11
+
+  Solution 5: a = 6, b = 4, c = 1, d = 5, e = 2, f = 3, g = 7
+    Each box sums to 10
+
+  Solution 6: a = 6, b = 4, c = 5, d = 1, e = 2, f = 7, g = 3
+    Each box sums to 10
+
+  Solution 7: a = 7, b = 2, c = 6, d = 1, e = 3, f = 5, g = 4
+    Each box sums to 9
+
+  Solution 8: a = 7, b = 3, c = 2, d = 5, e = 1, f = 4, g = 6
+    Each box sums to 10
+
+  8 solutions found

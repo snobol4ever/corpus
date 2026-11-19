@@ -1,0 +1,61 @@
+1..53
+ok 1 - Died-ok: Empty, Empty elem, or misshapened
+ok 2 - Died-ok: Empty, Empty elem, or misshapened
+ok 3 - Died-ok: Empty, Empty elem, or misshapened
+ok 4 - Died-ok: Empty, Empty elem, or misshapened
+ok 5 - Died-ok: Empty, Empty elem, or misshapened
+ok 6 - Lives-ok: Empty, Empty elem, or misshapened
+ok 7 - True <- [[1],]
+ok 8 - Lives-ok: Empty, Empty elem, or misshapened
+ok 9 - True <- [[1, 2, 3, 4, 5],]
+ok 10 - Lives-ok: Empty, Empty elem, or misshapened
+ok 11 - True <- [[1], [2], [3], [4], [5]]
+ok 12 - Lives-ok: Empty, Empty elem, or misshapened
+ok 13 - True <- [[4, 3, 2, 1], [5, 4, 3, 2], [6, 5, 4, 3]]
+ok 14 - Lives-ok: Empty, Empty elem, or misshapened
+ok 15 - False <- [[1, 2, 3], [3, 2, 1]]
+ok 16 - Lives-ok: Empty, Empty elem, or misshapened
+ok 17 - True <- [[1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1], [1, 1, 1, 1]]
+ok 18 - Lives-ok: Empty, Empty elem, or misshapened
+ok 19 - True <- [[1, 2], [2, 1]]
+ok 20 - Lives-ok: Empty, Empty elem, or misshapened
+ok 21 - True <- [[1, 2, 3], [4, 1, 2], [5, 4, 1]]
+ok 22 - Lives-ok: Empty, Empty elem, or misshapened
+ok 23 - True <- [[0, 1, 2], [1, 0, 1], [2, 1, 0], [3, 2, 1], [4, 3, 2]]
+ok 24 - Lives-ok: Empty, Empty elem, or misshapened
+ok 25 - False <- [[9, 9], [9, 0]]
+ok 26 - Lives-ok: Empty, Empty elem, or misshapened
+ok 27 - False <- [[0, 9], [9, 9]]
+ok 28 - Lives-ok: Empty, Empty elem, or misshapened
+ok 29 - True <- [[0, 1, 9], [1, 0, 1], [9, 1, 0]]
+ok 30 - Lives-ok: Empty, Empty elem, or misshapened
+ok 31 - False <- [[9, 1, 9], [1, 0, 1], [9, 1, 0]]
+ok 32 - Lives-ok: Empty, Empty elem, or misshapened
+ok 33 - False <- [[0, 9, 9], [1, 0, 1], [9, 1, 0]]
+ok 34 - Lives-ok: Empty, Empty elem, or misshapened
+ok 35 - False <- [[0, 1, 9], [9, 0, 1], [9, 1, 0]]
+ok 36 - Lives-ok: Empty, Empty elem, or misshapened
+ok 37 - False <- [[0, 1, 9], [1, 9, 1], [9, 1, 0]]
+ok 38 - Lives-ok: Empty, Empty elem, or misshapened
+ok 39 - False <- [[0, 1, 9], [1, 0, 9], [9, 1, 0]]
+ok 40 - Lives-ok: Empty, Empty elem, or misshapened
+ok 41 - False <- [[0, 1, 9], [1, 0, 1], [9, 9, 0]]
+ok 42 - Lives-ok: Empty, Empty elem, or misshapened
+ok 43 - False <- [[0, 1, 9], [1, 0, 1], [9, 1, 9]]
+ok 44 - Lives-ok: Empty, Empty elem, or misshapened
+ok 45 - True <- [[0, 2], [1, 0], [2, 1], [0, 2]]
+ok 46 - Lives-ok: Empty, Empty elem, or misshapened
+ok 47 - True <- [[0, 1, 5, 6], [1, 0, 1, 5], [2, 1, 0, 1], [6, 2, 1, 0]]
+ok 48 - Lives-ok: Empty, Empty elem, or misshapened
+ok 49 - True <- [[0, 1, 2, 6], [1, 0, 1, 2], [2, 1, 0, 1], [6, 2, 1, 0]]
+ok 50 - Lives-ok: Empty, Empty elem, or misshapened
+ok 51 - True <- [[0, 1, 5, 6, 7], [1, 0, 1, 5, 6], [2, 1, 0, 1, 5], [0, 2, 1, 0, 1]]
+ok 52 - Lives-ok: Empty, Empty elem, or misshapened
+ok 53 - True <- [[0, 1, 5, 6, 7], [1, 0, 1, 5, 6], [2, 1, 0, 1, 5], [0, 2, 1, 0, 1]]
+
+Input @matrix = [ [0,1,5,6,7],
+                  [1,0,1,5,6],
+                  [2,1,0,1,5],
+                  [0,2,1,0,1],
+                ]
+Output: True

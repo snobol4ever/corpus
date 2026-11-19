@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = 'Hello World', @keys = ('d')
+Output: 1
+
+Example 2:
+Input: $str = 'apple banana cherry', @keys = ('a','e')
+Output: 0
+
+Example 3:
+Input: $str = 'Coding is fun', @keys = ()
+Output: 3
+
+Example 4:
+Input: $str = 'The Weekly Challenge', @keys = ('a','b')
+Output: 2
+
+Example 5:
+Input: $str = 'Perl and Python', @keys = ('p')
+Output: 1

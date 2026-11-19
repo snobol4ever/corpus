@@ -1,0 +1,21 @@
+
+Challenge 246, Task #2: Linear Recurrence of Second Order (Raku)
+
+Running the test suite
+ok 1 - Example 1: p
+ok 2 - Example 1: q
+ok 3 - Example 2: p
+ok 4 - Example 2: q
+ok 5 - Example 3: p
+ok 6 - Example 3: q
+ok 7 - Example 3a: p
+ok 8 - Example 3a: q
+ok 9 - Run of same: p
+ok 10 - Run of same: q
+ok 11 - Zero b: p
+ok 12 - Zero b: q
+ok 13 - Large 1: p
+ok 14 - Large 1: q
+ok 15 - Large 1a: p
+ok 16 - Large 1a: q
+1..16

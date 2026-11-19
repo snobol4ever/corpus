@@ -1,0 +1,15 @@
+Input: hello
+532
+Output: 9
+Input: football
+851
+Output: 2
+Input: a
+97
+Output: 0
+Input: challenge
+931
+Output: 2
+Input: perl
+435
+Output: 2

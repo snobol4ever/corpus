@@ -1,0 +1,16 @@
+# Points: ((1 1) (2 2) (3 3))
+    line with maximum number of poionts: [(1 1) (2 2) (3 3)]
+
+3
+# Points: ((3 3) (1 1) (2 2))
+    line with maximum number of poionts: [(3 3) (1 1) (2 2)]
+
+3
+# Points: ((1 1) (2 2) (3 1) (1 3) (5 3))
+    line with maximum number of poionts: [(2 2) (3 1) (1 3)]
+
+3
+# Points: ((3 1) (1 3) (5 3) (4 4) (5 5) (1 1) (2 2))
+    line with maximum number of poionts: [(4 4) (5 5) (1 1) (2 2)]
+
+4

@@ -1,0 +1,7 @@
+
+Challenge 157, Task #2: Brazilian Number (Raku)
+
+Usage:
+  raku ch-2.raku <n>
+  
+    <n>    A natural number greater than 3

@@ -1,0 +1,7 @@
+
+Challenge 153, Task #2: Factorions (Raku)
+
+Usage:
+  raku ch-2.raku <n>
+  
+    <n>    An integer

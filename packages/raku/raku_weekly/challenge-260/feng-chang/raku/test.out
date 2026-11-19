@@ -1,0 +1,6 @@
+ok 1 - Unique Occurrences: (1,2,2,1,1,3)            => 1
+ok 2 - Unique Occurrences: (1,2,3)                  => 0
+ok 3 - Unique Occurrences: (-2,0,1,-2,1,1,0,1,-2,9) => 1
+ok 4 - Dictionary Rank: CAT    => 3
+ok 5 - Dictionary Rank: GOOGLE => 88
+ok 6 - Dictionary Rank: SECRET => 255

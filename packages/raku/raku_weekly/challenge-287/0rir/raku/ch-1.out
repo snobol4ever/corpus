@@ -1,0 +1,21 @@
+1..17
+ok 1 - 6 <- ''
+ok 2 - 5 <- 'a'
+ok 3 - 3 <- 'aB2'
+ok 4 - 0 <- 'PaaSW0rd'
+ok 5 - 1 <- 'Paaasw0rd'
+ok 6 - 2 <- 'aaaaa'
+ok 7 - 3 <- '&&&&&'
+ok 8 - 3 <- '&&&&&&'
+ok 9 - 3 <- 'aaaaa&&&&&&'
+ok 10 - 4 <- 'aaaaa&&&&&&bbb'
+ok 11 - 3 <- 'aaaaa&&&&&&'
+ok 12 - 2 <- 'abcdefg'
+ok 13 - 2 <- 'abcdef'
+ok 14 - 2 <- 'abcdef'
+ok 15 - 2 <- 'abcdef'
+ok 16 - 0 <- 'abCd5f'
+ok 17 - 1 <- 'abCd5'
+
+Input: @!-$%,<.
+Output: 3

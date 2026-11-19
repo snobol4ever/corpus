@@ -1,0 +1,13 @@
+
+Challenge 269, Task #1: Bitwise OR (Raku)
+
+Running the test suite
+ok 1 - Example 1: Bool
+ok 2 - Example 1: Op 1
+ok 3 - Example 1: Op 2
+ok 4 - Example 2: Bool
+ok 5 - Example 2: Op 1
+ok 6 - Example 2: Op 2
+ok 7 - Example 3: Bool
+ok 8 - Singleton: Bool
+1..8

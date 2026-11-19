@@ -1,0 +1,17 @@
+Example 1:
+Input: @ints = (6, 2, 3, 3)
+Output: true
+
+For $i = 0, $j = 2
+$ints[$i] = 6 => 2 * 3 => 2 * $ints[$j]
+
+Example 2:
+Input: @ints = (3, 1, 4, 13)
+Output: false
+
+Example 3:
+Input: @ints = (2, 1, 4, 2)
+Output: true
+
+For $i = 0, $j = 1
+$ints[$i] = 2 => 2 * 1 => 2 * $ints[$j]

@@ -1,0 +1,378 @@
+1..9
+$in  4
+ok 1 - 3 1 <- 4
+$in  12
+ok 2 - 8 3 1 <- 12
+$in  20
+ok 3 - 13 5 2 <- 20
+$in  96
+ok 4 - 89 5 2 <- 96
+$in  100
+ok 5 - 89 8 3 <- 100
+# Subtest: Test all VALID numbers
+    1..358
+    ok 1 -  3 sums
+    ok 2 - 3 addend 3 is fibonacci
+    ok 3 -  4 sums
+    ok 4 - 4 addend 3 is fibonacci
+    ok 5 - 4 addend 1 is fibonacci
+    ok 6 -  6 sums
+    ok 7 - 6 addend 5 is fibonacci
+    ok 8 - 6 addend 1 is fibonacci
+    ok 9 -  7 sums
+    ok 10 - 7 addend 5 is fibonacci
+    ok 11 - 7 addend 2 is fibonacci
+    ok 12 -  8 sums
+    ok 13 - 8 addend 8 is fibonacci
+    ok 14 -  9 sums
+    ok 15 - 9 addend 8 is fibonacci
+    ok 16 - 9 addend 1 is fibonacci
+    ok 17 -  10 sums
+    ok 18 - 10 addend 8 is fibonacci
+    ok 19 - 10 addend 2 is fibonacci
+    ok 20 -  11 sums
+    ok 21 - 11 addend 8 is fibonacci
+    ok 22 - 11 addend 3 is fibonacci
+    ok 23 -  12 sums
+    ok 24 - 12 addend 8 is fibonacci
+    ok 25 - 12 addend 3 is fibonacci
+    ok 26 - 12 addend 1 is fibonacci
+    ok 27 -  13 sums
+    ok 28 - 13 addend 13 is fibonacci
+    ok 29 -  14 sums
+    ok 30 - 14 addend 13 is fibonacci
+    ok 31 - 14 addend 1 is fibonacci
+    ok 32 -  15 sums
+    ok 33 - 15 addend 13 is fibonacci
+    ok 34 - 15 addend 2 is fibonacci
+    ok 35 -  16 sums
+    ok 36 - 16 addend 13 is fibonacci
+    ok 37 - 16 addend 3 is fibonacci
+    ok 38 -  17 sums
+    ok 39 - 17 addend 13 is fibonacci
+    ok 40 - 17 addend 3 is fibonacci
+    ok 41 - 17 addend 1 is fibonacci
+    ok 42 -  18 sums
+    ok 43 - 18 addend 13 is fibonacci
+    ok 44 - 18 addend 5 is fibonacci
+    ok 45 -  19 sums
+    ok 46 - 19 addend 13 is fibonacci
+    ok 47 - 19 addend 5 is fibonacci
+    ok 48 - 19 addend 1 is fibonacci
+    ok 49 -  20 sums
+    ok 50 - 20 addend 13 is fibonacci
+    ok 51 - 20 addend 5 is fibonacci
+    ok 52 - 20 addend 2 is fibonacci
+    ok 53 -  21 sums
+    ok 54 - 21 addend 21 is fibonacci
+    ok 55 -  22 sums
+    ok 56 - 22 addend 21 is fibonacci
+    ok 57 - 22 addend 1 is fibonacci
+    ok 58 -  23 sums
+    ok 59 - 23 addend 21 is fibonacci
+    ok 60 - 23 addend 2 is fibonacci
+    ok 61 -  24 sums
+    ok 62 - 24 addend 21 is fibonacci
+    ok 63 - 24 addend 3 is fibonacci
+    ok 64 -  25 sums
+    ok 65 - 25 addend 21 is fibonacci
+    ok 66 - 25 addend 3 is fibonacci
+    ok 67 - 25 addend 1 is fibonacci
+    ok 68 -  26 sums
+    ok 69 - 26 addend 21 is fibonacci
+    ok 70 - 26 addend 5 is fibonacci
+    ok 71 -  27 sums
+    ok 72 - 27 addend 21 is fibonacci
+    ok 73 - 27 addend 5 is fibonacci
+    ok 74 - 27 addend 1 is fibonacci
+    ok 75 -  28 sums
+    ok 76 - 28 addend 21 is fibonacci
+    ok 77 - 28 addend 5 is fibonacci
+    ok 78 - 28 addend 2 is fibonacci
+    ok 79 -  29 sums
+    ok 80 - 29 addend 21 is fibonacci
+    ok 81 - 29 addend 8 is fibonacci
+    ok 82 -  30 sums
+    ok 83 - 30 addend 21 is fibonacci
+    ok 84 - 30 addend 8 is fibonacci
+    ok 85 - 30 addend 1 is fibonacci
+    ok 86 -  31 sums
+    ok 87 - 31 addend 21 is fibonacci
+    ok 88 - 31 addend 8 is fibonacci
+    ok 89 - 31 addend 2 is fibonacci
+    ok 90 -  32 sums
+    ok 91 - 32 addend 21 is fibonacci
+    ok 92 - 32 addend 8 is fibonacci
+    ok 93 - 32 addend 3 is fibonacci
+    ok 94 -  33 sums
+    ok 95 - 33 addend 21 is fibonacci
+    ok 96 - 33 addend 8 is fibonacci
+    ok 97 - 33 addend 3 is fibonacci
+    ok 98 - 33 addend 1 is fibonacci
+    ok 99 -  34 sums
+    ok 100 - 34 addend 34 is fibonacci
+    ok 101 -  35 sums
+    ok 102 - 35 addend 34 is fibonacci
+    ok 103 - 35 addend 1 is fibonacci
+    ok 104 -  36 sums
+    ok 105 - 36 addend 34 is fibonacci
+    ok 106 - 36 addend 2 is fibonacci
+    ok 107 -  37 sums
+    ok 108 - 37 addend 34 is fibonacci
+    ok 109 - 37 addend 3 is fibonacci
+    ok 110 -  38 sums
+    ok 111 - 38 addend 34 is fibonacci
+    ok 112 - 38 addend 3 is fibonacci
+    ok 113 - 38 addend 1 is fibonacci
+    ok 114 -  39 sums
+    ok 115 - 39 addend 34 is fibonacci
+    ok 116 - 39 addend 5 is fibonacci
+    ok 117 -  40 sums
+    ok 118 - 40 addend 34 is fibonacci
+    ok 119 - 40 addend 5 is fibonacci
+    ok 120 - 40 addend 1 is fibonacci
+    ok 121 -  41 sums
+    ok 122 - 41 addend 34 is fibonacci
+    ok 123 - 41 addend 5 is fibonacci
+    ok 124 - 41 addend 2 is fibonacci
+    ok 125 -  42 sums
+    ok 126 - 42 addend 34 is fibonacci
+    ok 127 - 42 addend 8 is fibonacci
+    ok 128 -  43 sums
+    ok 129 - 43 addend 34 is fibonacci
+    ok 130 - 43 addend 8 is fibonacci
+    ok 131 - 43 addend 1 is fibonacci
+    ok 132 -  44 sums
+    ok 133 - 44 addend 34 is fibonacci
+    ok 134 - 44 addend 8 is fibonacci
+    ok 135 - 44 addend 2 is fibonacci
+    ok 136 -  45 sums
+    ok 137 - 45 addend 34 is fibonacci
+    ok 138 - 45 addend 8 is fibonacci
+    ok 139 - 45 addend 3 is fibonacci
+    ok 140 -  46 sums
+    ok 141 - 46 addend 34 is fibonacci
+    ok 142 - 46 addend 8 is fibonacci
+    ok 143 - 46 addend 3 is fibonacci
+    ok 144 - 46 addend 1 is fibonacci
+    ok 145 -  47 sums
+    ok 146 - 47 addend 34 is fibonacci
+    ok 147 - 47 addend 13 is fibonacci
+    ok 148 -  48 sums
+    ok 149 - 48 addend 34 is fibonacci
+    ok 150 - 48 addend 13 is fibonacci
+    ok 151 - 48 addend 1 is fibonacci
+    ok 152 -  49 sums
+    ok 153 - 49 addend 34 is fibonacci
+    ok 154 - 49 addend 13 is fibonacci
+    ok 155 - 49 addend 2 is fibonacci
+    ok 156 -  50 sums
+    ok 157 - 50 addend 34 is fibonacci
+    ok 158 - 50 addend 13 is fibonacci
+    ok 159 - 50 addend 3 is fibonacci
+    ok 160 -  51 sums
+    ok 161 - 51 addend 34 is fibonacci
+    ok 162 - 51 addend 13 is fibonacci
+    ok 163 - 51 addend 3 is fibonacci
+    ok 164 - 51 addend 1 is fibonacci
+    ok 165 -  52 sums
+    ok 166 - 52 addend 34 is fibonacci
+    ok 167 - 52 addend 13 is fibonacci
+    ok 168 - 52 addend 5 is fibonacci
+    ok 169 -  53 sums
+    ok 170 - 53 addend 34 is fibonacci
+    ok 171 - 53 addend 13 is fibonacci
+    ok 172 - 53 addend 5 is fibonacci
+    ok 173 - 53 addend 1 is fibonacci
+    ok 174 -  54 sums
+    ok 175 - 54 addend 34 is fibonacci
+    ok 176 - 54 addend 13 is fibonacci
+    ok 177 - 54 addend 5 is fibonacci
+    ok 178 - 54 addend 2 is fibonacci
+    ok 179 -  55 sums
+    ok 180 - 55 addend 55 is fibonacci
+    ok 181 -  56 sums
+    ok 182 - 56 addend 55 is fibonacci
+    ok 183 - 56 addend 1 is fibonacci
+    ok 184 -  57 sums
+    ok 185 - 57 addend 55 is fibonacci
+    ok 186 - 57 addend 2 is fibonacci
+    ok 187 -  58 sums
+    ok 188 - 58 addend 55 is fibonacci
+    ok 189 - 58 addend 3 is fibonacci
+    ok 190 -  59 sums
+    ok 191 - 59 addend 55 is fibonacci
+    ok 192 - 59 addend 3 is fibonacci
+    ok 193 - 59 addend 1 is fibonacci
+    ok 194 -  60 sums
+    ok 195 - 60 addend 55 is fibonacci
+    ok 196 - 60 addend 5 is fibonacci
+    ok 197 -  61 sums
+    ok 198 - 61 addend 55 is fibonacci
+    ok 199 - 61 addend 5 is fibonacci
+    ok 200 - 61 addend 1 is fibonacci
+    ok 201 -  62 sums
+    ok 202 - 62 addend 55 is fibonacci
+    ok 203 - 62 addend 5 is fibonacci
+    ok 204 - 62 addend 2 is fibonacci
+    ok 205 -  63 sums
+    ok 206 - 63 addend 55 is fibonacci
+    ok 207 - 63 addend 8 is fibonacci
+    ok 208 -  64 sums
+    ok 209 - 64 addend 55 is fibonacci
+    ok 210 - 64 addend 8 is fibonacci
+    ok 211 - 64 addend 1 is fibonacci
+    ok 212 -  65 sums
+    ok 213 - 65 addend 55 is fibonacci
+    ok 214 - 65 addend 8 is fibonacci
+    ok 215 - 65 addend 2 is fibonacci
+    ok 216 -  66 sums
+    ok 217 - 66 addend 55 is fibonacci
+    ok 218 - 66 addend 8 is fibonacci
+    ok 219 - 66 addend 3 is fibonacci
+    ok 220 -  67 sums
+    ok 221 - 67 addend 55 is fibonacci
+    ok 222 - 67 addend 8 is fibonacci
+    ok 223 - 67 addend 3 is fibonacci
+    ok 224 - 67 addend 1 is fibonacci
+    ok 225 -  68 sums
+    ok 226 - 68 addend 55 is fibonacci
+    ok 227 - 68 addend 13 is fibonacci
+    ok 228 -  69 sums
+    ok 229 - 69 addend 55 is fibonacci
+    ok 230 - 69 addend 13 is fibonacci
+    ok 231 - 69 addend 1 is fibonacci
+    ok 232 -  70 sums
+    ok 233 - 70 addend 55 is fibonacci
+    ok 234 - 70 addend 13 is fibonacci
+    ok 235 - 70 addend 2 is fibonacci
+    ok 236 -  71 sums
+    ok 237 - 71 addend 55 is fibonacci
+    ok 238 - 71 addend 13 is fibonacci
+    ok 239 - 71 addend 3 is fibonacci
+    ok 240 -  72 sums
+    ok 241 - 72 addend 55 is fibonacci
+    ok 242 - 72 addend 13 is fibonacci
+    ok 243 - 72 addend 3 is fibonacci
+    ok 244 - 72 addend 1 is fibonacci
+    ok 245 -  73 sums
+    ok 246 - 73 addend 55 is fibonacci
+    ok 247 - 73 addend 13 is fibonacci
+    ok 248 - 73 addend 5 is fibonacci
+    ok 249 -  74 sums
+    ok 250 - 74 addend 55 is fibonacci
+    ok 251 - 74 addend 13 is fibonacci
+    ok 252 - 74 addend 5 is fibonacci
+    ok 253 - 74 addend 1 is fibonacci
+    ok 254 -  75 sums
+    ok 255 - 75 addend 55 is fibonacci
+    ok 256 - 75 addend 13 is fibonacci
+    ok 257 - 75 addend 5 is fibonacci
+    ok 258 - 75 addend 2 is fibonacci
+    ok 259 -  76 sums
+    ok 260 - 76 addend 55 is fibonacci
+    ok 261 - 76 addend 21 is fibonacci
+    ok 262 -  77 sums
+    ok 263 - 77 addend 55 is fibonacci
+    ok 264 - 77 addend 21 is fibonacci
+    ok 265 - 77 addend 1 is fibonacci
+    ok 266 -  78 sums
+    ok 267 - 78 addend 55 is fibonacci
+    ok 268 - 78 addend 21 is fibonacci
+    ok 269 - 78 addend 2 is fibonacci
+    ok 270 -  79 sums
+    ok 271 - 79 addend 55 is fibonacci
+    ok 272 - 79 addend 21 is fibonacci
+    ok 273 - 79 addend 3 is fibonacci
+    ok 274 -  80 sums
+    ok 275 - 80 addend 55 is fibonacci
+    ok 276 - 80 addend 21 is fibonacci
+    ok 277 - 80 addend 3 is fibonacci
+    ok 278 - 80 addend 1 is fibonacci
+    ok 279 -  81 sums
+    ok 280 - 81 addend 55 is fibonacci
+    ok 281 - 81 addend 21 is fibonacci
+    ok 282 - 81 addend 5 is fibonacci
+    ok 283 -  82 sums
+    ok 284 - 82 addend 55 is fibonacci
+    ok 285 - 82 addend 21 is fibonacci
+    ok 286 - 82 addend 5 is fibonacci
+    ok 287 - 82 addend 1 is fibonacci
+    ok 288 -  83 sums
+    ok 289 - 83 addend 55 is fibonacci
+    ok 290 - 83 addend 21 is fibonacci
+    ok 291 - 83 addend 5 is fibonacci
+    ok 292 - 83 addend 2 is fibonacci
+    ok 293 -  84 sums
+    ok 294 - 84 addend 55 is fibonacci
+    ok 295 - 84 addend 21 is fibonacci
+    ok 296 - 84 addend 8 is fibonacci
+    ok 297 -  85 sums
+    ok 298 - 85 addend 55 is fibonacci
+    ok 299 - 85 addend 21 is fibonacci
+    ok 300 - 85 addend 8 is fibonacci
+    ok 301 - 85 addend 1 is fibonacci
+    ok 302 -  86 sums
+    ok 303 - 86 addend 55 is fibonacci
+    ok 304 - 86 addend 21 is fibonacci
+    ok 305 - 86 addend 8 is fibonacci
+    ok 306 - 86 addend 2 is fibonacci
+    ok 307 -  87 sums
+    ok 308 - 87 addend 55 is fibonacci
+    ok 309 - 87 addend 21 is fibonacci
+    ok 310 - 87 addend 8 is fibonacci
+    ok 311 - 87 addend 3 is fibonacci
+    ok 312 -  88 sums
+    ok 313 - 88 addend 55 is fibonacci
+    ok 314 - 88 addend 21 is fibonacci
+    ok 315 - 88 addend 8 is fibonacci
+    ok 316 - 88 addend 3 is fibonacci
+    ok 317 - 88 addend 1 is fibonacci
+    ok 318 -  89 sums
+    ok 319 - 89 addend 89 is fibonacci
+    ok 320 -  90 sums
+    ok 321 - 90 addend 89 is fibonacci
+    ok 322 - 90 addend 1 is fibonacci
+    ok 323 -  91 sums
+    ok 324 - 91 addend 89 is fibonacci
+    ok 325 - 91 addend 2 is fibonacci
+    ok 326 -  92 sums
+    ok 327 - 92 addend 89 is fibonacci
+    ok 328 - 92 addend 3 is fibonacci
+    ok 329 -  93 sums
+    ok 330 - 93 addend 89 is fibonacci
+    ok 331 - 93 addend 3 is fibonacci
+    ok 332 - 93 addend 1 is fibonacci
+    ok 333 -  94 sums
+    ok 334 - 94 addend 89 is fibonacci
+    ok 335 - 94 addend 5 is fibonacci
+    ok 336 -  95 sums
+    ok 337 - 95 addend 89 is fibonacci
+    ok 338 - 95 addend 5 is fibonacci
+    ok 339 - 95 addend 1 is fibonacci
+    ok 340 -  96 sums
+    ok 341 - 96 addend 89 is fibonacci
+    ok 342 - 96 addend 5 is fibonacci
+    ok 343 - 96 addend 2 is fibonacci
+    ok 344 -  97 sums
+    ok 345 - 97 addend 89 is fibonacci
+    ok 346 - 97 addend 8 is fibonacci
+    ok 347 -  98 sums
+    ok 348 - 98 addend 89 is fibonacci
+    ok 349 - 98 addend 8 is fibonacci
+    ok 350 - 98 addend 1 is fibonacci
+    ok 351 -  99 sums
+    ok 352 - 99 addend 89 is fibonacci
+    ok 353 - 99 addend 8 is fibonacci
+    ok 354 - 99 addend 2 is fibonacci
+    ok 355 -  100 sums
+    ok 356 - 100 addend 89 is fibonacci
+    ok 357 - 100 addend 8 is fibonacci
+    ok 358 - 100 addend 3 is fibonacci
+ok 6 - Test all VALID numbers
+ok 7 - 1 is invalid input
+ok 8 - 2 is invalid input
+ok 9 - 5 is invalid input
+
+Input: $int = 88
+Qutput: 55,21,8,3,1

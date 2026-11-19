@@ -1,0 +1,9 @@
+1..5
+ok 1 - True <- $("java", "awk", "kotlin", "node.js")
+ok 2 - False <- $("love", "the", "programming")
+ok 3 - True <- $("perl", "loves", "scala")
+ok 4 - Bool <- $("a",)
+ok 5 - Bool <- $( )
+
+Input: @list = ("java", "awk", "kotlin", "node.js")
+Output: True

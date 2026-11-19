@@ -1,0 +1,20 @@
+Input:  @array1 = apple banana cherry
+	@array2 = banana cherry date
+Output: 2
+
+Input:  @array1 = a ab abc
+	@array2 = a a ab abc
+Output: 2
+
+Input:  @array1 = orange lemon
+	@array2 = grape melon
+Output: 0
+
+Input:  @array1 = test test demo
+	@array2 = test demo demo
+Output: 0
+
+Input:  @array1 = Hello world
+	@array2 = hello world
+Output: 1
+

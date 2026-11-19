@@ -1,0 +1,7 @@
+
+Challenge 102, Task #2: Hash-counting String (Raku)
+
+Usage:
+  raku ch-2.raku <N>
+  
+    <N>    Positive integer: length of the required hash-counting string

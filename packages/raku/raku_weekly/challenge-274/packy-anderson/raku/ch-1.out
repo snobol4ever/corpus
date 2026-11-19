@@ -1,0 +1,15 @@
+Example 1:
+Input: $sentence = "I love Perl"
+Output: "Imaa ovelmaaa erlPmaaaa"
+
+Example 2:
+Input: $sentence = "Perl and Raku are friends"
+Output: "erlPmaa andmaaa akuRmaaaa aremaaaaa riendsfmaaaaaa"
+
+Example 3:
+Input: $sentence = "The Weekly Challenge"
+Output: "heTmaa eeklyWmaaa hallengeCmaaaa"
+
+Example 4:
+Input: $sentence = "Bus stop Bus goes She stays Love grows Under my umbrella"
+Output: "usBmaa topsmaaa usBmaaaa oesgmaaaaa heSmaaaaaa tayssmaaaaaaa oveLmaaaaaaaa rowsgmaaaaaaaaa Undermaaaaaaaaaa ymmaaaaaaaaaaa umbrellamaaaaaaaaaaaa"

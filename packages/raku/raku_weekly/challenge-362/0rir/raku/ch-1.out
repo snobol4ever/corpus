@@ -1,0 +1,10 @@
+1..5
+ok 1 - abbcccaaaa <- "abca"
+ok 2 - xyyzzz <- "xyz"
+ok 3 - coodddeeee <- "code"
+ok 4 - heelllllllooooo <- "hello"
+ok 5 - a <- "a"
+
+Input: "code"
+Output: "coodddeeee"
+

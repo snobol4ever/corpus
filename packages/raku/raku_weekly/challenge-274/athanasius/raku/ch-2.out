@@ -1,0 +1,12 @@
+
+Challenge 274, Task #2: Bus Route (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - One route 1
+ok 4 - One route 2
+ok 5 - Longer
+ok 6 - Example 1a
+ok 7 - Example 2a
+1..7

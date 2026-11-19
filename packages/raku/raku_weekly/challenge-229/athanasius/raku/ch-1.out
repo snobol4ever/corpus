@@ -1,0 +1,13 @@
+
+Challenge 229, Task #1: Lexicographic Order (Raku)
+
+Running the test suite
+ok 1 - Example 1: count
+ok 2 - Example 1: deletions
+ok 3 - Example 2: count
+ok 4 - Example 2: deletions
+ok 5 - Cases 1: count
+ok 6 - Cases 1: deletions
+ok 7 - Cases 2: count
+ok 8 - Cases 2: deletions
+1..8

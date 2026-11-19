@@ -1,0 +1,9 @@
+1..5
+ok 1 - Goal <- "G()(al)"
+ok 2 - Gooooal <- "G()()()()(al)"
+ok 3 - alGaloo <- "(al)G(al)()()"
+ok 4 - oGoG <- "()G()G"
+ok 5 - alalGoo <- "(al)(al)G()()"
+
+Input: $str = "(al)G()(al)(al)()G(al)"
+Output: alGoalaloGal

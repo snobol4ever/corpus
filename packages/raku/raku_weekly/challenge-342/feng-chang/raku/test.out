@@ -1,0 +1,10 @@
+ok 1 - Balance String: a0b1c2  => "0a1b2c"
+ok 2 - Balance String: abc12   => "a1b2c"
+ok 3 - Balance String: 0a2b1c3 => "0a1b2c3"
+ok 4 - Balance String: 1a23    => ""
+ok 5 - Balance String: ab123   => "1a2b3"
+ok 6 - Max Score: 0011   => 4
+ok 7 - Max Score: 0000   => 3
+ok 8 - Max Score: 1111   => 3
+ok 9 - Max Score: 0101   => 3
+ok 10 - Max Score: 011101 => 5

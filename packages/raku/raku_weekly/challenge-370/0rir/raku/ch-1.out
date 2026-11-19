@@ -1,0 +1,10 @@
+1..5
+ok 1 - ball <- "Bob hit a ball, the hit BALL flew far after it was hit."
+ok 2 - orange <- "Apple? apple! Apple, pear, orange, pear, apple, orange."
+ok 3 - a <- "A. a, a! A. B. b. b."
+ok 4 - apple <- "Ball.ball,ball:apple!apple.banana"
+ok 5 - cat <- "The dog chased the cat, but the dog was faster than the cat."
+
+Input: $paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
+       @banned = ("hit")
+Output: "ball"

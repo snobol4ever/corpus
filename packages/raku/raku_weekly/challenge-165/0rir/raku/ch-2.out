@@ -1,0 +1,55 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" version="1.1"
+xmlns="http://www.w3.org/2000/svg">
+<circle cx="333" cy="86.856121835" r="1" stroke="orange"/>
+<circle cx="39" cy="26.856121835" r="1" stroke="orange"/>
+<circle cx="140" cy="59.856121835" r="1" stroke="orange"/>
+<circle cx="292" cy="81.856121835" r="1" stroke="orange"/>
+<circle cx="393" cy="163.856121835" r="1" stroke="orange"/>
+<circle cx="160" cy="49.856121835" r="1" stroke="orange"/>
+<circle cx="362" cy="93.856121835" r="1" stroke="orange"/>
+<circle cx="13" cy="22.856121835" r="1" stroke="orange"/>
+<circle cx="341" cy="111.856121835" r="1" stroke="orange"/>
+<circle cx="320" cy="102.856121835" r="1" stroke="orange"/>
+<circle cx="109" cy="38.856121835" r="1" stroke="orange"/>
+<circle cx="203" cy="63.856121835" r="1" stroke="orange"/>
+<circle cx="343" cy="115.856121835" r="1" stroke="orange"/>
+<circle cx="225" cy="105.856121835" r="1" stroke="orange"/>
+<circle cx="23" cy="29.856121835" r="1" stroke="orange"/>
+<circle cx="282" cy="113.856121835" r="1" stroke="orange"/>
+<circle cx="284" cy="117.856121835" r="1" stroke="orange"/>
+<circle cx="205" cy="82.856121835" r="1" stroke="orange"/>
+<circle cx="297" cy="101.856121835" r="1" stroke="orange"/>
+<circle cx="292" cy="89.856121835" r="1" stroke="orange"/>
+<circle cx="339" cy="103.856121835" r="1" stroke="orange"/>
+<circle cx="327" cy="136.856121835" r="1" stroke="orange"/>
+<circle cx="253" cy="79.856121835" r="1" stroke="orange"/>
+<circle cx="61" cy="46.856121835" r="1" stroke="orange"/>
+<circle cx="128" cy="39.856121835" r="1" stroke="orange"/>
+<circle cx="346" cy="143.856121835" r="1" stroke="orange"/>
+<circle cx="316" cy="112.856121835" r="1" stroke="orange"/>
+<circle cx="124" cy="53.856121835" r="1" stroke="orange"/>
+<circle cx="65" cy="34.856121835" r="1" stroke="orange"/>
+<circle cx="159" cy="78.856121835" r="1" stroke="orange"/>
+<circle cx="212" cy="99.856121835" r="1" stroke="orange"/>
+<circle cx="337" cy="129.856121835" r="1" stroke="orange"/>
+<circle cx="215" cy="79.856121835" r="1" stroke="orange"/>
+<circle cx="153" cy="78.856121835" r="1" stroke="orange"/>
+<circle cx="390" cy="111.856121835" r="1" stroke="orange"/>
+<circle cx="100" cy="35.856121835" r="1" stroke="orange"/>
+<circle cx="76" cy="27.856121835" r="1" stroke="orange"/>
+<circle cx="77" cy="34.856121835" r="1" stroke="orange"/>
+<circle cx="69" cy="20.856121835" r="1" stroke="orange"/>
+<circle cx="92" cy="29.856121835" r="1" stroke="orange"/>
+<circle cx="275" cy="119.856121835" r="1" stroke="orange"/>
+<circle cx="250" cy="68.856121835" r="1" stroke="orange"/>
+<circle cx="34" cy="41.856121835" r="1" stroke="orange"/>
+<circle cx="213" cy="81.856121835" r="1" stroke="orange"/>
+<circle cx="186" cy="86.856121835" r="1" stroke="orange"/>
+<circle cx="189" cy="61.856121835" r="1" stroke="orange"/>
+<circle cx="361" cy="133.856121835" r="1" stroke="orange"/>
+<circle cx="363" cy="126.856121835" r="1" stroke="orange"/>
+<line x1="13" y1="19.623283803" x2="393" y2="133.606753902" stroke="lightgreen" stroke-width="1"/>
+</svg>

@@ -1,0 +1,8 @@
+
+Challenge 180, Task #2: Trim List (Raku)
+
+Usage:
+  raku ch-2.raku <i> [<n> ...]
+  
+    <i>          An integer (must be preceded by "--" if negative)
+    [<n> ...]    One or more real numbers

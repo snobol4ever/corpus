@@ -1,0 +1,10 @@
+1..6
+ok 1 - ["cccc"] <- "abccccd"
+ok 2 - 
+ok 3 - ["aaa", "dddd", "fff"] <- "aaabcddddeefff"
+ok 4 - 
+ok 5 - [""] <- "abcdd"
+ok 6 - 
+
+Input: $str = "aaabcddddeefff"
+Output: { pretty task aaabcddddeefff}

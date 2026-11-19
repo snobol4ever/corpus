@@ -1,0 +1,7 @@
+
+Challenge 083, Task #1: Words Length (Raku)
+
+Usage:
+  raku ch-1.raku <S>
+  
+    <S>    A single string containing 3 or more words separated by whitespace

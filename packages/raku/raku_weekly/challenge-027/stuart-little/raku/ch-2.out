@@ -1,0 +1,5 @@
+is now: 1
+was: 1;  is now: 2
+was: 1 2;  is now: 3
+was: 1 2 3;  is now: 4
+current: 4

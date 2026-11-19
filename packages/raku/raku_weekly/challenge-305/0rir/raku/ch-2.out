@@ -1,0 +1,23 @@
+1..18
+ok 1 -    <-= 
+ok 2 -  <i= 
+ok 3 - raku python perl   <-= perl python raku
+ok 4 - raku python perl <i= perl python raku
+ok 5 - challenge the weekly   <-= the weekly challenge
+ok 6 - challenge the weekly <i= the weekly challenge
+ok 7 - cha-lle/n+ge the- wee-kly   <-= the- wee-kly cha-lle/n+ge
+ok 8 - cha-lle/n+ge the- wee-kly <i= the- wee-kly cha-lle/n+ge
+ok 9 - The the   <-= the The
+ok 10 - the The <i= the The
+ok 11 - The the   <-= The the
+ok 12 - The the <i= The the
+ok 13 - Rocks city   <-= city Rocks
+ok 14 - city Rocks <i= city Rocks
+ok 15 - tHe tee   <-= tee tHe
+ok 16 - tee tHe <i= tee tHe
+ok 17 - teEa tee   <-= teEa tee
+ok 18 - tee teEa <i= teEa tee
+
+Input: @word = (The weEkly chalLenge No.150)
+@alien: (z y x w v u t s r q p o n m l k j i h g f e d c b a)
+Output: (The No.150 weEkly chalLenge)

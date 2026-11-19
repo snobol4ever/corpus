@@ -1,0 +1,9 @@
+
+Challenge 082, Task #2: Interleave String (Raku)
+
+Usage:
+  raku ch-2.raku <A> <B> <C>
+  
+    <A>    First string
+    <B>    Second string
+    <C>    Third string: can it be created by interleaving A and B?

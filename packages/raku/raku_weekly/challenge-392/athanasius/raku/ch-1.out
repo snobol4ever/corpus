@@ -1,0 +1,13 @@
+
+Challenge 392, Task #1: Convert Palindrome (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Example 4
+ok 5 - Example 5
+ok 6 - Empty string
+ok 7 - Single char
+ok 8 - Palindrome
+1..8

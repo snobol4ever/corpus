@@ -1,0 +1,5 @@
+1..4
+ok 1 - kitten   -> sitting = 3
+ok 2 - sunday   -> monday  = 2
+ok 3 - saturday -> sunday  = 3
+ok 4 - abxcd    -> abcd    = 1

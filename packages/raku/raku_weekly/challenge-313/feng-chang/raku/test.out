@@ -1,0 +1,7 @@
+ok 1 - Broken Keys: $name="perl",         $typed="perrrl"          => true
+ok 2 - Broken Keys: $name="raku",         $typed="rrakuuuu"        => true
+ok 3 - Broken Keys: $name="python",       $typed="perl"            => false
+ok 4 - Broken Keys: $name="coffeescript", $typed="cofffeescccript" => true
+ok 5 - Reverse Letters: p-er?l           => l-re?p
+ok 6 - Reverse Letters: wee-k!L-y        => yLk-e!e-w
+ok 7 - Reverse Letters: _c-!h_all-en!g_e => _e-!g_nel-la!h_c

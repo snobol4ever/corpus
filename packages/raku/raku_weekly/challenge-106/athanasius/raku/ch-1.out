@@ -1,0 +1,8 @@
+
+Challenge 106, Task #1: Maximum Gap (Raku)
+
+Usage:
+  raku ch-1.raku [--unique] [<N> ...]
+  
+    --unique     (Optional) remove duplicates [default: False]
+    [<N> ...]    A non-empty, unsorted list of integers

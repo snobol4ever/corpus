@@ -1,0 +1,15 @@
+Example 1:
+Input: $str = "acbddbca"
+Output: "d"
+
+Example 2:
+Input: $str = "abccd"
+Output: "c"
+
+Example 3:
+Input: $str = "abcdabbb"
+Output: "a"
+
+Example 4:
+Input: $str = "abcdefg"
+Output: "␀"

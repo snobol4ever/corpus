@@ -1,0 +1,8 @@
+ok 1 - Count Common: <Perl is my friend>, <Perl and Raku are friend>                        => 2
+ok 2 - Count Common: <Perl and Python are very similar>, <Python is top in guest languages> => 1
+ok 3 - Count Common: <Perl is imperative Lisp is functional>, <Crystal is similar to Ruby>  => 0
+ok 4 - Count Common: <Perl is my friend>, <Perl and Raku are friend>                        => 2
+ok 5 - Count Common: <Perl and Python are very similar>, <Python is top in guest languages> => 1
+ok 6 - Count Common: <Perl is imperative Lisp is functional>, <Crystal is similar to Ruby>  => 0
+ok 7 - Strong Pair: 1, 2, 3, 4, 5 => 4
+ok 8 - Strong Pair: 5, 7, 1, 7    => 1

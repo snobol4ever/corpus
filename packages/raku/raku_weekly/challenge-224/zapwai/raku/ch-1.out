@@ -1,0 +1,12 @@
+Input:  $source = abc
+	$target = xyz
+Output: False
+
+Input:  $source = scriptinglanguage
+	$target = perl
+Output: True
+
+Input:  $source = aabbcc
+	$target = abc
+Output: True
+

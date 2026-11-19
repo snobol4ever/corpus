@@ -1,0 +1,7 @@
+1..6
+ok 1 - task2_rotor : hello
+ok 2 - task2_rotor : perl
+ok 3 - task2_rotor : raku
+ok 4 - task2_Z_skip : hello
+ok 5 - task2_Z_skip : perl
+ok 6 - task2_Z_skip : raku

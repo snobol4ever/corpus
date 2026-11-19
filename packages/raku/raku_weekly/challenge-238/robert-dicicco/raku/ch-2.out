@@ -1,0 +1,6 @@
+Input: @int = [15 99 1 34]
+Output: [ 1 15 34 99 ]
+
+Input: @int = [50 25 33 22]
+Output: [ 22 33 50 25 ]
+

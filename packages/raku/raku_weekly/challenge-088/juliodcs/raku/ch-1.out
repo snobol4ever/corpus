@@ -1,0 +1,5 @@
+ok 1 - One element returns 0
+ok 2 - Two elements invert positions
+ok 3 - Example 1
+ok 4 - Example 2
+1..4

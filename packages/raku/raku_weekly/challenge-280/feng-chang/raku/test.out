@@ -1,0 +1,6 @@
+ok 1 - Twice Appearance: acbddbca => d
+ok 2 - Twice Appearance: abccd    => c
+ok 3 - Twice Appearance: abcdabbb => a
+ok 4 - Count Asterisks: "p|*e*rl|w**e|*ekly|"           => 2
+ok 5 - Count Asterisks: "perl"                          => 0
+ok 6 - Count Asterisks: "th|ewe|e**|k|l***ych|alleng|e" => 5

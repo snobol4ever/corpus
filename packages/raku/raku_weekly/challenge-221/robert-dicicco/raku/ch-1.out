@@ -1,0 +1,10 @@
+Input: @words = [cat bt hat tree]
+cat
+hat
+	Total: 6
+
+Input: @words = [hello world challenge]
+hello
+world
+	Total: 10
+

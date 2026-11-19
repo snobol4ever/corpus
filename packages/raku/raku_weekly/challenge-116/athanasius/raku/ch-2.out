@@ -1,0 +1,7 @@
+
+Challenge 116, Task #2: Sum of Squares (Raku)
+
+Usage:
+  raku ch-2.raku <N>
+  
+    <N>    A number greater than or equal to 10

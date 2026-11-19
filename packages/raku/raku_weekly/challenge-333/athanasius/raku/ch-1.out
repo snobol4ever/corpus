@@ -1,0 +1,16 @@
+
+Challenge 333, Task #1: Straight Line (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Example 4
+ok 5 - Example 5
+ok 6 - Duplicate 1
+ok 7 - Duplicate 2
+ok 8 - Duplicate 3
+ok 9 - Singleton
+ok 10 - Pair
+ok 11 - Reals
+1..11

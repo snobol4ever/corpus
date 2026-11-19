@@ -1,0 +1,11 @@
+ok 1 - Second Largest Digit: aaaaa77777         => -1
+ok 2 - Second Largest Digit: abcde              => -1
+ok 3 - Second Largest Digit: 9zero8eight7seven9 => 8
+ok 4 - Second Largest Digit: xyz9876543210      => 8
+ok 5 - Second Largest Digit: 4abc4def2ghi8jkl2  => 4
+ok 6 - Sum of Words: <acb cba cdb>  => true
+ok 7 - Sum of Words: <aab aac ad>   => true
+ok 8 - Sum of Words: <bc je jg>     => false
+ok 9 - Sum of Words: <a aaaa aa>    => true
+ok 10 - Sum of Words: <c d h>        => false
+ok 11 - Sum of Words: <gfi hbf bdhd> => true

@@ -1,0 +1,11 @@
+ok 1 - One number
+ok 2 - One row
+ok 3 - One column
+ok 4 - Two rows
+ok 5 - Two columns
+ok 6 - Three rows
+ok 7 - Three columns
+ok 8 - 4x4 matrix
+ok 9 - Example 1
+ok 10 - Example 2
+1..10

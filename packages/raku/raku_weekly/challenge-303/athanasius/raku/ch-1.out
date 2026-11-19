@@ -1,0 +1,9 @@
+
+Challenge 303, Task #1: 3-digits Even (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - 1 & 2 digits
+ok 4 - 3 digits
+1..4

@@ -1,0 +1,8 @@
+
+Challenge 073, Task #1: Min Sliding Window (Raku)
+
+Usage:
+  raku ch-1.raku [-S[=Natural]] [<A> ...]
+  
+    -S[=Natural]    Sliding window size: 0 < S <= integers in A
+    [<A> ...]       Sequence of one or more integers

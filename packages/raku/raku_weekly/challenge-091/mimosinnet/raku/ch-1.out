@@ -1,0 +1,9 @@
+Input: $N = 1122234
+Output: 21321314 
+
+Input: $N = 2333445
+Output: 12332415 
+
+Input: $N = 12345
+Output: 1112131415 
+

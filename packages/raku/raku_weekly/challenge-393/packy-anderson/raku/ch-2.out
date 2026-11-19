@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "hello"
+Output: 9
+
+Example 2:
+Input: $str = "football"
+Output: 2
+
+Example 3:
+Input: $str = "a"
+Output: 0
+
+Example 4:
+Input: $str = "challenge"
+Output: 2
+
+Example 5:
+Input: $str = "perl"
+Output: 2

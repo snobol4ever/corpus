@@ -1,0 +1,24 @@
+Example 1:
+Input: $paragraph = "Bob hit a ball, the hit BALL flew far after it was hit."
+       @banned = ("hit")
+Output: "ball"
+
+Example 2:
+Input: $paragraph = "Apple? apple! Apple, pear, orange, pear, apple, orange."
+       @banned = ("apple", "pear")
+Output: "orange"
+
+Example 3:
+Input: $paragraph = "A. a, a! A. B. b. b."
+       @banned = ("b")
+Output: "a"
+
+Example 4:
+Input: $paragraph = "Ball.ball,ball:apple!apple.banana"
+       @banned = ("ball")
+Output: "apple"
+
+Example 5:
+Input: $paragraph = "The dog chased the cat, but the dog was faster than the cat."
+       @banned = ("the", "dog")
+Output: "cat"

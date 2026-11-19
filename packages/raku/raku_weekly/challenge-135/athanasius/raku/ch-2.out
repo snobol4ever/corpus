@@ -1,0 +1,8 @@
+
+Challenge 135, Task #2: Validate SEDOL (Raku)
+
+Usage:
+  raku ch-2.raku [--verbose] <SEDOL>
+  
+    <SEDOL>      7-character alphanumeric SEDOL string
+    --verbose    Print annotated output? [default: False]

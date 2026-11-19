@@ -1,0 +1,7 @@
+ok 1 - Sort String: "and2 Raku3 cousins5 Perl1 are4"                   => "Perl and Raku are cousins"
+ok 2 - Sort String: "guest6 Python1 most4 the3 popular5 is2 language7" => "Python is the most popular guest language"
+ok 3 - Sort String: "Challenge3 The1 Weekly2"                          => "The Weekly Challenge"
+ok 4 - Sort String: "j10 i9 h8 g7 f6 e5 d4 c3 b2 a1"                   => "a b c d e f g h i j"
+ok 5 - Reverse Word: $str="challenge",   $char="e" => "acehllnge"
+ok 6 - Reverse Word: $str="programming", $char="a" => "agoprrmming"
+ok 7 - Reverse Word: $str="champion",    $char="b" => "champion"

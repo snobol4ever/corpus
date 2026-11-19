@@ -1,0 +1,11 @@
+Example 1:
+Input: @words = ("java", "javascript", "julia")
+Output: ("j", "a")
+
+Example 2:
+Input: @words = ("bella", "label", "roller")
+Output: ("e", "l", "l")
+
+Example 3:
+Input: @words = ("cool", "lock", "cook")
+Output: ("c", "o")

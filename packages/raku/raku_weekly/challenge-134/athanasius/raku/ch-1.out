@@ -1,0 +1,10 @@
+
+Challenge 134, Task #1: Pandigital Numbers (Raku)
+
+The first 5 pandigital numbers in base 10 containing the digits 0-9:
+
+    1023456789
+    1023456798
+    1023456879
+    1023456897
+    1023456978

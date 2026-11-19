@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "z"
+Output: 1
+
+Example 2:
+Input: $str = "a"
+Output: 26
+
+Example 3:
+Input: $str = "bbc"
+Output: 147
+
+Example 4:
+Input: $str = "racecar"
+Output: 560
+
+Example 5:
+Input: $str = "zyx"
+Output: 14

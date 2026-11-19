@@ -1,0 +1,8 @@
+
+Challenge 171, Task #2: First-class Function (Raku)
+
+      @in     = 1.1, 2.34, 5, -27.6, 32
+f( g( @in ) ) = -10.5, -4.3, 9, -154, 144
+   h( @in )   = -10.5, -4.3, 9, -154, 144
+
+SUCCESS: The outputs are identical

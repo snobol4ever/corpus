@@ -1,0 +1,10 @@
+Input: $c1 = a7, $c2 = f4
+Output: true
+Input: $c1 = c1, $c2 = e8
+Output: false
+Input: $c1 = b5, $c2 = h2
+Output: false
+Input: $c1 = f3, $c2 = h1
+Output: true
+Input: $c1 = a1, $c2 = g8
+Output: false

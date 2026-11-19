@@ -1,0 +1,7 @@
+1..6
+ok 1 - task2_simple      : Example 1
+ok 2 - task2_simple      : Example 2
+ok 3 - task2_inscrutable : Example 1
+ok 4 - task2_inscrutable : Example 2
+ok 5 - task2_faster      : Example 1
+ok 6 - task2_faster      : Example 2

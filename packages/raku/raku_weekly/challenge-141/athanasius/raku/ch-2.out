@@ -1,0 +1,8 @@
+
+Challenge 141, Task #2: Like Numbers (Raku)
+
+Usage:
+  raku ch-2.raku <m> <n>
+  
+    <m>    Positive integer: source of digits
+    <n>    Positive integer: divisor

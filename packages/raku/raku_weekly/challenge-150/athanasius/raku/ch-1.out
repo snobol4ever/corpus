@@ -1,0 +1,8 @@
+
+Challenge 150, Task #1: Fibonacci Words (Raku)
+
+Usage:
+  raku ch-1.raku <a> <b>
+  
+    <a>    A string of digits
+    <b>    Another string of digits of the same length

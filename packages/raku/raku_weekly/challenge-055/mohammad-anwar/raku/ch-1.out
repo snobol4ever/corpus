@@ -1,0 +1,4 @@
+Usage:
+  ch-1.p6 [--binary-str=<Str where { ... }>]
+
+ERROR: Invalid binary string !!!

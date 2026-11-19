@@ -1,0 +1,19 @@
+Example 1:
+Input: $chars = "abbc"
+Encoded: "a2bc"
+Decoded: "abbc"
+
+Example 2:
+Input: $chars = "aaabccc"
+Encoded: "3ab3c"
+Decoded: "aaabccc"
+
+Example 3:
+Input: $chars = "abcc"
+Encoded: "ab2c"
+Decoded: "abcc"
+
+Example 4:
+Input: $chars = "abbbbbbbbbbbbccccccdd"
+Encoded: "a12b6c2d"
+Decoded: "abbbbbbbbbbbbccccccdd"

@@ -1,0 +1,4 @@
+ok 1 - Largest Number: 20,3        => 320
+ok 2 - Largest Number: 3,30,34,5,9 => 9534330
+ok 3 - Hamming Distance: 4,14,2 => 6
+ok 4 - Hamming Distance: 4,14,4 => 4

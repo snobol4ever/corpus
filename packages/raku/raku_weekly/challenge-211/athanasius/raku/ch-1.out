@@ -1,0 +1,13 @@
+
+Challenge 211, Task #1: Toeplitz Matrix (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Single element
+ok 4 - Single row
+ok 5 - Single column
+ok 6 - Alternating
+ok 7 - Deceptive 1
+ok 8 - Deceptive 2
+1..8

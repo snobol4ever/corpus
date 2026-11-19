@@ -1,0 +1,28 @@
+1..27
+ok 1 - task1_detailed_failure : 3 7 5 : 9 5 7
+ok 2 - task1_detailed_failure : 1 2 1 : 5 4 4
+ok 3 - task1_detailed_failure : 2 : 5
+ok 4 - task1_detailed_failure : 0 3 7 : 2 6 8
+ok 5 - task1_detailed_failure : 5 7 9 : 9 5 7
+ok 6 - task1_detailed_failure : -3 -7 -5 : -9 -5 -7
+ok 7 - task1_detailed_failure : -1 -2 -1 : -5 -4 -4
+ok 8 - task1_detailed_failure : -2 : -5
+ok 9 - task1_detailed_failure : 5 : 2
+ok 10 - task1_Z_minus : 3 7 5 : 9 5 7
+ok 11 - task1_Z_minus : 1 2 1 : 5 4 4
+ok 12 - task1_Z_minus : 2 : 5
+ok 13 - task1_Z_minus : 0 3 7 : 2 6 8
+ok 14 - task1_Z_minus : 5 7 9 : 9 5 7
+ok 15 - task1_Z_minus : -3 -7 -5 : -9 -5 -7
+ok 16 - task1_Z_minus : -1 -2 -1 : -5 -4 -4
+ok 17 - task1_Z_minus : -2 : -5
+ok 18 - task1_Z_minus : 5 : 2
+ok 19 - task1_concise : 3 7 5 : 9 5 7
+ok 20 - task1_concise : 1 2 1 : 5 4 4
+ok 21 - task1_concise : 2 : 5
+ok 22 - task1_concise : 0 3 7 : 2 6 8
+ok 23 - task1_concise : 5 7 9 : 9 5 7
+ok 24 - task1_concise : -3 -7 -5 : -9 -5 -7
+ok 25 - task1_concise : -1 -2 -1 : -5 -4 -4
+ok 26 - task1_concise : -2 : -5
+ok 27 - task1_concise : 5 : 2

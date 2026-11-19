@@ -1,0 +1,11 @@
+Example 1:
+Input: @arr = ("perl", "loves", "scala")
+Output: True
+
+Example 2:
+Input: @arr = ("love", "the", "programming")
+Output: False
+
+Example 3:
+Input: @arr = ("java", "awk", "kotlin", "node.js")
+Output: True

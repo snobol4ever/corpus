@@ -1,0 +1,19 @@
+Example 1:
+Input: @ints = (8000, 5000, 6000, 2000, 3000, 7000)
+Output: 5250
+
+Example 2:
+Input: @ints = (100000, 80000, 110000, 90000)
+Output: 95000
+
+Example 3:
+Input: @ints = (2500, 2500, 2500, 2500)
+Output: 0
+
+Example 4:
+Input: @ints = (2000)
+Output: 0
+
+Example 5:
+Input: @ints = (1000, 2000, 3000, 4000, 5000, 6000)
+Output: 3500

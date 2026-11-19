@@ -1,0 +1,7 @@
+
+Challenge 149, Task #1: Fibonacci Digit Sum (Raku)
+
+Usage:
+  raku ch-1.raku <N>
+  
+    <N>    Natural number: required output count

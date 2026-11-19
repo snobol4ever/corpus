@@ -1,0 +1,10 @@
+1..6
+ok 1 - 1 <- "z"
+ok 2 - 26 <- "a"
+ok 3 - 147 <- "bbc"
+ok 4 - 560 <- "racecar"
+ok 5 - 14 <- "zyx"
+ok 6 - 0 <- ""
+
+Input: $str = "bbc"
+Output: 147

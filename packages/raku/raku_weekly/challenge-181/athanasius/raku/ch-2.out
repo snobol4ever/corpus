@@ -1,0 +1,7 @@
+
+Challenge 181, Task #2: Hot Day (Raku)
+
+Usage:
+  raku ch-2.raku <file>
+  
+    <file>    File with daily temperature records

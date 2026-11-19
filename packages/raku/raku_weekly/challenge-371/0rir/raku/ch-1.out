@@ -1,0 +1,43 @@
+1..39
+ok 1 - e <- ac?gi
+ok 2 - e <- ig?ca
+ok 3 - g <- ad?jm
+ok 4 - g <- mj?da
+ok 5 - i <- ae?mq
+ok 6 - i <- qm?ea
+ok 7 - h <- acf?k
+ok 8 - h <- k?fca
+ok 9 - j <- beg?l
+ok 10 - j <- l?geb
+ok 11 - b <- ?cdef
+ok 12 - b <- fedc?
+ok 13 - a <- ?bcde
+ok 14 - a <- edcb?
+ok 15 - b <- a?cde
+ok 16 - b <- edc?a
+ok 17 - c <- ab?de
+ok 18 - c <- ed?ba
+ok 19 - d <- abc?e
+ok 20 - d <- e?cba
+ok 21 - e <- abcd?
+ok 22 - e <- ?dcba
+ok 23 - c <- a?dfg
+ok 24 - c <- gfd?a
+ok 25 - d <- ac?fg
+ok 26 - d <- gf?ca
+ok 27 - f <- acd?g
+ok 28 - f <- g?dca
+ok 29 - g <- acdf?
+ok 30 - g <- ?fdca
+ok 31 - { <- suwy?
+ok 32 - { <- ?ywus
+ok 33 - got trash
+ok 34 - got trash
+ok 35 - got trash
+ok 36 - got trash
+ok 37 - got trash
+ok 38 - got trash
+ok 39 - got trash
+
+Input: @seq = ["s", "u", "w", "y", "?"]
+Output: {

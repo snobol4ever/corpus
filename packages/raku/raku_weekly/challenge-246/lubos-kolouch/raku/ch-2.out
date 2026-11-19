@@ -1,0 +1,5 @@
+1..3
+ok 1 - Fibonacci sequence
+ok 2 - Even-odd mismatch
+ok 3 - Custom sequence
+true

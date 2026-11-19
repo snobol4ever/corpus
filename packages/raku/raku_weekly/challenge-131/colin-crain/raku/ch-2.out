@@ -1,0 +1,6 @@
+input       /* This is a comment (in some languages) */ <could be a tag>
+delimiters  **//<>
+
+opens   /**/<
+closes  /**/>
+

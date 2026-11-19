@@ -1,0 +1,7 @@
+
+Challenge 103, Task #1: Chinese Zodiac (Raku)
+
+Usage:
+  raku ch-1.raku <year>
+  
+    <year>    Year AD (positive integer)

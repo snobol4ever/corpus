@@ -1,0 +1,10 @@
+ok 1 - Rearrange Spaces: "  challenge  "               => "challenge    "
+ok 2 - Rearrange Spaces: "coding  is  fun"             => "coding  is  fun"
+ok 3 - Rearrange Spaces: "a b c  d"                    => "a b c d "
+ok 4 - Rearrange Spaces: "  team      pwc  "           => "team          pwc"
+ok 5 - Rearrange Spaces: "   the  weekly  challenge  " => "the    weekly    challenge "
+ok 6 - Largest Substring: "aaaaa"    => 3
+ok 7 - Largest Substring: "abcdeba"  => 5
+ok 8 - Largest Substring: "abbc"     => 0
+ok 9 - Largest Substring: "abcaacbc" => 4
+ok 10 - Largest Substring: "laptop"   => 2

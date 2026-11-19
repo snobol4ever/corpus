@@ -1,0 +1,17 @@
+1..12
+ok 1 - "one","two","three","four$five","six" <- @ <- one@@two@three four$five six
+ok 2 - "one","two","three","four","five","six" <- : <- one:two:three four:five six
+ok 3 - "one","two","three","four","five","six" <- . <- one.two.three four.five six
+ok 4 - "perl","raku" <- $ <- $perl$$ $$raku$
+ok 5 - "one","two","three","four$five","six" <-  \# <- one \# \#two \#three four$five six
+ok 6 - "one","two","three","four$five","six" <- % <- one%%two%three four$five six
+ok 7 - "one","two","three","four$five","six" <- ^ <- one^^two^three four$five six
+ok 8 - "one","two","three","four$five","six" <- & <- one&&two&three four$five six
+ok 9 - "one","two","three","four$five","six" <- * <- one**two*three four$five six
+ok 10 - "one","two","three","four$five","six" <- ( <- one((two((three four$five six
+ok 11 - "one","two","three","four$five","six" <- ) <- one))two)three four$five six
+ok 12 - "one","two","three","four$five","six" <- ? <- one??two?three four$five six
+
+Input: @word = ( ??xxx!!x##X#@@x^ ^x&x*x(x)x-x+x=[x;]'x/x\x|x<x>x_x )
+       $separator = x
+Output: "??","!!","##X#@@","^","^","&","*","(",")","-","+","=[",";]'","/","\","|","<",">","_"

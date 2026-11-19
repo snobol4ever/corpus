@@ -1,0 +1,24 @@
+1..20
+ok 1 - False <- 1
+ok 2 - False <- 0
+ok 3 - False <- 1 0
+ok 4 - False <- 2 1 2
+ok 5 - False <- 3 0
+ok 6 - False <- 3 0 0 0
+ok 7 - False <- 4 0 0 0 0
+ok 8 - False <- 3 1 0 0 0
+ok 9 - False <- 3 3 1 2 0 0 0
+ok 10 - False <- 4 3 0 1 0 0 0
+ok 11 - False <- 9 1 2 2 0 0 0 0 0 1
+ok 12 - True <- 1 2 1 0
+ok 13 - True <- 2 0 2 0
+ok 14 - True <- 2 1 2 0 0
+ok 15 - True <- 3 2 1 1 0 0 0
+ok 16 - True <- 5 2 1 0 0 1 0 0 0
+ok 17 - True <- 6 2 1 0 0 0 1 0 0 0
+ok 18 - True <- 7 2 1 0 0 0 0 1 0 0 0
+ok 19 - True <- 8 2 1 0 0 0 0 0 1 0 0 0
+ok 20 - True <- 9 2 1 0 0 0 0 0 0 1 0 0 0
+
+Input: @ints = [4, 1, 0, 0, 0, 0]
+Ouput: False

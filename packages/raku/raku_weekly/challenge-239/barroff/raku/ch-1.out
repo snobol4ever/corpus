@@ -1,0 +1,4 @@
+1..3
+ok 1 - works for (("ab", "c"), ("a", "bc"))
+ok 2 - works for (("ab", "c"), ("ac", "b"))
+ok 3 - works for (("ab", "cd", "e"), ("abcde",))

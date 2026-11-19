@@ -1,0 +1,12 @@
+1..6
+ok 1 - language too <- Perl is a my favourite language but Python is my favourite too.∘my∘favourite
+ok 2 - doll princess <- Barbie is a beautiful doll also also a beautiful princess.∘a∘beautiful
+ok 3 - we rock <- we will we will rock you rock you.∘we∘will
+ok 4 -  <- you rock.∘you∘rock
+ok 5 -  <- all about nothing.∘you∘rock
+ok 6 -  <- ∘you∘rock
+
+Input: $sentence = "we will we will rock you rock you.
+       $first = "we"
+       $second = "will"
+Output: ("we", "rock")

@@ -1,0 +1,12 @@
+1..11
+ok 1 - True <- duck ∘∘ dcuk
+ok 2 - False <- love ∘∘ love
+ok 3 - True <- feed ∘∘ feed
+ok 4 - False <-  ∘∘ 
+ok 5 - False <- l ∘∘ l
+ok 6 - False <- al ∘∘ al
+ok 7 - True <- al ∘∘ la
+ok 8 - True <- ll ∘∘ ll
+ok 9 - False <- leeko ∘∘ eleki
+ok 10 - False <- eek ∘∘ ek
+ok 11 - True <- eeek ∘∘ eeek

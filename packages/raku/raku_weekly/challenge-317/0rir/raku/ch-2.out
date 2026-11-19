@@ -1,0 +1,15 @@
+1..11
+ok 1 - True <- desc ∘∘ dsec
+ok 2 - True <- luck ∘∘ lcuk
+ok 3 - False <- poo ∘∘ eop
+ok 4 - True <- stripe ∘∘ sprite
+ok 5 - False <-  ∘∘ 
+ok 6 - False <- ab ∘∘ a
+ok 7 - False <- ab ∘∘ ab
+ok 8 - True <- ba ∘∘ ab
+ok 9 - False <- abc ∘∘ abc
+ok 10 - False <- abc ∘∘ cab
+ok 11 - False <- abcd ∘∘ abcde
+
+Input: $str1 = "desc", $str2 = "dsec"
+Output: True

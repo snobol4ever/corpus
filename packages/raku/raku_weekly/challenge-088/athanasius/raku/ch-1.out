@@ -1,0 +1,7 @@
+
+Challenge 088, Task #1: Array of Product (Raku)
+
+Usage:
+  raku ch-1.raku [<N> ...]
+  
+    [<N> ...]    A non-empty, unsorted array of positive integers

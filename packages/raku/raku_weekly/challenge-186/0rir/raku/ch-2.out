@@ -1,0 +1,2 @@
+Input:  'startᎱ썀ÃÊÍÒÙâÊíÒÙÏĘęଽߗᎭ ᏂߵᎵᎼłǀᎲߺγϯͺʅʄªߺᏐΫάdone'
+Output: 'startᎱ썀AEIOUaEiOUIEeଽߗᎭ ᏂߵᎵᎼłǀᎲߺγϯͺʅʄªߺᏐΫάdone'

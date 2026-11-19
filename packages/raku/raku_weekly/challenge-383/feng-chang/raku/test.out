@@ -1,0 +1,10 @@
+ok 1 - Similar List: '"great", "acting"' '"fine", "drama"' '["great", "fine"], ["acting", "drama"]' => true
+ok 2 - Similar List: '"apple", "pie"', '"banana", "pie"', '["apple", "peach"], ["peach", "banana"]' => false
+ok 3 - Similar List: '"perl4", "python"', '"raku", "python"', '["perl4", "perl5", "raku"],'         => true
+ok 4 - Similar List: '"enjoy", "challenge"', '"love", "weekly", "challenge"', '["enjoy", "love"],'  => false
+ok 5 - Similar List: '"fast", "car"', '"quick", "vehicle"', '["quick", "fast"], ["vehicle", "car"]' => true
+ok 6 - Nearest RGB:  \#F4B2D1 =>  \#FF99CC
+ok 7 - Nearest RGB:  \#15E6E5 =>  \#00FFCC
+ok 8 - Nearest RGB:  \#191A65 =>  \#003366
+ok 9 - Nearest RGB:  \#2D5A1B =>  \#336633
+ok 10 - Nearest RGB:  \#00FF66 =>  \#00FF66

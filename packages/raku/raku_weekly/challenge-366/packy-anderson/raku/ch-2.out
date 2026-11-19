@@ -1,0 +1,27 @@
+Example 1:
+Input: $time = "?2:34"
+Output: 3
+
+Example 2:
+Input: $time = "?4:?0"
+Output: 12
+
+Example 3:
+Input: $time = "??:??"
+Output: 1440
+
+Example 4:
+Input: $time = "?3:45"
+Output: 3
+
+Example 5:
+Input: $time = "2?:15"
+Output: 4
+
+Example Trivial 1:
+Input: $time = "23:59"
+Output: 1
+
+Example Trivial 2:
+Input: $time = "25:1?"
+Output: 0

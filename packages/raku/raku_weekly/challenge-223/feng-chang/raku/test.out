@@ -1,0 +1,8 @@
+ok 1 - Count Primes: 10 => 4
+ok 2 - Count Primes:  7 => 4
+ok 3 - Count Primes:  0 => 0
+ok 4 - Count Primes: 20 => 8
+ok 5 - Max Coins: (3, 1, 5, 8) => 167
+ok 6 - Max Coins: (1, 5) => 10
+ok 7 - Max Coins: (3, 8) => 32
+1..7

@@ -1,0 +1,18 @@
+1..17
+ok 1 - ex-1
+ok 2 - ex-2
+ok 3 - ex-3
+ok 4 - ex-4
+ok 5 - long list: target -> 463
+ok 6 - long list: target -> 426
+ok 7 - long list: target -> 389
+ok 8 - long list: target -> 352
+ok 9 - long list: target -> 315
+ok 10 - long list: target -> 278
+ok 11 - long list: target -> 241
+ok 12 - long list: target -> 204
+ok 13 - long list: target -> 167
+ok 14 - long list: target -> 130
+ok 15 - long list: target -> 93
+ok 16 - long list: target -> 56
+ok 17 - long list: target -> 19

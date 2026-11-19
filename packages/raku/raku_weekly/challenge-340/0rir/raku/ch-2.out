@@ -1,0 +1,12 @@
+1..8
+ok 1 - True <- "The cat has 3 kittens 7 toys 10 beds"
+ok 2 - False <- "Alice bought 5 apples 2 oranges 9 bananas"
+ok 3 - True <- "I ran 1 mile 2 days 3 weeks 4 months"
+ok 4 - False <- "Bob has 10 cars 10 bikes"
+ok 5 - True <- "Zero is 0 one is 1 two is 2"
+ok 6 - Bool <- "Zero is zero"
+ok 7 - Bool <- "Zero is 1"
+ok 8 - Bool <- "100000000"
+
+Input: $str = 'The cat has 3 kittens 7 toys 10 beds'
+Output: True

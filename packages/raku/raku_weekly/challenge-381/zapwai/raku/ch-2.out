@@ -1,0 +1,10 @@
+Input: [2 4]
+Output: 0
+Input: [1 1 1 1]
+Output: 0
+Input: [1 1 4 8 12 12]
+Output: 2
+Input: [3 6 6 9]
+Output: 2
+Input: [0 -5 10 -2 4]
+Output: 3

@@ -1,0 +1,12 @@
+1..11
+ok 1 - describe duration 2019-09-15 to 3921-09-16 as 1902 years 1 day
+ok 2 - describe duration 2019-02-10 to 2022-11-01 as 3 years 264 days
+ok 3 - describe duration 2020-09-15 to 2022-03-29 as 1 year 195 days
+ok 4 - describe duration 2019-12-31 to 2020-01-01 as 1 day
+ok 5 - describe duration 2019-12-01 to 2019-12-31 as 30 days
+ok 6 - describe duration 2019-12-31 to 2020-12-31 as 1 year
+ok 7 - describe duration 2019-12-31 to 2021-12-31 as 2 years
+ok 8 - describe duration 2020-09-15 to 2021-09-16 as 1 year 1 day
+ok 9 - describe duration 2019-09-15 to 2021-09-16 as 2 years 1 day
+ok 10 - describe duration 2021-09-16 to 2021-09-16 as 0 days
+ok 11 - describe duration 2019-09-15 to 3921-09-16 as 1902 years 1 day

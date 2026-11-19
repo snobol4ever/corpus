@@ -1,0 +1,5 @@
+ok 1 - Count Smaller: @nums = (8, 1, 2, 2, 3) => (4, 0, 1, 1, 3)
+ok 2 - Count Smaller: @nums = (6, 5, 4, 8)    => (2, 1, 0, 3)
+ok 3 - Count Smaller: @nums = (2, 2, 2)       => (0, 0, 0)
+ok 4 - Group Hero: (2, 1, 4) => 141
+1..4

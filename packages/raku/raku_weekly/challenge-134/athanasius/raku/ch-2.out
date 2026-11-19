@@ -1,0 +1,8 @@
+
+Challenge 134, Task #2: Distinct Terms Count (Raku)
+
+Usage:
+  raku ch-2.raku <m> <n>
+  
+    <m>    Maximum row number
+    <n>    Maximum column number

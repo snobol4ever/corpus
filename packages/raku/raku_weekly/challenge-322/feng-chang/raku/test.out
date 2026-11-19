@@ -1,0 +1,9 @@
+ok 1 - String Format: $str="ABC-D-E-F",$i=3 => ABC-DEF
+ok 2 - String Format: $str="A-BC-D-E", $i=2 => A-BC-DE
+ok 3 - String Format: $str="-A-B-CD-E",$i=4 => A-BCDE
+ok 4 - Rank Array: (55,22,44,33) => (4,1,3,2)
+ok 5 - Rank Array: (10,10,10)    => (1,1,1)
+ok 6 - Rank Array: (5,1,1,4,3)   => (4,1,1,3,2)
+ok 7 - Rank Array: (55,22,44,33) => (4,1,3,2)
+ok 8 - Rank Array: (10,10,10)    => (1,1,1)
+ok 9 - Rank Array: (5,1,1,4,3)   => (4,1,1,3,2)

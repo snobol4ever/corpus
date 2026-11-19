@@ -1,0 +1,10 @@
+ok 1 - String Alike: textbook     => false
+ok 2 - String Alike: book         => true
+ok 3 - String Alike: AbCdEfGh     => true
+ok 4 - String Alike: rhythmmyth   => true
+ok 5 - String Alike: UmpireeAudio => false
+ok 6 - Convert Time: 02:30 02:45 => 1
+ok 7 - Convert Time: 11:55 12:15 => 2
+ok 8 - Convert Time: 09:00 13:00 => 4
+ok 9 - Convert Time: 23:45 00:30 => 3
+ok 10 - Convert Time: 14:20 15:25 => 2

@@ -1,0 +1,8 @@
+
+Challenge 170, Task #2: Kronecker Product (Raku)
+
+Usage:
+  raku ch-2.raku <A> <B>
+  
+    <A>    Matrix A (string: columns separated by ',' and rows by '|')
+    <B>    Matrix B (string: columns separated by ',' and rows by '|')

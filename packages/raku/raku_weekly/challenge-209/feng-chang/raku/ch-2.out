@@ -1,0 +1,3 @@
+examples:
+    ch-2.raku emails01.txt
+    ch-2.raku emails02.txt

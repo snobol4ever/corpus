@@ -1,0 +1,37 @@
+1..36
+not ok 1 - task2_many: IDID
+ok 2 - task2_many: IDID round-trip
+ok 3 - task2_many: III
+ok 4 - task2_many: III round-trip
+not ok 5 - task2_many: DDI
+ok 6 - task2_many: DDI round-trip
+ok 7 - task2c: IDID
+ok 8 - task2c: IDID round-trip
+ok 9 - task2c: III
+ok 10 - task2c: III round-trip
+ok 11 - task2c: DDI
+ok 12 - task2c: DDI round-trip
+ok 13 - task2d: IDID
+ok 14 - task2d: IDID round-trip
+ok 15 - task2d: III
+ok 16 - task2d: III round-trip
+ok 17 - task2d: DDI
+ok 18 - task2d: DDI round-trip
+ok 19 - task2e: IDID
+ok 20 - task2e: IDID round-trip
+ok 21 - task2e: III
+ok 22 - task2e: III round-trip
+ok 23 - task2e: DDI
+ok 24 - task2e: DDI round-trip
+ok 25 - task2f: IDID
+ok 26 - task2f: IDID round-trip
+ok 27 - task2f: III
+ok 28 - task2f: III round-trip
+ok 29 - task2f: DDI
+ok 30 - task2f: DDI round-trip
+ok 31 - task2g: IDID
+ok 32 - task2g: IDID round-trip
+ok 33 - task2g: III
+ok 34 - task2g: III round-trip
+ok 35 - task2g: DDI
+ok 36 - task2g: DDI round-trip

@@ -1,0 +1,14 @@
+Example 1:
+Input: $str = 'aBc 11c'
+       @str = ('accbbb', 'abc', 'abbc')
+Output: 'accbbb'
+
+Example 2:
+Input: $str = 'Da2 abc'
+       @str = ('abcm', 'baacd', 'abaadc')
+Output: 'baacd'
+
+Example 3:
+Input: $str = 'JB 007'
+       @str = ('jj', 'bb', 'bjb')
+Output: 'bjb'

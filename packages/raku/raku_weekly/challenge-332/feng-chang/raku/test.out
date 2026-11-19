@@ -1,0 +1,7 @@
+ok 1 - Binary Date: 2025-07-26 => 11111101001-111-11010
+ok 2 - Binary Date: 2000-02-02 => 11111010000-10-10
+ok 3 - Binary Date: 2024-12-31 => 11111101000-1100-11111
+ok 4 - Odd Letters: weekly    => false
+ok 5 - Odd Letters: perl      => true
+ok 6 - Odd Letters: challenge => false
+ok 7 - Odd Letters: eerie     => true

@@ -1,0 +1,8 @@
+
+Challenge 137, Task #2: Lychrel Number (Raku)
+
+Usage:
+  raku ch-2.raku [--terse] <n>
+  
+    <n>        A decimal integer between 10 and 1000 inclusive
+    --terse    Omit the explanation? [default: False]

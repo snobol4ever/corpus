@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = ""
+Output: ""
+
+Example 2:
+Input: $str = "reverse the given string"
+Output: "gnirts nevig eht esrever"
+
+Example 3:
+Input: $str = "Perl is Awesome"
+Output: "emosewA si lreP"
+
+Example 4:
+Input: $str = "v1.0.0-Beta!"
+Output: "!ateB-0.0.1v"
+
+Example 5:
+Input: $str = "racecar"
+Output: "racecar"

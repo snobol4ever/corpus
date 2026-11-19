@@ -1,0 +1,17 @@
+1..16
+ok 1 - task2_cont_regex_ladder : aabb
+ok 2 - task2_cont_regex_ladder : abab
+ok 3 - task2_cont_regex_ladder : aaa
+ok 4 - task2_cont_regex_ladder : bbb
+ok 5 - task2_cont_regex : aabb
+ok 6 - task2_cont_regex : abab
+ok 7 - task2_cont_regex : aaa
+ok 8 - task2_cont_regex : bbb
+ok 9 - task2_index_substr_cont : aabb
+ok 10 - task2_index_substr_cont : abab
+ok 11 - task2_index_substr_cont : aaa
+ok 12 - task2_index_substr_cont : bbb
+ok 13 - task2_single_regex : aabb
+ok 14 - task2_single_regex : abab
+ok 15 - task2_single_regex : aaa
+ok 16 - task2_single_regex : bbb

@@ -1,0 +1,7 @@
+
+Challenge 163, Task #2: Summations (Raku)
+
+Usage:
+  raku ch-2.raku [<n> ...]
+  
+    [<n> ...]    A list of positive integers

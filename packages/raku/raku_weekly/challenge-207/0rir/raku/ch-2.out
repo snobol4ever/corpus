@@ -1,0 +1,17 @@
+1..13
+ok 1 - 0 <- 
+ok 2 - 0 <- 0
+ok 3 - 0 <- 0 0 0
+ok 4 - 1 <- 1
+ok 5 - 1 <- Inf
+ok 6 - 2 <- Inf Inf
+ok 7 - 3 <- 1 Inf 1 Inf Inf
+ok 8 - 2 <- 1 Inf Inf 1
+ok 9 - 1 <- 1 Inf 1 1
+ok 10 - 1 <- 10
+ok 11 - 1 <- 0 0 1
+ok 12 - 4 <- 10 8 5 4 3
+ok 13 - 3 <- 25 8 5 3 3
+
+Input: @citations = 0 0 1 0 3 2 7 Inf Inf Inf
+Output: 4

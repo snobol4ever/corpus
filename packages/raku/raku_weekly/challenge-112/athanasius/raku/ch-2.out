@@ -1,0 +1,8 @@
+
+Challenge 112, Task #2: Climb Stairs (Raku)
+
+Usage:
+  raku ch-2.raku [--show-steps] <n>
+  
+    <n>             The number of steps to climb
+    --show-steps    Display all the distinct ways to climb? [default: False]

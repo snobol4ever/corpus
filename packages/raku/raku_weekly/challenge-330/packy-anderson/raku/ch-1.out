@@ -1,0 +1,11 @@
+Example 1:
+Input: $str = "cab12"
+Output: "c"
+
+Example 2:
+Input: $str = "xy99"
+Output: ""
+
+Example 3:
+Input: $str = "pa1erl"
+Output: "perl"

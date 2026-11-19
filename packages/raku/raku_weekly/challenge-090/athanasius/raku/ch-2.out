@@ -1,0 +1,8 @@
+
+Challenge 090, Task #2: Ethiopian Multiplication (Raku)
+
+Usage:
+  raku ch-2.raku <A> <B>
+  
+    <A>    A positive integer (the multiplier)
+    <B>    A positive integer (the multiplicand)

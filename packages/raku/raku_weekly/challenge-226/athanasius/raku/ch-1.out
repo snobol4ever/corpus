@@ -1,0 +1,9 @@
+
+Challenge 226, Task #1: Shuffle String (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Wikipedia 1
+ok 4 - Wikipedia 2
+1..4

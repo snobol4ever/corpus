@@ -1,0 +1,3 @@
+Usage: ch-1.raku <word> <integer> ...
+    Word should contain alphabetic characters only, and 
+    the number of integers should be equal to word length.

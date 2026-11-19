@@ -1,0 +1,9 @@
+
+Challenge 162, Task #2: Wheatstone-Playfair (Raku)
+
+Usage:
+  raku ch-2.raku [--key=<Str>] [--text=<Str>] [--decrypt]
+  
+    --key=<Str>     Cipher key
+    --text=<Str>    Plaintext or ciphertext
+    --decrypt       Decrypt instead of encrypt? [default: False]

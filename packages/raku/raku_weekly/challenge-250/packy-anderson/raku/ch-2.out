@@ -1,0 +1,7 @@
+Example 1:
+Input: @alphanumstr = ("perl", "2", "000", "python", "r4ku")
+Output: 6
+
+Example 2:
+Input: @alphanumstr = ("001", "1", "000", "0001")
+Output: 1

@@ -1,0 +1,7 @@
+1..6
+ok 1 - task2_via_classify : 1 1 2 1 3 2
+ok 2 - task2_via_classify : 1 2 2 3 1 3 3 2
+ok 3 - task2_via_classify : 1 1 2 2 3 3
+ok 4 - task2_via_Bag : 1 1 2 1 3 2
+ok 5 - task2_via_Bag : 1 2 2 3 1 3 3 2
+ok 6 - task2_via_Bag : 1 1 2 2 3 3

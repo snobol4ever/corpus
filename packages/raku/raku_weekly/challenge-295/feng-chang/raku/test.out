@@ -1,0 +1,7 @@
+ok 1 - Word Break: weeklychallenge challenge weekly     => true
+ok 2 - Word Break: perlrakuperl raku perl               => true
+ok 3 - Word Break: sonsanddaughters sons sand daughters => false
+ok 4 - Word Break: sonsanddaughters sons and daughters  => true
+ok 5 - Jump Game: 2,3,1,1,4 => 2
+ok 6 - Jump Game: 2,3,0,4   => 2
+ok 7 - Jump Game: 2,0,0,4   => -1

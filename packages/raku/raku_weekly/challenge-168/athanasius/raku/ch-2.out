@@ -1,0 +1,7 @@
+
+Challenge 168, Task #2: Home Prime (Raku)
+
+Usage:
+  raku ch-2.raku <n>
+  
+    <n>    An integer greater than 1

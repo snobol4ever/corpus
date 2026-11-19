@@ -1,0 +1,4 @@
+Usage:
+  ch-1.p6 <n> <k> -- Print the kth permutation of the numbers from 1 to n
+
+Please ensure k is between 1 and n!

@@ -1,0 +1,7 @@
+ok 1 - Common Characters: ("java", "javascript", "julia") => "j a"
+ok 2 - Common Characters: ("bella", "label", "roller")    => "e l l"
+ok 3 - Common Characters: ("cool", "lock", "cook")        => "c o"
+ok 4 - Unequal Triplets: 4, 4, 2, 4, 3           => 3
+ok 5 - Unequal Triplets: 1, 1, 1, 1, 1           => 0
+ok 6 - Unequal Triplets: 4, 7, 1, 10, 7, 4, 1, 1 => 28
+1..6

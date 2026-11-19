@@ -1,0 +1,7 @@
+ok 1 - Same String: "ab c",    "a bc"  => True
+ok 2 - Same String: "ab c",    "ac b"  => False
+ok 3 - Same String: "ab cd e", "abcde" => True
+ok 4 - Consistent Strings: @str = ("ad", "bd", "aaab", "baa", "badab"), $allowed = "ab"               => 2
+ok 5 - Consistent Strings: @str = ("a", "b", "c", "ab", "ac", "bc", "abc"), $allowed = "abc"          => 7
+ok 6 - Consistent Strings: @str = ("cc", "acd", "b", "ba", "bac", "bad", "ac", "d"), $allowed = "cad" => 4
+1..6

@@ -1,0 +1,10 @@
+Input: aeiou
+Output: aeiou
+Input: aaeeeiioouu
+Output: aeeeiioou
+Input: aeiouuaxaeiou
+Output: aeiou eiouua aeiou
+Input: uaeiou
+Output: uaeio aeiou
+Input: aeioaeioa
+Output: 

@@ -1,0 +1,10 @@
+1..6
+ok 1 - 'Raku Perl' <- RakuPerl ∘∘ 4 ∘∘ *
+ok 2 - 'Pytho n0000' <- Python ∘∘ 5 ∘∘ 0
+ok 3 - '123 45x' <- 12345 ∘∘ 3 ∘∘ x
+ok 4 - 'Hel loW orl d__' <- HelloWorld ∘∘ 3 ∘∘ _
+ok 5 - 'AI!!!' <- AI ∘∘ 5 ∘∘ !
+ok 6 - '~~~' <-  ∘∘ 3 ∘∘ ~
+
+Input: $str = "HelloWorld", $size = 3, $filler = "∘"
+Output: ("Hel", "loW", "orl", "d∘∘")

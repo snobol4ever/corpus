@@ -1,0 +1,6 @@
+ok 1 - 33% Appearance: (1,2,3,3,3,3,4,2) => 3
+ok 2 - 33% Appearance: (1,1)             => 1
+ok 3 - 33% Appearance: (1,2,3)           => 1
+ok 4 - Completing Word: $str = 'aBc 11c', @str = ('accbbb','abc','abbc')     => accbbb
+ok 5 - Completing Word: $str = 'Da2 abc', @str = ('abcm', 'baacd', 'abaadc') => baacd
+ok 6 - Completing Word: $str = 'JB 007',  @str = ('jj', 'bb', 'bjb')         => bjb

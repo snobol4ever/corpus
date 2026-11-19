@@ -1,0 +1,10 @@
+
+Challenge 328, Task #1: Replace all ? (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Adjacent ?
+ok 5 - All ?
+1..5

@@ -1,0 +1,9 @@
+
+Challenge 181, Task #1: Sentence Order (Raku)
+
+ok 1 - Example
+ok 2 - Quick brown fox
+ok 3 - Conversation
+ok 4 - Woodchuck
+ok 5 - 5th day of Christmas
+1..5

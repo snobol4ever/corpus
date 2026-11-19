@@ -1,0 +1,5 @@
+
+Usage:
+  raku ch-2.raku <S>
+  
+    <S>    String of phone digits (0..9, *, #)

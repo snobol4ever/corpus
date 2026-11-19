@@ -1,0 +1,11 @@
+
+Challenge 112, Task #1: Canonical Path (Raku)
+
+Input:  "/a/"
+Output: "/a"
+
+Input:  "/a/b//c/"
+Output: "/a/b/c"
+
+Input:  "/a/b/c/../.."
+Output: "/a"

@@ -1,0 +1,7 @@
+Example 1:
+Input: $ip = "1.1.1.1"
+Output: "1[.]1[.]1[.]1"
+
+Example 2:
+Input: $ip = "255.101.1.0"
+Output: "255[.]101[.]1[.]0"

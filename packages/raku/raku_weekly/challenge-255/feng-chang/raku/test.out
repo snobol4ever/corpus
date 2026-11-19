@@ -1,0 +1,6 @@
+ok 1 - Odd Character: "Perl", "Preel"     => "e"
+ok 2 - Odd Character: "Weekly", "Weeakly" => "a"
+ok 3 - Odd Character: "Box", "Boxy"       => "y"
+ok 4 - Most Frequent Word: "Joe hit a ball, the hit ball flew far after it was hit." => ball
+ok 5 - Most Frequent Word: "Perl and Raku belong to the same family. Perl is the most popular language in the weekly challenge." => Perl
+1..5

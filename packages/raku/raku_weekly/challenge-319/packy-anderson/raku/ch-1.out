@@ -1,0 +1,11 @@
+Example 1:
+Input: @list = ("unicode", "xml", "raku", "perl")
+Output: 2
+
+Example 2:
+Input: @list = ("the", "weekly", "challenge")
+Output: 2
+
+Example 3:
+Input: @list = ("perl", "python", "postgres")
+Output: 0

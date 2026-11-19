@@ -1,0 +1,7 @@
+ab-cde-123	 => xx-xxe-123
+123.abc.420	 => xxx.xbc.420
+3abc-0010.xy	 => xxxx-0010.xy
+1234567.a	 => xxxx567.a
+a-1234-bc	 => x-xxx4-bc
+a.b.c.d.e.f	 => x.x.x.x.e.f
+12__34567.a	 => xx__xx567.a

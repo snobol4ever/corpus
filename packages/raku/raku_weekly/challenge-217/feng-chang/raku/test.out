@@ -1,0 +1,9 @@
+ok 1 - Sorted Matrix: @matrix = ([3, 1, 2], [5, 2, 4], [0, 1, 3]) => 1
+ok 2 - Sorted Matrix: @matrix = ([2, 1], [4, 5]) => 4
+ok 3 - Sorted Matrix: @matrix = ([1, 0, 3], [0, 0, 0], [1, 2, 1]) => 0
+ok 4 - Max Number: (1, 23)          =>    231
+ok 5 - Max Number: (10, 3, 2)       =>   3210
+ok 6 - Max Number: (31, 2, 4, 10)   => 431210
+ok 7 - Max Number: (5, 11, 4, 1, 2) => 542111
+ok 8 - Max Number: (1, 10)          =>    110
+1..8

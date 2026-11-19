@@ -1,0 +1,20 @@
+Example 1:
+Input: @ints = (1, 5, 3, 2, 4, 2), $k = 2
+Output: (1 2)
+
+Sorted array: (1, 2, 2, 3, 4, 5)
+Target indices: (1, 2) as $ints[1] = 2 and $ints[2] = 2
+
+Example 2:
+Input: @ints = (1, 2, 4, 3, 5), $k = 6
+Output: ()
+
+Sorted array: (1, 2, 3, 4, 5)
+No element in the given array matching the given target.
+
+Example 3:
+Input: @ints = (5, 3, 2, 4, 2, 1), $k = 4
+Output: (4)
+
+Sorted array: (1, 2, 2, 3, 4, 5)
+Target indices: (4) as $ints[4] = 4

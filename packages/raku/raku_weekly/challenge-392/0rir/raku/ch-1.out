@@ -1,0 +1,15 @@
+1..11
+ok 1 -  sdepinnipeds <∘∘ pinnipeds
+ok 2 -  dcbabcd <∘∘ abcd
+ok 3 -  sananabananas <∘∘ bananas
+ok 4 -  tnedissident <∘∘ dissident
+ok 5 -  shcailliachs <∘∘ cailliachs
+ok 6 -  a <∘∘ a
+ok 7 -  cbabc <∘∘ abc
+ok 8 -  aba <∘∘ aba
+ok 9 -  abba <∘∘ abba
+ok 10 -  aabbaa <∘∘ abbaa
+ok 11 -   <∘∘ 
+
+Input: $str = "pinnipeds"
+Output: "sdepinnipeds"

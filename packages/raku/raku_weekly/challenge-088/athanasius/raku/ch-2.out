@@ -1,0 +1,10 @@
+
+Challenge 088, Task #2: Spiral Matrix (Raku)
+
+Usage:
+  raku ch-2.raku [<rows> ...]
+  raku ch-2.raku [-m[=Pos]] [-n[=Pos]]
+  
+    [<rows> ...]    One or more same-width rows, each a comma-separated list of one or more positive integers
+    -m[=Pos]        Positive integer: matrix height (total number of rows)
+    -n[=Pos]        Positive integer: matrix width (total number of columns)

@@ -1,0 +1,14 @@
+
+Challenge 239, Task #1: Same String (Raku)
+
+Running the test suite
+ok 1 - Example 1: same
+ok 2 - Example 1: word1
+ok 3 - Example 1: word2
+ok 4 - Example 2: same
+ok 5 - Example 2: word1
+ok 6 - Example 2: word2
+ok 7 - Example 3: same
+ok 8 - Example 3: word1
+ok 9 - Example 3: word2
+1..9

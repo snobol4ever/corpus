@@ -1,0 +1,11 @@
+Example 1:
+Input: @bills = (5, 5, 5, 10, 20)
+Output: true
+
+Example 2:
+Input: @bills = (5, 5, 10, 10, 20)
+Output: false
+
+Example 3:
+Input: @bills = (5, 5, 5, 20)
+Output: true

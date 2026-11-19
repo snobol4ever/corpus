@@ -1,0 +1,52 @@
+1..48
+ok 1 - 0 <~∘ 
+ok 2 - 0 <~∘ |
+ok 3 - 0 <~∘ x
+ok 4 - 1 <~∘ *
+ok 5 - 1 <~∘ *|
+ok 6 - 0 <~∘ x|
+ok 7 - 1 <~∘ |*
+ok 8 - 0 <~∘ |x
+ok 9 - 2 <~∘ *|*
+ok 10 - 0 <~∘ x||
+ok 11 - 0 <~∘ x|i|
+ok 12 - 0 <~∘ x|*|
+ok 13 - 1 <~∘ *||
+ok 14 - 1 <~∘ *|i|
+ok 15 - 1 <~∘ *|*|
+ok 16 - 1 <~∘ *|*||i|
+ok 17 - 0 <~∘ x||x
+ok 18 - 0 <~∘ x|i|x
+ok 19 - 0 <~∘ x|*|x
+ok 20 - 0 <~∘ x|*||i|x
+ok 21 - 1 <~∘ *||x
+ok 22 - 1 <~∘ *|i|x
+ok 23 - 1 <~∘ *|*|x
+ok 24 - 1 <~∘ *|*||i|x
+ok 25 - 0 <~∘ x|*||i|
+ok 26 - 2 <~∘ *|*|*
+ok 27 - 1 <~∘ *|a|a
+ok 28 - 0 <~∘ a|*|a
+ok 29 - 1 <~∘ a|a|*
+ok 30 - 1 <~∘ *|*|x
+ok 31 - 0 <~∘ ||
+ok 32 - 0 <~∘ |i|
+ok 33 - 0 <~∘ |*|
+ok 34 - 0 <~∘ ||x
+ok 35 - 0 <~∘ |i|x
+ok 36 - 0 <~∘ |*|x
+ok 37 - 0 <~∘ |*||i|
+ok 38 - 1 <~∘ |*|*
+ok 39 - 0 <~∘ |*||i|x
+ok 40 - 4 <~∘ p|*e*rl|w**e|*ekly|*x*|
+ok 41 - 2 <~∘ p|*e*rl|w**e|*ekly||
+ok 42 - 5 <~∘ th|ewe|e**|k|l***ych|alleng|e|
+ok 43 - 6 <~∘ th|ewe|e**|k|l***ych|alleng|*e|
+ok 44 - 6 <~∘ th|ewe|e**|k|l***ych|alleng|*e|e
+ok 45 - 7 <~∘ th|ewe|e**|k|l***ych|alleng|*e|*
+ok 46 - 2 <~∘ p|*e*rl|w**e|*ekly|
+ok 47 - 0 <~∘ perl
+ok 48 - 5 <~∘ th|ewe|e**|k|l***ych|alleng|e
+
+Input: $str = "th|ewe|e**|k|l***ych|alleng|*e|"
+Output: 6

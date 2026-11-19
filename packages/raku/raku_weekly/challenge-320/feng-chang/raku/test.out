@@ -1,0 +1,6 @@
+ok 1 - Maximum Count: (-3,-2,-1,1,2,3) => 3
+ok 2 - Maximum Count: (-2,-1,0,0,1)    => 2
+ok 3 - Maximum Count: (1,2,3,4)        => 4
+not ok 4 - Sum Difference: (1,23,4,5)  => 18
+not ok 5 - Sum Difference: (1,2,3,4,5) =>  0
+not ok 6 - Sum Difference: (1,2,34)    => 27

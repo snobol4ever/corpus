@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = 'weeklychallenge', @words = ("challenge", "weekly")
+Output: true
+
+Example 2:
+Input: $str = 'perlrakuperl', @words = ("raku", "perl")
+Output: true
+
+Example 3:
+Input: $str = 'sonsanddaughters', @words = ("sons", "sand", "daughters")
+Output: false
+
+Example 4:
+Input: $str = 'raperlrakuperlku', @words = ("raku", "perl")
+Output: false
+
+Example 5:
+Input: $str = 'thequickbrownfoxx', @words = ("the", "quick", "brown", "fox")
+Output: false

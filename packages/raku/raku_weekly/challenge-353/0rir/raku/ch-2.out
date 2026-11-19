@@ -1,0 +1,11 @@
+1..5
+ok 1 - 
+ok 2 - 
+ok 3 - 
+ok 4 - 
+ok 5 - 
+
+Input: @code  =  ("ITEM_1", "ITEM_2", "ITEM_3", "ITEM_4")
+       @names  = ("electronics", "electronics", "grocery", "grocery")
+       @status = ("true", "true", "true", "true")
+Output: (true, true, true, true)

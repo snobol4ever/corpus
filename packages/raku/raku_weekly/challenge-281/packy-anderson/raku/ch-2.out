@@ -1,0 +1,17 @@
+Example 1:
+Input: $start = 'g2', $end = 'a8'
+Output: 4
+
+g2 -> e3 -> c4 -> b6 -> a8
+
+Example 2:
+Input: $start = 'g2', $end = 'h2'
+Output: 3
+
+g2 -> e1 -> f3 -> h2
+
+Example 3:
+Input: $start = 'a1', $end = 'h8'
+Output: 6
+
+a1 -> c2 -> a3 -> c4 -> e5 -> g6 -> h8

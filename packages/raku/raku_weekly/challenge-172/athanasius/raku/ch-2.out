@@ -1,0 +1,5 @@
+
+Challenge 172, Task #2: Five-number Summary (Raku)
+
+Usage:
+  raku ch-2.raku [<samples> ...] -- A non-empty array of integers

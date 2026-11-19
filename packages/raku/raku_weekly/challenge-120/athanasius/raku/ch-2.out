@@ -1,0 +1,7 @@
+
+Challenge 120, Task #2: Clock Angle (Raku)
+
+Usage:
+  raku ch-2.raku <T>
+  
+    <T>    A time in 12-hour "hh:mm" format

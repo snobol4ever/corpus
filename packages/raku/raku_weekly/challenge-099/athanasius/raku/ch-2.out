@@ -1,0 +1,8 @@
+
+Challenge 099, Task #2: Unique Subsequence (Raku)
+
+Usage:
+  raku ch-2.raku <S> <T>
+  
+    <S>    Non-empty string to be searched
+    <T>    Non-empty substring to search for in S

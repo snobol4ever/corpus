@@ -1,0 +1,6 @@
+Input: @str = [abc bce cae]
+Output: 1
+
+Input: @str = [yxz cba mon]
+Output: 2
+

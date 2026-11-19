@@ -1,0 +1,7 @@
+
+Challenge 087, Task #2: Largest Rectangle (Raku)
+
+Usage:
+  raku ch-2.raku [<rows> ...]
+  
+    [<rows> ...]    1+ same-width rows, each a string of 1+ "1" & "0" chars

@@ -1,0 +1,9 @@
+ok 1 - Equal Strings: $s1="abc", $s2="abb", $s3="ab"  => 2
+ok 2 - Equal Strings: $s1="ayz", $s2="cyz", $s3="xyz" => -1
+ok 3 - Equal Strings: $s1="yza", $s2="yzb", $s3="yzc" => 3
+ok 4 - Equal Strings: $s1="abc", $s2="abb", $s3="ab"  => 2
+ok 5 - Equal Strings: $s1="ayz", $s2="cyz", $s3="xyz" => -1
+ok 6 - Equal Strings: $s1="yza", $s2="yzb", $s3="yzc" => 3
+ok 7 - Sort Column: "swpc","tyad","azbe" => 2
+ok 8 - Sort Column: "cba","daf","ghi"    => 1
+ok 9 - Sort Column: "a","b","c"          => 0

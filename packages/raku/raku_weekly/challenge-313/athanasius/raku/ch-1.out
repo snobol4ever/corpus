@@ -1,0 +1,17 @@
+
+Challenge 313, Task #1: Broken Keys (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Example 4
+ok 5 - Empty 1
+ok 6 - Empty 2
+ok 7 - Too small
+ok 8 - Singleton 1
+ok 9 - Singleton 2
+ok 10 - Singleton 3
+ok 11 - Wrong order
+ok 12 - Penultimate
+1..12

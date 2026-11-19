@@ -1,0 +1,8 @@
+ok 1 - Concatenation Value: (6, 12, 25, 1)       => 1286
+ok 2 - Concatenation Value: (10, 7, 31, 5, 2, 2) => 489
+ok 3 - Concatenation Value: (1, 2, 10)           => 112
+not ok 4 - Lucky Numbers: [[3, 7, 8], [9, 11, 13], [15, 16, 17]]          => 15
+not ok 5 - Lucky Numbers: [[1, 10, 4, 2], [9, 3, 8, 7], [15, 16, 17, 12]] => 12
+not ok 6 - Lucky Numbers: [[7, 8], [1, 2]]                                => 7
+not ok 7 - Lucky Numbers: [[1, 3], [4, 2]]                                => -1
+1..7

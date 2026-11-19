@@ -1,0 +1,10 @@
+ok 1 - Kolakoski Sequence: 4 => 2
+ok 2 - Kolakoski Sequence: 5 => 3
+ok 3 - Kolakoski Sequence: 6 => 3
+ok 4 - Kolakoski Sequence: 7 => 4
+ok 5 - Kolakoski Sequence: 8 => 4
+ok 6 - Who Wins: HAHAHH => "Team 2 defeated Team 6"
+ok 7 - Who Wins: HHHHHH => "Team 1 defeated Team 2"
+ok 8 - Who Wins: HHHAHA => "Team 4 defeated Team 2"
+ok 9 - Who Wins: HAHAAH => "Team 4 defeated Team 6"
+ok 10 - Who Wins: HAAHAA => "Team 5 defeated Team 1"

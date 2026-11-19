@@ -1,0 +1,9 @@
+
+Challenge 198, Task #1: Max Gap (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Negatives
+ok 4 - Mixed    
+1..4

@@ -1,0 +1,11 @@
+Example 1:
+Input: $int = 12344456
+Output: "444"
+
+Example 2:
+Input: $int = 1233334
+Output: -1
+
+Example 3:
+Input: $int = 10020003
+Output: "000"

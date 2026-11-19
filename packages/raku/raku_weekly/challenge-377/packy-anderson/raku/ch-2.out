@@ -1,0 +1,37 @@
+Example 1:
+Input: @array = ("a", "aba", "ababa", "aa")
+Output: 4
+
+$array[0], $array[1]: "a" is a prefix and suffix of "aba"
+$array[0], $array[2]: "a" is a prefix and suffix of "ababa"
+$array[0], $array[3]: "a" is a prefix and suffix of "aa"
+$array[1], $array[2]: "aba" is a prefix and suffix of "ababa"
+
+Example 2:
+Input: @array = ("pa", "papa", "ma", "mama")
+Output: 2
+
+$array[0], $array[1]: "pa" is a prefix and suffix of "papa"
+$array[2], $array[3]: "ma" is a prefix and suffix of "mama"
+
+Example 3:
+Input: @array = ("abao", "ab")
+Output: 0
+
+Example 4:
+Input: @array = ("abab", "abab")
+Output: 1
+
+$array[0], $array[1]: "abab" is a prefix and suffix of "abab"
+
+Example 5:
+Input: @array = ("ab", "abab", "ababab")
+Output: 3
+
+$array[0], $array[1]: "ab" is a prefix and suffix of "abab"
+$array[0], $array[2]: "ab" is a prefix and suffix of "ababab"
+$array[1], $array[2]: "abab" is a prefix and suffix of "ababab"
+
+Example 6:
+Input: @array = ("abc", "def", "ghij")
+Output: 0

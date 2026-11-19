@@ -1,0 +1,8 @@
+Input: $S = "littleit' $T = 'lit'
+Output: 5
+
+    1: [lit]tleit
+    2: [li]t[t]leit
+    3: [li]ttlei[t]
+    4: [l]ittle[it]
+    5: litt[l]e[it]

@@ -1,0 +1,52 @@
+1..48
+ok 1 - first-day-o-wk-in-mo
+ok 2 - day is expected
+ok 3 - weekday match
+ok 4 - yr/mo: 2024/4  occur: 1  dow: 1 
+ok 5 - first-day-o-wk-in-mo
+ok 6 - day is expected
+ok 7 - weekday match
+ok 8 - yr/mo: 2024/4  occur: 1  dow: 2 
+ok 9 - first-day-o-wk-in-mo
+ok 10 - day is expected
+ok 11 - weekday match
+ok 12 - yr/mo: 2024/4  occur: 1  dow: 3 
+ok 13 - first-day-o-wk-in-mo
+ok 14 - day is expected
+ok 15 - weekday match
+ok 16 - yr/mo: 2024/4  occur: 1  dow: 4 
+ok 17 - first-day-o-wk-in-mo
+ok 18 - day is expected
+ok 19 - weekday match
+ok 20 - yr/mo: 2024/4  occur: 1  dow: 5 
+ok 21 - first-day-o-wk-in-mo
+ok 22 - day is expected
+ok 23 - weekday match
+ok 24 - yr/mo: 2024/4  occur: 1  dow: 6 
+ok 25 - first-day-o-wk-in-mo
+ok 26 - day is expected
+ok 27 - weekday match
+ok 28 - yr/mo: 2024/4  occur: 1  dow: 7 
+ok 29 - day is expected
+ok 30 - weekday match
+ok 31 - yr/mo: 2024/4  occur: 2  dow: 2 
+ok 32 - day is expected
+ok 33 - weekday match
+ok 34 - yr/mo: 2024/4  occur: 3  dow: 2 
+ok 35 - day is expected
+ok 36 - weekday match
+ok 37 - yr/mo: 2024/4  occur: 4  dow: 2 
+ok 38 - day is expected
+ok 39 - weekday match
+ok 40 - yr/mo: 2024/4  occur: 5  dow: 2 
+ok 41 - yr/mo: 2024/4  occur: 6  dow: 2 
+ok 42 - day is expected
+ok 43 - weekday match
+ok 44 - yr/mo: 2025/10  occur: 2  dow: 4 
+ok 45 - yr/mo: 2026/8  occur: 5  dow: 3 
+ok 46 - day is expected
+ok 47 - weekday match
+ok 48 - yr/mo: 2024/3  occur: 3  dow: 1 
+
+Input: Year = 2024, Month = 4, Weekday of month = 3, day-of-week = 2
+Output: 16

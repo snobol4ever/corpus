@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "abcba"
+Output: true
+
+Example 2:
+Input: $str = "racecar"
+Output: true
+
+Example 3:
+Input: $str = "abcd"
+Output: false
+
+Example 4:
+Input: $str = "banana"
+Output: true
+
+Example 5:
+Input: $str = "hello"
+Output: true

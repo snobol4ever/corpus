@@ -1,0 +1,11 @@
+
+Challenge 262, Task #2: Count Equal Divisible (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Negative $k 1
+ok 4 - Negative $k 2
+ok 5 - Negative ints 1
+ok 6 - Negative ints 2
+1..6

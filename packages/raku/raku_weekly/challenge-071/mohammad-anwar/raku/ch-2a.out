@@ -1,0 +1,7 @@
+ok 1 - testing $N = 1
+ok 2 - testing $N = 2
+ok 3 - testing $N = 3
+ok 4 - testing $N = 4
+ok 5 - testing $N = 5
+ok 6 - testing $N = 6
+1..6

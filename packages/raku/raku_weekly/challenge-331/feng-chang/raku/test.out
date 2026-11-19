@@ -1,0 +1,7 @@
+ok 1 - Last Word: "The Weekly Challenge" => 9
+ok 2 - Last Word: "   Hello   World    " => 5
+ok 3 - Last Word: "Let's begin the fun"  => 3
+ok 4 - Buddy Strings: fuck fcuk => true
+ok 5 - Buddy Strings: love love => false
+ok 6 - Buddy Strings: fodo food => true
+ok 7 - Buddy Strings: feed feed => true

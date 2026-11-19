@@ -1,0 +1,9 @@
+
+Challenge 249, Task #1: Equal Pairs (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Negatives 1
+ok 4 - Negatives 2
+1..4

@@ -1,0 +1,5 @@
+ok 1 - Binary Prefix: (1,0,1) => false,true,true
+ok 2 - Binary Prefix: (1,1,0) => false,true,false
+ok 3 - Binary Prefix: (1,1,1,1,0,1,0,0,0,0,1,0,1,0,0,1,0,0,0,1) => false,true,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,true
+ok 4 - Alien Dictionary: @words=<perl python raku>,     alien="hlabydefgirkmnopqjstuvwxcz" => raku,python,perl
+ok 5 - Alien Dictionary: @words=<the weekly challenge>, alien="corldabtefghijkmnpqswuvxyz" => challenge,the,weekly

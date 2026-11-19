@@ -1,0 +1,4 @@
+Count   1
+Offset  7
+Start   a b c d e f g h
+Result  b a c d e f g h

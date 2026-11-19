@@ -1,0 +1,7 @@
+Example 1:
+Input: $str = "loveleetcode", $char = "e"
+Output: (3,2,1,0,1,0,0,1,2,2,1,0)
+
+Example 2:
+Input: $str = "aaab", $char = "b"
+Output: (3,2,1,0)

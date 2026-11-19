@@ -1,0 +1,15 @@
+
+Challenge 318, Task #2: Reverse Equals (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Empty
+ok 5 - Same 1
+ok 6 - Same 2
+ok 7 - Whole
+ok 8 - Left
+ok 9 - Right
+ok 10 - Centre
+1..10

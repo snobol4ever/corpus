@@ -1,0 +1,9 @@
+1..5
+ok 1 - 9 <- hello
+ok 2 - 2 <- football
+ok 3 - 0 <- a
+ok 4 - 2 <- challenge
+ok 5 - 2 <- perl
+
+Input: $str = "TimeToTakeOutThePerl"
+ Output: 0

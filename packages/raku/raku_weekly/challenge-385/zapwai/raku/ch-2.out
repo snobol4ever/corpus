@@ -1,0 +1,10 @@
+Input: $str = ()()()
+Output: 
+Input: $str = (((())))
+Output: ((()))
+Input: $str = (()())(())
+Output: ()()()
+Input: $str = ()((()))()
+Output: (())
+Input: $str = (()(()))(()())
+Output: ()(())()()

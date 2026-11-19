@@ -1,0 +1,15 @@
+Example 1:
+Input: @routes = ([B, C], [D, B], [C, A])
+Output: A
+
+Example 2:
+Input: @routes = ([A, Z])
+Output: Z
+
+Bad Input: multiple terminal destinations
+Input: @routes = ([A, B], [C, D])
+Output: multiple terminal destinations
+
+Bad Input: no terminal destinations
+Input: @routes = ([A, Z], [Z, A])
+Output: no terminal destinations

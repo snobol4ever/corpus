@@ -1,0 +1,9 @@
+1..4
+ok 1 - 1 2 <- "the1weekly2challenge2"
+ok 2 - 21 1 5 7 <- "go21od1lu5c7k"
+ok 3 - 4 3 2 1 <- "4p3e2r1l"
+ok 4 -  <- "raku"
+
+Input: $str = "pqwo48957u10qt7430qr10uo105973hjf5973hj"
+Output: "48957, 10, 7430, 105973, 5973"
+

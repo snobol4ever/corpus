@@ -1,0 +1,10 @@
+
+Challenge 220, Task #2: Squareful (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - No solution
+ok 4 - Negative
+ok 5 - Out-of-order
+1..5

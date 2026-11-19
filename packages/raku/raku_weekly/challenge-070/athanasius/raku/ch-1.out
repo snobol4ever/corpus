@@ -1,0 +1,9 @@
+
+Challenge 070, Task #1: Character Swapping (Raku)
+
+Usage:
+  raku ch-1.raku <S> <C> <O>
+  
+    <S>    Non-empty string
+    <C>    Swap count: integer >= 1
+    <O>    Offset: integer >= 1 such that C <= O and C + O <= |S|

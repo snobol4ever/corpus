@@ -1,0 +1,9 @@
+1..5
+ok 1 -  <- ""
+ok 2 - gnirts nevig eht esrever <- "reverse the given string"
+ok 3 - emosewA si lreP <- "Perl is Awesome"
+ok 4 - !ateB-0.0.1v <- "v1.0.0-Beta!"
+ok 5 - racecar <- "racecar"
+
+Input: $str = "Raku is something"
+Output: "gnihtemos si ukaR"

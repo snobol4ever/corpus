@@ -1,0 +1,6 @@
+ok 1 - Sort Letters: <R E P L>,     3,2,1,4     => PERL
+ok 2 - Sort Letters: <A U R K>,     2,4,1,3     => RAKU
+ok 3 - Sort Letters: <O H Y N P T>, 5,4,2,6,1,3 => PYTHON
+ok 4 - Split String: "perl"         => False
+ok 5 - Split String: "book"         => True
+ok 6 - Split String: "good morning" => True

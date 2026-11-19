@@ -1,0 +1,14 @@
+
+Challenge 276, Task #2: Maximum Frequency (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 1
+ok 3 - Example 1
+ok 4 - Example 2
+ok 5 - Example 2
+ok 6 - Example 2
+ok 7 - Single elem
+ok 8 - Single elem
+ok 9 - Single elem
+1..9

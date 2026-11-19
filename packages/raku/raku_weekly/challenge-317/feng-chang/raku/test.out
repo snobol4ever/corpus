@@ -1,0 +1,7 @@
+ok 1 - Acronyms: @array = <Perl Weekly Challenge>, $word ="PWC" => true
+ok 2 - Acronyms: @array = <Bob Charlie Joe>,       $word ="BCJ" => true
+ok 3 - Acronyms: @array = <Morning Good>,          $word ="MM"  => false
+ok 4 - Friendly Strings: $str1 = "desc",   $str2 = "dsec"   => true
+ok 5 - Friendly Strings: $str1 = "fuck",   $str2 = "fcuk"   => true
+ok 6 - Friendly Strings: $str1 = "poo",    $str2 = "eop"    => false
+ok 7 - Friendly Strings: $str1 = "stripe", $str2 = "sprite" => true

@@ -1,0 +1,39 @@
+Example 1:
+Input: $str = "1st Jan 2025"
+Output: "2025-01-01"
+
+Example 2:
+Input: $str = "22nd Feb 2025"
+Output: "2025-02-22"
+
+Example 3:
+Input: $str = "15th Apr 2025"
+Output: "2025-04-15"
+
+Example 4:
+Input: $str = "23rd Oct 2025"
+Output: "2025-10-23"
+
+Example 5:
+Input: $str = "31st Dec 2025"
+Output: "2025-12-31"
+
+Example Year Too Big:
+Input: $str = "31st Dec 2525"
+Output: Year must be between 1900-2100
+
+Example Year Too Small:
+Input: $str = "31st Dec 1825"
+Output: Year must be between 1900-2100
+
+Example Bad Ordinal:
+Input: $str = "31nd Dec 2025"
+Output: 31nd has the incorrect ordinal
+
+Example Bad Month:
+Input: $str = "30th Avril 2025"
+Output: Unknown month 'Avril'
+
+Example Bad Date:
+Input: $str = "31st Feb 2025"
+Output: Day out of range. Is: 31, should be in 1..28

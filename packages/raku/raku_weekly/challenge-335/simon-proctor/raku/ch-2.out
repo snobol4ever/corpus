@@ -1,0 +1,25 @@
+ok 1 - 
+# A| | 
+# -+-+-
+#  |A| 
+# -+-+-
+# B|B|A victory for A
+ok 2 - 
+# A|A|B
+# -+-+-
+# A|B| 
+# -+-+-
+# B| |  victory for B
+ok 3 - 
+# A|A|B
+# -+-+-
+# B|B|A
+# -+-+-
+# A|B|A victory for Draw
+ok 4 - 
+# A| | 
+# -+-+-
+#  |B| 
+# -+-+-
+#  | |  victory for Pending
+1..4

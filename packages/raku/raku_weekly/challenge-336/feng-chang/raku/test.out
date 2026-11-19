@@ -1,0 +1,10 @@
+ok 1 - Equal Group: (1,1,2,2,2,2)             => true
+ok 2 - Equal Group: (1,1,1,2,2,2,3,3)         => false
+ok 3 - Equal Group: (5,5,5,5,5,5,7,7,7,7,7,7) => true
+ok 4 - Equal Group: (1,2,3,4)                 => false
+ok 5 - Equal Group: (8,8,9,9,10,10,11,11)     => true
+ok 6 - Final Score: ("5","2","C","D","+")                          =>  30
+ok 7 - Final Score: ("5","-2","4","C","D","9","+","+")             =>  27
+ok 8 - Final Score: ("7","D","D","C","+","3")                      =>  45
+ok 9 - Final Score: ("-5","-10","+","D","C","+")                   => -55
+ok 10 - Final Score: ("3","6","+","D","C","8","+","D","-2","C","+") => 128

@@ -1,0 +1,15 @@
+Input: @array = qw(@e m u g), target = b
+e
+ 
+Input: @array = qw(@d c e f), target = a
+c
+ 
+Input: @array = qw(@j a r), target = o
+r
+ 
+Input: @array = qw(@d c a f), target = a
+c
+ 
+Input: @array = qw(@t g a l), target = v
+v
+ 

@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "banana"
+Output: 5
+
+Example 2:
+Input: $str = "teestett"
+Output: 7
+
+Example 3:
+Input: $str = "aeiouuaa"
+Output: 3
+
+Example 4:
+Input: $str = "rhythm"
+Output: 2
+
+Example 5:
+Input: $str = "x"
+Output: 1

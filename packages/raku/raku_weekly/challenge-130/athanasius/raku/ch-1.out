@@ -1,0 +1,10 @@
+
+Challenge 130, Task #1: Odd Number (Raku)
+
+Input:  @N = ()
+
+ERROR: No entries appear an odd number of times
+Usage:
+  raku ch-1.raku [<N> ...]
+  
+    [<N> ...]    List of +ve ints: exactly one appears an odd number of times

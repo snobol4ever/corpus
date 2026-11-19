@@ -1,0 +1,13 @@
+
+Challenge 278, Task #2: Reverse Word (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Final char
+ok 5 - First char
+ok 6 - Empty
+ok 7 - One char
+ok 8 - Reversed
+1..8

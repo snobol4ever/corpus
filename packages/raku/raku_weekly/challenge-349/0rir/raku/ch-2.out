@@ -1,0 +1,9 @@
+1..5
+ok 1 - False <- "ULD"
+ok 2 - True <- "ULDR"
+ok 3 - False <- "UUURRRDDD"
+ok 4 - True <- "UURRRDDLLL"
+ok 5 - True <- "RRUULLDDRRUU"
+
+Input: $path = "RRUULLDDRRUU"
+Output: true

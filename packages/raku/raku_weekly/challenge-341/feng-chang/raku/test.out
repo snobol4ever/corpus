@@ -1,0 +1,10 @@
+ok 1 - Broken Keyboard: "Hello World",          @keys=<d>   => 1
+ok 2 - Broken Keyboard: "apple banana cherry",  @keys=<a e> => 0
+ok 3 - Broken Keyboard: "Coding is fun",        @keys=<>    => 3
+ok 4 - Broken Keyboard: "The Weekly Challenge", @keys=<a b> => 2
+ok 5 - Broken Keyboard: "Perl and Python",      @keys=<p>   => 1
+ok 6 - Reverse Prefix: programming g => gorpramming
+ok 7 - Reverse Prefix: hello       h => hello
+ok 8 - Reverse Prefix: abcdefghij  h => hgfedcbaij
+ok 9 - Reverse Prefix: reverse     s => srevere
+ok 10 - Reverse Prefix: perl        r => repl

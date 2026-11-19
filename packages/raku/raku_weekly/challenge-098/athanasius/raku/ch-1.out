@@ -1,0 +1,19 @@
+
+Challenge 098, Task #1: Read N-characters (Raku)
+
+Input:
+  File "digit.txt" contains "1234567890"
+  File "alpha.txt" contains "abcdefghijklmnopqrstuvwxyz"
+
+Output:
+  Read 4 characters from digit.txt: "1234"
+  Read 5 characters from alpha.txt: "abcde"
+  Read 3 characters from digit.txt: "567"
+  Read 3 characters from alpha.txt: "fgh"
+  Read 1 character  from digit.txt: "8"
+  Read 4 characters from alpha.txt: "ijkl"
+  Read 7 characters from digit.txt: "90"
+  Read 4 characters from alpha.txt: "mnop"
+  Read 2 characters from digit.txt: ""
+  Reset and
+  read 3 characters from digit.txt: "123"

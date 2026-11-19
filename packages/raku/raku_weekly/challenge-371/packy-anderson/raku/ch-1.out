@@ -1,0 +1,27 @@
+Example 1:
+Input: @arr = qw(a c ? g i)
+Output: e
+
+Example 2:
+Input: @arr = qw(a d ? j m)
+Output: g
+
+Example 3:
+Input: @arr = qw(a e ? m q)
+Output: i
+
+Example 4:
+Input: @arr = qw(a c f ? k)
+Output: h
+
+Example 5:
+Input: @arr = qw(b e g ? l)
+Output: j
+
+Example 6:
+Input: @arr = qw(? t v x z)
+Output: r
+
+Example 7:
+Input: @arr = qw(l m o p ?)
+Output: r

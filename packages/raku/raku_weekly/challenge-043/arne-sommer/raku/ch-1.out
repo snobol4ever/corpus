@@ -1,0 +1,6 @@
+Values: 8 3 7 1 6 4 5 2 9 (from left to right)
+Blue:   8 + 3
+Yellow: 3 + 7 + 1
+Black:  1 + 6 + 4
+Green:  4 + 5 + 2
+Red:    2 + 9

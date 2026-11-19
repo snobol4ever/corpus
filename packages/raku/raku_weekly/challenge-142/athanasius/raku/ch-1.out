@@ -1,0 +1,8 @@
+
+Challenge 142, Task #1: Divisor Last Digit (Raku)
+
+Usage:
+  raku ch-1.raku <m> <n>
+  
+    <m>    A positive integer
+    <n>    A decimal digit (0-9)

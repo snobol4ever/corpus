@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "programming", $char = "g"
+Output: "gorpramming"
+
+Example 2:
+Input: $str = "hello", $char = "h"
+Output: "hello"
+
+Example 3:
+Input: $str = "abcdefghij", $char = "h"
+Output: "hgfedcbaij"
+
+Example 4:
+Input: $str = "reverse", $char = "s"
+Output: "srevere"
+
+Example 5:
+Input: $str = "perl", $char = "r"
+Output: "repl"

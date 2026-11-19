@@ -1,0 +1,9 @@
+
+Challenge 212, Task #1: Jumping Letters (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - One letter
+ok 4 - Me
+1..4

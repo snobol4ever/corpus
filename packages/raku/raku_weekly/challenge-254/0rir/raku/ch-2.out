@@ -1,0 +1,16 @@
+1..12
+ok 1 -  -> 
+ok 2 - ' ' -> ' '
+ok 3 - Url -> Url
+ok 4 - url -> url
+ok 5 - Raku -> Ruka
+ok 6 - RAku -> RUka
+ok 7 - RAkU -> RUkA
+ok 8 - RakU -> RukA
+ok 9 - Perl -> Perl
+ok 10 - Julia -> Jaliu
+ok 11 - Uiua -> Auiu
+ok 12 - Juniper tea -> Janeper tiu
+
+Input: $s = Et's nit POERL at's Paarl, but that wes tikan se ot's Pirl.
+Output: It's not PEARL it's Pearl, but that was taken so it's Perl.

@@ -1,0 +1,5 @@
+ok 1 - testing m=5, n=2
+ok 2 - testing m=5, n=3
+ok 3 - testing m=5, n=4
+ok 4 - testing m=5, n=5
+1..4

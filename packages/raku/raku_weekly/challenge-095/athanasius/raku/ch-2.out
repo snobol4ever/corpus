@@ -1,0 +1,81 @@
+
+Challenge 095, Task #2: Demo Stack (Raku)
+
+New stack:
+Stack: (empty)
+
+push(2):
+Stack: +---+
+       | 2 | <- top
+       +---+
+
+push(-1):
+Stack: +----+
+       | -1 | <- top
+       +----+
+       |  2 |
+       +----+
+
+push(0):
+Stack: +----+
+       |  0 | <- top
+       +----+
+       | -1 |
+       +----+
+       |  2 |
+       +----+
+
+pop(): The popped item is 0
+Stack: +----+
+       | -1 | <- top
+       +----+
+       |  2 |
+       +----+
+
+top(): The top item is -1
+Stack: +----+
+       | -1 | <- top
+       +----+
+       |  2 |
+       +----+
+
+push(0):
+Stack: +----+
+       |  0 | <- top
+       +----+
+       | -1 |
+       +----+
+       |  2 |
+       +----+
+
+min(): The min item is -1
+Stack: +----+
+       |  0 | <- top
+       +----+
+       | -1 |
+       +----+
+       |  2 |
+       +----+
+
+pop(): The popped item is 0
+Stack: +----+
+       | -1 | <- top
+       +----+
+       |  2 |
+       +----+
+
+pop(): The popped item is -1
+Stack: +---+
+       | 2 | <- top
+       +---+
+
+pop(): The popped item is 2
+Stack: (empty)
+
+top(): The top item is (none)
+Stack: (empty)
+
+push(123.4):
+Stack: +-------+
+       | 123.4 | <- top
+       +-------+

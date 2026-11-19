@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "textbook"
+Output: 2
+
+Example 2:
+Input: $str = "aaaaa"
+Output: 5
+
+Example 3:
+Input: $str = "hoorayyy"
+Output: 3
+
+Example 4:
+Input: $str = "x"
+Output: 1
+
+Example 5:
+Input: $str = "aabcccddeeffffghijjk"
+Output: 4

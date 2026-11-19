@@ -1,0 +1,11 @@
+1..7
+ok 1 -  \#cookingWithIngredients <- "Cooking with 5 ingredients!"
+ok 2 -  \#thelastofthemohicans <- "the-last-of-the-mohicans"
+ok 3 -  \#extraSpacesHere <- "  extra spaces here"
+ok 4 -  \#iphoneProMaxReview <- "iPhone 15 Pro Max Review"
+ok 5 -  \#ultimateHourChallengeLivingInASmartHomeControlledEntirelyByArtificialIntelligenceAndVoiceCommandsIn <- "Ultimate 24-Hour Challenge: Living in a Smart Home controlled entirely by Artificial Intelligence and Voice Commands in the year 2026!"
+ok 6 -  \#iphoneProMaxReview <- "i \#P!h\$o\%n-e 1 7 9 5 (P)_r-o - M]a[x Review"
+ok 7 -  \# <- ""
+
+Input: $caption = "iPhone 15 Pro Max Review"
+Output: "#iphoneProMaxReview"

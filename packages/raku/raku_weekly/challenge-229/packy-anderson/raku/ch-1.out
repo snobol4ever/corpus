@@ -1,0 +1,11 @@
+Example 1:
+Input: @str = ("abc", "bce", "cae")
+Output: 1
+
+In the given array "cae" is the only element which is not lexicographically sorted.
+
+Example 2:
+Input: @str = ("yxz", "cba", "mon")
+Output: 2
+
+In the given array "yxz" and "mon" are not lexicographically sorted.

@@ -1,0 +1,10 @@
+ok 1 - Reverse Base: $num=101010, $base=2  => 42
+ok 2 - Reverse Base: $num=EEADEE, $base=16 => 15642094
+ok 3 - Reverse Base: $num=755,    $base=8  => 493
+ok 4 - Reverse Base: $num=1BRJB,  $base=36 => 2228519
+ok 5 - Reverse Base: $num=7MyqL,  $base=64 => 123456789
+ok 6 - Rational Numbers: 0.(12)   != 0.(121)
+ok 7 - Rational Numbers: 0.1(23)  == 0.12(32)
+ok 8 - Rational Numbers: 0.1(234) == 0.12(342)
+ok 9 - Rational Numbers: 12.(9)   == 13.0
+ok 10 - Rational Numbers: 0.(123)  == 0.1(231)

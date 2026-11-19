@@ -1,0 +1,12 @@
+1..8
+ok 1 - 1 <- 001 1 000 0001
+ok 2 - 6 <- perl 2 000 python r4ku
+ok 3 - 200 <- perl 200 000 python r4ku
+ok 4 - 2 <- me 1 001
+ok 5 - Dies with: $( )
+ok 6 - Dies with: ""
+ok 7 - Dies with: $("", "")
+ok 8 - Dies with: $("", "", "", "", "", "", "", "", "", "")
+
+Input: @alphanumstr = ["perl", "2", "000", "python", "r4ku"]
+Output: 6

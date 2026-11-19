@@ -1,0 +1,8 @@
+
+Challenge 106, Task #2: Decimal String (Raku)
+
+Usage:
+  raku ch-2.raku <N> <D>
+  
+    <N>    Numerator (an integer)
+    <D>    Denominator (a non-zero integer)

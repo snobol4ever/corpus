@@ -1,0 +1,15 @@
+1..11
+ok 1 - zy <- ["ab", "bc", "cd", "zy"]
+ok 2 - azy <- ["cba", "fed", "azy"]
+ok 3 - pop <- ["pop", "ada", "beb", "cfc"]
+ok 4 - aaba <- ["aaaa", "zzzz", "mmmm", "aaba"]
+ok 5 - azbz <- ["Aceg", "Bdfh", "cegi", "azbz"]
+ok 6 - ZY <- ["ab", "bc", "ZY"]
+ok 7 - ZY <- ["no", "ab", "bc", "cd", "ZY"]
+ok 8 - ZY <- ["no", "ab", "bc", "ZY", "cd"]
+ok 9 - ZY <- ["no", "ab", "ZY", "bc", "cd"]
+ok 10 - ZY <- ["no", "ZY", "ab", "bc", "cd"]
+ok 11 - ZY <- ["ZY", "no", "ab", "bc", "cd"]
+
+Input: @word = ("aceg", "aceg", "aceg", "aceg", "aceg", "bdfh", "cegi", "azbz")
+Output: "azbz"

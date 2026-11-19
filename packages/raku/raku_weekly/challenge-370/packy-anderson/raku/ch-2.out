@@ -1,0 +1,19 @@
+Example 1:
+Input: $str1 = "abc", $str2 = "acb"
+Output: True
+
+Example 2:
+Input: $str1 = "abcd", $str2 = "cdba"
+Output: True
+
+Example 3:
+Input: $str1 = "hello", $str2 = "hiiii"
+Output: False
+
+Example 4:
+Input: $str1 = "ateer", $str2 = "eater"
+Output: True
+
+Example 5:
+Input: $str1 = "abcd", $str2 = "bdac"
+Output: False

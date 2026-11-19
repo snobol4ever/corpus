@@ -1,0 +1,11 @@
+
+Challenge 190, Task #2: Decoded List (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - One zero (1)
+ok 5 - All zeros
+ok 6 - One zero (2)
+1..6

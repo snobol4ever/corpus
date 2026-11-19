@@ -1,0 +1,12 @@
+
+Challenge 200, Task #1: Arithmetic Slices (Raku)
+
+Running the test suite
+ok 1 - Example 1 
+ok 2 - Example 2 
+ok 3 - Evens     
+ok 4 - Odds      
+ok 5 - Decreasing
+ok 6 - Up & down 
+ok 7 - Unchanging
+1..7

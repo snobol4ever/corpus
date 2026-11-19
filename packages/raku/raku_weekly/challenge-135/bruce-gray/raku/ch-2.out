@@ -1,0 +1,4 @@
+1..3
+ok 1 - valid_sedol('2936921') == 1
+ok 2 - valid_sedol('1234567') == 0
+ok 3 - valid_sedol('B0YBKL9') == 1

@@ -1,0 +1,11 @@
+fusc( 0 ) = 0
+fusc( 1 ) = 1
+fusc( 2 ) = 1
+fusc( 3 ) = 2
+fusc( 4 ) = 1
+fusc( 5 ) = 3
+fusc( 6 ) = 2
+fusc( 7 ) = 3
+fusc( 8 ) = 1
+fusc( 9 ) = 4
+fusc( 10 ) = 3

@@ -1,0 +1,30 @@
+Example 1:
+Input: $str = "aAbB"
+Output: 0
+
+Example 2:
+Input: $str = "AAbb"
+Output: 1
+
+Swap 1: "AbAb"
+
+Example 3:
+Input: $str = "AAAbbb"
+Output: 3
+
+Swap 1: "AAbAbb"
+Swap 2: "AbAAbb"
+Swap 3: "AbAbAb"
+
+Example 4:
+Input: $str = "aABb"
+Output: 1
+
+Swap 1: "AaBb"
+
+Example 5:
+Input: $str = "bBBAaa"
+Output: 2
+
+Swap 1: "bBBaAa"
+Swap 2: "BbBaAa"

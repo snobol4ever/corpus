@@ -1,0 +1,5 @@
+1..4
+ok 1 - task1('Perl')
+ok 2 - task1('TPF')
+ok 3 - task1('PyThon')
+ok 4 - task1('raku')

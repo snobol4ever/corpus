@@ -1,0 +1,11 @@
+ok 1 - ex-1
+ok 2 - ex-2
+ok 3 - independant, no overlap
+ok 4 - figure-8, single point overlap
+ok 5 - stacked, single line overlap
+ok 6 - stacked, overlapped
+ok 7 - superimposed, all overlap
+ok 8 - A in B, left-aligned
+ok 9 - B in A, left-aligned
+ok 10 - A in B, right-aligned
+ok 11 - B in A, right-aligned

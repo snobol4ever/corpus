@@ -1,0 +1,9 @@
+
+Challenge 221, Task #1: Good Strings (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 1
+ok 3 - Example 2
+ok 4 - Example 2
+1..4

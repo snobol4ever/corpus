@@ -1,0 +1,9 @@
+ok 1 - Empty array cannot make triplet
+ok 2 - One element cannot make triplet
+ok 3 - Two elements cannot make triplet
+ok 4 - Simple triplet
+ok 5 - Simple triplet with many numbers
+ok 6 - Test case 1
+ok 7 - Test case 2
+ok 8 - Test case 3
+1..8

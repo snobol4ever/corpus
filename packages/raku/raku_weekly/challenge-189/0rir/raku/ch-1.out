@@ -1,0 +1,7 @@
+1..6
+ok 1 - b ("e", "m", "u", "g") ->  e
+not ok 2 - a ("d", "c", "e", "f") ->  c
+ok 3 - o ("j", "a", "r") ->  r
+not ok 4 - a ("d", "c", "a", "f") ->  c
+ok 5 - v ("t", "g", "a", "l") ->  v
+ok 6 - v () ->  v

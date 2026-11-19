@@ -1,0 +1,19 @@
+Example 1:
+Input: @words = ("a", "ab", "abc", "d", "de", "def")
+Output: 9
+
+Example 2:
+Input: @words = ("a", "aa", "aaa", "aaaa")
+Output: 0
+
+Example 3:
+Input: @words = ("meet", "app", "code", "sky", "bold")
+Output: 16
+
+Example 4:
+Input: @words = ("a", "ab", "abc", "abcd", "efghi")
+Output: 20
+
+Example 5:
+Input: @words = ("xyz", "w", "abcdefg", "hij")
+Output: 21

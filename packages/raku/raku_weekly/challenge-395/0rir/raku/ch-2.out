@@ -1,0 +1,11 @@
+1..6
+ok 1 - MA AM <- ("MA", "AM", "MY", "ME")
+ok 2 - SUN USE NET <- ("SUN", "USE", "NET", "SEE", "TEN")
+ok 3 - BOAT OGRE AREA TEAL <- ("BOAT", "TEAL", "AREA", "TSAR", "OGRE")
+ok 4 - CARD AREA REAR DART <- ("CARD", "AREA", "REAR", "DART")
+ok 5 - HEART EMBER ABUSE RESIN TREND <- ("HEART", "TREND", "EMBER", "RESIN", "ABUSE")
+ok 6 -  <- ("MA", "MY", "ME")
+
+Input: @word = (""HEART", "TREND", "EMBER", "RESIN", "ABUSE")
+Output: ("HEART", "EMBER", "ABUSE", "RESIN", "TREND")
+

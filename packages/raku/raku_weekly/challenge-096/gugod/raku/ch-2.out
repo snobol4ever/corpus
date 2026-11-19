@@ -1,0 +1,4 @@
+Input: $S1 = kitten, $S2 = sitting
+Output: 3
+Input: $S1 = sunday, $S2 = monday
+Output: 2

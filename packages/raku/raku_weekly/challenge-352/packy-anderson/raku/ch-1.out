@@ -1,0 +1,19 @@
+Example 1:
+Input: @words = ("cat", "cats", "dog", "dogcat", "dogcat", "rat", "ratcatdogcat")
+Output: ("cat", "dog", "dogcat", "rat")
+
+Example 2:
+Input: @words = ("hello", "hell", "world", "wor", "ellow", "elloworld")
+Output: ("hell", "world", "wor", "ellow")
+
+Example 3:
+Input: @words = ("a", "aa", "aaa", "aaaa")
+Output: ("a", "aa", "aaa")
+
+Example 4:
+Input: @words = ("flower", "flow", "flight", "fl", "fli", "ig", "ght")
+Output: ("flow", "fl", "fli", "ig", "ght")
+
+Example 5:
+Input: @words = ("car", "carpet", "carpenter", "pet", "enter", "pen", "pent")
+Output: ("car", "pet", "enter", "pen", "pent")

@@ -1,0 +1,15 @@
+1..11
+ok 1 - 0 <- ()
+ok 2 - 1 <- ("ab",)
+ok 3 - 1 <- ("ba", "ab")
+ok 4 - 2 <- ("ac", "ba")
+ok 5 - 2 <- ("abba", "baba", "aabb", "ab", "ab")
+ok 6 - 3 <- ("acca", "dog", "god", "perl", "repl")
+ok 7 - 4 <- ("fussy", "fuzzy", "fussy", "furry")
+ok 8 - 3 <- ("fuzzy", "fussy", "fussy", "furry")
+ok 9 - 2 <- ("ab", "ba", "ab", "ba", "da")
+ok 10 - 3 <- ("ab", "da", "ba", "ab", "ba")
+ok 11 - 3 <- ("ab", "ba", "ab", "da", "ba")
+
+Input: @word = ( "acca" ,"dog" ,"god" ,"perl" ,"repl")
+Output: 3

@@ -1,0 +1,16 @@
+1..3
+
+minimum path sum: 14
+path:
+1 -> 2 -> 4 -> 7
+ok 1 - BFO triangle test
+
+minimum path sum: 8
+path:
+1 -> 2 -> 4 -> 1
+ok 2 - ex-1
+
+minimum path sum: 7
+path:
+3 -> 1 -> 2 -> 1
+ok 3 - ex-2

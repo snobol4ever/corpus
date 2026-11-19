@@ -1,0 +1,5 @@
+ok 1 - Fibonacci Digit Sum: 20 => 0,1,2,3,5,8,10,11,12,14,17,20,21,23,26,30,32,35,41,44
+ok 2 - Largest Square: 2  => 1
+ok 3 - Largest Square: 4  => 3201
+ok 4 - Largest Square: 10 => 9814072356
+ok 5 - Largest Square: 12 => B8750A649321

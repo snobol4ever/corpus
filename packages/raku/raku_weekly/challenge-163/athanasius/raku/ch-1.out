@@ -1,0 +1,7 @@
+
+Challenge 163, Task #1: Sum Bitwise Operator (Raku)
+
+Usage:
+  raku ch-1.raku [<n> ...]
+  
+    [<n> ...]    A list of positive integers

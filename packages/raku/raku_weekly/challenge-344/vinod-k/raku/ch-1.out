@@ -1,0 +1,6 @@
+1..5
+ok 1 - Test 1: (1,2,3,4) + 12 should be (1, 2, 4, 6)
+ok 2 - Test 1: (2, 7, 4) + 181 should be (4, 5, 5)
+ok 3 - Test 1: (9, 9, 9) + 1 should be (1, 0, 0, 0)
+ok 4 - Test 1: (1, 0, 0, 0, 0) + 9999 should be (1, 9, 9, 9, 9)
+ok 5 - Test 1: (0) + 12 should be (1, 0, 0, 0)

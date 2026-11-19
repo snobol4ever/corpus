@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "  challenge  "
+Output: "challenge    "
+
+Example 2:
+Input: $str = "coding  is  fun"
+Output: "coding  is  fun"
+
+Example 3:
+Input: $str = "a b c  d"
+Output: "a b c d "
+
+Example 4:
+Input: $str = "  team      pwc  "
+Output: "team          pwc"
+
+Example 5:
+Input: $str = "   the  weekly  challenge  "
+Output: "the    weekly    challenge "

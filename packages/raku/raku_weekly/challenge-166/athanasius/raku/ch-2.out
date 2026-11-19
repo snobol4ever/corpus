@@ -1,0 +1,7 @@
+
+Challenge 166, Task #2: K-Directory Diff (Raku)
+
+Usage:
+  raku ch-2.raku [<dirs> ...]
+  
+    [<dirs> ...]    3 or more directory names

@@ -1,0 +1,4 @@
+100110011  binary input
+111110011  result for     L=1, R=2
+111001111  result for     L=1, R=6
+100111111  result for     L=5, R=6

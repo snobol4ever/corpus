@@ -1,0 +1,31 @@
+Example 1:
+Input: @ints = (1, 2, 3, 45)
+Output: 36
+
+Element Sum: 1 + 2 + 3 + 45 = 51
+Digit Sum: 1 + 2 + 3 + 4 + 5 = 15
+Absolute Difference: | 51 - 15 | = 36
+
+Example 2:
+Input: @ints = (1, 12, 3)
+Output: 9
+
+Element Sum: 1 + 12 + 3 = 16
+Digit Sum: 1 + 1 + 2 + 3 = 7
+Absolute Difference: | 16 - 7 | = 9
+
+Example 3:
+Input: @ints = (1, 2, 3, 4)
+Output: 0
+
+Element Sum: 1 + 2 + 3 + 4 = 10
+Digit Sum: 1 + 2 + 3 + 4 = 10
+Absolute Difference: | 10 - 10 | = 0
+
+Example 4:
+Input: @ints = (236, 416, 336, 350)
+Output: 1296
+
+Element Sum: 236 + 416 + 336 + 350 = 1338
+Digit Sum: 2 + 3 + 6 + 4 + 1 + 6 + 3 + 3 + 6 + 3 + 5 + 0 = 42
+Absolute Difference: | 1338 - 42 | = 1296

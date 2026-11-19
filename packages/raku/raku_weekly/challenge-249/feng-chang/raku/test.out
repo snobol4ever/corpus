@@ -1,0 +1,6 @@
+ok 1 - Equal Pairs: (3, 2, 3, 2, 2, 2) => (2, 2), (2, 2), (3, 3)
+ok 2 - Equal Pairs: (1, 2, 3, 4)       => ()
+ok 3 - DI String Match: IDID => (0, 4, 1, 3, 2)
+ok 4 - DI String Match: III  => (0, 1, 2, 3)
+ok 5 - DI String Match: DDI  => (3, 2, 0, 1)
+1..5

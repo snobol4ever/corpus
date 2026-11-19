@@ -1,0 +1,14 @@
+
+Challenge 282, Task #1: Good Integer (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Multiple
+ok 5 - Initial
+ok 6 - Final
+ok 7 - Final 4
+ok 8 - All too long
+ok 9 - Between 4s
+1..9

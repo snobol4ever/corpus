@@ -1,0 +1,11 @@
+1..7
+ok 1 - 4 <- $["a", "aba", "ababa", "aa"]
+ok 2 - 2 <- $["pa", "papa", "ma", "mama"]
+ok 3 - 0 <- $["abao", "ab"]
+ok 4 - 1 <- $["abab", "abab"]
+ok 5 - 3 <- $["ab", "abab", "ababab"]
+ok 6 - 0 <- $["abc", "def", "ghij"]
+ok 7 - 0 <- $["abc"]
+
+Input: @array = ["ab", "abab", "ababab"]
+Output: 3

@@ -1,0 +1,17 @@
+the words generated, with a helpful guide:
+
+abcdefg
+tuvwxyz
+abcdefgtuvwxyz
+tuvwxyzabcdefgtuvwxyz
+abcdefgtuvwxyztuvwxyzabcdefgtuvwxyz
+tuvwxyzabcdefgtuvwxyzabcdefgtuvwxyztuvwxyzabcdefgtuvwxyz
+
+012345678901234567890123456789012345678901234567890123456789
+          1         2         3         4         5
+
+start string 0: abcdefg
+start string 1: tuvwxyz
+
+the 51st character in the first term long enough to have one is "u"
+

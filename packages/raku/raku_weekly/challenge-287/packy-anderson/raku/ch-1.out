@@ -1,0 +1,27 @@
+Example 1:
+Input: $str = "a"
+Output: 5
+
+Example 2:
+Input: $str = "aB2"
+Output: 3
+
+Example 3:
+Input: $str = "PaaSW0rd"
+Output: 0
+
+Example 4:
+Input: $str = "Paaasw0rd"
+Output: 1
+
+Example 5:
+Input: $str = "aaaaa"
+Output: 2
+
+Example 6:
+Input: $str = "aaaaaabbbb"
+Output: 3
+
+Example 7:
+Input: $str = "voilÀ३"
+Output: 0

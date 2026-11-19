@@ -1,0 +1,6 @@
+ok 1 - Maximum Pairs: "ab", "de", "ed", "bc"             => 1
+ok 2 - Maximum Pairs: "aa", "ba", "cd", "ed"             => 0
+ok 3 - Maximum Pairs: "uv", "qp", "st", "vu", "mn", "pq" => 2
+ok 4 - Merge Strings: "abcd", "1234" => a1b2c3d4
+ok 5 - Merge Strings: "abc", "12345" => a1b2c345
+ok 6 - Merge Strings: "abcde", "123" => a1b2c3de

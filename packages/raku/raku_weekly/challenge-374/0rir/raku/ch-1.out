@@ -1,0 +1,9 @@
+1..5
+ok 1 - aeiou <- "aeiou"
+ok 2 - aaeeeiioou aaeeeiioouu aeeeiioou aeeeiioouu <- "aaeeeiioouu"
+ok 3 - aeiou aeiou eiouua aeiouu aeiouua <- "aeiouuaxaeiou"
+ok 4 - aeiou uaeio uaeiou <- "uaeiou"
+ok 5 -  <- "aeioaeioa"
+
+Input: $str = "aaeeeiioouu"
+Output: ("{aaeeeiioouu","aaeeeiioou","aeeeiioouu","aeeeiioou}")

@@ -1,0 +1,11 @@
+Example 1:
+Input: @words = ("ab", "de", "ed", "bc")
+Output: 1
+
+Example 2:
+Input: @words = ("aa", "ba", "cd", "ed")
+Output: 0
+
+Example 3:
+Input: @words = ("uv", "qp", "st", "vu", "mn", "pq")
+Output: 2

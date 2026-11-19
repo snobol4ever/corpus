@@ -1,0 +1,7 @@
+
+Challenge 130, Task #2: Binary Search Tree (Raku)
+
+Usage:
+  raku ch-2.raku <tree>
+  
+    <tree>    Level-order tree representation, e.g. "8|5|9|4|6"

@@ -1,0 +1,8 @@
+
+Challenge 096, Task #2: Edit Distance (Raku)
+
+Usage:
+  raku ch-2.raku <S1> <S2>
+  
+    <S1>    First string
+    <S2>    Second string

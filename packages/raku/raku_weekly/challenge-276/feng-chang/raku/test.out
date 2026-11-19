@@ -1,0 +1,7 @@
+ok 1 - Complete Day: 12, 12, 30, 24, 24 => 2
+ok 2 - Complete Day: 72, 48, 24, 5      => 3
+ok 3 - Complete Day: 12, 18, 24         => 0
+ok 4 - Maximum Frequency: 1, 2, 2, 4, 1, 5 => 4
+ok 5 - Maximum Frequency: 1, 2, 3, 4, 5    => 5
+not ok 6 - Maximum Frequency: 1, 2, 2, 4, 1, 5 => 4
+not ok 7 - Maximum Frequency: 1, 2, 3, 4, 5    => 5

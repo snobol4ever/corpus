@@ -1,0 +1,8 @@
+1..4
+ok 1 - 2 <- ("swpc", "tyad", "azbe")
+ok 2 - 1 <- ("cba", "daf", "ghi")
+ok 3 - 0 <- ("a", "b", "c")
+ok 4 - 0 <- ("", "", "")
+
+Input: $list = cba daf ghi
+Output: 1

@@ -1,0 +1,8 @@
+
+Challenge 127, Task #1: Disjoint Sets (Raku)
+
+Usage:
+  raku ch-1.raku <S1> <S2>
+  
+    <S1>    Set 1: a string of the form "( int-a, int-b, ... )"
+    <S2>    Set 2: a string of the form "( int-m, int-n, ... )"

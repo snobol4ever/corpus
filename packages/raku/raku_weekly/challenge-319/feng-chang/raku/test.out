@@ -1,0 +1,6 @@
+ok 1 - Word Count: "unicode","xml","raku","perl" => 2
+ok 2 - Word Count: "the","weekly","challenge"    => 2
+ok 3 - Word Count: "perl","python","postgres"    => 0
+ok 4 - Minimum Common: (1,2,3,4), (3,4,5,6) =>  3
+ok 5 - Minimum Common: (1,2,3),   (2,4)     =>  2
+ok 6 - Minimum Common: (1,2,3,4), (5,6,7,8) => -1

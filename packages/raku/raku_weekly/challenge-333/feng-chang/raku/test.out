@@ -1,0 +1,10 @@
+ok 1 - Straight Line: [2,1],[2,3],[2,5]  => true
+ok 2 - Straight Line: [1,4],[3,4],[10,4] => true
+ok 3 - Straight Line: [0,0],[1,1],[2,3]  => false
+ok 4 - Straight Line: [1,1],[1,1],[1,1]  => true
+ok 5 - Straight Line: [1000000,1000000],[2000000,2000000],[3000000,3000000] => true
+ok 6 - Duplicate Zeros: 1,0,2,3,0,4,5,0 => 1,0,0,2,3,0,0,4
+ok 7 - Duplicate Zeros: 1,2,3           => 1,2,3
+ok 8 - Duplicate Zeros: 1,2,3,0         => 1,2,3,0
+ok 9 - Duplicate Zeros: 0,0,1,2         => 0,0,0,0
+ok 10 - Duplicate Zeros: 1,2,0,3,4       => 1,2,0,0,3

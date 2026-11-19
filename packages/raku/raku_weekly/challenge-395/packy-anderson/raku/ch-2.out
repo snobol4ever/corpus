@@ -1,0 +1,42 @@
+Example 1:
+Input: @words = ("MA", "AM", "MY", "ME")
+Output: ("MA", "AM")
+
+    M A
+    A M
+
+Example 2:
+Input: @words = ("SUN", "USE", "NET", "SEE", "TEN")
+Output: ("SUN", "USE", "NET")
+
+    S U N
+    U S E
+    N E T
+
+Example 3:
+Input: @words = ("BOAT", "TEAL", "AREA", "TSAR", "OGRE")
+Output: ("BOAT", "OGRE", "AREA", "TEAL")
+
+    B O A T
+    O G R E
+    A R E A
+    T E A L
+
+Example 4:
+Input: @words = ("CARD", "AREA", "REAR", "DART")
+Output: ("CARD", "AREA", "REAR", "DART")
+
+    C A R D
+    A R E A
+    R E A R
+    D A R T
+
+Example 5:
+Input: @words = ("HEART", "TREND", "EMBER", "RESIN", "ABUSE")
+Output: ("HEART", "EMBER", "ABUSE", "RESIN", "TREND")
+
+    H E A R T
+    E M B E R
+    A B U S E
+    R E S I N
+    T R E N D

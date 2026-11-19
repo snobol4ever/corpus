@@ -1,0 +1,12 @@
+1..8
+ok 1 - "" <- ""
+ok 2 - "" <- "bb"
+ok 3 - "abc" <- "abc"
+ok 4 - "ca" <- "abbaca"
+ok 5 - "ay" <- "azxxzy"
+ok 6 - "" <- "aaaaaaaa"
+ok 7 - "a" <- "aabccba"
+ok 8 - "" <- "abcddcba"
+
+Input: aabccba = "aabccba"
+Output: "a"

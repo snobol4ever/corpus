@@ -1,0 +1,21 @@
+1..17
+ok 1 - d <- acbddbca
+ok 2 - :case-ck d <- acbddbca
+ok 3 - :case-force d <- acbddbca
+ok 4 - c <- abccd
+ok 5 - :case-ck c <- abccd
+ok 6 - :case-force c <- abccd
+ok 7 - a <- abcdabbb
+ok 8 - :case-ck a <- abcdabbb
+ok 9 - :case-force a <- abcdabbb
+ok 10 - (Str) <- abcdefgh
+ok 11 - :case-ck (Str) <- abcdefgh
+ok 12 - :case-force (Str) <- abcdefgh
+ok 13 - (Str) <- 
+ok 14 - :case-ck (Str) <- 
+ok 15 - :case-force (Str) <- 
+ok 16 - :case-ck dies <- abcdefghiFi
+ok 17 - :case-force f <- abcdefghiFi
+
+Input: $str = "abcdefghijklmnopqrstuvwxyzs"
+Output: "s"

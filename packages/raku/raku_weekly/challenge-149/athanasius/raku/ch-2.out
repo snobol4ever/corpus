@@ -1,0 +1,7 @@
+
+Challenge 149, Task #2: Largest Square (Raku)
+
+Usage:
+  raku ch-2.raku <base>
+  
+    <base>    Number base: integer between 1 and 36

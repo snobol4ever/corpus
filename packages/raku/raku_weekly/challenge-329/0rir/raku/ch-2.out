@@ -1,0 +1,11 @@
+1..7
+ok 1 - other case
+ok 2 - other case
+ok 3 - aaA <- "YaaAho"
+ok 4 - cC <- "cC"
+ok 5 -  <- "A"
+ok 6 -  <- ""
+not ok 7 -  <- "AIaHAiaGAIahAiaFAIaHAiagAIahAiaEAIaHAiaGAIahAiafAIaHAiagAIahAiaDAIaHAiaGAIahAiaFAIaHAiagAIahAiaeAIaHAiaGAIahAiafAIaHAiagAIahAiaCAIaHAiaGAIahAiaFAIaHAiagAIahAiaEAIaHAiaGAIahAiafAIaHAiagAIahAiadAIaHAiaGAIahAiaFAIaHAiagAIahAiaeAIaHAiaGAIahAiafAIaHAiagAIahAiabAIaHAiaGAIahAiaFAIaHAiagAIahAiaEAIaHAiaGAIahAiafAIaHAiagAIahAiaDAIaHAiaGAIahAiaFAIaHAiagAIahAiaeAIaHAiaGAIahAiafAIaHAiagAIahAiacAIaHAiaGAIahAiaFAIaHAiagAIahAiaEAIaHAiaGAIahAiafAIaHAiagAIahAiadAIaHAiaGAIahAiaFAIaHAiagAIahAiaeAIaHAiaGAIahAiafAIaHAiagAIahAia"
+
+Input: $str = "slifdhLasLKFGA"
+Output: "lfLaLFA"

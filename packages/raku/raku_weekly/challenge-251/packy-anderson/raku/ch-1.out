@@ -1,0 +1,11 @@
+Example 1:
+Input: @ints = (6, 12, 25, 1)
+Output: 1286
+
+Example 2:
+Input: @ints = (10, 7, 31, 5, 2, 2)
+Output: 489
+
+Example 3:
+Input: @ints = (1, 2, 10)
+Output: 112

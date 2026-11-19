@@ -1,0 +1,9 @@
+
+Challenge 072, Task #2: Lines Range (Raku)
+
+Usage:
+  raku ch-2.raku [--file=<Str>] [-A[=Natural]] [-B[=Natural]]
+  
+    --file=<Str>    The name of a readable text file
+    -A[=Natural]                  Lower bound of range of lines
+    -B[=Natural]    Upper bound of range of lines: A <= B

@@ -1,0 +1,2 @@
+ok 1 - Banking Day Offset: $start_date = "2018-06-28", $offset = 3, $bank_holidays = ["2018-07-03"] => "2018-07-04"
+ok 2 - Banking Day Offset: $start_date = "2018-06-28", $offset = 3                                  => "2018-07-03"

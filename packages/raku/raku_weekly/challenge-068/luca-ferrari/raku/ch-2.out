@@ -1,0 +1,6 @@
+switching elements 0 and 9
+switching elements 1 and 8
+switching elements 2 and 7
+switching elements 3 and 6
+switching elements 4 and 5
+Node.new(value => "L0", next => Node.new(value => "L9", next => Node.new(value => "L1", next => Node.new(value => "L8", next => Node.new(value => "L2", next => Node.new(value => "L7", next => Node.new(value => "L3", next => Node.new(value => "L6", next => Node.new(value => "L4", next => Node.new(value => "L5", next => Node))))))))))

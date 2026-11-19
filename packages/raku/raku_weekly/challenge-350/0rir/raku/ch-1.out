@@ -1,0 +1,13 @@
+1..9
+ok 1 - 5 <- "abcaefg"
+ok 2 - 3 <- "xyzzabc"
+ok 3 - 1 <- "aababc"
+ok 4 - 4 <- "qwerty"
+ok 5 - 0 <- "zzzaaa"
+ok 6 - 0 <- "12"
+ok 7 - 0 <- "1"
+ok 8 - 0 <- ""
+ok 9 - Int <- Str
+
+Input: $str = "abcaefg"
+Output: 5

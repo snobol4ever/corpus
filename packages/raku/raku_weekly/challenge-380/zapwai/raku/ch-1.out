@@ -1,0 +1,10 @@
+Input: "banana"
+Output: 3
+Input: "teestett"
+Output: 3
+Input: "aeiouuaa"
+Output: 5
+Input: "rhythm"
+Output: 5
+Input: "x"
+Output: 1

@@ -1,0 +1,19 @@
+Example 1:
+Input: $num = "101010", $base = 2
+Output: 42
+
+Example 2:
+Input: $num = "EEADEE", $base = 16
+Output: 15642094
+
+Example 3:
+Input: $num = "755", $base = 8
+Output: 493
+
+Example 4:
+Input: $num = "1BRJB", $base = 36
+Output: 2228519
+
+Example 5:
+Input: $num = "7MyqL", $base = 64
+Output: 123456789

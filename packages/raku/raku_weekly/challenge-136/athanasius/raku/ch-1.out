@@ -1,0 +1,9 @@
+
+Challenge 136, Task #1: Two Friendly (Raku)
+
+Usage:
+  raku ch-1.raku [--verbose] <m> <n>
+  
+    <m>          An integer > 0
+    <n>          An integer > 0
+    --verbose    Explain the output? [default: False]

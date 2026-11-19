@@ -1,0 +1,6 @@
+
+Challenge 154, Task #1: Missing Permutation (Raku)
+
+Input:  23 possible permutations of the string PERL
+        All of these are valid
+Output: There is 1 missing permutation: LERP

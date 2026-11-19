@@ -1,0 +1,13 @@
+1..12
+ok 1 - 1 : task2_splice_zip
+ok 2 - 1 : task2_skip_head_zip
+ok 3 - 1 : task2_feed_by_key
+ok 4 - 1 : task2_scsv
+ok 5 - 2 : task2_splice_zip
+ok 6 - 2 : task2_skip_head_zip
+ok 7 - 2 : task2_feed_by_key
+ok 8 - 2 : task2_scsv
+ok 9 - # SKIP Cannot handle odd sizes : 3 : task2_splice_zip 
+ok 10 - # SKIP Cannot handle odd sizes : 3 : task2_skip_head_zip 
+ok 11 - 3 : task2_feed_by_key
+ok 12 - 3 : task2_scsv

@@ -1,0 +1,9 @@
+Input: @ints = [4 4 2 4 3]
+Output: 3
+
+Input: @ints = [1 1 1 1 1]
+Output: 0
+
+Input: @ints = [4 7 1 10 7 4 1 1]
+Output: 28
+

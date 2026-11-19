@@ -1,0 +1,7 @@
+
+Challenge 079, Task #2: Trapped Rain Water (Raku)
+
+Usage:
+  raku ch-2.raku [<N> ...]
+  
+    [<N> ...]    A non-empty array of positive integers

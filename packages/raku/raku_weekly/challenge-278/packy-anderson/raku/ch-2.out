@@ -1,0 +1,11 @@
+Example 1:
+Input: $str = "challenge", $char = "e"
+Output: "acehllnge"
+
+Example 2:
+Input: $str = "programming", $char = "a"
+Output: "agoprrmming"
+
+Example 3:
+Input: $str = "champion", $char = "b"
+Output: "champion"

@@ -1,0 +1,9 @@
+Example 1:
+Input: @lang = ('perl', 'c', 'python')
+       @popularity = (2, 1, 3)
+Output: ('c', 'perl', 'python')
+
+Example 2:
+Input: @lang = ('c++', 'haskell', 'java')
+       @popularity = (1, 3, 2)
+Output: ('c++', 'java', 'haskell')

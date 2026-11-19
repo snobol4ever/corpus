@@ -1,0 +1,15 @@
+Example 1:
+Input: $str = "and2 Raku3 cousins5 Perl1 are4"
+Output: "Perl and Raku are cousins"
+
+Example 2:
+Input: $str = "guest6 Python1 most4 the3 popular5 is2 language7"
+Output: "Python is the most popular guest language"
+
+Example 3:
+Input: $str = "Challenge3 The1 Weekly2"
+Output: "The Weekly Challenge"
+
+Example 4:
+Input: $str = "The1 brown9 dog10 fox4 jumped5 lazy8 over6 quick2 red3 the7"
+Output: "The quick red fox jumped over the lazy brown dog"

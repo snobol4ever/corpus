@@ -1,0 +1,12 @@
+1..11
+ok 1 - incre requires arg dies
+ok 2 - twice requires arg dies
+ok 3 - both requires arg dies
+ok 4 - incre( 2, 10)
+ok 5 - twice( 2, 10)
+ok 6 - both( 2, 10, 20, 30) ==> 6 22 42 62 hand
+ok 7 - both( 2) ==> 6
+ok 8 - both( 2 10) ==> 6 22
+ok 9 - both( 0 0) ==> 2 2
+ok 10 - both( -2 -10 100) ==> -2 -18 202
+ok 11 - both( -1 1 5 9 11 15 19 23 29) ==> 0 4 12 20 24 32 40 48 60

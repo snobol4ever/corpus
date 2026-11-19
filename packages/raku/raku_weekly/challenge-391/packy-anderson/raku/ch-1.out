@@ -1,0 +1,19 @@
+Example 1:
+Input: @arr1 = (2), @arr2 = (4)
+Output: 3.0
+
+Example 2:
+Input: @arr1 = (1, 2, 3), @arr2 = (7, 8, 9, 10)
+Output: 7.0
+
+Example 3:
+Input: @arr1 = (), @arr2 = (10, 20, 30, 40)
+Output: 25.0
+
+Example 4:
+Input: @arr1 = (100), @arr2 = (1, 2, 3, 4, 5, 6, 7)
+Output: 4.5
+
+Example 5:
+Input: @arr1 = (1, 2, 2), @arr2 = (2, 2, 3)
+Output: 2.0

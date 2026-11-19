@@ -1,0 +1,11 @@
+ok 1 - Friday 13th: 2023 => 2
+ok 2 - Roman Maths: IV + V     => IX
+ok 3 - Roman Maths: M - I      => CMXCIX
+ok 4 - Roman Maths: X / II     => V
+ok 5 - Roman Maths: XI * VI    => LXVI
+ok 6 - Roman Maths: VII ** III => CCCXLIII
+ok 7 - Roman Maths: V - V      => nulla
+ok 8 - Roman Maths: V / II     => non potest
+ok 9 - Roman Maths: MMM + M    => non potest
+ok 10 - Roman Maths: V - X      => non potest
+1..10

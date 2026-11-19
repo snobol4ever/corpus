@@ -1,0 +1,7 @@
+
+Challenge 160, Task #2: Equilibrium Index (Raku)
+
+Usage:
+  raku ch-2.raku [<n> ...]
+  
+    [<n> ...]    A non-empty list of integers

@@ -1,0 +1,11 @@
+Example 1:
+Input: $str = 'PeRlwEeKLy'
+Output: L
+
+Example 2:
+Input: $str = 'ChaLlenge'
+Output: L
+
+Example 3:
+Input: $str = 'The'
+Output: ''

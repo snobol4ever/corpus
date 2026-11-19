@@ -1,0 +1,45 @@
+Example 1:
+Input: @ints = (1,1,2,2,2,2)
+Output: True
+
+Groups: (1,1) (2,2) (2,2) 
+
+Example 2:
+Input: @ints = (1,1,1,2,2,2,3,3)
+Output: False
+
+Groups: (1,1,1) (2,2,2) (3,3) 
+
+Example 3:
+Input: @ints = (5,5,5,5,5,5,7,7,7,7,7,7)
+Output: True
+
+Groups: (5,5,5,5,5,5) (7,7,7,7,7,7) 
+
+Example 4:
+Input: @ints = (1,2,3,4)
+Output: False
+
+Example 5:
+Input: @ints = (8,8,9,9,10,10,11,11)
+Output: True
+
+Groups: (8,8) (9,9) (10,10) (11,11) 
+
+Example 6 (2a):
+Input: @ints = (1,1,1,1,2,2,2,2,3,3)
+Output: True
+
+Groups: (1,1) (1,1) (2,2) (2,2) (3,3) 
+
+Example 7 (2b):
+Input: @ints = (1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3)
+Output: True
+
+Groups: (1,1,1) (1,1,1) (1,1,1) (2,2,2) (2,2,2) (2,2,2) (3,3,3) (3,3,3) 
+
+Example 8 (3a):
+Input: @ints = (5,5,5,5,5,7,7,7,7,7,7)
+Output: False
+
+Groups: (5,5,5,5,5) (7,7,7,7,7,7) 

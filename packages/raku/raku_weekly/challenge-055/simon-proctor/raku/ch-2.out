@@ -1,0 +1,6 @@
+Please give a list of 2 or more items or a single integer greater then 1
+Usage:
+  ch-2.p6 <n> -- Make a random list of length N integers between -100 and 100 then give the wave sorted versions
+  ch-2.p6 [<input> ...] -- Given a list of integers return all the wave sorted lists
+  
+    <n>    Positive integer 2 <= N <= 20

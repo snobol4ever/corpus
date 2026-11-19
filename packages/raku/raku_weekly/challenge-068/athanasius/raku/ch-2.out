@@ -1,0 +1,7 @@
+
+Usage:
+  raku ch-2.raku <num-elements>
+  raku ch-2.raku [<elements> ...]
+  
+    <num-elements>      (UInt > 0) Num. of elements (with values 1, 2, 3, ...)
+    [<elements> ...]    (Str+) Explicit element values, in order

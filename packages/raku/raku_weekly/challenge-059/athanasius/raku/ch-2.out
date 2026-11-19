@@ -1,0 +1,8 @@
+
+Challenge 059, Task #2: Bit Sum (Raku)
+
+ERROR: Missing arguments
+Usage:
+  ch-2.raku [<numbers> ...]
+  
+    [<numbers> ...]    An even number of positive integers

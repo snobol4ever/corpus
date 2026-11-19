@@ -1,0 +1,12 @@
+Input: $s = 'Perl'
+Output: 1
+ 
+Input: $s = 'TPF'
+Output: 3
+ 
+Input: $s = 'PyThon'
+Output: 0
+ 
+Input: $s = 'raku'
+Output: 2
+ 

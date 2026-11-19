@@ -1,0 +1,4 @@
+     Stack after pushing: (1, 2, 3, 4) <-- Top
+     Stack after popping: (1, 2) <-- Top
+    Top element of stack: 2
+Minimum element of stack: 1

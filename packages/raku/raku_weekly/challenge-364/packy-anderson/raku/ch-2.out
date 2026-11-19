@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "G()(al)"
+Output: "Goal"
+
+Example 2:
+Input: $str = "G()()()()(al)"
+Output: "Gooooal"
+
+Example 3:
+Input: $str = "(al)G(al)()()"
+Output: "alGaloo"
+
+Example 4:
+Input: $str = "()G()G"
+Output: "oGoG"
+
+Example 5:
+Input: $str = "(al)(al)G()()"
+Output: "alalGoo"

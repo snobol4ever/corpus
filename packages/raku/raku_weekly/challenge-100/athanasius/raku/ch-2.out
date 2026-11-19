@@ -1,0 +1,7 @@
+
+Challenge 100, Task #2: Triangle Sum (Raku)
+
+Usage:
+  raku ch-2.raku <triangle>
+  
+    <triangle>    String representing a non-empty triangular array of numbers

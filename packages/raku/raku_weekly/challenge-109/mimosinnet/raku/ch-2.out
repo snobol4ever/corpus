@@ -1,0 +1,4 @@
+There are 1 solutions
+Solution 1
+ (a => (Any) b => (Any) c => (Any) d => (Any) e => (Any) f => (Any) g => (Any))
+ a+b = b+c+d = d+e+f = f+g = 0

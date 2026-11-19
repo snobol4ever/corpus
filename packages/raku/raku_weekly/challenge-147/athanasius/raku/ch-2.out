@@ -1,0 +1,8 @@
+
+Challenge 147, Task #2: Pentagon Numbers (Raku)
+
+The first pair of Pentagon Numbers whose
+sum and difference are also Pentagon Numbers:
+
+P(1020) + P(2167) =  1560090 + 7042750  = 8602840 = P(2395)
+P(1020) - P(2167) = |1560090 - 7042750| = 5482660 = P(1912)

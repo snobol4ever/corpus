@@ -1,0 +1,7 @@
+ok 1 - Consecutive Sequence: 10,4,20,1,3,2       => 4
+ok 2 - Consecutive Sequence: 0,6,1,8,5,2,4,3,0,7 => 9
+ok 3 - Consecutive Sequence: 10,30,20            => -1
+ok 4 - Next Permutation: 2,4,1,7,5,0 => 2,4,5,0,1,7
+ok 5 - Next Permutation: 1,2,3       => 1,3,2
+ok 6 - Next Permutation: 2,1,3       => 2,3,1
+ok 7 - Next Permutation: 3,1,2       => 3,2,1

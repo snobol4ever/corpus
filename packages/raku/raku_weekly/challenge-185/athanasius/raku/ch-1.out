@@ -1,0 +1,10 @@
+
+Challenge 185, Task #1: MAC Address (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Capitals
+ok 4 - Digits only
+ok 5 - Mix
+1..5

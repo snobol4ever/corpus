@@ -1,0 +1,14 @@
+Example 1:
+Input: @words1 = ("Perl", "is", "my", "friend")
+       @words2 = ("Perl", "and", "Raku", "are", "friend")
+Output: 2
+
+Example 2:
+Input: @words1 = ("Perl", "and", "Python", "are", "very", "similar")
+       @words2 = ("Python", "is", "top", "in", "guest", "languages")
+Output: 1
+
+Example 3:
+Input: @words1 = ("Perl", "is", "imperative", "Lisp", "is", "functional")
+       @words2 = ("Crystal", "is", "similar", "to", "Ruby")
+Output: 0

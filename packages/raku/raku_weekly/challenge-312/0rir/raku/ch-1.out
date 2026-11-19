@@ -1,0 +1,7 @@
+1..4
+ok 1 - 5 <- abc
+ok 2 - 7 <- bza
+ok 3 - 34 <- zjpc
+ok 4 - 0 <- 
+Input: $str = zjpc
+Output: 34

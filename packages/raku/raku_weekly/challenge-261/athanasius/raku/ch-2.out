@@ -1,0 +1,12 @@
+
+Challenge 261, Task #2: Multiply by Two (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Negatives
+ok 5 - Repetitions
+ok 6 - Zero start
+ok 7 - Empty list
+1..7

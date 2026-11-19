@@ -1,0 +1,6 @@
+ok 1 - Unique Number: 3,3,1       => 1
+ok 2 - Unique Number: 3,2,4,2,4   => 3
+ok 3 - Unique Number: 1           => 1
+ok 4 - Unique Number: 4,3,1,1,1,4 => 3
+ok 5 - Digit Count Value: 1,2,1,0 => true
+ok 6 - Digit Count Value: 3,3,0   => false

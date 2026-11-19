@@ -1,0 +1,11 @@
+
+Challenge 226, Task #2: Zero Array (Raku)
+
+Running the test suite
+ok 1 - Example 1: min ops
+ok 2 - Example 1: picks
+ok 3 - Example 2: min ops
+ok 4 - Example 2: picks
+ok 5 - Example 3: min ops
+ok 6 - Example 3: picks
+1..6

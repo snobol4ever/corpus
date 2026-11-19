@@ -1,0 +1,19 @@
+Example 1:
+Input: fuck = "fuck"
+       fcuk = "fcuk"
+Output: True
+
+Example 2:
+Input: love = "love"
+       love = "love"
+Output: False
+
+Example 3:
+Input: fodo = "fodo"
+       food = "food"
+Output: True
+
+Example 4:
+Input: feed = "feed"
+       feed = "feed"
+Output: True

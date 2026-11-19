@@ -1,0 +1,12 @@
+
+Challenge 331, Task #1: Last Word (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Question
+ok 5 - Empty
+ok 6 - No words
+ok 7 - Long word
+1..7

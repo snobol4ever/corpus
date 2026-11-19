@@ -1,0 +1,11 @@
+
+Challenge 276, Task #1: Complete Day (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - 1-off
+ok 5 - 7-off
+ok 6 - Combined
+1..6

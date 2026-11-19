@@ -1,0 +1,4 @@
+aabb  => True
+abab  => False
+aaa   => False
+bbb   => True

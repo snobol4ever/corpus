@@ -1,0 +1,9 @@
+1..8
+ok 1 - fivenum(15, 6, ...)
+ok 2 - fivenum(36, 40, ...)
+ok 3 - fivenum(0.14082834, 0.0974879, ...)
+ok 4 - fivenum(0, 0, ...)
+ok 5 - fivenum(6, 7, ...)
+ok 6 - fivenum(7, 15, ...)
+ok 7 - 16 heads of powers of two, compared against Statistics::fivenum
+ok 8 - 16 skips of powers of two, compared against Statistics::fivenum

@@ -1,0 +1,16 @@
+1..12
+ok 1 - 1 to single digit takes 0 ops
+ok 2 - 10 to single digit takes 1 ops
+ok 3 - 123457890 to single digit takes 1 ops
+ok 4 - 123 to single digit takes 1 ops
+ok 5 - 1234 to single digit takes 2 ops
+ok 6 - 2555 to single digit takes 2 ops
+ok 7 - 1234578912345 to single digit takes 2 ops
+ok 8 - 777 to single digit takes 4 ops
+ok 9 - 999 to single digit takes 4 ops
+ok 10 - 1 15 34 99 <- 15 99 1 34
+ok 11 - 22 33 50 25 <- 50 25 33 22
+ok 12 - 10 123 123457890 <- 123457890 123 10
+
+Input: @int = 1999 707 50 999 777 57 9991
+Output: 50 707 57 777 999 1999 9991

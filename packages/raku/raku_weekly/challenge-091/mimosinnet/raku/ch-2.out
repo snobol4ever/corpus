@@ -1,0 +1,9 @@
+Input : @N = 1 2 1 2
+Output: 1 (It jumps to the last index) 
+
+Input : @N = 2 1 1 0 2
+Output: 0 (It does not reach) 
+
+Input : @N = 2 2 1 2 0 5 2
+Output: 1 (It jumps over the last index) 
+

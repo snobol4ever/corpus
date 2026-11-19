@@ -1,0 +1,8 @@
+ok 1 - a simple phrase of 3 words
+ok 2 - a phrase of 3 words
+ok 3 - can count phrases with more than 3 words
+ok 4 - No middle words
+ok 5 - works with single word
+ok 6 - works with empty string
+ok 7 - works with leading and trailing spaces
+1..7

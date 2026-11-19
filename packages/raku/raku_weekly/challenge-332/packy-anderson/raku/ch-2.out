@@ -1,0 +1,11 @@
+Example 1:
+Input: $str = "weekly"
+Output: false
+
+Example 2:
+Input: $str = "perl"
+Output: true
+
+Example 3:
+Input: $str = "challenge"
+Output: false

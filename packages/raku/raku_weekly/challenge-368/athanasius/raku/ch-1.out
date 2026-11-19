@@ -1,0 +1,18 @@
+
+Challenge 368, Task #1: Make it Bigger (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Example 4
+ok 5 - Example 5
+ok 6 - One digit
+ok 7 - Negative
+ok 8 - Decimal 1
+ok 9 - Decimal 2
+ok 10 - Decimal 3
+ok 11 - E notation 1
+ok 12 - E notation 2
+ok 13 - E notation 3
+1..13

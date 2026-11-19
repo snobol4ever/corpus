@@ -1,0 +1,10 @@
+ok 1 - Base N: $num=42,       $base=2  => 101010
+ok 2 - Base N: $num=15642094, $base=16 => EEADEE
+ok 3 - Base N: $num=493,      $base=8  => 755
+ok 4 - Base N: $num=2228519,  $base=36 => 1BRJB
+ok 5 - Base N: $num=123456789,$base=64 => 7MyqL
+ok 6 - Special Binary Substrings: 0101     => 01 10
+ok 7 - Special Binary Substrings: 000111   => 000111 0011 01
+ok 8 - Special Binary Substrings: 000111   => 0011 01
+ok 9 - Special Binary Substrings: 10011100 => 10 0011 01 1100
+ok 10 - Special Binary Substrings: 00000    => ""

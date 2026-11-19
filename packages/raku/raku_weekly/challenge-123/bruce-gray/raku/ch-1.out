@@ -1,0 +1,5 @@
+1..4
+ok 1 - SampleA
+ok 2 - SampleB
+ok 3 - NotUnique
+ok 4 - Rectangle

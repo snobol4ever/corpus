@@ -1,0 +1,8 @@
+
+Challenge 131, Task #2: Find Pairs (Raku)
+
+Usage:
+  raku ch-2.raku <delims> <search>
+  
+    <delims>    A string of delimiter pairs
+    <search>    A string to search

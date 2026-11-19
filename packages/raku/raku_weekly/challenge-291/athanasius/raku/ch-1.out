@@ -1,0 +1,10 @@
+
+Challenge 291, Task #1: Middle Index (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Left  idx
+ok 5 - Right idx
+1..5

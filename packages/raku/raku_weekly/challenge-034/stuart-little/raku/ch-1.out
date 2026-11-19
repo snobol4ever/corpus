@@ -1,0 +1,3 @@
+A hash: {:four(4), :one(1), :three(3), :two(2)}
+Slicing the hash to an array: (1 3)
+Slicing the hash to a slice: {:one(1), :three(3)}

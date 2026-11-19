@@ -1,0 +1,41 @@
+1..30
+ok 1 - ("",) -> ("",)
+ok 2 - ("a",) -> ("a", "")
+ok 3 - ("", "a", "") -> ("a", "")
+ok 4 - ("a", "") -> ("a", "")
+ok 5 - ("ab",) -> ("ab", "")
+ok 6 - ("ab", "c") -> ("abc", "")
+ok 7 - ("a", "bc") -> ("abc", "")
+ok 8 - ("abc", "") -> ("abc", "")
+ok 9 - ("abcd",) -> ("abc", "d", "")
+ok 10 - ("abcde",) -> ("abc", "de", "")
+ok 11 - ("abcde", "") -> ("abc", "de", "")
+ok 12 - ("abcdef", "") -> ("abc", "def", "")
+ok 13 - ("abcdefg",) -> ("abc", "def", "g", "")
+ok 14 - ("a", "bc", "de", "fg") -> ("abc", "def", "g", "")
+ok 15 - ("ab", "cd", "ef", "g") -> ("abc", "def", "g", "")
+ok 16 - ("a", "bcdefg") -> ("abc", "def", "g", "")
+ok 17 - ("ab", "cdefg") -> ("abc", "def", "g", "")
+ok 18 - ("abc", "defg") -> ("abc", "def", "g", "")
+ok 19 - ("abcd", "efg") -> ("abc", "def", "g", "")
+ok 20 - ("abcde", "fg") -> ("abc", "def", "g", "")
+ok 21 - ("abcdef", "g") -> ("abc", "def", "g", "")
+ok 22 - ("", "a", "b", "", "c", "", "", "", "def", "g", "") -> ("abc", "def", "g", "")
+ok 23 - join-eq: ("ab", "c")  ("a", "bc") -> True
+ok 24 - by-chunks: ("ab", "c")  ("a", "bc") -> True
+ok 25 - join-eq: ("ab", "c")  ("ac", "b") -> False
+ok 26 - by-chunks: ("ab", "c")  ("ac", "b") -> False
+ok 27 - join-eq: ("ab", "cd", "e")  ("abcde",) -> True
+ok 28 - by-chunks: ("ab", "cd", "e")  ("abcde",) -> True
+ok 29 - join-eq: ("", "", "")  ("",) -> True
+ok 30 - by-chunks: ("", "", "")  ("",) -> True
+
+
+Input: @arr1 = ["ab", "cad", "cdefghijklmno", "pqrst", "uvwx", "yz"]
+       @arr2 = ["abcadcdefghijklmnopqrstuv", "", "wxyz"]
+Output: True
+
+
+Input: @arr1 = ["ab", "cad", "cdefghijklmno", "pqrst", "uvwx", "yz"]
+       @arr2 = ["abcadcdefghijklmnopqrstuv", "N", "wxyz"]
+Output: False

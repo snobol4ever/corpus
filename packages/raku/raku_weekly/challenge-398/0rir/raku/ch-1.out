@@ -1,0 +1,9 @@
+1..5
+ok 1 - 18 <- @in.raku[]
+ok 2 - 18 <- @in.raku[]
+ok 3 - 0 <- @in.raku[]
+ok 4 - 9 <- @in.raku[]
+ok 5 - 8 <- @in.raku[]
+
+Input: @arr = ({6, 6, 6, 12, 12})
+Output: 8

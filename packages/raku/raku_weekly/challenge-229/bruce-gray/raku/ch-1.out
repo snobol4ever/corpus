@@ -1,0 +1,11 @@
+1..10
+ok 1 - non-lex_reduce_or: abc bce cae
+ok 2 - non-lex_reduce_or: yxz cba mon
+ok 3 - non-lex_reduce_and: abc bce cae
+ok 4 - non-lex_reduce_and: yxz cba mon
+ok 5 - non-lex_Set: abc bce cae
+ok 6 - non-lex_Set: yxz cba mon
+ok 7 - non-lex_sort: abc bce cae
+ok 8 - non-lex_sort: yxz cba mon
+ok 9 - non-lex_early_escape: abc bce cae
+ok 10 - non-lex_early_escape: yxz cba mon

@@ -1,0 +1,21 @@
+
+Challenge 249, Task #2: DI String Match (Raku)
+
+Running the test suite
+ok 1 - Example 1: expected
+ok 2 - Example 1: verified
+ok 3 - Example 2: expected
+ok 4 - Example 2: verified
+ok 5 - Example 3: expected
+ok 6 - Example 3: verified
+ok 7 - Long str 1: expected
+ok 8 - Long str 1: verified
+ok 9 - All Ds: expected
+ok 10 - All Ds: verified
+ok 11 - Single D: expected
+ok 12 - Single D: verified
+ok 13 - Long str 2: expected
+ok 14 - Long str 2: verified
+ok 15 - Alternates: expected
+ok 16 - Alternates: verified
+1..16

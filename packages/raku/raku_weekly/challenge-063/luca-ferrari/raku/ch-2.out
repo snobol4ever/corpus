@@ -1,0 +1,16 @@
+7
+Rotation 1 the string is: x y x x
+After step 1 the string is: y x x x
+Rotation 2 the string is: y x x x
+After step 2 the string is: x x y x
+Rotation 3 the string is: x x y x
+After step 3 the string is: x x x y
+Rotation 4 the string is: x x x y
+After step 4 the string is: x x x y
+Rotation 5 the string is: x x x y
+After step 5 the string is: x x y x
+Rotation 6 the string is: x x y x
+After step 6 the string is: y x x x
+Rotation 7 the string is: y x x x
+After step 7 the string is: x y x x
+7

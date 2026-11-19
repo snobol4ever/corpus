@@ -1,0 +1,11 @@
+
+Challenge 215, Task #1: Odd One Out (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Repeats
+ok 5 - Capitals
+ok 6 - Mixed case
+1..6

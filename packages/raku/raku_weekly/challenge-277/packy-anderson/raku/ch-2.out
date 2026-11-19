@@ -1,0 +1,11 @@
+Example 1:
+Input: @ints = (1, 2, 3, 4, 5)
+Output: 4
+
+Strong Pairs: (2, 3), (3, 4), (3, 5), (4, 5)
+
+Example 2:
+Input: @ints = (5, 7, 1, 7)
+Output: 1
+
+Strong Pairs: (5, 7)

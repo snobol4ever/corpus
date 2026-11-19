@@ -1,0 +1,9 @@
+ok 1 - Integer last + 1
+ok 2 - Big number
+ok 3 - Small number
+ok 4 - Zero, no sign
+ok 5 - Zero, with sign is still zero
+ok 6 - 123=321
+ok 7 - 2147483641=1463847412
+ok 8 - -2147483641=-1463847412
+1..8

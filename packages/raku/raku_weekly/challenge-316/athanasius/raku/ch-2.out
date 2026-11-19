@@ -1,0 +1,15 @@
+
+Challenge 316, Task #2: Subsequence (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Identical
+ok 5 - Example 1a
+ok 6 - Empty 1
+ok 7 - Empty 2
+ok 8 - Empty 3
+ok 9 - Doubled
+ok 10 - Case
+1..10

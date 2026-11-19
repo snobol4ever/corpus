@@ -1,0 +1,19 @@
+Example 1:
+Input: $color = "#F4B2D1"
+Output: "#FF99CC"
+
+Example 2:
+Input: $color = "#15E6E5"
+Output: "#00FFCC"
+
+Example 3:
+Input: $color = "#191A65"
+Output: "#003366"
+
+Example 4:
+Input: $color = "#2D5A1B"
+Output: "#336633"
+
+Example 5:
+Input: $color = "#00FF66"
+Output: "#00FF66"

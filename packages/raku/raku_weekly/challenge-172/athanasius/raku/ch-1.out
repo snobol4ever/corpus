@@ -1,0 +1,8 @@
+
+Challenge 172, Task #1: Prime Partition (Raku)
+
+Usage:
+  raku ch-1.raku <m> <n>
+  
+    <m>    Positive integer: the number to be partitioned
+    <n>    Positive integer: the number of partitions required

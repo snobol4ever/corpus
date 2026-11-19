@@ -1,0 +1,20 @@
+Input:   @arr1 = "a" "bc" 
+	 @arr2 = "ab" "c" 
+Output: true
+
+Input:   @arr1 = "a" "b" "c" 
+	 @arr2 = "a" "bc" 
+Output: true
+
+Input:   @arr1 = "a" "bc" 
+	 @arr2 = "a" "c" "b" 
+Output: false
+
+Input:   @arr1 = "ab" "c" "" 
+	 @arr2 = "" "a" "bc" 
+Output: true
+
+Input:   @arr1 = "p" "e" "r" "l" 
+	 @arr2 = "perl" 
+Output: true
+

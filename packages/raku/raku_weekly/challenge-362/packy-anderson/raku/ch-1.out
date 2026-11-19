@@ -1,0 +1,19 @@
+Example 1:
+Input: "abca"
+Output: "abbcccaaaa"
+
+Example 2:
+Input: "xyz"
+Output: "xyyzzz"
+
+Example 3:
+Input: "code"
+Output: "coodddeeee"
+
+Example 4:
+Input: "hello"
+Output: "heelllllllooooo"
+
+Example 5:
+Input: "a"
+Output: "a"

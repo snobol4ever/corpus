@@ -1,0 +1,12 @@
+
+Challenge 262, Task #1: Max Positive Negative (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Duplicates 1
+ok 5 - Duplicates 2
+ok 6 - Zeros 1
+ok 7 - Zeros 2
+1..7

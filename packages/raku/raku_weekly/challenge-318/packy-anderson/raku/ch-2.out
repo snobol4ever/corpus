@@ -1,0 +1,16 @@
+Example 1:
+Input: @source = (3, 2, 1, 4)
+       @target = (1, 2, 3, 4)
+Output: True
+
+Reverse elements: 0-2
+
+Example 2:
+Input: @source = (1, 3, 4)
+       @target = (4, 1, 3)
+Output: False
+
+Example 3:
+Input: @source = (2)
+       @target = (2)
+Output: True

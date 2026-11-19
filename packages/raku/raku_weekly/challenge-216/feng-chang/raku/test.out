@@ -1,0 +1,8 @@
+ok 1 - Registration Number: @words = ('abc', 'abcd', 'bcd'),    $reg = 'AB1 2CD' => 'abcd'
+ok 2 - Registration Number: @words = ('job', 'james', 'bjorg'), $reg = '007 JB'  => 'job', 'bjorg'
+ok 3 - Registration Number: @words = ('crack', 'road', 'rac'),  $reg = 'C7 RA2'  => 'crack', 'rac'
+ok 4 - Word Stickers: @stickers = ("perl","raku","python"),   $word = "peon"          => 2
+ok 5 - Word Stickers: @stickers = ("love","hate","angry"),    $word = "goat"          => 3
+ok 6 - Word Stickers: @stickers = ("come","nation","delta"),  $word = "accommodation" => 4
+ok 7 - Word Stickers: @stickers = ("come","country","delta"), $word = "accommodation" => 0
+1..7

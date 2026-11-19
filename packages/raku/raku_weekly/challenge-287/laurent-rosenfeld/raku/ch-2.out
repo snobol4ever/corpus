@@ -1,0 +1,11 @@
+1          => True
+a          => False
+.          => False
+1.2e4.2    => False
+-1         => True
++1E-8      => True
+.44        => True
+16         => True
+12.5       => True
+5e17e3     => False
+foo        => False

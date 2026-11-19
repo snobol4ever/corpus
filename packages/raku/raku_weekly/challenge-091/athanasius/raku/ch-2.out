@@ -1,0 +1,9 @@
+
+Challenge 091, Task #2: Jump Game (Raku)
+
+Usage:
+  raku ch-2.raku [--exact] [--verbose] [<N> ...]
+  
+    [<N> ...]    1+ non-negative integers
+    --exact      Allow exact moves only [default: False]
+    --verbose    Show the steps followed [default: False]

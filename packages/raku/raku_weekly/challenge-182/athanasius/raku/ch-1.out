@@ -1,0 +1,7 @@
+
+Challenge 182, Task #1: Max Index (Raku)
+
+Usage:
+  raku ch-1.raku [<n> ...]
+  
+    [<n> ...]    A non-empty list of integers

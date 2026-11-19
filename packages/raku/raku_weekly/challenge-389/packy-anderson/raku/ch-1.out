@@ -1,0 +1,19 @@
+Example 1:
+Input: $melody = ['Bach', [qw(C D E F# G A B)], [7, 1, 6, 2, 5, 3, 4]]
+Output: BACH => D F# A B G E C
+
+Example 2:
+Input: $melody = ['Beethoven', [qw(C D F# G Ab)], [1, 3, 5, 2, 4]]
+Output: BEETHOVEN => C G D Ab F#
+
+Example 3:
+Input: $melody = ['Brahms', [qw(C Db Eb F G Ab Bb C D)], [9, 3, 7, 1, 8, 5, 2, 6, 4]]
+Output: BRAHMS => F Bb Db D Ab C Eb G C
+
+Example 4:
+Input: $melody = ['Bruckner', [qw(G F# Bb C D Eb F)], [4, 7, 2, 6, 1, 5, 3]]
+Output: BRUCKNER => D Bb F G Eb C F#
+
+Example 5:
+Input: $melody = ['Berg', [qw(C#)], [1]]
+Output: BERG => C#

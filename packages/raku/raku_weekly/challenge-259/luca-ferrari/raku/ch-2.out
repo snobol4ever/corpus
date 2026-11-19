@@ -1,0 +1,10 @@
+[｢video=foobar｣
+ name => ｢video｣
+ value => ｢foobar｣ ｢password=xyz｣
+ name => ｢password｣
+ value => ｢xyz｣ ｢abc=def｣
+ name => ｢abc｣
+ value => ｢def｣ ｢donald="duck here \"escaped\" "｣
+ name => ｢donald｣
+ value => ｢"duck here \"escaped\" "｣]
+{fields => {abc => def, donald => "duck here \"escaped\" ", password => xyz, video => foobar}, name => ｢youtube｣}

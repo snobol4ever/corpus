@@ -1,0 +1,13 @@
+1..9
+ok 1 - 0a1b2c <- "a0b1c2"
+ok 2 - a1b2c <- "abc12"
+ok 3 - 0a1b2c3 <- "0a2b1c3"
+ok 4 -  <- "1a23"
+ok 5 - 1a2b3 <- "ab123"
+ok 6 -  <- "abc1"
+ok 7 - 5 <- "5"
+ok 8 - a <- "a"
+ok 9 - Str <- ""
+
+Input: $str = "ab123"
+Output: "1a2b3"

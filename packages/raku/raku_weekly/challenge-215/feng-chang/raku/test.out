@@ -1,0 +1,13 @@
+ok 1 - Odd One out: 'abc', 'xyz', 'tsu' => 1
+ok 2 - Odd One out: 'rat', 'cab', 'dad' => 3
+ok 3 - Odd One out: 'x', 'y', 'z'       => 0
+ok 4 - Number Placement: @numbers = (1,0,0,0,1), $count = 1 => 1
+ok 5 - Number Placement: @numbers = (1,0,0,0,1), $count = 2 => 0
+ok 6 - Number Placement: @numbers = (1,0,0,0,0,0,0,0,1), $count = 3 => 1
+ok 7 - Number Placement: @numbers = (0,0,0,0,0), $count = 3 => 1
+ok 8 - Number Placement: @numbers = (0,0,0,0,0), $count = 4 => 0
+ok 9 - Number Placement: @numbers = (1,0,0,0,0,0,0,0,1), $count = 5 => 1
+ok 10 - Number Placement: @numbers = (1,0,0,0,0,0,0,0,1), $count = 6 => 0
+ok 11 - Number Placement: @numbers = (1,0,0,0,1,0,0,0,1), $count = 2 => 1
+ok 12 - Number Placement: @numbers = (1,0,0,0,1,0,0,0,1), $count = 3 => 0
+1..12

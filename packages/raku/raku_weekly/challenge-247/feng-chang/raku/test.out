@@ -1,0 +1,3 @@
+ok 1 - Most Frequent Letter Pair: abcdbca           => bc
+ok 2 - Most Frequent Letter Pair: cdeabeabfcdfabgcd => ab
+1..2

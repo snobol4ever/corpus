@@ -1,0 +1,14 @@
+1..10
+ok 1 - pERl <- "PerL"
+ok 2 - PerL <- "pERl"
+ok 3 - rakU <- "RAKu"
+ok 4 - RAKu <- "rakU"
+ok 5 - PyThOn <- "pYtHoN"
+ok 6 - pYtHoN <- "PyThOn"
+ok 7 -  <- ""
+ok 8 -  <- ""
+ok 9 - dies on not DEFINITE
+ok 10 - dies on not DEFINITE
+
+Input: $str = "1) python IS A snake."
+Output: "1) PYTHON is a SNAKE."

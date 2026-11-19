@@ -1,0 +1,39 @@
+Example 1:
+Input: $rat1 = "0.(12)"
+       $rat2 = "0.(121)"
+Output: false
+
+ 0.(12) is 4/33
+0.(121) is 121/999
+
+Example 2:
+Input: $rat1 = "0.1(23)"
+       $rat2 = "0.12(32)"
+Output: true
+
+ 0.1(23) is 61/495
+0.12(32) is 61/495
+
+Example 3:
+Input: $rat1 = "0.1(234)"
+       $rat2 = "0.12(342)"
+Output: true
+
+ 0.1(234) is 137/1110
+0.12(342) is 137/1110
+
+Example 4:
+Input: $rat1 = "12.99(99)"
+       $rat2 = "13."
+Output: true
+
+12.99(99) is 13/1
+      13. is 13/1
+
+Example 5:
+Input: $rat1 = "0.(123)"
+       $rat2 = "0.1(231)"
+Output: true
+
+ 0.(123) is 41/333
+0.1(231) is 41/333

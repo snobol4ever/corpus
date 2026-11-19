@@ -1,0 +1,8 @@
+
+Challenge 097, Task #1: Caesar Cipher (Raku)
+
+Usage:
+  raku ch-1.raku <S> <N>
+  
+    <S>    String: plaintext containing only uppercase letters and spaces
+    <N>    Integer: size of left shift (negative value gives right shift)

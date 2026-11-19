@@ -1,0 +1,10 @@
+Input: 18 5 7 11
+Output: 18
+Input: 6 12 18 24 30 40
+Output: 18
+Input: 3 9 15 21 27
+Output: 0
+Input: 6 12 14 20
+Output: 9
+Input: 6 6 6 12 12
+Output: 8

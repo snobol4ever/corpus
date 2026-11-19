@@ -1,0 +1,11 @@
+Example 1:
+Input: @ints = (2, 5, 9, 11, 3), $k = 1
+Output: 17
+
+Example 2:
+Input: @ints = (2, 5, 9, 11, 3), $k = 2
+Output: 11
+
+Example 3:
+Input: @ints = (2, 5, 9, 11, 3), $k = 0
+Output: 2

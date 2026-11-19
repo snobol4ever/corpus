@@ -1,0 +1,4 @@
+
+Challenge 104, Task #1: FUSC Sequence (Raku)
+
+fusc( 0) =  0	fusc( 1) =  1	fusc( 2) =  1	fusc( 3) =  2	fusc( 4) =  1	fusc( 5) =  3	fusc( 6) =  2	fusc( 7) =  3	fusc( 8) =  1	fusc( 9) =  4	fusc(10) =  3	fusc(11) =  5	fusc(12) =  2	fusc(13) =  5	fusc(14) =  3	fusc(15) =  4	fusc(16) =  1	fusc(17) =  5	fusc(18) =  4	fusc(19) =  7	fusc(20) =  3	fusc(21) =  8	fusc(22) =  5	fusc(23) =  7	fusc(24) =  2	fusc(25) =  7	fusc(26) =  5	fusc(27) =  8	fusc(28) =  3	fusc(29) =  7	fusc(30) =  4	fusc(31) =  5	fusc(32) =  1	fusc(33) =  6	fusc(34) =  5	fusc(35) =  9	fusc(36) =  4	fusc(37) = 11	fusc(38) =  7	fusc(39) = 10	fusc(40) =  3	fusc(41) = 11	fusc(42) =  8	fusc(43) = 13	fusc(44) =  5	fusc(45) = 12	fusc(46) =  7	fusc(47) =  9	fusc(48) =  2	fusc(49) =  9	fusc(50) =  7	

@@ -1,0 +1,17 @@
+1..12
+ok 1 - True <- ["Perl", "Weekly", "Challenge"] ∘∘ PWC
+ok 2 - True <- ["Bob", "Charlie", "Joe"] ∘∘ BCJ
+ok 3 - True <- ["bob", "charlie", "Joey"] ∘∘ BCJ
+ok 4 - False <- ["Morning", "Good"] ∘∘ MM
+ok 5 - Undef, Empty, or missmatch: ("",) ∘∘ Str
+ok 6 - Undef, Empty, or missmatch: () ∘∘ ""
+ok 7 - Undef, Empty, or missmatch: ("",) ∘∘ ""
+ok 8 - Undef, Empty, or missmatch: ("Abc",) ∘∘ ""
+ok 9 - Undef, Empty, or missmatch: ("Abc", "", "Bcd") ∘∘ "AB"
+ok 10 - Undef, Empty, or missmatch: ("bob", "", "Joey") ∘∘ "BCJ"
+ok 11 - Undef, Empty, or missmatch: ("",) ∘∘ "A"
+ok 12 - Undef, Empty, or missmatch: (Array,) ∘∘ "A"
+
+Input: @array = ("Perl", "Weekly", "Challenge", "challenging", "weekly", "for", "317", "weeks)
+$word  = PWCCWF3W
+Output: True

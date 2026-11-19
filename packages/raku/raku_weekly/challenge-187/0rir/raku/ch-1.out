@@ -1,0 +1,4 @@
+  Input: Foo => SD: '30-03' ED: '05-04'
+         Bar => SD: '28-03' ED: '02-04'
+
+  Output: 4 days

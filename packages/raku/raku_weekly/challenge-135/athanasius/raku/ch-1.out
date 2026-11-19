@@ -1,0 +1,7 @@
+
+Challenge 135, Task #1: Middle 3-digits (Raku)
+
+Usage:
+  raku ch-1.raku <n>
+  
+    <n>    An integer of d digits where d is odd at least 3

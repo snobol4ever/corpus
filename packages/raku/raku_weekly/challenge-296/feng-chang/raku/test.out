@@ -1,0 +1,10 @@
+ok 1 - String Compression: abbc    => a2bc
+ok 2 - String Compression: aaabccc => 3ab3c
+ok 3 - String Compression: abcc    => ab2c
+ok 4 - String Decompression: a2bc  => abbc
+ok 5 - String Decompression: 3ab3c => aaabccc
+ok 6 - String Decompression: ab2c  => abcc
+ok 7 - Matchstick Square: 1,2,2,2,1   => true
+ok 8 - Matchstick Square: 2,2,2,4     => false
+ok 9 - Matchstick Square: 2,2,2,2,4   => false
+ok 10 - Matchstick Square: 3,4,1,4,3,1 => true

@@ -1,0 +1,25 @@
+1..24
+ok 1 -  task2 : 10001
+ok 2 -  task2 : 10001
+ok 3 -  task2 : 100000001
+ok 4 -  task2 : 1001
+ok 5 -  task2 : 1001
+ok 6 -  task2 : 100000001
+ok 7 -  task2 : 10001000100000001
+ok 8 -  task2 : 10001000100000001
+ok 9 -  task2_with_early_return : 10001
+ok 10 -  task2_with_early_return : 10001
+ok 11 -  task2_with_early_return : 100000001
+ok 12 -  task2_with_early_return : 1001
+ok 13 -  task2_with_early_return : 1001
+ok 14 -  task2_with_early_return : 100000001
+ok 15 -  task2_with_early_return : 10001000100000001
+ok 16 -  task2_with_early_return : 10001000100000001
+ok 17 -  task2_without_join : 10001
+ok 18 -  task2_without_join : 10001
+ok 19 -  task2_without_join : 100000001
+ok 20 -  task2_without_join : 1001
+ok 21 -  task2_without_join : 1001
+ok 22 -  task2_without_join : 100000001
+ok 23 -  task2_without_join : 10001000100000001
+ok 24 -  task2_without_join : 10001000100000001

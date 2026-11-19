@@ -1,0 +1,3964 @@
+Input:  10
+Output: 1
+        10 11
+
+Input:  11
+Output: 1
+        11
+
+Input:  12
+Output: 1
+        12 33
+
+Input:  13
+Output: 1
+        13 44
+
+Input:  14
+Output: 1
+        14 55
+
+Input:  15
+Output: 1
+        15 66
+
+Input:  16
+Output: 1
+        16 77
+
+Input:  17
+Output: 1
+        17 88
+
+Input:  18
+Output: 1
+        18 99
+
+Input:  19
+Output: 1
+        19 110 121
+
+Input:  20
+Output: 1
+        20 22
+
+Input:  21
+Output: 1
+        21 33
+
+Input:  22
+Output: 1
+        22
+
+Input:  23
+Output: 1
+        23 55
+
+Input:  24
+Output: 1
+        24 66
+
+Input:  25
+Output: 1
+        25 77
+
+Input:  26
+Output: 1
+        26 88
+
+Input:  27
+Output: 1
+        27 99
+
+Input:  28
+Output: 1
+        28 110 121
+
+Input:  29
+Output: 1
+        29 121
+
+Input:  30
+Output: 1
+        30 33
+
+Input:  31
+Output: 1
+        31 44
+
+Input:  32
+Output: 1
+        32 55
+
+Input:  33
+Output: 1
+        33
+
+Input:  34
+Output: 1
+        34 77
+
+Input:  35
+Output: 1
+        35 88
+
+Input:  36
+Output: 1
+        36 99
+
+Input:  37
+Output: 1
+        37 110 121
+
+Input:  38
+Output: 1
+        38 121
+
+Input:  39
+Output: 1
+        39 132 363
+
+Input:  40
+Output: 1
+        40 44
+
+Input:  41
+Output: 1
+        41 55
+
+Input:  42
+Output: 1
+        42 66
+
+Input:  43
+Output: 1
+        43 77
+
+Input:  44
+Output: 1
+        44
+
+Input:  45
+Output: 1
+        45 99
+
+Input:  46
+Output: 1
+        46 110 121
+
+Input:  47
+Output: 1
+        47 121
+
+Input:  48
+Output: 1
+        48 132 363
+
+Input:  49
+Output: 1
+        49 143 484
+
+Input:  50
+Output: 1
+        50 55
+
+Input:  51
+Output: 1
+        51 66
+
+Input:  52
+Output: 1
+        52 77
+
+Input:  53
+Output: 1
+        53 88
+
+Input:  54
+Output: 1
+        54 99
+
+Input:  55
+Output: 1
+        55
+
+Input:  56
+Output: 1
+        56 121
+
+Input:  57
+Output: 1
+        57 132 363
+
+Input:  58
+Output: 1
+        58 143 484
+
+Input:  59
+Output: 1
+        59 154 605 1111
+
+Input:  60
+Output: 1
+        60 66
+
+Input:  61
+Output: 1
+        61 77
+
+Input:  62
+Output: 1
+        62 88
+
+Input:  63
+Output: 1
+        63 99
+
+Input:  64
+Output: 1
+        64 110 121
+
+Input:  65
+Output: 1
+        65 121
+
+Input:  66
+Output: 1
+        66
+
+Input:  67
+Output: 1
+        67 143 484
+
+Input:  68
+Output: 1
+        68 154 605 1111
+
+Input:  69
+Output: 1
+        69 165 726 1353 4884
+
+Input:  70
+Output: 1
+        70 77
+
+Input:  71
+Output: 1
+        71 88
+
+Input:  72
+Output: 1
+        72 99
+
+Input:  73
+Output: 1
+        73 110 121
+
+Input:  74
+Output: 1
+        74 121
+
+Input:  75
+Output: 1
+        75 132 363
+
+Input:  76
+Output: 1
+        76 143 484
+
+Input:  77
+Output: 1
+        77
+
+Input:  78
+Output: 1
+        78 165 726 1353 4884
+
+Input:  79
+Output: 1
+        79 176 847 1595 7546 14003 44044
+
+Input:  80
+Output: 1
+        80 88
+
+Input:  81
+Output: 1
+        81 99
+
+Input:  82
+Output: 1
+        82 110 121
+
+Input:  83
+Output: 1
+        83 121
+
+Input:  84
+Output: 1
+        84 132 363
+
+Input:  85
+Output: 1
+        85 143 484
+
+Input:  86
+Output: 1
+        86 154 605 1111
+
+Input:  87
+Output: 1
+        87 165 726 1353 4884
+
+Input:  88
+Output: 1
+        88
+
+Input:  89
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  90
+Output: 1
+        90 99
+
+Input:  91
+Output: 1
+        91 110 121
+
+Input:  92
+Output: 1
+        92 121
+
+Input:  93
+Output: 1
+        93 132 363
+
+Input:  94
+Output: 1
+        94 143 484
+
+Input:  95
+Output: 1
+        95 154 605 1111
+
+Input:  96
+Output: 1
+        96 165 726 1353 4884
+
+Input:  97
+Output: 1
+        97 176 847 1595 7546 14003 44044
+
+Input:  98
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  99
+Output: 1
+        99
+
+Input:  100
+Output: 1
+        100 101
+
+Input:  101
+Output: 1
+        101
+
+Input:  102
+Output: 1
+        102 303
+
+Input:  103
+Output: 1
+        103 404
+
+Input:  104
+Output: 1
+        104 505
+
+Input:  105
+Output: 1
+        105 606
+
+Input:  106
+Output: 1
+        106 707
+
+Input:  107
+Output: 1
+        107 808
+
+Input:  108
+Output: 1
+        108 909
+
+Input:  109
+Output: 1
+        109 1010 1111
+
+Input:  110
+Output: 1
+        110 121
+
+Input:  111
+Output: 1
+        111
+
+Input:  112
+Output: 1
+        112 323
+
+Input:  113
+Output: 1
+        113 424
+
+Input:  114
+Output: 1
+        114 525
+
+Input:  115
+Output: 1
+        115 626
+
+Input:  116
+Output: 1
+        116 727
+
+Input:  117
+Output: 1
+        117 828
+
+Input:  118
+Output: 1
+        118 929
+
+Input:  119
+Output: 1
+        119 1030 1331
+
+Input:  120
+Output: 1
+        120 141
+
+Input:  121
+Output: 1
+        121
+
+Input:  122
+Output: 1
+        122 343
+
+Input:  123
+Output: 1
+        123 444
+
+Input:  124
+Output: 1
+        124 545
+
+Input:  125
+Output: 1
+        125 646
+
+Input:  126
+Output: 1
+        126 747
+
+Input:  127
+Output: 1
+        127 848
+
+Input:  128
+Output: 1
+        128 949
+
+Input:  129
+Output: 1
+        129 1050 1551
+
+Input:  130
+Output: 1
+        130 161
+
+Input:  131
+Output: 1
+        131
+
+Input:  132
+Output: 1
+        132 363
+
+Input:  133
+Output: 1
+        133 464
+
+Input:  134
+Output: 1
+        134 565
+
+Input:  135
+Output: 1
+        135 666
+
+Input:  136
+Output: 1
+        136 767
+
+Input:  137
+Output: 1
+        137 868
+
+Input:  138
+Output: 1
+        138 969
+
+Input:  139
+Output: 1
+        139 1070 1771
+
+Input:  140
+Output: 1
+        140 181
+
+Input:  141
+Output: 1
+        141
+
+Input:  142
+Output: 1
+        142 383
+
+Input:  143
+Output: 1
+        143 484
+
+Input:  144
+Output: 1
+        144 585
+
+Input:  145
+Output: 1
+        145 686
+
+Input:  146
+Output: 1
+        146 787
+
+Input:  147
+Output: 1
+        147 888
+
+Input:  148
+Output: 1
+        148 989
+
+Input:  149
+Output: 1
+        149 1090 1991
+
+Input:  150
+Output: 1
+        150 201 303
+
+Input:  151
+Output: 1
+        151
+
+Input:  152
+Output: 1
+        152 403 707
+
+Input:  153
+Output: 1
+        153 504 909
+
+Input:  154
+Output: 1
+        154 605 1111
+
+Input:  155
+Output: 1
+        155 706 1313 4444
+
+Input:  156
+Output: 1
+        156 807 1515 6666
+
+Input:  157
+Output: 1
+        157 908 1717 8888
+
+Input:  158
+Output: 1
+        158 1009 10010 11011
+
+Input:  159
+Output: 1
+        159 1110 1221
+
+Input:  160
+Output: 1
+        160 221 343
+
+Input:  161
+Output: 1
+        161
+
+Input:  162
+Output: 1
+        162 423 747
+
+Input:  163
+Output: 1
+        163 524 949
+
+Input:  164
+Output: 1
+        164 625 1151 2662
+
+Input:  165
+Output: 1
+        165 726 1353 4884
+
+Input:  166
+Output: 1
+        166 827 1555 7106 13123 45254
+
+Input:  167
+Output: 1
+        167 928 1757 9328 17567 94138 177287 960058 1810127 9020308 17050517 88555588
+
+Input:  168
+Output: 1
+        168 1029 10230 13431
+
+Input:  169
+Output: 1
+        169 1130 1441
+
+Input:  170
+Output: 1
+        170 241 383
+
+Input:  171
+Output: 1
+        171
+
+Input:  172
+Output: 1
+        172 443 787
+
+Input:  173
+Output: 1
+        173 544 989
+
+Input:  174
+Output: 1
+        174 645 1191 3102 5115
+
+Input:  175
+Output: 1
+        175 746 1393 5324 9559
+
+Input:  176
+Output: 1
+        176 847 1595 7546 14003 44044
+
+Input:  177
+Output: 1
+        177 948 1797 9768 18447 92928 175857 934428 1758867 9447438 17794887 96644658 182289327 906271608 1712444217 8836886388
+
+Input:  178
+Output: 1
+        178 1049 10450 15851
+
+Input:  179
+Output: 1
+        179 1150 1661
+
+Input:  180
+Output: 1
+        180 261 423 747
+
+Input:  181
+Output: 1
+        181
+
+Input:  182
+Output: 1
+        182 463 827 1555 7106 13123 45254
+
+Input:  183
+Output: 1
+        183 564 1029 10230 13431
+
+Input:  184
+Output: 1
+        184 665 1231 2552
+
+Input:  185
+Output: 1
+        185 766 1433 4774
+
+Input:  186
+Output: 1
+        186 867 1635 6996
+
+Input:  187
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  188
+Output: 1
+        188 1069 10670 18271 35552 61105 111221 233332
+
+Input:  189
+Output: 1
+        189 1170 1881
+
+Input:  190
+Output: 1
+        190 281 463 827 1555 7106 13123 45254
+
+Input:  191
+Output: 1
+        191
+
+Input:  192
+Output: 1
+        192 483 867 1635 6996
+
+Input:  193
+Output: 1
+        193 584 1069 10670 18271 35552 61105 111221 233332
+
+Input:  194
+Output: 1
+        194 685 1271 2992
+
+Input:  195
+Output: 1
+        195 786 1473 5214 9339
+
+Input:  196
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  197
+Output: 1
+        197 988 1877 9658 18227 90508 171017 881188
+
+Input:  198
+Output: 1
+        198 1089 10890 20691 40293 79497
+
+Input:  199
+Output: 1
+        199 1190 2101 3113
+
+Input:  200
+Output: 1
+        200 202
+
+Input:  201
+Output: 1
+        201 303
+
+Input:  202
+Output: 1
+        202
+
+Input:  203
+Output: 1
+        203 505
+
+Input:  204
+Output: 1
+        204 606
+
+Input:  205
+Output: 1
+        205 707
+
+Input:  206
+Output: 1
+        206 808
+
+Input:  207
+Output: 1
+        207 909
+
+Input:  208
+Output: 1
+        208 1010 1111
+
+Input:  209
+Output: 1
+        209 1111
+
+Input:  210
+Output: 1
+        210 222
+
+Input:  211
+Output: 1
+        211 323
+
+Input:  212
+Output: 1
+        212
+
+Input:  213
+Output: 1
+        213 525
+
+Input:  214
+Output: 1
+        214 626
+
+Input:  215
+Output: 1
+        215 727
+
+Input:  216
+Output: 1
+        216 828
+
+Input:  217
+Output: 1
+        217 929
+
+Input:  218
+Output: 1
+        218 1030 1331
+
+Input:  219
+Output: 1
+        219 1131 2442
+
+Input:  220
+Output: 1
+        220 242
+
+Input:  221
+Output: 1
+        221 343
+
+Input:  222
+Output: 1
+        222
+
+Input:  223
+Output: 1
+        223 545
+
+Input:  224
+Output: 1
+        224 646
+
+Input:  225
+Output: 1
+        225 747
+
+Input:  226
+Output: 1
+        226 848
+
+Input:  227
+Output: 1
+        227 949
+
+Input:  228
+Output: 1
+        228 1050 1551
+
+Input:  229
+Output: 1
+        229 1151 2662
+
+Input:  230
+Output: 1
+        230 262
+
+Input:  231
+Output: 1
+        231 363
+
+Input:  232
+Output: 1
+        232
+
+Input:  233
+Output: 1
+        233 565
+
+Input:  234
+Output: 1
+        234 666
+
+Input:  235
+Output: 1
+        235 767
+
+Input:  236
+Output: 1
+        236 868
+
+Input:  237
+Output: 1
+        237 969
+
+Input:  238
+Output: 1
+        238 1070 1771
+
+Input:  239
+Output: 1
+        239 1171 2882
+
+Input:  240
+Output: 1
+        240 282
+
+Input:  241
+Output: 1
+        241 383
+
+Input:  242
+Output: 1
+        242
+
+Input:  243
+Output: 1
+        243 585
+
+Input:  244
+Output: 1
+        244 686
+
+Input:  245
+Output: 1
+        245 787
+
+Input:  246
+Output: 1
+        246 888
+
+Input:  247
+Output: 1
+        247 989
+
+Input:  248
+Output: 1
+        248 1090 1991
+
+Input:  249
+Output: 1
+        249 1191 3102 5115
+
+Input:  250
+Output: 1
+        250 302 505
+
+Input:  251
+Output: 1
+        251 403 707
+
+Input:  252
+Output: 1
+        252
+
+Input:  253
+Output: 1
+        253 605 1111
+
+Input:  254
+Output: 1
+        254 706 1313 4444
+
+Input:  255
+Output: 1
+        255 807 1515 6666
+
+Input:  256
+Output: 1
+        256 908 1717 8888
+
+Input:  257
+Output: 1
+        257 1009 10010 11011
+
+Input:  258
+Output: 1
+        258 1110 1221
+
+Input:  259
+Output: 1
+        259 1211 2332
+
+Input:  260
+Output: 1
+        260 322 545
+
+Input:  261
+Output: 1
+        261 423 747
+
+Input:  262
+Output: 1
+        262
+
+Input:  263
+Output: 1
+        263 625 1151 2662
+
+Input:  264
+Output: 1
+        264 726 1353 4884
+
+Input:  265
+Output: 1
+        265 827 1555 7106 13123 45254
+
+Input:  266
+Output: 1
+        266 928 1757 9328 17567 94138 177287 960058 1810127 9020308 17050517 88555588
+
+Input:  267
+Output: 1
+        267 1029 10230 13431
+
+Input:  268
+Output: 1
+        268 1130 1441
+
+Input:  269
+Output: 1
+        269 1231 2552
+
+Input:  270
+Output: 1
+        270 342 585
+
+Input:  271
+Output: 1
+        271 443 787
+
+Input:  272
+Output: 1
+        272
+
+Input:  273
+Output: 1
+        273 645 1191 3102 5115
+
+Input:  274
+Output: 1
+        274 746 1393 5324 9559
+
+Input:  275
+Output: 1
+        275 847 1595 7546 14003 44044
+
+Input:  276
+Output: 1
+        276 948 1797 9768 18447 92928 175857 934428 1758867 9447438 17794887 96644658 182289327 906271608 1712444217 8836886388
+
+Input:  277
+Output: 1
+        277 1049 10450 15851
+
+Input:  278
+Output: 1
+        278 1150 1661
+
+Input:  279
+Output: 1
+        279 1251 2772
+
+Input:  280
+Output: 1
+        280 362 625 1151 2662
+
+Input:  281
+Output: 1
+        281 463 827 1555 7106 13123 45254
+
+Input:  282
+Output: 1
+        282
+
+Input:  283
+Output: 1
+        283 665 1231 2552
+
+Input:  284
+Output: 1
+        284 766 1433 4774
+
+Input:  285
+Output: 1
+        285 867 1635 6996
+
+Input:  286
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  287
+Output: 1
+        287 1069 10670 18271 35552 61105 111221 233332
+
+Input:  288
+Output: 1
+        288 1170 1881
+
+Input:  289
+Output: 1
+        289 1271 2992
+
+Input:  290
+Output: 1
+        290 382 665 1231 2552
+
+Input:  291
+Output: 1
+        291 483 867 1635 6996
+
+Input:  292
+Output: 1
+        292
+
+Input:  293
+Output: 1
+        293 685 1271 2992
+
+Input:  294
+Output: 1
+        294 786 1473 5214 9339
+
+Input:  295
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  296
+Output: 1
+        296 988 1877 9658 18227 90508 171017 881188
+
+Input:  297
+Output: 1
+        297 1089 10890 20691 40293 79497
+
+Input:  298
+Output: 1
+        298 1190 2101 3113
+
+Input:  299
+Output: 1
+        299 1291 3212 5335
+
+Input:  300
+Output: 1
+        300 303
+
+Input:  301
+Output: 1
+        301 404
+
+Input:  302
+Output: 1
+        302 505
+
+Input:  303
+Output: 1
+        303
+
+Input:  304
+Output: 1
+        304 707
+
+Input:  305
+Output: 1
+        305 808
+
+Input:  306
+Output: 1
+        306 909
+
+Input:  307
+Output: 1
+        307 1010 1111
+
+Input:  308
+Output: 1
+        308 1111
+
+Input:  309
+Output: 1
+        309 1212 3333
+
+Input:  310
+Output: 1
+        310 323
+
+Input:  311
+Output: 1
+        311 424
+
+Input:  312
+Output: 1
+        312 525
+
+Input:  313
+Output: 1
+        313
+
+Input:  314
+Output: 1
+        314 727
+
+Input:  315
+Output: 1
+        315 828
+
+Input:  316
+Output: 1
+        316 929
+
+Input:  317
+Output: 1
+        317 1030 1331
+
+Input:  318
+Output: 1
+        318 1131 2442
+
+Input:  319
+Output: 1
+        319 1232 3553
+
+Input:  320
+Output: 1
+        320 343
+
+Input:  321
+Output: 1
+        321 444
+
+Input:  322
+Output: 1
+        322 545
+
+Input:  323
+Output: 1
+        323
+
+Input:  324
+Output: 1
+        324 747
+
+Input:  325
+Output: 1
+        325 848
+
+Input:  326
+Output: 1
+        326 949
+
+Input:  327
+Output: 1
+        327 1050 1551
+
+Input:  328
+Output: 1
+        328 1151 2662
+
+Input:  329
+Output: 1
+        329 1252 3773
+
+Input:  330
+Output: 1
+        330 363
+
+Input:  331
+Output: 1
+        331 464
+
+Input:  332
+Output: 1
+        332 565
+
+Input:  333
+Output: 1
+        333
+
+Input:  334
+Output: 1
+        334 767
+
+Input:  335
+Output: 1
+        335 868
+
+Input:  336
+Output: 1
+        336 969
+
+Input:  337
+Output: 1
+        337 1070 1771
+
+Input:  338
+Output: 1
+        338 1171 2882
+
+Input:  339
+Output: 1
+        339 1272 3993
+
+Input:  340
+Output: 1
+        340 383
+
+Input:  341
+Output: 1
+        341 484
+
+Input:  342
+Output: 1
+        342 585
+
+Input:  343
+Output: 1
+        343
+
+Input:  344
+Output: 1
+        344 787
+
+Input:  345
+Output: 1
+        345 888
+
+Input:  346
+Output: 1
+        346 989
+
+Input:  347
+Output: 1
+        347 1090 1991
+
+Input:  348
+Output: 1
+        348 1191 3102 5115
+
+Input:  349
+Output: 1
+        349 1292 4213 7337
+
+Input:  350
+Output: 1
+        350 403 707
+
+Input:  351
+Output: 1
+        351 504 909
+
+Input:  352
+Output: 1
+        352 605 1111
+
+Input:  353
+Output: 1
+        353
+
+Input:  354
+Output: 1
+        354 807 1515 6666
+
+Input:  355
+Output: 1
+        355 908 1717 8888
+
+Input:  356
+Output: 1
+        356 1009 10010 11011
+
+Input:  357
+Output: 1
+        357 1110 1221
+
+Input:  358
+Output: 1
+        358 1211 2332
+
+Input:  359
+Output: 1
+        359 1312 3443
+
+Input:  360
+Output: 1
+        360 423 747
+
+Input:  361
+Output: 1
+        361 524 949
+
+Input:  362
+Output: 1
+        362 625 1151 2662
+
+Input:  363
+Output: 1
+        363
+
+Input:  364
+Output: 1
+        364 827 1555 7106 13123 45254
+
+Input:  365
+Output: 1
+        365 928 1757 9328 17567 94138 177287 960058 1810127 9020308 17050517 88555588
+
+Input:  366
+Output: 1
+        366 1029 10230 13431
+
+Input:  367
+Output: 1
+        367 1130 1441
+
+Input:  368
+Output: 1
+        368 1231 2552
+
+Input:  369
+Output: 1
+        369 1332 3663
+
+Input:  370
+Output: 1
+        370 443 787
+
+Input:  371
+Output: 1
+        371 544 989
+
+Input:  372
+Output: 1
+        372 645 1191 3102 5115
+
+Input:  373
+Output: 1
+        373
+
+Input:  374
+Output: 1
+        374 847 1595 7546 14003 44044
+
+Input:  375
+Output: 1
+        375 948 1797 9768 18447 92928 175857 934428 1758867 9447438 17794887 96644658 182289327 906271608 1712444217 8836886388
+
+Input:  376
+Output: 1
+        376 1049 10450 15851
+
+Input:  377
+Output: 1
+        377 1150 1661
+
+Input:  378
+Output: 1
+        378 1251 2772
+
+Input:  379
+Output: 1
+        379 1352 3883
+
+Input:  380
+Output: 1
+        380 463 827 1555 7106 13123 45254
+
+Input:  381
+Output: 1
+        381 564 1029 10230 13431
+
+Input:  382
+Output: 1
+        382 665 1231 2552
+
+Input:  383
+Output: 1
+        383
+
+Input:  384
+Output: 1
+        384 867 1635 6996
+
+Input:  385
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  386
+Output: 1
+        386 1069 10670 18271 35552 61105 111221 233332
+
+Input:  387
+Output: 1
+        387 1170 1881
+
+Input:  388
+Output: 1
+        388 1271 2992
+
+Input:  389
+Output: 1
+        389 1372 4103 7117
+
+Input:  390
+Output: 1
+        390 483 867 1635 6996
+
+Input:  391
+Output: 1
+        391 584 1069 10670 18271 35552 61105 111221 233332
+
+Input:  392
+Output: 1
+        392 685 1271 2992
+
+Input:  393
+Output: 1
+        393
+
+Input:  394
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  395
+Output: 1
+        395 988 1877 9658 18227 90508 171017 881188
+
+Input:  396
+Output: 1
+        396 1089 10890 20691 40293 79497
+
+Input:  397
+Output: 1
+        397 1190 2101 3113
+
+Input:  398
+Output: 1
+        398 1291 3212 5335
+
+Input:  399
+Output: 1
+        399 1392 4323 7557
+
+Input:  400
+Output: 1
+        400 404
+
+Input:  401
+Output: 1
+        401 505
+
+Input:  402
+Output: 1
+        402 606
+
+Input:  403
+Output: 1
+        403 707
+
+Input:  404
+Output: 1
+        404
+
+Input:  405
+Output: 1
+        405 909
+
+Input:  406
+Output: 1
+        406 1010 1111
+
+Input:  407
+Output: 1
+        407 1111
+
+Input:  408
+Output: 1
+        408 1212 3333
+
+Input:  409
+Output: 1
+        409 1313 4444
+
+Input:  410
+Output: 1
+        410 424
+
+Input:  411
+Output: 1
+        411 525
+
+Input:  412
+Output: 1
+        412 626
+
+Input:  413
+Output: 1
+        413 727
+
+Input:  414
+Output: 1
+        414
+
+Input:  415
+Output: 1
+        415 929
+
+Input:  416
+Output: 1
+        416 1030 1331
+
+Input:  417
+Output: 1
+        417 1131 2442
+
+Input:  418
+Output: 1
+        418 1232 3553
+
+Input:  419
+Output: 1
+        419 1333 4664
+
+Input:  420
+Output: 1
+        420 444
+
+Input:  421
+Output: 1
+        421 545
+
+Input:  422
+Output: 1
+        422 646
+
+Input:  423
+Output: 1
+        423 747
+
+Input:  424
+Output: 1
+        424
+
+Input:  425
+Output: 1
+        425 949
+
+Input:  426
+Output: 1
+        426 1050 1551
+
+Input:  427
+Output: 1
+        427 1151 2662
+
+Input:  428
+Output: 1
+        428 1252 3773
+
+Input:  429
+Output: 1
+        429 1353 4884
+
+Input:  430
+Output: 1
+        430 464
+
+Input:  431
+Output: 1
+        431 565
+
+Input:  432
+Output: 1
+        432 666
+
+Input:  433
+Output: 1
+        433 767
+
+Input:  434
+Output: 1
+        434
+
+Input:  435
+Output: 1
+        435 969
+
+Input:  436
+Output: 1
+        436 1070 1771
+
+Input:  437
+Output: 1
+        437 1171 2882
+
+Input:  438
+Output: 1
+        438 1272 3993
+
+Input:  439
+Output: 1
+        439 1373 5104 9119
+
+Input:  440
+Output: 1
+        440 484
+
+Input:  441
+Output: 1
+        441 585
+
+Input:  442
+Output: 1
+        442 686
+
+Input:  443
+Output: 1
+        443 787
+
+Input:  444
+Output: 1
+        444
+
+Input:  445
+Output: 1
+        445 989
+
+Input:  446
+Output: 1
+        446 1090 1991
+
+Input:  447
+Output: 1
+        447 1191 3102 5115
+
+Input:  448
+Output: 1
+        448 1292 4213 7337
+
+Input:  449
+Output: 1
+        449 1393 5324 9559
+
+Input:  450
+Output: 1
+        450 504 909
+
+Input:  451
+Output: 1
+        451 605 1111
+
+Input:  452
+Output: 1
+        452 706 1313 4444
+
+Input:  453
+Output: 1
+        453 807 1515 6666
+
+Input:  454
+Output: 1
+        454
+
+Input:  455
+Output: 1
+        455 1009 10010 11011
+
+Input:  456
+Output: 1
+        456 1110 1221
+
+Input:  457
+Output: 1
+        457 1211 2332
+
+Input:  458
+Output: 1
+        458 1312 3443
+
+Input:  459
+Output: 1
+        459 1413 4554
+
+Input:  460
+Output: 1
+        460 524 949
+
+Input:  461
+Output: 1
+        461 625 1151 2662
+
+Input:  462
+Output: 1
+        462 726 1353 4884
+
+Input:  463
+Output: 1
+        463 827 1555 7106 13123 45254
+
+Input:  464
+Output: 1
+        464
+
+Input:  465
+Output: 1
+        465 1029 10230 13431
+
+Input:  466
+Output: 1
+        466 1130 1441
+
+Input:  467
+Output: 1
+        467 1231 2552
+
+Input:  468
+Output: 1
+        468 1332 3663
+
+Input:  469
+Output: 1
+        469 1433 4774
+
+Input:  470
+Output: 1
+        470 544 989
+
+Input:  471
+Output: 1
+        471 645 1191 3102 5115
+
+Input:  472
+Output: 1
+        472 746 1393 5324 9559
+
+Input:  473
+Output: 1
+        473 847 1595 7546 14003 44044
+
+Input:  474
+Output: 1
+        474
+
+Input:  475
+Output: 1
+        475 1049 10450 15851
+
+Input:  476
+Output: 1
+        476 1150 1661
+
+Input:  477
+Output: 1
+        477 1251 2772
+
+Input:  478
+Output: 1
+        478 1352 3883
+
+Input:  479
+Output: 1
+        479 1453 4994
+
+Input:  480
+Output: 1
+        480 564 1029 10230 13431
+
+Input:  481
+Output: 1
+        481 665 1231 2552
+
+Input:  482
+Output: 1
+        482 766 1433 4774
+
+Input:  483
+Output: 1
+        483 867 1635 6996
+
+Input:  484
+Output: 1
+        484
+
+Input:  485
+Output: 1
+        485 1069 10670 18271 35552 61105 111221 233332
+
+Input:  486
+Output: 1
+        486 1170 1881
+
+Input:  487
+Output: 1
+        487 1271 2992
+
+Input:  488
+Output: 1
+        488 1372 4103 7117
+
+Input:  489
+Output: 1
+        489 1473 5214 9339
+
+Input:  490
+Output: 1
+        490 584 1069 10670 18271 35552 61105 111221 233332
+
+Input:  491
+Output: 1
+        491 685 1271 2992
+
+Input:  492
+Output: 1
+        492 786 1473 5214 9339
+
+Input:  493
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  494
+Output: 1
+        494
+
+Input:  495
+Output: 1
+        495 1089 10890 20691 40293 79497
+
+Input:  496
+Output: 1
+        496 1190 2101 3113
+
+Input:  497
+Output: 1
+        497 1291 3212 5335
+
+Input:  498
+Output: 1
+        498 1392 4323 7557
+
+Input:  499
+Output: 1
+        499 1493 5434 9779
+
+Input:  500
+Output: 1
+        500 505
+
+Input:  501
+Output: 1
+        501 606
+
+Input:  502
+Output: 1
+        502 707
+
+Input:  503
+Output: 1
+        503 808
+
+Input:  504
+Output: 1
+        504 909
+
+Input:  505
+Output: 1
+        505
+
+Input:  506
+Output: 1
+        506 1111
+
+Input:  507
+Output: 1
+        507 1212 3333
+
+Input:  508
+Output: 1
+        508 1313 4444
+
+Input:  509
+Output: 1
+        509 1414 5555
+
+Input:  510
+Output: 1
+        510 525
+
+Input:  511
+Output: 1
+        511 626
+
+Input:  512
+Output: 1
+        512 727
+
+Input:  513
+Output: 1
+        513 828
+
+Input:  514
+Output: 1
+        514 929
+
+Input:  515
+Output: 1
+        515
+
+Input:  516
+Output: 1
+        516 1131 2442
+
+Input:  517
+Output: 1
+        517 1232 3553
+
+Input:  518
+Output: 1
+        518 1333 4664
+
+Input:  519
+Output: 1
+        519 1434 5775
+
+Input:  520
+Output: 1
+        520 545
+
+Input:  521
+Output: 1
+        521 646
+
+Input:  522
+Output: 1
+        522 747
+
+Input:  523
+Output: 1
+        523 848
+
+Input:  524
+Output: 1
+        524 949
+
+Input:  525
+Output: 1
+        525
+
+Input:  526
+Output: 1
+        526 1151 2662
+
+Input:  527
+Output: 1
+        527 1252 3773
+
+Input:  528
+Output: 1
+        528 1353 4884
+
+Input:  529
+Output: 1
+        529 1454 5995
+
+Input:  530
+Output: 1
+        530 565
+
+Input:  531
+Output: 1
+        531 666
+
+Input:  532
+Output: 1
+        532 767
+
+Input:  533
+Output: 1
+        533 868
+
+Input:  534
+Output: 1
+        534 969
+
+Input:  535
+Output: 1
+        535
+
+Input:  536
+Output: 1
+        536 1171 2882
+
+Input:  537
+Output: 1
+        537 1272 3993
+
+Input:  538
+Output: 1
+        538 1373 5104 9119
+
+Input:  539
+Output: 1
+        539 1474 6215 11341 25652
+
+Input:  540
+Output: 1
+        540 585
+
+Input:  541
+Output: 1
+        541 686
+
+Input:  542
+Output: 1
+        542 787
+
+Input:  543
+Output: 1
+        543 888
+
+Input:  544
+Output: 1
+        544 989
+
+Input:  545
+Output: 1
+        545
+
+Input:  546
+Output: 1
+        546 1191 3102 5115
+
+Input:  547
+Output: 1
+        547 1292 4213 7337
+
+Input:  548
+Output: 1
+        548 1393 5324 9559
+
+Input:  549
+Output: 1
+        549 1494 6435 11781 30492 59895
+
+Input:  550
+Output: 1
+        550 605 1111
+
+Input:  551
+Output: 1
+        551 706 1313 4444
+
+Input:  552
+Output: 1
+        552 807 1515 6666
+
+Input:  553
+Output: 1
+        553 908 1717 8888
+
+Input:  554
+Output: 1
+        554 1009 10010 11011
+
+Input:  555
+Output: 1
+        555
+
+Input:  556
+Output: 1
+        556 1211 2332
+
+Input:  557
+Output: 1
+        557 1312 3443
+
+Input:  558
+Output: 1
+        558 1413 4554
+
+Input:  559
+Output: 1
+        559 1514 5665
+
+Input:  560
+Output: 1
+        560 625 1151 2662
+
+Input:  561
+Output: 1
+        561 726 1353 4884
+
+Input:  562
+Output: 1
+        562 827 1555 7106 13123 45254
+
+Input:  563
+Output: 1
+        563 928 1757 9328 17567 94138 177287 960058 1810127 9020308 17050517 88555588
+
+Input:  564
+Output: 1
+        564 1029 10230 13431
+
+Input:  565
+Output: 1
+        565
+
+Input:  566
+Output: 1
+        566 1231 2552
+
+Input:  567
+Output: 1
+        567 1332 3663
+
+Input:  568
+Output: 1
+        568 1433 4774
+
+Input:  569
+Output: 1
+        569 1534 5885
+
+Input:  570
+Output: 1
+        570 645 1191 3102 5115
+
+Input:  571
+Output: 1
+        571 746 1393 5324 9559
+
+Input:  572
+Output: 1
+        572 847 1595 7546 14003 44044
+
+Input:  573
+Output: 1
+        573 948 1797 9768 18447 92928 175857 934428 1758867 9447438 17794887 96644658 182289327 906271608 1712444217 8836886388
+
+Input:  574
+Output: 1
+        574 1049 10450 15851
+
+Input:  575
+Output: 1
+        575
+
+Input:  576
+Output: 1
+        576 1251 2772
+
+Input:  577
+Output: 1
+        577 1352 3883
+
+Input:  578
+Output: 1
+        578 1453 4994
+
+Input:  579
+Output: 1
+        579 1554 6105 11121 23232
+
+Input:  580
+Output: 1
+        580 665 1231 2552
+
+Input:  581
+Output: 1
+        581 766 1433 4774
+
+Input:  582
+Output: 1
+        582 867 1635 6996
+
+Input:  583
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  584
+Output: 1
+        584 1069 10670 18271 35552 61105 111221 233332
+
+Input:  585
+Output: 1
+        585
+
+Input:  586
+Output: 1
+        586 1271 2992
+
+Input:  587
+Output: 1
+        587 1372 4103 7117
+
+Input:  588
+Output: 1
+        588 1473 5214 9339
+
+Input:  589
+Output: 1
+        589 1574 6325 11561 28072 55154 100309 1003310 1136311
+
+Input:  590
+Output: 1
+        590 685 1271 2992
+
+Input:  591
+Output: 1
+        591 786 1473 5214 9339
+
+Input:  592
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  593
+Output: 1
+        593 988 1877 9658 18227 90508 171017 881188
+
+Input:  594
+Output: 1
+        594 1089 10890 20691 40293 79497
+
+Input:  595
+Output: 1
+        595
+
+Input:  596
+Output: 1
+        596 1291 3212 5335
+
+Input:  597
+Output: 1
+        597 1392 4323 7557
+
+Input:  598
+Output: 1
+        598 1493 5434 9779
+
+Input:  599
+Output: 1
+        599 1594 6545 12001 22022
+
+Input:  600
+Output: 1
+        600 606
+
+Input:  601
+Output: 1
+        601 707
+
+Input:  602
+Output: 1
+        602 808
+
+Input:  603
+Output: 1
+        603 909
+
+Input:  604
+Output: 1
+        604 1010 1111
+
+Input:  605
+Output: 1
+        605 1111
+
+Input:  606
+Output: 1
+        606
+
+Input:  607
+Output: 1
+        607 1313 4444
+
+Input:  608
+Output: 1
+        608 1414 5555
+
+Input:  609
+Output: 1
+        609 1515 6666
+
+Input:  610
+Output: 1
+        610 626
+
+Input:  611
+Output: 1
+        611 727
+
+Input:  612
+Output: 1
+        612 828
+
+Input:  613
+Output: 1
+        613 929
+
+Input:  614
+Output: 1
+        614 1030 1331
+
+Input:  615
+Output: 1
+        615 1131 2442
+
+Input:  616
+Output: 1
+        616
+
+Input:  617
+Output: 1
+        617 1333 4664
+
+Input:  618
+Output: 1
+        618 1434 5775
+
+Input:  619
+Output: 1
+        619 1535 6886
+
+Input:  620
+Output: 1
+        620 646
+
+Input:  621
+Output: 1
+        621 747
+
+Input:  622
+Output: 1
+        622 848
+
+Input:  623
+Output: 1
+        623 949
+
+Input:  624
+Output: 1
+        624 1050 1551
+
+Input:  625
+Output: 1
+        625 1151 2662
+
+Input:  626
+Output: 1
+        626
+
+Input:  627
+Output: 1
+        627 1353 4884
+
+Input:  628
+Output: 1
+        628 1454 5995
+
+Input:  629
+Output: 1
+        629 1555 7106 13123 45254
+
+Input:  630
+Output: 1
+        630 666
+
+Input:  631
+Output: 1
+        631 767
+
+Input:  632
+Output: 1
+        632 868
+
+Input:  633
+Output: 1
+        633 969
+
+Input:  634
+Output: 1
+        634 1070 1771
+
+Input:  635
+Output: 1
+        635 1171 2882
+
+Input:  636
+Output: 1
+        636
+
+Input:  637
+Output: 1
+        637 1373 5104 9119
+
+Input:  638
+Output: 1
+        638 1474 6215 11341 25652
+
+Input:  639
+Output: 1
+        639 1575 7326 13563 50094 99099
+
+Input:  640
+Output: 1
+        640 686
+
+Input:  641
+Output: 1
+        641 787
+
+Input:  642
+Output: 1
+        642 888
+
+Input:  643
+Output: 1
+        643 989
+
+Input:  644
+Output: 1
+        644 1090 1991
+
+Input:  645
+Output: 1
+        645 1191 3102 5115
+
+Input:  646
+Output: 1
+        646
+
+Input:  647
+Output: 1
+        647 1393 5324 9559
+
+Input:  648
+Output: 1
+        648 1494 6435 11781 30492 59895
+
+Input:  649
+Output: 1
+        649 1595 7546 14003 44044
+
+Input:  650
+Output: 1
+        650 706 1313 4444
+
+Input:  651
+Output: 1
+        651 807 1515 6666
+
+Input:  652
+Output: 1
+        652 908 1717 8888
+
+Input:  653
+Output: 1
+        653 1009 10010 11011
+
+Input:  654
+Output: 1
+        654 1110 1221
+
+Input:  655
+Output: 1
+        655 1211 2332
+
+Input:  656
+Output: 1
+        656
+
+Input:  657
+Output: 1
+        657 1413 4554
+
+Input:  658
+Output: 1
+        658 1514 5665
+
+Input:  659
+Output: 1
+        659 1615 6776
+
+Input:  660
+Output: 1
+        660 726 1353 4884
+
+Input:  661
+Output: 1
+        661 827 1555 7106 13123 45254
+
+Input:  662
+Output: 1
+        662 928 1757 9328 17567 94138 177287 960058 1810127 9020308 17050517 88555588
+
+Input:  663
+Output: 1
+        663 1029 10230 13431
+
+Input:  664
+Output: 1
+        664 1130 1441
+
+Input:  665
+Output: 1
+        665 1231 2552
+
+Input:  666
+Output: 1
+        666
+
+Input:  667
+Output: 1
+        667 1433 4774
+
+Input:  668
+Output: 1
+        668 1534 5885
+
+Input:  669
+Output: 1
+        669 1635 6996
+
+Input:  670
+Output: 1
+        670 746 1393 5324 9559
+
+Input:  671
+Output: 1
+        671 847 1595 7546 14003 44044
+
+Input:  672
+Output: 1
+        672 948 1797 9768 18447 92928 175857 934428 1758867 9447438 17794887 96644658 182289327 906271608 1712444217 8836886388
+
+Input:  673
+Output: 1
+        673 1049 10450 15851
+
+Input:  674
+Output: 1
+        674 1150 1661
+
+Input:  675
+Output: 1
+        675 1251 2772
+
+Input:  676
+Output: 1
+        676
+
+Input:  677
+Output: 1
+        677 1453 4994
+
+Input:  678
+Output: 1
+        678 1554 6105 11121 23232
+
+Input:  679
+Output: 1
+        679 1655 7216 13343 47674
+
+Input:  680
+Output: 1
+        680 766 1433 4774
+
+Input:  681
+Output: 1
+        681 867 1635 6996
+
+Input:  682
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  683
+Output: 1
+        683 1069 10670 18271 35552 61105 111221 233332
+
+Input:  684
+Output: 1
+        684 1170 1881
+
+Input:  685
+Output: 1
+        685 1271 2992
+
+Input:  686
+Output: 1
+        686
+
+Input:  687
+Output: 1
+        687 1473 5214 9339
+
+Input:  688
+Output: 1
+        688 1574 6325 11561 28072 55154 100309 1003310 1136311
+
+Input:  689
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  690
+Output: 1
+        690 786 1473 5214 9339
+
+Input:  691
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  692
+Output: 1
+        692 988 1877 9658 18227 90508 171017 881188
+
+Input:  693
+Output: 1
+        693 1089 10890 20691 40293 79497
+
+Input:  694
+Output: 1
+        694 1190 2101 3113
+
+Input:  695
+Output: 1
+        695 1291 3212 5335
+
+Input:  696
+Output: 1
+        696
+
+Input:  697
+Output: 1
+        697 1493 5434 9779
+
+Input:  698
+Output: 1
+        698 1594 6545 12001 22022
+
+Input:  699
+Output: 1
+        699 1695 7656 14223 46464
+
+Input:  700
+Output: 1
+        700 707
+
+Input:  701
+Output: 1
+        701 808
+
+Input:  702
+Output: 1
+        702 909
+
+Input:  703
+Output: 1
+        703 1010 1111
+
+Input:  704
+Output: 1
+        704 1111
+
+Input:  705
+Output: 1
+        705 1212 3333
+
+Input:  706
+Output: 1
+        706 1313 4444
+
+Input:  707
+Output: 1
+        707
+
+Input:  708
+Output: 1
+        708 1515 6666
+
+Input:  709
+Output: 1
+        709 1616 7777
+
+Input:  710
+Output: 1
+        710 727
+
+Input:  711
+Output: 1
+        711 828
+
+Input:  712
+Output: 1
+        712 929
+
+Input:  713
+Output: 1
+        713 1030 1331
+
+Input:  714
+Output: 1
+        714 1131 2442
+
+Input:  715
+Output: 1
+        715 1232 3553
+
+Input:  716
+Output: 1
+        716 1333 4664
+
+Input:  717
+Output: 1
+        717
+
+Input:  718
+Output: 1
+        718 1535 6886
+
+Input:  719
+Output: 1
+        719 1636 7997
+
+Input:  720
+Output: 1
+        720 747
+
+Input:  721
+Output: 1
+        721 848
+
+Input:  722
+Output: 1
+        722 949
+
+Input:  723
+Output: 1
+        723 1050 1551
+
+Input:  724
+Output: 1
+        724 1151 2662
+
+Input:  725
+Output: 1
+        725 1252 3773
+
+Input:  726
+Output: 1
+        726 1353 4884
+
+Input:  727
+Output: 1
+        727
+
+Input:  728
+Output: 1
+        728 1555 7106 13123 45254
+
+Input:  729
+Output: 1
+        729 1656 8217 15345 69696
+
+Input:  730
+Output: 1
+        730 767
+
+Input:  731
+Output: 1
+        731 868
+
+Input:  732
+Output: 1
+        732 969
+
+Input:  733
+Output: 1
+        733 1070 1771
+
+Input:  734
+Output: 1
+        734 1171 2882
+
+Input:  735
+Output: 1
+        735 1272 3993
+
+Input:  736
+Output: 1
+        736 1373 5104 9119
+
+Input:  737
+Output: 1
+        737
+
+Input:  738
+Output: 1
+        738 1575 7326 13563 50094 99099
+
+Input:  739
+Output: 1
+        739 1676 8437 15785 74536 138083 518914 938729 1866568 10523249 104755750 162313151 313626412 528252725 1055505550 1610561051 3112211212 5233333325
+
+Input:  740
+Output: 1
+        740 787
+
+Input:  741
+Output: 1
+        741 888
+
+Input:  742
+Output: 1
+        742 989
+
+Input:  743
+Output: 1
+        743 1090 1991
+
+Input:  744
+Output: 1
+        744 1191 3102 5115
+
+Input:  745
+Output: 1
+        745 1292 4213 7337
+
+Input:  746
+Output: 1
+        746 1393 5324 9559
+
+Input:  747
+Output: 1
+        747
+
+Input:  748
+Output: 1
+        748 1595 7546 14003 44044
+
+Input:  749
+Output: 1
+        749 1696 8657 16225 68486
+
+Input:  750
+Output: 1
+        750 807 1515 6666
+
+Input:  751
+Output: 1
+        751 908 1717 8888
+
+Input:  752
+Output: 1
+        752 1009 10010 11011
+
+Input:  753
+Output: 1
+        753 1110 1221
+
+Input:  754
+Output: 1
+        754 1211 2332
+
+Input:  755
+Output: 1
+        755 1312 3443
+
+Input:  756
+Output: 1
+        756 1413 4554
+
+Input:  757
+Output: 1
+        757
+
+Input:  758
+Output: 1
+        758 1615 6776
+
+Input:  759
+Output: 1
+        759 1716 7887
+
+Input:  760
+Output: 1
+        760 827 1555 7106 13123 45254
+
+Input:  761
+Output: 1
+        761 928 1757 9328 17567 94138 177287 960058 1810127 9020308 17050517 88555588
+
+Input:  762
+Output: 1
+        762 1029 10230 13431
+
+Input:  763
+Output: 1
+        763 1130 1441
+
+Input:  764
+Output: 1
+        764 1231 2552
+
+Input:  765
+Output: 1
+        765 1332 3663
+
+Input:  766
+Output: 1
+        766 1433 4774
+
+Input:  767
+Output: 1
+        767
+
+Input:  768
+Output: 1
+        768 1635 6996
+
+Input:  769
+Output: 1
+        769 1736 8107 15125 67276
+
+Input:  770
+Output: 1
+        770 847 1595 7546 14003 44044
+
+Input:  771
+Output: 1
+        771 948 1797 9768 18447 92928 175857 934428 1758867 9447438 17794887 96644658 182289327 906271608 1712444217 8836886388
+
+Input:  772
+Output: 1
+        772 1049 10450 15851
+
+Input:  773
+Output: 1
+        773 1150 1661
+
+Input:  774
+Output: 1
+        774 1251 2772
+
+Input:  775
+Output: 1
+        775 1352 3883
+
+Input:  776
+Output: 1
+        776 1453 4994
+
+Input:  777
+Output: 1
+        777
+
+Input:  778
+Output: 1
+        778 1655 7216 13343 47674
+
+Input:  779
+Output: 1
+        779 1756 8327 15565 72116 133243 475574
+
+Input:  780
+Output: 1
+        780 867 1635 6996
+
+Input:  781
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  782
+Output: 1
+        782 1069 10670 18271 35552 61105 111221 233332
+
+Input:  783
+Output: 1
+        783 1170 1881
+
+Input:  784
+Output: 1
+        784 1271 2992
+
+Input:  785
+Output: 1
+        785 1372 4103 7117
+
+Input:  786
+Output: 1
+        786 1473 5214 9339
+
+Input:  787
+Output: 1
+        787
+
+Input:  788
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  789
+Output: 1
+        789 1776 8547 16005 66066
+
+Input:  790
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  791
+Output: 1
+        791 988 1877 9658 18227 90508 171017 881188
+
+Input:  792
+Output: 1
+        792 1089 10890 20691 40293 79497
+
+Input:  793
+Output: 1
+        793 1190 2101 3113
+
+Input:  794
+Output: 1
+        794 1291 3212 5335
+
+Input:  795
+Output: 1
+        795 1392 4323 7557
+
+Input:  796
+Output: 1
+        796 1493 5434 9779
+
+Input:  797
+Output: 1
+        797
+
+Input:  798
+Output: 1
+        798 1695 7656 14223 46464
+
+Input:  799
+Output: 1
+        799 1796 8767 16445 70906 131813 449944
+
+Input:  800
+Output: 1
+        800 808
+
+Input:  801
+Output: 1
+        801 909
+
+Input:  802
+Output: 1
+        802 1010 1111
+
+Input:  803
+Output: 1
+        803 1111
+
+Input:  804
+Output: 1
+        804 1212 3333
+
+Input:  805
+Output: 1
+        805 1313 4444
+
+Input:  806
+Output: 1
+        806 1414 5555
+
+Input:  807
+Output: 1
+        807 1515 6666
+
+Input:  808
+Output: 1
+        808
+
+Input:  809
+Output: 1
+        809 1717 8888
+
+Input:  810
+Output: 1
+        810 828
+
+Input:  811
+Output: 1
+        811 929
+
+Input:  812
+Output: 1
+        812 1030 1331
+
+Input:  813
+Output: 1
+        813 1131 2442
+
+Input:  814
+Output: 1
+        814 1232 3553
+
+Input:  815
+Output: 1
+        815 1333 4664
+
+Input:  816
+Output: 1
+        816 1434 5775
+
+Input:  817
+Output: 1
+        817 1535 6886
+
+Input:  818
+Output: 1
+        818
+
+Input:  819
+Output: 1
+        819 1737 9108 17127 89298
+
+Input:  820
+Output: 1
+        820 848
+
+Input:  821
+Output: 1
+        821 949
+
+Input:  822
+Output: 1
+        822 1050 1551
+
+Input:  823
+Output: 1
+        823 1151 2662
+
+Input:  824
+Output: 1
+        824 1252 3773
+
+Input:  825
+Output: 1
+        825 1353 4884
+
+Input:  826
+Output: 1
+        826 1454 5995
+
+Input:  827
+Output: 1
+        827 1555 7106 13123 45254
+
+Input:  828
+Output: 1
+        828
+
+Input:  829
+Output: 1
+        829 1757 9328 17567 94138 177287 960058 1810127 9020308 17050517 88555588
+
+Input:  830
+Output: 1
+        830 868
+
+Input:  831
+Output: 1
+        831 969
+
+Input:  832
+Output: 1
+        832 1070 1771
+
+Input:  833
+Output: 1
+        833 1171 2882
+
+Input:  834
+Output: 1
+        834 1272 3993
+
+Input:  835
+Output: 1
+        835 1373 5104 9119
+
+Input:  836
+Output: 1
+        836 1474 6215 11341 25652
+
+Input:  837
+Output: 1
+        837 1575 7326 13563 50094 99099
+
+Input:  838
+Output: 1
+        838
+
+Input:  839
+Output: 1
+        839 1777 9548 18007 88088
+
+Input:  840
+Output: 1
+        840 888
+
+Input:  841
+Output: 1
+        841 989
+
+Input:  842
+Output: 1
+        842 1090 1991
+
+Input:  843
+Output: 1
+        843 1191 3102 5115
+
+Input:  844
+Output: 1
+        844 1292 4213 7337
+
+Input:  845
+Output: 1
+        845 1393 5324 9559
+
+Input:  846
+Output: 1
+        846 1494 6435 11781 30492 59895
+
+Input:  847
+Output: 1
+        847 1595 7546 14003 44044
+
+Input:  848
+Output: 1
+        848
+
+Input:  849
+Output: 1
+        849 1797 9768 18447 92928 175857 934428 1758867 9447438 17794887 96644658 182289327 906271608 1712444217 8836886388
+
+Input:  850
+Output: 1
+        850 908 1717 8888
+
+Input:  851
+Output: 1
+        851 1009 10010 11011
+
+Input:  852
+Output: 1
+        852 1110 1221
+
+Input:  853
+Output: 1
+        853 1211 2332
+
+Input:  854
+Output: 1
+        854 1312 3443
+
+Input:  855
+Output: 1
+        855 1413 4554
+
+Input:  856
+Output: 1
+        856 1514 5665
+
+Input:  857
+Output: 1
+        857 1615 6776
+
+Input:  858
+Output: 1
+        858
+
+Input:  859
+Output: 1
+        859 1817 8998
+
+Input:  860
+Output: 1
+        860 928 1757 9328 17567 94138 177287 960058 1810127 9020308 17050517 88555588
+
+Input:  861
+Output: 1
+        861 1029 10230 13431
+
+Input:  862
+Output: 1
+        862 1130 1441
+
+Input:  863
+Output: 1
+        863 1231 2552
+
+Input:  864
+Output: 1
+        864 1332 3663
+
+Input:  865
+Output: 1
+        865 1433 4774
+
+Input:  866
+Output: 1
+        866 1534 5885
+
+Input:  867
+Output: 1
+        867 1635 6996
+
+Input:  868
+Output: 1
+        868
+
+Input:  869
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  870
+Output: 1
+        870 948 1797 9768 18447 92928 175857 934428 1758867 9447438 17794887 96644658 182289327 906271608 1712444217 8836886388
+
+Input:  871
+Output: 1
+        871 1049 10450 15851
+
+Input:  872
+Output: 1
+        872 1150 1661
+
+Input:  873
+Output: 1
+        873 1251 2772
+
+Input:  874
+Output: 1
+        874 1352 3883
+
+Input:  875
+Output: 1
+        875 1453 4994
+
+Input:  876
+Output: 1
+        876 1554 6105 11121 23232
+
+Input:  877
+Output: 1
+        877 1655 7216 13343 47674
+
+Input:  878
+Output: 1
+        878
+
+Input:  879
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  880
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  881
+Output: 1
+        881 1069 10670 18271 35552 61105 111221 233332
+
+Input:  882
+Output: 1
+        882 1170 1881
+
+Input:  883
+Output: 1
+        883 1271 2992
+
+Input:  884
+Output: 1
+        884 1372 4103 7117
+
+Input:  885
+Output: 1
+        885 1473 5214 9339
+
+Input:  886
+Output: 1
+        886 1574 6325 11561 28072 55154 100309 1003310 1136311
+
+Input:  887
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  888
+Output: 1
+        888
+
+Input:  889
+Output: 1
+        889 1877 9658 18227 90508 171017 881188
+
+Input:  890
+Output: 1
+        890 988 1877 9658 18227 90508 171017 881188
+
+Input:  891
+Output: 1
+        891 1089 10890 20691 40293 79497
+
+Input:  892
+Output: 1
+        892 1190 2101 3113
+
+Input:  893
+Output: 1
+        893 1291 3212 5335
+
+Input:  894
+Output: 1
+        894 1392 4323 7557
+
+Input:  895
+Output: 1
+        895 1493 5434 9779
+
+Input:  896
+Output: 1
+        896 1594 6545 12001 22022
+
+Input:  897
+Output: 1
+        897 1695 7656 14223 46464
+
+Input:  898
+Output: 1
+        898
+
+Input:  899
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  900
+Output: 1
+        900 909
+
+Input:  901
+Output: 1
+        901 1010 1111
+
+Input:  902
+Output: 1
+        902 1111
+
+Input:  903
+Output: 1
+        903 1212 3333
+
+Input:  904
+Output: 1
+        904 1313 4444
+
+Input:  905
+Output: 1
+        905 1414 5555
+
+Input:  906
+Output: 1
+        906 1515 6666
+
+Input:  907
+Output: 1
+        907 1616 7777
+
+Input:  908
+Output: 1
+        908 1717 8888
+
+Input:  909
+Output: 1
+        909
+
+Input:  910
+Output: 1
+        910 929
+
+Input:  911
+Output: 1
+        911 1030 1331
+
+Input:  912
+Output: 1
+        912 1131 2442
+
+Input:  913
+Output: 1
+        913 1232 3553
+
+Input:  914
+Output: 1
+        914 1333 4664
+
+Input:  915
+Output: 1
+        915 1434 5775
+
+Input:  916
+Output: 1
+        916 1535 6886
+
+Input:  917
+Output: 1
+        917 1636 7997
+
+Input:  918
+Output: 1
+        918 1737 9108 17127 89298
+
+Input:  919
+Output: 1
+        919
+
+Input:  920
+Output: 1
+        920 949
+
+Input:  921
+Output: 1
+        921 1050 1551
+
+Input:  922
+Output: 1
+        922 1151 2662
+
+Input:  923
+Output: 1
+        923 1252 3773
+
+Input:  924
+Output: 1
+        924 1353 4884
+
+Input:  925
+Output: 1
+        925 1454 5995
+
+Input:  926
+Output: 1
+        926 1555 7106 13123 45254
+
+Input:  927
+Output: 1
+        927 1656 8217 15345 69696
+
+Input:  928
+Output: 1
+        928 1757 9328 17567 94138 177287 960058 1810127 9020308 17050517 88555588
+
+Input:  929
+Output: 1
+        929
+
+Input:  930
+Output: 1
+        930 969
+
+Input:  931
+Output: 1
+        931 1070 1771
+
+Input:  932
+Output: 1
+        932 1171 2882
+
+Input:  933
+Output: 1
+        933 1272 3993
+
+Input:  934
+Output: 1
+        934 1373 5104 9119
+
+Input:  935
+Output: 1
+        935 1474 6215 11341 25652
+
+Input:  936
+Output: 1
+        936 1575 7326 13563 50094 99099
+
+Input:  937
+Output: 1
+        937 1676 8437 15785 74536 138083 518914 938729 1866568 10523249 104755750 162313151 313626412 528252725 1055505550 1610561051 3112211212 5233333325
+
+Input:  938
+Output: 1
+        938 1777 9548 18007 88088
+
+Input:  939
+Output: 1
+        939
+
+Input:  940
+Output: 1
+        940 989
+
+Input:  941
+Output: 1
+        941 1090 1991
+
+Input:  942
+Output: 1
+        942 1191 3102 5115
+
+Input:  943
+Output: 1
+        943 1292 4213 7337
+
+Input:  944
+Output: 1
+        944 1393 5324 9559
+
+Input:  945
+Output: 1
+        945 1494 6435 11781 30492 59895
+
+Input:  946
+Output: 1
+        946 1595 7546 14003 44044
+
+Input:  947
+Output: 1
+        947 1696 8657 16225 68486
+
+Input:  948
+Output: 1
+        948 1797 9768 18447 92928 175857 934428 1758867 9447438 17794887 96644658 182289327 906271608 1712444217 8836886388
+
+Input:  949
+Output: 1
+        949
+
+Input:  950
+Output: 1
+        950 1009 10010 11011
+
+Input:  951
+Output: 1
+        951 1110 1221
+
+Input:  952
+Output: 1
+        952 1211 2332
+
+Input:  953
+Output: 1
+        953 1312 3443
+
+Input:  954
+Output: 1
+        954 1413 4554
+
+Input:  955
+Output: 1
+        955 1514 5665
+
+Input:  956
+Output: 1
+        956 1615 6776
+
+Input:  957
+Output: 1
+        957 1716 7887
+
+Input:  958
+Output: 1
+        958 1817 8998
+
+Input:  959
+Output: 1
+        959
+
+Input:  960
+Output: 1
+        960 1029 10230 13431
+
+Input:  961
+Output: 1
+        961 1130 1441
+
+Input:  962
+Output: 1
+        962 1231 2552
+
+Input:  963
+Output: 1
+        963 1332 3663
+
+Input:  964
+Output: 1
+        964 1433 4774
+
+Input:  965
+Output: 1
+        965 1534 5885
+
+Input:  966
+Output: 1
+        966 1635 6996
+
+Input:  967
+Output: 1
+        967 1736 8107 15125 67276
+
+Input:  968
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  969
+Output: 1
+        969
+
+Input:  970
+Output: 1
+        970 1049 10450 15851
+
+Input:  971
+Output: 1
+        971 1150 1661
+
+Input:  972
+Output: 1
+        972 1251 2772
+
+Input:  973
+Output: 1
+        973 1352 3883
+
+Input:  974
+Output: 1
+        974 1453 4994
+
+Input:  975
+Output: 1
+        975 1554 6105 11121 23232
+
+Input:  976
+Output: 1
+        976 1655 7216 13343 47674
+
+Input:  977
+Output: 1
+        977 1756 8327 15565 72116 133243 475574
+
+Input:  978
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  979
+Output: 1
+        979
+
+Input:  980
+Output: 1
+        980 1069 10670 18271 35552 61105 111221 233332
+
+Input:  981
+Output: 1
+        981 1170 1881
+
+Input:  982
+Output: 1
+        982 1271 2992
+
+Input:  983
+Output: 1
+        983 1372 4103 7117
+
+Input:  984
+Output: 1
+        984 1473 5214 9339
+
+Input:  985
+Output: 1
+        985 1574 6325 11561 28072 55154 100309 1003310 1136311
+
+Input:  986
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  987
+Output: 1
+        987 1776 8547 16005 66066
+
+Input:  988
+Output: 1
+        988 1877 9658 18227 90508 171017 881188
+
+Input:  989
+Output: 1
+        989
+
+Input:  990
+Output: 1
+        990 1089 10890 20691 40293 79497
+
+Input:  991
+Output: 1
+        991 1190 2101 3113
+
+Input:  992
+Output: 1
+        992 1291 3212 5335
+
+Input:  993
+Output: 1
+        993 1392 4323 7557
+
+Input:  994
+Output: 1
+        994 1493 5434 9779
+
+Input:  995
+Output: 1
+        995 1594 6545 12001 22022
+
+Input:  996
+Output: 1
+        996 1695 7656 14223 46464
+
+Input:  997
+Output: 1
+        997 1796 8767 16445 70906 131813 449944
+
+Input:  998
+Output: 0
+        number too large - larger than 10000000000
+
+Input:  999
+Output: 1
+        999
+
+Input:  1000
+Output: 1
+        1000 1001
+

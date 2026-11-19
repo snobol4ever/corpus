@@ -1,0 +1,13 @@
+
+Challenge 237, Task #2: Maximise Greatness (Raku)
+
+Running the test suite
+ok 1 - Example 1: maximum greatness
+ok 2 - Example 1: permutation
+ok 3 - Example 2: maximum greatness
+ok 4 - Example 2: permutation
+ok 5 - Negatives: maximum greatness
+ok 6 - Negatives: permutation
+ok 7 - Mixed: maximum greatness
+ok 8 - Mixed: permutation
+1..8

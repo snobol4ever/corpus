@@ -1,0 +1,8 @@
+
+Challenge 086, Task #1: Pair Difference (Raku)
+
+Usage:
+  raku ch-1.raku -A[=Int] [<N> ...]
+  
+    -A[=Int]     A possible difference between two elements in @N
+    [<N> ...]    An array of two or more integers

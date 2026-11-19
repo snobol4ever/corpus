@@ -1,0 +1,19 @@
+Example 1:
+Input: @arr = ("relocate", "delocate", "allocate")
+Output: ("locate")
+
+Example 2:
+Input: @arr = ("apple", "banana", "cherry")
+Output: ()
+
+Example 3:
+Input: @arr = ("navigate", "cavity", "gravity")
+Output: ("avi")
+
+Example 4:
+Input: @arr = ("pedalgia", "pedalboard", "pedantic")
+Output: ("peda")
+
+Example 5:
+Input: @arr = ("schoolmaster", "schoolhouse", "schooling")
+Output: ("ho", "ol")

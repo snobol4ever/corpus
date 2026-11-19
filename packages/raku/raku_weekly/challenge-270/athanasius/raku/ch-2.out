@@ -1,0 +1,12 @@
+
+Challenge 270, Task #2: Equalize Array (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Zero x
+ok 4 - Zero y
+ok 5 - Uniform
+ok 6 - Negatives
+ok 7 - Singleton
+1..7

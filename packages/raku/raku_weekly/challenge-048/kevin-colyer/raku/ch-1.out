@@ -1,0 +1,99 @@
+1 has the sword...
+1 killed 2
+ and gave sword to 3
+3 killed 4
+ and gave sword to 5
+5 killed 6
+ and gave sword to 7
+7 killed 8
+ and gave sword to 9
+9 killed 10
+ and gave sword to 11
+11 killed 12
+ and gave sword to 13
+13 killed 14
+ and gave sword to 15
+15 killed 16
+ and gave sword to 17
+17 killed 18
+ and gave sword to 19
+19 killed 20
+ and gave sword to 21
+21 killed 22
+ and gave sword to 23
+23 killed 24
+ and gave sword to 25
+25 killed 26
+ and gave sword to 27
+27 killed 28
+ and gave sword to 29
+29 killed 30
+ and gave sword to 31
+31 killed 32
+ and gave sword to 33
+33 killed 34
+ and gave sword to 35
+35 killed 36
+ and gave sword to 37
+37 killed 38
+ and gave sword to 39
+39 killed 40
+ and gave sword to 41
+41 killed 42
+ and gave sword to 43
+43 killed 44
+ and gave sword to 45
+45 killed 46
+ and gave sword to 47
+47 killed 48
+ and gave sword to 49
+49 killed 50
+ and gave sword to 1
+1 killed 3
+ and gave sword to 5
+5 killed 7
+ and gave sword to 9
+9 killed 11
+ and gave sword to 13
+13 killed 15
+ and gave sword to 17
+17 killed 19
+ and gave sword to 21
+21 killed 23
+ and gave sword to 25
+25 killed 27
+ and gave sword to 29
+29 killed 31
+ and gave sword to 33
+33 killed 35
+ and gave sword to 37
+37 killed 39
+ and gave sword to 41
+41 killed 43
+ and gave sword to 45
+45 killed 47
+ and gave sword to 49
+49 killed 1
+ and gave sword to 5
+5 killed 9
+ and gave sword to 13
+13 killed 17
+ and gave sword to 21
+21 killed 25
+ and gave sword to 29
+29 killed 33
+ and gave sword to 37
+37 killed 41
+ and gave sword to 45
+45 killed 49
+ and gave sword to 5
+5 killed 13
+ and gave sword to 21
+21 killed 29
+ and gave sword to 37
+37 killed 45
+ and gave sword to 5
+5 killed 21
+ and gave sword to 37
+37 killed 5
+So the survivor is 37

@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "10#11#12"
+Output: "jkab"
+
+Example 2:
+Input: $str = "1326#"
+Output: "acz"
+
+Example 3:
+Input: $str = "25#24#123"
+Output: "yxabc"
+
+Example 4:
+Input: $str = "20#5"
+Output: "te"
+
+Example 5:
+Input: $str = "1910#26#"
+Output: "aijz"

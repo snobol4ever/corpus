@@ -1,0 +1,10 @@
+ok 1 - Sum of Frequencies: banana   => 5
+ok 2 - Sum of Frequencies: teestett => 7
+ok 3 - Sum of Frequencies: aeiouuaa => 3
+ok 4 - Sum of Frequencies: rhythm   => 2
+ok 5 - Sum of Frequencies: x        => 1
+ok 6 - Reverse Degree: z       => 1
+ok 7 - Reverse Degree: a       => 26
+ok 8 - Reverse Degree: bbc     => 147
+ok 9 - Reverse Degree: racecar => 560
+ok 10 - Reverse Degree: zyx     => 14

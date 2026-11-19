@@ -1,0 +1,6 @@
+ok 1 - Max Words: example 1, output: 8
+ok 2 - Max Words: example 2, output: 7
+ok 3 - Left Right Sum Diff: (10, 4, 8, 3) => (15, 1, 11, 22)
+ok 4 - Left Right Sum Diff: (0) => (0)
+ok 5 - Left Right Sum Diff: (1, 2, 3, 4, 5) => (14, 11, 6, 1, 10)
+1..5

@@ -1,0 +1,15 @@
+Example 1:
+Input: @ints = (2, 4, 1, 0)
+Output: 1
+
+Example 2:
+Input: @ints = (1, 2, 3, 4)
+Output: -1
+
+Example 3:
+Input: @ints = (1)
+Output: -1
+
+Example 4:
+Input: @ints = (4, 2, 1)
+Output: 0

@@ -1,0 +1,10 @@
+1..6
+ok 1 - e <- Preel,  Perl
+ok 2 - a <- Weeakly,  Weekly
+ok 3 - y <- Boxy,  Box
+ok 4 - Bad data
+ok 5 - Bad data
+ok 6 - Bad data
+
+Input: $s = "abcdefghijjk" $t = "abcdefghijjjk"
+Output: j

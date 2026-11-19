@@ -1,0 +1,5 @@
+ok 1 - Split Strings: @words = ("one.two.three", "four.five", "six"), $separator = "." => "one","two","three","four","five","six"
+ok 2 - Split Strings: @words = ("$perl$$", "$$raku$"),                $separator = "$" => "perl","raku"
+ok 3 - Weakest Row: [[1,1,0,0,0],[1,1,1,1,0],[1,0,0,0,0],[1,1,0,0,0],[1,1,1,1,1]] => (2, 0, 3, 1, 4)
+ok 4 - Weakest Row: [[1,0,0,0],[1,1,1,1],[1,0,0,0],[1,0,0,0]]                     => (0, 2, 3, 1)
+1..4

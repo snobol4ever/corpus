@@ -1,0 +1,19 @@
+1..15
+ok 1 - "a" <<- "x" <∘~ "a"
+ok 2 - "a" <<- "a" <∘~ "a"
+ok 3 - "ab" <<- "a" <∘~ "ab"
+ok 4 - "ab" <<- "a" <∘~ "ba"
+ok 5 - "abc" <<- "a" <∘~ "abc"
+ok 6 - "abc" <<- "a" <∘~ "bac"
+ok 7 - "abc" <<- "b" <∘~ "abc"
+ok 8 - "abc" <<- "c" <∘~ "abc"
+ok 9 - "acehllnge" <<- "e" <∘~ "challenge"
+ok 10 - "agoprrmming" <<- "a" <∘~ "programming"
+ok 11 - "champion" <<- "b" <∘~ "champion"
+ok 12 - "abcde" <<- "a" <∘~ "edcba"
+ok 13 - Dead <<- "a" <∘~ Str
+ok 14 - Dead <<- "a" <∘~ Any
+ok 15 - Dead <<- "a" <∘~ ""
+
+Input:  $str = "Anotherusefulquiz", $char = "l"
+Output: "Aeefhlnorstuuquiz"

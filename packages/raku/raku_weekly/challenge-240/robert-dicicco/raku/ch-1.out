@@ -1,0 +1,12 @@
+Input: @str = [Perl Python Pascal]
+$chk = "ppp"
+Output: true
+
+Input: @str = [Perl Raku]
+$chk = "rp"
+Output: false
+
+Input: @str = [Oracle Awk C]
+$chk = "oac"
+Output: true
+

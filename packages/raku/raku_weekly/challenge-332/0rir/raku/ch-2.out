@@ -1,0 +1,10 @@
+1..6
+ok 1 - False <- "weekly"
+ok 2 - True <- "perl"
+ok 3 - False <- "challenge"
+ok 4 - True <- "abcdefghijk"
+ok 5 - True <- "a-b_c+d×e\%f\&123()gh=ijk"
+ok 6 - False <- "a-a_c+d×e\%f\&123()gh=ijk"
+
+Input: $source = "mn * o - p + qr - s^^3 ~ aaa	# wxyz"
+Output: True

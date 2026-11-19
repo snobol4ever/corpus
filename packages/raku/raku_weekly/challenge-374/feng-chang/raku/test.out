@@ -1,0 +1,10 @@
+ok 1 - Count Vowel: aeiou         => (aeiou)
+ok 2 - Count Vowel: aaeeeiioouu   => (aaeeeiioou aaeeeiioouu aeeeiioou aeeeiioouu)
+ok 3 - Count Vowel: aeiouuaxaeiou => (aeiou aeiouu aeiouua eiouua aeiou)
+ok 4 - Count Vowel: uaeiou        => (uaeio uaeiou aeiou)
+ok 5 - Count Vowel: aeioaeioa     => ()
+ok 6 - Largest Same-digits Number: 6777133339 => 3333
+ok 7 - Largest Same-digits Number: 1200034    => 4
+ok 8 - Largest Same-digits Number: 44221155   => 55
+ok 9 - Largest Same-digits Number: 88888      => 88888
+ok 10 - Largest Same-digits Number: 11122233   => 222

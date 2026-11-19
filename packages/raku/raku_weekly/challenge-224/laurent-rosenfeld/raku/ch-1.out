@@ -1,0 +1,3 @@
+abc                  - xyz     => False
+scriptinglanguage    - perl    => True
+aabbcc               - abc     => True

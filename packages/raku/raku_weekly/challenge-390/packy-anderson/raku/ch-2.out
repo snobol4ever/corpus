@@ -1,0 +1,27 @@
+Example 1:
+Input: $str = "dbca", $k = 1
+Output: "adbc"
+
+Example 2:
+Input: $str = "geeks", $k = 2
+Output: "eegks"
+
+Example 3:
+Input: $str = "cbaed", $k = 3
+Output: "abcde"
+
+Example 4:
+Input: $str = "fedcba", $k = 4
+Output: "abcdef"
+
+Example 5:
+Input: $str = "perl", $k = 1
+Output: "erlp"
+
+Example 6:
+Input: $str = "oloolooo", $k = 1
+Output: "looloooo"
+
+Example 7:
+Input: $str = "oloooolo", $k = 1
+Output: "looloooo"

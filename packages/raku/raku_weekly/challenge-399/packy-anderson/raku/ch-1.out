@@ -1,0 +1,19 @@
+Example 1
+Input: $str = "AAAAA", $k = 2
+Output: 5
+
+Example 2
+Input: $str = "ABCDE", $k = 4
+Output: 5
+
+Example 3
+Input: $str = "AAABBBBAA", $k = 1
+Output: 5
+
+Example 4
+Input: $str = "ABACADA", $k = 2
+Output: 5
+
+Example 5
+Input: $str = "BAAABAAAA", $k = 1
+Output: 8

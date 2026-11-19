@@ -1,0 +1,9 @@
+1..5
+ok 1 - brown fox quick The <- "The quick brown fox"
+ok 2 - are Hello How World! you? <- "Hello    World!   How   are you?"
+ok 3 - Hello <- "Hello"
+ok 4 - are Hello, How World! you? <- "Hello, World! How are you?"
+ok 5 - 2 3 and apples bananas! have I <- "I have 2 apples and 3 bananas!"
+
+Input: $str = "Raku raku raku Raku, pick one"
+Output: "one pick Raku raku raku Raku,"

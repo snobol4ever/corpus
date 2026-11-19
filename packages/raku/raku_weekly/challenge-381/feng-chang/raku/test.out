@@ -1,0 +1,10 @@
+ok 1 - Same Row Column: [1,2,3,4],[2,3,4,1],[3,4,1,2],[4,1,2,3] => true
+ok 2 - Same Row Column: [1]                                     => true
+ok 3 - Same Row Column: [1,2,5],[5,1,2],[2,5,1]                 => false
+ok 4 - Same Row Column: [1,2,3],[1,2,3],[1,2,3]                 => false
+ok 5 - Same Row Column: [1,2,3],[3,1,2],[3,2,1]                 => false
+ok 6 - Smaller Greater Element: (2, 4)               => 0
+ok 7 - Smaller Greater Element: (1, 1, 1, 1)         => 0
+ok 8 - Smaller Greater Element: (1, 1, 4, 8, 12, 12) => 2
+ok 9 - Smaller Greater Element: (3, 6, 6, 9)         => 2
+ok 10 - Smaller Greater Element: (0, -5, 10, -2, 4)   => 3

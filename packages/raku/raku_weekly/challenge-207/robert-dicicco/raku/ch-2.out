@@ -1,0 +1,6 @@
+Input: @citations = [10 8 5 4 3]
+Output: 4
+
+Input: @citations = [25 8 5 3 3]
+Output: 3
+

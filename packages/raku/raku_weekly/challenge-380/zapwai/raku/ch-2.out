@@ -1,0 +1,10 @@
+Input: $str = "z"
+Output: 1
+Input: $str = "a"
+Output: 26
+Input: $str = "bbc"
+Output: 147
+Input: $str = "racecar"
+Output: 560
+Input: $str = "zyx"
+Output: 14

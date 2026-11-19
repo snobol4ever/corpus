@@ -1,0 +1,20 @@
+Input: $start = AACCGGTT
+	$end = AACCGGTA
+	@bank = AACCGCTA AAACGGTA
+Output: -1
+Input: $start = AACCGGTT
+	$end = AACCGGAA
+	@bank = AACCGGTA AACCGGAA AACCGCTA AACCCTAA AACCGTAA
+Output: 2
+Input: $start = AAAAAAAA
+	$end = AAAAACCC
+	@bank = CAAAAAAA CCAAAAAA AAAAAAAC
+Output: -1
+Input: $start = GAAAAAAA
+	$end = GCCCCCCC
+	@bank = GCAAAAAA GCCAAAAA GCCCAAAA GCCCCAAA GCCCCCAA GCCCCCCA GCCCCCCC
+Output: 7
+Input: $start = AACCGGTT
+	$end = AACCGGTT
+	@bank = AACCGGTA
+Output: 0

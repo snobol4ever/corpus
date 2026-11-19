@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "RakuPerl", $size = 4, $filler = "*"
+Output: ("Raku", "Perl")
+
+Example 2:
+Input: $str = "Python", $size = 5, $filler = "0"
+Output: ("Pytho", "n0000")
+
+Example 3:
+Input: $str = "12345", $size = 3, $filler = "x"
+Output: ("123", "45x")
+
+Example 4:
+Input: $str = "HelloWorld", $size = 3, $filler = "_"
+Output: ("Hel", "loW", "orl", "d__")
+
+Example 5:
+Input: $str = "AI", $size = 5, $filler = "!"
+Output: ("AI!!!")

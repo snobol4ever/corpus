@@ -1,0 +1,29 @@
+Example 1:
+Input: $int = 4
+Output: 3,1
+
+4 => 3 + 1
+
+Example 2:
+Input: $int = 12
+Output: 8,3,1
+
+12 => 8 + 3 + 1
+
+Example 3:
+Input: $int = 20
+Output: 13,5,2
+
+20 => 13 + 5 + 2
+
+Example 4:
+Input: $int = 96
+Output: 89,5,2
+
+96 => 89 + 5 + 2
+
+Example 5:
+Input: $int = 100
+Output: 89,8,3
+
+100 => 89 + 8 + 3

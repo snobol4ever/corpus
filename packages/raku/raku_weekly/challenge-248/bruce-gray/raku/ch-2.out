@@ -1,0 +1,5 @@
+1..4
+ok 1 - task2_semicolon - 1 2 3 4
+ok 2 - task2_semicolon - 1 0 0 0
+ok 3 - task2_stream - 1 2 3 4
+ok 4 - task2_stream - 1 0 0 0

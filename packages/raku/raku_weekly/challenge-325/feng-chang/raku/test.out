@@ -1,0 +1,6 @@
+ok 1 - Consecutive One: 0110111 => 3
+ok 2 - Consecutive One: 0000    => 0
+ok 3 - Consecutive One: 101011  => 2
+ok 4 - Final Price: 8,4,6,2,3 => 4,2,4,2,3
+ok 5 - Final Price: 1,2,3,4,5 => 1,2,3,4,5
+ok 6 - Final Price: 7,1,1,5   => 6,0,1,5

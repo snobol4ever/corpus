@@ -1,0 +1,6 @@
+1..5
+ok 1 - is-Lychrel-number  56 == False
+ok 2 - is-Lychrel-number  57 == False
+ok 3 - is-Lychrel-number  59 == False
+ok 4 - is-Lychrel-number 464 == True
+ok 5 - is-Lychrel-number 196 == True

@@ -1,0 +1,16 @@
+1..11
+ok 1 - ("", 0) <- 
+ok 2 - (1, 100) <- abcdefghij
+ok 3 - (1, 50) <- abcde
+ok 4 - (3, 60) <- abcdefghijklmnopqrstuvwxyz
+ok 5 - (2, 4) <- bbbcccdddaaa
+ok 6 - (5, 40) <- abcdefghijklmnopqrstuvwxyz
+ok 7 - (2, 32) <- abcdefghijklmnopqrstuvwxyz
+ok 8 - (3, 32) <- abcdefghijklmnopqrstuvwxyz
+ok 9 - (3, 39) <- abcdefghijklmnopqrstuvwxyz
+ok 10 - DIES: a char wider than line
+ok 11 - DIES: a char wider than line
+
+Input: $str = "abcdefghijklmnopqrstuvwxyz"
+       @width = [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 3, 7, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7, 5, 5, 5]
+Output: (2 32)

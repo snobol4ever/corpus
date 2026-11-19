@@ -1,0 +1,11 @@
+1..7
+ok 1 - locate <- ("relocate", "delocate", "allocate")
+ok 2 -  <- ("apple", "banana", "cherry")
+ok 3 - avi <- ("navigate", "cavity", "gravity")
+ok 4 - peda <- ("pedalgia", "pedalboard", "pedantic")
+ok 5 - ho ol <- ("schoolmaster", "schoolhouse", "schooling")
+ok 6 - ap le <- ("apple", "apple")
+ok 7 - ap le <- ("apple", "grappled")
+
+Input: @str = ("magellan, mage, magestic")
+Output: ("mage")

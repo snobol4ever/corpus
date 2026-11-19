@@ -1,0 +1,10 @@
+Input: aaaaa
+Output: 3
+Input: abcdeba
+Output: 5
+Input: abbc
+Output: 0
+Input: abcaacbc
+Output: 4
+Input: laptop
+Output: 2

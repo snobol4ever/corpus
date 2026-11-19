@@ -1,0 +1,10 @@
+1..5
+ok 1 - count matches
+ok 2 - count matches
+ok 3 - count matches
+ok 4 - count matches
+ok 5 - count matches
+
+
+Input: @ints = [1, 2, 3, 4, 5, 5, 4]
+Output: 5

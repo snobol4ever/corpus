@@ -1,0 +1,11 @@
+1..6
+ok 1 - True <- $("a", "bc") ∘∘ $("ab", "c")
+ok 2 - True <- $("a", "b", "c") ∘∘ $("a", "bc")
+ok 3 - False <- $("a", "bc") ∘∘ $("a", "c", "b")
+ok 4 - True <- $("ab", "c", "") ∘∘ $("", "a", "bc")
+ok 5 - True <- $("p", "e", "r", "l") ∘∘ $("perl",)
+ok 6 - True <- $("", "") ∘∘ $("", "")
+
+Input: @arr1 = ("a", "bc")
+@arr2 = ("a", "c", "b)"
+Output: False

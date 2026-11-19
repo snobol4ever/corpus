@@ -1,0 +1,14 @@
+Example 1:
+Input: @a = (1, 1, 2, 3, 5)
+Found integer values for P (1) and Q (1)
+Output: True
+
+Example 2:
+Input: @a = (4, 2, 4, 5, 7)
+Values for P (0.5) and Q (1) for first four elements are not integers
+Output: False
+
+Example 3:
+Input: @a = (4, 1, 2, -3, 8)
+Found integer values for P (1) and Q (-2)
+Output: True

@@ -1,0 +1,5 @@
+
+Challenge 157, Task #1: Pythagorean Means (Raku)
+
+Input:  @n = ()
+Output: AM = NaN, GM = 1.0, HM = NaN

@@ -1,0 +1,8 @@
+
+Challenge 145, Task #1: Dot Product (Raku)
+
+Usage:
+  raku ch-1.raku <a> <b>
+  
+    <a>    Comma-separated list of n real numbers
+    <b>    Comma-separated list of n real numbers

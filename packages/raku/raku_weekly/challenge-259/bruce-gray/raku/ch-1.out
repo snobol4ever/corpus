@@ -1,0 +1,9 @@
+1..8
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Land in the middle of holidays
+ok 4 - Holidays on a weekend
+ok 5 - Whole year
+ok 6 - Holidays wrap a weekend
+ok 7 - Start on a holiday
+ok 8 - Huge set of holidays

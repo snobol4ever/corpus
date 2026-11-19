@@ -1,0 +1,15 @@
+
+Challenge 304, Task #1: Arrange Binary (Raku)
+
+Running the test suite
+ok 1 - Example 1: rearrange
+ok 2 - Example 1: replace
+ok 3 - Example 2: rearrange
+ok 4 - Example 2: replace
+ok 5 - Groups 1: rearrange
+ok 6 - Groups 1: replace
+ok 7 - Groups 2: rearrange
+ok 8 - Groups 2: replace
+ok 9 - Groups 3: rearrange
+ok 10 - Groups 3: replace
+1..10

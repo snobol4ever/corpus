@@ -1,0 +1,29 @@
+Example 1:
+Input: $list1 = ("great", "acting")
+       $list2 = ("fine", "drama")
+       $list3 = (["great", "fine"], ["acting", "drama"])
+Output: True
+
+Example 2:
+Input: $list1 = ("apple", "pie")
+       $list2 = ("banana", "pie")
+       $list3 = (["apple", "peach"], ["peach", "banana"])
+Output: False
+
+Example 3:
+Input: $list1 = ("perl4", "python")
+       $list2 = ("raku", "python")
+       $list3 = (["perl4", "perl5", "raku"])
+Output: True
+
+Example 4:
+Input: $list1 = ("enjoy", "challenge")
+       $list2 = ("love", "weekly", "challenge")
+       $list3 = (["enjoy", "love"])
+Output: False
+
+Example 5:
+Input: $list1 = ("fast", "car")
+       $list2 = ("quick", "vehicle")
+       $list3 = (["quick", "fast"], ["vehicle", "car"])
+Output: True

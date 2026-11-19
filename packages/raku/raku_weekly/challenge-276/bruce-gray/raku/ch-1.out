@@ -1,0 +1,13 @@
+1..12
+ok 1 - task1_combinations : 12 12 30 24 24
+ok 2 - task1_combinations : 72 48 24 5
+ok 3 - task1_combinations : 12 18 24
+ok 4 - # SKIP Too slow: task1_combinations : 12 12 30 24 24 5 6 18 12...
+ok 5 - task1_classify_X : 12 12 30 24 24
+ok 6 - task1_classify_X : 72 48 24 5
+ok 7 - task1_classify_X : 12 18 24
+ok 8 - task1_classify_X : 12 12 30 24 24 5 6 18 12...
+ok 9 - task1_hash_partner : 12 12 30 24 24
+ok 10 - task1_hash_partner : 72 48 24 5
+ok 11 - task1_hash_partner : 12 18 24
+ok 12 - task1_hash_partner : 12 12 30 24 24 5 6 18 12...

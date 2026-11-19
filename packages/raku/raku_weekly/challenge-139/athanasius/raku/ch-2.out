@@ -1,0 +1,10 @@
+
+Challenge 139, Task #2: Long Primes (Raku)
+
+The first 5 long primes:
+
+   7  because 1/ 7 = 0.(142857)
+  17  because 1/17 = 0.(0588235294117647)
+  19  because 1/19 = 0.(052631578947368421)
+  23  because 1/23 = 0.(0434782608695652173913)
+  29  because 1/29 = 0.(0344827586206896551724137931)

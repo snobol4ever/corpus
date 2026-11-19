@@ -1,0 +1,12 @@
+1..8
+ok 1 - ab <- a interleave b
+ok 2 - ba <- b interleave a
+ok 3 - a1b2c3d4 <- abcd interleave 1234
+ok 4 - 1a2b3c4d <- 1234 interleave abcd
+ok 5 - a1b2c345 <- abc interleave 12345
+ok 6 - 1a2b3c45 <- 12345 interleave abc
+ok 7 - a1b2c3de <- abcde interleave 123
+ok 8 - 1a2b3cde <- 123 interleave abcde
+
+Input: $str1 = 123456789, $str2 = abc
+Output: 1a2b3c456789

@@ -1,0 +1,15 @@
+Example 1:
+Input: $str = "ABC-D-E-F", $i = 3
+Output: "ABC-DEF"
+
+Example 2:
+Input: $str = "A-BC-D-E", $i = 2
+Output: "A-BC-DE"
+
+Example 3:
+Input: $str = "-A-B-CD-E", $i = 4
+Output: "A-BCDE"
+
+Example 4:
+Input: $str = "-A-B-CD-E", $i = 5
+Output: "ABCDE"

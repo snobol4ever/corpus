@@ -1,0 +1,14 @@
+1..10
+ok 1 - 6 <- 2x3 ∘∘ ([0, 1], [1, 1])
+ok 2 - task-accum
+ok 3 - 0 <- 2x2 ∘∘ ([1, 1], [0, 0])
+ok 4 - task-accum
+ok 5 - 0 <- 3x3 ∘∘ ([0, 0], [1, 2], [2, 1])
+ok 6 - task-accum
+ok 7 - 2 <- 1x5 ∘∘ ([0, 2], [0, 4])
+ok 8 - task-accum
+ok 9 - 8 <- 4x2 ∘∘ ([1, 0], [3, 1], [2, 0], [0, 1])
+ok 10 - task-accum
+
+Input: $row = 4, $col = 2, @locations = [[1, 0], [3, 1], [2, 0], [1, 0]]
+Output: 4

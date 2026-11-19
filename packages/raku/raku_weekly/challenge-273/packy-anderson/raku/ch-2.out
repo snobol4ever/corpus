@@ -1,0 +1,15 @@
+Example 1:
+Input: $str = "aabb"
+Output: True
+
+Example 2:
+Input: $str = "abab"
+Output: False
+
+Example 3:
+Input: $str = "aaa"
+Output: False
+
+Example 4:
+Input: $str = "bbb"
+Output: True

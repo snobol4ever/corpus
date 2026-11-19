@@ -1,0 +1,20 @@
+
+Challenge 246, Task #2: Most Frequent Letter Pair (Raku)
+
+Running the test suite
+ok 1 - Example 1: output
+ok 2 - Example 1: max frequency
+ok 3 - Example 1: max freq pairs
+ok 4 - Example 2: output
+ok 5 - Example 2: max frequency
+ok 6 - Example 2: max freq pairs
+ok 7 - Alternating: output
+ok 8 - Alternating: max frequency
+ok 9 - Alternating: max freq pairs
+ok 10 - Singletons: output
+ok 11 - Singletons: max frequency
+ok 12 - Singletons: max freq pairs
+ok 13 - Block: output
+ok 14 - Block: max frequency
+ok 15 - Block: max freq pairs
+1..15

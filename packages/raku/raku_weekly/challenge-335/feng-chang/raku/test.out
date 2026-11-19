@@ -1,0 +1,10 @@
+ok 1 - Common Characters: ("bella","label","roller") => ("e", "l", "l")
+ok 2 - Common Characters: ("cool","lock","cook")     => ("c", "o")
+ok 3 - Common Characters: ("hello","world","pole")   => ("l", "o")
+ok 4 - Common Characters: ("abc","def","ghi")        => ()
+ok 5 - Common Characters: ("aab","aac","aaa")        => ("a", "a")
+ok 6 - Find Winner: [0,0],[1,0],[1,1],[1,2],[2,2]                         => A
+ok 7 - Find Winner: [0,0],[1,1],[0,1],[0,2],[1,0],[2,0]                   => B
+ok 8 - Find Winner: [0,0],[1,1],[2,0],[1,0],[1,2],[2,1],[0,1],[0,2],[2,2] => Draw
+ok 9 - Find Winner: [0,0],[1,1]                                           => Pending
+ok 10 - Find Winner: [1,1],[0,0],[2,2],[0,1],[1,0],[0,2]                   => B

@@ -1,0 +1,8 @@
+ok 1 - Broken Keys: "Perl Weekly Challenge",    <l a> => 0
+ok 2 - Broken Keys: "Perl and Raku",            <a>   => 1
+ok 3 - Broken Keys: "Well done Team PWC",       <l o> => 2
+ok 4 - Broken Keys: "The joys of polyglottism", <T>   => 2
+ok 5 - Replace Digits: "a1c1e1"   => "abcdef"
+ok 6 - Replace Digits: "a1b2c3d4" => "abbdcfdh"
+ok 7 - Replace Digits: "b2b"      => "bdb"
+ok 8 - Replace Digits: "a16z"     => "abgz"

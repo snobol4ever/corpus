@@ -1,0 +1,6 @@
+ok 1 - Upper Lower: pERl   => PerL
+ok 2 - Upper Lower: rakU   => RAKu
+ok 3 - Upper Lower: PyThOn => pYtHoN
+ok 4 - Group Digit Sum: $str="111122333",    $int=3 => 359
+ok 5 - Group Digit Sum: $str="1222312",      $int=2 =>  76
+ok 6 - Group Digit Sum: $str="100012121001", $int=4 => 162

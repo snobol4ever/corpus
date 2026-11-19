@@ -1,0 +1,10 @@
+
+Challenge 228, Task #2: Empty Array (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Reversed
+ok 4 - Singleton
+ok 5 - Negatives
+1..5

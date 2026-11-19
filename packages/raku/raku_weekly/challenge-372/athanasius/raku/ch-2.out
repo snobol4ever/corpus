@@ -1,0 +1,17 @@
+
+Challenge 372, Task #2: Largest Substring (Raku)
+
+Running the test suite
+ok 1 - Example 1: count
+ok 2 - Example 1: substrings
+ok 3 - Example 2: count
+ok 4 - Example 2: substrings
+ok 5 - Example 3: count
+ok 6 - Example 3: substrings
+ok 7 - Example 4: count
+ok 8 - Example 4: substrings
+ok 9 - Example 5: count
+ok 10 - Example 5: substrings
+ok 11 - None: count
+ok 12 - None: substrings
+1..12

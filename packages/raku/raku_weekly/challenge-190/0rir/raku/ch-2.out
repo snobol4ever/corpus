@@ -1,0 +1,10 @@
+Input: $s = 223162
+Output: BBCAFB, BBCPB, BWAFB, BWPB, VCAFB, VCPB
+
+The decoded data:
+(2 2 3 1 6 2) => BBCAFB 
+(2 2 3 16 2 ) => BBCPB  
+(2 23 1 6 2 ) => BWAFB  
+(2 23 16 2  ) => BWPB   
+(22 3 1 6 2 ) => VCAFB  
+(22 3 16 2  ) => VCPB   

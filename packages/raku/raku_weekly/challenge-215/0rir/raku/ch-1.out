@@ -1,0 +1,39 @@
+1..32
+ok 1 - () by chars dies
+ok 2 - () by words dies
+ok 3 - by chars: 0 <= x y z
+ok 4 - by words: 0 <= x y z
+ok 5 - by chars: 1 <= abc xyz tsu
+ok 6 - by words: 1 <= abc xyz tsu
+ok 7 - by chars: 3 <= rat cab dad
+ok 8 - by words: 2 <= rat cab dad
+ok 9 - by chars: 0 <= a
+ok 10 - by words: 0 <= a
+ok 11 - by chars: 0 <= b a
+ok 12 - by words: 1 <= b a
+ok 13 - by chars: 0 <= b b
+ok 14 - by words: 0 <= b b
+ok 15 - by chars: 0 <= abc
+ok 16 - by words: 0 <= abc
+ok 17 - by chars: 1 <= cba
+ok 18 - by words: 0 <= cba
+ok 19 - by chars: 3 <= za za ab az xa
+ok 20 - by words: 3 <= za za ab az xa
+ok 21 - by chars: 1 <= az za
+ok 22 - by words: 0 <= az za
+ok 23 - by chars: 0 <= a a b b b
+ok 24 - by words: 0 <= a a b b b
+ok 25 - by chars: 0 <= uv wx yz aa
+ok 26 - by words: 1 <= uv wx yz aa
+ok 27 - by chars: 1 <= uv wx yz aa cb
+ok 28 - by words: 2 <= uv wx yz aa cb
+ok 29 - by chars: 0 <= uv wx aa
+ok 30 - by words: 1 <= uv wx aa
+ok 31 - by chars: 1 <= uv wx aa cb
+ok 32 - by words: 2 <= uv wx aa cb
+
+Input: @word = xyz abc tsu
+Output: 1                   # by chars
+
+Input: @word = xyz abc tsu
+Output: 2                   # by words

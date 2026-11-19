@@ -1,0 +1,12 @@
+Input: $n = 10
+Output: 4
+
+Input: $n = 15
+Output: 6
+
+Input: $n = 1
+Output: 0
+
+Input: $n = 25
+Output: 9
+

@@ -1,0 +1,7 @@
+
+Challenge 132, Task #1: Mirror Dates (Raku)
+
+Usage:
+  raku ch-1.raku <date-str>
+  
+    <date-str>    A string of the form "yyyy/mm/dd" representing a valid date

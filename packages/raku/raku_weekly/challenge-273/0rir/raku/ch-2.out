@@ -1,0 +1,9 @@
+1..8
+ok 1 - True	<- aabb
+ok 2 - False	<- abab
+ok 3 - False	<- aaa
+ok 4 - True	<- bbb
+ok 5 - False	<- ccc
+ok 6 - True	<- cbc
+ok 7 - False	<- cac
+ok 8 - True	<- cab

@@ -1,0 +1,7 @@
+ok 1 - Special Notes: $source = "abc",               $target = "xyz"  => False
+ok 2 - Special Notes: $source = "scriptinglanguage", $target = "perl" => True
+ok 3 - Special Notes: $source = "aabbcc",            $target = "abc"  => True
+ok 4 - Additive Number: 112358    => true
+ok 5 - Additive Number:  12345    => false
+ok 6 - Additive Number: 199100199 => true
+1..6

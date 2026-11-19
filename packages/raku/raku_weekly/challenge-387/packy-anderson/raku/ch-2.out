@@ -1,0 +1,19 @@
+Example 1:
+Input: $formula = "((N2O)3(H2O)2)2"
+Output: "H8N12O10"
+
+Example 2:
+Input: $formula = "Mg3(PO4)2"
+Output: "Mg3O8P2"
+
+Example 3:
+Input: $formula = "(((H)2)3)4"
+Output: "H24"
+
+Example 4:
+Input: $formula = "NaCl3(O2(S10)2)2Mg"
+Output: "Cl3MgNaO4S40"
+
+Example 5:
+Input: $formula = "Z2Y3(X2W)2"
+Output: "W2X4Y3Z2"

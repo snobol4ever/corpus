@@ -1,0 +1,12 @@
+
+Challenge 290, Task #1: Double Exist (Raku)
+
+Running the test suite
+ok 1 - Example 1: $i
+ok 2 - Example 1: $j
+ok 3 - Example 2
+ok 4 - Example 3: $i
+ok 5 - Example 3: $j
+ok 6 - Negatives: $i
+ok 7 - Negatives: $j
+1..7

@@ -1,0 +1,9 @@
+1..5
+ok 1 - True <- a7∘∘f4
+ok 2 - False <- c1∘∘e8
+ok 3 - False <- b5∘∘h2
+ok 4 - True <- f3∘∘h1
+ok 5 - False <- a1∘∘g8
+
+Input: $c1 = "e1", $c2 = "e8"
+Output: False

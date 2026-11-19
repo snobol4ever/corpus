@@ -1,0 +1,11 @@
+ok 1 - Zero Friend: (4,2,-1,3,-2)    => 1
+ok 2 - Zero Friend: (-5,5,-3,3,-1,1) => 1
+ok 3 - Zero Friend: (7,-3,0,2,-8)    => 0
+ok 4 - Zero Friend: (-2,-5,-1,-8)    => 1
+ok 5 - Zero Friend: (-2,2,-4,4,-1,1) => 1
+not ok 6 - Champion Team: [0,1,1],[0,0,1],[0,0,0]                                     => "Team 0"
+not ok 7 - Champion Team: [0,1,0,0],[0,0,0,0],[1,1,0,0],[1,1,1,0]                     => "Team 3"
+not ok 8 - Champion Team: [0,1,0,1],[0,0,1,1],[1,0,0,0],[0,0,1,0]                     => "Team 0"
+not ok 9 - Champion Team: [0,1,1],[0,0,0],[0,1,0]                                     => "Team 0"
+not ok 10 - Champion Team: [0,0,0,0,0],[1,0,0,0,0],[1,1,0,1,1],[1,1,0,0,0],[1,1,0,1,0] => "Team 2"
+not ok 11 - Champion Team: [0,1,0],[0,0,1],[1,0,0]                                     => "Team 0,1,2 tie"

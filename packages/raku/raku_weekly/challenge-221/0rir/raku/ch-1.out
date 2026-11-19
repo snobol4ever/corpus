@@ -1,0 +1,14 @@
+1..9
+ok 1 - good-word combined lgth
+ok 2 - good-word combined lgth
+ok 3 - good-word combined lgth
+ok 4 - good-word combined lgth
+ok 5 - good-word combined lgth
+ok 6 - good-word combined lgth
+ok 7 - good-word combined lgth
+ok 8 - dies
+ok 9 - dies
+
+Input: @word  = ["at", "chat", "cat", "act", "hat", "attach"]
+       $chars = "atach"
+Output: 15

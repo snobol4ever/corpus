@@ -1,0 +1,14 @@
+1..10
+ok 1 - 2 <- ("unicode", "xml", "raku", "perl")
+ok 2 - 3 <- ("the", "weekly", "challenge")
+ok 3 - 0 <- ("perl", "python", "postgres")
+ok 4 - 7 <- ("Unicode", "Raku", "Java", "Ruby", "Go", "Ada", "Awk")
+ok 5 - 3 <- ("Hex", "Assembly", "Basic", "Prolog", "sh", "Sed", "Awk", "C", "Perl", "Pascal", "Smalltalk", "Bash", "Sql", "plsql", "Sather", "Raku")
+ok 6 - 2 <- ("Awk", "Aid")
+ok 7 - 4 <- ("Foxpro", "Raku", "Solidity", "Bowwow")
+ok 8 - 0 <- ("years", "test")
+ok 9 - 0 <- ("",)
+ok 10 - 0 <- ()
+
+Input: @list = ("Foxpro", "Raku", "Solidity", "Bowwow")
+Output: 4

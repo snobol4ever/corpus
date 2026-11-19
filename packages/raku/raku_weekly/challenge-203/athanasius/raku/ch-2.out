@@ -1,0 +1,8 @@
+
+Challenge 203, Task #2: Copy Directory (Raku)
+
+Usage:
+  raku ch-2.raku <source> <target>
+  
+    <source>    Path to source directory
+    <target>    Path to target directory

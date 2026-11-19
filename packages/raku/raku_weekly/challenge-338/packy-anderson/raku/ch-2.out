@@ -1,0 +1,24 @@
+Example 1:
+Input: @arr1 = (4, 5, 7)
+       @arr2 = (9, 1, 3, 4)
+Output: 6
+
+Example 2:
+Input: @arr1 = (2, 3, 5, 4)
+       @arr2 = (3, 2, 5, 5, 8, 7)
+Output: 6
+
+Example 3:
+Input: @arr1 = (2, 1, 11, 3)
+       @arr2 = (2, 5, 10, 2)
+Output: 9
+
+Example 4:
+Input: @arr1 = (1, 2, 3)
+       @arr2 = (3, 2, 1)
+Output: 2
+
+Example 5:
+Input: @arr1 = (1, 0, 2, 3)
+       @arr2 = (5, 0)
+Output: 5

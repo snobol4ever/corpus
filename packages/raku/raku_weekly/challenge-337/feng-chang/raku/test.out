@@ -1,0 +1,10 @@
+ok 1 - Smaller Than Current: (6,5,4,8)     => (2,1,0,3)
+ok 2 - Smaller Than Current: (7,7,7,7)     => (0,0,0,0)
+ok 3 - Smaller Than Current: (5,4,3,2,1)   => (4,3,2,1,0)
+ok 4 - Smaller Than Current: (-1,0,3,-2,1) => (1,2,4,0,3)
+ok 5 - Smaller Than Current: (0,1,1,2,0)   => (0,2,2,4,0)
+not ok 6 - Odd Matrix: $row=2, $col=3, @locations=([0,1],[1,1])             => 6
+ok 7 - Odd Matrix: $row=2, $col=2, @locations=([1,1],[0,0])             => 0
+not ok 8 - Odd Matrix: $row=3, $col=3, @locations=([0,0],[1,2],[2,1])       => 0
+not ok 9 - Odd Matrix: $row=1, $col=5, @locations=([0,2],[0,4])             => 2
+not ok 10 - Odd Matrix: $row=4, $col=2, @locations=([1,0],[3,1],[2,0],[0,1]) => 8

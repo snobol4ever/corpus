@@ -1,0 +1,8 @@
+
+Challenge 072, Task #1: Trailing Zeroes (Raku)
+
+Usage:
+  raku ch-1.raku [--ext|--extended] <N>
+  
+    <N>                 A positive integer <= 10
+    --ext|--extended    Allow values of N > 10 [default: False]

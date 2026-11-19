@@ -1,0 +1,6 @@
+ok 1 - Acronym: @str = "Perl", "Python", "Pascal", $chk = "ppp" => True
+ok 2 - Acronym: @str = "Perl", "Raku",             $chk = "rp"  => False
+ok 3 - Acronym: @str = "Oracle", "Awk", "C",       $chk = "oac" => True
+ok 4 - Build Array: (0, 2, 1, 5, 3, 4) => "0 1 2 4 5 3"
+ok 5 - Build Array: (5, 0, 1, 2, 3, 4) => "4 5 0 1 2 3"
+1..5

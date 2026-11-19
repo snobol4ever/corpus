@@ -1,0 +1,11 @@
+
+Challenge 193, Task #2: Odd String (Raku)
+
+Running the test suite
+not ok 1 - Example 1
+not ok 2 - Example 2
+ok 3 - All same
+ok 4 - Two odd
+ok 5 - All odd
+ok 6 - Odd plus
+1..6

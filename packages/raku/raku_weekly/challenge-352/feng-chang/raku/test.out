@@ -1,0 +1,10 @@
+ok 1 - Match String: <cat cats dog dogcat dogcat rat ratcatdogcat> => <cat dog dogcat rat>
+ok 2 - Match String: <hello hell world wor ellow elloworld>        => <hell world wor ellow>
+ok 3 - Match String: <a aa aaa aaaa>                               => <a aa aaa>
+ok 4 - Match String: <flower flow flight fl fli ig ght>            => <flow fl fli ig ght>
+ok 5 - Match String: <car carpet carpenter pet enter pen pent>     => <car pet enter pen pent>
+ok 6 - Binary Prefix: <0 1 1 0 0 1 0 1 1 1> => true, false, false, false, false, true, true, false, false, false
+ok 7 - Binary Prefix: <1 0 1 0 1 0>         => false, false, true, true, false, false
+ok 8 - Binary Prefix: <0 0 1 0 1>           => true, true, false, false, true
+ok 9 - Binary Prefix: <1 1 1 1 1>           => false, false, false, true, false
+ok 10 - Binary Prefix: <1 0 1 1 0 1 0 0 1 1> => false, false, true, false, false, true, true, true, false, false

@@ -1,0 +1,10 @@
+Input: ab bc cd zy
+Output: zy
+Input: cba fed azy
+Output: azy
+Input: pop ada beb cfc
+Output: pop
+Input: aaaa zzzz mmmm aaba
+Output: aaba
+Input: aceg bdfh cegi azbz
+Output: azbz

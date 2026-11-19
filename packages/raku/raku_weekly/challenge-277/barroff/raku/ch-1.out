@@ -1,0 +1,4 @@
+1..3
+ok 1 - works for ("Perl", "is", "my", "friend") and ("Perl", "and", "Raku", "are", "friend")
+ok 2 - works for ("Perl", "and", "Python", "are", "very", "similar") and ("Python", "is", "top", "in", "guest", "languages")
+ok 3 - works for ("Perl", "is", "imperative", "Lisp", "is", "functional") and ("Crystal", "is", "similar", "to", "Ruby")

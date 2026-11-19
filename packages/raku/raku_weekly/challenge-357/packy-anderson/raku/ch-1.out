@@ -1,0 +1,23 @@
+Example 1:
+Input: $int = 3524
+Output: 3
+
+Example 2:
+Input: $int = 6174
+Output: 0
+
+Example 3:
+Input: $int = 9998
+Output: 5
+
+Example 4:
+Input: $int = 1001
+Output: 4
+
+Example 5:
+Input: $int = 9000
+Output: 4
+
+Example 6:
+Input: $int = 1111
+Output: -1

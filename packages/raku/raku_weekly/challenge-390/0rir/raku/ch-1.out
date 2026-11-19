@@ -1,0 +1,26 @@
+1..22
+ok 1 - parsed 2[3[a]]
+ok 2 - aaaaaa <- "2[3[a]]"
+ok 3 - parsed 10[a]
+ok 4 - aaaaaaaaaa <- "10[a]"
+ok 5 - parsed a2[b]c3[d]e
+ok 6 - abbcddde <- "a2[b]c3[d]e"
+ok 7 - parsed 2[a2[b]c]
+ok 8 - abbcabbc <- "2[a2[b]c]"
+ok 9 - parsed 1[a]2[b3[c]]
+ok 10 - abcccbccc <- "1[a]2[b3[c]]"
+ok 11 - parsed a
+ok 12 - a <- "a"
+ok 13 - parsed 2[a]
+ok 14 - aa <- "2[a]"
+ok 15 - parsed 2[a]2[b]
+ok 16 - aabb <- "2[a]2[b]"
+ok 17 - parsed z2[a]x
+ok 18 - zaax <- "z2[a]x"
+ok 19 - parsed z2[a3[n]]x
+ok 20 - zannnannnx <- "z2[a3[n]]x"
+ok 21 - parsed A2[a3[n]B2[c]E]Z
+ok 22 - AannnBccEannnBccEZ <- "A2[a3[n]B2[c]E]Z"
+
+Input: $str = "A2[b3[C]d4[E]f]G"
+Output: "AbCCCdEEEEfbCCCdEEEEfG"

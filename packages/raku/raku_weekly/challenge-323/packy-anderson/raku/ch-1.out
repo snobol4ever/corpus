@@ -1,0 +1,24 @@
+Example 1:
+Input: @operations = ("--x", "x++", "x++")
+Output: 1
+
+Operation "--x" =>  0 - 1 => -1
+Operation "x++" => -1 + 1 =>  0
+Operation "x++" =>  0 + 1 =>  1
+
+Example 2:
+Input: @operations = ("x++", "++x", "x++")
+Output: 3
+
+Operation "x++" =>  0 + 1 =>  1
+Operation "++x" =>  1 + 1 =>  2
+Operation "x++" =>  2 + 1 =>  3
+
+Example 3:
+Input: @operations = ("x++", "++x", "--x", "x--")
+Output: 0
+
+Operation "x++" =>  0 + 1 =>  1
+Operation "++x" =>  1 + 1 =>  2
+Operation "--x" =>  2 - 1 =>  1
+Operation "x--" =>  1 - 1 =>  0

@@ -1,0 +1,13 @@
+1..12
+ok 1 - permute__ 1 : 1 3 5 2 1 3 1
+ok 2 - construct 1 : 1 3 5 2 1 3 1
+ok 3 - con_show_ 1 : 1 3 5 2 1 3 1
+ok 4 - permute__ 2 : 1 2 3 4
+ok 5 - construct 2 : 1 2 3 4
+ok 6 - con_show_ 2 : 1 2 3 4
+ok 7 - permute__ 3 : 1 2 3 14
+ok 8 - construct 3 : 1 2 3 14
+ok 9 - con_show_ 3 : 1 2 3 14
+ok 10 - permute__ 4 : 8 9 5 5 9 4 4 2
+ok 11 - construct 4 : 8 9 5 5 9 4 4 2
+ok 12 - con_show_ 4 : 8 9 5 5 9 4 4 2

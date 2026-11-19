@@ -1,0 +1,8 @@
+Input: @words = [Hello Alaska Dad Peace]
+Output: 
+	alaska
+	dad
+ 
+Input: @words = [OMG Bye]
+Output: 
+ 

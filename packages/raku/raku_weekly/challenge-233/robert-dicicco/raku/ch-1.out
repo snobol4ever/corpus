@@ -1,0 +1,5 @@
+Input: @words = [aabb ab ba]
+	pair1 [aabb ab]
+	pair2 [aabb ba]
+	pair3 [ab ba]
+Output: 3

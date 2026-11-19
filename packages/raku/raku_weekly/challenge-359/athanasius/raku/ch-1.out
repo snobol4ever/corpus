@@ -1,0 +1,15 @@
+
+Challenge 359, Task #1: Digital Root (Raku)
+
+Running the test suite
+ok 1 - Example 1: Persistence
+ok 2 - Example 1: Digital Root
+ok 3 - Example 2: Persistence
+ok 4 - Example 2: Digital Root
+ok 5 - Example 3: Persistence
+ok 6 - Example 3: Digital Root
+ok 7 - Example 4: Persistence
+ok 8 - Example 4: Digital Root
+ok 9 - Example 5: Persistence
+ok 10 - Example 5: Digital Root
+1..10

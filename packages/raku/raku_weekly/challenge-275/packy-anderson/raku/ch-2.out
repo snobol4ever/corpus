@@ -1,0 +1,15 @@
+Example 1:
+Input: $str = 'a1c1e1'
+Output: 'abcdef'
+
+Example 2:
+Input: $str = 'a1b2c3d4'
+Output: 'abbdcfdh'
+
+Example 3:
+Input: $str = 'b2b'
+Output: 'bdb'
+
+Example 4:
+Input: $str = 'a16z'
+Output: 'abgz'

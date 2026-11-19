@@ -1,0 +1,6 @@
+ok 1 - Replace All ?: a?z    => abz
+ok 2 - Replace All ?: pe?k   => peak
+ok 3 - Replace All ?: gra?te => grabte
+ok 4 - Good String: WeEeekly => Weekly
+ok 5 - Good String: abBAdD   => ""
+ok 6 - Good String: abc      => abc

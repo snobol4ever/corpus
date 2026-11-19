@@ -1,0 +1,5 @@
+not ok 1 - Maximum Ones: [[0,1],[1,0]]       => 1
+not ok 2 - Maximum Ones: [[0,0,0],[1,0,1]]   => 2
+not ok 3 - Maximum Ones: [[0,0],[1,1],[0,0]] => 2
+ok 4 - Sort by 1 Bits: @ints=(0,1,2,3,4,5,6,7,8)   => (0,1,2,4,8,3,5,6,7)
+ok 5 - Sort by 1 Bits: @ints=(1024,512,256,128,64) => (64,128,256,512,1024)

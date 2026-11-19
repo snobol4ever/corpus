@@ -1,0 +1,9 @@
+1..5
+ok 1 - 1 <- Hello World ∘∘ ("d",)
+ok 2 - 0 <- apple banana cherry ∘∘ ("a", "e")
+ok 3 - 3 <- Coding is fun ∘∘ ()
+ok 4 - 2 <- The Weekly Challenge ∘∘ ("a", "b")
+ok 5 - 1 <- Perl and Python ∘∘ ("p",)
+
+Input: $str = 'Perl and Python', @keys = ["p", "z", "y"]
+Output: 1

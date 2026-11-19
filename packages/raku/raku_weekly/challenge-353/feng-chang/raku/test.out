@@ -1,0 +1,10 @@
+ok 1 - Max Words: 1st => 4
+ok 2 - Max Words: 2nd => 1
+ok 3 - Max Words: 3rd => 7
+ok 4 - Max Words: 4th => 3
+ok 5 - Max Words: 5th => 10
+ok 6 - Validate Coupon: 1st => (true, false, true, false, true)
+ok 7 - Validate Coupon: 2nd => (true, true, false, true, false)
+ok 8 - Validate Coupon: 3rd => (true, true, false, true, true)
+ok 9 - Validate Coupon: 4th => (true, true, true, true)
+ok 10 - Validate Coupon: 5th => (true, true, true, true, false)

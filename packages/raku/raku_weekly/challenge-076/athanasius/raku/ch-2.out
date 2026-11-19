@@ -1,0 +1,9 @@
+
+Challenge 076, Task #2: Word Search (Raku)
+
+Usage:
+  raku ch-2.raku [--grid=<Str>] [--dict=<Str>] [--min[=UInt]]
+  
+    --grid=<Str>    Name of file containing a word search grid [default: './../lib/example-gr…']
+    --dict=<Str>    Name of a dictionary file: valid words, one per line [default: './../lib/linuxwords…']
+    --min[=UInt]    Minimum search-word length (must be > 0) [default: 5]

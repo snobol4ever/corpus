@@ -1,0 +1,10 @@
+1..9
+ok 1 - magic_four(5) eq 'Five is four, four is magic.'
+ok 2 - magic_four(7) eq 'Seven is five, five is four, four is magic.'
+ok 3 - magic_four(6) eq 'Six is three, three is five, five is four, four is magic.'
+ok 4 - magic_four(1) eq 'One is three, three is five, five is four, four is magic.'
+ok 5 - magic_four(2) eq 'Two is three, three is five, five is four, four is magic.'
+ok 6 - magic_four(3) eq 'Three is five, five is four, four is magic.'
+ok 7 - magic_four(4) eq 'Four is magic.'
+ok 8 - magic_four(8) eq 'Eight is five, five is four, four is magic.'
+ok 9 - magic_four(9) eq 'Nine is four, four is magic.'

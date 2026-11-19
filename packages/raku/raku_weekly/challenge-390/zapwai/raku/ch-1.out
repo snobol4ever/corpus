@@ -1,0 +1,10 @@
+Input: $str = 2[3[a]]
+Output: aaaaaa
+Input: $str = 10[a]
+Output: aaaaaaaaaa
+Input: $str = a2[b]c3[d]e
+Output: abbcddde
+Input: $str = 2[a2[b]c]
+Output: abbcabbc
+Input: $str = 1[a]2[b3[c]]
+Output: abcccbccc

@@ -1,0 +1,19 @@
+Example 1:
+Input: $results = "HAHAHH"
+Output: Team 2 defeated Team 6
+
+Example 2:
+Input: $results = "HHHHHH"
+Output: Team 1 defeated Team 2
+
+Example 3:
+Input: $results = "HHHAHA"
+Output: Team 4 defeated Team 2
+
+Example 4:
+Input: $results = "HAHAAH"
+Output: Team 4 defeated Team 6
+
+Example 5:
+Input: $results = "HAAHAA"
+Output: Team 5 defeated Team 1

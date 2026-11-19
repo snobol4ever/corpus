@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = 'abbaca'
+Output: 'ca'
+
+Example 2:
+Input: $str = 'azxxzy'
+Output: 'ay'
+
+Example 3:
+Input: $str = 'aaaaaaaa'
+Output: ''
+
+Example 4:
+Input: $str = 'aabccba'
+Output: 'a'
+
+Example 5:
+Input: $str = 'abcddcba'
+Output: ''

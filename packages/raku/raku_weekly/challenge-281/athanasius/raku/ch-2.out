@@ -1,0 +1,9 @@
+
+Challenge 281, Task #2: Knight's Move (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Zero moves
+ok 4 - One move
+1..4

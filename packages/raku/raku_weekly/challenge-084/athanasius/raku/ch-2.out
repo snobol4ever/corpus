@@ -1,0 +1,7 @@
+
+Challenge 084, Task #2: Find Square (Raku)
+
+Usage:
+  raku ch-2.raku [<rows> ...]
+  
+    [<rows> ...]    1+ same-width rows, each a string of 1+ "1" and "0" chars

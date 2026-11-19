@@ -1,0 +1,17 @@
+ok 1 - Number 1
+ok 2 - 2^2 = 4
+ok 3 - Test case 1
+ok 4 - Test case 2
+ok 5 - Test case 3
+ok 6 - Test case 3
+ok 7 - 13^3
+ok 8 - 13^3 + 1
+ok 9 - 13^3 - 1
+ok 10 - 13^3 * 2
+ok 11 - Big number
+ok 12 - Big prime
+ok 13 - Big prime base
+ok 14 - Almost a**b number 1
+ok 15 - Almost a**b number 2
+ok 16 - 2 ** 1000
+1..16

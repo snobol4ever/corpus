@@ -1,0 +1,11 @@
+1..7
+ok 1 - 'challenge    '  <- '  challenge  '
+ok 2 - 'coding  is  fun'  <- 'coding  is  fun'
+ok 3 - 'a b c d '  <- 'a b c  d'
+ok 4 - 'team          pwc'  <- '  team      pwc  '
+ok 5 - 'the    weekly    challenge '  <- '   the  weekly  challenge  '
+ok 6 - ''  <- ''
+ok 7 - '   '  <- '   '
+
+Input: $str = "   the  weekly  challenge  "
+Output: "the    weekly    challenge "

@@ -1,0 +1,11 @@
+
+Challenge 239, Task #2: Consistent Strings (Raku)
+
+Running the test suite
+ok 1 - Example 1: count
+ok 2 - Example 1: consistent strings
+ok 3 - Example 2: count
+ok 4 - Example 2: consistent strings
+ok 5 - Example 3: count
+ok 6 - Example 3: consistent strings
+1..6

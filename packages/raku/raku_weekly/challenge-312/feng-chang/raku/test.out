@@ -1,0 +1,6 @@
+ok 1 - Minimum Time: abc  => 6
+ok 2 - Minimum Time: bza  => 7
+ok 3 - Minimum Time: zjpc => 34
+ok 4 - Balls and Boxes: G0B1R2R0B0         => 1
+ok 5 - Balls and Boxes: G1R3R6B3G6B1B6R1G3 => 3
+ok 6 - Balls and Boxes: B3B2G1B3           => 0

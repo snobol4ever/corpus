@@ -1,0 +1,8 @@
+ok 1 - Similar Dominos: [1,3],[3,1],[2,4],[6,8]       => 2
+ok 2 - Similar Dominos: [1,2],[2,1],[1,1],[1,2],[2,2] => 3
+ok 3 - Boomerang: [1,1],[2,3],[3,2] => true
+ok 4 - Boomerang: [1,1],[2,2],[3,3] => false
+ok 5 - Boomerang: [1,1],[1,2],[2,3] => true
+ok 6 - Boomerang: [1,1],[1,2],[1,3] => false
+ok 7 - Boomerang: [1,1],[2,1],[3,1] => false
+ok 8 - Boomerang: [0,0],[2,3],[4,5] => true

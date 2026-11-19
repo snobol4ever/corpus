@@ -1,0 +1,5 @@
+ok 1 - Check Order: 5,2,4,3,1 => 0,2,3,4
+ok 2 - Check Order: 1,2,1,1,3 => 1,3
+ok 3 - Check Order: 3,1,3,2,3 => 0,1,3
+ok 4 - Find Anagrams: acca,dog,god,perl,repl => 3
+ok 5 - Find Anagrams: abba,baba,aabb,ab,ab   => 2

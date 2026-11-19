@@ -1,0 +1,11 @@
+ok 1 - Zeckendorf Representation:  4  => 3,1
+ok 2 - Zeckendorf Representation: 12  => 8,3,1
+ok 3 - Zeckendorf Representation: 20  => 13,5,2
+ok 4 - Zeckendorf Representation: 96  => 89,5,2
+ok 5 - Zeckendorf Representation: 100 => 89,8,3
+ok 6 - Find Celebrity: [0,0,0,0,1,0],[0,0,0,0,1,0],[0,0,0,0,1,0],[0,0,0,0,1,0],[0,0,0,0,0,0],[0,0,0,0,1,0] => 4
+ok 7 - Find Celebrity: [0,1,0,0],[0,0,1,0],[0,0,0,1],[1,0,0,0]                                             => -1
+ok 8 - Find Celebrity: [0,0,0,0,0],[1,0,0,0,0],[1,0,0,0,0],[1,0,0,0,0],[1,0,0,0,0]                         => 0
+ok 9 - Find Celebrity: [0,1,0,1,0,1],[1,0,1,1,0,0],[0,0,0,1,1,0],[0,0,0,0,0,0],[0,1,0,1,0,0],[1,0,1,1,0,0] => 3
+ok 10 - Find Celebrity: [0,1,1,0],[1,0,1,0],[0,0,0,0],[0,0,0,0]                                             => -1
+ok 11 - Find Celebrity: [0,0,1,1],[1,0,0,0],[1,1,0,1],[1,1,0,0]                                             => -1

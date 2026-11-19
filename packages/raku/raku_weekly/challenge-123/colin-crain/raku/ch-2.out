@@ -1,0 +1,9 @@
+1..8
+ok 1 - ex-1
+ok 2 - racked 1 ccw
+ok 3 - ex-2
+ok 4 - parallelogram
+ok 5 - regular diamond
+ok 6 - regular diamond around origin
+ok 7 - off-center around origin
+ok 8 - off-center around origin, rotate 2 cw

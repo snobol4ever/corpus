@@ -1,0 +1,6 @@
+ok 1 - Smallest Index: (0, 1, 2)    => 0
+ok 2 - Smallest Index: (4, 3, 2, 1) => 2
+ok 3 - Smallest Index: (1, 2, 3, 4, 5, 6, 7, 8, 9, 0) => -1
+ok 4 - Alphanumeric String Value: ("perl", "2", "000", "python", "r4ku") => 6
+ok 5 - Alphanumeric String Value: ("001", "1", "000", "0001")            => 1
+1..5

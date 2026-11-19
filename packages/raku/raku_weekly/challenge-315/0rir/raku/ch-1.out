@@ -1,0 +1,13 @@
+1..8
+ok 1 - 0 1 2 <- $("the", "weekly", "challenge") ∘∘ e  
+ok 2 - 0 2 <- $("perl", "raku", "python") ∘∘ p  
+ok 3 - 0 2 3 <- $("abc", "def", "bbb", "bcd") ∘∘ b  
+ok 4 -  <- $[] ∘∘ e  
+ok 5 - died ok
+ok 6 - died ok
+ok 7 - died ok
+ok 8 - died ok
+
+Input: @list = ["perl", "raku", "python"]
+$char = "p"
+Output: [0 2]

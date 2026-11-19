@@ -1,0 +1,6 @@
+ok 1 - Good Strings: @words = ("cat", "bt", "hat", "tree"),    $chars = "atach"           =>  6
+ok 2 - Good Strings: @words = ("hello", "world", "challenge"), $chars = "welldonehopper"  => 10
+ok 3 - Arithmetic Subsequence: (9, 4, 7, 2, 10)         => 3
+ok 4 - Arithmetic Subsequence: (3, 6, 9, 12)            => 4
+ok 5 - Arithmetic Subsequence: (20, 1, 15, 3, 10, 5, 8) => 4
+1..5

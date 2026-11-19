@@ -1,0 +1,4 @@
+ok 1 - Arrange Binary: @digits = (1,0,0,0,1), $n=1 => true
+ok 2 - Arrange Binary: @digits = (1,0,0,0,1), $n=2 => false
+ok 3 - Maximum Average: @ints = (1,12,-5,-6,50,3), $n=4 => 12.75
+ok 4 - Maximum Average: @ints = (5),               $n=1 => 5

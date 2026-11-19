@@ -1,0 +1,7 @@
+ok 1 - Maximal Square: [0,1],[1,0] => 1
+ok 2 - Maximal Square: [1,0,1,0,0],[1,0,1,1,1],[1,1,1,1,1],[1,0,0,1,0] => 4
+ok 3 - Maximal Square: [0] => 0
+ok 4 - Right Interval: [3,4],[2,3],[1,2] => -1,0,1
+ok 5 - Right Interval: [1,4],[2,3],[3,4] => -1,2,-1
+ok 6 - Right Interval: [1,2]             => -1
+ok 7 - Right Interval: [1,4],[2,2],[3,4] => -1,1,-1

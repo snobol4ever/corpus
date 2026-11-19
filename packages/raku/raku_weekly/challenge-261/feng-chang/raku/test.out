@@ -1,0 +1,10 @@
+ok 1 - Element Digit Sum: (1,2,3,45)           => 36
+ok 2 - Element Digit Sum: (1,12,3)             => 9
+ok 3 - Element Digit Sum: (1,2,3,4)            => 0
+ok 4 - Element Digit Sum: (236, 416, 336, 350) => 1296
+ok 5 - Multiply by Two: @ints=(5,3,6,1,12), $start=3 => 24
+ok 6 - Multiply by Two: @ints=(1,2,4,3),    $start=1 => 8
+ok 7 - Multiply by Two: @ints=(5,6,7),      $start=2 => 2
+ok 8 - Multiply by Two: @ints=(5,3,6,1,12), $start=3 => 24
+ok 9 - Multiply by Two: @ints=(1,2,4,3),    $start=1 => 8
+ok 10 - Multiply by Two: @ints=(5,6,7),      $start=2 => 2

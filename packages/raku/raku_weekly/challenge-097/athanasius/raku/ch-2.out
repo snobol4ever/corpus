@@ -1,0 +1,8 @@
+
+Challenge 097, Task #2: Binary Substrings (Raku)
+
+Usage:
+  raku ch-2.raku <B> <S>
+  
+    <B>    Non-empty binary string
+    <S>    Substring length: integer in the range 1 .. length(B)

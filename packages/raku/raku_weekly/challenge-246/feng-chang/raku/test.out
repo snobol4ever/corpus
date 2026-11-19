@@ -1,0 +1,4 @@
+ok 1 - Linear Recurrence of Second Order: (1, 1, 2, 3, 5)  => True
+ok 2 - Linear Recurrence of Second Order: (1, 1, 2, 3, 5)  => False
+ok 3 - Linear Recurrence of Second Order: (4, 1, 2, -3, 8) => True
+1..3

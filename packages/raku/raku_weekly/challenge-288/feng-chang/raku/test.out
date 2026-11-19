@@ -1,0 +1,7 @@
+ok 1 - Closest Palindrome:  123 => 121
+ok 2 - Closest Palindrome:    2 => 1
+ok 3 - Closest Palindrome: 1400 => 1441
+ok 4 - Closest Palindrome: 1001 => 999
+ok 5 - Contiguous Block: in01.txt => 11
+ok 6 - Contiguous Block: in02.txt => 11
+ok 7 - Contiguous Block: in03.txt => 7

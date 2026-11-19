@@ -1,0 +1,4 @@
+root	/home/packages/raku/raku_weekly
+origin	https://github.com/manwar/perlweeklychallenge-club (The Weekly Challenge, Mohammad S Anwar), its Raku solutions alone: challenge-NNN/MEMBER/raku/ (a partial clone, sparse)
+version	7b7d0d4ed (2026-11-17)
+licence	none stated in the repository, so its programs are read in place and only this folder's tables and answers are stored here

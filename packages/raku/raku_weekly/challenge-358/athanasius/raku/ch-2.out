@@ -1,0 +1,15 @@
+
+Challenge 358, Task #2: Encrypted String (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Example 4
+ok 5 - Example 5
+ok 6 - Cases
+ok 7 - Negative
+ok 8 - Plaintext
+ok 9 - Wrap +ve
+ok 10 - Wrap -ve
+1..10

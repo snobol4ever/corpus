@@ -1,0 +1,6 @@
+ok 1 - Circular: <perl loves scala>        => true
+ok 2 - Circular: <love the programming>    => false
+ok 3 - Circular: <java awk kotlin node.js> => true
+ok 4 - Subsequence: <uvw bcudvew>    => true
+ok 5 - Subsequence: <aec abcde>      => false
+ok 6 - Subsequence: <sip javascript> => true

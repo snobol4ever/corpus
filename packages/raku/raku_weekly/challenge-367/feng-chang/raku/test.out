@@ -1,0 +1,10 @@
+ok 1 - Max Odd Binary: 1011   => 1101
+ok 2 - Max Odd Binary: 100    => 001
+ok 3 - Max Odd Binary: 111000 => 110001
+ok 4 - Max Odd Binary: 0101   => 1001
+ok 5 - Max Odd Binary: 1111   => 1111
+ok 6 - Conflict Events: @event1=("10:00","12:00"), @event2=("11:00","13:00") => true
+ok 7 - Conflict Events: @event1=("09:00","10:30"), @event2=("10:30","12:00") => false
+ok 8 - Conflict Events: @event1=("14:00","15:30"), @event2=("14:30","16:00") => true
+ok 9 - Conflict Events: @event1=("08:00","09:00"), @event2=("09:01","10:00") => false
+ok 10 - Conflict Events: @event1=("23:30","00:30"), @event2=("00:00","01:00") => true

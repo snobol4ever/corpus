@@ -1,0 +1,10 @@
+Input: $str = AAAAA, $k = 2
+Output: 5
+Input: $str = ABCDE, $k = 4
+Output: 5
+Input: $str = AAABBBBAA, $k = 1
+Output: 5
+Input: $str = ABACADA, $k = 2
+Output: 5
+Input: $str = BAAABAAAA, $k = 1
+Output: 8

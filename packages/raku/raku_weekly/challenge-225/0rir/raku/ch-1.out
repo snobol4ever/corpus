@@ -1,0 +1,10 @@
+1..3
+ok 1 - 8 <-- @Test[1]
+ok 2 - 7 <-- @Test[3]
+ok 3 - 8 <-- @Test[5]
+
+Input: @list = ("Manwar gets the White Camel in 2023."
+                ",The committee, or whoever decided, chose well."
+                ",Congratulations to Manwar for the well deserved recognition."
+                ",He has my thanks for his service.")
+Output: 8

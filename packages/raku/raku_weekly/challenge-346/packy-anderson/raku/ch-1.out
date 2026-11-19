@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = '(()())'
+Output: 6
+
+Example 2:
+Input: $str = ')()())'
+Output: 4
+
+Example 3:
+Input: $str = '((()))()(((()'
+Output: 8
+
+Example 4:
+Input: $str = '))))((()('
+Output: 2
+
+Example 5:
+Input: $str = '()(()'
+Output: 2

@@ -1,0 +1,4 @@
+Usage: ./zip-zilch-zero.raku row1 row2 row3
+    rows are values 1 and 0 concactenated into strings
+    ex: ./zip-zilch-zero.raku 1001 1111 1011 1111
+

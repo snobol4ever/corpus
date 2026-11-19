@@ -1,0 +1,5 @@
+b, (e m u g) 	 -> e
+a, (d c e f) 	 -> c
+o, (j a r) 	 -> r
+a, (d c a f) 	 -> c
+v, (t g a l) 	 -> Inf

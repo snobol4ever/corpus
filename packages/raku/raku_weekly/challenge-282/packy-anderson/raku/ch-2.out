@@ -1,0 +1,11 @@
+Example 1:
+Input: $str = 'pPeERrLl'
+Output: 3
+
+Example 2:
+Input: $str = 'rRr'
+Output: 0
+
+Example 3:
+Input: $str = 'GoO'
+Output: 1

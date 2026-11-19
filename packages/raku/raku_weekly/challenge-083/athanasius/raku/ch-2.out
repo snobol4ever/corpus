@@ -1,0 +1,7 @@
+
+Challenge 083, Task #2: Flip Array (Raku)
+
+Usage:
+  raku ch-2.raku [<A> ...]
+  
+    [<A> ...]    A non-empty array of positive integers

@@ -1,0 +1,10 @@
+ok 1 - Count Prefixes: a ap app apple banana,              apple   => 4
+ok 2 - Count Prefixes: cat dog fish,                       bird    => 0
+ok 3 - Count Prefixes: hello he hell heaven he,            hello   => 4
+ok 4 - Count Prefixes: "" code coding cod,                 coding  => 3
+ok 5 - Count Prefixes: p pr pro prog progr progra program, program => 7
+ok 6 - Valid Times: ?2:34 =>    3
+ok 7 - Valid Times: ?4:?0 =>   12
+ok 8 - Valid Times: ??:?? => 1440
+ok 9 - Valid Times: ?3:45 =>    3
+ok 10 - Valid Times: 2?:15 =>    4

@@ -1,0 +1,13 @@
+1..9
+ok 1 - 0 <- 
+ok 2 - 0 <- ab
+ok 3 - 0 <- ab cd
+ok 4 - 1 <- ab ba
+ok 5 - 0 <- ab bc de ef
+ok 6 - 1 <- ab de ed bc
+ok 7 - 0 <- aa ba cd ed
+ok 8 - 2 <- uv qp st vu mn pq
+ok 9 - bad word list dies
+
+Input: @words = ["uv", "qp", "st", "vu", "mn", "pq"]
+Output: 2

@@ -1,0 +1,6 @@
+Input: The Weekly Challenge
+Output: Challenge Weekly The
+Input:     Perl and   Raku are  part of the same family  
+Output: family same the of part are Raku and Perl
+Input: join reverse split $S
+Output: $S split reverse join

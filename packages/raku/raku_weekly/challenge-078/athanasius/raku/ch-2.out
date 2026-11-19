@@ -1,0 +1,8 @@
+
+Challenge 078, Task #2: Left Rotation (Raku)
+
+Usage:
+  raku ch-2.raku [-A=<Str>] [-B=<Str>]
+  
+    -A=<Str>    A whitespace-separated array of positive integers
+    -B=<Str>    A whitespace-separated array of indices into array A

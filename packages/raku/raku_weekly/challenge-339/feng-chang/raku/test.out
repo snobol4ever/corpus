@@ -1,0 +1,10 @@
+ok 1 - Max Diff: (5,9,3,4,6)   => 42
+ok 2 - Max Diff: (1,-2,3,-4)   => 10
+ok 3 - Max Diff: (-3,-1,-2,-4) => 10
+ok 4 - Max Diff: (10,2,0,5,1)  => 50
+ok 5 - Max Diff: (7,8,9,10,10) => 44
+ok 6 - Peak Point: (-5,1,5,-9,2)   =>  1
+ok 7 - Peak Point: (10,10,10,-25)  => 30
+ok 8 - Peak Point: (3,-4,2,5,-6,1) =>  6
+ok 9 - Peak Point: (-1,-2,-3,-4)   =>  0
+ok 10 - Peak Point: (-10,15,5)      => 10

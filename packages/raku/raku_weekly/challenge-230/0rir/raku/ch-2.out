@@ -1,0 +1,13 @@
+1..8
+ok 1 - 4 <- ∘	("pay", "attention", "practice", "attend")
+ok 2 - 2 <- at∘	("pay", "attention", "practice", "attend")
+ok 3 - 2 <- at∘	("pay", "attention", "practice", "attend")
+ok 4 - 4 <- j∘	("janet", "julia", "java", "javascript")
+ok 5 - 3 <- ja∘	("janet", "julia", "java", "javascript")
+ok 6 - 2 <- jav∘	("janet", "julia", "java", "javascript")
+ok 7 - 1 <- ju∘	("janet", "julia", "java", "javascript")
+ok 8 - 0 <- je∘	("janet", "julia", "java", "javascript")
+
+Input: @words  = pay attention practice attend
+$prefix = pa
+Ouput: 1

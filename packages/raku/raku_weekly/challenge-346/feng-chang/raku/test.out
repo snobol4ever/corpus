@@ -1,0 +1,11 @@
+ok 1 - Longest Parenthesis: (()())        => 6
+ok 2 - Longest Parenthesis: )()())        => 4
+ok 3 - Longest Parenthesis: ((()))()(((() => 8
+ok 4 - Longest Parenthesis: ))))((()(     => 2
+ok 5 - Longest Parenthesis: ()(()         => 2
+ok 6 - Longest Parenthesis: ()(()()       => 4
+ok 7 - Magic Expression: 123,6   => "1+2+3, 1*2*3"
+ok 8 - Magic Expression: 105,5   => "1*0+5, 10-5"
+ok 9 - Magic Expression: 232,8   => "2+3*2, 2*3+2"
+ok 10 - Magic Expression: 1234,10 => "1+2+3+4, 1*2*3+4"
+ok 11 - Magic Expression: 1001,2  => "1+0+0+1, 1+0-0+1, 1+0*0+1, 1-0+0+1, 1-0-0+1, 1-0*0+1"

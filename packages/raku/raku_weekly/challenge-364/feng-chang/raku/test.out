@@ -1,0 +1,10 @@
+ok 1 - Decrypt String: 10 \#11 \#12  => jkab
+ok 2 - Decrypt String: 1326 \#     => acz
+ok 3 - Decrypt String: 25 \#24 \#123 => yxzbc
+ok 4 - Decrypt String: 20 \#5      => te
+ok 5 - Decrypt String: 1910 \#26 \#  => aijz
+ok 6 - Goal Parser: "G()(al)"       => Goal
+ok 7 - Goal Parser: "G()()()()(al)" => Gooooal
+ok 8 - Goal Parser: "(al)G(al)()()" => alGaloo
+ok 9 - Goal Parser: "()G()G"        => OGoG
+ok 10 - Goal Parser: "(al)(al)G()()" => alalGoo

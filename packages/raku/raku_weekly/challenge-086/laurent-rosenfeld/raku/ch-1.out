@@ -1,0 +1,11 @@
+Testing: target: 7 and 10 8 12 15 5
+(8 15)
+1
+Testing: target: 6 and 1 5 2 9 7
+(1 7)
+1
+Testing: target: 15 and 10 30 20 50 40
+0
+Testing: target: 9 and 7 20 15 11 12
+(20 11)
+1

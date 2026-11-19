@@ -1,0 +1,7 @@
+1..6
+ok 1 - task2_via_Set ab
+ok 2 - task2_via_Set abc
+ok 3 - task2_via_Set cad
+ok 4 - task2_via_Regex ab
+ok 5 - task2_via_Regex abc
+ok 6 - task2_via_Regex cad

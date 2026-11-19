@@ -1,0 +1,4 @@
+ok 1 - Test: Empty string
+ok 2 - Test: 0
+ok 3 - Test: 001
+1..3

@@ -1,0 +1,19 @@
+Example 1:
+Input: @arr = (3, 6, 12)
+Output: (3, 6, 12)
+
+Example 2:
+Input: @arr = (1, 2, 4, 8)
+Output: (1, 2, 4, 8)
+
+Example 3:
+Input: @arr = (7, 8, 9, 10)
+Output: (8, 10, 7, 9)
+
+Example 4:
+Input: @arr = (5, 9, 15, 17)
+Output: (5, 9, 15, 17)
+
+Example 5:
+Input: @arr = (11, 13, 14, 19)
+Output: (14, 13, 11, 19)

@@ -1,0 +1,5 @@
+
+Challenge 147, Task #1: Truncatable Prime (Raku)
+
+The first 20 left-truncatable prime numbers in base 10:
+2, 3, 5, 7, 13, 17, 23, 37, 43, 47, 53, 67, 73, 83, 97, 113, 137, 167, 173, 197

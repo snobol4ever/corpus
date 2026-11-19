@@ -1,0 +1,11 @@
+ok 1 - Text Justifier: Hi,5    => *Hi**
+ok 2 - Text Justifier: Code,10 => ***Code***
+ok 3 - Text Justifier: Hello,9 => **Hello**
+ok 4 - Text Justifier: Perl,4  => Perl
+ok 5 - Text Justifier: A,7     => ***A***
+ok 6 - Text Justifier: "",5    => *****
+ok 7 - Word Sorter: "The quick brown fox"              => "brown fox quick The"
+ok 8 - Word Sorter: "Hello    World!   How   are you?" => "are Hello How World! you?"
+ok 9 - Word Sorter: "Hello"                            => "Hello"
+ok 10 - Word Sorter: "Hello, World! How are you?"       => "are Hello, How World! you?"
+ok 11 - Word Sorter: "I have 2 apples and 3 bananas!"   => "2 3 and apples bananas! have I"

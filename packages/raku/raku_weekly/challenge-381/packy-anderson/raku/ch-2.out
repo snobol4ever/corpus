@@ -1,0 +1,19 @@
+Example 1:
+Input: @int = (2, 4)
+Output: 0
+
+Example 2:
+Input: @int = (1, 1, 1, 1)
+Output: 0
+
+Example 3:
+Input: @int = (1, 1, 4, 8, 12, 12)
+Output: 2
+
+Example 4:
+Input: @int = (3, 6, 6, 9)
+Output: 2
+
+Example 5:
+Input: @int = (0, -5, 10, -2, 4)
+Output: 3

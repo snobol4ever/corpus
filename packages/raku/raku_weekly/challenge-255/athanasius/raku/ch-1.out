@@ -1,0 +1,11 @@
+
+Challenge 255, Task #1: Odd Character (Raku)
+
+Running the test suite
+ERROR: The chars in $s are not a subset of the chars in $t
+Usage:
+  raku ch-1.raku <s> <t>
+  raku ch-1.raku
+  
+    <s>    A string
+    <t>    A string containing the chars of s with 1 additional char

@@ -1,0 +1,6 @@
+1..5
+ok 1 -  <- "aabbccdd"
+ok 2 -  <- "abccba"
+ok 3 - abcdef <- "abcdef"
+ok 4 - aea <- "aabbaeaccdd"
+ok 5 - m <- "mississippi"

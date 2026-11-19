@@ -1,0 +1,9 @@
+
+Challenge 289, Task #1: Third Maximum (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Example 3
+ok 4 - Singleton
+1..4

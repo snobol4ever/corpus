@@ -1,0 +1,28 @@
+
+Challenge 211, Task #2: Split Same Average (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 1: partition 1
+ok 3 - Example 1: partition 2
+ok 4 - Example 1: average
+ok 5 - Example 2
+ok 6 - Negatives
+ok 7 - Negatives: partition 1
+ok 8 - Negatives: partition 2
+ok 9 - Negatives: average
+ok 10 - Mixed 1
+ok 11 - Mixed 1: partition 1
+ok 12 - Mixed 1: partition 2
+ok 13 - Mixed 1: average
+ok 14 - Mixed 2
+ok 15 - Same
+ok 16 - Same: partition 1
+ok 17 - Same: partition 2
+ok 18 - Same: average
+ok 19 - Zeros
+ok 20 - Zeros: partition 1
+ok 21 - Zeros: partition 2
+ok 22 - Zeros: average
+ok 23 - One
+1..23

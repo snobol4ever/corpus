@@ -1,0 +1,11 @@
+1..6
+ok 1 - 0 <- 
+ok 2 - 0 <- a
+ok 3 - 0 <- aA
+ok 4 - 3 <- pPeERrLl
+ok 5 - 0 <- rRr
+ok 6 - 1 <- GoO
+
+Input: $str = 'pPjtrliuhjtlijhaWRtaaeERrLl'
+Output: 21
+

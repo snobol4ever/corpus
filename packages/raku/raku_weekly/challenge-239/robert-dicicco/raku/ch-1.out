@@ -1,0 +1,12 @@
+Input:  @arr1 = [ab c]
+	@arr2 = [a bc]
+Output: true
+
+Input:  @arr1 = [ab c]
+	@arr2 = [ac b]
+Output: false
+
+Input:  @arr1 = [ab cd e]
+	@arr2 = [abcde]
+Output: true
+

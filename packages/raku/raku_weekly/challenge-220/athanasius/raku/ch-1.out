@@ -1,0 +1,8 @@
+
+Challenge 220, Task #1: Common Characters (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Hyphenated
+1..3

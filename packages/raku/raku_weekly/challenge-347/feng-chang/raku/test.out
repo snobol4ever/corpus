@@ -1,0 +1,11 @@
+ok 1 - Format Date: "10th Nov 2025" => 2025-11-10
+ok 2 - Format Date: "1st Jan 2025"  => 2025-01-01
+ok 3 - Format Date: "22nd Feb 2025" => 2025-02-22
+ok 4 - Format Date: "15th Apr 2025" => 2025-04-15
+ok 5 - Format Date: "23rd Oct 2025" => 2025-10-23
+ok 6 - Format Date: "31st Dec 2025" => 2025-12-31
+ok 7 - Format Phone Number: "1-23-45-6"   => 123-456
+ok 8 - Format Phone Number: "1234"        => 12-34
+ok 9 - Format Phone Number: "12 345-6789" => 123-456-789
+ok 10 - Format Phone Number: "123 4567"    => 123-45-67
+ok 11 - Format Phone Number: "123 456-78"  => 123-456-78

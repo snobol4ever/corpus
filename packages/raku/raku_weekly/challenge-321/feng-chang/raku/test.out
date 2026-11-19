@@ -1,0 +1,6 @@
+ok 1 - Distinct Average: (1,2,4,3,5,6) => 1
+ok 2 - Distinct Average: (0,2,4,8,3,5) => 2
+ok 3 - Distinct Average: (7,3,1,0,5,9) => 2
+ok 4 - Backspace Compare: <ab*c ad*c> => true
+ok 5 - Backspace Compare: <ab** a*b*> => true
+ok 6 - Backspace Compare: <a*b c>     => false

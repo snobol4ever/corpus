@@ -1,0 +1,9 @@
+1..5
+ok 1 - 1 <- Perl and Raku [ a]
+ok 2 - 0 <- Perl Weekly Challenge [ l a]
+ok 3 - 2 <- Well done Team PWC [ l o]
+ok 4 - 2 <- The joys of polyglottism [ T]
+ok 5 - 4 <- The horrors of babel [ ]
+
+Input: $sentence = "Perl and Raku", @keys = p
+Output: 2

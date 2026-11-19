@@ -1,0 +1,19 @@
+Example 1:
+Input: $caption = "Cooking with 5 ingredients!"
+Output: "#cookingWithIngredients"
+
+Example 2:
+Input: $caption = "the-last-of-the-mohicans"
+Output: "#thelastofthemohicans"
+
+Example 3:
+Input: $caption = "  extra spaces here"
+Output: "#extraSpacesHere"
+
+Example 4:
+Input: $caption = "iPhone 15 Pro Max Review"
+Output: "#iphoneProMaxReview"
+
+Example 5:
+Input: $caption = "Ultimate 24-Hour Challenge: Living in a Smart Home controlled entirely by Artificial Intelligence and Voice Commands in the year 2026!"
+Output: "#ultimateHourChallengeLivingInASmartHomeControlledEntirelyByArtificialIntelligenceAndVoiceCommandsIn"

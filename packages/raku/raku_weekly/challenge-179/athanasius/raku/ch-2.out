@@ -1,0 +1,7 @@
+
+Challenge 179, Task #2: Unicode Sparkline (Raku)
+
+Usage:
+  raku ch-2.raku [<n> ...]
+  
+    [<n> ...]    One or more positive numbers

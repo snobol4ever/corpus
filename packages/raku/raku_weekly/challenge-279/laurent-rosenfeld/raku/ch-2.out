@@ -1,0 +1,4 @@
+Perl            => False
+book            => True
+bOok            => True
+good morning    => True

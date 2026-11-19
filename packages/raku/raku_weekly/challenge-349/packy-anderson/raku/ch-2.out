@@ -1,0 +1,19 @@
+Example 1:
+Input: $path = "ULD"
+Output: False
+
+Example 2:
+Input: $path = "ULDR"
+Output: True
+
+Example 3:
+Input: $path = "UUURRRDDD"
+Output: False
+
+Example 4:
+Input: $path = "UURRRDDLLL"
+Output: True
+
+Example 5:
+Input: $path = "RRUULLDDRRUU"
+Output: True

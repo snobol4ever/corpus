@@ -1,0 +1,10 @@
+1..6
+ok 1 - 2 <- abc ∘ abb ∘ ab
+ok 2 - Int <- ayz ∘ cyz ∘ xyz
+ok 3 - 3 <- yza ∘ yzb ∘ yzc
+ok 4 - 6 <- yzab ∘ yzbb ∘ yzcb
+ok 5 - 0 <-  ∘  ∘ 
+ok 6 - 0 <- abc ∘ abc ∘ abc
+
+Input: $s1 = "abcd", $s2 = "abcd", $s3 = "abdd"
+Output: 6

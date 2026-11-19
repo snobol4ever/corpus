@@ -1,0 +1,8 @@
+
+Challenge 098, Task #2: Search Insert Position (Raku)
+
+Usage:
+  raku ch-2.raku [-N[=Int]] [<N> ...]
+  
+    -N[=Int]     The target integer
+    [<N> ...]    A sorted list of distinct integers

@@ -1,0 +1,19 @@
+Example 1:
+Input: @strings = ("123", "45", "6")
+Output: 123
+
+Example 2:
+Input: @strings = ("abc", "de", "fghi")
+Output: 4
+
+Example 3:
+Input: @strings = ("0012", "99", "a1b2c")
+Output: 99
+
+Example 4:
+Input: @strings = ("x", "10", "xyz", "007")
+Output: 10
+
+Example 5:
+Input: @strings = ("hello123", "2026", "perl")
+Output: 2026

@@ -1,0 +1,9 @@
+1..5
+ok 1 - e l l <- $("bella", "label", "roller")
+ok 2 - c o <- $("cool", "lock", "cook")
+ok 3 - l o <- $("hello", "world", "pole")
+ok 4 -  <- $("abc", "def", "ghi")
+ok 5 - a a <- $("aab", "aac", "aaa")
+
+Input: @word = ["cool", "lock", "cook"]
+Output: ("c", "o")

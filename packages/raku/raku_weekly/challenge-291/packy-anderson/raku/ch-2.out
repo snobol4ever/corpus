@@ -1,0 +1,16 @@
+1. How many different 5-card hands can be dealt?
+2,598,960
+
+2. How many different hands of each of the 10 ranks can be dealt?
+Royal Flush:             4
+Straight Flush:         36
+Four of a Kind:        624
+Full House:          3,744
+Flush:               5,108
+Straight:           10,200
+Three of a Kind:    54,912
+Two Pair:          123,552
+One Pair:        1,098,240
+High Card:       1,302,540
+--------------------------
+Total:           2,598,960

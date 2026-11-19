@@ -1,0 +1,7 @@
+
+Challenge 119, Task #2: Sequence without 1-on-1 (Raku)
+
+Usage:
+  raku ch-2.raku <N>
+  
+    <N>    A positive integer

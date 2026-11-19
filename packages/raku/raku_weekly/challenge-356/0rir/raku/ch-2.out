@@ -1,0 +1,17 @@
+1..13
+ok 1 - 2, 6 <- "HAHAHH"
+ok 2 - 4, 2 <- "HHHAHA"
+ok 3 - 1, 2 <- "HHHHHH"
+ok 4 - 4, 6 <- "HAHAAH"
+ok 5 - 5, 1 <- "HAAHAA"
+ok 6 - 7, 6 <- "AAAAAA"
+ok 7 - 6, 7 <- "AAAAAH"
+ok 8 - 5, 1 <- "AAAHHA"
+ok 9 - 6, 5 <- "HAAAAA"
+ok 10 - 6, 7 <- "AAHAAH"
+ok 11 - 5, 7 <- "AHAAAH"
+ok 12 - 5, 6 <- "HAAAAH"
+ok 13 - 6, 7 <- "AAAAAH"
+
+Input: $results = "HAHAHH"
+Output: "Team 2 defeated Team 6"

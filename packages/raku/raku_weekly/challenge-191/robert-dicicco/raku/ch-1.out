@@ -1,0 +1,12 @@
+Input: @list = (1 2 3 4)
+Output: -1
+
+Input: @list = (1 2 0 5)
+Output: 1
+
+Input: @list = (2 6 3 1)
+Output: 1
+
+Input: @list = (4 5 2 3)
+Output: -1
+

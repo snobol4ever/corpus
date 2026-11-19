@@ -1,0 +1,22 @@
+ch-2.p6, PWC #43 Task #2: Self-descriptive Numbers
+Base:  4, Nmbr:                            100,                      1210 = self-descriptive
+Base:  5, Nmbr:                           1025,                     13100 = NOT self-descriptive
+Base:  6, Nmbr:                          18576,                    222000 = NOT self-descriptive
+Base:  7, Nmbr:                         389305,                   3211000 = self-descriptive
+Base:  8, Nmbr:                        8946176,                  42101000 = self-descriptive
+Base:  9, Nmbr:                      225331713,                 521001000 = self-descriptive
+Base: 10, Nmbr:                     6210001000,                6210001000 = self-descriptive
+Base: 11, Nmbr:                   186492227801,               72100001000 = self-descriptive
+Base: 12, Nmbr:                  6073061476032,              821000001000 = self-descriptive
+Base: 13, Nmbr:                213404945384449,             9210000001000 = self-descriptive
+Base: 14, Nmbr:               8054585122464440,            a2100000001000 = self-descriptive
+Base: 15, Nmbr:             325144322753909625,           b21000000001000 = self-descriptive
+Base: 16, Nmbr:           13983676842985394176,          c210000000001000 = self-descriptive
+Base: 17, Nmbr:          638488718313248327681,         d2100000000001000 = self-descriptive
+Base: 18, Nmbr:        30852387539151417415368,        e21000000000001000 = self-descriptive
+Base: 19, Nmbr:      1573159469597805848539033,       f210000000000001000 = self-descriptive
+Base: 20, Nmbr:     84423475200000000000008000,      g2100000000000001000 = self-descriptive
+Base: 21, Nmbr:   4756841174671235094613299201,     h21000000000000001000 = self-descriptive
+Base: 22, Nmbr: 280793005454401827960409041304,    i210000000000000001000 = self-descriptive
+Base: 23, Nmbr: 17329741584816652890845493751865,   j2100000000000000001000 = self-descriptive
+Base: 24, Nmbr: 1116173987440750653627851819988480,  k21000000000000000001000 = self-descriptive

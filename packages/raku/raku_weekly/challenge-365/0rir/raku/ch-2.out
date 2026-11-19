@@ -1,0 +1,29 @@
+1..25
+ok 1 - 3 <- "cat and dog"
+ok 2 - 2 <- "a-b c! d,e"
+ok 3 - 4 <- "hello-world! this is fun"
+ok 4 - 2 <- "ab- cd-ef gh- ij!"
+ok 5 - 2 <- "wow! a-b-c nice."
+ok 6 - "a" match
+ok 7 - "ab" match
+ok 8 - "a-b" match
+ok 9 - "a." match
+ok 10 - "a!" match
+ok 11 - "a," match
+ok 12 - "a?" match
+ok 13 - "a'" match
+ok 14 - "1" no match
+ok 15 - "-" no match
+ok 16 - "a-" no match
+ok 17 - "-a" no match
+ok 18 - "-a-b" no match
+ok 19 - "a-b-" no match
+ok 20 - "ab-" no match
+ok 21 - "a--a" no match
+ok 22 - "a'a" no match
+ok 23 - "a1" no match
+ok 24 - "1a" no match
+ok 25 - "a1a" no match
+
+Input: $str = "wow! a-c nice."
+Output: 3

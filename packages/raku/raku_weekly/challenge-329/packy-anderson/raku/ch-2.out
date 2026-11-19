@@ -1,0 +1,15 @@
+Example 1:
+Input: $str = "YaaAho"
+Output: "aaA"
+
+Example 2:
+Input: $str = "cC"
+Output: "cC"
+
+Example 3:
+Input: $str = "A"
+Output: ""
+
+Example 4:
+Input: $str = "AaBcDEFdefGhIiJjKlm"
+Output: "DEFdef"

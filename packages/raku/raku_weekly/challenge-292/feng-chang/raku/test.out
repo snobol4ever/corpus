@@ -1,0 +1,6 @@
+ok 1 - Twice Largest: 2,4,1,0  =>  4
+ok 2 - Twice Largest: 1,2,3,4  => -1
+ok 3 - Zuma Game: "WRRBBW",   "RB"    => -1
+ok 4 - Zuma Game: "WWRRBBWW", "WRBRW" =>  2
+ok 5 - Zuma Game: "G",        "GGGGG" =>  2
+ok 6 - Zuma Game: "ABBACCA",  "ABC"   =>  2

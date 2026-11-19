@@ -1,0 +1,24 @@
+Example 1:
+Input: @event1 = ("10:00", "12:00")
+       @event2 = ("11:00", "13:00")
+Output: True
+
+Example 2:
+Input: @event1 = ("09:00", "10:30")
+       @event2 = ("10:30", "12:00")
+Output: False
+
+Example 3:
+Input: @event1 = ("14:00", "15:30")
+       @event2 = ("14:30", "16:00")
+Output: True
+
+Example 4:
+Input: @event1 = ("08:00", "09:00")
+       @event2 = ("09:01", "10:00")
+Output: False
+
+Example 5:
+Input: @event1 = ("23:30", "00:30")
+       @event2 = ("00:00", "01:00")
+Output: True

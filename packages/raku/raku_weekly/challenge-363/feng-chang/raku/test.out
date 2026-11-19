@@ -1,0 +1,10 @@
+ok 1 - String Lie Detector: "aa - two vowels and zero consonants"     => true
+ok 2 - String Lie Detector: "iv - one vowel and one consonant"        => true
+ok 3 - String Lie Detector: "hello - three vowels and two consonants" => false
+ok 4 - String Lie Detector: "aeiou - five vowels and zero consonants" => true
+ok 5 - String Lie Detector: "aei - three vowels and zero consonants"  => true
+ok 6 - Subnet Sheriff: 192.168.1.45 192.168.1.0/24 => true
+ok 7 - Subnet Sheriff: 10.0.0.256 10.0.0.0/24      => false
+ok 8 - Subnet Sheriff: 172.16.8.9 172.16.8.9/32    => true
+ok 9 - Subnet Sheriff: 172.16.4.5 172.16.0.0/14    => true
+ok 10 - Subnet Sheriff: 192.0.2.0 192.0.2.0/25      => true

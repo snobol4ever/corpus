@@ -1,0 +1,12 @@
+1..11
+ok 1 - can-partition-to-sqrt(  81) == True
+ok 2 - can-partition-to-sqrt(9801) == True
+ok 3 - can-partition-to-sqrt(  36) == False
+ok 4 - can-partition-to-sqrt(5184) == False
+ok 5 - can-partition-to-sqrt(1296) == True
+ok 6 - can-partition-to-sqrt(27425678449) == False
+ok 7 - can-partition-to-sqrt(1058751978965168049) == False
+ok 8 - can-partition-to-sqrt(1058751981023081536) == True
+ok 9 - can-partition-to-sqrt(1058751983080995025) == False
+ok 10 - Exact match of https://oeis.org/A038206
+ok 11 - Exact match of https://oeis.org/A104113

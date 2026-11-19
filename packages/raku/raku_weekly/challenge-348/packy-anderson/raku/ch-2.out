@@ -1,0 +1,46 @@
+Example 1:
+Input: $source = "02:30"
+       $target = "02:45"
+Output: 1
+
+Operation:
+ + Add 15 minutes
+
+Example 2:
+Input: $source = "11:55"
+       $target = "12:15"
+Output: 2
+
+Operations:
+ + Add 15 minutes
+ + Add 5 minutes
+
+Example 3:
+Input: $source = "09:00"
+       $target = "13:00"
+Output: 4
+
+Operations:
+ + Add 60 minutes
+ + Add 60 minutes
+ + Add 60 minutes
+ + Add 60 minutes
+
+Example 4:
+Input: $source = "23:45"
+       $target = "00:30"
+Output: 3
+
+Operations:
+ + Add 15 minutes
+ + Add 15 minutes
+ + Add 15 minutes
+
+Example 5:
+Input: $source = "14:20"
+       $target = "15:25"
+Output: 2
+
+Operations:
+ + Add 60 minutes
+ + Add 5 minutes

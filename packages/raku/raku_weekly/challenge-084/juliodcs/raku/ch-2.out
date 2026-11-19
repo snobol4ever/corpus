@@ -1,0 +1,8 @@
+ok 1 - Simple matrix
+ok 2 - Simple matrix, incomplete
+ok 3 - Simple (w != h) matrix
+ok 4 - Simple (w != h) matrix, all complete
+ok 5 - Example test 1
+ok 6 - Example test 2
+ok 7 - Example test 3
+1..7

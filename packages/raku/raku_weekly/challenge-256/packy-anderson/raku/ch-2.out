@@ -1,0 +1,7 @@
+Example 1:
+Input: $str1 = "abcd", $str2 = "1234"
+Output: "a1b2c3d4"
+
+Example 2:
+Input: $str1 = "abc", $str2 = "12345"
+Output: "a1b2c345"

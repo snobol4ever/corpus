@@ -1,0 +1,10 @@
+
+Challenge 071, Task #2: Trim Linked List (Raku)
+
+Usage:
+  raku ch-2.raku [-N[=Natural]] [-S[=UInt]]
+  raku ch-2.raku [-N[=Natural]] [<elements> ...]
+  
+    -N[=Natural]        No. of the node to remove, counting from the list end
+    -S[=UInt]           List size: elements will have values '1', '2', ..., 'S'
+    [<elements> ...]    Explicit element values (strings), in order

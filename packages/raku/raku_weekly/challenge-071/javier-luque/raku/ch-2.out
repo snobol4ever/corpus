@@ -1,0 +1,12 @@
+When $N = 1
+After: 1 → 2 → 3 → 4
+When $N = 2
+After: 1 → 2 → 3 → 5
+When $N = 3
+After: 1 → 2 → 4 → 5
+When $N = 4
+After: 1 → 3 → 4 → 5
+When $N = 5
+After: 2 → 3 → 4 → 5
+When $N = 6
+After: 1 → 2 → 3 → 4

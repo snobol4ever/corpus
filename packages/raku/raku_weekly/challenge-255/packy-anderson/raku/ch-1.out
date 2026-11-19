@@ -1,0 +1,11 @@
+Example 1:
+Input: $s = "Perl" $t = "Preel"
+Output: "e"
+
+Example 2:
+Input: $s = "Weekly" $t = "Weeakly"
+Output: "a"
+
+Example 3:
+Input: $s = "Box" $t = "Boxy"
+Output: "y"

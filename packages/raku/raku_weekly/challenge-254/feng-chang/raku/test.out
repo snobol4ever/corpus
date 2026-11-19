@@ -1,0 +1,8 @@
+ok 1 - 27 = 3³
+ok 2 - 0 = 0³
+ok 3 - 6 is not a power of 3
+ok 4 - Reverse Vowels: Raku  => Ruka
+ok 5 - Reverse Vowels: Perl  => Perl
+ok 6 - Reverse Vowels: Julia => Jaliu
+ok 7 - Reverse Vowels: Uiua  => Auiu
+1..7

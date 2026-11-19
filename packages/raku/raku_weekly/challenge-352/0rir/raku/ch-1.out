@@ -1,0 +1,9 @@
+1..5
+ok 1 - cat dog dogcat rat <- ("cat", "cats", "dog", "dogcat", "dogcat", "rat", "ratcatdogcat")
+ok 2 - hell world wor ellow <- ("hello", "hell", "world", "wor", "ellow", "elloworld")
+ok 3 - a aa aaa <- ("a", "aa", "aaa", "aaaa")
+ok 4 - flow fl fli ig ght <- ("flower", "flow", "flight", "fl", "fli", "ig", "ght")
+ok 5 - car pet enter pen pent <- ("car", "carpet", "carpenter", "pet", "enter", "pen", "pent")
+
+Input: @words = ("hello", "hell", "world", "wor", "ellow", "elloworld")
+Output: ("hell", world", wor", ellow")

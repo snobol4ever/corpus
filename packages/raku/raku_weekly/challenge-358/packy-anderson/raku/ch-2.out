@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "abc", $int = 1
+Output: "bcd"
+
+Example 2:
+Input: $str = "xyz", $int = 2
+Output: "zab"
+
+Example 3:
+Input: $str = "abc", $int = 27
+Output: "bcd"
+
+Example 4:
+Input: $str = "hello", $int = 5
+Output: "mjqqt"
+
+Example 5:
+Input: $str = "perl", $int = 26
+Output: "perl"

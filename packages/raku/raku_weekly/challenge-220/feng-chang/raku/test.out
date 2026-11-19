@@ -1,0 +1,5 @@
+ok 1 - Common Characters: Perl, Rust, Raku  => r
+ok 2 - Common Characters: love, live, leave => e, l, v
+ok 3 - Squareful: (1, 17, 8) => (1, 8, 17), (17, 8, 1)
+ok 4 - Squareful: (2, 2, 2)  => (2, 2, 2)
+1..4

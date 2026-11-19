@@ -1,0 +1,21 @@
+1..20
+ok 1 - Γ(1) approximates 1
+ok 2 - Γ(2) approximates 1
+ok 3 - Γ(3) approximates 2
+ok 4 - Γ(4) approximates 6
+ok 5 - Γ(5) approximates 24
+ok 6 - Γ(6) approximates 120
+ok 7 - Γ(7) approximates 720
+ok 8 - Γ(8) approximates 5040
+ok 9 - Γ(9) approximates 40320
+ok 10 - Γ(10) approximates 362880
+ok 11 - Γ(11) approximates 3628800
+ok 12 - Γ(12) approximates 39916800
+ok 13 - Γ(13) approximates 479001600
+ok 14 - Γ(14) approximates 6227020800
+ok 15 - Γ(15) approximates 87178291200
+ok 16 - Γ(16) approximates 1307674368000
+ok 17 - Γ(17) approximates 20922789888000
+ok 18 - Γ(18) approximates 355687428096000
+ok 19 - Γ(19) approximates 6402373705728000
+ok 20 - Γ(20) approximates 121645100408832000

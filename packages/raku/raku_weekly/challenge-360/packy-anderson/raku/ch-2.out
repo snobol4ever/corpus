@@ -1,0 +1,19 @@
+Example 1:
+Input: $str = "The quick brown fox"
+Output: "brown fox quick The"
+
+Example 2:
+Input: $str = "Hello    World!   How   are you?"
+Output: "are Hello How World! you?"
+
+Example 3:
+Input: $str = "Hello"
+Output: "Hello"
+
+Example 4:
+Input: $str = "Hello, World! How are you?"
+Output: "are Hello, How World! you?"
+
+Example 5:
+Input: $str = "I have 2 apples and 3 bananas!"
+Output: "2 3 and apples bananas! have I"

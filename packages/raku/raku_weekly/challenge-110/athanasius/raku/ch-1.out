@@ -1,0 +1,12 @@
+
+Challenge 110, Task #1: Valid Phone Numbers (Raku)
+
+Input:  ./ch-1_Example.txt
+
+Output:
+
+  0044 1148820341
+   +44 1148820341
+  (44) 1148820341
+
+3 valid phone numbers found

@@ -1,0 +1,13 @@
+1..9
+ok 1 - Weekly <- "WeEeekly"
+ok 2 -  <- "abBAdD"
+ok 3 - abc <- "abc"
+ok 4 - aa <- "abcdefghHGFEDCBa"
+ok 5 - a <- "bcdefghHGFEDCBa"
+ok 6 - a <- "abcdefghHGFEDCB"
+ok 7 -  <- "XxabBAdD"
+ok 8 - nm <- "XxnabBAmdD"
+ok 9 - nm <- "AaXxnabBAmdDzZ"
+
+Input: $str = "AaaAaBbbbBCcc"
+Output: "abc"

@@ -1,0 +1,31 @@
+Example 1:
+Input: $str = "1"
+Output: True
+
+Example 2:
+Input: $str = "a"
+Output: False
+
+Example 3:
+Input: $str = "."
+Output: False
+
+Example 4:
+Input: $str = "1.2e4.2"
+Output: False
+
+Example 5:
+Input: $str = "-1."
+Output: True
+
+Example 6:
+Input: $str = "+1E-8"
+Output: True
+
+Example 7:
+Input: $str = ".44"
+Output: True
+
+Example 8:
+Input: $str = "-३.१"
+Output: True

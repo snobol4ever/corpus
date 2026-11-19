@@ -1,0 +1,12 @@
+Input: acb, cba, cdb
+Output: true
+Input: aab, aac, ad
+Output: true
+Input: bc, je, jg
+Output: false
+Input: a, aaaa, aa
+Output: true
+Input: c, d, h
+Output: false
+Input: gfi, hbf, bdhd
+Output: true

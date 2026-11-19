@@ -1,0 +1,5 @@
+ok 1 - Count Common: @str1=<perl weekly challenge>, @str2=<raku weekly challenge> => 2
+ok 2 - Count Common: @str1=<perl raku python>,      @str2=<python java>           => 1
+ok 3 - Count Common: @str1=<guest contribution>,    @str2=<fun weekly challenge>  => 0
+ok 4 - Decode XOR: @encoded=<1 2 3>,   $initial=1 => 1,0,2,1
+ok 5 - Decode XOR: @encoded=<6 2 7 3>, $initial=4 => 4,2,0,7,4

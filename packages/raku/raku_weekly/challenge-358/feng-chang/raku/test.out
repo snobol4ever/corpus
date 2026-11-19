@@ -1,0 +1,10 @@
+ok 1 - Max Str Value: 123,45,6           =>  123
+ok 2 - Max Str Value: abc,de,fghi        =>    4
+ok 3 - Max Str Value: 0012,99,a1b2c      =>   99
+ok 4 - Max Str Value: x,10,xyz,007       =>   10
+ok 5 - Max Str Value: hello123,2026,perl => 2026
+ok 6 - Encrypted String: abc,1   => bcd
+ok 7 - Encrypted String: xyz,2   => zab
+ok 8 - Encrypted String: abc,27  => bcd
+ok 9 - Encrypted String: hello,5 => mjqqt
+ok 10 - Encrypted String: perl,26 => perl

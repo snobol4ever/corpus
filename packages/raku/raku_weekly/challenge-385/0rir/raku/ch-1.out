@@ -1,0 +1,15 @@
+1..5
+ok 1 - "orange" <- apple banana apple ∘∘ banana orange
+ok 2 - "orange" <- apple banana apple ∘∘ banana orange
+ok 3 - $("cat", "dog", "bird", "fish") <- cat dog ∘∘ bird fish
+ok 4 - $("cat", "dog", "bird", "fish") <- cat dog ∘∘ bird fish
+ok 5 - $("brown", "fox") <- the quick brown fox ∘∘ the quick
+ok 6 - $("brown", "fox") <- the quick brown fox ∘∘ the quick
+ok 7 - $( ) <- hello ∘∘ hello
+ok 8 - $( ) <- hello ∘∘ hello
+ok 9 - "yellow" <- blue blue red ∘∘ red green green yellow
+ok 10 - "yellow" <- blue blue red ∘∘ red green green yellow
+
+Input: $sentence1 = "blue blue red"
+        $sentence2 = "red green green yellow"
+Output: ("yellow",)

@@ -1,0 +1,7 @@
+
+Challenge 151, Task #1: Binary Tree Depth (Raku)
+
+Usage:
+  raku ch-1.raku <binary-tree>
+  
+    <binary-tree>    String: "|" separates levels, "*" = an empty node

@@ -1,0 +1,11 @@
+Example 1:
+Input: $str1 = "uvw", $str2 = "bcudvew"
+Output: True
+
+Example 2:
+Input: $str1 = "aec", $str2 = "abcde"
+Output: False
+
+Example 3:
+Input: $str1 = "sip", $str2 = "javascript"
+Output: True

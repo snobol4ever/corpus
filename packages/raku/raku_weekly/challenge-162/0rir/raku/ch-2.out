@@ -1,0 +1,9 @@
+
+    (These combine I and J, and use X as padding.)
+
+encrypt( "hide the gold in the tree stump") -> bmodzbxdnabekudmuixmmouvif
+decrypt( "bmodzbxdnabekudmuixmmouvif") -> hidethegoldinthetrexestump
+
+
+encrypt( "the weekly challenge") -> zbxvxmioafdbyaryrodx
+decrypt( "zbxvxmioafdbyaryrodx") -> thewexeklychalxlenge

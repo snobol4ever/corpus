@@ -1,0 +1,6 @@
+ok 1 - Clear Digits: cab12  => c
+ok 2 - Clear Digits: xy99   => ""
+ok 3 - Clear Digits: pa1erl => perl
+ok 4 - Title Capital: PERL IS gREAT        => Perl is Great
+ok 5 - Title Capital: THE weekly challenge => The Weekly Challenge
+ok 6 - Title Capital: YoU ARE A stAR       => You Are a Star

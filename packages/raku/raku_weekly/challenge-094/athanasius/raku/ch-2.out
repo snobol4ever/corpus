@@ -1,0 +1,7 @@
+
+Challenge 094, Task #2: Binary Tree to Linked List (Raku)
+
+1..3
+ok 1 - Example
+ok 2 - Perfect tree of depth 3
+ok 3 - Empty tree

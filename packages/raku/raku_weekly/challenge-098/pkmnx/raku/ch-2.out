@@ -1,0 +1,2 @@
+Input: @N = (11, 13, 15, 17) and $N = 19
+Output: 4 since the target 19 is missing and should be placed at the index 4.

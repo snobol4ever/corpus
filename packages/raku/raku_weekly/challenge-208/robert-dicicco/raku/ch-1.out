@@ -1,0 +1,12 @@
+Input: @list1 = Perl Raku Love
+       @list2 = Raku Perl Hate
+Output: Perl Raku 
+
+Input: @list1 = A B C
+       @list2 = C A B
+Output: A B C 
+
+Input: @list1 = A B C
+       @list2 = D E F
+Output: 
+

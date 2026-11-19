@@ -1,0 +1,15 @@
+Input: $str = dbca, $k = 1
+10001
+Output: adbc
+Input: $str = geeks, $k = 2
+10001
+Output: eegks
+Input: $str = cbaed, $k = 3
+10001
+Output: abcde
+Input: $str = fedcba, $k = 4
+10001
+Output: abcdef
+Input: $str = perl, $k = 1
+10001
+Output: erlp

@@ -1,0 +1,13 @@
+1..12
+ok 1 - task1_paired PeRlwEeKLy
+ok 2 - task1_paired ChaLlenge
+ok 3 - task1_paired The
+ok 4 - task1_bitmap PeRlwEeKLy
+ok 5 - task1_bitmap ChaLlenge
+ok 6 - task1_bitmap The
+ok 7 - task1_combed_regex_sets PeRlwEeKLy
+ok 8 - task1_combed_regex_sets ChaLlenge
+ok 9 - task1_combed_regex_sets The
+ok 10 - task1_comb_hash PeRlwEeKLy
+ok 11 - task1_comb_hash ChaLlenge
+ok 12 - task1_comb_hash The

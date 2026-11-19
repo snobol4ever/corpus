@@ -1,0 +1,10 @@
+1..6
+ok 1 - 4 <- apple ∘∘ a ap app apple banana
+ok 2 - 0 <- bird ∘∘ cat dog fish
+ok 3 - 4 <- hello ∘∘ hello he hell heaven he
+ok 4 - 3 <- coding ∘∘  code coding cod
+ok 5 - 7 <- program ∘∘ p pr pro prog progr progra program
+ok 6 - 2100000 <- program ∘∘ [p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr pro prog progr progra program p pr ...]
+
+Input: @array = ("rack, "raku, "ra, "kudo, "perl"), $str = "rakudo"
+Output: 2

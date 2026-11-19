@@ -1,0 +1,10 @@
+ok 1 - ex-1
+ok 2 - ex-2
+ok 3 - ex-3
+ok 4 - ex-1-lin
+ok 5 - ex-2-lin
+ok 6 - ex-3-lin
+ok 7 - bistable  exhaustive
+ok 8 - tristable exhaustive
+ok 9 - bistable  single pass
+ok 10 - tristable single pass

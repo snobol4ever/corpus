@@ -1,0 +1,12 @@
+1..7
+ok 1 - 0 <- ("a",)
+ok 2 - 1 <- ("a", "a")
+ok 3 - 0 <- ("nba", "cba", "dba")
+ok 4 - 2 <- ("aba", "aabb", "abcd", "bac", "aabc")
+ok 5 - 3 <- ("aabb", "ab", "ba")
+ok 6 - 4 <- ("aba", "aabb", "abc", "bac", "aabc")
+ok 7 - 11 <- ("ab", "ba", "ac", "ca", "aac", "aacc", "aaac")
+
+
+Input: @word = ab ba abb bab ac ca aac aacc aaac accc
+Output: 21

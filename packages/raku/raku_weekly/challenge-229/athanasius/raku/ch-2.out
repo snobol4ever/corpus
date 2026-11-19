@@ -1,0 +1,9 @@
+
+Challenge 229, Task #2: Two out of Three (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 2
+ok 3 - Negatives
+ok 4 - Disjoint
+1..4

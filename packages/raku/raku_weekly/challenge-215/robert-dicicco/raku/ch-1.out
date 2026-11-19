@@ -1,0 +1,9 @@
+Input: @words = (abc xyz tsu)
+Output: 1
+ 
+Input: @words = (rat cab dad)
+Output: 3
+ 
+Input: @words = (x y z)
+Output: 0
+ 

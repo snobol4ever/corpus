@@ -1,0 +1,19 @@
+1..13
+ok 1 - True  <- a b ∘∘ c d ∘∘ (["a", "c"], ["b", "d"])
+ok 2 - False <- a p ∘∘ b p ∘∘ (["a", "l"], ["l", "b"])
+ok 3 - True  <- p4 py ∘∘ ra py ∘∘ (["p4", "p5", "ra"],)
+ok 4 - False <- e c ∘∘ l w c ∘∘ (["e", "l"],)
+ok 5 - True  <- f c ∘∘ q v ∘∘ (["q", "f"], ["v", "c"])
+ok 6 - False <- a ∘∘ c ∘∘ (["a", "b"], ["c", "d"])
+ok 7 - True  <- a a ∘∘ b b ∘∘ (["a", "b"], ["c", "d"])
+ok 8 - True  <- a ∘∘ a a ∘∘ (["a", "b"], ["c", "d"])
+ok 9 - True  <- a c ∘∘ a c ∘∘ (["a", "b"], ["c", "d"])
+ok 10 - False <- a c x ∘∘ b d Y ∘∘ (["a", "b"], ["c", "d"])
+ok 11 - True  <- a c x ∘∘ b d x ∘∘ (["a", "b"], ["c", "d"])
+ok 12 - True  <- a c x ∘∘ b d x ∘∘ (["a", "b"], ["c", "d"], [])
+ok 13 - True  <- a c c d x ∘∘ b d x ∘∘ (["a", "b"], ["c", "d"])
+
+Input: $list1 = ("aa", "nn", "w", "x")
+       $list2 = ("aa", "bb", "mm", "w", "x")
+       $list3 = (["aa", "bb", "cc"], ["mm", "nn", "oo"], ["rr", "ss"])
+Output: True

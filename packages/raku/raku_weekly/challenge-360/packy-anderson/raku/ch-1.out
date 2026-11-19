@@ -1,0 +1,44 @@
+Example 1:
+Input: $str = "Hi", $width = 5
+Output: "*Hi**"
+
+Text length = 2, Width = 5
+Need 3 padding characters total
+Left padding: 1 stars, Right padding: 2 stars
+
+Example 2:
+Input: $str = "Code", $width = 10
+Output: "***Code***"
+
+Text length = 4, Width = 10
+Need 6 padding characters total
+Left padding: 3 stars, Right padding: 3 stars
+
+Example 3:
+Input: $str = "Hello", $width = 9
+Output: "**Hello**"
+
+Text length = 5, Width = 9
+Need 4 padding characters total
+Left padding: 2 stars, Right padding: 2 stars
+
+Example 4:
+Input: $str = "Perl", $width = 4
+Output: "Perl"
+
+No padding needed
+
+Example 5:
+Input: $str = "A", $width = 7
+Output: "***A***"
+
+Text length = 1, Width = 7
+Need 6 padding characters total
+Left padding: 3 stars, Right padding: 3 stars
+
+Example 6:
+Input: $str = "", $width = 5
+Output: "*****"
+
+Text length = 0, Width = 5
+Entire output is padding

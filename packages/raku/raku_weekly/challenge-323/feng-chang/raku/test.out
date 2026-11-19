@@ -1,0 +1,6 @@
+ok 1 - Increment Decrement: "--x x++ x++"     => 1
+ok 2 - Increment Decrement: "x++ ++x x++"     => 3
+ok 3 - Increment Decrement: "x++ ++x --x x--" => 0
+ok 4 - Tax Amount: "$income=10, @tax=[3,50],[7,10],[12,25]" => 2.65
+ok 5 - Tax Amount: "$income=2,  @tax=[1,0],[4,25],[5,50]"   => 0.25
+ok 6 - Tax Amount: "$income=0,  @tax=[2, 50]"               => 0

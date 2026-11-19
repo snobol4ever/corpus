@@ -1,0 +1,6 @@
+ok 1 - Count Even Digits Number: 10, 1, 111, 24, 1000 => 3
+ok 2 - Count Even Digits Number: 111, 1, 11111        => 0
+ok 3 - Count Even Digits Number: 2, 8, 1024, 256      => 1
+ok 4 - Sum of Values: @ints = (2, 5, 9, 11, 3), $k = 1 => 17
+ok 5 - Sum of Values: @ints = (2, 5, 9, 11, 3), $k = 2 => 11
+ok 6 - Sum of Values: @ints = (2, 5, 9, 11, 3), $k = 0 => 2

@@ -1,0 +1,9 @@
+
+Challenge 140, Task #2: Multiplication Table (Raku)
+
+Usage:
+  raku ch-2.raku <i> <j> <k>
+  
+    <i>    Positive integer: maximum multiplier for the table
+    <j>    Positive integer: maximum multiplicand for the table
+    <k>    Positive integer: 1-based index into the sorted table

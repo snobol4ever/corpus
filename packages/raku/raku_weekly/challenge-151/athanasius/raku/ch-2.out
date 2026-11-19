@@ -1,0 +1,7 @@
+
+Challenge 151, Task #2: Rob The House (Raku)
+
+Usage:
+  raku ch-2.raku [<valubles> ...]
+  
+    [<valubles> ...]    Positive integers: values of valubles

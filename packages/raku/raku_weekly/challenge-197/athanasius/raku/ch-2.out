@@ -1,0 +1,18 @@
+
+Challenge 197, Task #2: Wiggle Sort (Raku)
+
+Running the test suite
+ok 1 - Example 1
+ok 2 - Example 1
+ok 3 - Example 2
+ok 4 - Example 2
+ok 5 - Short
+ok 6 - Short
+ok 7 - Not sortable
+ok 8 - Distinct
+ok 9 - Distinct
+ok 10 - Single
+ok 11 - Single
+ok 12 - Negatives
+ok 13 - Negatives
+1..13

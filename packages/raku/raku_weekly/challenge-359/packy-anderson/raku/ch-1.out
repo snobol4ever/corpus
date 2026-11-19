@@ -1,0 +1,24 @@
+Example 1:
+Input: $int = 38
+Output: Persistence  = 2
+        Digital Root = 2
+
+Example 2:
+Input: $int = 7
+Output: Persistence  = 0
+        Digital Root = 7
+
+Example 3:
+Input: $int = 999
+Output: Persistence  = 2
+        Digital Root = 9
+
+Example 4:
+Input: $int = 1999999999
+Output: Persistence  = 3
+        Digital Root = 1
+
+Example 5:
+Input: $int = 101010
+Output: Persistence  = 1
+        Digital Root = 3

@@ -1,0 +1,10 @@
+ok 1 - Make It Bigger: 15456,  5 => 1546
+ok 2 - Make It Bigger: 7332,   3 => 732
+ok 3 - Make It Bigger: 2231,   2 => 231
+ok 4 - Make It Bigger: 543251, 5 => 54321
+ok 5 - Make It Bigger: 1921,   1 => 921
+ok 6 - Big and Little Omega: $number=100061, $mode=0 => 3
+ok 7 - Big and Little Omega: $number=971088, $mode=0 => 3
+ok 8 - Big and Little Omega: $number=63640,  $mode=1 => 6
+ok 9 - Big and Little Omega: $number=988841, $mode=1 => 2
+ok 10 - Big and Little Omega: $number=211529, $mode=0 => 2

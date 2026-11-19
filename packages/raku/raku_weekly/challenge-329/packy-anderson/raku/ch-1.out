@@ -1,0 +1,11 @@
+Example 1:
+Input: $str = "the1weekly2challenge2"
+Output: 1, 2
+
+Example 2:
+Input: $str = "go21od1lu5c7k"
+Output: 21, 1, 5, 7
+
+Example 3:
+Input: $str = "4p3e2r1l"
+Output: 4, 3, 2, 1

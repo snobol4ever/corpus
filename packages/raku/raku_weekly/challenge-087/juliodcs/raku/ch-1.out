@@ -1,0 +1,11 @@
+ok 1 - Tricky test: More elements at the end
+ok 2 - Empty list has no sequences
+ok 3 - One element has no sequence
+ok 4 - Two elements
+ok 5 - All elements reversed
+ok 6 - Two elements out of four
+ok 7 - Four elements
+ok 8 - Test 1 from PWC
+ok 9 - Test 2 from PWC
+ok 10 - Test 3 from PWC
+1..10

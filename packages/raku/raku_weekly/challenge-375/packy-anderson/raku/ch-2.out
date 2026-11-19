@@ -1,0 +1,19 @@
+Example 1:
+Input: $num = 240, $k = 2
+Output: 2
+
+Example 2:
+Input: $num = 1020, $k = 2
+Output: 3
+
+Example 3:
+Input: $num = 444, $k = 2
+Output: 0
+
+Example 4:
+Input: $num = 17, $k = 2
+Output: 1
+
+Example 5:
+Input: $num = 123, $k = 1
+Output: 2

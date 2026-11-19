@@ -1,0 +1,15 @@
+
+Challenge 388, Task #2: ZigZag Subarray (Raku)
+
+Running the test suite
+ok 1 - Example 1: length
+ok 2 - Example 1: subarray
+ok 3 - Example 2: length
+ok 4 - Example 2: subarray
+ok 5 - Example 3: length
+ok 6 - Example 3: subarray
+ok 7 - Example 4: length
+ok 8 - Example 4: subarray
+ok 9 - Example 5: length
+ok 10 - Example 5: subarray
+1..10

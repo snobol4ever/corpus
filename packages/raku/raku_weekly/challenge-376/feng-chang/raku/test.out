@@ -1,0 +1,10 @@
+ok 1 - Chessboard Squares: $c1="a7",$c2="f4" => true
+ok 2 - Chessboard Squares: $c1="c1",$c2="e8" => false
+ok 3 - Chessboard Squares: $c1="b5",$c2="h2" => false
+ok 4 - Chessboard Squares: $c1="f3",$c2="h1" => true
+ok 5 - Chessboard Squares: $c1="a1",$c2="g8" => false
+ok 6 - Doubled Words: test 1
+ok 7 - Doubled Words: test 2
+ok 8 - Doubled Words: test 3
+ok 9 - Doubled Words: test 4
+ok 10 - Doubled Words: test 5
