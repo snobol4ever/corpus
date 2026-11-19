@@ -1,0 +1,4 @@
+root	/home/packages/prolog/prolog_aoc
+origin	every Advent of Code repository GitHub's search lists for the language (q="advent of code" language:prolog, 2026-11-18), one folder a repository, owner_repo; the list with each one's licence is /home/resources/progress/handoffs/grader-2026-11-18/aoc_repos.tsv
+version	shallow clones of each default branch, 2026-11-18 (162 repositories)
+licence	mixed (MIT, Unlicense, CC0, GPL, Artistic, none stated); read in place, since most carry the authors' Advent of Code puzzle inputs, which Advent of Code asks not be redistributed: only the tables and the answers are stored here
