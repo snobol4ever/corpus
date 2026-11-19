@@ -1,0 +1,4 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,fixtures,grader
+1,backtrack_past_snobol4,backtrack_past_snobol4.md,tests__scriptix_backtracking/backtrack_past_snobol4,scriptix-backtracking,17,0,131072,4096,120,,,
+2,backtrack_past_icon,backtrack_past_icon.md,tests__scriptix_backtracking/backtrack_past_icon,scriptix-backtracking,17,0,131072,4096,120,,,
+3,backtrack_past_raku,backtrack_past_raku.md,tests__scriptix_backtracking/backtrack_past_raku,scriptix-backtracking,14,0,131072,4096,120,,,

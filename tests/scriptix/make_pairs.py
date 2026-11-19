@@ -174,6 +174,25 @@ STRUCT_REF = {"records": "root plus 2\nleaves 1 2\nback times 2\nback leaves 3 4
 
 REF = {"variables": "count 7\nword seven\n", "functions": "twice 14\nshout seven!\n"}
 
+# THE BACKTRACKING WITNESS (the cao's ruling 2026-11-18 18:1x CST, on the cto's ruling of 14:2x of row jupyter-a-call-crosses-between-a-function-and-a-prolog-predicate-by-name): a set of its own, three named
+# entries (backtrack_past_snobol4, backtrack_past_icon, backtrack_past_raku), not a square, counted in no other set's total. THREE CELLS: Prolog defines NEXT/2 with two solutions; the function language defines STEP(n), which
+# prints step and n and returns NEXT(n) * 10 by the name alone (the inner call of a function to a predicate, first solution, nothing left behind); Prolog picks X from [1, 2, 3], calls STEP, fails back past the call while
+# R is not above 25, then lists every R. A choice the call wrongly left behind would read answer 1 1010. THE REF IS swipl's READING OF THE ALL-PROLOG EQUIVALENT, cut with `swipl -q -g halt FILE.pl` (swipl_bin of lib_oracle_flags.sh), run twice, equal:
+#   'NEXT'(N, R) :- member(D, [1, 100]), R is N + D.
+#   'STEP'(N, R) :- write('step '), write(N), nl, once('NEXT'(N, V)), R is V * 10.
+#   pick(X, R) :- member(X, [1, 2, 3]), 'STEP'(X, R).
+#   :- pick(X, R), R > 25, write('answer '), write(X), write(' '), write(R), nl.
+#   :- findall(R, pick(_, R), L), write(L), nl.
+BT_NEXT = "'NEXT'(N, R) :- member(D, [1, 100]), R is N + D.\n"
+BT_STEP = {
+    "snobol4": "        DEFINE('STEP(N)')                      :(STEP_END)\nSTEP    OUTPUT = 'step ' N\n        STEP = NEXT(N) * 10                    :(RETURN)\nSTEP_END\nEND\n",
+    "icon":    "global NEXT\nprocedure STEP(n);\n  write(\"step \", n);\n  return NEXT(n) * 10;\nend\n",
+    "raku":    "sub NEXT($n) { ... }\nsub STEP($n) { say \"step $n\"; NEXT($n) * 10 }\n",
+}
+BT_PICK = ("pick(X, R) :- member(X, [1, 2, 3]), 'STEP'(X, R).\n:- pick(X, R), R > 25, write('answer '), write(X), write(' '), write(R), nl.\n"
+           ":- findall(R, pick(_, R), L), write(L), nl.\n")
+BT_REF = "step 1\nstep 2\nanswer 2 30\nstep 1\nstep 2\nstep 3\n[20,30,40]\n"
+
 def notebook(cells):
     return {"nbformat": 4, "nbformat_minor": 5,
             "metadata": {"kernelspec": {"name": "scrip", "display_name": "SCRIP", "language": "scrip"}},
@@ -199,16 +218,34 @@ def pair_files(kind, cells_of, langs, ref):
     files["ALL.csv"] = "rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,fixtures,grader\n" + "\n".join(rows) + "\n"
     return files
 
+def backtrack_files(kind, cells_of, langs, ref):
+    """{relative path: text} of the backtracking set: the same files as pair_files, the entries named backtrack_past_LANG (cell 1 is Prolog here, so A_to_B would say the wrong thing)."""
+    files, rows = {}, []
+    for lang in langs:
+        cells = cells_of(lang, lang)
+        n = "backtrack_past_%s" % lang
+        md = "\n".join("```%s\n%s```\n" % (l, s) for l, s in cells)
+        files[n + ".md"] = md
+        files[n + ".ipynb"] = json.dumps(notebook(cells), indent=1) + "\n"
+        files[n + ".out"] = ref
+        rows.append("%d,%s,%s.md,tests__scriptix_%s/%s,scriptix-%s,%d,0,131072,4096,120,,," % (len(rows) + 1, n, n, kind, n, kind, md.count("\n")))
+    files["ALL.csv"] = "rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,fixtures,grader\n" + "\n".join(rows) + "\n"
+    return files
+
+def set_files(kind, cells_of, langs, ref):
+    return (backtrack_files if kind == "backtracking" else pair_files)(kind, cells_of, langs, ref)
+
 def structure_cells(kind):
     return lambda a, b: [(a, STRUCT_DEF[kind][a]), (b, struct_use(kind, b, a)), (a, struct_fin(kind, a))]
 
 SETS = tuple((k, (lambda d, u: (lambda a, b: [(a, d[a]), (b, u(b, a))]))(dd, uu), LANGS, REF[k]) for k, dd, uu in (("variables", VAR_DEF, var_use), ("functions", FUN_DEF, fun_use))) + \
-       tuple((k, structure_cells(k), STRUCT_LANGS[k], STRUCT_REF[k]) for k in ("records", "sequences", "tables"))
+       tuple((k, structure_cells(k), STRUCT_LANGS[k], STRUCT_REF[k]) for k in ("records", "sequences", "tables")) + \
+       (("backtracking", lambda a, b: [("prolog", BT_NEXT), (a, BT_STEP[a]), ("prolog", BT_PICK)], ["snobol4", "icon", "raku"], BT_REF),)
 
 def write_all(out):
     for kind, cells_of, langs, ref in SETS:
         d = os.path.join(out, kind); os.makedirs(d, exist_ok=True)
-        for rel, text in pair_files(kind, cells_of, langs, ref).items():
+        for rel, text in set_files(kind, cells_of, langs, ref).items():
             with open(os.path.join(d, rel), "w") as f:
                 f.write(text)
 
@@ -216,7 +253,7 @@ def check(here):
     """rc 0 when every file the generator writes is on disk with its bytes and no pair file of a set is on disk that it does not write; rc 1
     naming the first file that drifted (a hand edit of a pair reads red here)."""
     for kind, cells_of, langs, ref in SETS:
-        want, d = pair_files(kind, cells_of, langs, ref), os.path.join(here, kind)
+        want, d = set_files(kind, cells_of, langs, ref), os.path.join(here, kind)
         for rel, text in want.items():
             p = os.path.join(d, rel)
             if not os.path.isfile(p):
@@ -226,7 +263,7 @@ def check(here):
         for rel in sorted(os.listdir(d)):
             if rel not in want and rel.endswith((".md", ".ipynb", ".ref", ".out")):
                 print("DRIFT %s/%s: no pair writes it" % (kind, rel)); return 1
-    print("PAIRS-OK %d files in %d sets equal what make_pairs.py writes" % (sum(len(pair_files(k, c, l, r)) for k, c, l, r in SETS), len(SETS)))
+    print("PAIRS-OK %d files in %d sets equal what make_pairs.py writes" % (sum(len(set_files(k, c, l, r)) for k, c, l, r in SETS), len(SETS)))
     return 0
 
 def main():
