@@ -1,0 +1,392 @@
+# the census of /home/packages/pascal/pascal_euler by fpc (shallow clones, 2026-11-18 (12 repositories)), 2026-11-18: path from the root, verdict, note
+AkronCodeClub_Katas/Ryan_Potts/BullCow/uBullCow.pas	LIBRARY	the source names unit uBullCow;
+AkronCodeClub_Katas/Ryan_Potts/BullCow/uTestBullCow.pas	LIBRARY	the source names unit uTestBullCow;
+AkronCodeClub_Katas/Ryan_Potts/HarryPotterXE5/Testhp.pas	LIBRARY	the source names unit Testhp;
+AkronCodeClub_Katas/Ryan_Potts/HarryPotterXE5/hp.pas	LIBRARY	the source names unit hp;
+AkronCodeClub_Katas/Ryan_Potts/Magic-Number/uMagicNumber.pas	LIBRARY	the source names unit uMagicNumber;
+AkronCodeClub_Katas/Ryan_Potts/Magic-Number/uMagicNumberTest.pas	LIBRARY	the source names unit uMagicNumberTest;
+AkronCodeClub_Katas/Ryan_Potts/RPGCombat/uRPGCharacter.pas	LIBRARY	the source names unit uRPGCharacter;
+AkronCodeClub_Katas/Ryan_Potts/RPGCombat/uRPGCombatTests.pas	LIBRARY	the source names unit uRPGCombatTests;
+AmirAavani_ProjectEuler/P100.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P100
+AmirAavani_ProjectEuler/P101.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P101
+AmirAavani_ProjectEuler/P102.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P102
+AmirAavani_ProjectEuler/P103.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P103
+AmirAavani_ProjectEuler/P104.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P104
+AmirAavani_ProjectEuler/P105.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P105
+AmirAavani_ProjectEuler/P106.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P106
+AmirAavani_ProjectEuler/P107.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P107
+AmirAavani_ProjectEuler/P108.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P108
+AmirAavani_ProjectEuler/P109.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P109
+AmirAavani_ProjectEuler/P110.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P110
+AmirAavani_ProjectEuler/P111.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P111
+AmirAavani_ProjectEuler/P112.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P112
+AmirAavani_ProjectEuler/P113.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P113
+AmirAavani_ProjectEuler/P114.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P114
+AmirAavani_ProjectEuler/P115.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P115
+AmirAavani_ProjectEuler/P116.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P116
+AmirAavani_ProjectEuler/P117.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P117
+AmirAavani_ProjectEuler/P118.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P118
+AmirAavani_ProjectEuler/P119.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P119
+AmirAavani_ProjectEuler/P12.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P12
+AmirAavani_ProjectEuler/P120.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P120
+AmirAavani_ProjectEuler/P121.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P121
+AmirAavani_ProjectEuler/P122.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P122
+AmirAavani_ProjectEuler/P123.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P123
+AmirAavani_ProjectEuler/P124.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P124
+AmirAavani_ProjectEuler/P125.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P125
+AmirAavani_ProjectEuler/P126.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P126
+AmirAavani_ProjectEuler/P127.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P127
+AmirAavani_ProjectEuler/P128.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P128
+AmirAavani_ProjectEuler/P129.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P129
+AmirAavani_ProjectEuler/P130.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P130
+AmirAavani_ProjectEuler/P131.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P131
+AmirAavani_ProjectEuler/P132.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P132
+AmirAavani_ProjectEuler/P133.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P133
+AmirAavani_ProjectEuler/P134.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P134
+AmirAavani_ProjectEuler/P135.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P135
+AmirAavani_ProjectEuler/P136.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P136
+AmirAavani_ProjectEuler/P137.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P137
+AmirAavani_ProjectEuler/P14.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P14
+AmirAavani_ProjectEuler/P18.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by Program
+AmirAavani_ProjectEuler/P20.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P20
+AmirAavani_ProjectEuler/P21.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P21
+AmirAavani_ProjectEuler/P23.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P23
+AmirAavani_ProjectEuler/P24.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P24
+AmirAavani_ProjectEuler/P26.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P26
+AmirAavani_ProjectEuler/P27.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P27
+AmirAavani_ProjectEuler/P29.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P29
+AmirAavani_ProjectEuler/P31.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P31
+AmirAavani_ProjectEuler/P34.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P34
+AmirAavani_ProjectEuler/P35.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P35
+AmirAavani_ProjectEuler/P36.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P36
+AmirAavani_ProjectEuler/P37.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P37
+AmirAavani_ProjectEuler/P38.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P38
+AmirAavani_ProjectEuler/P39.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P39
+AmirAavani_ProjectEuler/P40.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P40
+AmirAavani_ProjectEuler/P41.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P41
+AmirAavani_ProjectEuler/P42.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P42
+AmirAavani_ProjectEuler/P43.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P43
+AmirAavani_ProjectEuler/P44.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P44
+AmirAavani_ProjectEuler/P45.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P45
+AmirAavani_ProjectEuler/P46.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P46
+AmirAavani_ProjectEuler/P47.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P47
+AmirAavani_ProjectEuler/P49.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P49
+AmirAavani_ProjectEuler/P50.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P50
+AmirAavani_ProjectEuler/P51.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P51
+AmirAavani_ProjectEuler/P53.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P53
+AmirAavani_ProjectEuler/P56.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P56
+AmirAavani_ProjectEuler/P57.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P57
+AmirAavani_ProjectEuler/P58.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P58
+AmirAavani_ProjectEuler/P61.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P61
+AmirAavani_ProjectEuler/P62.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P62
+AmirAavani_ProjectEuler/P63.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P63
+AmirAavani_ProjectEuler/P64.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P64
+AmirAavani_ProjectEuler/P65.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P65
+AmirAavani_ProjectEuler/P66.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P66
+AmirAavani_ProjectEuler/P67.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by Program
+AmirAavani_ProjectEuler/P68.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P68
+AmirAavani_ProjectEuler/P69.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P69
+AmirAavani_ProjectEuler/P70.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P70
+AmirAavani_ProjectEuler/P71.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P71
+AmirAavani_ProjectEuler/P72.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P72
+AmirAavani_ProjectEuler/P73.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P73
+AmirAavani_ProjectEuler/P74.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P74
+AmirAavani_ProjectEuler/P75.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P75
+AmirAavani_ProjectEuler/P76.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P76
+AmirAavani_ProjectEuler/P77.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P77
+AmirAavani_ProjectEuler/P78.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P78
+AmirAavani_ProjectEuler/P80.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P80
+AmirAavani_ProjectEuler/P81.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P81
+AmirAavani_ProjectEuler/P82.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P82
+AmirAavani_ProjectEuler/P83.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P83
+AmirAavani_ProjectEuler/P84.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P84
+AmirAavani_ProjectEuler/P85.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P85
+AmirAavani_ProjectEuler/P86.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P86
+AmirAavani_ProjectEuler/P87.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P87
+AmirAavani_ProjectEuler/P88.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P88
+AmirAavani_ProjectEuler/P90.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P90
+AmirAavani_ProjectEuler/P91.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P91
+AmirAavani_ProjectEuler/P92.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P92
+AmirAavani_ProjectEuler/P93.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P93
+AmirAavani_ProjectEuler/P94.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P94
+AmirAavani_ProjectEuler/P95.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P95
+AmirAavani_ProjectEuler/P96.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P96
+AmirAavani_ProjectEuler/P97.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P97
+AmirAavani_ProjectEuler/P98.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P98
+AmirAavani_ProjectEuler/P99.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Fatal: Can't find unit system used by P99
+amuradyan_ProjectEulerPascal/ProjectEuler.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: ProjectEuler.pas(7,2) Fatal: Can't find unit TextTestRunner used by ProjectEuler
+amuradyan_ProjectEulerPascal/solutions.pas	LIBRARY	the source names unit Solutions;
+amuradyan_ProjectEulerPascal/tests.pas	LIBRARY	the source names unit Tests;
+armant_acmp/1.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040113F
+armant_acmp/10.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/106.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/108.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/14.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040113D
+armant_acmp/149.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/19.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/195.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/196.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401111
+armant_acmp/2.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/21.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $00000000004011ED
+armant_acmp/22.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/23.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/25.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/27.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/3.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/324.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/33.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/35.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/36.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/4.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/42.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/43.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/45.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/456.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/46.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/47.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/48.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/51.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/52.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/53.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/54.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401111
+armant_acmp/58.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401115
+armant_acmp/59.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/6.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $00000000004011C9
+armant_acmp/60.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/61.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/62.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/63.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/66.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/68.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/79.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/8.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/81.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/84.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401111
+armant_acmp/85.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $000000000040110D:
+armant_acmp/86.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/88.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401225
+armant_acmp/92.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Analytical geometry 102.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Analytical geometry 12.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Analytical geometry 182.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Analytical geometry 26.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Analytical geometry 28.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Analytical geometry 37.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Analytical geometry 90.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Arbitrary-precision arithmetic 18.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $00000000004013ED
+armant_acmp/Arbitrary-precision arithmetic 40.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Arbitrary-precision arithmetic 7.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $00000000004011C9
+armant_acmp/Arbitrary-precision arithmetic 75.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $00000000004013DD
+armant_acmp/Combinatorics 49.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Combinatorics 71.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401253
+armant_acmp/Dynamic programming 11.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Dynamic programming 121.pas	NO-OUTPUT	nothing on standard output, exit 217; a dead engine would earn the same; stderr: An unhandled exception occurred at $00000000004011FD:
+armant_acmp/Dynamic programming 29.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040113D
+armant_acmp/Dynamic programming 39.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Graph theory 124.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Graph theory 132.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401111
+armant_acmp/Graph theory 133.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Graph theory 135.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401111
+armant_acmp/Graph theory 136.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401111
+armant_acmp/Graph theory 137.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401111
+armant_acmp/Graph theory 138.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Graph theory 140.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401115
+armant_acmp/Graph theory 141.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401341
+armant_acmp/Graph theory 142.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040125D
+armant_acmp/Graph theory 15.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Graph theory 150.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401181
+armant_acmp/Graph theory 151.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040133D
+armant_acmp/Graph theory 206.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401111
+armant_acmp/Mathematical modeling 30.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Mathematical modeling 57.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Mathematical modeling 78.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Mathematical modeling 94.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Mathematical modeling 96.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Mathematical modeling 98.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Recursion 154.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401309
+armant_acmp/Recursion 16.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $00000000004011D9
+armant_acmp/Recursion 24.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Recursion 31.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401249
+armant_acmp/Sorting and sequences 17.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401111
+armant_acmp/Sorting and sequences 20.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Sorting and sequences 32.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Sorting and sequences 34.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Sorting and sequences 41.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Sorting and sequences 5.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Sorting and sequences 56.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401141
+armant_acmp/Sorting and sequences 64.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401116
+armant_acmp/Sorting and sequences 65.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401111
+armant_acmp/Sorting and sequences 73.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Sorting and sequences 76.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Sorting and sequences 82.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Sorting and sequences 87.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401296
+armant_acmp/Sorting and sequences 89.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040114D
+armant_acmp/Sorting and sequences 9.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/Sorting and sequences 91.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/Sorting and sequences 93.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/String operations 13.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/String operations 202.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $000000000040110D
+armant_acmp/String operations 44.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/String operations 50.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+armant_acmp/String operations 70.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401141
+armant_acmp/String operations 80.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401379
+armant_acmp/String operations 95.pas	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: Runtime error 2 at $0000000000401109
+bvbesouw_Euler_FreePascal/euler.pp	LIBRARY	the source names UNIT euler;
+bvbesouw_Euler_FreePascal/fractions.pp	LIBRARY	the source names UNIT fractions;
+bvbesouw_Euler_FreePascal/problem_1.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_10.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_100.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_104.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_11.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_112.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_12.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_13.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_14.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_15.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_16.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_17.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_18.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_19.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_2.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_20.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_21.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_22.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_23.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_24.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_25.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_26.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_27.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_28.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_29.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_3.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_30.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_31.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_32.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_33.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_34.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_35.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_36.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_37.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_38.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_39.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_4.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_40.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_41.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_42.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_43.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_44.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_45.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_46.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_47.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_48.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_49.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_5.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_50.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_51.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_52.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_55.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_56.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_57.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_59.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_6.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_60.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_62.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_63.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_64.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_65.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_67.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_69.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_69_1.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_7.pp	DOES-NOT-END	no answer inside 60 s
+bvbesouw_Euler_FreePascal/problem_71.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_72.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_73.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_74.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_75.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_76.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_77.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_78.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_8.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_80.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_85.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_87.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_88.pp	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: problem_88.pp(7,32) Error: Identifier not found "TFPHashList"
+bvbesouw_Euler_FreePascal/problem_89.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_9.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_91.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_92.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_95.pp	ENTRY	
+bvbesouw_Euler_FreePascal/problem_96.pp	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 10 and 10 bytes
+bvbesouw_Euler_FreePascal/problem_97.pp	ENTRY	
+bvbesouw_ProjectEulerDelphi/CompilerAndRTLVersions.pas	LIBRARY	the source names unit CompilerAndRTLVersions;
+bvbesouw_ProjectEulerDelphi/Euler.pas	LIBRARY	the source names Unit Euler;
+bvbesouw_ProjectEulerDelphi/PrimeUtils.pas	LIBRARY	the source names unit PrimeUtils;
+bvbesouw_ProjectEulerDelphi/Velthuis.BigDecimals.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Velthuis.BigDecimals.pas(109,3) Fatal: Can't find unit System.SysUtils used by Velthuis.BigDecimals
+bvbesouw_ProjectEulerDelphi/Velthuis.BigIntegers.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Velthuis.BigIntegers.pas(167,27) Fatal: Can't find unit Velthuis.RandomNumbers used by Velthuis.BigIntegers
+bvbesouw_ProjectEulerDelphi/Velthuis.FloatUtils.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Velthuis.FloatUtils.pas(48,3) Fatal: Can't find unit System.Math used by Velthuis.FloatUtils
+bvbesouw_ProjectEulerDelphi/Velthuis.Numerics.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Velthuis.Numerics.pas(42,5) Error: Incompatible types: got "AnsiString" expected "Extended"
+bvbesouw_ProjectEulerDelphi/Velthuis.Sizes.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+bvbesouw_ProjectEulerDelphi/Velthuis.StrConsts.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+bvbesouw_ProjectEulerDelphi/Velthuis.XorShifts.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: Velthuis.XorShifts.pas(51,3) Fatal: Can't find unit Velthuis.RandomNumbers used by Velthuis.XorShifts
+bvbesouw_ProjectEulerDelphi/fractions.pas	LIBRARY	the source names UNIT fractions;
+bvbesouw_ProjectEulerDelphi/prime_classes.pas	LIBRARY	the source names unit prime_classes;
+bvbesouw_ProjectEulerDelphi/problem001to010.pas	LIBRARY	the source names UNIT problem001to010;
+bvbesouw_ProjectEulerDelphi/problem011to020.pas	LIBRARY	the source names UNIT problem011to020;
+bvbesouw_ProjectEulerDelphi/problem021to030.pas	LIBRARY	the source names UNIT problem021to030;
+bvbesouw_ProjectEulerDelphi/problem031to040.pas	LIBRARY	the source names UNIT problem031to040;
+bvbesouw_ProjectEulerDelphi/problem041to050.pas	LIBRARY	the source names UNIT problem041to050;
+bvbesouw_ProjectEulerDelphi/problem051to060.pas	LIBRARY	the source names UNIT problem051to060;
+bvbesouw_ProjectEulerDelphi/problem061to070.pas	LIBRARY	the source names unit problem061to070;
+bvbesouw_ProjectEulerDelphi/problem071to080.pas	LIBRARY	the source names unit problem071to080;
+bvbesouw_ProjectEulerDelphi/problem081to090.pas	LIBRARY	the source names unit problem081to090;
+chrismichaelps_ProyetEuler-Pascal/Problems/1-10/problem01.lpr	NEEDS-DISPLAY	the source names uses crt
+chrismichaelps_ProyetEuler-Pascal/Problems/1-10/problem02.lpr	NEEDS-DISPLAY	the source names uses crt
+chrismichaelps_ProyetEuler-Pascal/Problems/1-10/problem03.lpr	NEEDS-DISPLAY	the source names uses crt
+chrismichaelps_ProyetEuler-Pascal/Problems/1-10/problem04.lpr	NEEDS-DISPLAY	the source names uses crt
+chrismichaelps_ProyetEuler-Pascal/Problems/1-10/problem05.lpr	NEEDS-DISPLAY	the source names uses crt
+chrismichaelps_ProyetEuler-Pascal/Problems/1-10/problem06.lpr	NEEDS-DISPLAY	the source names uses crt
+chrismichaelps_ProyetEuler-Pascal/Problems/1-10/problem07.lpr	NEEDS-DISPLAY	the source names uses crt
+chrismichaelps_ProyetEuler-Pascal/Problems/1-10/problem09.lpr	NEEDS-DISPLAY	the source names uses crt
+clay-siefken_pe1/src/PE1.pas	ENTRY	
+davaponte_ProjectEuler/0-50/000010.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 000010.pas(1,1) Error: Illegal char constant
+davaponte_ProjectEuler/0-50/000012.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 000012.pas(1,1) Error: Illegal char constant
+davaponte_ProjectEuler/0-50/000015.pas	NEEDS-DISPLAY	the source names uses Crt
+davaponte_ProjectEuler/0-50/000031.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 000031.pas(1,1) Error: Illegal char constant
+davaponte_ProjectEuler/0-50/test.pas	ENTRY	
+davaponte_ProjectEuler/000060.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 000060.pas(1,1) Error: Illegal char constant
+davaponte_ProjectEuler/000074.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 000074.pas(1,1) Error: Illegal char constant
+davaponte_ProjectEuler/000075.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 000075.pas(1,1) Error: Illegal char constant
+davaponte_ProjectEuler/000092.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 000092.pas(1,1) Error: Illegal char constant
+davaponte_ProjectEuler/000094.pas	NEEDS-DISPLAY	the source names uses Crt
+davaponte_ProjectEuler/000104.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 000104.pas(1,1) Error: Illegal char constant
+davaponte_ProjectEuler/000206.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 000206.pas(1,1) Error: Illegal char constant
+davaponte_ProjectEuler/000686.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 000686.pas(1,1) Error: Illegal char constant
+davaponte_ProjectEuler/extras/BigInt/WaCkO.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: WaCkO.lpr(9,3) Fatal: Can't find unit Interfaces used by WaCkO
+davaponte_ProjectEuler/extras/BigInt/backup/testmain.pp	LIBRARY	the source names unit testmain;
+davaponte_ProjectEuler/extras/BigInt/bignumbers.pp	LIBRARY	the source names unit BigNumbers;
+davaponte_ProjectEuler/extras/BigInt/boolfactory.pp	LIBRARY	the source names unit BoolFactory;
+davaponte_ProjectEuler/extras/BigInt/calculator.pp	LIBRARY	the source names unit Calculator;
+davaponte_ProjectEuler/extras/BigInt/calculatordisplay.pp	LIBRARY	the source names unit CalculatorDisplay;
+davaponte_ProjectEuler/extras/BigInt/calculatormemory.pp	LIBRARY	the source names unit CalculatorMemory;
+davaponte_ProjectEuler/extras/BigInt/calculatorparentalguide.pp	LIBRARY	the source names unit CalculatorParentalGuide;
+davaponte_ProjectEuler/extras/BigInt/expressions.pp	LIBRARY	the source names unit expressions;
+davaponte_ProjectEuler/extras/BigInt/ncalc.pp	LIBRARY	the source names unit NCalc;
+davaponte_ProjectEuler/extras/BigInt/numberoperationscache.pp	LIBRARY	the source names unit NumberOperationsCache;
+davaponte_ProjectEuler/extras/BigInt/testcase.lpr	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: testcase.lpr(9,3) Fatal: Can't find unit Interfaces used by testcase
+davaponte_ProjectEuler/extras/BigInt/testmain.pp	LIBRARY	the source names unit testmain;
+davaponte_ProjectEuler/extras/BigInt/wackomain.pp	LIBRARY	the source names unit WackoMain;
+davaponte_ProjectEuler/extras/TestGMP.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: TestGMP.pas(1,1) Error: Illegal char constant
+davaponte_ProjectEuler/gnurz.pas	LIBRARY	the source names unit gnurz;
+davaponte_ProjectEuler/gnurz_asm.pas	LIBRARY	the source names unit gnurz_asm;
+kimtg_euler-pascal/euler1.pas	ENTRY	
+kimtg_euler-pascal/euler2.pas	ENTRY	
+kimtg_euler-pascal/euler3.pas	ENTRY	
+kimtg_euler-pascal/euler4.pas	ENTRY	
+kimtg_euler-pascal/euler5.pas	ENTRY	
+kimtg_euler-pascal/euler6.pas	ENTRY	
+kngee_Project-Euler/119_DigitPowerSum.pas	LIBRARY	the source names unit main_u;
+kngee_Project-Euler/18_MaximumPathSum.pas	LIBRARY	the source names unit main_u;
+kngee_Project-Euler/35_CircularPrimes.pas	LIBRARY	the source names unit main_u;
+kngee_Project-Euler/61_Figurate.pas	LIBRARY	the source names unit main_u;
+luke01215_Project-Euler/PrimeUnit.pas	LIBRARY	the source names unit PrimeUnit;
+clay-siefken_pe1/src/PE1.lpr	SHARES-A-STEM	its answer would be the NAME.out of clay-siefken_pe1/src/PE1.pas, which is the candidate

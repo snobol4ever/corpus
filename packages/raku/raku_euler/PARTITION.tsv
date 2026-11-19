@@ -1,0 +1,16 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=12 features=1 ubiquitous=1(package) distinctive=0 core=1 clusters=1 chunks=1 sizes=11
+entry	part	cluster	shells
+Phytolizer_euler-raku/0001	core	core	
+Phytolizer_euler-raku/0002	chunk:01	dir:Phytolizer_euler-raku	
+Phytolizer_euler-raku/0003	chunk:01	dir:Phytolizer_euler-raku	
+Phytolizer_euler-raku/0004	chunk:01	dir:Phytolizer_euler-raku	
+Phytolizer_euler-raku/0005	chunk:01	dir:Phytolizer_euler-raku	
+Phytolizer_euler-raku/0006	chunk:01	dir:Phytolizer_euler-raku	
+Phytolizer_euler-raku/0007	chunk:01	dir:Phytolizer_euler-raku	
+Phytolizer_euler-raku/0008	chunk:01	dir:Phytolizer_euler-raku	
+Phytolizer_euler-raku/0009	chunk:01	dir:Phytolizer_euler-raku	
+Phytolizer_euler-raku/0010	chunk:01	dir:Phytolizer_euler-raku	
+Phytolizer_euler-raku/0011	chunk:01	dir:Phytolizer_euler-raku	
+Phytolizer_euler-raku/0013	chunk:01	dir:Phytolizer_euler-raku	

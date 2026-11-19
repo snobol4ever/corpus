@@ -1,0 +1,13 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,Phytolizer_euler-raku/0001,Phytolizer_euler-raku/0001.raku,raku_euler__Phytolizer_euler-raku/0001,raku_euler,5,0,131072,4096,60,
+2,Phytolizer_euler-raku/0002,Phytolizer_euler-raku/0002.raku,raku_euler__Phytolizer_euler-raku/0002,raku_euler,10,0,131072,4096,60,
+3,Phytolizer_euler-raku/0003,Phytolizer_euler-raku/0003.raku,raku_euler__Phytolizer_euler-raku/0003,raku_euler,17,0,131072,4096,60,
+4,Phytolizer_euler-raku/0004,Phytolizer_euler-raku/0004.raku,raku_euler__Phytolizer_euler-raku/0004,raku_euler,19,0,131072,4096,60,
+5,Phytolizer_euler-raku/0005,Phytolizer_euler-raku/0005.raku,raku_euler__Phytolizer_euler-raku/0005,raku_euler,1,0,131072,4096,60,
+6,Phytolizer_euler-raku/0006,Phytolizer_euler-raku/0006.raku,raku_euler__Phytolizer_euler-raku/0006,raku_euler,11,0,131072,4096,60,
+7,Phytolizer_euler-raku/0007,Phytolizer_euler-raku/0007.raku,raku_euler__Phytolizer_euler-raku/0007,raku_euler,24,0,131072,4096,60,
+8,Phytolizer_euler-raku/0008,Phytolizer_euler-raku/0008.raku,raku_euler__Phytolizer_euler-raku/0008,raku_euler,48,0,131072,4096,60,
+9,Phytolizer_euler-raku/0009,Phytolizer_euler-raku/0009.raku,raku_euler__Phytolizer_euler-raku/0009,raku_euler,40,0,131072,4096,60,
+10,Phytolizer_euler-raku/0010,Phytolizer_euler-raku/0010.raku,raku_euler__Phytolizer_euler-raku/0010,raku_euler,56,0,131072,4096,60,
+11,Phytolizer_euler-raku/0011,Phytolizer_euler-raku/0011.raku,raku_euler__Phytolizer_euler-raku/0011,raku_euler,51,0,131072,4096,60,
+12,Phytolizer_euler-raku/0013,Phytolizer_euler-raku/0013.raku,raku_euler__Phytolizer_euler-raku/0013,raku_euler,104,0,131072,4096,60,

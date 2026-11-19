@@ -1,0 +1,5 @@
+# the fpc mode that cut each entry's ref (CONTRACT.tsv dialect=any-fpc-mode): name<TAB>mode
+case-sensitivity-of-identifiers	fpc-default
+compile-time-calculation	iso
+hello-world-text-2	iso
+terminal-control-cursor-positioning	fpc-default
