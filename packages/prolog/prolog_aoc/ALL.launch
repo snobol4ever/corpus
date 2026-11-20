@@ -1,0 +1,3 @@
+# the launch of prolog_aoc (CIO-83): each program, then drive.pl, ours, which calls the goals the program defines and never calls (the grader 2026-11-20: 1826 of 1948 printed nothing without it)
+scrip	around	-	drive.pl
+oracle	around	-	drive.pl

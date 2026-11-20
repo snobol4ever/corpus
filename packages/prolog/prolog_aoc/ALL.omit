@@ -1,8 +1,8 @@
 0xmaximillian_advent_of_prolog/day1/calibrate.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: calibrate.pl:45:
-1000xEngineer_AoC/2020/day01/code.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-1000xEngineer_AoC/2020/day02/code.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+1000xEngineer_AoC/2020/day01/code.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
+1000xEngineer_AoC/2020/day02/code.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
 1gmar_advent-of-code-2024/defaults.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-1gmar_advent-of-code-2024/packs.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: packs.pl:4: packs:install packs:install/0: Unknown procedure: packs:pack_install_local/3
+1gmar_advent-of-code-2024/packs.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 1gmar_advent-of-code-2024/src/bst.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: bst.pl:8:3: Syntax error: Operator expected
 1gmar_advent-of-code-2024/src/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 1gmar_advent-of-code-2024/src/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day2.pl:16:8: Syntax error: Operator expected
@@ -41,11 +41,8 @@ AliciaVillanueva_AdventOfCode2019/day9.pl: NO-OUTPUT: nothing on standard output
 Alligator_advent-of-code-2018/prolog/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day1.pl:1:
 Alligator_advent-of-code-2018/prolog/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day2.pl:1:
 Alligator_advent-of-code-2018/prolog/day3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Annoiiyed_aoc-2025/solutions/day-01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Annoiiyed_aoc-2025/solutions/day-02-part-1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Annoiiyed_aoc-2025/solutions/day-02-part-2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Blond11516_advent-of-code-2021-prolog/day1/part1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Blond11516_advent-of-code-2021-prolog/main.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+Blond11516_advent-of-code-2021-prolog/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 CapelliC_advent_of_code/swipl/2025/day01/day01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 CapelliC_advent_of_code/swipl/2025/day02/day02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 CapelliC_advent_of_code/swipl/2025/day03/day03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -92,9 +89,9 @@ ELthomasoPostfix_Programming-Paradigms/Prolog/day8.pl: NO-OUTPUT: nothing on sta
 FilipNordmark_advent-of-code-2025/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 FilipNordmark_advent-of-code-2025/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 FilipNordmark_advent-of-code-2025/day3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-FilipNordmark_advent-of-code-2025/day4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-FilipNordmark_advent-of-code-2025/day5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-FilipNordmark_advent-of-code-2025/day6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+FilipNordmark_advent-of-code-2025/day4.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: Arguments are not sufficiently instantiated
+FilipNordmark_advent-of-code-2025/day5.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: Arguments are not sufficiently instantiated
+FilipNordmark_advent-of-code-2025/day6.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: Arguments are not sufficiently instantiated
 FilipNordmark_advent-of-code-2025/day7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day7.pl:4:
 Fony-Stark_AdventOfCode2021/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Fony-Stark_AdventOfCode2021/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -102,42 +99,15 @@ Fony-Stark_AdventOfCode2021/day3.pl: NO-OUTPUT: nothing on standard output, exit
 Fony-Stark_AdventOfCode2021/day4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Fony-Stark_AdventOfCode2021/day5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day5.pl:15:
 Guthur_AdventOfCode2022/src/3/spec.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day1/1a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Kim-Hammar_Advent-Of-Code16-Prolog/day1/1b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: 1b.pl:181:
 Kim-Hammar_Advent-Of-Code16-Prolog/day10/10ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: 10ab.pl:64:
-Kim-Hammar_Advent-Of-Code16-Prolog/day11/11ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Kim-Hammar_Advent-Of-Code16-Prolog/day12/12ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: 12ab.pl:20:
-Kim-Hammar_Advent-Of-Code16-Prolog/day13/13a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day13/13b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day14/14a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day14/14b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day15/15ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Kim-Hammar_Advent-Of-Code16-Prolog/day14/14b.pl: DOES-NOT-END: no answer inside 60 s
 Kim-Hammar_Advent-Of-Code16-Prolog/day16/16ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: 16ab.pl:20:
-Kim-Hammar_Advent-Of-Code16-Prolog/day17/17a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day17/17b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day18/18ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Kim-Hammar_Advent-Of-Code16-Prolog/day18/18ab.pl: DOES-NOT-END: no answer inside 60 s
 Kim-Hammar_Advent-Of-Code16-Prolog/day19/19ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: 19ab.pl:14:
-Kim-Hammar_Advent-Of-Code16-Prolog/day2/2a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day2/2b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day20/20ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day21/21ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Kim-Hammar_Advent-Of-Code16-Prolog/day22/22ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: 22ab.pl:19:
-Kim-Hammar_Advent-Of-Code16-Prolog/day23/23ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day24/24ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day25/25ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day3/3a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day3/3b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Kim-Hammar_Advent-Of-Code16-Prolog/day4/4a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: 4a.pl:59:
-Kim-Hammar_Advent-Of-Code16-Prolog/day4/4b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day5/5a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day5/5b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day6/6a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day6/6b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day7/7a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day7/7b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day8/8ab.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day9/9a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Kim-Hammar_Advent-Of-Code16-Prolog/day9/9b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Kyntaz_aoc-2021/common/util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Kyntaz_aoc-2021/d1/d1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: d1.pl:2:
 Kyntaz_aoc-2021/d10/d10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: d10.pl:2:
@@ -174,34 +144,35 @@ LeslieM98_aoc-2020/day06/day06.pl: NO-OUTPUT: nothing on standard output, exit 0
 LeslieM98_aoc-2020/day07/day07.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day07.pl:2:
 LeslieM98_aoc-2020/day08/day08.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day08.pl:2:
 LeslieM98_aoc-2020/input_loader.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-LeslieM98_aoc-2020/main.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 928 and 928 bytes
+LeslieM98_aoc-2020/main.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 926 and 926 bytes
 LetsAdventOfCode_AdventOfCode2018/kalle/01 pl/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Liezere_AoC24/day01.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
-Liezere_AoC24/day02.pl: NEEDS-INPUT: its answer changes with what standard input holds
-Liezere_AoC24/day04.pl: NEEDS-INPUT: its answer changes with what standard input holds
-Liezere_AoC24/day05.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
-Liezere_AoC24/day06.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
-Liezere_AoC24/day07.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
-Liezere_AoC24/day08.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
-Liezere_AoC24/day09.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
-Liezere_AoC24/day10.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
-Liezere_AoC24/day10opt.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+Liezere_AoC24/day01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day04.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day05.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day06.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day07.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day08.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day09.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day10opt.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Liezere_AoC24/day11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Liezere_AoC24/day11iter.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Liezere_AoC24/day12.pl: NEEDS-INPUT: its answer changes with what standard input holds
-Liezere_AoC24/day13.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
-Liezere_AoC24/day14.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
-Liezere_AoC24/day15.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+Liezere_AoC24/day12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day13.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day15.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Liezere_AoC24/day15draw.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Liezere_AoC24/day15short.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Liezere_AoC24/day16.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day16.pl:10:
-Liezere_AoC24/day17.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
-Liezere_AoC24/day18.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+Liezere_AoC24/day17.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day18.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Liezere_AoC24/day19.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Liezere_AoC24/day20.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day20.pl:17:
 Liezere_AoC24/day21.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day21.pl:41:
 Liezere_AoC24/day22.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Liezere_AoC24/day23.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Liezere_AoC24/day23.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals assoc:gen_assoc_/3: No rule matches assoc:gen_assoc_(_72,_74,_76)
 Liezere_AoC24/day24.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day24.pl:8:
 Liezere_AoC24/day25.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day25.pl:8:
 Liezere_AoC24/map_utils.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -218,16 +189,12 @@ Meisterlala_advent-of-code-2024/src/day_05.pl: NO-OUTPUT: nothing on standard ou
 Merlin-Taylor_advent-of-code/1/1/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Merlin-Taylor_advent-of-code/1/2/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Minipoloalex_AdventOfCode2025/1/data.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Minipoloalex_AdventOfCode2025/1/part1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Minipoloalex_AdventOfCode2025/1/part2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Mousaka_advent-of-code-2020/1/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Mousaka_advent-of-code-2020/10/10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 10.pl:23:11: Syntax error: Operator expected
 Mousaka_advent-of-code-2020/2/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Mousaka_advent-of-code-2020/3/3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Mousaka_advent-of-code-2020/3/3b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Mousaka_advent-of-code-2020/3/3bSimonStyle.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Mousaka_advent-of-code-2020/4/4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-Mousaka_advent-of-code-2020/4/4b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Mousaka_advent-of-code-2020/5/5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Mousaka_advent-of-code-2020/6/6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Mousaka_advent-of-code-2020/6/6b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -253,12 +220,6 @@ Mousaka_advent-of-code-prolog/knight.pl: NO-OUTPUT: nothing on standard output, 
 Mousaka_advent-of-code-prolog/scratch.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: scratch.pl:2:9: Syntax error: Operator expected
 Mousaka_advent-of-code-prolog/utils.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: utils.pl:20:
 Raphexion_advent-of-code/2021/day01/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-RottenFishbone_advent-of-code/day_1/day_1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-RottenFishbone_advent-of-code/day_2/day_2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-RottenFishbone_advent-of-code/day_3/day_3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-RottenFishbone_advent-of-code/day_4/day_4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-RottenFishbone_advent-of-code/day_5/day_5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-RottenFishbone_advent-of-code/day_6/day_6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 SeanGeb_AoC-2021/day01/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 SeanGeb_AoC-2021/day02/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 SeanGeb_AoC-2021/day03/day3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -283,11 +244,9 @@ Skepfyr_AOC2019/day8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead e
 Skepfyr_AOC2019/intcode.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ThChatz_advent-of-code-2020/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ThChatz_advent-of-code-2020/day2-input.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-ThChatz_advent-of-code-2020/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ThChatz_advent-of-code-2020/day3-input.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ThChatz_advent-of-code-2020/day3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ThChatz_advent-of-code-2020/day4-input.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-ThChatz_advent-of-code-2020/day4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ThChatz_advent-of-code-2020/day5-input.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ThChatz_advent-of-code-2020/day5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day5.pl:53:
 ThChatz_advent-of-code-2020/day6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day6.pl:5:
@@ -311,48 +270,44 @@ Tiffilore_advent-of-code/2020/day15/program.pl: NO-OUTPUT: nothing on standard o
 Tiffilore_advent-of-code/2020/day18/program_v0.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 Tiffilore_advent-of-code/2020/day18/program_v1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program_v1.pl:72:20: Syntax error: Unexpected end of file
 Tiffilore_advent-of-code/2020/day18/program_v2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2015/in-prolog/day-01.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 YauHsien_advent-of-code-2021/prolog/src/day10_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day10_code.prolog:105:
 YauHsien_advent-of-code-2021/prolog/src/day11_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2021/prolog/src/day12_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2021/prolog/src/day13_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2021/prolog/src/day14_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2021/prolog/src/day15_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2021/prolog/src/day16_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2021/prolog/src/day17_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+YauHsien_advent-of-code-2021/prolog/src/day12_code.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'../inputs/day12_input.txt'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2021/prolog/src/day13_code.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'../inputs/day13_input.txt'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2021/prolog/src/day14_code.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'../inputs/day14_input.txt'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2021/prolog/src/day15_code.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'../inputs/day15_input.txt'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2021/prolog/src/day16_code.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'../inputs/day16_input.txt'' does not exist (No such file or directory)
 YauHsien_advent-of-code-2021/prolog/src/day1_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day1_code.prolog:59:
-YauHsien_advent-of-code-2021/prolog/src/day21_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2021/prolog/src/day22_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+YauHsien_advent-of-code-2021/prolog/src/day22_code.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'../inputs/day22_input.txt'' does not exist (No such file or directory)
 YauHsien_advent-of-code-2021/prolog/src/day23_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2021/prolog/src/day24_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2021/prolog/src/day25_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+YauHsien_advent-of-code-2021/prolog/src/day25_code.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'../inputs/day25_input.txt'' does not exist (No such file or directory)
 YauHsien_advent-of-code-2021/prolog/src/day2_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day2_code.prolog:64:
 YauHsien_advent-of-code-2021/prolog/src/day3_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day3_code.prolog:159:
 YauHsien_advent-of-code-2021/prolog/src/day4_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day4_code.prolog:152:
 YauHsien_advent-of-code-2021/prolog/src/day5_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day5_code.prolog:145:
 YauHsien_advent-of-code-2021/prolog/src/day6_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2021/prolog/src/day7_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2021/prolog/src/day8_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+YauHsien_advent-of-code-2021/prolog/src/day7_code.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'../inputs/day7_input.txt'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2021/prolog/src/day8_code.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'../inputs/day8_input.txt'' does not exist (No such file or directory)
 YauHsien_advent-of-code-2021/prolog/src/day9_code.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day9_code.prolog:202:
-YauHsien_advent-of-code-2022/in-prolog/day-01.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-02.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-03.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-04.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-05.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-06.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-07.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-08.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-09.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-10.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-11.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-12.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-13.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+YauHsien_advent-of-code-2022/in-prolog/day-01.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_o8igms7h/input/day-01.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-02.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_7znk7q0f/input/day-02.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-03.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_rpi6xh8a/input/day-03.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-04.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_cau31gf5/input/day-04.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-05.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_o8igms7h/input/day-05.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-06.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_7znk7q0f/input/day-06.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-07.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_cau31gf5/input/day-07.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-08.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_7znk7q0f/input/day-08.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-09.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_rpi6xh8a/input/day-09.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-10.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_o8igms7h/input/day-10.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-11.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_rpi6xh8a/input/day-11.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-12.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_cau31gf5/input/day-12.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-13.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_7znk7q0f/input/day-13.input'' does not exist (No such file or directory)
 YauHsien_advent-of-code-2022/in-prolog/day-14.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day-14.prolog:298:
 YauHsien_advent-of-code-2022/in-prolog/day-15.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 YauHsien_advent-of-code-2022/in-prolog/day-16.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day-16.prolog:73:
 YauHsien_advent-of-code-2022/in-prolog/day-17.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day-17.prolog:153:46: Syntax error: Operand expected, unquoted comma or bar found
-YauHsien_advent-of-code-2022/in-prolog/day-18.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-YauHsien_advent-of-code-2022/in-prolog/day-19.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+YauHsien_advent-of-code-2022/in-prolog/day-18.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_7znk7q0f/input/day-18.input'' does not exist (No such file or directory)
+YauHsien_advent-of-code-2022/in-prolog/day-19.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `'/tmp/s4e/grader/mine_o8igms7h/input/day-19.input'' does not exist (No such file or directory)
 YauHsien_advent-of-code-2023/AoC-2023-_.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 YauHsien_advent-of-code-2023/AoC-2023-day-1.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 YauHsien_advent-of-code-2023/AoC-2023-day-10.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -362,7 +317,7 @@ YauHsien_advent-of-code-2023/AoC-2023-day-13.prolog: NO-OUTPUT: nothing on stand
 YauHsien_advent-of-code-2023/AoC-2023-day-14.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 YauHsien_advent-of-code-2023/AoC-2023-day-15.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 YauHsien_advent-of-code-2023/AoC-2023-day-19.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: AoC-2023-day-19.prolog:94:
-YauHsien_advent-of-code-2023/AoC-2023-day-2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+YauHsien_advent-of-code-2023/AoC-2023-day-2.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals 'AoC-2023-day-2':solve/1: Unknown procedure: 'AoC-2023-day-2':input/3
 YauHsien_advent-of-code-2023/AoC-2023-day-21.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: AoC-2023-day-21.prolog:77:
 YauHsien_advent-of-code-2023/AoC-2023-day-3.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 YauHsien_advent-of-code-2023/AoC-2023-day-4.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -441,29 +396,25 @@ aaucher_advent-of-code-2022/day09.pl: NO-OUTPUT: nothing on standard output, exi
 aaucher_advent-of-code-2022/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day10.pl:3:
 aaucher_advent-of-code-2022/day11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day11.pl:3:
 abarhub_advent_of_code/2023/day02/exemple1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-abarhub_advent_of_code/2023/day02/exemple10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-abarhub_advent_of_code/2023/day02/exemple11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code/2023/day02/exemple2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code/2023/day02/exemple3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code/2023/day02/exemple4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: exemple4.pl:55:
 abarhub_advent_of_code/2023/day02/exemple5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code/2023/day02/exemple6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code/2023/day02/exemple7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-abarhub_advent_of_code/2023/day02/exemple8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+abarhub_advent_of_code/2023/day02/exemple8.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: test2.txt:1:
 abarhub_advent_of_code/2023/day02/exemple9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code/2023/day02/test1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code/2023/day02/test2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: test2.pl:54:
 abarhub_advent_of_code/2023/day02/test3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: test3.pl:54:
 abarhub_advent_of_code_2023/day02/exemple1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-abarhub_advent_of_code_2023/day02/exemple10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-abarhub_advent_of_code_2023/day02/exemple11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code_2023/day02/exemple2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code_2023/day02/exemple3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code_2023/day02/exemple4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: exemple4.pl:55:
 abarhub_advent_of_code_2023/day02/exemple5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code_2023/day02/exemple6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code_2023/day02/exemple7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-abarhub_advent_of_code_2023/day02/exemple8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+abarhub_advent_of_code_2023/day02/exemple8.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: test2.txt:1:
 abarhub_advent_of_code_2023/day02/exemple9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code_2023/day02/test1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 abarhub_advent_of_code_2023/day02/test2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: test2.pl:54:
@@ -522,8 +473,6 @@ ananthakumaran_advent-of-code/2015/7a.pl: NO-OUTPUT: nothing on standard output,
 ananthakumaran_advent-of-code/2015/7b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ananthakumaran_advent-of-code/2015/8a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 ananthakumaran_advent-of-code/2015/8b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-ananthakumaran_advent-of-code/2015/9a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-ananthakumaran_advent-of-code/2015/9b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 arekziobrowski_advent-of-code/2023/day1/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 arekziobrowski_advent-of-code/2023/day10/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 arekziobrowski_advent-of-code/2023/day2/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -586,18 +535,10 @@ bibiki_AdventOfCode2022/day7/solution.pl: NO-OUTPUT: nothing on standard output,
 bibiki_AdventOfCode2022/day8/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: solution.pl:52:
 bibiki_AdventOfCode2022/day9/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: solution.pl:11:
 bmaddy_advent-of-code/2020/day01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-bmaddy_advent-of-code/2020/day02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-bmaddy_advent-of-code/2020/day03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-bmaddy_advent-of-code/2020/day04.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-bmaddy_advent-of-code/2020/day05.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-bmaddy_advent-of-code/2020/day06.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-bmaddy_advent-of-code/2020/day07.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 bmaddy_advent-of-code/2021/day01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 bmaddy_advent-of-code/2021/day02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-bmaddy_advent-of-code/2021/day03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 bmaddy_advent-of-code/2021/day06.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 bmaddy_advent-of-code/2021/day07.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-bmaddy_advent-of-code/2021/day09.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 bmaddy_advent-of-code/2021/day15.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 bmaddy_advent-of-code/2021/day16.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 bmaddy_advent-of-code/2021/day17.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -611,12 +552,12 @@ bmaddy_advent-of-code/2022/day18.pl: NO-OUTPUT: nothing on standard output, exit
 bmaddy_advent-of-code/2022/day19.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day19.pl:37:
 bmaddy_advent-of-code/2022/util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: Exported procedure util:setup/0 is not defined
 bmaddy_advent-of-code/2024/day01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day01.pl:1:
-brebs-gh_advent-of-code/2020/aoc2020_day3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+brebs-gh_advent-of-code/2020/aoc2020_day3.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals route_tree_row_col/4: Unknown procedure: tree_row_col/2
 brebs-gh_advent-of-code/2025/aoc2025_day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 brebs-gh_advent-of-code/2025/aoc2025_day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 brebs-gh_advent-of-code/2025/aoc2025_day10_clpq.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-brebs-gh_advent-of-code/2025/aoc2025_day11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-brebs-gh_advent-of-code/2025/aoc2025_day12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+brebs-gh_advent-of-code/2025/aoc2025_day11.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals paths_from_to_count/4: Unknown procedure: from_next_list/2
+brebs-gh_advent-of-code/2025/aoc2025_day12.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals present_region_possible/0: Unknown procedure: present_region/3
 brebs-gh_advent-of-code/2025/aoc2025_day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 brebs-gh_advent-of-code/2025/aoc2025_day2_part1_clpfd.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 brebs-gh_advent-of-code/2025/aoc2025_day3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -626,7 +567,7 @@ brebs-gh_advent-of-code/2025/aoc2025_day5.pl: NO-OUTPUT: nothing on standard out
 brebs-gh_advent-of-code/2025/aoc2025_day6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 brebs-gh_advent-of-code/2025/aoc2025_day7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 brebs-gh_advent-of-code/2025/aoc2025_day8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-brebs-gh_advent-of-code/2025/aoc2025_day9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+brebs-gh_advent-of-code/2025/aoc2025_day9.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals findall_loop/4: Unknown procedure: coords/1
 brodeuralexis_advent-of-code-2020/load.pl: NEEDS-INPUT: its answer changes with what standard input holds
 brodeuralexis_advent-of-code-2020/src/day01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day01.pl:5:
 brodeuralexis_advent-of-code-2020/src/day02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day02.pl:7:
@@ -654,25 +595,24 @@ brodeuralexis_advent-of-code-2023/src/day05.pl: NO-OUTPUT: nothing on standard o
 brodeuralexis_advent-of-code-2023/src/parsing.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: parsing.pl:12:
 camsaul_advent-of-code-2024/a_star.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 camsaul_advent-of-code-2024/bitset_grid_util.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-01a.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-01b.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-02a.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-02b.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-03a.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-03b.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-04a-alternate.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-04a.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-04b-alternate.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-04b.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-05a.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-05b.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+camsaul_advent-of-code-2024/day-01a.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `"day-01.txt"' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-01b.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `"day-01.txt"' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-02a.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `"day-02.txt"' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-02b.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `"day-02.txt"' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-03a.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `"day-03.txt"' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-03b.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `"day-03.txt"' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-04a.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `[d,a,y,-,'0','4','.',t,x,t]' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-04b-alternate.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `[100,97,121,45,48,52,46,116,120,116]' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-04b.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `[d,a,y,-,'0','4','.',t,x,t]' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-05a.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `'day-05.txt'' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-05b.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `'day-05.txt'' does not exist (No such file or directory)
 camsaul_advent-of-code-2024/day-06a-alternate.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day-06a-alternate.prolog:2:28: Syntax error: Operator expected
-camsaul_advent-of-code-2024/day-06a.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+camsaul_advent-of-code-2024/day-06a.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `'day-06.txt'' does not exist (No such file or directory)
 camsaul_advent-of-code-2024/day-06b.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day-06b.prolog:3:
-camsaul_advent-of-code-2024/day-07a.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-07b.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-08a.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-camsaul_advent-of-code-2024/day-08b.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+camsaul_advent-of-code-2024/day-07a.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `'day-07.txt'' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-07b.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `'day-07.txt'' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-08a.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `'day-08.txt'' does not exist (No such file or directory)
+camsaul_advent-of-code-2024/day-08b.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `'day-08.txt'' does not exist (No such file or directory)
 camsaul_advent-of-code-2024/day-09a.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day-09a.prolog:21:
 camsaul_advent-of-code-2024/day-09b.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day-09b.prolog:16:
 camsaul_advent-of-code-2024/day-10a.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -698,12 +638,16 @@ dallinjdahl_aoc_prolog/2/b.pl: NO-OUTPUT: nothing on standard output, exit 0; a 
 dallinjdahl_aoc_prolog/3/a.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 darthmaedhros_Advent_of_Code_2024/day 1/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 darthmaedhros_Advent_of_Code_2024/day 2/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+dfontenot_advent-of-code-2024/day1.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals Unknown procedure: main/1
+dfontenot_advent-of-code-2024/day2.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals Unknown procedure: main/1
+dfontenot_advent-of-code-2024/day3.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals Unknown procedure: main/1
+dfontenot_advent-of-code-2024/day4.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals Unknown procedure: main/1
 dfontenot_advent-of-code-2024/day5.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 dhamidi_aoc-2023/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 dhamidi_aoc-2023/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 dhamidi_aoc-2023/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 dparker2_advent-of-code2022/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-dparker2_advent-of-code2022/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+dparker2_advent-of-code2022/day10.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: Arguments are not sufficiently instantiated
 dparker2_advent-of-code2022/day11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 dparker2_advent-of-code2022/day12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day12.pl:28:
 dparker2_advent-of-code2022/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -713,12 +657,11 @@ dparker2_advent-of-code2022/day5.pl: NO-OUTPUT: nothing on standard output, exit
 dparker2_advent-of-code2022/day6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 dparker2_advent-of-code2022/day7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 dparker2_advent-of-code2022/day8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-dustinheestand_advent-of-code/prolog/day07.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 dustinheestand_advent-of-code/prolog/day08.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 dustinheestand_advent-of-code/prolog/reif.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-dustinswan_advent-of-code-2025/day1/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-dustinswan_advent-of-code-2025/day2/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-dustinswan_advent-of-code-2025/day3/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+dustinswan_advent-of-code-2025/day1/main.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"data.txt"' does not exist
+dustinswan_advent-of-code-2025/day2/main.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"data.txt"' does not exist
+dustinswan_advent-of-code-2025/day3/main.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"data.txt"' does not exist
 emiruz_adventofcode2023/01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 emiruz_adventofcode2023/03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 emiruz_adventofcode2023/04.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -772,43 +715,40 @@ emiruz_adventofcode2024/23.prolog: NO-OUTPUT: nothing on standard output, exit 0
 emiruz_adventofcode2024/24.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 emiruz_adventofcode2024/25.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 enevoldsen1oo_AdventOfCode/day1/day1_p1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-enevoldsen1oo_AdventOfCode/day1/day1_p2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-enevoldsen1oo_AdventOfCode/day2/day2_p1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-enevoldsen1oo_AdventOfCode/day2/day2_p2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day04.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+eutro_aoc2022/src/day01.pl: NEEDS-INPUT: its answer changes with what standard input holds
+eutro_aoc2022/src/day02.pl: NEEDS-INPUT: its answer changes with what standard input holds
+eutro_aoc2022/src/day03.pl: NEEDS-INPUT: its answer changes with what standard input holds
+eutro_aoc2022/src/day04.pl: NEEDS-INPUT: its answer changes with what standard input holds
 eutro_aoc2022/src/day05.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 eutro_aoc2022/src/day06.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day07.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day08.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day09.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+eutro_aoc2022/src/day07.pl: NEEDS-INPUT: its answer changes with what standard input holds
+eutro_aoc2022/src/day08.pl: NEEDS-INPUT: its answer changes with what standard input holds
+eutro_aoc2022/src/day09.pl: NEEDS-INPUT: its answer changes with what standard input holds
 eutro_aoc2022/src/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 eutro_aoc2022/src/day11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day13.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+eutro_aoc2022/src/day12.pl: NEEDS-INPUT: its answer changes with what standard input holds
+eutro_aoc2022/src/day13.pl: NEEDS-INPUT: its answer changes with what standard input holds
 eutro_aoc2022/src/day14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day15.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+eutro_aoc2022/src/day15.pl: NEEDS-INPUT: its answer changes with what standard input holds
 eutro_aoc2022/src/day16.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day17.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day18.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day19.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day20.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+eutro_aoc2022/src/day17.pl: NEEDS-INPUT: its answer changes with what standard input holds
+eutro_aoc2022/src/day18.pl: NEEDS-INPUT: its answer changes with what standard input holds
+eutro_aoc2022/src/day19.pl: NEEDS-INPUT: its answer changes with what standard input holds
+eutro_aoc2022/src/day20.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals crypt/4: Unknown procedure: mixtimes/3
 eutro_aoc2022/src/day21.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 eutro_aoc2022/src/day22.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day23.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+eutro_aoc2022/src/day23.pl: NEEDS-INPUT: its answer changes with what standard input holds
 eutro_aoc2022/src/day24.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/day25.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+eutro_aoc2022/src/day25.pl: NEEDS-INPUT: its answer changes with what standard input holds
 eutro_aoc2022/src/driver_common.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/driver_normal.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-eutro_aoc2022/src/driver_time.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+eutro_aoc2022/src/driver_normal.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals catch/3: Unknown procedure: main/1
+eutro_aoc2022/src/driver_time.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: % 46,689 inferences, 0.006 CPU in 0.006 seconds (100% CPU, 7615394 Lips)
 eutro_aoc2022/src/letters.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 eutro_aoc2022/src/util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 fdfzcq_aoc-prolog/2017/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day1.pl:11:
 fdfzcq_aoc-prolog/2017/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 fdfzcq_aoc-prolog/2021/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day1.pl:15:
-fdfzcq_aoc-prolog/2021/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+fdfzcq_aoc-prolog/2021/day2.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `"day2.txt"' does not exist (No such file or directory)
 fdfzcq_aoc-prolog/2021/day3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day3.pl:27:
 fdfzcq_aoc-prolog/2021/day4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 fdfzcq_aoc-prolog/2021/day5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day5.pl:1:
@@ -816,14 +756,8 @@ fdfzcq_aoc-prolog/2021/day6.pl: NO-OUTPUT: nothing on standard output, exit 0; a
 fkokosinski_advent-of-code-2023/day_10/puzzle_02.pro: DOES-NOT-END: no answer inside 60 s
 frizensami_aoc-2021-prolog/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day1.pl:12:
 frizensami_aoc-2021-prolog/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day2.pl:18:
-gamache_advent2019/01/01.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-gamache_advent2019/02/02.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-gamache_advent2019/03/03.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-gamache_advent2019/04/04.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-gamache_advent2019/05/05.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-gamache_advent2019/08/08.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+gamache_advent2019/03/03.prolog: DOES-NOT-END: no answer inside 60 s
 gamache_advent2019/10/10.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-gamache_advent2019/12/12.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 gamma-delta_AOC-2019/aoc_prelude.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 gamma-delta_AOC-2019/day1/solution.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: ERROR: Prolog initialisation failed:
 gamma-delta_AOC-2019/day2/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: solution.pl:1:
@@ -873,11 +807,8 @@ gorkempacaci_Aoc25/07/part2.pl: NO-OUTPUT: nothing on standard output, exit 0; a
 gorkempacaci_Aoc25/09/part1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: part1.pl:17:
 gorkempacaci_Aoc25/11/program.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: program.pl:31:
 gromgull_advent-of-code-2020/day11.pl: DOES-NOT-END: no answer inside 60 s
-gromgull_advent-of-code-2020/day2-2.pl: NEEDS-INPUT: its answer changes with what standard input holds
-gromgull_advent-of-code-2020/day2.pl: NEEDS-INPUT: its answer changes with what standard input holds
-gromgull_advent-of-code-2020/day8-2.pl: NEEDS-INPUT: its answer changes with what standard input holds
-hbiede_AoC-2016/src/day02/part1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-hbiede_AoC-2016/src/day02/part2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+hbiede_AoC-2016/src/day02/part1.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `'input.txt'' does not exist (No such file or directory)
+hbiede_AoC-2016/src/day02/part2.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `'input.txt'' does not exist (No such file or directory)
 hbiede_AoC-2016/src/day07/day07.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day07.pl:1:4: Syntax error: Operator expected
 isabelwingen_advent-of-code-prolog/2022/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 isabelwingen_advent-of-code-prolog/2022/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -887,31 +818,30 @@ isabelwingen_advent-of-code-prolog/2022/day5.pl: NO-OUTPUT: nothing on standard 
 isabelwingen_advent-of-code-prolog/2022/day6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 isabelwingen_advent-of-code-prolog/2022/day7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 isabelwingen_advent-of-code-prolog/2022/util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-jamesconstable_aoc2016/01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/04.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/05.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/06.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/07.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/08.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/09.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/13.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/15.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/16.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/17.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/18.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/19.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/20.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/21.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/22.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/23.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/24.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
-jamesconstable_aoc2016/25.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Invalid part number. Must be 1 or 2.
+jamesconstable_aoc2016/01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/04.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/05.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/06.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/07.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/08.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/09.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/13.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/15.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/16.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/17.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/18.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/19.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/20.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/21.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/22.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals lists:max_member/2: No rule matches lists:max_member(node(_57096/_57098,_57086,_57088,_57090,_57092),_57080)
+jamesconstable_aoc2016/24.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+jamesconstable_aoc2016/25.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 jamesconstable_aoc2016/common.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 jasagredo_advent-of-prolog-2024/01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: sort.pl:4:
 jasagredo_advent-of-prolog-2024/02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: dcgs/dcgs_utils.pl:3:
@@ -969,11 +899,6 @@ javcasas_advent-of-code-2022/21.pl: NO-OUTPUT: nothing on standard output, exit 
 javcasas_advent-of-code-2022/22.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 22.pl:2:
 javcasas_advent-of-code-2022/25.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 25.pl:2:
 jesperes_advent-of-code-prolog/aocdata.pl: NEEDS-NETWORK: the source names library(http/http_client)
-jesperes_advent-of-code-prolog/day01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-jesperes_advent-of-code-prolog/day02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-jesperes_advent-of-code-prolog/day03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-jesperes_advent-of-code-prolog/day04.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-jesperes_advent-of-code-prolog/day05.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 jesperes_advent-of-code-prolog/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 jesperes_advent-of-code-prolog/utils.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 jinwoo_aoc2023/day01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1031,17 +956,16 @@ johnellis1392_advent-of-code-prolog/tests/years/y2021/day01_test.pl: NO-OUTPUT: 
 johnellis1392_advent-of-code-prolog/tests/years/y2022/day01_test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day01_test.pl:1:
 johnellis1392_advent-of-code-prolog/tests/years/y2023/day01_test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day01_test.pl:1:
 johnellis1392_advent-of-code-prolog/tests/years/y2024/day01_test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day01_test.pl:1:
+jwoudenberg_advent-of-code-2020/day11/solution-part2.pl: DIFFERS-BETWEEN-RUNS: exit 0 and 124, 4 and 4 bytes
 k3ut0i_aoc19/src/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/day11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-k3ut0i_aoc19/src/day12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/day14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/day16.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/day16opt.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/day3-crude.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/day3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-k3ut0i_aoc19/src/day4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/day5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day5.pl:4:
 k3ut0i_aoc19/src/day6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/day7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1050,10 +974,7 @@ k3ut0i_aoc19/src/day9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead 
 k3ut0i_aoc19/src/fileutils.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/intcode.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 k3ut0i_aoc19/src/utils.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-kamahen_advent-of-code-2022/21.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-kamahen_advent-of-code-2022/7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kamahen_advent-of-code-2022/7.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-kamahen_advent-of-code-2023/day01_trebuchet.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kamahen_advent-of-code-2023/day02_cube_conundrum.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kamahen_advent-of-code-2023/day03_gear_ratios.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kevioke_aoc2019/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1124,21 +1045,19 @@ kittykg_ADVOCadO/2024/day02.pl: NO-OUTPUT: nothing on standard output, exit 0; a
 kittykg_ADVOCadO/2024/day03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kittykg_ADVOCadO/2024/day04.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kittykg_ADVOCadO/2024/day05.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-kittykg_ADVOCadO/2024/day06.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: day06.pl:8:
-kittykg_ADVOCadO/2024/day07.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: day07.pl:8:
-kittykg_ADVOCadO/2024/day08.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: day08.pl:12: user:main open/4: source_sink `input_08' does not exist (No such file or directory)
-kittykg_ADVOCadO/2024/day10.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: day10.pl:10:
-kittykg_ADVOCadO/2024/day11.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: day11.pl:9:
-kittykg_ADVOCadO/2024/day12.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: day12.pl:11:
-kittykg_ADVOCadO/2024/day13.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: day13.pl:10: user:main open/4: source_sink `input_13' does not exist (No such file or directory)
-kittykg_ADVOCadO/2024/day14.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: day14.pl:13: user:main catch/3: Unknown procedure: main/1
-kittykg_ADVOCadO/2024/day19.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: day19.pl:9: user:main open/4: source_sink `input_19' does not exist (No such file or directory)
+kittykg_ADVOCadO/2024/day06.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day06.pl:8:
+kittykg_ADVOCadO/2024/day07.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day07.pl:8:
+kittykg_ADVOCadO/2024/day08.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+kittykg_ADVOCadO/2024/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day10.pl:10:
+kittykg_ADVOCadO/2024/day11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day11.pl:9:
+kittykg_ADVOCadO/2024/day12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day12.pl:11:
+kittykg_ADVOCadO/2024/day13.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+kittykg_ADVOCadO/2024/day14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+kittykg_ADVOCadO/2024/day19.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kittykg_ADVOCadO/helper.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kkweon_advent-of-code-2024/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kkweon_advent-of-code-2024/day11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-kkweon_advent-of-code-2024/day12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-kkweon_advent-of-code-2024/day1_part1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-kkweon_advent-of-code-2024/day1_part2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+kkweon_advent-of-code-2024/day12.pl: DOES-NOT-END: no answer inside 60 s
 kkweon_advent-of-code-2024/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kkweon_advent-of-code-2024/day3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kkweon_advent-of-code-2024/day4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1160,7 +1079,6 @@ kquick_AdventOfCode2019/prolog/day6/orbits.pl: NO-OUTPUT: nothing on standard ou
 kquick_AdventOfCode2019/prolog/day7/intcode.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kquick_AdventOfCode2019/prolog/day8/sif.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kquick_AdventOfCode2019/prolog/day9/intcode.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-kristianhasselknippe_advent-of-code-2019/day1/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kristianhasselknippe_advent-of-code-2019/day10/aoc10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 kristianhasselknippe_advent-of-code-2019/day10/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: main.pl:1:
 kristianhasselknippe_advent-of-code-2019/day12/aoc12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1193,6 +1111,7 @@ leandrosansilva_toy_adventofcode_prolog/tests.pl: NO-OUTPUT: nothing on standard
 leandrosansilva_toy_adventofcode_prolog/utils.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 lewtds_advent-code-2019-prolog/a_03a.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 lewtds_advent-code-2019-prolog/a_03b.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lewtds_advent-code-2019-prolog/a_04b.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 lh2_advent-of-code-2025/01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 01.pl:42:
 lh2_advent-of-code-2025/03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 03.pl:1:
 lh2_advent-of-code-2025/04.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 04.pl:58:
@@ -1203,10 +1122,7 @@ lynn_aoc-prolog/2015/day-02.prolog: NO-OUTPUT: nothing on standard output, exit 
 lynn_aoc-prolog/2015/day-03.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 lynn_aoc-prolog/2015/day-04.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 lynn_aoc-prolog/2015/day-05.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-lynn_aoc-prolog/2015/day-06.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 lynn_aoc-prolog/2015/util.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-marvinkohl_Advent-of-Code-2025/day01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-marvinkohl_Advent-of-Code-2025/day01b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 marvinkohl_Advent-of-Code-2025/day02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 marvinkohl_Advent-of-Code-2025/day02b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 marvinkohl_Advent-of-Code-2025/day03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1217,7 +1133,6 @@ marvinkohl_Advent-of-Code-2025/day06.pl: NO-OUTPUT: nothing on standard output, 
 marvinkohl_Advent-of-Code-2025/test_day05.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 marvinkohl_Advent-of-Code-2025/test_day05b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 marvinkohl_Advent-of-Code-2025/test_day06.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-mathijs-tobe_AoC2021/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 meditans_aoc2023/01/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: main.pl:1:
 meditans_aoc2023/02/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: main.pl:1:
 meditans_aoc2023/03/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: main.pl:1:
@@ -1244,26 +1159,25 @@ modernserf_advent-of-code/day-2.pl: NO-OUTPUT: nothing on standard output, exit 
 modernserf_advent-of-code/day-3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 modernserf_advent-of-code/day-4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 modernserf_advent-of-code/day-6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-molikuner_aoc2015-prolog/01/puzzle1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-molikuner_aoc2015-prolog/01/puzzle2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-molikuner_aoc2015-prolog/02/puzzle1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-molikuner_aoc2015-prolog/02/puzzle2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-molikuner_aoc2015-prolog/03/puzzle1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-molikuner_aoc2015-prolog/03/puzzle2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-molikuner_aoc2015-prolog/04/puzzle1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-molikuner_aoc2015-prolog/04/puzzle2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-moussetf_AdventOfCode2025/day01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+molikuner_aoc2015-prolog/01/puzzle1.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
+molikuner_aoc2015-prolog/01/puzzle2.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
+molikuner_aoc2015-prolog/02/puzzle1.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
+molikuner_aoc2015-prolog/02/puzzle2.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
+molikuner_aoc2015-prolog/03/puzzle1.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
+molikuner_aoc2015-prolog/03/puzzle2.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
+molikuner_aoc2015-prolog/04/puzzle1.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
+molikuner_aoc2015-prolog/04/puzzle2.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
+moussetf_AdventOfCode2025/day01.pl: NEEDS-INPUT: its answer changes with what standard input holds
 moussetf_AdventOfCode2025/day02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-moussetf_AdventOfCode2025/day03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-moussetf_AdventOfCode2025/day04.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-moussetf_AdventOfCode2025/day05.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+moussetf_AdventOfCode2025/day03.pl: NEEDS-INPUT: its answer changes with what standard input holds
+moussetf_AdventOfCode2025/day04.pl: NEEDS-INPUT: its answer changes with what standard input holds
 moussetf_AdventOfCode2025/day06.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 moussetf_AdventOfCode2025/day07.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 moussetf_AdventOfCode2025/day08.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 moussetf_AdventOfCode2025/day09.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-moussetf_AdventOfCode2025/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-moussetf_AdventOfCode2025/day11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-moussetf_AdventOfCode2025/day12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+moussetf_AdventOfCode2025/day10.pl: NEEDS-INPUT: its answer changes with what standard input holds
+moussetf_AdventOfCode2025/day11.pl: NEEDS-INPUT: its answer changes with what standard input holds
+moussetf_AdventOfCode2025/day12.pl: NEEDS-INPUT: its answer changes with what standard input holds
 noeppi-noeppi_aoc/2020/day19/part1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: part1.pl:3:16: Syntax error: Operator expected
 noeppi-noeppi_aoc/2020/day19/part2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: part2.pl:3:16: Syntax error: Operator expected
 noeppi-noeppi_aoc/2021/day05/part1.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1308,20 +1222,12 @@ ocharles_advent-of-code/2024/prolog/day-02.prolog: NO-OUTPUT: nothing on standar
 ocharles_advent-of-code/2024/prolog/day-03.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day-03.prolog:1:
 ocharles_advent-of-code/2024/prolog/day-04.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day-04.prolog:1:
 ocharles_advent-of-code/2024/prolog/day-05.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day-05.prolog:1:
+oregenal_aoc/2022/03-prolog/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: main.pl:3:
+oregenal_aoc/2022/04-prolog/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: main.pl:3:
 oregenal_aoc/2022/plib/lib.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-pkoch_aoc-2020/1/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-pkoch_aoc-2020/1/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-pkoch_aoc-2020/2/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-pkoch_aoc-2020/2/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-pkoch_aoc-2020/3/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-pkoch_aoc-2020/3/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-pkoch_aoc-2020/4/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-pkoch_aoc-2020/4/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+paeryn_AOC/advent1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 pkoch_aoc-2020/5/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 1.pl:5:50: Syntax error: Operator expected
 pkoch_aoc-2020/5/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 2.pl:5:50: Syntax error: Operator expected
-pkoch_aoc-2020/6/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-pkoch_aoc-2020/6/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-pkoch_aoc-2020/7/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 pkoch_aoc-2020/7/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 2.pl:55:3: Syntax error: Operator expected
 pkoch_aoc-2020/8/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 1.pl:17:5: Syntax error: Operator expected
 pkoch_aoc-2020/8/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 2.pl:17:5: Syntax error: Operator expected
@@ -1340,7 +1246,7 @@ rausm_adventofcode_2019_prolog/day02.pl: NO-OUTPUT: nothing on standard output, 
 rausm_adventofcode_2019_prolog/day03.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 rausm_adventofcode_2019_prolog/day04.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 rivwgk_advent-of-code/2021/01/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-rivwgk_advent-of-code/2021/02/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+rivwgk_advent-of-code/2021/02/main.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"input"' does not exist (No such file or directory)
 rivwgk_advent-of-code/2021/03/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 rivwgk_advent-of-code/2021/06/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 rivwgk_advent-of-code/2021/07/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1357,16 +1263,16 @@ rivwgk_advent-of-code/2023/08/main.pl: NO-OUTPUT: nothing on standard output, ex
 rivwgk_advent-of-code/2023/09/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 rlei_adventofcode2023/day04/prob1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: prob1.pl:17:10: Syntax error: Unexpected end of file
 rlei_adventofcode2023/day04/prob2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: prob2.pl:29:10: Syntax error: Unexpected end of file
-rlei_adventofcode2023/day12/prob1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-rlei_adventofcode2023/day12/prob2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-rlei_adventofcode2023/day12/prob2_full.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+rlei_adventofcode2023/day12/prob1.pl: NEEDS-INPUT: its answer changes with what standard input holds
+rlei_adventofcode2023/day12/prob2.pl: NEEDS-INPUT: its answer changes with what standard input holds
+rlei_adventofcode2023/day12/prob2_full.pl: NEEDS-INPUT: its answer changes with what standard input holds
 rogpal_aoc/aoc1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 rogpal_aoc/aoc2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-royvandewater_aoc-2018/day01/a.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: a.pl:3: user:main open/3: source_sink `'input.txt'' does not exist (No such file or directory)
-royvandewater_aoc-2018/day01/b.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+royvandewater_aoc-2018/day01/a.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `'input.txt'' does not exist (No such file or directory)
+royvandewater_aoc-2018/day01/b.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day01/sample.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-royvandewater_aoc-2018/day02/solution.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
-royvandewater_aoc-2018/day03/solution.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+royvandewater_aoc-2018/day02/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+royvandewater_aoc-2018/day03/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day04/count_naps_containing_minute.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day04/count_naps_containing_minute.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day04/input_schedules.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1378,14 +1284,14 @@ royvandewater_aoc-2018/day04/part_2.pl: NO-OUTPUT: nothing on standard output, e
 royvandewater_aoc-2018/day04/part_2.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day04/schedules_guards.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day04/schedules_guards.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-royvandewater_aoc-2018/day04/solution.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+royvandewater_aoc-2018/day04/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day05/part_1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day05/part_1.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day05/part_2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day05/part_2.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day05/simplify.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day05/simplify.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-royvandewater_aoc-2018/day05/solution.pl: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same
+royvandewater_aoc-2018/day05/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day06/coordinates_finite.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day06/coordinates_finite.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day06/dimensions.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1404,7 +1310,7 @@ royvandewater_aoc-2018/day06/part_2.pl: NO-OUTPUT: nothing on standard output, e
 royvandewater_aoc-2018/day06/part_2.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day06/simplify.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day06/simplify.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-royvandewater_aoc-2018/day06/solution.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: solution.pl:7: user:main open/3: source_sink `"input.txt"' does not exist (No such file or directory)
+royvandewater_aoc-2018/day06/solution.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `"input.txt"' does not exist (No such file or directory)
 royvandewater_aoc-2018/day06/stream_coordinates.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day06/stream_coordinates.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day07/assign_work.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1418,7 +1324,7 @@ royvandewater_aoc-2018/day07/part_1.pl: NO-OUTPUT: nothing on standard output, e
 royvandewater_aoc-2018/day07/part_1.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day07/part_2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day07/part_2.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-royvandewater_aoc-2018/day07/solution.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: solution.pl:7: user:main open/3: source_sink `"input.txt"' does not exist (No such file or directory)
+royvandewater_aoc-2018/day07/solution.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: source_sink `"input.txt"' does not exist (No such file or directory)
 royvandewater_aoc-2018/day07/step_order.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day07/step_order.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day07/stream_instructions.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1429,7 +1335,7 @@ royvandewater_aoc-2018/day08/part_1.pl: NO-OUTPUT: nothing on standard output, e
 royvandewater_aoc-2018/day08/part_1.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day08/part_2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day08/part_2.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-royvandewater_aoc-2018/day08/solution.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: solution.pl:8: user:main source_sink `"input.txt"' does not exist
+royvandewater_aoc-2018/day08/solution.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
 royvandewater_aoc-2018/day08/split_at.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day08/string_tree.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day08/string_tree.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1470,7 +1376,7 @@ royvandewater_aoc-2018/day10/point_position.pl: NO-OUTPUT: nothing on standard o
 royvandewater_aoc-2018/day10/point_position.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day10/positions_string.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day10/positions_string.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-royvandewater_aoc-2018/day10/solution.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: Warning: solution.pl:35:
+royvandewater_aoc-2018/day10/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: solution.pl:35:
 royvandewater_aoc-2018/day11/debug.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day11/grid_coord_square.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day11/grid_max_square.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1500,7 +1406,7 @@ royvandewater_aoc-2018/day12/part_1.test.pl: NO-OUTPUT: nothing on standard outp
 royvandewater_aoc-2018/day12/part_2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day12/plants_plant_numbers.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day12/plants_plant_numbers.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-royvandewater_aoc-2018/day12/solution.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: solution.pl:8: user:main source_sink `"input.txt"' does not exist
+royvandewater_aoc-2018/day12/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day13/cart.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day13/cart.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day13/collision.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1511,7 +1417,7 @@ royvandewater_aoc-2018/day13/part_1.pl: NO-OUTPUT: nothing on standard output, e
 royvandewater_aoc-2018/day13/part_1.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day13/part_2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day13/part_2.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-royvandewater_aoc-2018/day13/solution.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: solution.pl:8: user:main source_sink `"input.txt"' does not exist
+royvandewater_aoc-2018/day13/solution.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
 royvandewater_aoc-2018/day13/sort_carts.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day13/sort_carts.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day13/stream_tree.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1533,7 +1439,7 @@ royvandewater_aoc-2018/day14/part_2.test.pl: NO-OUTPUT: nothing on standard outp
 royvandewater_aoc-2018/day14/print_state.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day14/sequence_up_to.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day14/sequence_up_to.test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-royvandewater_aoc-2018/day14/solution.pl: DOES-NOT-END: no answer inside 60 s
+royvandewater_aoc-2018/day14/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 royvandewater_aoc-2018/day14/tail.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 rubenfranquinet_Advent-of-Code-2023/Day3/part1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 rubenfranquinet_Advent-of-Code-2023/Day3/part2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: part2.pl:56:
@@ -1586,7 +1492,6 @@ salvipeter_advent2019/adv24.pl: NO-OUTPUT: nothing on standard output, exit 0; a
 salvipeter_advent2019/adv25.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 salvipeter_advent2019/intcode.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 samarthkishor_Advent-of-Code-2020/Day7/day7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day7.pl:7:
-samwalrus_prolog_advent_of_code/advent_of_code/day1/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 samwalrus_prolog_advent_of_code/advent_of_code/day2/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 samwalrus_prolog_advent_of_code/advent_of_code/day2/reif.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 santuchoagus_advent-of-code/2025/day-01/part1-1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1628,18 +1533,18 @@ schwidom_AdventOfCode/2025/Day10/001.pl: NO-OUTPUT: nothing on standard output, 
 schwidom_AdventOfCode/2025/Day11/001.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 schwidom_AdventOfCode/2025/Day12/002.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 shurizzle-live_advent-of-code-2022/pack.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/15.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/21.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-shurizzle-live_advent-of-code-2022/prolog/9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+shurizzle-live_advent-of-code-2022/prolog/1.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/1.txt"' does not exist (No such file or directory)
+shurizzle-live_advent-of-code-2022/prolog/10.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/10.txt"' does not exist (No such file or directory)
+shurizzle-live_advent-of-code-2022/prolog/15.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/15.txt"' does not exist (No such file or directory)
+shurizzle-live_advent-of-code-2022/prolog/2.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/2.txt"' does not exist (No such file or directory)
+shurizzle-live_advent-of-code-2022/prolog/21.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/21.txt"' does not exist (No such file or directory)
+shurizzle-live_advent-of-code-2022/prolog/3.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/3.txt"' does not exist (No such file or directory)
+shurizzle-live_advent-of-code-2022/prolog/4.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/4.txt"' does not exist (No such file or directory)
+shurizzle-live_advent-of-code-2022/prolog/5.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/5.txt"' does not exist (No such file or directory)
+shurizzle-live_advent-of-code-2022/prolog/6.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/6.txt"' does not exist (No such file or directory)
+shurizzle-live_advent-of-code-2022/prolog/7.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/7.txt"' does not exist (No such file or directory)
+shurizzle-live_advent-of-code-2022/prolog/8.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/8.txt"' does not exist (No such file or directory)
+shurizzle-live_advent-of-code-2022/prolog/9.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/4: source_sink `"inputs/9.txt"' does not exist (No such file or directory)
 shurizzle-live_advent-of-code-2022/prolog/util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 shurizzle_advent-of-code-2022/pack.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 shurizzle_advent-of-code-2022/prolog/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1656,9 +1561,7 @@ shurizzle_advent-of-code-2022/prolog/6.pl: NO-OUTPUT: nothing on standard output
 shurizzle_advent-of-code-2022/prolog/9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: lists_ext.pl:48:
 shurizzle_advent-of-code-2022/prolog/aggregate.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: aggregate.pl:8:
 shurizzle_advent-of-code-2022/prolog/lists_ext.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: lists_ext.pl:48:
-shurizzle_advent-of-code-2022/prolog/prelude.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-sindrekjr_AdventOfCode2015/01/solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-socksy_advent-of-code-2019/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+shurizzle_advent-of-code-2022/prolog/prelude.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals input/1: Unknown procedure: input_file/1
 stevemccoy_aoc2020/day1/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day1.pl:6:
 stevemccoy_aoc2020/day10/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day10.pl:5:
 stevemccoy_aoc2020/day2/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: day2.pl:5:
@@ -1672,109 +1575,50 @@ stevemccoy_aoc2025/pl/day02/main.pl: NO-OUTPUT: nothing on standard output, exit
 stevemccoy_aoc2025/pl/day10/day10part2results.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 stevemccoy_aoc2025/pl/day10/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 stevemccoy_aoc2025/pl/day11/input.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-stevemccoy_aoc2025/pl/day11/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 stevemccoy_aoc2025/pl/day11/test.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 stevemccoy_aoc2025/pl/day11/test2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/10.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/11.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/12.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/13.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/14.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/15.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/16.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/17.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/18.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/19.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/1_1.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/1_2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/20.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/21.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/22.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/23.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/24.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/3.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/4_1.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/4_2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/5.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/6_1.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/6_2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/7.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/8.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/9_1.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/9_2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+strguntbr_AoC2024/1_1.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 99 and 99 bytes
+strguntbr_AoC2024/1_2.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 103 and 103 bytes
+strguntbr_AoC2024/4_1.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 96 and 96 bytes
+strguntbr_AoC2024/4_2.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 96 and 96 bytes
+strguntbr_AoC2024/6_1.prolog: DIFFERS-BETWEEN-RUNS: exit 4 and 4, 102 and 102 bytes
+strguntbr_AoC2024/6_2.prolog: DOES-NOT-END: no answer inside 60 s
+strguntbr_AoC2024/9_1.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 106 and 106 bytes
+strguntbr_AoC2024/9_2.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 106 and 106 bytes
 strguntbr_AoC2024/lib/ansi.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 strguntbr_AoC2024/lib/dijkstra.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 strguntbr_AoC2024/lib/math.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 strguntbr_AoC2024/lib/matrix.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 strguntbr_AoC2024/lib/screen.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2024/lib/solve.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/10_1.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/10_2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/11.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/1_1.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/1_2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/3.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/4.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/5_1.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/5_2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/6_1.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/6_2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/7_1.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/7_2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/8.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/9.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+strguntbr_AoC2025/10_1.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 98 and 98 bytes
+strguntbr_AoC2025/10_2.prolog: DOES-NOT-END: no answer inside 60 s
+strguntbr_AoC2025/1_1.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 98 and 97 bytes
+strguntbr_AoC2025/1_2.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 98 and 98 bytes
+strguntbr_AoC2025/5_1.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 97 and 97 bytes
+strguntbr_AoC2025/5_2.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 109 and 108 bytes
+strguntbr_AoC2025/6_1.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 106 and 106 bytes
+strguntbr_AoC2025/6_2.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 108 and 108 bytes
+strguntbr_AoC2025/7_1.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 97 and 97 bytes
+strguntbr_AoC2025/7_2.prolog: DIFFERS-BETWEEN-RUNS: exit 9 and 9, 106 and 106 bytes
 strguntbr_AoC2025/lib/ansi.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 strguntbr_AoC2025/lib/dijkstra.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 strguntbr_AoC2025/lib/math.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 strguntbr_AoC2025/lib/matrix.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 strguntbr_AoC2025/lib/screen.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-strguntbr_AoC2025/lib/solve.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 tatut_aoc2015-prolog/day11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 tatut_aoc2015-prolog/day12.pl: NEEDS-NETWORK: the source names library(http/json)
-tatut_aoc2015-prolog/day13.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 tatut_aoc2015-prolog/day15.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day16.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day17.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day18.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day19.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day20.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day21.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day22.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day23.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day24.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day25.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tatut_aoc2015-prolog/day19.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals part1/1: Unknown procedure: input/1
+tatut_aoc2015-prolog/day20.pl: DOES-NOT-END: no answer inside 60 s
+tatut_aoc2015-prolog/day24.pl: DOES-NOT-END: no answer inside 60 s
 tatut_aoc2015-prolog/day4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2015-prolog/day9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tatut_aoc2015-prolog/day6.pl: DOES-NOT-END: no answer inside 60 s
+tatut_aoc2015-prolog/day9.pl: DOES-NOT-END: no answer inside 60 s
 tatut_aoc2023-prolog/day10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day10.pl:82:
 tatut_aoc2023-prolog/day11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day12.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day16.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day17.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day18.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day19.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day20.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day21.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+tatut_aoc2023-prolog/day17.pl: DOES-NOT-END: no answer inside 60 s
 tatut_aoc2023-prolog/day4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day4.pl:15:
-tatut_aoc2023-prolog/day5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 tatut_aoc2023-prolog/day7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: day7.pl:1:
-tatut_aoc2023-prolog/day8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-tatut_aoc2023-prolog/day9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 tatut_aoc2023-prolog/grid.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 tatut_aoc2023-prolog/util.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 tdidriksen_adventofcode2019/dec1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1814,7 +1658,7 @@ undercertainty_advent-of-code-2025/day_09_2025.pl: NO-OUTPUT: nothing on standar
 undercertainty_advent-of-code-2025/day_10_2025.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 undercertainty_advent-of-code-2025/day_11_2025.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 undercertainty_advent-of-code-2025/day_12_2025.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-vbergeron_aoc-2025/day1.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+vbergeron_aoc-2025/day1.prolog: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals open/3: Arguments are not sufficiently instantiated
 vbergeron_aoc-2025/day2.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 vbergeron_aoc-2025/day3.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 vbergeron_aoc-2025/day4.prolog: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
@@ -1828,9 +1672,9 @@ waisbrot_advent-of-code-solutions/prolog/day3.pl: NO-OUTPUT: nothing on standard
 waisbrot_advent-of-code-solutions/prolog/day4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 waisbrot_advent-of-code-solutions/prolog/day5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 wspcgir_advent-of-code-2025/problem-01-solution.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem-01-solution.pl:2:
-ximonsson_advent-of-code/2020/01/one.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-ximonsson_advent-of-code/2020/02/two.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
-ximonsson_advent-of-code/2020/03/three.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+ximonsson_advent-of-code/2020/01/one.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals read_report/1: Unknown procedure: read_token/1
+ximonsson_advent-of-code/2020/02/two.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals read_pwd/4: Unknown procedure: read_token/1
+ximonsson_advent-of-code/2020/03/three.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals read_row/1: Unknown procedure: read_token/1
 ximonsson_advent-of-code/2022/01/main.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 z5h_aoc-2025/d01.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
 z5h_aoc-2025/d02.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same

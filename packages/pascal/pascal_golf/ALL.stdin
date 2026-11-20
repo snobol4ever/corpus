@@ -5,7 +5,6 @@ apple_lines/uru_1230978972	apple_lines/input.txt
 baker_problem/mugi666_1216183166	baker_problem/input.txt
 baker_problem/uru_1227793596	baker_problem/input.txt
 box_world/uru_1258282690	box_world/input.txt
-Calculator/pooq_1232360073	Calculator/input.txt
 checkers_pattern/uru_1251371981	checkers_pattern/input.txt
 checkers_pattern/yt_1203909574	checkers_pattern/input.txt
 Check_for_brainwave_activity/TAKO_2Fj0nKI_1269967873	Check_for_brainwave_activity/input.txt
@@ -29,7 +28,6 @@ ieee754/yt_1189492580	ieee754/input.txt
 Interpret_Perl_Code/inaniwa_1274171482	Interpret_Perl_Code/input.txt
 join_lines/planque_1175493356	join_lines/input.txt
 Levenshtein_Distance/2Ayuko_2A_1269949459	Levenshtein_Distance/input.txt
-Levenshtein_Distance/gnibbler_1269934420	Levenshtein_Distance/input.txt
 Looped_grid/BioFALSE_1410078812	Looped_grid/input.txt
 Magic_square/uru_1272376730	Magic_square/input.txt
 MRMCD12_deutsche_zahlen/the_nihilant_1347279336	MRMCD12_deutsche_zahlen/input.txt
@@ -37,7 +35,6 @@ MRMCD12_every_other_char/the_nihilant_1347097467	MRMCD12_every_other_char/input.
 No/Joon_Yorigami_1728184878	No/input.txt
 NOT_gate/666_1196171965	NOT_gate/input.txt
 NOT_gate/tabasa_1193993075	NOT_gate/input.txt
-NOT_gate/uru_1228596297	NOT_gate/input.txt
 Nothing/666_1196170817	Nothing/input.txt
 Nothing/BioFALSE_1359476359	Nothing/input.txt
 Nothing/kt3k_1195588777	Nothing/input.txt
@@ -60,5 +57,4 @@ Table_of_divisors/sky_1213854883	Table_of_divisors/input.txt
 Table_of_divisors/uru_1230883654	Table_of_divisors/input.txt
 Transpose/uru_1244300513	Transpose/input.txt
 Underload_interpreter/uru_1247151133	Underload_interpreter/input.txt
-Walk_the_line/uru_1247320295	Walk_the_line/input.txt
 Yes/BioFALSE_1359472720	Yes/input.txt

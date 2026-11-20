@@ -24,3 +24,21 @@ program the census left out, with its reason), `EXCLUDED.tsv` and `PARTITION.tsv
 entries fpc answers otherwise out of the index. The oracle's standard error was not recorded for this package (the telemetry table of the
 newer packages, `ORACLE.tsv`, is made for Prolog launches only so far); its exit status is `want_rc`, 0 for all 896. No SCRIP reading was
 taken at the cut (Lon 2026-11-14: host the container with the oracle's answers now, the grading comes later); the cycle grades it.
+
+## The re-cut with GNU Pascal (the grader 2026-11-20)
+
+Lon, in the grader's window: "Yes, build gpc and cut a sample" / "keep on cutting, grading, and scoring." GNU Pascal, the compiler these tests were written for,
+is the second Pascal oracle (gpc 20070904 on gcc-3.4.6, built on this box: /home/packages/pascal/gpc-20070904/BUILD.md; skill pascal section 1), asked as the last
+rung of the ladder (`--mine-dialects iso,fpc,objfpc,delphi,tp,gpc`), only for a program fpc compiles in no mode. Its entries carry the dialect cell `gpc`.
+
+| | |
+|---|---|
+| programs the census read | 3921 |
+| rows | 3201: gpc 2296, iso 708, fpc 169, delphi 13, objfpc 10, tp 5 (gpc_own_check.py, the counts after the 142 below left the index) |
+| left the index, not the test's own answer | 142 (`NOT-ITS-OWN-ANSWER` in ALL.omit, NO_ORACLE_ANSWER in EXCLUDED.tsv): fpc 127, gpc 15 |
+| refused by both oracles | 165 |
+| owed | 22 NEEDS-INPUT and 11 NO-OUTPUT, each a stdin or an exit status to rule out first |
+
+The ladder's fpc rungs run first, so every entry cut before is cut as before. A gpc entry reads red on SCRIP until SCRIP reads GNU Pascal (`scrip --dialect=gpc`
+is refused today): a row owed to the Pascal front end. The proof of the cut: /home/resources/progress/handoffs/grader-2026-11-20 (gpc_recut.sh, gpc_tests_cut.log,
+gpc_own_check.py, gpc_not_own.tsv).

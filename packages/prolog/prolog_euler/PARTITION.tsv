@@ -1,0 +1,7 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=3 features=1 ubiquitous=1(package) distinctive=0 core=1 clusters=1 chunks=1 sizes=2
+entry	part	cluster	shells
+AVanderHoff_project-euler/prolog/euler1	core	core	
+AVanderHoff_project-euler/prolog/euler2	chunk:01	dir:AVanderHoff_project-euler/prolog	
+AVanderHoff_project-euler/prolog/euler3	chunk:01	dir:AVanderHoff_project-euler/prolog	

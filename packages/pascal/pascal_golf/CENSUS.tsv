@@ -1,540 +1,540 @@
-# the census of /home/packages/pascal/pascal_golf by fpc (fetched 2026-11-18 (619 solutions)), 2026-11-18: path from the root, verdict, note
-0_5_broken_keyboard/McBusLuck_1645048957.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: McBusLuck_1645048957.pas(1,68) Fatal: illegal character "'"'" ($22)
-0_5_broken_keyboard/mrapricot_1658958159.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: mrapricot_1658958159.pas(1,68) Fatal: illegal character "'"'" ($22)
-0_5_broken_keyboard/teebee_1645583114.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1645583114.pas(1,68) Fatal: illegal character "'"'" ($22)
-100/lynn_1531586411.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: lynn_1531586411.pas(1,5) Fatal: Syntax error, "BEGIN" expected but "identifier MAIN" found
-121321/2Ayuko_2A_1319972080.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1319972080.pas(1,14) Error: Illegal expression
+# the census of /home/packages/pascal/pascal_golf by fpc (fetched 2026-11-18 (619 solutions)), 2026-11-20: path from the root, verdict, note
+0_5_broken_keyboard/McBusLuck_1645048957.pas	ENTRY	
+0_5_broken_keyboard/mrapricot_1658958159.pas	ENTRY	
+0_5_broken_keyboard/teebee_1645583114.pas	ENTRY	
+100/lynn_1531586411.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: lynn_1531586411.pas:1: error: syntax error before `main'
+121321/2Ayuko_2A_1319972080.pas	NEEDS-INPUT	its answer changes with what standard input holds
 123/ozy4dm_1179837464.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 11 and 11 bytes
-128_bits/scottg_1178313234.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: scottg_1178313234.pas(1,32) Fatal: Syntax error, ";" expected but "=" found
-128_bits/uru_1272505920.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1272505920.pas(3,9) Error: Illegal char constant
-196_algorithm/uru_1262111141.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1262111141.pas(2,13) Error: Ordinal expression expected
-257/2Ayuko_2A_1318162767.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1318162767.pas(1,1) Error: Illegal char constant
-257/uru_1261149977.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1261149977.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
-27c3_Generate_C/2Ayuko_2A_1293508176.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1293508176.pas(1,34) Error: Ordinal expression expected
-32_div_0/nooodl_1429658543.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: nooodl_1429658543.pas(1,13) Fatal: illegal character "'"'" ($22)
-32bit_integer/2Ayuko_2A_1302346217.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1302346217.pas(1,15) Fatal: Syntax error, ")" expected but "identifier POW" found
-32bit_integer/uru_1302355947.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1302355947.pas(2,16) Fatal: illegal character "'"'" ($22)
-369/uru_1263389641.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1263389641.pas(3,45) Fatal: Syntax error, ")" expected but "identifier POW" found
-4_in_3/uru_1228723685.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1228723685.pas(1,69) Fatal: illegal character "'n'" ($6E)
-6N_plus_minus_one/teebee_1353156527.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1353156527.pas(1,43) Fatal: illegal character "'"'" ($22)
-6N_plus_minus_one/uru_1353158541.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1353158541.pas(3,38) Fatal: illegal character "'"'" ($22)
+128_bits/scottg_1178313234.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: scottg_1178313234.pas:1: warning: missing string capacity -- assuming 255
+128_bits/uru_1272505920.pas	ENTRY	
+196_algorithm/uru_1262111141.pas	ENTRY	
+257/2Ayuko_2A_1318162767.pas	ENTRY	
+257/uru_1261149977.pas	ENTRY	
+27c3_Generate_C/2Ayuko_2A_1293508176.pas	NEEDS-INPUT	its answer changes with what standard input holds
+32_div_0/nooodl_1429658543.pas	ENTRY	
+32bit_integer/2Ayuko_2A_1302346217.pas	ENTRY	
+32bit_integer/uru_1302355947.pas	ENTRY	
+369/uru_1263389641.pas	ENTRY	
+4_in_3/uru_1228723685.pas	NEEDS-INPUT	its answer changes with what standard input holds
+6N_plus_minus_one/teebee_1353156527.pas	NEEDS-INPUT	its answer changes with what standard input holds
+6N_plus_minus_one/uru_1353158541.pas	NEEDS-INPUT	its answer changes with what standard input holds
 A000217/teebee_1413138739.pas	ENTRY	
-ABBA/2Ayuko_2A_1319559416.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1319559416.pas(1,13) Fatal: illegal character "'"'" ($22)
-ABBA/dcutter_1319657617.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: dcutter_1319657617.pas(1,13) Fatal: illegal character "'"'" ($22)
-ABBA/teebee_1319883030.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1319883030.pas(1,13) Fatal: String exceeds line
-ABBA2/2Ayuko_2A_1319901269.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1319901269.pas(1,18) Fatal: illegal character "'"'" ($22)
-ABC/2Ayuko_2A_1332331077.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1332331077.pas(2,18) Fatal: Syntax error, "TO" expected but "identifier SPAN" found
-ABC/uru_1332337133.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1332337133.pas(3,1) Error: Illegal expression
-ALPHA_ASCII/2Ayuko_2A_1313052071.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1313052071.pas(1,69) Fatal: illegal character "'n'" ($6E)
-ALPHA_ASCII/uru_1313065671.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1313065671.pas(3,45) Fatal: illegal character "'n'" ($6E)
-ASCII_Stars/uru_1232779217.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1232779217.pas(2,13) Error: Ordinal expression expected
-ASCII_Table/uru_1279454217.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1279454217.pas(2,26) Fatal: illegal character "'"'" ($22)
+ABBA/2Ayuko_2A_1319559416.pas	ENTRY	
+ABBA/dcutter_1319657617.pas	ENTRY	
+ABBA/teebee_1319883030.pas	ENTRY	
+ABBA2/2Ayuko_2A_1319901269.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 10 and 13 bytes
+ABC/2Ayuko_2A_1332331077.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1332331077.pas:1: warning: missing program header
+ABC/uru_1332337133.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1332337133.pas:1: warning: missing program header
+ALPHA_ASCII/2Ayuko_2A_1313052071.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.suh1KthuRn/2Ayuko_2A_1313052071: attempt to read past end of Input (error #454 at 40389d)
+ALPHA_ASCII/uru_1313065671.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.WBUbi0FQVH/uru_1313065671: attempt to read past end of Input (error #454 at 40389d)
+ASCII_Stars/uru_1232779217.pas	NEEDS-INPUT	its answer changes with what standard input holds
+ASCII_Table/uru_1279454217.pas	ENTRY	
 ASCII_Table/uru_1279795636.pas	ENTRY	
-ASCII_value_even_or_odd/2Ayuko_2A_1330869175.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1330869175.pas(2,18) Fatal: illegal character "'"'" ($22)
-ASCII_value_even_or_odd/teebee_1330999403.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1330999403.pas(1,42) Fatal: illegal character "'"'" ($22)
-ASCII_value_even_or_odd/uru_1330750459.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1330750459.pas(3,1) Error: Illegal expression
-A_plus_B_plus_C/lynn_1531579254.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: lynn_1531579254.pas(1,13) Fatal: illegal character "'"'" ($22)
+ASCII_value_even_or_odd/2Ayuko_2A_1330869175.pas	NEEDS-INPUT	its answer changes with what standard input holds
+ASCII_value_even_or_odd/teebee_1330999403.pas	NEEDS-INPUT	its answer changes with what standard input holds
+ASCII_value_even_or_odd/uru_1330750459.pas	NEEDS-INPUT	its answer changes with what standard input holds
+A_plus_B_plus_C/lynn_1531579254.pas	ENTRY	
 Alnum_challenge/uru_1225464295.pas	ENTRY	
 Alnum_challenge/uru_1256528026.pas	ENTRY	
-Alphabet/2Ayuko_2A_1327229409.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1327229409.pas(1,13) Fatal: illegal character "'"'" ($22)
-Alphabet_texture/uru_1342694127.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1342694127.pas(2,5) Error: Ordinal expression expected
-Angle_difference/teebee_1543166665.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1543166665.pas(1,7) Error: Illegal expression
-Another_Table/uru_1279629049.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1279629049.pas(1,9) Fatal: String exceeds line
-Ascii_decode/uru_1289017718.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1289017718.pas(1,31) Fatal: illegal character "'"'" ($22)
-Average_Character/2Ayuko_2A_1323689057.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1323689057.pas(1,118) Fatal: illegal character "'n'" ($6E)
-Average_Character/uru_1323615799.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1323615799.pas(3,83) Fatal: illegal character "'n'" ($6E)
+Alphabet/2Ayuko_2A_1327229409.pas	ENTRY	
+Alphabet_texture/uru_1342694127.pas	ENTRY	
+Angle_difference/teebee_1543166665.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Another_Table/uru_1279629049.pas	ENTRY	
+Ascii_decode/uru_1289017718.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 29 and 12 bytes
+Average_Character/2Ayuko_2A_1323689057.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Average_Character/uru_1323615799.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Avogadro/fuzzylojik_1767207464.pas	ENTRY	
 Avogadro/teebee_1767218569.pas	ENTRY	
-Bankers_rounding/2Ayuko_2A_1304234993.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1304234993.pas(1,78) Fatal: illegal character "'n'" ($6E)
-Basic_Code_Golf/2Ayuko_2A_1306553651.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1306553651.pas(1,89) Fatal: illegal character "'n'" ($6E)
-Basic_Code_Golf/uru_1306417788.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1306417788.pas(3,44) Fatal: illegal character "'|'" ($7C)
-Bezier_Curve/2Ayuko_2A_1329479190.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1329479190.pas(1,1) Error: Illegal char constant
+Bankers_rounding/2Ayuko_2A_1304234993.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Basic_Code_Golf/2Ayuko_2A_1306553651.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Basic_Code_Golf/uru_1306417788.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Bezier_Curve/2Ayuko_2A_1329479190.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.NcxNfGRQZu/2Ayuko_2A_1329479190: attempt to read past end of Input (error #454 at 403a7f)
 Big_Number/2Ayuko_2A_1270380187.pas	DOES-NOT-END	its output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) inside 30 s and the run was killed -- no answer
 Big_Number/Hex_1270416061.pas	ENTRY	
 Big_Number/dcutter_1270650340.pas	DOES-NOT-END	its output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) inside 30 s and the run was killed -- no answer
-Big_Number/uru_1270295956.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1270295956.pas(2,28) Fatal: illegal character "'"'" ($22)
-Big_primes/2Ayuko_2A_1303556994.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1303556994.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Big_primes/2Ayuko_2A_1389620228.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1389620228.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Big_primes/teebee_28_2Ayuko_2A_29_1389662469.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_28_2Ayuko_2A_29_1389662469.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Bigger_Number/2Ayuko_2A_1270467935.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1270467935.pas(1,11) Fatal: Syntax error, ";" expected but "=" found
-Bigger_power_of_two/uru_1288869457.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1288869457.pas(3,49) Fatal: illegal character "'n'" ($6E)
-Biggest_Number/2Ayuko_2A_1270507116.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1270507116.pas(1,13) Fatal: illegal character "'"'" ($22)
-Biggest_Number/dcutter_1270740990.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: dcutter_1270740990.pas(1,13) Fatal: illegal character "'"'" ($22)
-Biggest_Number/uru_1270469767.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1270469767.pas(1,13) Fatal: illegal character "'"'" ($22)
+Big_Number/uru_1270295956.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1270295956.pas:1: warning: missing program header
+Big_primes/2Ayuko_2A_1303556994.pas	ENTRY	
+Big_primes/2Ayuko_2A_1389620228.pas	ENTRY	
+Big_primes/teebee_28_2Ayuko_2A_29_1389662469.pas	ENTRY	
+Bigger_Number/2Ayuko_2A_1270467935.pas	ENTRY	
+Bigger_power_of_two/uru_1288869457.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Biggest_Number/2Ayuko_2A_1270507116.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1270507116.pas:1: warning: missing program header
+Biggest_Number/dcutter_1270740990.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: dcutter_1270740990.pas:1: warning: missing program header
+Biggest_Number/uru_1270469767.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1270469767.pas:1: warning: missing program header
 Binary_Multiplication/uru_1231245701.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 8 and 8 bytes
-Boolean/2Ayuko_2A_1301846598.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1301846598.pas(1,18) Fatal: illegal character "'"'" ($22)
-Buffalo/2Ayuko_2A_1265375059.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1265375059.pas(1,9) Fatal: illegal character "'"'" ($22)
-Buffalo/pooq_1265369930.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1265369930.pas(1,9) Fatal: illegal character "'"'" ($22)
-Buffalo/uru_1265462431.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1265462431.pas(1,9) Fatal: illegal character "'"'" ($22)
-CGA_Palette/2Ayuko_2A_1314409029.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1314409029.pas(1,13) Fatal: illegal character "'"'" ($22)
-C_Quine/pooq_1570946014.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1570946014.pas(1,13) Fatal: illegal character "'"'" ($22)
-C_style_constants/2Ayuko_2A_1283936995.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1283936995.pas(1,51) Fatal: illegal character "'"'" ($22)
-C_style_constants/uru_1284263632.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1284263632.pas(3,13) Fatal: illegal character "'"'" ($22)
-Calculator/pooq_1232360073.pas	ENTRY	standard input is the collection's Calculator/input.txt
-Calculator/uru_1232724199.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 11 and 12 bytes
-Cancel_fractions/2Ayuko_2A_1284536998.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1284536998.pas(2,31) Error: Identifier not found "stringof"
-Cancel_fractions/2Ayuko_2A_1393677864.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393677864.pas(1,105) Error: Identifier not found "stringof"
-Cancel_fractions/uru_1284987645.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1284987645.pas(3,115) Fatal: illegal character "'n'" ($6E)
-Carriage_no_return/uru_1278765122.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1278765122.pas(3,46) Fatal: illegal character "'n'" ($6E)
-Central_binomial_coefficient/2Ayuko_2A_1303219670.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1303219670.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Central_binomial_coefficient_2/2Ayuko_2A_1303480617.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1303480617.pas(1,51) Error: Ordinal expression expected
-Character_distance/2Ayuko_2A_1294565918.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1294565918.pas(1,100) Fatal: illegal character "'"'" ($22)
-Check_for_brainwave_activity/2Ayuko_2A_1271010254.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1271010254.pas(1,13) Fatal: illegal character "'"'" ($22)
+Boolean/2Ayuko_2A_1301846598.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 4 and 5 bytes
+Buffalo/2Ayuko_2A_1265375059.pas	ENTRY	
+Buffalo/pooq_1265369930.pas	ENTRY	
+Buffalo/uru_1265462431.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1265462431.pas:1: warning: missing program header
+CGA_Palette/2Ayuko_2A_1314409029.pas	ENTRY	
+C_Quine/pooq_1570946014.pas	ENTRY	
+C_style_constants/2Ayuko_2A_1283936995.pas	NEEDS-INPUT	its answer changes with what standard input holds
+C_style_constants/uru_1284263632.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Calculator/pooq_1232360073.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 11 and 11 bytes
+Calculator/uru_1232724199.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 12 and 11 bytes
+Cancel_fractions/2Ayuko_2A_1284536998.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Cancel_fractions/2Ayuko_2A_1393677864.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Cancel_fractions/uru_1284987645.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Carriage_no_return/uru_1278765122.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Central_binomial_coefficient/2Ayuko_2A_1303219670.pas	ENTRY	
+Central_binomial_coefficient_2/2Ayuko_2A_1303480617.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Character_distance/2Ayuko_2A_1294565918.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.HOcoeAJPMN/2Ayuko_2A_1294565918: value out of range (error #300 at 403a06)
+Check_for_brainwave_activity/2Ayuko_2A_1271010254.pas	ENTRY	
 Check_for_brainwave_activity/TAKO_2Fj0nKI_1269967873.pas	ENTRY	standard input is the collection's Check_for_brainwave_activity/input.txt
-Check_for_brainwave_activity/uru_1269866667.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1269866667.pas(1,13) Fatal: illegal character "'"'" ($22)
-Christmas_tree/uru_1291689867.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1291689867.pas(1,22) Fatal: Syntax error, ";" expected but "=" found
-Circle_radius/2Ayuko_2A_1296050344.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1296050344.pas(1,74) Fatal: illegal character "'n'" ($6E)
-Circle_radius/uru_1296274457.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1296274457.pas(3,1) Error: Illegal expression
-Circumference_of_circle/2Ayuko_2A_1299346186.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1299346186.pas(1,68) Fatal: illegal character "'n'" ($6E)
-Circumference_of_circle/teebee_1299431902.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1299431902.pas(3,44) Fatal: illegal character "'n'" ($6E)
-Coasters/uru_1277904406.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1277904406.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
-Collatz_Problem/2Ayuko_2A_1268787959.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1268787959.pas(1,84) Fatal: illegal character "'n'" ($6E)
-Collatz_Problem/pooq_1268571672.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1268571672.pas(1,51) Error: Operator is not overloaded: "Comp" mod "ShortInt"
-Collatz_Problem/uru_1268827060.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1268827060.pas(3,35) Error: Illegal expression
-Comparing_two_numbers/uru_1291427271.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1291427271.pas(3,22) Fatal: illegal character "'"'" ($22)
+Check_for_brainwave_activity/uru_1269866667.pas	ENTRY	
+Christmas_tree/uru_1291689867.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Circle_radius/2Ayuko_2A_1296050344.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Circle_radius/uru_1296274457.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Circumference_of_circle/2Ayuko_2A_1299346186.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Circumference_of_circle/teebee_1299431902.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Coasters/uru_1277904406.pas	NO-OUTPUT	nothing on standard output, exit -11; a dead engine would earn the same; stderr: timeout: the monitored command dumped core
+Collatz_Problem/2Ayuko_2A_1268787959.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Collatz_Problem/pooq_1268571672.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Collatz_Problem/uru_1268827060.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Comparing_two_numbers/uru_1291427271.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Compound_interest/pooq_1232881951.pas	ENTRY	standard input is the collection's Compound_interest/input.txt
-Compound_interest/uru_1235311881.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1235311881.pas(1,94) Fatal: illegal character "'n'" ($6E)
-Convert_Radians_to_Degrees/teebee_1460933940.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1460933940.pas(1,63) Fatal: illegal character "'n'" ($6E)
-Convert_to_hex/uru_1333720428.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1333720428.pas(3,12) Fatal: illegal character "'"'" ($22)
+Compound_interest/uru_1235311881.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Convert_Radians_to_Degrees/teebee_1460933940.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Convert_to_hex/uru_1333720428.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Count_asterisks/2Ayuko_2A_1273908342.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 22 and 22 bytes
-Count_asterisks/uru_1274706692.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 22 and 22 bytes
-Count_diamonds_level_1/pooq_1255326311.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1255326311.pas(1,77) Error: Ordinal expression expected
-Count_diamonds_level_1/uru_1255355498.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1255355498.pas(3,1) Error: Illegal expression
-Count_diamonds_level_2/uru_1255359071.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1255359071.pas(4,108) Fatal: illegal character "'n'" ($6E)
-Count_of_circles_in_a_number_aka_2581/2Ayuko_2A_1331959973.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1331959973.pas(2,20) Fatal: illegal character "'"'" ($22)
-Counting_Adventure_10/2Ayuko_2A_1311778752.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1311778752.pas(1,75) Fatal: illegal character "'"'" ($22)
-Counting_Adventure_10/uru_1261059824.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1261059824.pas(3,24) Fatal: illegal character "'"'" ($22)
-Cup_size_magic/2Ayuko_2A_1324775943.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1324775943.pas(2,12) Fatal: illegal character "'"'" ($22)
-Cup_size_magic/2Ayuko_2A_1324776960.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1324776960.pas(1,33) Fatal: illegal character "'"'" ($22)
-Cut_Down_FIXED/2Ayuko_2A_1359131888.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1359131888.pas(1,38) Error: Identifier not found "locase"
-DECimal_number_to_BINary/2Ayuko_2A_1271022421.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1271022421.pas(1,32) Error: Ordinal expression expected
-DECimal_number_to_BINary/uru_1271041841.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1271041841.pas(2,13) Error: Ordinal expression expected
-DECimal_number_to_BINary/uru_1272464494.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1272464494.pas(2,13) Error: Ordinal expression expected
-Day_of_the_Week/2Ayuko_2A_1393680201.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393680201.pas(1,135) Fatal: illegal character "'n'" ($6E)
+Count_asterisks/uru_1274706692.pas	ENTRY	
+Count_diamonds_level_1/pooq_1255326311.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.k2g19DC5y0/pooq_1255326311: attempt to read past end of Input (error #454 at 4038f7)
+Count_diamonds_level_1/uru_1255355498.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.Ad9MIul5f2/uru_1255355498: attempt to read past end of Input (error #454 at 4038c6)
+Count_diamonds_level_2/uru_1255359071.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.wP8Z1LG7tL/uru_1255359071: attempt to read past end of Input (error #454 at 40394f)
+Count_of_circles_in_a_number_aka_2581/2Ayuko_2A_1331959973.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Counting_Adventure_10/2Ayuko_2A_1311778752.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Counting_Adventure_10/uru_1261059824.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Cup_size_magic/2Ayuko_2A_1324775943.pas	ENTRY	
+Cup_size_magic/2Ayuko_2A_1324776960.pas	ENTRY	
+Cut_Down_FIXED/2Ayuko_2A_1359131888.pas	NEEDS-INPUT	its answer changes with what standard input holds
+DECimal_number_to_BINary/2Ayuko_2A_1271022421.pas	NEEDS-INPUT	its answer changes with what standard input holds
+DECimal_number_to_BINary/uru_1271041841.pas	NEEDS-INPUT	its answer changes with what standard input holds
+DECimal_number_to_BINary/uru_1272464494.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Day_of_the_Week/2Ayuko_2A_1393680201.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Day_of_the_Week/uru_1211655168.pas	ENTRY	standard input is the collection's Day_of_the_Week/input.txt
-Day_of_the_Week/uru_1232923817.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1232923817.pas(3,40) Error: Operator is not overloaded: "Comp" div "ShortInt"
-Deadfish/uru_1306072650.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1306072650.pas(1,1) Error: Illegal char constant
-Decode_Caesar_ciphers/2Ayuko_2A_1313752982.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1313752982.pas(1,18) Fatal: Syntax error, ";" expected but "=" found
-Degree_of_Booleans/2Ayuko_2A_1304333653.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1304333653.pas(1,17) Fatal: Syntax error, "]" expected but "identifier POW" found
-Difference_of/2Ayuko_2A_1307897560.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1307897560.pas(1,20) Fatal: Syntax error, ";" expected but "=" found
-Difference_of/uru_1307966645.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1307966645.pas(1,20) Fatal: Syntax error, ";" expected but "=" found
-Digital_root_Fixed/teebee_1340606018.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1340606018.pas(1,7) Error: Illegal expression
-Digital_root_Fixed/uru_1340536338.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1340536338.pas(3,1) Error: Illegal expression
+Day_of_the_Week/uru_1232923817.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Deadfish/uru_1306072650.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.k7Iw4IK6tc/uru_1306072650: attempt to read past end of Input (error #454 at 4038a2)
+Decode_Caesar_ciphers/2Ayuko_2A_1313752982.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Degree_of_Booleans/2Ayuko_2A_1304333653.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Difference_of/2Ayuko_2A_1307897560.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Difference_of/uru_1307966645.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Digital_root_Fixed/teebee_1340606018.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Digital_root_Fixed/uru_1340536338.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Directions_of_the_star_road/uru_1241348993.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 60 and 43 bytes
-Divide_section/2Ayuko_2A_1292290661.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1292290661.pas(2,27) Fatal: illegal character "'"'" ($22)
+Divide_section/2Ayuko_2A_1292290661.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Double_quote/2Ayuko_2A_1316948310.pas	ENTRY	standard input is the collection's Double_quote/input.txt
 Double_quote/teebee_1316968157.pas	ENTRY	standard input is the collection's Double_quote/input.txt
-Drop_first_line/2Ayuko_2A_1321821932.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1321821932.pas(1,62) Fatal: illegal character "'n'" ($6E)
+Drop_first_line/2Ayuko_2A_1321821932.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Drop_first_line/BioFALSE_1359489240.pas	ENTRY	standard input is the collection's Drop_first_line/input.txt
 Drop_first_line/mugi666_1204879773.pas	DOES-NOT-END	no answer inside 30 s
 Drop_first_line/uru_1202399175.pas	DOES-NOT-END	no answer inside 30 s
-Drop_first_line/uru_1227793963.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1227793963.pas(1,65) Fatal: illegal character "'n'" ($6E)
-Duplicate_characters/2Ayuko_2A_1321823130.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1321823130.pas(1,14) Error: Illegal expression
+Drop_first_line/uru_1227793963.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Duplicate_characters/2Ayuko_2A_1321823130.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Duplicate_characters/uru_1203086555.pas	DOES-NOT-END	no answer inside 30 s
-Duplicate_characters/uru_1230882940.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1230882940.pas(1,85) Fatal: illegal character "'n'" ($6E)
-Duplicate_characters/yt_1202991596.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: yt_1202991596.pas(1,33) Fatal: illegal character "'"'" ($22)
+Duplicate_characters/uru_1230882940.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Duplicate_characters/yt_1202991596.pas	NEEDS-INPUT	its answer changes with what standard input holds
 EKG_Sequence/2Ayuko_2A_1305464455.pas	DOES-NOT-END	no answer inside 30 s
-Ejection/2Ayuko_2A_1306695415.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1306695415.pas(1,1) Error: Illegal char constant
-Ejection/uru_1306597026.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1306597026.pas(1,1) Error: Illegal char constant
-Ejection_simplified/2Ayuko_2A_1307365197.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1307365197.pas(1,71) Fatal: illegal character "'"'" ($22)
-Equal_Temperament/2Ayuko_2A_1329535428.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1329535428.pas(2,14) Fatal: illegal character "'"'" ($22)
-Equal_Temperament/uru_1329565359.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1329565359.pas(2,30) Fatal: illegal character "'"'" ($22)
+Ejection/2Ayuko_2A_1306695415.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Ejection/uru_1306597026.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Ejection_simplified/2Ayuko_2A_1307365197.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.2d1XiQvLKD/2Ayuko_2A_1307365197: value out of range (error #300 at 403a0f)
+Equal_Temperament/2Ayuko_2A_1329535428.pas	ENTRY	
+Equal_Temperament/uru_1329565359.pas	ENTRY	
 Error/uru_1226999120.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Runtime error 0 at $00000000004010A5
 Error/yt_1226991219.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
-Error_result/lynn_1531578670.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: lynn_1531578670.pas(1,6) Fatal: Syntax error, "BEGIN" expected but "identifier CLASS" found
-Euclids_orchard/2Ayuko_2A_1318940440.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1318940440.pas(3,15) Fatal: illegal character "'"'" ($22)
-Excess3/2Ayuko_2A_1310478235.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1310478235.pas(1,118) Fatal: illegal character "'n'" ($6E)
-Excess3/uru_1310829415.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1310829415.pas(3,38) Error: Ordinal expression expected
-Expression_for_appreciation/pooq_1249907828.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1249907828.pas(1,93) Fatal: illegal character "'n'" ($6E)
-Expression_for_appreciation/uru_1250331506.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1250331506.pas(2,27) Error: Operator is not overloaded: "ShortInt" ** "Word"
-FF_PP_ZZ/uru_1235317930.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1235317930.pas(2,13) Error: Ordinal expression expected
-Face_mark/2Ayuko_2A_1299864631.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1299864631.pas(1,1) Error: Illegal char constant
-Factoradic_Counter/2Ayuko_2A_1314183844.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1314183844.pas(2,30) Fatal: Syntax error, ";" expected but "identifier POW" found
-Factoradic_Counter/uru_1314459591.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1314459591.pas(1,1) Error: Illegal char constant
-Factoradic_Decoder/2Ayuko_2A_1314636147.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1314636147.pas(1,14) Error: Illegal expression
-Factoradic_Decoder/uru_1314536997.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1314536997.pas(3,1) Error: Illegal expression
-Factoradic_Encoder/2Ayuko_2A_1314609750.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1314609750.pas(1,14) Error: Illegal expression
-Factoradic_Encoder/uru_1314602631.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1314602631.pas(3,1) Error: Illegal expression
-Factorial/2Ayuko_2A_1393678455.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393678455.pas(1,67) Error: Incompatible types: got "Comp" expected "Byte"
-Factorial1000/2Ayuko_2A_1332840664.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1332840664.pas(1,1) Error: Illegal char constant
-Factorization_corrected/2Ayuko_2A_1274582729.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1274582729.pas(1,90) Fatal: illegal character "'n'" ($6E)
-Factorization_corrected/uru_1274584804.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1274584804.pas(3,1) Error: Illegal expression
-Factorize_me/2Ayuko_2A_1302424285.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1302424285.pas(1,14) Error: Illegal expression
-Factorize_me/2Ayuko_2A_1394273043.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1394273043.pas(1,14) Error: Illegal expression
-Farey_sequence/2Ayuko_2A_1301931794.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1301931794.pas(1,7) Error: Illegal expression
-Farey_sequence/2Ayuko_2A_1308752838.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1308752838.pas(1,61) Fatal: illegal character "'"'" ($22)
-Fifth_Identity/2Ayuko_2A_1308334543.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1308334543.pas(1,13) Fatal: illegal character "'"'" ($22)
-Fifth_Identity/teebee_1308278827.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1308278827.pas(1,13) Fatal: illegal character "'"'" ($22)
-Fifth_Identity/uru_1308283977.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1308283977.pas(2,7) Fatal: illegal character "'"'" ($22)
-Fill_in_the_blanks/uru_1352528863.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1352528863.pas(3,61) Error: Identifier not found "max"
-Four_Number_Game/2Ayuko_2A_1328303732.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1328303732.pas(1,1) Error: Illegal char constant
-Four_Number_Game/uru_1328356693.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1328356693.pas(4,105) Fatal: illegal character "'n'" ($6E)
-Four_Number_Game/uru_28_2Ayuko_2A_29_1328407267.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_28_2Ayuko_2A_29_1328407267.pas(1,1) Error: Illegal char constant
+Error_result/lynn_1531578670.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: lynn_1531578670.pas:1: warning: missing program header
+Euclids_orchard/2Ayuko_2A_1318940440.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Excess3/2Ayuko_2A_1310478235.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Excess3/uru_1310829415.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Expression_for_appreciation/pooq_1249907828.pas	ENTRY	
+Expression_for_appreciation/uru_1250331506.pas	ENTRY	
+FF_PP_ZZ/uru_1235317930.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Face_mark/2Ayuko_2A_1299864631.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Factoradic_Counter/2Ayuko_2A_1314183844.pas	ENTRY	
+Factoradic_Counter/uru_1314459591.pas	ENTRY	
+Factoradic_Decoder/2Ayuko_2A_1314636147.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Factoradic_Decoder/uru_1314536997.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Factoradic_Encoder/2Ayuko_2A_1314609750.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Factoradic_Encoder/uru_1314602631.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Factorial/2Ayuko_2A_1393678455.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Factorial1000/2Ayuko_2A_1332840664.pas	ENTRY	
+Factorization_corrected/2Ayuko_2A_1274582729.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.mPcRFlFHJi/2Ayuko_2A_1274582729: attempt to read past end of Input (error #454 at 403a06)
+Factorization_corrected/uru_1274584804.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Factorize_me/2Ayuko_2A_1302424285.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1302424285.pas:1: warning: missing program header
+Factorize_me/2Ayuko_2A_1394273043.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1394273043.pas:1: warning: missing program header
+Farey_sequence/2Ayuko_2A_1301931794.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Farey_sequence/2Ayuko_2A_1308752838.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Fifth_Identity/2Ayuko_2A_1308334543.pas	ENTRY	
+Fifth_Identity/teebee_1308278827.pas	ENTRY	
+Fifth_Identity/uru_1308283977.pas	ENTRY	
+Fill_in_the_blanks/uru_1352528863.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Four_Number_Game/2Ayuko_2A_1328303732.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.s6Swc9Vot0/2Ayuko_2A_1328303732: attempt to read past end of Input (error #454 at 403a0a)
+Four_Number_Game/uru_1328356693.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.FrKzWzDpEy/uru_1328356693: attempt to read past end of Input (error #454 at 403a0a)
+Four_Number_Game/uru_28_2Ayuko_2A_29_1328407267.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.68ObPOuaCU/uru_28_2Ayuko_2A_29_1328407267: attempt to read past end of Input (error #454 at 403a16)
 GCD_of_1_to_n/uru_1226067367.pas	ENTRY	standard input is the collection's GCD_of_1_to_n/input.txt
-GCD_of_1_to_n/uru_1227797555.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1227797555.pas(1,13) Fatal: String exceeds line
-Ghost_leg_solver/2Ayuko_2A_1271118101.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1271118101.pas(1,82) Fatal: illegal character "'"'" ($22)
-Ghost_leg_solver/2Ayuko_2A_1271715843.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1271715843.pas(1,68) Fatal: illegal character "'"'" ($22)
+GCD_of_1_to_n/uru_1227797555.pas	ENTRY	
+Ghost_leg_solver/2Ayuko_2A_1271118101.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Ghost_leg_solver/2Ayuko_2A_1271715843.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 10 and 10 bytes
 Go_capture/sky_1213934272.pas	ENTRY	standard input is the collection's Go_capture/input.txt
-Goldbach_partition/2Ayuko_2A_1318092633.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1318092633.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Goldbach_partition/uru_1248944625.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1248944625.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
-Golf_ball_pyramid/teebee_1334194672.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1334194672.pas(1,95) Fatal: illegal character "'n'" ($6E)
-Googol_division/2Ayuko_2A_1280745770.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1280745770.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
+Goldbach_partition/2Ayuko_2A_1318092633.pas	ENTRY	stderr not graded: /tmp/s4e/grader/tmp.7XqILPGI4o/2Ayuko_2A_1318092633: value out of range (error #300 at 403a4b)
+Goldbach_partition/uru_1248944625.pas	ENTRY	
+Golf_ball_pyramid/teebee_1334194672.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Googol_division/2Ayuko_2A_1280745770.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Gray_code/uru_1244290534.pas	ENTRY	standard input is the collection's Gray_code/input.txt
-Greeting_Animals/2Ayuko_2A_1307183351.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1307183351.pas(2,30) Fatal: illegal character "'"'" ($22)
-Half_Sierpinski/2Ayuko_2A_1271751794.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1271751794.pas(1,24) Error: Ordinal expression expected
-Half_Sierpinski/dcutter_1271669058.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: dcutter_1271669058.pas(1,7) Error: Illegal expression
-Heavy_Rotation/uru_1295795153.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1295795153.pas(1,1) Error: Illegal char constant
-Hello_OCaml/2Ayuko_2A_1271064453.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1271064453.pas(1,13) Fatal: illegal character "'"'" ($22)
+Greeting_Animals/2Ayuko_2A_1307183351.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1307183351.pas:1: warning: missing program header
+Half_Sierpinski/2Ayuko_2A_1271751794.pas	ENTRY	
+Half_Sierpinski/dcutter_1271669058.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: dcutter_1271669058.pas:1: warning: missing program header
+Heavy_Rotation/uru_1295795153.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.zgUz0X8Vpz/uru_1295795153: attempt to read past end of Input (error #454 at 403ded)
+Hello_OCaml/2Ayuko_2A_1271064453.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1271064453.pas:1: warning: missing program header
 Hello_broken_keyboard/McBusLuck_1603559333.pas	ENTRY	
-Hello_broken_keyboard/clock_1346656000.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: clock_1346656000.pas(1,18) Fatal: illegal character "'"'" ($22)
+Hello_broken_keyboard/clock_1346656000.pas	ENTRY	
 Hello_broken_keyboard/teebee_1346964755.pas	ENTRY	
 Hello_broken_keyboard/test_1346302772.pas	ENTRY	
 Hello_broken_keyboard/uru_1346508903.pas	ENTRY	
 Hello_broken_keyboard/youknowone_1346508346.pas	ENTRY	
 Hello_broken_keyboard/yt_1346437651.pas	ENTRY	
-Hello_transposable_world/2520_1426020437.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2520_1426020437.pas(9,1) Fatal: Syntax error, ")" expected but "const string" found
+Hello_transposable_world/2520_1426020437.pas	ENTRY	
 Hello_transposable_world/ikegami_1425611729.pas	ENTRY	
-Helloworldless_Hello_world/uru_1238753335.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1238753335.pas(1,15) Fatal: Syntax error, ")" expected but "identifier SPAN" found
-Hypotenuse_length/teebee_1463385067.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1463385067.pas(1,7) Error: Illegal expression
-IPv6_Compress/2Ayuko_2A_1271069170.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1271069170.pas(1,18) Fatal: illegal character "'"'" ($22)
-IPv6_prefix_representation/2Ayuko_2A_1323283979.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1323283979.pas(1,40) Fatal: illegal character "'"'" ($22)
-IQ_Test/2Ayuko_2A_1311949576.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1311949576.pas(1,1) Error: Illegal char constant
-IQ_Test/uru_1312060765.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1312060765.pas(3,21) Error: Illegal expression
-Increasing_Split/uru_1344739804.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1344739804.pas(6,45) Fatal: illegal character "'n'" ($6E)
-Instant_sudoku_maker/2Ayuko_2A_1304802326.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1304802326.pas(1,40) Fatal: illegal character "'"'" ($22)
-Instant_sudoku_maker/uru_1304824640.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1304824640.pas(3,16) Fatal: illegal character "'"'" ($22)
-Integer_Ranges/2Ayuko_2A_1304070914.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1304070914.pas(1,37) Fatal: Syntax error, "UNTIL" expected but "identifier POW" found
-Interpret_Perl_Code/dcutter_1273762871.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: dcutter_1273762871.pas(1,13) Fatal: illegal character "'"'" ($22)
+Helloworldless_Hello_world/uru_1238753335.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1238753335.pas:1: warning: missing program header
+Hypotenuse_length/teebee_1463385067.pas	NEEDS-INPUT	its answer changes with what standard input holds
+IPv6_Compress/2Ayuko_2A_1271069170.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 27 and 27 bytes
+IPv6_prefix_representation/2Ayuko_2A_1323283979.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.MHzuDQ3Q4D/2Ayuko_2A_1323283979: value out of range (error #300 at 403bc2)
+IQ_Test/2Ayuko_2A_1311949576.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.aOFjpDsjb9/2Ayuko_2A_1311949576: attempt to read past end of Input (error #454 at 403eb6)
+IQ_Test/uru_1312060765.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.y13lFnIhm8/uru_1312060765: attempt to read past end of Input (error #454 at 403ba0)
+Increasing_Split/uru_1344739804.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Instant_sudoku_maker/2Ayuko_2A_1304802326.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Instant_sudoku_maker/uru_1304824640.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Integer_Ranges/2Ayuko_2A_1304070914.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Interpret_Perl_Code/dcutter_1273762871.pas	ENTRY	
 Interpret_Perl_Code/inaniwa_1274171482.pas	ENTRY	standard input is the collection's Interpret_Perl_Code/input.txt
-Inverse_problem/pooq_1232922986.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232922986.pas(1,72) Fatal: illegal character "'n'" ($6E)
-Inverse_problem/uru_1246536492.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1246536492.pas(1,71) Fatal: illegal character "'n'" ($6E)
-Joshephus_or_MamakoDate_Sequence_EASY/uru_1309440411.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1309440411.pas(3,15) Error: Ordinal expression expected
-Kolakoski_Sequence/2Ayuko_2A_1359563563.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1359563563.pas(1,116) Fatal: illegal character "'n'" ($6E)
-LASTDIGIT2_fixed_and_remixed/2Ayuko_2A_1303212285.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1303212285.pas(1,13) Fatal: Syntax error, ";" expected but "(" found
-LCM_of_1_to_n/uru_1227797438.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1227797438.pas(1,13) Fatal: String exceeds line
-LED_information_board/uru_1257682607.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1257682607.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-LED_information_board/uru_1259415363.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1259415363.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-Ladder_corner_problem/2Ayuko_2A_1331914495.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1331914495.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
-Ladder_corner_problem/uru_1331962297.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1331962297.pas(3,1) Error: Illegal expression
-Langtons_Ant/2Ayuko_2A_1300209788.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1300209788.pas(1,1) Error: Illegal char constant
-Langtons_Ant/uru_1298099326.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1298099326.pas(3,6) Error: Incompatible types: got "Comp" expected "ShortInt"
-Late_Christmas_tree/2Ayuko_2A_1294252517.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1294252517.pas(2,5) Fatal: Syntax error, ";" expected but "=" found
+Inverse_problem/pooq_1232922986.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Inverse_problem/uru_1246536492.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Joshephus_or_MamakoDate_Sequence_EASY/uru_1309440411.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Kolakoski_Sequence/2Ayuko_2A_1359563563.pas	ENTRY	stderr not graded: /tmp/s4e/grader/tmp.avCINhIK4Y/2Ayuko_2A_1359563563: value out of range (error #300 at 4038c8)
+LASTDIGIT2_fixed_and_remixed/2Ayuko_2A_1303212285.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.kLGsxyTJHK/2Ayuko_2A_1303212285: value out of range (error #300 at 4039de)
+LCM_of_1_to_n/uru_1227797438.pas	ENTRY	
+LED_information_board/uru_1257682607.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.PtVc0AoaUX/uru_1257682607: value out of range (error #300 at 403b24)
+LED_information_board/uru_1259415363.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.q87twUZ9pt/uru_1259415363: value out of range (error #300 at 403b24)
+Ladder_corner_problem/2Ayuko_2A_1331914495.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Ladder_corner_problem/uru_1331962297.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Langtons_Ant/2Ayuko_2A_1300209788.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Langtons_Ant/uru_1298099326.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Late_Christmas_tree/2Ayuko_2A_1294252517.pas	ENTRY	
 Leap_Years_Long/JOrE20_1785516818.pas	ENTRY	
 Levenshtein_Distance/2Ayuko_2A_1269949459.pas	ENTRY	standard input is the collection's Levenshtein_Distance/input.txt
-Levenshtein_Distance/gnibbler_1269934420.pas	ENTRY	standard input is the collection's Levenshtein_Distance/input.txt
-Levenshtein_Distance/uru_1269869668.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1269869668.pas(2,12) Fatal: illegal character "'"'" ($22)
-Life_game/pooq_1232855577.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232855577.pas(2,26) Fatal: String exceeds line
-Linux_words/2Ayuko_2A_1288216044.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1288216044.pas(1,47) Fatal: illegal character "'"'" ($22)
-List_of_numbers_to_factor/2Ayuko_2A_1294642323.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1294642323.pas(2,13) Fatal: illegal character "'"'" ($22)
-Lollipop/uru_1288708579.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1288708579.pas(1,9) Fatal: illegal character "'"'" ($22)
+Levenshtein_Distance/gnibbler_1269934420.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 11 and 11 bytes
+Levenshtein_Distance/uru_1269869668.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 3 and 1 bytes
+Life_game/pooq_1232855577.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Linux_words/2Ayuko_2A_1288216044.pas	ENTRY	
+List_of_numbers_to_factor/2Ayuko_2A_1294642323.pas	ENTRY	stderr not graded: /tmp/s4e/grader/tmp.OZnHXLwwnl/2Ayuko_2A_1294642323: value out of range (error #300 at 403ac4)
+Lollipop/uru_1288708579.pas	ENTRY	
 Looped_grid/BioFALSE_1410078812.pas	ENTRY	standard input is the collection's Looped_grid/input.txt
-Looped_grid/teebee_1410081810.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1410081810.pas(1,7) Error: Illegal expression
-Lucky_numbers/2Ayuko_2A_1303914721.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1303914721.pas(2,7) Error: Identifier not found "max"
-MIDI_note_number_to_frequency/teebee_1464157627.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1464157627.pas(1,49) Error: Operator is not overloaded: "ShortInt" ** "Comp"
+Looped_grid/teebee_1410081810.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Lucky_numbers/2Ayuko_2A_1303914721.pas	ENTRY	
+MIDI_note_number_to_frequency/teebee_1464157627.pas	NEEDS-INPUT	its answer changes with what standard input holds
 MRMCD12_deutsche_zahlen/the_nihilant_1347279336.pas	ENTRY	standard input is the collection's MRMCD12_deutsche_zahlen/input.txt
-MRMCD12_every_other_char/clock_1347125485.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: clock_1347125485.pas(1,7) Error: Illegal expression
-MRMCD12_every_other_char/teebee_1347116456.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1347116456.pas(1,14) Error: Illegal expression
+MRMCD12_every_other_char/clock_1347125485.pas	NEEDS-INPUT	its answer changes with what standard input holds
+MRMCD12_every_other_char/teebee_1347116456.pas	NEEDS-INPUT	its answer changes with what standard input holds
 MRMCD12_every_other_char/the_nihilant_1347097467.pas	ENTRY	standard input is the collection's MRMCD12_every_other_char/input.txt
-MRMCD12_every_other_char/uru_1347117302.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1347117302.pas(3,1) Error: Illegal expression
-Magic_square/2Ayuko_2A_1273316863.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1273316863.pas(1,34) Error: Ordinal expression expected
+MRMCD12_every_other_char/uru_1347117302.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Magic_square/2Ayuko_2A_1273316863.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Magic_square/uru_1272376730.pas	ENTRY	standard input is the collection's Magic_square/input.txt
-Mariko_from_above/uru_1332608885.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1332608885.pas(1,22) Fatal: Syntax error, ";" expected but "=" found
-Maximum_Cyclic_Segment_Sum/uru_1230884388.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1230884388.pas(3,8) Error: Incompatible types: got "Comp" expected "ShortInt"
-Mental_calculation/2Ayuko_2A_1292282815.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1292282815.pas(1,112) Fatal: illegal character "'n'" ($6E)
-Mental_calculation/2Ayuko_2A_1393728616.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393728616.pas(1,111) Fatal: illegal character "'n'" ($6E)
-Mental_calculation/uru_1292500547.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1292500547.pas(4,52) Fatal: illegal character "'n'" ($6E)
-Minimal_scheme_interpreter/pooq_1232838684.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232838684.pas(1,18) Fatal: illegal character "'"'" ($22)
-Modular_Exponentiation_2/uru_1264675398.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1264675398.pas(3,1) Error: Illegal expression
-Modular_Exponentiation_2/uru_1265864641.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1265864641.pas(3,1) Error: Illegal expression
-Monster_group/2Ayuko_2A_1280749665.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1280749665.pas(1,15) Error: Illegal char constant
+Mariko_from_above/uru_1332608885.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Maximum_Cyclic_Segment_Sum/uru_1230884388.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Mental_calculation/2Ayuko_2A_1292282815.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Mental_calculation/2Ayuko_2A_1393728616.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Mental_calculation/uru_1292500547.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Minimal_scheme_interpreter/pooq_1232838684.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Modular_Exponentiation_2/uru_1264675398.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Modular_Exponentiation_2/uru_1265864641.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Monster_group/2Ayuko_2A_1280749665.pas	ENTRY	
 Monster_group/uru_1223714849.pas	ENTRY	
-Monster_group/uru_1232853711.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1232853711.pas(1,15) Fatal: Syntax error, ")" expected but "const char" found
-Month_Name/2Ayuko_2A_1316517291.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1316517291.pas(2,22) Error: Identifier not found "trim"
-Month_Name/uru_1316424828.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1316424828.pas(1,1) Error: Illegal char constant
-Multifactorials/uru_1325224377.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1325224377.pas(4,50) Fatal: illegal character "'n'" ($6E)
-Multiplication_Table/BioFALSE_1359412218.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: BioFALSE_1359412218.pas(1,103) Fatal: illegal character "'"'" ($22)
-Multiplication_Table/dcutter_1279479006.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: dcutter_1279479006.pas(1,15) Fatal: illegal character "'"'" ($22)
+Monster_group/uru_1232853711.pas	ENTRY	
+Month_Name/2Ayuko_2A_1316517291.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Month_Name/uru_1316424828.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Multifactorials/uru_1325224377.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Multiplication_Table/BioFALSE_1359412218.pas	ENTRY	
+Multiplication_Table/dcutter_1279479006.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: dcutter_1279479006.pas:1: warning: missing program header
 Multiplication_Table/uru_1279452926.pas	ENTRY	
 Multiply/uru_1230308039.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 4 and 4 bytes
-Multiply_long_version/uru_1232849275.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1232849275.pas(2,69) Fatal: illegal character "'n'" ($6E)
-NABEATSU_of_the_world/2Ayuko_2A_1307191475.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1307191475.pas(1,48) Fatal: illegal character "'|'" ($7C)
-NABEATSU_of_the_world/uru_1307364351.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1307364351.pas(2,70) Fatal: illegal character "'"'" ($22)
+Multiply_long_version/uru_1232849275.pas	NEEDS-INPUT	its answer changes with what standard input holds
+NABEATSU_of_the_world/2Ayuko_2A_1307191475.pas	ENTRY	
+NABEATSU_of_the_world/uru_1307364351.pas	ENTRY	
 NOT_gate/666_1196171965.pas	ENTRY	standard input is the collection's NOT_gate/input.txt
 NOT_gate/tabasa_1193993075.pas	ENTRY	standard input is the collection's NOT_gate/input.txt
-NOT_gate/uru_1228596297.pas	ENTRY	standard input is the collection's NOT_gate/input.txt
+NOT_gate/uru_1228596297.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 11 and 11 bytes
 NOT_gate/yt_1193737342.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 11 and 11 bytes
-N_Queens/pooq_1232952806.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232952806.pas(2,5) Error: Ordinal expression expected
-N_Queens/uru_1247852528.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1247852528.pas(3,5) Error: Ordinal expression expected
-Nest_function/uru_1335094152.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1335094152.pas(4,9) Error: Incompatible type for arg no. 1: Got "Comp", expected "QWord"
-Network_mask_v2/uru_1272282480.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1272282480.pas(4,73) Fatal: illegal character "'n'" ($6E)
+N_Queens/pooq_1232952806.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.sXql0uDgWh/pooq_1232952806: attempt to read past end of Input (error #454 at 4039c1)
+N_Queens/uru_1247852528.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.FSLJ9VTRbf/uru_1247852528: attempt to read past end of Input (error #454 at 403a23)
+Nest_function/uru_1335094152.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Network_mask_v2/uru_1272282480.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Nice_Numbers/McBusLuck_1697916125.pas	ENTRY	
 No/Joon_Yorigami_1728184878.pas	ENTRY	standard input is the collection's No/input.txt
-Non_Decreasing_Digits/2Ayuko_2A_1303615510.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1303615510.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Non_trivial_powers_Revisted/2Ayuko_2A_1302189349.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1302189349.pas(1,1) Error: Illegal char constant
-Normal_Distribution_Table/uru_1266760124.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1266760124.pas(1,1) Error: Illegal char constant
-Not_Quine/teebee_1371956728.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1371956728.pas(1,42) Error: Incompatible type for arg no. 2: Got "Constant String", expected "LongInt"
+Non_Decreasing_Digits/2Ayuko_2A_1303615510.pas	ENTRY	
+Non_trivial_powers_Revisted/2Ayuko_2A_1302189349.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1302189349.pas:1: warning: missing program header
+Normal_Distribution_Table/uru_1266760124.pas	ENTRY	
+Not_Quine/teebee_1371956728.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.0lhLHRcWaK/teebee_1371956728: cannot open Input for reading (No such file or directory) (error #442 at 4039bb)
 Nothing/666_1196170817.pas	ENTRY	standard input is the collection's Nothing/input.txt
 Nothing/BioFALSE_1359476359.pas	ENTRY	standard input is the collection's Nothing/input.txt
 Nothing/kt3k_1195588777.pas	ENTRY	standard input is the collection's Nothing/input.txt
-Nth_prime/2Ayuko_2A_1285493519.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1285493519.pas(2,25) Error: Operator is not overloaded: "Word" ** "Single"
-Nth_prime/2Ayuko_2A_1393727673.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393727673.pas(1,39) Fatal: Syntax error, ";" expected but "=" found
+Nth_prime/2Ayuko_2A_1285493519.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Nth_prime/2Ayuko_2A_1393727673.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Number_Sequence/2Ayuko_2A_1309787314.pas	ENTRY	
-Number_guess_1000/2Ayuko_2A_1297168040.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1297168040.pas(1,14) Error: Illegal expression
-Number_in_number/uru_1338052517.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1338052517.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Numloop/uru_1344812935.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1344812935.pas(3,11) Error: Ordinal expression expected
+Number_guess_1000/2Ayuko_2A_1297168040.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Number_in_number/uru_1338052517.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Numloop/uru_1344812935.pas	ENTRY	
 Odd_Three_Digit_Numbers_Divisible_By_Three/mrapricot_1753700056.pas	ENTRY	
-Old_Magician/2Ayuko_2A_1294406704.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1294406704.pas(1,59) Fatal: illegal character "'"'" ($22)
-Old_Magician/uru_1294742217.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1294742217.pas(3,26) Fatal: illegal character "'"'" ($22)
+Old_Magician/2Ayuko_2A_1294406704.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Old_Magician/uru_1294742217.pas	NEEDS-INPUT	its answer changes with what standard input holds
 One_char_CAT/teebee_1531206163.pas	ENTRY	standard input is the collection's One_char_CAT/input.txt
-Output_Sequence/2Ayuko_2A_1312469600.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1312469600.pas(1,47) Error: Identifier not found "min"
-Output_Sequence/uru_1312545865.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1312545865.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Over_print/2Ayuko_2A_1301414081.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1301414081.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-Over_print/uru_1301321214.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1301321214.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-Oyster/2Ayuko_2A_1317641634.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1317641634.pas(1,59) Fatal: illegal character "'"'" ($22)
-Oyster2/2Ayuko_2A_1319115217.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1319115217.pas(1,52) Fatal: illegal character "'"'" ($22)
-Oyster2/uru_1319116122.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1319116122.pas(3,1) Error: Illegal expression
-PATHS/2Ayuko_2A_1299847418.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1299847418.pas(1,1) Error: Illegal char constant
-PATHS/2Ayuko_2A_1393728842.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393728842.pas(1,1) Error: Illegal char constant
+Output_Sequence/2Ayuko_2A_1312469600.pas	ENTRY	
+Output_Sequence/uru_1312545865.pas	ENTRY	
+Over_print/2Ayuko_2A_1301414081.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Over_print/uru_1301321214.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Oyster/2Ayuko_2A_1317641634.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Oyster2/2Ayuko_2A_1319115217.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Oyster2/uru_1319116122.pas	NEEDS-INPUT	its answer changes with what standard input holds
+PATHS/2Ayuko_2A_1299847418.pas	NEEDS-INPUT	its answer changes with what standard input holds
+PATHS/2Ayuko_2A_1393728842.pas	NEEDS-INPUT	its answer changes with what standard input holds
 PalindromemordnilaP/sean_1726006447.pas	ENTRY	standard input is the collection's PalindromemordnilaP/input.txt
-Peak_Detection/uru_1202398094.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1202398094.pas(1,46) Fatal: Syntax error, "BEGIN" expected but "<" found
-Peak_Detection/uru_1248706719.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1248706719.pas(2,13) Error: Ordinal expression expected
-Perfect_power_logarithms/teebee_1479462744.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1479462744.pas(1,7) Error: Illegal expression
-Permutations/uru_1248260353.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1248260353.pas(1,1) Error: Illegal char constant
-Plot_Circle/1249742050.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 1249742050.pas(1,30) Error: Illegal expression
-Plot_Circle/2Ayuko_2A_1292273933.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1292273933.pas(1,34) Error: Ordinal expression expected
-Plot_Circle/pooq_1231759710.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1231759710.pas(2,13) Error: Ordinal expression expected
-Plot_Circle/uru_1232272303.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1232272303.pas(2,13) Error: Ordinal expression expected
-Plus/2Ayuko_2A_1270652444.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1270652444.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Plus/uru_1270721656.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1270721656.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Plus_insert/uru_1336747555.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1336747555.pas(3,39) Fatal: illegal character "'n'" ($6E)
-Polynomial_Sequences/uru_1229190875.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1229190875.pas(4,122) Fatal: illegal character "'n'" ($6E)
-Polynomial_Sequences/uru_1230028568.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1230028568.pas(1,32) Fatal: String exceeds line
-Practical_Numbers/2Ayuko_2A_1307800339.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1307800339.pas(1,121) Fatal: illegal character "'n'" ($6E)
+Peak_Detection/uru_1202398094.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1202398094.pas:1: warning: missing program header
+Peak_Detection/uru_1248706719.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.HY7IpY6n7Z/uru_1248706719: attempt to read past end of Input (error #454 at 403a67)
+Perfect_power_logarithms/teebee_1479462744.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Permutations/uru_1248260353.pas	ENTRY	
+Plot_Circle/1249742050.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1249742050.pas:1: warning: missing program header
+Plot_Circle/2Ayuko_2A_1292273933.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Plot_Circle/pooq_1231759710.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Plot_Circle/uru_1232272303.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Plus/2Ayuko_2A_1270652444.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Plus/uru_1270721656.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 2 and 38 bytes
+Plus_insert/uru_1336747555.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Polynomial_Sequences/uru_1229190875.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.XxKAlIB7HW/uru_1229190875: attempt to read past end of Input (error #454 at 403a45)
+Polynomial_Sequences/uru_1230028568.pas	ENTRY	
+Practical_Numbers/2Ayuko_2A_1307800339.pas	ENTRY	
 Print_ERROR/dcutter_1293551036.pas	ENTRY	
-Print_ERROR/narb_1293693372.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: narb_1293693372.pas(1,13) Fatal: illegal character "'"'" ($22)
-Print_ERROR/nooodl_1293392671.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: nooodl_1293392671.pas(1,13) Fatal: illegal character "'"'" ($22)
-Print_ERROR/uru_1293417883.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1293417883.pas(1,13) Fatal: illegal character "'"'" ($22)
+Print_ERROR/narb_1293693372.pas	ENTRY	
+Print_ERROR/nooodl_1293392671.pas	ENTRY	
+Print_ERROR/uru_1293417883.pas	ENTRY	
 Print_Nothing_3/pooq_1565897012.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
-Print_Our_Code/pooq_1567828226.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1567828226.pas(1,13) Fatal: illegal character "'"'" ($22)
-Print_at/lynn_1531579279.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: lynn_1531579279.pas(1,6) Fatal: Syntax error, "BEGIN" expected but "identifier CLASS" found
+Print_Our_Code/pooq_1567828226.pas	ENTRY	
+Print_at/lynn_1531579279.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: lynn_1531579279.pas:1: warning: missing program header
 Print_challenge_EASY/JOrE20_1784809730.pas	ENTRY	
-Print_curve/lynn_1531578732.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: lynn_1531578732.pas(1,6) Fatal: Syntax error, "BEGIN" expected but "identifier PRINT" found
-Print_nothing_2/pooq_1567828573.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1567828573.pas(1,13) Fatal: illegal character "'"'" ($22)
-Print_numbers__Revised/uru_1230290900.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1230290900.pas(1,13) Fatal: String exceeds line
-Print_out_a_lot__56K_BEWARE/2Ayuko_2A_1292454305.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1292454305.pas(1,37) Error: range check error while evaluating constants (99999 must be between 0 and 65535)
-Print_out_a_lot__56K_BEWARE/pooq_1258935565.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1258935565.pas(2,20) Error: range check error while evaluating constants (99999 must be between 0 and 65535)
-Print_reversed_ASCII/lynn_1531579306.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: lynn_1531579306.pas(1,13) Fatal: illegal character "'"'" ($22)
-Print_your_source_code/lynn_1531579092.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: lynn_1531579092.pas(1,13) Fatal: illegal character "'"'" ($22)
-Prove_the_Equation/pooq_1570952313.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1570952313.pas(1,13) Fatal: illegal character "'"'" ($22)
+Print_curve/lynn_1531578732.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: lynn_1531578732.pas:1: error: syntax error before `print'
+Print_nothing_2/pooq_1567828573.pas	ENTRY	
+Print_numbers__Revised/uru_1230290900.pas	ENTRY	
+Print_out_a_lot__56K_BEWARE/2Ayuko_2A_1292454305.pas	ENTRY	
+Print_out_a_lot__56K_BEWARE/pooq_1258935565.pas	ENTRY	
+Print_reversed_ASCII/lynn_1531579306.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: lynn_1531579306.pas:1: warning: missing program header
+Print_your_source_code/lynn_1531579092.pas	ENTRY	
+Prove_the_Equation/pooq_1570952313.pas	ENTRY	
 PubSubHubbub/uru_1250781466.pas	ENTRY	
 Pythagorean_triple_fixed/2Ayuko_2A_1312294318.pas	ENTRY	
 Quine/blimey_1203454569.pas	ENTRY	
-Quine/hirose_1182514626.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: hirose_1182514626.pas(1,23) Fatal: illegal character "'"'" ($22)
-Quine/kt3k_1187652920.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: kt3k_1187652920.pas(1,9) Fatal: illegal character "'"'" ($22)
+Quine/hirose_1182514626.pas	ENTRY	
+Quine/kt3k_1187652920.pas	ENTRY	
 Quine/uru_1229965870.pas	ENTRY	
-Quine/yt_1187237674.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: yt_1187237674.pas(1,42) Error: Incompatible type for arg no. 2: Got "Constant String", expected "LongInt"
-Quixey_Challenge/2Ayuko_2A_1327105270.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1327105270.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-RPN_calculator_FIXED_NO_REALLY/pooq_1232338255.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232338255.pas(2,27) Fatal: illegal character "'"'" ($22)
-Real_Zero/2Ayuko_2A_1328622562.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1328622562.pas(1,13) Fatal: illegal character "'"'" ($22)
-Real_Zero/clock_1329043857.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: clock_1329043857.pas(1,13) Fatal: illegal character "'"'" ($22)
-Real_Zero/leonid_1328662287.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: leonid_1328662287.pas(1,13) Fatal: illegal character "'"'" ($22)
-Real_Zero/teebee_1328919795.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1328919795.pas(1,13) Fatal: illegal character "'"'" ($22)
-Real_Zero/uru_1329053935.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1329053935.pas(1,13) Fatal: illegal character "'"'" ($22)
+Quine/yt_1187237674.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.L3UBXxYYk5/yt_1187237674: cannot open Input for reading (No such file or directory) (error #442 at 4038e4)
+Quixey_Challenge/2Ayuko_2A_1327105270.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.YqPHt0bGrV/2Ayuko_2A_1327105270: value out of range (error #300 at 4039da)
+RPN_calculator_FIXED_NO_REALLY/pooq_1232338255.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Real_Zero/2Ayuko_2A_1328622562.pas	ENTRY	
+Real_Zero/clock_1329043857.pas	ENTRY	
+Real_Zero/leonid_1328662287.pas	ENTRY	
+Real_Zero/teebee_1328919795.pas	ENTRY	
+Real_Zero/uru_1329053935.pas	ENTRY	
 Real_Zero/youknowone_1328597599.pas	ENTRY	
-Reduce_fractions_FIXED/teebee_1353204923.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1353204923.pas(2,42) Fatal: illegal character "'n'" ($6E)
-Reduce_fractions_FIXED/teebee_28nu_29_1353212498.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_28nu_29_1353212498.pas(1,110) Fatal: illegal character "'n'" ($6E)
-Reduce_fractions_FIXED/uru_1353149849.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1353149849.pas(3,94) Fatal: illegal character "'n'" ($6E)
-Reverse_Bits_FIXED/2Ayuko_2A_1327585050.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1327585050.pas(3,47) Fatal: illegal character "'n'" ($6E)
-Reverse_Bits_FIXED/2Ayuko_2A_28teebee_29_1390148992.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_28teebee_29_1390148992.pas(1,53) Error: Illegal type conversion: "Char" to "Comp"
-Reverse_Bits_FIXED/teebee_1327846915.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1327846915.pas(1,44) Error: Illegal type conversion: "Char" to "Comp"
-Reverse_Bits_FIXED/teebee_28_2Ayuko_2A_29_1389662286.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_28_2Ayuko_2A_29_1389662286.pas(1,54) Error: Illegal type conversion: "Char" to "Comp"
-Reversed_8bit_numbers/teebee_1422043506.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1422043506.pas(1,22) Error: Ordinal expression expected
-Roman_numeral/uru_1279856265.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1279856265.pas(2,5) Fatal: Syntax error, ";" expected but "=" found
-Roman_numeral/uru_1279881680.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1279881680.pas(1,1) Error: Illegal char constant
-Ruby/2Ayuko_2A_1295083665.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1295083665.pas(2,7) Fatal: illegal character "'"'" ($22)
-Ruby/uru_1295271936.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1295271936.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Rule_30/uru_1247056885.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1247056885.pas(3,51) Fatal: illegal character "'|'" ($7C)
-Runge_Kutta/pooq_1232347264.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232347264.pas(3,9) Fatal: illegal character "'"'" ($22)
-Runge_Kutta/uru_1247665085.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1247665085.pas(3,9) Fatal: illegal character "'"'" ($22)
-SQR/2Ayuko_2A_1305964204.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1305964204.pas(1,85) Fatal: illegal character "'n'" ($6E)
-SQR/uru_1306070129.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1306070129.pas(3,59) Fatal: illegal character "'n'" ($6E)
-STRING/2Ayuko_2A_1298373612.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1298373612.pas(2,25) Error: Ordinal expression expected
-Self_Numbers/uru_1330092598.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1330092598.pas(1,1) Error: Illegal char constant
-Shifting_Pattern_Fixed/pooq_1278148828.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1278148828.pas(1,54) Error: Ordinal expression expected
-Shifting_Pattern_Fixed/uru_1278122504.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1278122504.pas(2,26) Error: Ordinal expression expected
-Simultaneous_Equations_FIXXED/pooq_1232346401.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232346401.pas(2,28) Fatal: illegal character "'"'" ($22)
-Six_or_more/2Ayuko_2A_1316354474.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1316354474.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
+Reduce_fractions_FIXED/teebee_1353204923.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Reduce_fractions_FIXED/teebee_28nu_29_1353212498.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Reduce_fractions_FIXED/uru_1353149849.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Reverse_Bits_FIXED/2Ayuko_2A_1327585050.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Reverse_Bits_FIXED/2Ayuko_2A_28teebee_29_1390148992.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Reverse_Bits_FIXED/teebee_1327846915.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Reverse_Bits_FIXED/teebee_28_2Ayuko_2A_29_1389662286.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Reversed_8bit_numbers/teebee_1422043506.pas	ENTRY	
+Roman_numeral/uru_1279856265.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Roman_numeral/uru_1279881680.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Ruby/2Ayuko_2A_1295083665.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1295083665.pas:1: warning: missing program header
+Ruby/uru_1295271936.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1295271936.pas:1: warning: missing program header
+Rule_30/uru_1247056885.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Runge_Kutta/pooq_1232347264.pas	ENTRY	
+Runge_Kutta/uru_1247665085.pas	ENTRY	
+SQR/2Ayuko_2A_1305964204.pas	NEEDS-INPUT	its answer changes with what standard input holds
+SQR/uru_1306070129.pas	NEEDS-INPUT	its answer changes with what standard input holds
+STRING/2Ayuko_2A_1298373612.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Self_Numbers/uru_1330092598.pas	ENTRY	
+Shifting_Pattern_Fixed/pooq_1278148828.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Shifting_Pattern_Fixed/uru_1278122504.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Simultaneous_Equations_FIXXED/pooq_1232346401.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Six_or_more/2Ayuko_2A_1316354474.pas	DOES-NOT-END	no answer inside 30 s
 Skip_triangular_numbers/teebee_1475780462.pas	ENTRY	
-Smiley_face/2Ayuko_2A_1321563117.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1321563117.pas(1,1) Error: Illegal char constant
-Sokoban/2Ayuko_2A_28uru_29_1307831252.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_28uru_29_1307831252.pas(1,14) Error: Illegal expression
-Sokoban/uru_1283615213.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1283615213.pas(3,1) Error: Illegal expression
-Soroban_Fixed/2Ayuko_2A_1284298837.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1284298837.pas(1,1) Error: Illegal char constant
-Soroban_Fixed/uru_1284231206.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1284231206.pas(1,1) Error: Illegal char constant
+Smiley_face/2Ayuko_2A_1321563117.pas	ENTRY	
+Sokoban/2Ayuko_2A_28uru_29_1307831252.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Sokoban/uru_1283615213.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Soroban_Fixed/2Ayuko_2A_1284298837.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Soroban_Fixed/uru_1284231206.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Sort_by_Length_for_OCaml_Golf_Competition/2Ayuko_2A_1282852818.pas	ENTRY	standard input is the collection's Sort_by_Length_for_OCaml_Golf_Competition/input.txt
-Sort_by_Length_for_OCaml_Golf_Competition/uru_1282972385.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1282972385.pas(1,1) Error: Illegal char constant
-Sphenic_Numbers/2Ayuko_2A_1311490779.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1311490779.pas(1,45) Error: Ordinal expression expected
-Spiral_Fixed/2Ayuko_2A_1296968284.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1296968284.pas(2,18) Error: Ordinal expression expected
-Squares_Fixed/2Ayuko_2A_1293894974.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1293894974.pas(1,1) Error: Illegal char constant
-Squares_Fixed/uru_1293461786.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1293461786.pas(1,1) Error: Illegal char constant
-Starburst/uru_1325162844.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1325162844.pas(1,1) Error: Illegal char constant
-String_Halving/uru_1345277344.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1345277344.pas(1,14) Fatal: Syntax error, ";" expected but "(" found
-Subfactorial_FIXED/2Ayuko_2A_1284629075.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1284629075.pas(2,29) Error: Incompatible types: got "Comp" expected "Byte"
-Subfactorial_FIXED/2Ayuko_2A_1393681455.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393681455.pas(2,8) Error: Operator is not overloaded: "ShortInt" and "Comp"
+Sort_by_Length_for_OCaml_Golf_Competition/uru_1282972385.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Sphenic_Numbers/2Ayuko_2A_1311490779.pas	ENTRY	
+Spiral_Fixed/2Ayuko_2A_1296968284.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Squares_Fixed/2Ayuko_2A_1293894974.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Squares_Fixed/uru_1293461786.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Starburst/uru_1325162844.pas	NEEDS-INPUT	its answer changes with what standard input holds
+String_Halving/uru_1345277344.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Subfactorial_FIXED/2Ayuko_2A_1284629075.pas	ENTRY	
+Subfactorial_FIXED/2Ayuko_2A_1393681455.pas	ENTRY	
 SumCount/2Ayuko_2A_1291481563.pas	ENTRY	standard input is the collection's SumCount/input.txt
-SumCount/teebee_1292168383.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1292168383.pas(1,7) Error: Illegal expression
+SumCount/teebee_1292168383.pas	NEEDS-INPUT	its answer changes with what standard input holds
 SumCount/uru_1291718159.pas	ENTRY	standard input is the collection's SumCount/input.txt
-Sum_of_Divisors_for_OCaml_Golf_Competition/uru_1251460594.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1251460594.pas(3,1) Error: Illegal expression
-Sum_of_Divisors_for_OCaml_Golf_Competition/yt_1251379333.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: yt_1251379333.pas(2,62) Fatal: illegal character "'"'" ($22)
+Sum_of_Divisors_for_OCaml_Golf_Competition/uru_1251460594.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Sum_of_Divisors_for_OCaml_Golf_Competition/yt_1251379333.pas	NEEDS-INPUT	its answer changes with what standard input holds
 Table_of_divisors/sky_1213854883.pas	ENTRY	standard input is the collection's Table_of_divisors/input.txt
 Table_of_divisors/uru_1230883654.pas	ENTRY	standard input is the collection's Table_of_divisors/input.txt
-Tag_system/2Ayuko_2A_1331135457.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1331135457.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Tak_z__FIXED/pooq_1235807502.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1235807502.pas(4,38) Fatal: illegal character "'n'" ($6E)
-Tak_z__FIXED/uru_1235815649.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1235815649.pas(3,45) Fatal: illegal character "'n'" ($6E)
-Telephone_Keypad_Letter_Mapping_Fixed/uru_1268776719.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1268776719.pas(3,9) Fatal: illegal character "'"'" ($22)
+Tag_system/2Ayuko_2A_1331135457.pas	NO-OUTPUT	nothing on standard output, exit -11; a dead engine would earn the same; stderr: timeout: the monitored command dumped core
+Tak_z__FIXED/pooq_1235807502.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Tak_z__FIXED/uru_1235815649.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Telephone_Keypad_Letter_Mapping_Fixed/uru_1268776719.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 9 and 26 bytes
 Tetris/sample_implementation_1174099538.pas	DOES-NOT-END	no answer inside 30 s
-Text_Compression/pooq_1230878108.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1230878108.pas(2,7) Fatal: String exceeds line
-The_list_digit/2Ayuko_2A_1301830650.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1301830650.pas(1,9) Fatal: illegal character "'"'" ($22)
-The_same_birthday/teebee_1353202035.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1353202035.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-The_same_birthday/uru_1353148430.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1353148430.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
+Text_Compression/pooq_1230878108.pas	ENTRY	
+The_list_digit/2Ayuko_2A_1301830650.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 497 and 71 bytes
+The_same_birthday/teebee_1353202035.pas	ENTRY	
+The_same_birthday/uru_1353148430.pas	ENTRY	
 Timeout/kt3k_1191062084.pas	DOES-NOT-END	no answer inside 30 s
-Timeout/uru_1233199418.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1233199418.pas(1,22) Fatal: illegal character "'n'" ($6E)
-Totient/2Ayuko_2A_1283700467.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1283700467.pas(1,14) Error: Illegal expression
-Tower_of_Hanoi/uru_1263739201.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1263739201.pas(2,14) Error: Identifier not found "return"
-Translate_American_to_Canadian/2Ayuko_2A_1316002474.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1316002474.pas(1,1) Error: Illegal char constant
-Translate_American_to_Canadian/uru_1315818980.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1315818980.pas(1,1) Error: Illegal char constant
+Timeout/uru_1233199418.pas	DOES-NOT-END	no answer inside 30 s
+Totient/2Ayuko_2A_1283700467.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Tower_of_Hanoi/uru_1263739201.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Translate_American_to_Canadian/2Ayuko_2A_1316002474.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Translate_American_to_Canadian/uru_1315818980.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.Z9bLYcZfye/uru_1315818980: value out of range (error #300 at 403f1c)
 Transpose/uru_1244300513.pas	ENTRY	standard input is the collection's Transpose/input.txt
-Triangle/2Ayuko_2A_1283242648.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1283242648.pas(1,17) Fatal: Syntax error, ";" expected but "=" found
-Triangle/uru_1283056951.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1283056951.pas(3,6) Error: Ordinal expression expected
-Triangular_Text/uru_1346264831.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1346264831.pas(4,32) Fatal: illegal character "'n'" ($6E)
-Twelve_Days_of_Christmas/2Ayuko_2A_1292192424.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1292192424.pas(2,7) Fatal: illegal character "'"'" ($22)
-Twelve_Days_of_Christmas/dcutter_1291021060.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: dcutter_1291021060.pas(1,15) Fatal: illegal character "'"'" ($22)
-Twelve_Days_of_Christmas/uru_1291431124.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1291431124.pas(1,28) Fatal: Syntax error, ";" expected but "=" found
-Twin_primes/2Ayuko_2A_1393678266.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393678266.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-Twin_primes/uru_1240672736.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1240672736.pas(1,21) Fatal: Syntax error, ";" expected but "=" found
+Triangle/2Ayuko_2A_1283242648.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.3y4O0mJLZa/2Ayuko_2A_1283242648: attempt to read past end of Input (error #454 at 403974)
+Triangle/uru_1283056951.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Triangular_Text/uru_1346264831.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Twelve_Days_of_Christmas/2Ayuko_2A_1292192424.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1292192424.pas:1: warning: missing program header
+Twelve_Days_of_Christmas/dcutter_1291021060.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: dcutter_1291021060.pas:1: warning: missing program header
+Twelve_Days_of_Christmas/uru_1291431124.pas	NO-OUTPUT	nothing on standard output, exit -11; a dead engine would earn the same; stderr: timeout: the monitored command dumped core
+Twin_primes/2Ayuko_2A_1393678266.pas	ENTRY	
+Twin_primes/uru_1240672736.pas	ENTRY	
 Twin_primes/yt_1187746318.pas	ENTRY	
-Two_Dice_of_A_sides/pooq_1233587280.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1233587280.pas(2,22) Error: Identifier not found "min"
-Two_Dice_of_A_sides/uru_1233585953.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1233585953.pas(2,22) Error: Identifier not found "min"
-Two_coins/2Ayuko_2A_1308483217.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1308483217.pas(1,61) Fatal: illegal character "'n'" ($6E)
-Two_coins/teebee_1308443224.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1308443224.pas(1,7) Error: Illegal expression
-Two_coins/uru_1308448099.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1308448099.pas(3,35) Fatal: illegal character "'n'" ($6E)
-Underload_interpreter/pooq_1232837411.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232837411.pas(2,89) Fatal: illegal character "'"'" ($22)
+Two_Dice_of_A_sides/pooq_1233587280.pas	ENTRY	
+Two_Dice_of_A_sides/uru_1233585953.pas	ENTRY	
+Two_coins/2Ayuko_2A_1308483217.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Two_coins/teebee_1308443224.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Two_coins/uru_1308448099.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Underload_interpreter/pooq_1232837411.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
 Underload_interpreter/uru_1247151133.pas	ENTRY	standard input is the collection's Underload_interpreter/input.txt
-Unsighned_int_Max/2Ayuko_2A_1304097755.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1304097755.pas(1,14) Fatal: Syntax error, ")" expected but "identifier POW" found
-Up_and_Down/pooq_1232289860.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232289860.pas(1,22) Fatal: Syntax error, ";" expected but "(" found
-Up_and_Down/uru_1232369044.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1232369044.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-Uppercase_the_string/teebee_1467839702.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1467839702.pas(1,57) Fatal: illegal character "'n'" ($6E)
-Value/2Ayuko_2A_1301572043.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1301572043.pas(1,50) Error: Operator is not overloaded: "Word" ** "Single"
-Value/2Ayuko_2A_1393729105.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393729105.pas(1,50) Error: Operator is not overloaded: "Word" ** "Single"
-Value/uru_1301567275.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1301567275.pas(3,19) Error: Operator is not overloaded: "Word" ** "Single"
-Vertical_writing/uru_1269743119.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1269743119.pas(2,26) Fatal: illegal character "'"'" ($22)
-Very_small_number/uru_1264944905.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1264944905.pas(1,13) Fatal: illegal character "'"'" ($22)
-Walk_the_line/uru_1247320295.pas	ENTRY	standard input is the collection's Walk_the_line/input.txt
+Unsighned_int_Max/2Ayuko_2A_1304097755.pas	ENTRY	
+Up_and_Down/pooq_1232289860.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Up_and_Down/uru_1232369044.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Uppercase_the_string/teebee_1467839702.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Value/2Ayuko_2A_1301572043.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Value/2Ayuko_2A_1393729105.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Value/uru_1301567275.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Vertical_writing/uru_1269743119.pas	ENTRY	stderr not graded: /tmp/s4e/grader/tmp.JZGVRJEzVv/uru_1269743119: value out of range (error #300 at 4038a6)
+Very_small_number/uru_1264944905.pas	ENTRY	
+Walk_the_line/uru_1247320295.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 26 and 21 bytes
 Whitespaceless_Hello_world/uru_1227718048.pas	ENTRY	
 Whitespaceless_Hello_world/uru_1230869341.pas	ENTRY	
-Wide_Periodic_Table/uru_1280552221.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1280552221.pas(1,1) Error: Illegal char constant
-Wide_Periodic_Table/uru_1280748707.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1280748707.pas(1,1) Error: Illegal char constant
-Winged_Edge/clock_1345088988.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: clock_1345088988.pas(1,69) Fatal: illegal character "'n'" ($6E)
-Winged_Edge/teebee_1345052513.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1345052513.pas(1,14) Error: Illegal expression
-Winged_Edge_2/clock_1349286548.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: clock_1349286548.pas(1,81) Fatal: illegal character "'n'" ($6E)
-Winged_Edge_2/teebee_1349257514.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1349257514.pas(1,14) Error: Illegal expression
-X/uru_1230989046.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1230989046.pas(3,11) Fatal: Syntax error, ")" expected but "identifier SPAN" found
-Y/uru_1230993520.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1230993520.pas(2,23) Fatal: Syntax error, "THEN" expected but "identifier SPAN" found
+Wide_Periodic_Table/uru_1280552221.pas	ENTRY	
+Wide_Periodic_Table/uru_1280748707.pas	ENTRY	
+Winged_Edge/clock_1345088988.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Winged_Edge/teebee_1345052513.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Winged_Edge_2/clock_1349286548.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Winged_Edge_2/teebee_1349257514.pas	NEEDS-INPUT	its answer changes with what standard input holds
+X/uru_1230989046.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1230989046.pas:1: warning: missing program header
+Y/uru_1230993520.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1230993520.pas:1: warning: missing program header
 Yes/BioFALSE_1359472720.pas	ENTRY	standard input is the collection's Yes/input.txt
-Yes/uru_1296730623.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1296730623.pas(3,14) Fatal: illegal character "'"'" ($22)
-Z/uru_1235990150.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1235990150.pas(2,20) Error: Incompatible type for arg no. 1: Got "Comp", expected "LongInt"
-Zigzag/uru_1276784853.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1276784853.pas(1,17) Fatal: Syntax error, ";" expected but "=" found
-a_3d_obliquous_FIXED_REALLY/uru_1261837875.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1261837875.pas(2,25) Fatal: illegal character "'"'" ($22)
-a_prime_number/2Ayuko_2A_1267268149.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1267268149.pas(1,22) Error: Ordinal expression expected
-a_prime_number/uru_1267288618.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1267288618.pas(2,5) Error: Ordinal expression expected
-absolute_value/teebee_1442783085.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1442783085.pas(1,56) Fatal: illegal character "'n'" ($6E)
-add_sub_brainfuck_code/uru_1279943912.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1279943912.pas(1,1) Error: Illegal char constant
-apery_constant/2Ayuko_2A_1282149343.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1282149343.pas(1,13) Fatal: illegal character "'"'" ($22)
+Yes/uru_1296730623.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Z/uru_1235990150.pas	NEEDS-INPUT	its answer changes with what standard input holds
+Zigzag/uru_1276784853.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.zxUnNqIxO3/uru_1276784853: attempt to read past end of Input (error #454 at 403a67)
+a_3d_obliquous_FIXED_REALLY/uru_1261837875.pas	NEEDS-INPUT	its answer changes with what standard input holds
+a_prime_number/2Ayuko_2A_1267268149.pas	ENTRY	
+a_prime_number/uru_1267288618.pas	ENTRY	
+absolute_value/teebee_1442783085.pas	NEEDS-INPUT	its answer changes with what standard input holds
+add_sub_brainfuck_code/uru_1279943912.pas	NEEDS-INPUT	its answer changes with what standard input holds
+apery_constant/2Ayuko_2A_1282149343.pas	ENTRY	
 apery_constant/uru_1249217953.pas	ENTRY	standard input is the collection's apery_constant/input.txt
 apple_lines/pooq_1231774337.pas	ENTRY	standard input is the collection's apple_lines/input.txt
 apple_lines/uru_1230978972.pas	ENTRY	standard input is the collection's apple_lines/input.txt
-area_of_triangle/uru_1257153603.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1257153603.pas(3,72) Fatal: illegal character "'n'" ($6E)
-area_of_triangle/uru_1257823814.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1257823814.pas(3,25) Error: Identifier not found "arccos"
-asunder/uru_1249048059.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1249048059.pas(2,46) Fatal: Syntax error, "]" expected but "identifier SPAN" found
+area_of_triangle/uru_1257153603.pas	NEEDS-INPUT	its answer changes with what standard input holds
+area_of_triangle/uru_1257823814.pas	NEEDS-INPUT	its answer changes with what standard input holds
+asunder/uru_1249048059.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1249048059.pas:1: warning: missing program header
 baker_problem/mugi666_1216183166.pas	ENTRY	standard input is the collection's baker_problem/input.txt
 baker_problem/uru_1227793596.pas	ENTRY	standard input is the collection's baker_problem/input.txt
-base_convert/2Ayuko_2A_1282574430.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1282574430.pas(1,14) Error: Illegal expression
-base_convert/uru_1282659404.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1282659404.pas(3,1) Error: Illegal expression
-big_number_arithmetic/2Ayuko_2A_1284477118.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1284477118.pas(1,18) Fatal: illegal character "'"'" ($22)
-binary_alnum_symbol/pooq_1232470853.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232470853.pas(1,9) Fatal: illegal character "'"'" ($22)
-binary_increment/2Ayuko_2A_1311154846.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1311154846.pas(2,48) Fatal: illegal character "'"'" ($22)
-box_in_box/dcutter_1276766126.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: dcutter_1276766126.pas(1,13) Fatal: illegal character "'"'" ($22)
-box_in_box/uru_1277479101.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1277479101.pas(1,1) Error: Illegal char constant
-box_in_box/uru_1277642087.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1277642087.pas(1,1) Error: Illegal char constant
-box_paint/2Ayuko_2A_1282473070.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1282473070.pas(1,80) Fatal: illegal character "'"'" ($22)
+base_convert/2Ayuko_2A_1282574430.pas	NEEDS-INPUT	its answer changes with what standard input holds
+base_convert/uru_1282659404.pas	NEEDS-INPUT	its answer changes with what standard input holds
+big_number_arithmetic/2Ayuko_2A_1284477118.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 6 and 6 bytes
+binary_alnum_symbol/pooq_1232470853.pas	ENTRY	
+binary_increment/2Ayuko_2A_1311154846.pas	NEEDS-INPUT	its answer changes with what standard input holds
+box_in_box/dcutter_1276766126.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: dcutter_1276766126.pas:1: warning: missing program header
+box_in_box/uru_1277479101.pas	ENTRY	
+box_in_box/uru_1277642087.pas	ENTRY	
+box_paint/2Ayuko_2A_1282473070.pas	NEEDS-INPUT	its answer changes with what standard input holds
 box_world/uru_1258282690.pas	ENTRY	standard input is the collection's box_world/input.txt
-bubble_sort/uru_1248706044.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1248706044.pas(2,13) Error: Ordinal expression expected
-camelCase/2Ayuko_2A_1296963109.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1296963109.pas(1,45) Fatal: illegal character "'&'" ($26)
-capital_and_small_letters/uru_1246761793.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1246761793.pas(1,1) Error: Illegal char constant
-char_pyramid/2Ayuko_2A_1273145833.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1273145833.pas(1,113) Fatal: illegal character "'n'" ($6E)
-char_pyramid/2Ayuko_2A_1273184364.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1273184364.pas(1,103) Fatal: illegal character "'n'" ($6E)
-char_pyramid/uru_1271337073.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1271337073.pas(2,38) Error: Integer expression expected, but got "Comp"
-character_subsets/uru_1244295961.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1244295961.pas(2,56) Fatal: Syntax error, "DO" expected but "identifier POW" found
-character_subsets/yt_1227250217.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: yt_1227250217.pas(3,9) Fatal: Syntax error, "DO" expected but "identifier POW" found
+bubble_sort/uru_1248706044.pas	NEEDS-INPUT	its answer changes with what standard input holds
+camelCase/2Ayuko_2A_1296963109.pas	NEEDS-INPUT	its answer changes with what standard input holds
+capital_and_small_letters/uru_1246761793.pas	NEEDS-INPUT	its answer changes with what standard input holds
+char_pyramid/2Ayuko_2A_1273145833.pas	NEEDS-INPUT	its answer changes with what standard input holds
+char_pyramid/2Ayuko_2A_1273184364.pas	NEEDS-INPUT	its answer changes with what standard input holds
+char_pyramid/uru_1271337073.pas	NEEDS-INPUT	its answer changes with what standard input holds
+character_subsets/uru_1244295961.pas	NEEDS-INPUT	its answer changes with what standard input holds
+character_subsets/yt_1227250217.pas	NEEDS-INPUT	its answer changes with what standard input holds
 checkers_pattern/uru_1251371981.pas	ENTRY	standard input is the collection's checkers_pattern/input.txt
 checkers_pattern/yt_1203909574.pas	ENTRY	standard input is the collection's checkers_pattern/input.txt
 chemical_equation/uru_1230131816.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 12 and 12 bytes
-comma_format/2Ayuko_2A_1286147124.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1286147124.pas(1,92) Fatal: illegal character "'"'" ($22)
-comma_format/2Ayuko_2A_1286979681.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1286979681.pas(1,92) Fatal: illegal character "'"'" ($22)
-concat_all_signed_bytes/McBusLuck_1557861106.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: McBusLuck_1557861106.pas(1,7) Error: Illegal expression
+comma_format/2Ayuko_2A_1286147124.pas	NEEDS-INPUT	its answer changes with what standard input holds
+comma_format/2Ayuko_2A_1286979681.pas	NEEDS-INPUT	its answer changes with what standard input holds
+concat_all_signed_bytes/McBusLuck_1557861106.pas	ENTRY	
 count_down/mugi666_1218163722.pas	ENTRY	standard input is the collection's count_down/input.txt
-count_down/uru_1230244596.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1230244596.pas(2,34) Fatal: Syntax error, "UNTIL" expected but "identifier POW" found
+count_down/uru_1230244596.pas	NEEDS-INPUT	its answer changes with what standard input holds
 create_table/uru_1256998907.pas	ENTRY	standard input is the collection's create_table/input.txt
-cut_string/2Ayuko_2A_1393678825.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393678825.pas(1,1) Error: Illegal char constant
+cut_string/2Ayuko_2A_1393678825.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1393678825.pas:1: warning: missing white space after `$define x'
 cut_string/uru_1231247822.pas	ENTRY	standard input is the collection's cut_string/input.txt
 cut_string/yt_1202807517.pas	ENTRY	standard input is the collection's cut_string/input.txt
 data_order/uru_1281105115.pas	ENTRY	standard input is the collection's data_order/input.txt
-duplicate_certain_lines__A/uru_1230883978.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1230883978.pas(1,26) Fatal: Syntax error, ";" expected but "=" found
-duplicate_lines/McBusLuck_1559626756.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: McBusLuck_1559626756.pas(1,60) Fatal: illegal character "'n'" ($6E)
+duplicate_certain_lines__A/uru_1230883978.pas	NEEDS-INPUT	its answer changes with what standard input holds
+duplicate_lines/McBusLuck_1559626756.pas	NEEDS-INPUT	its answer changes with what standard input holds
 duplicate_lines/planque_1176135056.pas	ENTRY	standard input is the collection's duplicate_lines/input.txt
-duplicate_lines/uru_1230882718.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1230882718.pas(1,60) Fatal: illegal character "'n'" ($6E)
-edge_of_cuboid/2Ayuko_2A_1327053879.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1327053879.pas(1,1) Error: Illegal char constant
-ehangc/2Ayuko_2A_1271498449.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1271498449.pas(1,94) Fatal: illegal character "'n'" ($6E)
-ehangc/uru_1271685274.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1271685274.pas(3,66) Fatal: illegal character "'n'" ($6E)
-electronic_dice/2Ayuko_2A_1290164291.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1290164291.pas(1,39) Error: Ordinal expression expected
-electronic_dice/2Ayuko_2A_1393728318.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393728318.pas(1,39) Error: Ordinal expression expected
-embed/uru_1231422591.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1231422591.pas(1,9) Fatal: String exceeds line
-exec/1412307034.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 1412307034.pas(1,17) Error: Duplicate identifier "SYSTEM"
-exec/pooq_1232848853.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232848853.pas(1,22) Error: Identifier not found "CString"
+duplicate_lines/uru_1230882718.pas	NEEDS-INPUT	its answer changes with what standard input holds
+edge_of_cuboid/2Ayuko_2A_1327053879.pas	NEEDS-INPUT	its answer changes with what standard input holds
+ehangc/2Ayuko_2A_1271498449.pas	NEEDS-INPUT	its answer changes with what standard input holds
+ehangc/uru_1271685274.pas	NEEDS-INPUT	its answer changes with what standard input holds
+electronic_dice/2Ayuko_2A_1290164291.pas	NEEDS-INPUT	its answer changes with what standard input holds
+electronic_dice/2Ayuko_2A_1393728318.pas	NEEDS-INPUT	its answer changes with what standard input holds
+embed/uru_1231422591.pas	ENTRY	
+exec/1412307034.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+exec/pooq_1232848853.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
 expand_text/uru_1220013877.pas	ENTRY	standard input is the collection's expand_text/input.txt
-expand_text/uru_1247916674.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1247916674.pas(3,40) Error: Identifier not found "card"
+expand_text/uru_1247916674.pas	NEEDS-INPUT	its answer changes with what standard input holds
 falling_number/2Ayuko_2A_1287133608.pas	ENTRY	
-falling_number/2Ayuko_2A_1393727858.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393727858.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-find_anagrams/2Ayuko_2A_1321902693.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1321902693.pas(1,1) Error: Illegal char constant
-find_anagrams/uru_1251725331.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1251725331.pas(1,1) Error: Illegal char constant
-find_minimum_cyclic_parts/uru_1250689431.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1250689431.pas(1,20) Fatal: Syntax error, ";" expected but "=" found
-happy_new_year/pooq_1230874991.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1230874991.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
+falling_number/2Ayuko_2A_1393727858.pas	ENTRY	
+find_anagrams/2Ayuko_2A_1321902693.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.ShfLoVjX2g/2Ayuko_2A_1321902693: attempt to read past end of Input (error #454 at 403949)
+find_anagrams/uru_1251725331.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.sd20iCLY6i/uru_1251725331: attempt to read past end of Input (error #454 at 403bba)
+find_minimum_cyclic_parts/uru_1250689431.pas	DIFFERS-BETWEEN-RUNS	exit 42 and 42, 111 and 74 bytes
+happy_new_year/pooq_1230874991.pas	NO-OUTPUT	nothing on standard output, exit -11; a dead engine would earn the same; stderr: timeout: the monitored command dumped core
 happy_new_year/tiago_1231336675.pas	ENTRY	standard input is the collection's happy_new_year/input.txt
-happy_new_year/tiago_1231430040.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: tiago_1231430040.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
-happy_new_year/uru_1231252102.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1231252102.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
-happy_new_year/uru_1231596236.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1231596236.pas(1,22) Error: Identifier not found "trim"
-happy_number/2Ayuko_2A_1393680451.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1393680451.pas(1,1) Error: Illegal char constant
-hardcode_or_not/fuzzylojik_1753794058.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: fuzzylojik_1753794058.pas(1,13) Fatal: illegal character "'"'" ($22)
+happy_new_year/tiago_1231430040.pas	NEEDS-INPUT	its answer changes with what standard input holds
+happy_new_year/uru_1231252102.pas	NEEDS-INPUT	its answer changes with what standard input holds
+happy_new_year/uru_1231596236.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 21 and 23 bytes
+happy_number/2Ayuko_2A_1393680451.pas	ENTRY	
+hardcode_or_not/fuzzylojik_1753794058.pas	ENTRY	
 ieee754/yt_1189492580.pas	ENTRY	standard input is the collection's ieee754/input.txt; stderr not graded: Runtime error 106 at $0000000000401123
-irc/uru_1227887877.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1227887877.pas(1,13) Fatal: String exceeds line
-join_lines/mskzzzz_1175590565.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: mskzzzz_1175590565.pas(1,54) Fatal: illegal character "'n'" ($6E)
+irc/uru_1227887877.pas	ENTRY	
+join_lines/mskzzzz_1175590565.pas	NEEDS-INPUT	its answer changes with what standard input holds
 join_lines/planque_1175493356.pas	ENTRY	standard input is the collection's join_lines/input.txt
-join_lines/uru_1227796412.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1227796412.pas(1,53) Fatal: illegal character "'n'" ($6E)
+join_lines/uru_1227796412.pas	NEEDS-INPUT	its answer changes with what standard input holds
 kaprekars_constant/fuzzylojik_1765896089.pas	ENTRY	
-leap_year/2Ayuko_2A_1299861882.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1299861882.pas(1,88) Fatal: String exceeds line
-leap_year/pooq_1232530477.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232530477.pas(3,114) Fatal: illegal character "'n'" ($6E)
-leap_year/uru_1246372066.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1246372066.pas(3,48) Fatal: illegal character "'|'" ($7C)
+leap_year/2Ayuko_2A_1299861882.pas	NEEDS-INPUT	its answer changes with what standard input holds
+leap_year/pooq_1232530477.pas	NEEDS-INPUT	its answer changes with what standard input holds
+leap_year/uru_1246372066.pas	NEEDS-INPUT	its answer changes with what standard input holds
 main/uru_1227796827.pas	ENTRY	
-minus_infinity/2Ayuko_2A_1270507242.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1270507242.pas(1,13) Fatal: illegal character "'"'" ($22)
-minus_infinity/dcutter_1270741204.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: dcutter_1270741204.pas(1,13) Fatal: illegal character "'"'" ($22)
-minus_infinity/uru_1270547210.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1270547210.pas(1,13) Fatal: illegal character "'"'" ($22)
-mix_lines/uru_1269707396.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1269707396.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-moo_FIXED/teebee_1297558178.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1297558178.pas(1,22) Error: Identifier not found "CString"
-multiples/clock_1346909722.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: clock_1346909722.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-multiples/teebee_1346795877.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1346795877.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
+minus_infinity/2Ayuko_2A_1270507242.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1270507242.pas:1: warning: missing program header
+minus_infinity/dcutter_1270741204.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: dcutter_1270741204.pas:1: warning: missing program header
+minus_infinity/uru_1270547210.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1270547210.pas:1: warning: missing program header
+mix_lines/uru_1269707396.pas	NEEDS-INPUT	its answer changes with what standard input holds
+moo_FIXED/teebee_1297558178.pas	ENTRY	
+multiples/clock_1346909722.pas	ENTRY	
+multiples/teebee_1346795877.pas	ENTRY	
 multiples/uru_1347748739.pas	ENTRY	
-n_in_a_row/pooq_1570951741.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1570951741.pas(1,13) Fatal: illegal character "'"'" ($22)
-next_odd_number/2Ayuko_2A_1282390857.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1282390857.pas(1,57) Fatal: illegal character "'n'" ($6E)
-next_odd_number/uru_1281833436.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1281833436.pas(3,1) Error: Illegal expression
+n_in_a_row/pooq_1570951741.pas	ENTRY	
+next_odd_number/2Ayuko_2A_1282390857.pas	NEEDS-INPUT	its answer changes with what standard input holds
+next_odd_number/uru_1281833436.pas	NEEDS-INPUT	its answer changes with what standard input holds
 nop/BioFALSE_1359491279.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
 nop/ais523_1204732519.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
 nop/hitsuji_1212485511.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
@@ -543,78 +543,78 @@ nop/mugi666_1204877835.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead 
 nop/tabasa_1204784163.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
 nop/uru_1228316175.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
 nop/xdigit_1204696241.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
-not_echo/2Ayuko_2A_1302699314.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1302699314.pas(1,18) Fatal: illegal character "'"'" ($22)
-number_slide/uru_1239459949.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1239459949.pas(3,8) Error: Illegal expression
-numof_1_bits_in_0_to_255/2Ayuko_2A_1320926973.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1320926973.pas(1,82) Fatal: illegal character "'n'" ($6E)
-numof_1_bits_in_0_to_255/pooq_1240802540.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1240802540.pas(1,91) Fatal: illegal character "'n'" ($6E)
+not_echo/2Ayuko_2A_1302699314.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 32 and 18 bytes
+number_slide/uru_1239459949.pas	NEEDS-INPUT	its answer changes with what standard input holds
+numof_1_bits_in_0_to_255/2Ayuko_2A_1320926973.pas	ENTRY	stderr not graded: /tmp/s4e/grader/tmp.xyKmfqDZpN/2Ayuko_2A_1320926973: value out of range (error #300 at 40390a)
+numof_1_bits_in_0_to_255/pooq_1240802540.pas	ENTRY	stderr not graded: /tmp/s4e/grader/tmp.LmUYTseOGV/pooq_1240802540: value out of range (error #300 at 4038c9)
 numof_1_bits_in_0_to_255/tryeng_1240447096.pas	ENTRY	
-numof_1_bits_in_0_to_255/uru_1240748801.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1240748801.pas(1,13) Fatal: Syntax error, ";" expected but "=" found
-odd_lines/uru_1229605452.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1229605452.pas(1,65) Fatal: illegal character "'n'" ($6E)
+numof_1_bits_in_0_to_255/uru_1240748801.pas	NO-OUTPUT	nothing on standard output, exit -11; a dead engine would earn the same; stderr: timeout: the monitored command dumped core
+odd_lines/uru_1229605452.pas	NEEDS-INPUT	its answer changes with what standard input holds
 odd_lines/yt_1191286216.pas	DOES-NOT-END	no answer inside 30 s
-paper_sizes/uru_1247362924.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1247362924.pas(3,9) Fatal: Syntax error, ")" expected but "identifier SPAN" found
-partition_by_parity/uru_1290175489.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1290175489.pas(1,1) Error: Illegal char constant
+paper_sizes/uru_1247362924.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1247362924.pas:1: warning: missing program header
+partition_by_parity/uru_1290175489.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.fFPx7MS7V2/uru_1290175489: attempt to read past end of Input (error #454 at 40392d)
 pascal_to_the_moon/arsonist_gaming_1694179796.pas	ENTRY	
 pascal_to_the_moon/haha_get_it_1677489939.pas	ENTRY	
-perfect_square_free/2Ayuko_2A_1287224783.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1287224783.pas(1,24) Fatal: illegal character "'"'" ($22)
-perfect_square_free/2Ayuko_2A_1401102889.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1401102889.pas(1,24) Fatal: illegal character "'"'" ($22)
-perfect_square_free/uru_1287672100.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1287672100.pas(2,7) Fatal: illegal character "'"'" ($22)
-permission_list/uru_1244303645.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1244303645.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
-permission_list/yt_1198134109.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: yt_1198134109.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
-permutation_date/uru_1293115553.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1293115553.pas(1,1) Error: Illegal char constant
-plastic_constant/2Ayuko_2A_1282148888.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1282148888.pas(1,13) Fatal: illegal character "'"'" ($22)
-plastic_constant/uru_1242704279.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1242704279.pas(1,25) Fatal: Syntax error, ")" expected but "const char" found
-prefectual_capitals/uru_1249483482.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1249483482.pas(1,1) Error: Illegal char constant
-primitive_brainfuck_code/uru_1279380621.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1279380621.pas(2,32) Fatal: illegal character "'"'" ($22)
-primitive_brainfuck_code/uru_1279704436.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1279704436.pas(2,32) Fatal: illegal character "'"'" ($22)
-print_file/pooq_1232850863.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232850863.pas(1,22) Error: Identifier not found "CString"
-print_file/uru_1233236886.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1233236886.pas(1,41) Error: Incompatible type for arg no. 2: Got "ShortString", expected "LongInt"
-print_the_2nd/pooq_1278150297.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1278150297.pas(1,22) Error: Identifier not found "CString"
+perfect_square_free/2Ayuko_2A_1287224783.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1287224783.pas:1: warning: missing program header
+perfect_square_free/2Ayuko_2A_1401102889.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1401102889.pas:1: warning: missing program header
+perfect_square_free/uru_1287672100.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: uru_1287672100.pas:1: warning: missing program header
+permission_list/uru_1244303645.pas	ENTRY	stderr not graded: timeout: the monitored command dumped core
+permission_list/yt_1198134109.pas	ENTRY	stderr not graded: timeout: the monitored command dumped core
+permutation_date/uru_1293115553.pas	ENTRY	
+plastic_constant/2Ayuko_2A_1282148888.pas	ENTRY	
+plastic_constant/uru_1242704279.pas	ENTRY	
+prefectual_capitals/uru_1249483482.pas	NEEDS-INPUT	its answer changes with what standard input holds
+primitive_brainfuck_code/uru_1279380621.pas	NEEDS-INPUT	its answer changes with what standard input holds
+primitive_brainfuck_code/uru_1279704436.pas	NEEDS-INPUT	its answer changes with what standard input holds
+print_file/pooq_1232850863.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: 0+0 records in
+print_file/uru_1233236886.pas	NEEDS-INPUT	its answer changes with what standard input holds
+print_the_2nd/pooq_1278150297.pas	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: sh: 1: gawk: not found
 private_key_generation/Europe2048_1793042999.pas	ENTRY	
 private_key_generation/JOrE20_1794306991.pas	ENTRY	
 putter_golf_for_Ruby_kaigi/40tttttanaka_1333378644.pas	ENTRY	
 putter_golf_for_Ruby_kaigi/mugi666_1216782367.pas	ENTRY	
 putter_golf_for_Ruby_kaigi/uru_1213949105.pas	ENTRY	
-quote_box/uru_1236699990.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1236699990.pas(3,12) Fatal: String exceeds line
-quote_box/uru_1248003664.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1248003664.pas(3,8) Fatal: String exceeds line
-read_calculator_words/2Ayuko_2A_1321633227.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1321633227.pas(1,48) Error: Ordinal expression expected
+quote_box/uru_1236699990.pas	ENTRY	
+quote_box/uru_1248003664.pas	ENTRY	
+read_calculator_words/2Ayuko_2A_1321633227.pas	NEEDS-INPUT	its answer changes with what standard input holds
 repeat_line/uru_1263502335.pas	ENTRY	standard input is the collection's repeat_line/input.txt
 reverse_entire_input/uru_1263388556.pas	ENTRY	standard input is the collection's reverse_entire_input/input.txt
-rotate_lines_reversely/uru_1235749054.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1235749054.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-segs/2Ayuko_2A_1319246223.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1319246223.pas(1,41) Error: Ordinal expression expected
+rotate_lines_reversely/uru_1235749054.pas	NEEDS-INPUT	its answer changes with what standard input holds
+segs/2Ayuko_2A_1319246223.pas	NEEDS-INPUT	its answer changes with what standard input holds
 segs/uru_1247152383.pas	ENTRY	standard input is the collection's segs/input.txt
 seq/uru_1250995014.pas	ENTRY	standard input is the collection's seq/input.txt
-shell_game_EASY/2Ayuko_2A_1298138296.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1298138296.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
-simple_language/pooq_1232345542.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: pooq_1232345542.pas(1,18) Fatal: illegal character "'"'" ($22)
-simple_language/uru_1247229480.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1247229480.pas(1,13) Fatal: illegal character "'"'" ($22)
-sort/2Ayuko_2A_1292185541.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1292185541.pas(1,1) Error: Illegal char constant
-sort_by_first_occurrence/2Ayuko_2A_1319945338.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1319945338.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-sort_by_first_occurrence/uru_1321122061.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1321122061.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-sort_by_first_occurrence/uru_28_2Ayuko_2A_29_1321122707.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_28_2Ayuko_2A_29_1321122707.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-sort_numbers/2Ayuko_2A_1270118354.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1270118354.pas(1,13) Fatal: illegal character "'"'" ($22)
+shell_game_EASY/2Ayuko_2A_1298138296.pas	NEEDS-INPUT	its answer changes with what standard input holds
+simple_language/pooq_1232345542.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 6 and 1 bytes
+simple_language/uru_1247229480.pas	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 6 and 1 bytes
+sort/2Ayuko_2A_1292185541.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1292185541.pas:1: warning: missing program header
+sort_by_first_occurrence/2Ayuko_2A_1319945338.pas	NEEDS-INPUT	its answer changes with what standard input holds
+sort_by_first_occurrence/uru_1321122061.pas	NEEDS-INPUT	its answer changes with what standard input holds
+sort_by_first_occurrence/uru_28_2Ayuko_2A_29_1321122707.pas	NEEDS-INPUT	its answer changes with what standard input holds
+sort_numbers/2Ayuko_2A_1270118354.pas	ENTRY	
 sort_numbers/TAKO_2Fj0nKI_1270658486.pas	ENTRY	standard input is the collection's sort_numbers/input.txt
-sort_numbers/uru_1270550530.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1270550530.pas(1,13) Fatal: illegal character "'"'" ($22)
+sort_numbers/uru_1270550530.pas	ENTRY	
 squeeze_FIXED/BioFALSE_1410977172.pas	ENTRY	standard input is the collection's squeeze_FIXED/input.txt
-squeeze_FIXED/teebee_1411173333.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: teebee_1411173333.pas(1,100) Fatal: illegal character "'n'" ($6E)
-stable_partition/uru_1233182978.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1233182978.pas(1,13) Fatal: Syntax error, ";" expected but "(" found
-stratum/uru_1231247051.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1231247051.pas(3,6) Error: Incompatible types: got "Comp" expected "Byte"
+squeeze_FIXED/teebee_1411173333.pas	NEEDS-INPUT	its answer changes with what standard input holds
+stable_partition/uru_1233182978.pas	NEEDS-INPUT	its answer changes with what standard input holds
+stratum/uru_1231247051.pas	NEEDS-INPUT	its answer changes with what standard input holds
 sum_input/BioFALSE_1359477402.pas	ENTRY	standard input is the collection's sum_input/input.txt
 sum_input/uru_1201787834.pas	ENTRY	standard input is the collection's sum_input/input.txt
 sum_input/uru_1231428264.pas	ENTRY	standard input is the collection's sum_input/input.txt
 sum_of_square_numbers/mugi666_1218163425.pas	ENTRY	standard input is the collection's sum_of_square_numbers/input.txt
-sum_of_square_numbers/uru_1228653101.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1228653101.pas(1,72) Fatal: illegal character "'n'" ($6E)
-swab/2Ayuko_2A_1292647638.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1292647638.pas(1,15) Fatal: Syntax error, ";" expected but "(" found
-terminal_colours/2Ayuko_2A_1298722425.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1298722425.pas(2,7) Fatal: illegal character "'"'" ($22)
-three_times_x_plus_one/lynn_1531579117.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: lynn_1531579117.pas(1,1) Fatal: illegal character "'"'" ($22)
-toggleCASE/2Ayuko_2A_1296963904.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1296963904.pas(1,45) Fatal: illegal character "'&'" ($26)
-toggleCASE/uru_1295438713.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1295438713.pas(1,18) Fatal: Syntax error, ";" expected but "=" found
-totient_function/uru_1263222719.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1263222719.pas(1,15) Fatal: Syntax error, ";" expected but "=" found
-trimming/uru_1290755985.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1290755985.pas(3,27) Error: Identifier not found "max"
-ttp/2Ayuko_2A_1317120864.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1317120864.pas(1,68) Fatal: illegal character "'n'" ($6E)
-ttp2/2Ayuko_2A_1317460827.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1317460827.pas(1,73) Fatal: illegal character "'n'" ($6E)
-ttp2/2Ayuko_2A_1322941432.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: 2Ayuko_2A_1322941432.pas(1,71) Fatal: illegal character "'n'" ($6E)
-uniq_words/uru_1241707039.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1241707039.pas(1,22) Fatal: Syntax error, ";" expected but "(" found
+sum_of_square_numbers/uru_1228653101.pas	NEEDS-INPUT	its answer changes with what standard input holds
+swab/2Ayuko_2A_1292647638.pas	NEEDS-INPUT	its answer changes with what standard input holds
+terminal_colours/2Ayuko_2A_1298722425.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 2Ayuko_2A_1298722425.pas:1: warning: missing program header
+three_times_x_plus_one/lynn_1531579117.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: lynn_1531579117.pas:1: warning: missing program header
+toggleCASE/2Ayuko_2A_1296963904.pas	NEEDS-INPUT	its answer changes with what standard input holds
+toggleCASE/uru_1295438713.pas	NEEDS-INPUT	its answer changes with what standard input holds
+totient_function/uru_1263222719.pas	ENTRY	
+trimming/uru_1290755985.pas	NO-OUTPUT	nothing on standard output, exit 42; a dead engine would earn the same; stderr: /tmp/s4e/grader/tmp.waCgQsnfp3/uru_1290755985: value out of range (error #300 at 403971)
+ttp/2Ayuko_2A_1317120864.pas	NEEDS-INPUT	its answer changes with what standard input holds
+ttp2/2Ayuko_2A_1317460827.pas	NEEDS-INPUT	its answer changes with what standard input holds
+ttp2/2Ayuko_2A_1322941432.pas	NEEDS-INPUT	its answer changes with what standard input holds
+uniq_words/uru_1241707039.pas	NEEDS-INPUT	its answer changes with what standard input holds
 v/uru_1220796452.pas	ENTRY	
 v/uru_1230884157.pas	ENTRY	
-wave_line/uru_1246799812.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1246799812.pas(3,14) Error: Ordinal expression expected
-weekday_names/uru_1290305107.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1290305107.pas(2,7) Fatal: illegal character "'"'" ($22)
-zero_lines/uru_1260789820.pas	ORACLE-REFUSES	fpc compiles it in no mode of the ladder; the last says: uru_1260789820.pas(2,35) Fatal: illegal character "'"'" ($22)
+wave_line/uru_1246799812.pas	NEEDS-INPUT	its answer changes with what standard input holds
+weekday_names/uru_1290305107.pas	ENTRY	
+zero_lines/uru_1260789820.pas	NEEDS-INPUT	its answer changes with what standard input holds

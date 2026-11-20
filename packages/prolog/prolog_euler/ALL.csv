@@ -1,0 +1,4 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,AVanderHoff_project-euler/prolog/euler1,AVanderHoff_project-euler/prolog/euler1.pl,prolog_euler__AVanderHoff_project-euler/prolog/euler1,prolog_euler,9,0,131072,4096,60,,swi
+2,AVanderHoff_project-euler/prolog/euler2,AVanderHoff_project-euler/prolog/euler2.pl,prolog_euler__AVanderHoff_project-euler/prolog/euler2,prolog_euler,4,0,131072,4096,60,,swi
+3,AVanderHoff_project-euler/prolog/euler3,AVanderHoff_project-euler/prolog/euler3.pl,prolog_euler__AVanderHoff_project-euler/prolog/euler3,prolog_euler,6,0,131072,4096,60,,swi

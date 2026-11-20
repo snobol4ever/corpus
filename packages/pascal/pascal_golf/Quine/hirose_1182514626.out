@@ -1,0 +1,1 @@
+program quine;const x="program quine;const x=";y=";begin Write(x+chr(34)+x+chr(34)+chr(59)+chr(121)+chr(61)+chr(34)+y+chr(34)+y);End.";begin Write(x+chr(34)+x+chr(34)+chr(59)+chr(121)+chr(61)+chr(34)+y+chr(34)+y);End.

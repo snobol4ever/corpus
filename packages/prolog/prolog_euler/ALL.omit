@@ -1,0 +1,138 @@
+KarlHolt_ProjectEuler/p1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p26.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p33.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p40.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p42.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p42data.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p43.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p45.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: p45.pl:81:0: Syntax error: Operator expected
+KarlHolt_ProjectEuler/p46.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p47.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p48.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p50.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p51.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p52.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p53.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p56.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p67.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p67data.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p719.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p79.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: p79.pl:50:2: Syntax error: Unexpected end of file
+KarlHolt_ProjectEuler/p79_wrong.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p79data.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p8data.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+KarlHolt_ProjectEuler/p97.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+fp555_euler-prolog/euler001.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+fp555_euler-prolog/euler002.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+fp555_euler-prolog/euler003.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+fp555_euler-prolog/euler005.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+fp555_euler-prolog/euler006.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+fp555_euler-prolog/euler009.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+fp555_euler-prolog/euler010.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+fp555_euler-prolog/euler014.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+fp555_euler-prolog/euler029.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/01/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 1.pl:7:15: Syntax error: Unexpected end of file
+lunixbochs_project-euler/001-099/02/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 2.pl:12:17: Syntax error: Unexpected end of file
+lunixbochs_project-euler/001-099/03/3.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/04/4.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/05/5.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/06/6.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/07/7.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/08/8.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/09/9.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/10/10.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/11/11.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/12/12.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/13/13.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/14/14.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/15/15.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/16/16.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/17/17.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/19/19.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/20/20.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/21/21.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/22/22.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/24/24.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/25/25.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/26/26.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/28/28.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/29/29.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/30/30.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/31/31.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/32/32.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/33/33.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/34/34.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/35/35.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/36/36.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/37/37.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/38/38.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/39/39.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/40/40.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/41/41.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/42/42.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/43/43.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/44/44.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/45/45.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/46/46.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/47/47.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/48/48.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/49/49.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+lunixbochs_project-euler/001-099/52/52.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+maglob_euler-prolog/euler-1.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+maglob_euler-prolog/euler-10.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+maglob_euler-prolog/euler-2.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+maglob_euler-prolog/euler-3.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+maglob_euler-prolog/euler-4.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+maglob_euler-prolog/euler-5.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+maglob_euler-prolog/euler-6.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+maglob_euler-prolog/euler-7.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+maglob_euler-prolog/euler-8.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+maglob_euler-prolog/euler-9.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+maglob_euler-prolog/util.pro: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+monoscale_Project-Euler/1-9/problem1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem1.pl:20:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/1-9/problem2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem2.pl:31:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/1-9/problem3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem3.pl:40:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/1-9/problem4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem4.pl:31:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/1-9/problem5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem5.pl:40:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/1-9/problem6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem6.pl:39:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/1-9/problem7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem7.pl:31:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/1-9/problem8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem8.pl:64:50: Syntax error: Unexpected end of file
+monoscale_Project-Euler/1-9/problem9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem9.pl:30:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/10-19/problem10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem10.pl:29:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/10-19/problem11.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem11.pl:82:59: Syntax error: Unexpected end of file
+monoscale_Project-Euler/10-19/problem13.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem13.pl:120:50: Syntax error: Unexpected end of file
+monoscale_Project-Euler/10-19/problem14.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem14.pl:43:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/10-19/problem15.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem15.pl:1:8: Syntax error: Operator expected
+monoscale_Project-Euler/10-19/problem16.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem16.pl:13:40: Syntax error: Unexpected end of file
+monoscale_Project-Euler/10-19/problem17.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem17.pl:1:8: Syntax error: Operator expected
+monoscale_Project-Euler/10-19/problem18.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem18.pl:60:44: Syntax error: Unexpected end of file
+monoscale_Project-Euler/10-19/problem19.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem19.pl:76:1: Syntax error: end_of_file_in_quasi_quotation
+monoscale_Project-Euler/20-29/problem20.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem20.pl:20:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/20-29/problem21.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem21.pl:31:1: Syntax error: Unexpected end of file
+monoscale_Project-Euler/20-29/problem22.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem22.pl:51:46447: Syntax error: Unexpected end of file
+monoscale_Project-Euler/20-29/problem24.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem24.pl:1:8: Syntax error: Operator expected
+monoscale_Project-Euler/20-29/problem25.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+monoscale_Project-Euler/20-29/problem26.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem26.pl:4:4: Syntax error: Operator expected
+monoscale_Project-Euler/40-49/problem40.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem40.pl:33:18: Syntax error: Unexpected end of file
+monoscale_Project-Euler/90-99/problem99.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: problem99.pl:1018:11: Syntax error: Unexpected end of file
+qoelet_euler-and-tower-of-babel/prolog/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+qoelet_euler-and-tower-of-babel/prolog/10.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+qoelet_euler-and-tower-of-babel/prolog/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+qoelet_euler-and-tower-of-babel/prolog/3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+qoelet_euler-and-tower-of-babel/prolog/4.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+qoelet_euler-and-tower-of-babel/prolog/5.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+qoelet_euler-and-tower-of-babel/prolog/52.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: 52.pl:15:
+qoelet_euler-and-tower-of-babel/prolog/56.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: 8.pl:66:
+qoelet_euler-and-tower-of-babel/prolog/6.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+qoelet_euler-and-tower-of-babel/prolog/7.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+qoelet_euler-and-tower-of-babel/prolog/8.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: 8.pl:66:
+qoelet_euler-and-tower-of-babel/prolog/9.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
