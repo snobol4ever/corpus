@@ -63924,8 +63924,7 @@ ntinuation line
 ## test_spitbol_rules_1118__a-carriage-return-is-a-character-of-its-line__4
 
 ```SNOBOL4
-        X = 'a
-b'
+        X = 'ab'
         OUTPUT = SIZE(X)
 END
 ```
