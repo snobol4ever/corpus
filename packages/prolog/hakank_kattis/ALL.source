@@ -1,0 +1,4 @@
+root	/home/packages/prolog/hakank_kattis
+origin	https://github.com/hakank/hakank, its folder kattis/ (Hakan Kjellerstrand), Kattis problem solutions in SWI-Prolog, each fed its problem's first sample input
+version	2823c48 (2025-11-27; a sparse clone, 2026-11-20)
+licence	MIT (LICENSE copied into the root)

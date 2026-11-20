@@ -1,0 +1,12 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=8 features=1 ubiquitous=1(package) distinctive=0 core=1 clusters=7 chunks=1 sizes=7
+entry	part	cluster	shells
+Benford-s-law/1	core	core	
+Dirac-delta-function/1	chunk:01	dir:Dirac-delta-function	
+Fortunate-numbers/1	chunk:01	dir:Fortunate-numbers	
+Loop-structures/1	chunk:01	dir:Loop-structures	
+Numerical-integration-Adaptive-Simpson-s-method/1	chunk:01	dir:Numerical-integration-Adaptive-Simpson-s-method	
+Permutations-Derangements/1	chunk:01	dir:Permutations-Derangements	
+Sylvester-s-sequence/1	chunk:01	dir:Sylvester-s-sequence	
+Two-s-complement/1	chunk:01	dir:Two-s-complement	

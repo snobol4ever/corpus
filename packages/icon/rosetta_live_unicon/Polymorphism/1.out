@@ -1,0 +1,11 @@
+Points:
+Point (0, 0)
+Point (1, 0)
+Point (1, 2)
+Point (1, 2)
+p3 value of x is: 3
+Circles:
+Circle (0, 0, 0)
+Circle (1, 0, 0)
+Circle (1, 2, 0)
+Circle (1, 2, 3)

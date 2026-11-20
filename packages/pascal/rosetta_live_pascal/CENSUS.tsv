@@ -1,0 +1,47 @@
+# the census of /home/packages/pascal/rosetta_live_pascal by fpc (the live site, fetched 2026-11-18 (46 programs)), 2026-11-20: path from the root, verdict, note
+Delphi/Bitmap-Bresenham-s-line-algorithm/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:1: warning: missing program header
+Delphi/Conway-s-Game-of-Life/1.pas	CLOCK-SEEDED	the source names Randomize
+Delphi/Dijkstra-s-algorithm/1.pas	ENTRY	
+Delphi/Euler-s-constant-0.5772.../1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:1: warning: missing program header
+Delphi/Euler-s-identity/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:3: warning: unknown compiler directive `apptype console'
+Delphi/Floyd-s-triangle/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:1: warning: missing program header
+Delphi/Goldbach-s-comet/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:1: warning: missing program header
+Delphi/Horner-s-rule-for-polynomial-evaluation/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:1: warning: missing program header
+Delphi/Jensen-s-Device/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:1: warning: missing program header
+Delphi/Knight-s-tour/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:1: warning: missing program header
+Delphi/O-Halloran-numbers/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:1: warning: missing program header
+Delphi/Pascal-s-triangle/1.pas	ENTRY	
+Delphi/Pell-s-equation/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:3: warning: unknown compiler directive `apptype console'
+Delphi/Pick-random-element/1.pas	CLOCK-SEEDED	the source names randomize
+Delphi/Soloway-s-recurring-rainfall/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:1: warning: missing program header
+Delphi/Two-s-complement/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:1: warning: missing program header
+Free_Pascal/Bernoulli-s-triangle/1.pas	ENTRY	
+Free_Pascal/Dijkstra-s-algorithm/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:2: warning: unknown compiler directive `mode delphi'
+Free_Pascal/Gosper-s-hack/1.pas	ENTRY	
+Pascal/Averages-Root-mean-square/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:3: warning: unknown compiler directive `apptype console'
+Pascal/Benford-s-law/1.pas	ENTRY	
+Pascal/Catalan-numbers-Pascal-s-triangle/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:2: error: syntax error before `type'
+Pascal/Conway-s-Game-of-Life/1.pas	NEEDS-DISPLAY	the source names uses crt
+Pascal/Dijkstra-s-algorithm/1.pas	ENTRY	
+Pascal/Environment-variables/1.pas	ENTRY	
+Pascal/Euler-s-sum-of-powers-conjecture/1.pas	ENTRY	
+Pascal/Faulhaber-s-formula/1.pas	ENTRY	
+Pascal/Faulhaber-s-triangle/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:2: error: module/unit `uintx' could not be compiled
+Pascal/Floyd-s-triangle/1.pas	ENTRY	
+Pascal/Horner-s-rule-for-polynomial-evaluation/1.pas	ENTRY	
+Pascal/Jensen-s-Device/1.pas	ENTRY	
+Pascal/Langton-s-ant/1.pas	NEEDS-DISPLAY	the source names Uses CRT
+Pascal/N-th/1.pas	ENTRY	
+Pascal/Nth-Particular-Weekday-of-the-Month/1.pas	ENTRY	
+Pascal/Numerical-integration-Adaptive-Simpson-s-method/1.pas	ENTRY	
+Pascal/Odd-and-square-numbers/1.pas	ENTRY	
+Pascal/Pascal-s-triangle/1.pas	ENTRY	
+Pascal/Pell-s-equation/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:2: error: module/unit `sysutils' could not be compiled
+Pascal/Penney-s-game/1.pas	CLOCK-SEEDED	the source names randomize
+Pascal/Primality-by-Wilson-s-theorem/1.pas	ENTRY	
+Pascal/Return-multiple-values/1.pas	ENTRY	
+Pascal/Roman-numerals-Decode/1.pas	ENTRY	
+Pascal/Singleton/1.pas	LIBRARY	the source names unit Singleton;
+Pascal/Strip-whitespace-from-a-string-Top-and-tail/1.pas	ENTRY	
+Pascal/Sylvester-s-sequence/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:3: warning: unknown compiler directive `mode objfpc'
+Pascal/Xiaolin-Wu-s-line-algorithm/1.pas	ORACLE-REFUSES	fpc and gpc compile it in no mode of the ladder; the last says: 1.pas:3: error: module/unit `sdl2' could not be compiled

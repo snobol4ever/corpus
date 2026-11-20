@@ -1,0 +1,38 @@
+a_different_problem.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals read_int/1: Unknown procedure: read_string/1
+a_different_problem2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+a_different_problem3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+apaxian_parent_bad.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+booking_a_room_dcg.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+bplan.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+chanukka_challenge_dcg.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+cinema_crowds2.pl: NEEDS-INPUT: its answer changes with what standard input holds
+cold_puter_science.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: cold_puter_science.pl:28:
+counting_clauses_back.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+detailed_differences_dcg.pl: NEEDS-INPUT: its answer changes with what standard input holds
+dice_cup_dcg.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+divvying_up.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: divvying_up.pl:5:
+election_paradox_cp.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+eligibility_co.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: eligibility_co.pl:22:
+eligibility_eterms_shfr_co.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: eligibility_eterms_shfr_co.pl:22:
+exam_cp.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+faktor2.pl: DOES-NOT-END: no answer inside 60 s
+jumbo_javelin_dcg.pl: NEEDS-INPUT: its answer changes with what standard input holds
+kattio.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+kattutils.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+moscow_dream.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: moscow_dream.pl:5:
+oddities.pl: NEEDS-INPUT: its answer changes with what standard input holds
+oddities2.pl: NEEDS-INPUT: its answer changes with what standard input holds
+parking2.pl: NEEDS-INPUT: its answer changes with what standard input holds
+peragrams.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: peragrams.pl:9:
+pot_dcg.pl: NEEDS-INPUT: its answer changes with what standard input holds
+provinces_and_gold.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: provinces_and_gold.pl:23:
+qaly_dcg.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+r2.pl: NEEDS-INPUT: its answer changes with what standard input holds
+reverse2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: reverse2.pl:7:
+shattered_cake_dcg.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+simple_addition.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: simple_addition.pl:7:
+sok2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: sok2.pl:7:
+speedlimit_dcg.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+take_two_stones.pl: NO-OUTPUT: nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals main/0: Unknown procedure: read_string/2
+tarifa_dcg.pl: NEEDS-INPUT: its answer changes with what standard input holds
+transit_woes.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: transit_woes.pl:5:

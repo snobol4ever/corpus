@@ -1,0 +1,16 @@
+The first 20 values of Moser's circle problem calculated in different ways:
+
+Direct calculation of a 4th order equation:
+1 2 4 8 16 31 57 99 163 256 386 562 794 1093 1471 1941 2517 3214 4048 5036
+
+Using binomial sums:
+1 2 4 8 16 31 57 99 163 256 386 562 794 1093 1471 1941 2517 3214 4048 5036
+
+Using a binomial transform:
+1 2 4 8 16 31 57 99 163 256 386 562 794 1093 1471 1941 2517 3214 4048 5036
+
+Partial sums of Pascal's triangle:
+1 2 4 8 16 31 57 99 163 256 386 562 794 1093 1471 1941 2517 3214 4048 5036
+
+Fifth column of Bernoulli's triangle:
+1 2 4 8 16 31 57 99 163 256 386 562 794 1093 1471 1941 2517 3214 4048 5036

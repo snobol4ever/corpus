@@ -1,0 +1,9 @@
+Conway-s-Game-of-Life/1.icn: DOES-NOT-END: no answer inside 60 s
+Jensen-s-Device/2.icn: LIBRARY: no procedure main
+Jensen-s-Device/3.icn: LIBRARY: no procedure main
+Knight-s-tour/1.icn: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 478 and 478 bytes
+Knight-s-tour/2.icn: LIBRARY: no procedure main
+Knuth-s-algorithm-S/1.icn: ORACLE-REFUSES: unicon does not translate it: 1.icn:3: # "procedure" Unable to import (1) package "Utils"
+Langton-s-ant/1.icn: NEEDS-DISPLAY: the source names link graphics
+Pascal-s-triangle/1.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Xiaolin-Wu-s-line-algorithm/1.icn: NEEDS-DISPLAY: the source names link graphics

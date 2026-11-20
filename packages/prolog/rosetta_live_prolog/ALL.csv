@@ -1,0 +1,9 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,Benford-s-law/1,Benford-s-law/1.pl,rosetta_live_prolog__Benford-s-law/1,rosetta_live_prolog,44,0,131072,4096,60,,swi
+2,Dirac-delta-function/1,Dirac-delta-function/1.pl,rosetta_live_prolog__Dirac-delta-function/1,rosetta_live_prolog,5,0,131072,4096,60,,swi
+3,Fortunate-numbers/1,Fortunate-numbers/1.pl,rosetta_live_prolog__Fortunate-numbers/1,rosetta_live_prolog,8,0,131072,4096,60,,swi
+4,Loop-structures/1,Loop-structures/1.pl,rosetta_live_prolog__Loop-structures/1,rosetta_live_prolog,28,0,131072,4096,60,,swi
+5,Numerical-integration-Adaptive-Simpson-s-method/1,Numerical-integration-Adaptive-Simpson-s-method/1.pl,rosetta_live_prolog__Numerical-integration-Adaptive-Simpson-s-method/1,rosetta_live_prolog,46,0,131072,4096,60,,swi
+6,Permutations-Derangements/1,Permutations-Derangements/1.pl,rosetta_live_prolog__Permutations-Derangements/1,rosetta_live_prolog,10,0,131072,4096,60,,swi
+7,Sylvester-s-sequence/1,Sylvester-s-sequence/1.pl,rosetta_live_prolog__Sylvester-s-sequence/1,rosetta_live_prolog,19,0,131072,4096,60,,swi
+8,Two-s-complement/1,Two-s-complement/1.pl,rosetta_live_prolog__Two-s-complement/1,rosetta_live_prolog,14,0,131072,4096,60,,swi

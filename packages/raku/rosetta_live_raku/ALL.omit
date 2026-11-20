@@ -1,0 +1,21 @@
+Argument-destructuring/1.raku: NEEDS-INPUT: its answer changes with what standard input holds
+Bitmap-Bresenham-s-line-algorithm/1.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Chernick-s-Carmichael-numbers/1.raku: NEEDS-DISPLAY: the source names Inline::
+Chrome-simulated-search/1.raku: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Create-an-executable-for-a-program-in-an-interpreted-language/1.raku: ORACLE-REFUSES: Error while compiling 1.raku
+Draft-GC-60-Passive-Window-Prime-Sieve/1.raku: DOES-NOT-END: no answer inside 60 s
+Floyd-Steinberg-dithering/1.raku: NEEDS-INPUT: its answer changes with what standard input holds
+Goldbach-s-comet/1.raku: ORACLE-REFUSES: Error while compiling 1.raku
+I-m-a-software-engineer-get-me-out-of-here/1.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 2667 and 2667 bytes
+Knight-s-tour/1.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 776 and 776 bytes
+Knuth-s-algorithm-S/1.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 62 and 62 bytes
+Knuth-s-power-tree/1.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 728 and 727 bytes
+Langton-s-ant/1.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 3469 and 3464 bytes
+Pell-s-equation/1.raku: ORACLE-REFUSES: Error while compiling 1.raku
+Penney-s-game/1.raku: DOES-NOT-END: no answer inside 60 s
+Pollard-s-rho-algorithm/1.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 698 and 698 bytes
+Search-in-paragraph-s-text/1.raku: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot resolve caller contains(Str:D: Any:U); none of these signatures matches:
+Strassen-s-algorithm/1.raku: ORACLE-REFUSES: Error while compiling 1.raku
+Szyma-ski-s-algorithm/1.raku: ORACLE-REFUSES: Error while compiling 1.raku
+Two-s-complement/1.raku: ORACLE-REFUSES: Error while compiling 1.raku
+Vogel-s-approximation-method/1.raku: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 88 and 89 bytes

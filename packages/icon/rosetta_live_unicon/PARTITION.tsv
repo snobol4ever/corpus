@@ -1,0 +1,29 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=25 features=2 ubiquitous=1(package) distinctive=1 core=3 clusters=22 chunks=1 sizes=22
+entry	part	cluster	shells
+Benford-s-law/1	chunk:01	dir:Benford-s-law	
+Break-OO-privacy/1	chunk:01	dir:Break-OO-privacy	
+Catalan-numbers-Pascal-s-triangle/1	chunk:01	dir:Catalan-numbers-Pascal-s-triangle	
+Classes/1	chunk:01	dir:Classes	
+Concurrent-computing/1	chunk:01	dir:Concurrent-computing	
+Currying/1	chunk:01	dir:Currying	
+DNS-query/1	chunk:01	dir:DNS-query	
+Dijkstra-s-algorithm/1	core	core	want_rc
+Dinesman-s-multiple-dwelling-problem/1	core	core	want_rc
+Doubly-linked-list-Traversal/1	chunk:01	dir:Doubly-linked-list-Traversal	
+Element-wise-operations/1	chunk:01	dir:Element-wise-operations	
+Empty-directory/1	core	core	want_rc
+Floyd-s-triangle/1	chunk:01	dir:Floyd-s-triangle	
+Gamma-function/1	chunk:01	dir:Gamma-function	
+Gosper-s-hack/1	chunk:01	dir:Gosper-s-hack	
+HTTPS/1	chunk:01	dir:HTTPS	
+Horner-s-rule-for-polynomial-evaluation/1	chunk:01	dir:Horner-s-rule-for-polynomial-evaluation	
+Jensen-s-Device/1	chunk:01	dir:Jensen-s-Device	
+Magic-squares-of-odd-order/1	chunk:01	dir:Magic-squares-of-odd-order	
+Multifactorial/1	chunk:01	dir:Multifactorial	
+N-th/1	chunk:01	dir:N-th	
+Pollard-s-rho-algorithm/1	chunk:01	dir:Pollard-s-rho-algorithm	
+Polymorphism/1	chunk:01	dir:Polymorphism	
+Set-of-real-numbers/1	chunk:01	dir:Set-of-real-numbers	
+Topswops/1	chunk:01	dir:Topswops	

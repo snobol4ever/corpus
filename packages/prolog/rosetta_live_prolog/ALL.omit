@@ -1,0 +1,27 @@
+Bitmap-Bresenham-s-line-algorithm/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 1.pl:1:
+Chernick-s-Carmichael-numbers/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 1.pl:1:
+Chernick-s-Carmichael-numbers/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Compiler-virtual-machine-interpreter/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 1.pl:359: Initialization goal raised exception:
+Conway-s-Game-of-Life/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Cramer-s-rule/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Dijkstra-s-algorithm/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Euler-s-identity/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Euler-s-sum-of-powers-conjecture/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Faulhaber-s-triangle/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Floyd-s-triangle/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Horner-s-rule-for-polynomial-evaluation/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Horner-s-rule-for-polynomial-evaluation/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: 2.pl:1:
+Idoneal-numbers/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Knight-s-tour/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Langton-s-ant/1.pl: NEEDS-DISPLAY: the source names send(@w
+Loop-structures/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Loop-structures/3.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+N-th/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Nth-Particular-Weekday-of-the-Month/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Padovan-sequence/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Pascal-s-triangle-Puzzle/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Pascal-s-triangle/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Pascal-s-triangle/2.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same; stderr: ERROR: 2.pl:1:
+Pell-s-equation/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Penney-s-game/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Pythagorean-quadruples/1.pl: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same

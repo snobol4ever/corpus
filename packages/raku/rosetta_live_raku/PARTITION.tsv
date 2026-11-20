@@ -1,0 +1,47 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=43 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=38 chunks=1 sizes=42
+entry	part	cluster	shells
+Ap-ry-s-constant/1	chunk:01	dir:Ap-ry-s-constant	
+Banker-s-algorithm/1	chunk:01	dir:Banker-s-algorithm	
+Benford-s-law/1	chunk:01	dir:Benford-s-law	
+Bernoulli-s-triangle/1	chunk:01	dir:Bernoulli-s-triangle	
+Catalan-numbers-Pascal-s-triangle/1	chunk:01	dir:Catalan-numbers-Pascal-s-triangle	
+Cheryl-s-birthday/1	chunk:01	dir:Cheryl-s-birthday	
+Cipolla-s-algorithm/1	chunk:01	dir:Cipolla-s-algorithm	
+Conway-s-Game-of-Life/1	chunk:01	dir:Conway-s-Game-of-Life	
+Cramer-s-rule/1	chunk:01	dir:Cramer-s-rule	
+Deming-s-funnel/1	chunk:01	dir:Deming-s-funnel	
+Dijkstra-s-algorithm/1	chunk:01	dir:Dijkstra-s-algorithm	
+Euler-s-constant-0.5772.../1	chunk:01	dir:Euler-s-constant-0.5772...	
+Euler-s-identity/1	chunk:01	dir:Euler-s-identity	
+Euler-s-sum-of-powers-conjecture/1	chunk:01	dir:Euler-s-sum-of-powers-conjecture	
+Faulhaber-s-formula/1	chunk:01	dir:Faulhaber-s-formula	
+Faulhaber-s-triangle/1	chunk:01	dir:Faulhaber-s-triangle	
+Floyd-s-triangle/1	chunk:01	dir:Floyd-s-triangle	
+Gabow-s-algorithm/1	chunk:01	dir:Gabow-s-algorithm	
+Gosper-s-hack/1	chunk:01	dir:Gosper-s-hack	
+Hierholzer-s-algorithm/1	chunk:01	dir:Hierholzer-s-algorithm	
+Horner-s-rule-for-polynomial-evaluation/1	chunk:01	dir:Horner-s-rule-for-polynomial-evaluation	
+Horner-s-rule-for-polynomial-evaluation/2	chunk:01	dir:Horner-s-rule-for-polynomial-evaluation	
+Horner-s-rule-for-polynomial-evaluation/3	chunk:01	dir:Horner-s-rule-for-polynomial-evaluation	
+Horner-s-rule-for-polynomial-evaluation/4	chunk:01	dir:Horner-s-rule-for-polynomial-evaluation	
+Jensen-s-Device/1	chunk:01	dir:Jensen-s-Device	
+Johnson-s-algorithm/1	chunk:01	dir:Johnson-s-algorithm	
+Moser-s-circle-problem/1	chunk:01	dir:Moser-s-circle-problem	
+N-th/1	chunk:01	dir:N-th	
+N-th/2	chunk:01	dir:N-th	
+Nth-Particular-Weekday-of-the-Month/1	chunk:01	dir:Nth-Particular-Weekday-of-the-Month	
+Numerical-integration-Adaptive-Simpson-s-method/1	chunk:01	dir:Numerical-integration-Adaptive-Simpson-s-method	
+O-Halloran-numbers/1	chunk:01	dir:O-Halloran-numbers	
+Pascal-s-triangle-Puzzle/1	chunk:01	dir:Pascal-s-triangle-Puzzle	
+Primality-by-Wilson-s-theorem/1	core	core	want_rc
+Ramsey-s-theorem/1	chunk:01	dir:Ramsey-s-theorem	
+Recaman-s-sequence/1	chunk:01	dir:Recaman-s-sequence	
+Solve-a-Holy-Knight-s-tour/1	chunk:01	dir:Solve-a-Holy-Knight-s-tour	
+Solve-a-Rubik-s-cube/1	chunk:01	dir:Solve-a-Rubik-s-cube	
+Steffensen-s-method/1	chunk:01	dir:Steffensen-s-method	
+Sylvester-s-sequence/1	chunk:01	dir:Sylvester-s-sequence	
+Thiele-s-interpolation-formula/1	chunk:01	dir:Thiele-s-interpolation-formula	
+Tupper-s-self-referential-formula/1	chunk:01	dir:Tupper-s-self-referential-formula	
+Xiaolin-Wu-s-line-algorithm/1	chunk:01	dir:Xiaolin-Wu-s-line-algorithm	

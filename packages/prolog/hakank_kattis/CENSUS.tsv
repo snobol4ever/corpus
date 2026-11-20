@@ -1,0 +1,420 @@
+# the census of /home/packages/prolog/hakank_kattis by swipl (2823c48 (2025-11-27; a sparse clone, 2026-11-20)), 2026-11-20: path from the root, verdict, note
+ABC.pl	ENTRY	standard input is the collection's ABC1.inp
+ABC2.pl	ENTRY	standard input is the collection's ABC1.inp
+ABC3.pl	ENTRY	standard input is the collection's ABC1.inp
+a_different_problem.pl	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals read_int/1: Unknown procedure: read_string/1
+a_different_problem2.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+a_different_problem3.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+a_new_alphabet.pl	ENTRY	standard input is the collection's a_new_alphabet1.inp
+a_new_alphabet2.pl	ENTRY	standard input is the collection's a_new_alphabet1.inp
+a_new_alphabet3.pl	ENTRY	standard input is the collection's a_new_alphabet1.inp
+a_real_challenge.pl	ENTRY	standard input is the collection's a_real_challenge1.inp
+aaah.pl	ENTRY	standard input is the collection's aaah1.inp
+acm.pl	ENTRY	standard input is the collection's acm1.inp
+acm2.pl	ENTRY	standard input is the collection's acm1.inp
+add_two_numbers.pl	ENTRY	standard input is the collection's add_two_numbers1.inp
+alien_numbers.pl	ENTRY	standard input is the collection's alien_numbers1.inp
+alphabetspam.pl	ENTRY	standard input is the collection's alphabetspam1.inp
+another_brick.pl	ENTRY	standard input is the collection's another_brick1.inp
+apaxiaaans.pl	ENTRY	standard input is the collection's apaxiaaans1.inp
+apaxiaaans2.pl	ENTRY	standard input is the collection's apaxiaaans1.inp
+apaxian_parent.pl	ENTRY	standard input is the collection's apaxian_parent1.inp
+apaxian_parent_bad.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+arrangement.pl	ENTRY	standard input is the collection's arrangement1.inp
+autori.pl	ENTRY	standard input is the collection's autori1.inp
+average_character.pl	ENTRY	standard input is the collection's average_character1.inp
+avion.pl	ENTRY	standard input is the collection's avion1.inp
+baby_bites.pl	ENTRY	standard input is the collection's baby_bites1.inp
+babylonian_numbers.pl	ENTRY	standard input is the collection's babylonian_numbers1.inp
+backspace.pl	ENTRY	standard input is the collection's backspace1.inp
+bacon_eggs_and_spam.pl	ENTRY	standard input is the collection's bacon_eggs_and_spam1.inp
+basketball_one_on_one.pl	ENTRY	standard input is the collection's basketball_one_on_one1.inp
+batter_up.pl	ENTRY	standard input is the collection's batter_up1.inp
+bela.pl	ENTRY	standard input is the collection's bela1.inp
+bela2.pl	ENTRY	standard input is the collection's bela1.inp
+bela3.pl	ENTRY	standard input is the collection's bela1.inp
+bela4.pl	ENTRY	standard input is the collection's bela1.inp
+betting.pl	ENTRY	standard input is the collection's betting1.inp
+bijele.pl	ENTRY	standard input is the collection's bijele1.inp
+birthday_memorization.pl	ENTRY	standard input is the collection's birthday_memorization1.inp
+booking_a_room.pl	ENTRY	standard input is the collection's booking_a_room1.inp
+booking_a_room2.pl	ENTRY	standard input is the collection's booking_a_room1.inp
+booking_a_room3.pl	ENTRY	standard input is the collection's booking_a_room1.inp
+booking_a_room_dcg.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+bplan.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+breaking_branches.pl	ENTRY	standard input is the collection's breaking_branches1.inp
+breaking_branches2.pl	ENTRY	standard input is the collection's breaking_branches1.inp
+buka.pl	ENTRY	standard input is the collection's buka1.inp
+bus.pl	ENTRY	standard input is the collection's bus1.inp
+canadians_eh.pl	ENTRY	standard input is the collection's canadians_eh1.inp
+card_trick.pl	ENTRY	standard input is the collection's card_trick1.inp
+cetiri.pl	ENTRY	standard input is the collection's cetiri1.inp
+cetvrta.pl	ENTRY	standard input is the collection's cetvrta1.inp
+cetvrta2.pl	ENTRY	standard input is the collection's cetvrta1.inp
+chanukka_challenge.pl	ENTRY	standard input is the collection's chanukka_challenge1.inp
+chanukka_challenge2.pl	ENTRY	standard input is the collection's chanukka_challenge1.inp
+chanukka_challenge3.pl	ENTRY	standard input is the collection's chanukka_challenge1.inp
+chanukka_challenge_dcg.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+charting_progress.pl	ENTRY	standard input is the collection's charting_progress1.inp
+cinema_crowds2.pl	NEEDS-INPUT	its answer changes with what standard input holds
+class_field_trip.pl	ENTRY	standard input is the collection's class_field_trip1.inp
+closing_the_loop.pl	ENTRY	standard input is the collection's closing_the_loop1.inp
+code_to_save_lives.pl	ENTRY	standard input is the collection's code_to_save_lives1.inp
+coffee_cup_combo.pl	ENTRY	standard input is the collection's coffee_cup_combo1.inp
+cold_puter_science.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: cold_puter_science.pl:28:
+cold_puter_science2.pl	ENTRY	standard input is the collection's cold_puter_science1.inp
+cold_puter_science3.pl	ENTRY	standard input is the collection's cold_puter_science1.inp
+compound_words.pl	ENTRY	standard input is the collection's compound_words1.inp
+conformity.pl	ENTRY	standard input is the collection's conformity1.inp
+conundrum.pl	ENTRY	standard input is the collection's conundrum1.inp
+costume_contest.pl	ENTRY	standard input is the collection's costume_contest1.inp
+costume_contest2.pl	ENTRY	standard input is the collection's costume_contest1.inp
+count_the_vowels.pl	ENTRY	standard input is the collection's count_the_vowels1.inp
+counting_clauses.pl	ENTRY	standard input is the collection's counting_clauses1.inp
+counting_clauses_back.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+course_scheduling.pl	ENTRY	standard input is the collection's course_scheduling1.inp
+cprnummer.pl	ENTRY	standard input is the collection's cprnummer1.inp
+cut_in_line.pl	ENTRY	standard input is the collection's cut_in_line1.inp
+das_blinkenlights.pl	ENTRY	standard input is the collection's das_blinkenlights1.inp
+datum.pl	ENTRY	standard input is the collection's datum1.inp
+death_knight_hero.pl	ENTRY	standard input is the collection's death_knight_hero1.inp
+delimeter_soup.pl	ENTRY	standard input is the collection's delimeter_soup1.inp
+detailed_differences.pl	ENTRY	standard input is the collection's detailed_differences1.inp
+detailed_differences2.pl	ENTRY	standard input is the collection's detailed_differences1.inp
+detailed_differences_dcg.pl	NEEDS-INPUT	its answer changes with what standard input holds
+dice_cup.pl	ENTRY	standard input is the collection's dice_cup1.inp
+dice_cup2.pl	ENTRY	standard input is the collection's dice_cup1.inp
+dice_cup3.pl	ENTRY	standard input is the collection's dice_cup1.inp
+dice_cup4.pl	ENTRY	standard input is the collection's dice_cup1.inp
+dice_cup_dcg.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+dice_game.pl	ENTRY	standard input is the collection's dice_game1.inp
+dice_game2.pl	ENTRY	standard input is the collection's dice_game1.inp
+different_distances.pl	ENTRY	standard input is the collection's different_distances1.inp
+digit_product.pl	ENTRY	standard input is the collection's digit_product1.inp
+digitswap.pl	ENTRY	standard input is the collection's digitswap1.inp
+disc_district.pl	ENTRY	standard input is the collection's disc_district1.inp
+disc_district2.pl	ENTRY	standard input is the collection's disc_district1.inp
+divvying_up.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: divvying_up.pl:5:
+double_password.pl	ENTRY	standard input is the collection's double_password1.inp
+drm_messages.pl	ENTRY	standard input is the collection's drm_messages1.inp
+drunk_vigenere.pl	ENTRY	standard input is the collection's drunk_vigenere1.inp
+early_winter.pl	ENTRY	standard input is the collection's early_winter1.inp
+easiest.pl	ENTRY	standard input is the collection's easiest1.inp
+easiest2.pl	ENTRY	standard input is the collection's easiest1.inp
+echo_echo_echo.pl	ENTRY	standard input is the collection's echo_echo_echo1.inp
+election_paradox.pl	ENTRY	standard input is the collection's election_paradox1.inp
+election_paradox_cp.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+electricalcircuits.pl	ENTRY	standard input is the collection's electricalcircuits1.inp
+electricalcircuits2.pl	ENTRY	standard input is the collection's electricalcircuits1.inp
+eligibility.pl	ENTRY	standard input is the collection's eligibility1.inp
+eligibility_co.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: eligibility_co.pl:22:
+eligibility_eterms_shfr_co.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: eligibility_eterms_shfr_co.pl:22:
+encoded_message.pl	ENTRY	standard input is the collection's encoded_message1.inp
+encoded_message2.pl	ENTRY	standard input is the collection's encoded_message1.inp
+erase_securely.pl	ENTRY	standard input is the collection's erase_securely1.inp
+espresso.pl	ENTRY	standard input is the collection's espresso1.inp
+estimating_the_area_of_a_circle.pl	ENTRY	standard input is the collection's estimating_the_area_of_a_circle1.inp
+eulers_number.pl	ENTRY	standard input is the collection's eulers_number1.inp
+everywhere.pl	ENTRY	standard input is the collection's everywhere1.inp
+everywhere2.pl	ENTRY	standard input is the collection's everywhere1.inp
+exam.pl	ENTRY	standard input is the collection's exam1.inp
+exam_cp.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+expected_earnings.pl	ENTRY	standard input is the collection's expected_earnings1.inp
+eye_of_sauron.pl	ENTRY	standard input is the collection's eye_of_sauron1.inp
+eye_of_sauron_dcg.pl	ENTRY	
+faktor.pl	ENTRY	standard input is the collection's faktor1.inp
+faktor2.pl	DOES-NOT-END	no answer inside 60 s
+falling_apart.pl	ENTRY	standard input is the collection's falling_apart1.inp
+falling_apart2.pl	ENTRY	standard input is the collection's falling_apart1.inp
+fast_food_prizes.pl	ENTRY	standard input is the collection's fast_food_prizes1.inp; stderr not graded: ERROR: drive.pl:6: user:drive_goals Arguments are not sufficiently instantiated
+fifty_shades_of_pink.pl	ENTRY	standard input is the collection's fifty_shades_of_pink1.inp
+filip.pl	ENTRY	standard input is the collection's filip1.inp
+final_exam.pl	ENTRY	standard input is the collection's final_exam1.inp
+finding_an_a.pl	ENTRY	standard input is the collection's finding_an_a1.inp
+fizzbuzz.pl	ENTRY	standard input is the collection's fizzbuzz1.inp
+flexible.pl	ENTRY	standard input is the collection's flexible1.inp
+fluortanten.pl	ENTRY	standard input is the collection's fluortanten1.inp
+fluortanten2.pl	ENTRY	standard input is the collection's fluortanten1.inp
+fluortanten3.pl	ENTRY	standard input is the collection's fluortanten1.inp
+forced_choice.pl	ENTRY	standard input is the collection's forced_choice1.inp
+forced_choice2.pl	ENTRY	standard input is the collection's forced_choice1.inp
+free_food.pl	ENTRY	standard input is the collection's free_food1.inp
+friday_the_13th.pl	ENTRY	standard input is the collection's friday_the_13th1.inp
+fyi.pl	ENTRY	standard input is the collection's fyi1.inp
+gandalfs_spell.pl	ENTRY	standard input is the collection's gandalfs_spell1.inp
+gandalfs_spell2.pl	ENTRY	standard input is the collection's gandalfs_spell1.inp
+gcd.pl	ENTRY	standard input is the collection's gcd1.inp
+gcvwr.pl	ENTRY	standard input is the collection's gcvwr1.inp
+ghost_leg.pl	ENTRY	standard input is the collection's ghost_leg1.inp
+grading.pl	ENTRY	standard input is the collection's grading1.inp
+grading2.pl	ENTRY	standard input is the collection's grading1.inp
+grass_seed.pl	ENTRY	standard input is the collection's grass_seed1.inp
+grass_seed2.pl	ENTRY	standard input is the collection's grass_seed1.inp
+grass_seed3.pl	ENTRY	standard input is the collection's grass_seed1.inp
+grass_seed4.pl	ENTRY	standard input is the collection's grass_seed1.inp
+greetings.pl	ENTRY	standard input is the collection's greetings1.inp
+hailstone_sequences.pl	ENTRY	standard input is the collection's hailstone_sequences1.inp
+hanging_out.pl	ENTRY	standard input is the collection's hanging_out1.inp
+hangman.pl	ENTRY	standard input is the collection's hangman1.inp
+harshad_numbers.pl	ENTRY	standard input is the collection's harshad_numbers1.inp
+haughty_cuisine.pl	ENTRY	standard input is the collection's haughty_cuisine1.inp
+haypoints.pl	ENTRY	standard input is the collection's haypoints1.inp
+head_guard.pl	ENTRY	standard input is the collection's head_guard1.inp
+heart_rate.pl	ENTRY	standard input is the collection's heart_rate1.inp
+height_ordering.pl	ENTRY	standard input is the collection's height_ordering1.inp
+heimavinna.pl	ENTRY	standard input is the collection's heimavinna1.inp
+heirs_dilemma.pl	ENTRY	standard input is the collection's heirs_dilemma1.inp
+heirs_dilemma2.pl	ENTRY	standard input is the collection's heirs_dilemma1.inp
+heirs_dilemma3.pl	ENTRY	standard input is the collection's heirs_dilemma1.inp
+heliocentric.pl	ENTRY	standard input is the collection's heliocentric1.inp
+heliocentric2.pl	ENTRY	standard input is the collection's heliocentric1.inp
+hello.pl	ENTRY	
+help_a_phd.pl	ENTRY	standard input is the collection's help_a_phd1.inp
+herman.pl	ENTRY	standard input is the collection's herman1.inp
+hissing_microphone.pl	ENTRY	standard input is the collection's hissing_microphone1.inp
+hot_hike.pl	ENTRY	standard input is the collection's hot_hike1.inp
+howl.pl	ENTRY	standard input is the collection's howl1.inp
+icpc_awards.pl	ENTRY	standard input is the collection's icpc_awards1.inp
+imperial_measurement.pl	ENTRY	standard input is the collection's imperial_measurement1.inp
+interval_scheduling.pl	ENTRY	standard input is the collection's interval_scheduling1.inp
+is_it_halloween.pl	ENTRY	standard input is the collection's is_it_halloween1.inp
+jackolanternjuxtaposition.pl	ENTRY	standard input is the collection's jackolanternjuxtaposition1.inp
+janitor_troubles.pl	ENTRY	standard input is the collection's janitor_troubles1.inp
+job_expenses.pl	ENTRY	standard input is the collection's job_expenses1.inp
+judging_moose.pl	ENTRY	standard input is the collection's judging_moose1.inp
+jumbled_communication.pl	ENTRY	standard input is the collection's jumbled_communication1.inp
+jumbo_javelin.pl	ENTRY	standard input is the collection's jumbo_javelin1.inp
+jumbo_javelin2.pl	ENTRY	standard input is the collection's jumbo_javelin1.inp
+jumbo_javelin_dcg.pl	NEEDS-INPUT	its answer changes with what standard input holds
+just_a_minute.pl	ENTRY	standard input is the collection's just_a_minute1.inp
+kafkaesque.pl	ENTRY	standard input is the collection's kafkaesque1.inp
+kafkaesque2.pl	ENTRY	standard input is the collection's kafkaesque1.inp
+karte.pl	ENTRY	standard input is the collection's karte1.inp
+kattio.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+kattutils.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+kemija.pl	ENTRY	standard input is the collection's kemija1.inp
+keylogger.pl	ENTRY	standard input is the collection's keylogger1.inp
+kleptography.pl	ENTRY	standard input is the collection's kleptography1.inp
+kleptography2.pl	ENTRY	standard input is the collection's kleptography1.inp
+knight_packing.pl	ENTRY	standard input is the collection's knight_packing1.inp
+knot_knowledge.pl	ENTRY	standard input is the collection's knot_knowledge1.inp
+knot_knowledge2.pl	ENTRY	standard input is the collection's knot_knowledge1.inp
+krizaljka.pl	ENTRY	standard input is the collection's krizaljka1.inp
+ladder.pl	ENTRY	standard input is the collection's ladder1.inp
+laptopsticker.pl	ENTRY	standard input is the collection's laptopsticker1.inp
+last_factorial_digit.pl	ENTRY	standard input is the collection's last_factorial_digit1.inp
+last_factorial_digit2.pl	ENTRY	standard input is the collection's last_factorial_digit1.inp
+left_beehind.pl	ENTRY	standard input is the collection's left_beehind1.inp
+license_to_launch.pl	ENTRY	standard input is the collection's license_to_launch1.inp
+lineup.pl	ENTRY	standard input is the collection's lineup1.inp
+lineup2.pl	ENTRY	standard input is the collection's lineup1.inp
+locust_locus.pl	ENTRY	standard input is the collection's locust_locus1.inp
+luhn_checksum.pl	ENTRY	standard input is the collection's luhn_checksum1.inp
+magic_trick.pl	ENTRY	standard input is the collection's magic_trick1.inp
+marko.pl	ENTRY	standard input is the collection's marko1.inp
+math_homework.pl	ENTRY	standard input is the collection's math_homework1.inp
+messages_from_outer_space.pl	ENTRY	standard input is the collection's messages_from_outer_space1.inp
+metaprogramming.pl	ENTRY	standard input is the collection's metaprogramming1.inp
+metaprogramming2.pl	ENTRY	standard input is the collection's metaprogramming1.inp
+methodic_multiplication.pl	ENTRY	standard input is the collection's methodic_multiplication1.inp
+metronome.pl	ENTRY	standard input is the collection's metronome1.inp
+mia.pl	ENTRY	standard input is the collection's mia1.inp
+mirror_images.pl	ENTRY	standard input is the collection's mirror_images1.inp
+missing_numbers.pl	ENTRY	standard input is the collection's missing_numbers1.inp
+mixed_fractions.pl	ENTRY	standard input is the collection's mixed_fractions1.inp
+mjehuric.pl	ENTRY	standard input is the collection's mjehuric1.inp
+moderate_pace.pl	ENTRY	standard input is the collection's moderate_pace1.inp
+modulo.pl	ENTRY	standard input is the collection's modulo1.inp
+moscow_dream.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: moscow_dream.pl:5:
+mult.pl	ENTRY	standard input is the collection's mult1.inp
+n_sum.pl	ENTRY	standard input is the collection's n_sum1.inp
+nasty_hacks.pl	ENTRY	standard input is the collection's nasty_hacks1.inp
+nasty_hacks2.pl	ENTRY	standard input is the collection's nasty_hacks1.inp
+natrij.pl	ENTRY	standard input is the collection's natrij1.inp
+nine_knights.pl	ENTRY	standard input is the collection's nine_knights1.inp
+no_thanks.pl	ENTRY	standard input is the collection's no_thanks1.inp
+nodup.pl	ENTRY	standard input is the collection's nodup1.inp
+npuzzle.pl	ENTRY	standard input is the collection's npuzzle1.inp
+number_fun.pl	ENTRY	standard input is the collection's number_fun1.inp
+odd_echo.pl	ENTRY	standard input is the collection's odd_echo1.inp
+odd_echo2.pl	ENTRY	standard input is the collection's odd_echo1.inp
+odd_echo3.pl	ENTRY	standard input is the collection's odd_echo1.inp
+odd_gnome.pl	ENTRY	standard input is the collection's odd_gnome1.inp
+odd_man_out.pl	ENTRY	standard input is the collection's odd_man_out1.inp
+odd_man_out2.pl	ENTRY	standard input is the collection's odd_man_out1.inp
+oddities.pl	NEEDS-INPUT	its answer changes with what standard input holds
+oddities2.pl	NEEDS-INPUT	its answer changes with what standard input holds
+oktalni.pl	ENTRY	standard input is the collection's oktalni1.inp
+one_chicken.pl	ENTRY	standard input is the collection's one_chicken1.inp
+ostgotska.pl	ENTRY	standard input is the collection's ostgotska1.inp
+overdraft.pl	ENTRY	standard input is the collection's overdraft1.inp
+owl_and_fox.pl	ENTRY	standard input is the collection's owl_and_fox1.inp
+owl_and_fox2.pl	ENTRY	standard input is the collection's owl_and_fox1.inp
+parking2.pl	NEEDS-INPUT	its answer changes with what standard input holds
+parking2_2.pl	ENTRY	standard input is the collection's parking2_1.inp
+password.pl	ENTRY	standard input is the collection's password1.inp
+patuljci.pl	ENTRY	standard input is the collection's patuljci1.inp
+paul_eigon.pl	ENTRY	standard input is the collection's paul_eigon1.inp
+peragrams.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: peragrams.pl:9:
+permuted_arithmetic_sequence.pl	ENTRY	standard input is the collection's permuted_arithmetic_sequence1.inp
+pervasive_heart_monitor.pl	ENTRY	standard input is the collection's pervasive_heart_monitor1.inp
+pet.pl	ENTRY	standard input is the collection's pet1.inp
+pet2.pl	ENTRY	standard input is the collection's pet1.inp
+piece_of_cake.pl	ENTRY	standard input is the collection's piece_of_cake1.inp
+pig_latin.pl	ENTRY	standard input is the collection's pig_latin1.inp
+pizza_crust.pl	ENTRY	standard input is the collection's pizza_crust1.inp
+planina.pl	ENTRY	standard input is the collection's planina1.inp
+planting_trees.pl	ENTRY	standard input is the collection's planting_trees1.inp
+pokechat.pl	ENTRY	standard input is the collection's pokechat1.inp
+poker_hand.pl	ENTRY	standard input is the collection's poker_hand1.inp
+pot.pl	ENTRY	standard input is the collection's pot1.inp
+pot2.pl	ENTRY	standard input is the collection's pot1.inp
+pot3.pl	ENTRY	standard input is the collection's pot1.inp
+pot_dcg.pl	NEEDS-INPUT	its answer changes with what standard input holds
+provinces_and_gold.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: provinces_and_gold.pl:23:
+provinces_and_gold2.pl	ENTRY	standard input is the collection's provinces_and_gold1.inp
+prsteni.pl	ENTRY	standard input is the collection's prsteni1.inp
+prva.pl	ENTRY	standard input is the collection's prva1.inp
+ptice.pl	ENTRY	standard input is the collection's ptice1.inp
+pyramids.pl	ENTRY	standard input is the collection's pyramids1.inp
+qaly.pl	ENTRY	standard input is the collection's qaly1.inp
+qaly2.pl	ENTRY	standard input is the collection's qaly1.inp
+qaly_dcg.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+quadrant.pl	ENTRY	standard input is the collection's quadrant1.inp
+quick_brown_fox.pl	ENTRY	standard input is the collection's quick_brown_fox1.inp
+quick_estimate.pl	ENTRY	standard input is the collection's quick_estimate1.inp
+quick_estimate2.pl	ENTRY	standard input is the collection's quick_estimate1.inp
+r2.pl	NEEDS-INPUT	its answer changes with what standard input holds
+r2_2.pl	ENTRY	standard input is the collection's r2_1.inp
+radio_commercials.pl	ENTRY	standard input is the collection's radio_commercials1.inp
+radio_commercials2.pl	ENTRY	standard input is the collection's radio_commercials1.inp
+radio_commercials3.pl	ENTRY	standard input is the collection's radio_commercials1.inp
+radio_commercials4.pl	ENTRY	standard input is the collection's radio_commercials1.inp
+rating_problems.pl	ENTRY	standard input is the collection's rating_problems1.inp
+recount.pl	ENTRY	standard input is the collection's recount1.inp
+rectangle_area.pl	ENTRY	standard input is the collection's rectangle_area1.inp
+red_rover.pl	ENTRY	standard input is the collection's red_rover1.inp
+refrigerator.pl	ENTRY	standard input is the collection's refrigerator1.inp
+reverse.pl	ENTRY	standard input is the collection's reverse1.inp
+reverse2.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: reverse2.pl:7:
+reverse3.pl	ENTRY	standard input is the collection's reverse1.inp
+reverse4.pl	ENTRY	standard input is the collection's reverse1.inp
+reverse5.pl	ENTRY	standard input is the collection's reverse1.inp
+reverse_binary.pl	ENTRY	standard input is the collection's reverse_binary1.inp
+reverse_rot.pl	ENTRY	standard input is the collection's reverse_rot1.inp
+rijeci.pl	ENTRY	standard input is the collection's rijeci1.inp
+rijeci2.pl	ENTRY	standard input is the collection's rijeci1.inp
+roaming_romans.pl	ENTRY	standard input is the collection's roaming_romans1.inp
+roaming_romans2.pl	ENTRY	standard input is the collection's roaming_romans1.inp
+run_length_encoding_run.pl	ENTRY	standard input is the collection's run_length_encoding_run1.inp
+saving_daylight.pl	ENTRY	standard input is the collection's saving_daylight1.inp
+saving_for_retirement.pl	ENTRY	standard input is the collection's saving_for_retirement1.inp
+saving_princess_peach.pl	ENTRY	standard input is the collection's saving_princess_peach1.inp
+scaling_recipe.pl	ENTRY	standard input is the collection's scaling_recipe1.inp
+scaling_recipes.pl	ENTRY	standard input is the collection's scaling_recipes1.inp
+school_spirit.pl	ENTRY	standard input is the collection's school_spirit1.inp
+secret_message.pl	ENTRY	standard input is the collection's secret_message1.inp
+secure_doors.pl	ENTRY	standard input is the collection's secure_doors1.inp
+server.pl	ENTRY	standard input is the collection's server1.inp
+set.pl	ENTRY	standard input is the collection's set1.inp
+seven_wonders.pl	ENTRY	standard input is the collection's seven_wonders1.inp
+shattered_cake.pl	ENTRY	standard input is the collection's shattered_cake1.inp
+shattered_cake2.pl	ENTRY	standard input is the collection's shattered_cake1.inp
+shattered_cake_dcg.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+shopping_list_easy.pl	ENTRY	standard input is the collection's shopping_list_easy1.inp
+sibice.pl	ENTRY	standard input is the collection's sibice1.inp
+sibice2.pl	ENTRY	standard input is the collection's sibice1.inp
+sibice3.pl	ENTRY	standard input is the collection's sibice1.inp
+simon_says.pl	ENTRY	standard input is the collection's simon_says1.inp
+simon_says2.pl	ENTRY	standard input is the collection's simon_says1.inp
+simone.pl	ENTRY	standard input is the collection's simone1.inp
+simple_addition.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: simple_addition.pl:7:
+simplearithmetic.pl	ENTRY	standard input is the collection's simplearithmetic1.inp
+skocimis.pl	ENTRY	standard input is the collection's skocimis1.inp
+skocimis2.pl	ENTRY	standard input is the collection's skocimis1.inp
+sky_islands.pl	ENTRY	standard input is the collection's sky_islands1.inp
+sky_islands2.pl	ENTRY	standard input is the collection's sky_islands1.inp
+sky_islands3.pl	ENTRY	standard input is the collection's sky_islands1.inp
+slatkisi.pl	ENTRY	standard input is the collection's slatkisi1.inp
+smil.pl	ENTRY	standard input is the collection's smil1.inp
+smil2.pl	ENTRY	standard input is the collection's smil1.inp
+social_distancing.pl	ENTRY	standard input is the collection's social_distancing1.inp
+social_running.pl	ENTRY	standard input is the collection's social_running1.inp
+soda_slurper.pl	ENTRY	standard input is the collection's soda_slurper1.inp
+soda_slurper2.pl	ENTRY	standard input is the collection's soda_slurper1.inp
+sok.pl	ENTRY	standard input is the collection's sok1.inp
+sok2.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: sok2.pl:7:
+solving_for_carrots.pl	ENTRY	standard input is the collection's solving_for_carrots1.inp
+some_sum.pl	ENTRY	standard input is the collection's some_sum1.inp
+sort_of_sorting.pl	ENTRY	standard input is the collection's sort_of_sorting1.inp
+sort_two_numbers.pl	ENTRY	standard input is the collection's sort_two_numbers1.inp
+soylent.pl	ENTRY	standard input is the collection's soylent1.inp
+spavanac.pl	ENTRY	standard input is the collection's spavanac1.inp
+speeding.pl	ENTRY	standard input is the collection's speeding1.inp
+speeding2.pl	ENTRY	standard input is the collection's speeding1.inp
+speedlimit.pl	ENTRY	standard input is the collection's speedlimit1.inp
+speedlimit2.pl	ENTRY	standard input is the collection's speedlimit1.inp
+speedlimit_dcg.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+square_peg.pl	ENTRY	standard input is the collection's square_peg1.inp
+stacking_cups.pl	ENTRY	standard input is the collection's stacking_cups1.inp
+statistics.pl	ENTRY	standard input is the collection's statistics1.inp
+stop_watch.pl	ENTRY	standard input is the collection's stop_watch1.inp
+stuck_in_a_time_loop.pl	ENTRY	standard input is the collection's stuck_in_a_time_loop1.inp
+stuck_in_a_time_loop2.pl	ENTRY	standard input is the collection's stuck_in_a_time_loop1.inp
+sum_kind_of_problem.pl	ENTRY	standard input is the collection's sum_kind_of_problem1.inp
+sum_kind_of_problem2.pl	ENTRY	standard input is the collection's sum_kind_of_problem1.inp
+sum_kind_of_problem3.pl	ENTRY	standard input is the collection's sum_kind_of_problem1.inp
+sum_kind_of_problem4.pl	ENTRY	standard input is the collection's sum_kind_of_problem1.inp
+sum_squared_digits.pl	ENTRY	standard input is the collection's sum_squared_digits1.inp
+sun_and_moon.pl	ENTRY	standard input is the collection's sun_and_moon1.inp
+symmetric_order.pl	ENTRY	standard input is the collection's symmetric_order1.inp
+t9_spelling.pl	ENTRY	standard input is the collection's t9_spelling1.inp
+tais_formula.pl	ENTRY	standard input is the collection's tais_formula1.inp
+tajna.pl	ENTRY	standard input is the collection's tajna1.inp
+take_two_stones.pl	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals main/0: Unknown procedure: read_string/2
+tarifa.pl	ENTRY	standard input is the collection's tarifa1.inp
+tarifa2.pl	ENTRY	standard input is the collection's tarifa1.inp
+tarifa_dcg.pl	NEEDS-INPUT	its answer changes with what standard input holds
+test_drive.pl	ENTRY	standard input is the collection's test_drive1.inp
+tetration.pl	ENTRY	standard input is the collection's tetration1.inp
+the_bus_card.pl	ENTRY	standard input is the collection's the_bus_card1.inp
+the_clock.pl	ENTRY	standard input is the collection's the_clock1.inp
+the_deal_of_the_day.pl	ENTRY	standard input is the collection's the_deal_of_the_day1.inp
+the_grand_adventure.pl	ENTRY	standard input is the collection's the_grand_adventure1.inp
+the_key_to_cryptography.pl	ENTRY	standard input is the collection's the_key_to_cryptography1.inp
+the_key_to_cryptography2.pl	ENTRY	standard input is the collection's the_key_to_cryptography1.inp
+the_last_problem.pl	ENTRY	standard input is the collection's the_last_problem1.inp
+the_plank.pl	ENTRY	standard input is the collection's the_plank1.inp
+this_aint_your_grandpas_checkerboard.pl	ENTRY	standard input is the collection's this_aint_your_grandpas_checkerboard1.inp
+this_aint_your_grandpas_checkerboard2.pl	ENTRY	standard input is the collection's this_aint_your_grandpas_checkerboard1.inp
+this_aint_your_grandpas_checkerboard3.pl	ENTRY	standard input is the collection's this_aint_your_grandpas_checkerboard1.inp
+title_cost.pl	ENTRY	standard input is the collection's title_cost1.inp
+tower_construction.pl	ENTRY	standard input is the collection's tower_construction1.inp
+tracking_shares.pl	ENTRY	standard input is the collection's tracking_shares1.inp
+transit_woes.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: transit_woes.pl:5:
+tri.pl	ENTRY	standard input is the collection's tri1.inp
+tri2.pl	ENTRY	standard input is the collection's tri1.inp
+triarea.pl	ENTRY	standard input is the collection's triarea1.inp
+trik.pl	ENTRY	standard input is the collection's trik1.inp
+trip_odometer.pl	ENTRY	standard input is the collection's trip_odometer1.inp
+triple_texting.pl	ENTRY	standard input is the collection's triple_texting1.inp
+turn_it_up.pl	ENTRY	standard input is the collection's turn_it_up1.inp
+two_sum.pl	ENTRY	standard input is the collection's two_sum1.inp
+ultimate_binary_watch.pl	ENTRY	standard input is the collection's ultimate_binary_watch1.inp
+unbearable_zoo.pl	ENTRY	standard input is the collection's unbearable_zoo1.inp
+unlock_patterm.pl	ENTRY	standard input is the collection's unlock_patterm1.inp
+vauvau.pl	ENTRY	standard input is the collection's vauvau1.inp
+veci.pl	ENTRY	standard input is the collection's veci1.inp
+volim.pl	ENTRY	standard input is the collection's volim1.inp
+vote.pl	ENTRY	standard input is the collection's vote1.inp
+warehouse.pl	ENTRY	standard input is the collection's warehouse1.inp
+weak_vertices.pl	ENTRY	standard input is the collection's weak_vertices1.inp
+welcome_easy.pl	ENTRY	standard input is the collection's welcome_easy1.inp
+welcome_easy2.pl	ENTRY	standard input is the collection's welcome_easy1.inp
+which_is_greater.pl	ENTRY	standard input is the collection's which_is_greater1.inp
+wizard_of_odds.pl	ENTRY	standard input is the collection's wizard_of_odds1.inp
+yin_yang_stones.pl	ENTRY	standard input is the collection's yin_yang_stones1.inp
+yoda.pl	ENTRY	standard input is the collection's yoda1.inp
+zamka.pl	ENTRY	standard input is the collection's zamka1.inp
+zanzibar.pl	ENTRY	standard input is the collection's zanzibar1.inp
+zoom.pl	ENTRY	standard input is the collection's zoom1.inp

@@ -1,0 +1,55 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=51 features=1 ubiquitous=1(package) distinctive=0 core=5 clusters=1 chunks=1 sizes=46
+entry	part	cluster	shells
+debruijn	core	core	
+euler1	core	core	
+euler10	chunk:01	family:euler	
+euler11	chunk:01	family:euler	
+euler12	chunk:01	family:euler	
+euler14	chunk:01	family:euler	
+euler15	chunk:01	family:euler	
+euler16	chunk:01	family:euler	
+euler17	chunk:01	family:euler	
+euler18	chunk:01	family:euler	
+euler19	chunk:01	family:euler	
+euler2	chunk:01	family:euler	
+euler20	chunk:01	family:euler	
+euler21	chunk:01	family:euler	
+euler23	chunk:01	family:euler	
+euler24	chunk:01	family:euler	
+euler25	chunk:01	family:euler	
+euler26	chunk:01	family:euler	
+euler27	chunk:01	family:euler	
+euler28	chunk:01	family:euler	
+euler29	chunk:01	family:euler	
+euler3	chunk:01	family:euler	
+euler30	chunk:01	family:euler	
+euler31	chunk:01	family:euler	
+euler32	chunk:01	family:euler	
+euler33	chunk:01	family:euler	
+euler34	chunk:01	family:euler	
+euler35	chunk:01	family:euler	
+euler36	chunk:01	family:euler	
+euler37	chunk:01	family:euler	
+euler38	chunk:01	family:euler	
+euler39	chunk:01	family:euler	
+euler4	chunk:01	family:euler	
+euler40	chunk:01	family:euler	
+euler41	chunk:01	family:euler	
+euler43	chunk:01	family:euler	
+euler44	chunk:01	family:euler	
+euler45	chunk:01	family:euler	
+euler46	chunk:01	family:euler	
+euler47	chunk:01	family:euler	
+euler48	chunk:01	family:euler	
+euler49	chunk:01	family:euler	
+euler5	chunk:01	family:euler	
+euler50	chunk:01	family:euler	
+euler6	chunk:01	family:euler	
+euler7	chunk:01	family:euler	
+euler8	chunk:01	family:euler	
+euler9	chunk:01	family:euler	
+numbers_not_containing_7	core	core	
+pattern_generation	core	core	
+wordle	core	core	

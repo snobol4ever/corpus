@@ -1,0 +1,57 @@
+9-billion-names-of-God-the-integer/1.icn: DOES-NOT-END: no answer inside 60 s
+Abstract-type/1.icn: LIBRARY: no procedure main
+Animate-a-pendulum/1.icn: NEEDS-DISPLAY: the source names import gui
+Atomic-updates/1.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 114
+Call-a-foreign-language-function/1.icn: LIBRARY: no procedure main
+Call-a-foreign-language-function/2.icn: ORACLE-REFUSES: unicon does not translate it: 2.icn:7: # "out" unclosed literal or missing operator
+Call-an-object-method/1.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Chat-server/1.icn: NEEDS-NETWORK: the source names open(":12321","na"
+Checkpoint-synchronization/1.icn: DIFFERS-BETWEEN-RUNS: exit 1 and 1, 80 and 80 bytes
+Constrained-genericity/1.icn: ORACLE-REFUSES: unicon does not translate it: 1.icn:3: # "class" Unable to import (1) package "Utils"
+Conway-s-Game-of-Life/1.icn: DOES-NOT-END: no answer inside 60 s
+Dining-philosophers/1.icn: DOES-NOT-END: no answer inside 60 s
+Doubly-linked-list-Definition/1.icn: LIBRARY: no procedure main
+Doubly-linked-list-Definition/2.icn: LIBRARY: no procedure main
+Doubly-linked-list-Definition/3.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 106
+Doubly-linked-list-Element-definition/1.icn: LIBRARY: no procedure main
+Doubly-linked-list-Element-insertion/1.icn: LIBRARY: no procedure main
+Draw-a-sphere/1.icn: NEEDS-DISPLAY: the source names open("Demo", "gl"
+Echo-server/1.icn: NEEDS-NETWORK: the source names open(":12321","na"
+Events/1.icn: NEEDS-INPUT: its answer changes with what standard input holds
+Exceptions-Catch-an-exception-thrown-in-a-nested-call/1.icn: ORACLE-REFUSES: unicon does not translate it: 1.icn:3: # "class" Unable to import (1) package "Exceptions"
+Exceptions/1.icn: ORACLE-REFUSES: unicon does not translate it: 1.icn:3: # "procedure" Unable to import (1) package "Exceptions"
+Extensible-prime-generator/1.icn: LIBRARY: no procedure main
+Extensible-prime-generator/2.icn: ORACLE-REFUSES: unicon does not translate it: 2.icn:2: # "record" Unable to import (1) package "Collections"
+GUI-component-interaction/1.icn: NEEDS-DISPLAY: the source names import gui
+GUI-enabling-disabling-of-controls/1.icn: NEEDS-DISPLAY: the source names import gui
+Handle-a-signal/1.icn: DOES-NOT-END: no answer inside 60 s
+Inheritance-Multiple/1.icn: LIBRARY: no procedure main
+Inheritance-Single/1.icn: LIBRARY: no procedure main
+Jensen-s-Device/2.icn: LIBRARY: no procedure main
+Jensen-s-Device/3.icn: LIBRARY: no procedure main
+Knight-s-tour/1.icn: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 478 and 478 bytes
+Knight-s-tour/2.icn: LIBRARY: no procedure main
+Knuth-s-algorithm-S/1.icn: ORACLE-REFUSES: unicon does not translate it: 1.icn:3: # "procedure" Unable to import (1) package "Utils"
+Langton-s-ant/1.icn: NEEDS-DISPLAY: the source names link graphics
+Metered-concurrency/1.icn: DIFFERS-BETWEEN-RUNS: exit 0 and 0, 400 and 400 bytes
+Mutex/1.icn: LIBRARY: no procedure main
+Parallel-calculations/1.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Pascal-s-triangle/1.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Quaternion/1.icn: LIBRARY: no procedure main
+Quaternion/2.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 106
+Respond-to-an-unknown-method-call/1.icn: LIBRARY: no procedure main
+Respond-to-an-unknown-method-call/2.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 106
+Rosetta-Code-Count-examples/1.icn: NEEDS-NETWORK: the source names open(url,"m"
+Rosetta-Code-Find-bare-lang-tags/1.icn: ORACLE-REFUSES: unicon does not translate it: 1.icn:3: # "procedure" Unable to import (1) package "Utils"
+SOAP/1.icn: ORACLE-REFUSES: unicon does not translate it: 1.icn:3: # "procedure" Unable to import (1) package "soap"
+SOAP/2.icn: ORACLE-REFUSES: unicon does not translate it: 2.icn:3: # "procedure" Unable to import (1) package "soap"
+Send-an-unknown-method-call/1.icn: NO-OUTPUT: nothing on standard output, exit 0; a dead engine would earn the same
+Send-email/1.icn: NEEDS-NETWORK: the source names open("mailto:"||args[1], "m"
+Singleton/1.icn: ORACLE-REFUSES: unicon does not translate it: 1.icn:2: # "method" left parenthesis expected to start class fieldlist
+Solve-a-Hidato-puzzle/1.icn: NEEDS-INPUT: its answer changes with what standard input holds
+Solve-a-Holy-Knight-s-tour/1.icn: NEEDS-INPUT: its answer changes with what standard input holds
+Solve-a-Hopido-puzzle/1.icn: NEEDS-INPUT: its answer changes with what standard input holds
+Solve-a-Numbrix-puzzle/1.icn: NEEDS-INPUT: its answer changes with what standard input holds
+Stack-traces/1.icn: ORACLE-REFUSES: unicon does not translate it: 1.icn:3: # "procedure" Unable to import (1) package "Utils"
+Stack-traces/2.icn: LIBRARY: no procedure main
+Yahoo-search-interface/1.icn: NEEDS-NETWORK: the source names open(url,"m"

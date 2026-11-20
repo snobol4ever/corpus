@@ -1,0 +1,5 @@
+pi = 3.141592653589793
+estimations using a table of 12 elements:
+sin interpolation: 3.1415926535896332
+cos interpolation: 3.1387243219841157
+tan interpolation: 3.1416331607611547

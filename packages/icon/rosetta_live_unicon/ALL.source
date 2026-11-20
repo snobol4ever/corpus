@@ -1,0 +1,4 @@
+root	/home/packages/icon/rosetta_live_unicon
+origin	Rosetta Code (https://rosettacode.org), the Unicon solutions the RosettaCodeData dataset (acmeism, 1d475861d, 2026-07-16) lacks, fetched from the live site (/home/resources/rosetta-live, fetch_live.py, FETCH.tsv), one folder a task, N.ext the Nth code block
+version	the live site, fetched 2026-11-18 (82 programs)
+licence	GFDL 1.2 (Rosetta Code's content); read in place, only the tables and the answers stored here

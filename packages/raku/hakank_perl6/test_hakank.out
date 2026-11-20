@@ -1,0 +1,51 @@
+ok 1 - fib
+ok 2 - diff(@fib)
+ok 3 - @fib.&diff
+ok 4 - @fib.&diff.&diff
+ok 5 - diffn(@fib, 2)
+ok 6 - mean
+ok 7 - repeat
+ok 8 - table
+ok 9 - positions
+ok 10 - bool2pos
+ok 11 - pos2bool
+ok 12 - compress
+ok 13 - compress
+ok 14 - compress infix (///)
+ok 15 - group
+ok 16 - head
+ok 17 - tail
+ok 18 - butlast
+ok 19 - take_while
+ok 20 - drop_if
+ok 21 - if_do_else
+ok 22 - gcd infix
+ok 23 - lcm infix
+ok 24 - [lcm] 2..20
+ok 25 - is_prime(10)
+ok 26 - is_prime(11)
+ok 27 - is_prime seq
+ok 28 - next_prime(10)
+ok 29 - next_prime seq
+ok 30 - sum primes_slow
+ok 31 - reduced_digit_sum(11)
+ok 32 - reduced_digit_sum(bach)
+ok 33 - collatz1
+ok 34 - collatz
+ok 35 -  collatz(2**10-1).elems
+ok 36 - timeit
+ok 37 - tc
+ok 38 - tc
+ok 39 - grade up (sort_perm1)
+ok 40 - sort_perm2
+ok 41 - ⍋ <13 2 0 1 4> (sort perm infix)
+ok 42 - ⍋⍋<70 10 30 20> (sort perm sort_perm)
+ok 43 - each1
+ok 44 - each infix
+ok 45 - base
+ok 46 - base (time: seconds per day)
+ok 47 - base (time: seconds per week)
+ok 48 - unbase1
+ok 49 - unbase2
+ok 50 - unbase3
+ok 51 - unbase4 (infix)

@@ -1,0 +1,4 @@
+euler14.p6: DOES-NOT-END: no answer inside 60 s
+read_test.p6: DOES-NOT-END: no answer inside 60 s
+reduced_digit_sum.p6: ORACLE-REFUSES: Error while compiling reduced_digit_sum.p6
+run_euler.p6: DOES-NOT-END: no answer inside 60 s

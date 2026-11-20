@@ -1,0 +1,30 @@
+# the census of /home/packages/raku/hakank_perl6 by rakudo (2823c48 (2025-11-27; a sparse clone, 2026-11-20)), 2026-11-20: path from the root, verdict, note
+cumulative_sum_of_prime_squares.p6	ENTRY	
+euler1.p6	ENTRY	
+euler10.p6	ENTRY	
+euler11.p6	ENTRY	
+euler12.p6	ENTRY	
+euler13.p6	ENTRY	
+euler14.p6	DOES-NOT-END	no answer inside 60 s
+euler15.p6	ENTRY	
+euler16.p6	ENTRY	
+euler18.p6	ENTRY	
+euler19.p6	ENTRY	
+euler2.p6	ENTRY	
+euler20.p6	ENTRY	
+euler22.p6	ENTRY	
+euler24.p6	ENTRY	
+euler25.p6	ENTRY	
+euler28.p6	ENTRY	
+euler29.p6	ENTRY	
+euler3.p6	ENTRY	
+euler4.p6	ENTRY	
+euler5.p6	ENTRY	
+euler6.p6	ENTRY	
+euler7.p6	ENTRY	
+euler8.p6	ENTRY	
+euler9.p6	ENTRY	
+read_test.p6	DOES-NOT-END	no answer inside 60 s
+reduced_digit_sum.p6	ORACLE-REFUSES	Error while compiling reduced_digit_sum.p6
+run_euler.p6	DOES-NOT-END	no answer inside 60 s
+test_hakank.p6	ENTRY	stderr not graded: Saw 1 occurrence of deprecated code.

@@ -1,0 +1,57 @@
+# the census of /home/packages/icon/hakank_unicon by unicon (2823c48 (2025-11-27; a sparse clone, 2026-11-20)), 2026-11-20: path from the root, verdict, note
+debruijn.icn	ENTRY	
+euler1.icn	ENTRY	
+euler10.icn	ENTRY	
+euler11.icn	ENTRY	
+euler12.icn	ENTRY	
+euler13.icn	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 105
+euler14.icn	ENTRY	
+euler15.icn	ENTRY	
+euler16.icn	ENTRY	
+euler17.icn	ENTRY	
+euler18.icn	ENTRY	
+euler19.icn	ENTRY	
+euler2.icn	ENTRY	
+euler20.icn	ENTRY	
+euler21.icn	ENTRY	
+euler22.icn	NEEDS-INPUT	its answer changes with what standard input holds
+euler23.icn	ENTRY	
+euler24.icn	ENTRY	
+euler25.icn	ENTRY	
+euler26.icn	ENTRY	
+euler27.icn	ENTRY	
+euler28.icn	ENTRY	
+euler29.icn	ENTRY	
+euler3.icn	ENTRY	
+euler30.icn	ENTRY	
+euler31.icn	ENTRY	
+euler32.icn	ENTRY	
+euler33.icn	ENTRY	
+euler34.icn	ENTRY	
+euler35.icn	ENTRY	
+euler36.icn	ENTRY	
+euler37.icn	ENTRY	
+euler38.icn	ENTRY	
+euler39.icn	ENTRY	
+euler4.icn	ENTRY	
+euler40.icn	ENTRY	
+euler41.icn	ENTRY	
+euler42.icn	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 103
+euler43.icn	ENTRY	
+euler44.icn	ENTRY	
+euler45.icn	ENTRY	
+euler46.icn	ENTRY	
+euler47.icn	ENTRY	
+euler48.icn	ENTRY	
+euler49.icn	ENTRY	
+euler5.icn	ENTRY	
+euler50.icn	ENTRY	
+euler6.icn	ENTRY	
+euler7.icn	ENTRY	
+euler8.icn	ENTRY	
+euler9.icn	ENTRY	
+hakank_utils.icn	LIBRARY	no procedure main
+numbers_not_containing_7.icn	ENTRY	
+pattern_generation.icn	ENTRY	
+read_test.icn	ORACLE-REFUSES	unicon does not translate it: icont: cannot resolve reference to file 'hakank_utils.u'
+wordle.icn	ENTRY	

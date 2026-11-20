@@ -1,0 +1,21 @@
+# the census of /home/packages/icon/rosetta_live_icon by unicon (the live site, fetched 2026-11-18 (20 programs)), 2026-11-20: path from the root, verdict, note
+Benford-s-law/1.icn	ENTRY	
+Catalan-numbers-Pascal-s-triangle/1.icn	ENTRY	
+Conway-s-Game-of-Life/1.icn	DOES-NOT-END	no answer inside 60 s
+Dijkstra-s-algorithm/1.icn	ENTRY	stderr not graded: Run-time error 103
+Dinesman-s-multiple-dwelling-problem/1.icn	ENTRY	
+Floyd-s-triangle/1.icn	ENTRY	
+Gosper-s-hack/1.icn	ENTRY	
+Horner-s-rule-for-polynomial-evaluation/1.icn	ENTRY	
+Jensen-s-Device/1.icn	ENTRY	
+Jensen-s-Device/2.icn	LIBRARY	no procedure main
+Jensen-s-Device/3.icn	LIBRARY	no procedure main
+Knight-s-tour/1.icn	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 478 and 478 bytes
+Knight-s-tour/2.icn	LIBRARY	no procedure main
+Knuth-s-algorithm-S/1.icn	ORACLE-REFUSES	unicon does not translate it: 1.icn:3: # "procedure" Unable to import (1) package "Utils"
+Langton-s-ant/1.icn	NEEDS-DISPLAY	the source names link graphics
+N-th/1.icn	ENTRY	
+Numerical-integration-Adaptive-Simpson-s-method/1.icn	ENTRY	
+Pascal-s-triangle/1.icn	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+Pollard-s-rho-algorithm/1.icn	ENTRY	
+Xiaolin-Wu-s-line-algorithm/1.icn	NEEDS-DISPLAY	the source names link graphics

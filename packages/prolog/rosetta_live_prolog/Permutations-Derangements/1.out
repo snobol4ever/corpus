@@ -1,0 +1,11 @@
+All derangements of 1,2,3,4:
+[[2,1,4,3],[2,3,4,1],[2,4,1,3],[3,1,4,2],[3,4,1,2],[3,4,2,1],[4,1,2,3],[4,3,1,2],[4,3,2,1]]
+items=1, !n=0, derangements=0
+items=2, !n=1, derangements=1
+items=3, !n=2, derangements=2
+items=4, !n=9, derangements=9
+items=5, !n=44, derangements=44
+items=6, !n=265, derangements=265
+items=7, !n=1854, derangements=1854
+items=8, !n=14833, derangements=14833
+items=9, !n=133496, derangements=133496

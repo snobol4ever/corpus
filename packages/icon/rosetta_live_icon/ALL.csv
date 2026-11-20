@@ -1,0 +1,12 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,Benford-s-law/1,Benford-s-law/1.icn,rosetta_live_icon__Benford-s-law/1,rosetta_live_icon,34,0,131072,4096,60,,unicon
+2,Catalan-numbers-Pascal-s-triangle/1,Catalan-numbers-Pascal-s-triangle/1.icn,rosetta_live_icon__Catalan-numbers-Pascal-s-triangle/1,rosetta_live_icon,6,0,131072,4096,60,,unicon
+3,Dijkstra-s-algorithm/1,Dijkstra-s-algorithm/1.icn,rosetta_live_icon__Dijkstra-s-algorithm/1,rosetta_live_icon,109,1,131072,4096,60,,unicon
+4,Dinesman-s-multiple-dwelling-problem/1,Dinesman-s-multiple-dwelling-problem/1.icn,rosetta_live_icon__Dinesman-s-multiple-dwelling-problem/1,rosetta_live_icon,71,1,131072,4096,60,,unicon
+5,Floyd-s-triangle/1,Floyd-s-triangle/1.icn,rosetta_live_icon__Floyd-s-triangle/1,rosetta_live_icon,12,0,131072,4096,60,,unicon
+6,Gosper-s-hack/1,Gosper-s-hack/1.icn,rosetta_live_icon__Gosper-s-hack/1,rosetta_live_icon,16,0,131072,4096,60,,unicon
+7,Horner-s-rule-for-polynomial-evaluation/1,Horner-s-rule-for-polynomial-evaluation/1.icn,rosetta_live_icon__Horner-s-rule-for-polynomial-evaluation/1,rosetta_live_icon,10,0,131072,4096,60,,unicon
+8,Jensen-s-Device/1,Jensen-s-Device/1.icn,rosetta_live_icon__Jensen-s-Device/1,rosetta_live_icon,13,0,131072,4096,60,,unicon
+9,N-th/1,N-th/1.icn,rosetta_live_icon__N-th/1,rosetta_live_icon,11,0,131072,4096,60,,unicon
+10,Numerical-integration-Adaptive-Simpson-s-method/1,Numerical-integration-Adaptive-Simpson-s-method/1.icn,rosetta_live_icon__Numerical-integration-Adaptive-Simpson-s-method/1,rosetta_live_icon,49,0,131072,4096,60,,unicon
+11,Pollard-s-rho-algorithm/1,Pollard-s-rho-algorithm/1.icn,rosetta_live_icon__Pollard-s-rho-algorithm/1,rosetta_live_icon,28,0,131072,4096,60,,unicon

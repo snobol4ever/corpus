@@ -1,0 +1,27 @@
+word_list:
+ache
+ape
+check
+peach
+words:
+checkapeache
+animpeachableape
+
+checking checkapeache
+ache
+found ache
+ape
+found ape
+check
+found check
+peach
+found peach
+c=4
+checking animpeachableape
+ache
+ape
+found ape
+check
+peach
+found peach
+c=2

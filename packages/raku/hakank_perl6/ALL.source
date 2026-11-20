@@ -1,0 +1,4 @@
+root	/home/packages/raku/hakank_perl6
+origin	https://github.com/hakank/hakank, its folder perl6/ (Hakan Kjellerstrand), Perl 6 (Raku) programs
+version	2823c48 (2025-11-27; a sparse clone, 2026-11-20)
+licence	MIT (LICENSE copied into the root)

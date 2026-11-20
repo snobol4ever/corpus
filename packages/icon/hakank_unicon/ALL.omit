@@ -1,0 +1,5 @@
+euler13.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 105
+euler22.icn: NEEDS-INPUT: its answer changes with what standard input holds
+euler42.icn: NO-OUTPUT: nothing on standard output, exit 1; a dead engine would earn the same; stderr: Run-time error 103
+hakank_utils.icn: LIBRARY: no procedure main
+read_test.icn: ORACLE-REFUSES: unicon does not translate it: icont: cannot resolve reference to file 'hakank_utils.u'

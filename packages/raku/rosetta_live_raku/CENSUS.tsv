@@ -1,0 +1,65 @@
+# the census of /home/packages/raku/rosetta_live_raku by rakudo (the live site, fetched 2026-11-18 (64 programs)), 2026-11-20: path from the root, verdict, note
+Ap-ry-s-constant/1.raku	ENTRY	
+Argument-destructuring/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+Banker-s-algorithm/1.raku	ENTRY	
+Benford-s-law/1.raku	ENTRY	
+Bernoulli-s-triangle/1.raku	ENTRY	
+Bitmap-Bresenham-s-line-algorithm/1.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+Catalan-numbers-Pascal-s-triangle/1.raku	ENTRY	
+Chernick-s-Carmichael-numbers/1.raku	NEEDS-DISPLAY	the source names Inline::
+Cheryl-s-birthday/1.raku	ENTRY	
+Chrome-simulated-search/1.raku	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+Cipolla-s-algorithm/1.raku	ENTRY	stderr not graded: Invalid parameters (8219, 10007)
+Conway-s-Game-of-Life/1.raku	ENTRY	
+Cramer-s-rule/1.raku	ENTRY	
+Create-an-executable-for-a-program-in-an-interpreted-language/1.raku	ORACLE-REFUSES	Error while compiling 1.raku
+Deming-s-funnel/1.raku	ENTRY	
+Dijkstra-s-algorithm/1.raku	ENTRY	
+Draft-GC-60-Passive-Window-Prime-Sieve/1.raku	DOES-NOT-END	no answer inside 60 s
+Euler-s-constant-0.5772.../1.raku	ENTRY	
+Euler-s-identity/1.raku	ENTRY	
+Euler-s-sum-of-powers-conjecture/1.raku	ENTRY	
+Faulhaber-s-formula/1.raku	ENTRY	
+Faulhaber-s-triangle/1.raku	ENTRY	
+Floyd-Steinberg-dithering/1.raku	NEEDS-INPUT	its answer changes with what standard input holds
+Floyd-s-triangle/1.raku	ENTRY	
+Gabow-s-algorithm/1.raku	ENTRY	
+Goldbach-s-comet/1.raku	ORACLE-REFUSES	Error while compiling 1.raku
+Gosper-s-hack/1.raku	ENTRY	
+Hierholzer-s-algorithm/1.raku	ENTRY	
+Horner-s-rule-for-polynomial-evaluation/1.raku	ENTRY	
+Horner-s-rule-for-polynomial-evaluation/2.raku	ENTRY	
+Horner-s-rule-for-polynomial-evaluation/3.raku	ENTRY	
+Horner-s-rule-for-polynomial-evaluation/4.raku	ENTRY	
+I-m-a-software-engineer-get-me-out-of-here/1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 2667 and 2667 bytes
+Jensen-s-Device/1.raku	ENTRY	
+Johnson-s-algorithm/1.raku	ENTRY	
+Knight-s-tour/1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 776 and 776 bytes
+Knuth-s-algorithm-S/1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 62 and 62 bytes
+Knuth-s-power-tree/1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 728 and 727 bytes
+Langton-s-ant/1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 3469 and 3464 bytes
+Moser-s-circle-problem/1.raku	ENTRY	
+N-th/1.raku	ENTRY	
+N-th/2.raku	ENTRY	
+Nth-Particular-Weekday-of-the-Month/1.raku	ENTRY	
+Numerical-integration-Adaptive-Simpson-s-method/1.raku	ENTRY	
+O-Halloran-numbers/1.raku	ENTRY	
+Pascal-s-triangle-Puzzle/1.raku	ENTRY	
+Pell-s-equation/1.raku	ORACLE-REFUSES	Error while compiling 1.raku
+Penney-s-game/1.raku	DOES-NOT-END	no answer inside 60 s
+Pollard-s-rho-algorithm/1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 698 and 698 bytes
+Primality-by-Wilson-s-theorem/1.raku	ENTRY	stderr not graded: A worker in a parallel iteration (hyper or race) initiated here:
+Ramsey-s-theorem/1.raku	ENTRY	
+Recaman-s-sequence/1.raku	ENTRY	
+Search-in-paragraph-s-text/1.raku	NO-OUTPUT	nothing on standard output, exit 1; a dead engine would earn the same; stderr: Cannot resolve caller contains(Str:D: Any:U); none of these signatures matches:
+Solve-a-Holy-Knight-s-tour/1.raku	ENTRY	
+Solve-a-Rubik-s-cube/1.raku	ENTRY	
+Steffensen-s-method/1.raku	ENTRY	
+Strassen-s-algorithm/1.raku	ORACLE-REFUSES	Error while compiling 1.raku
+Sylvester-s-sequence/1.raku	ENTRY	
+Szyma-ski-s-algorithm/1.raku	ORACLE-REFUSES	Error while compiling 1.raku
+Thiele-s-interpolation-formula/1.raku	ENTRY	
+Tupper-s-self-referential-formula/1.raku	ENTRY	
+Two-s-complement/1.raku	ORACLE-REFUSES	Error while compiling 1.raku
+Vogel-s-approximation-method/1.raku	DIFFERS-BETWEEN-RUNS	exit 0 and 0, 88 and 89 bytes
+Xiaolin-Wu-s-line-algorithm/1.raku	ENTRY	
