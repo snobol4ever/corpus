@@ -1,0 +1,6 @@
+# EXCLUDED.dotnet.tsv -- packages/snobol4/jvm: the programs that leave snobol4dotnet's denominator ALONE, read by lib_excluded.sh and util_score_row.py only
+# while S4E_ENGINE is dotnet (ceo CEO-1864 (4), as csnobol4_suite's). SCRIP's rows and the jvm engine's never read it. Class LON_UNICODE_BY_DESIGN (ceo
+# CEO-1859, Lon, verbatim: "Continue having snobol4dotnet support Unicode as designed."): a program whose ONLY difference from sbl -bf is bytes against
+# characters leaves this engine's denominator, its evidence the measured difference.
+# FORMAT: name<TAB>LON_UNICODE_BY_DESIGN<TAB>the measured byte-versus-character difference (60+ chars)
+core_test__an-integer-argument-may-be-a-real-or-a-numeric-string__3	LON_UNICODE_BY_DESIGN	measured 2026-11-20 on snobol4dotnet 49d7edf against sbl -bf: V = CHAR(256) is compile error 282 (char argument not in range, rc 231) under sbl, whose characters are bytes, and the one-character string U+0100 under snobol4dotnet, whose characters are UTF-16 code units (SIZE(CHAR(256)) is 1, DATATYPE STRING, rc 0)
