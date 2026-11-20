@@ -13,7 +13,7 @@ The SNOBOL4 programs of snobol4jvm's own test suite (`lein test` in the snobol4j
 ## Counts
 
 - entries: 1930 (0 one-liners, 1930 multi-liners), 1239 graded by their dump
-- excluded: 3 (EXCLUDED.tsv)
+- excluded: 4 (EXCLUDED.tsv)
 - already in the corpus, so no entry: 128 (DUPLICATES.tsv)
 
 ## Families
