@@ -1,0 +1,5 @@
+        X = 'old'
+        X = IDENT(1, 2) ('a', 'b') 'c'  :F(NO)
+        OUTPUT = 'x=[' X '] S'  :(END)
+NO      OUTPUT = 'x=[' X '] F'
+END

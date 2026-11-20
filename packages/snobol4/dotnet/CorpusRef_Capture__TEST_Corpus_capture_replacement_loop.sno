@@ -1,0 +1,6 @@
+
+        X = 'aababc'
+LOOP    X 'a' = 'X'                                :F(DONE)
+        :(LOOP)
+DONE    OUTPUT = X
+END

@@ -1,0 +1,38 @@
+
+
+
+dump of natural variables
+
+char = '8'
+gap = PATTERN
+result = 'fail'
+subject = '12345'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'BreakX__TEST_BreakX_009.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'BreakX__TEST_BreakX_009.sno'
+&LASTLINE = 8
+&LASTNO = 8
+&LINE = 9
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 7
+&STLIMIT = 2147483647
+&STNO = 9
+&TRACE = 0
+&TRIM = 1

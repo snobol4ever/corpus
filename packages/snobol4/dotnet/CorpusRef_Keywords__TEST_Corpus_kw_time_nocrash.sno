@@ -1,0 +1,6 @@
+
+        T = TIME()
+        INTEGER(T)                                  :S(ok)
+        OUTPUT = 'FAIL: TIME() not integer'         :(END)
+ok      OUTPUT = 'PASS'
+END

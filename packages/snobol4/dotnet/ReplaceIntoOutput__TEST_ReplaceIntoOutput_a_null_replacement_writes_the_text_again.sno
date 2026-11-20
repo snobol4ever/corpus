@@ -1,0 +1,4 @@
+        OUTPUT = '@a'
+        OUTPUT e = phrase
+        OUTPUT = '@b'
+END

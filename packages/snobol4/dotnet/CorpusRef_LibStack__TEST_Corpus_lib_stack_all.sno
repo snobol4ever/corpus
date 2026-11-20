@@ -1,0 +1,76 @@
+
+               DATA('slink(snext,sval)')
+
+               DEFINE('stack_init()')                              :(stack_init_end)
+stack_init     stk            =                                    :(RETURN)
+stack_init_end
+
+               DEFINE('stack_push(x)')                            :(stack_push_end)
+stack_push     stk            =   slink(stk, x)
+               stack_push     =   .sval(stk)                      :(NRETURN)
+stack_push_end
+
+               DEFINE('stack_pop(var)')                           :(stack_pop_end)
+stack_pop      DIFFER(stk)                                        :F(FRETURN)
+               IDENT(var)                                         :F(stack_pop1)
+               stack_pop      =   sval(stk)
+               stk            =   snext(stk)                      :(RETURN)
+stack_pop1     $var           =   sval(stk)
+               stk            =   snext(stk)
+               stack_pop      =   .dummy                          :(NRETURN)
+stack_pop_end
+
+               DEFINE('stack_peek()')                             :(stack_peek_end)
+stack_peek     DIFFER(stk)                                        :F(FRETURN)
+               stack_peek     =   sval(stk)                       :(RETURN)
+stack_peek_end
+
+               DEFINE('stack_top()')                              :(stack_top_end)
+stack_top      DIFFER(stk)                                        :F(FRETURN)
+               stack_top      =   .sval(stk)                      :(NRETURN)
+stack_top_end
+
+               DEFINE('stack_depth()sd')                          :(stack_depth_end)
+stack_depth    stack_depth    =   0
+               sd             =   stk
+stk_dep0       DIFFER(sd)                                         :F(RETURN)
+               stack_depth    =   stack_depth + 1
+               sd             =   snext(sd)                       :(stk_dep0)
+stack_depth_end
+
+        &TRIM = 1
+        stack_init()
+        stack_push('a')
+        stack_push('b')
+        stack_push('c')
+        OUTPUT = stack_depth()
+        OUTPUT = stack_pop()
+        OUTPUT = stack_pop()
+        OUTPUT = stack_depth()
+        OUTPUT = stack_pop()
+        OUTPUT = stack_depth()
+        stack_pop()                                :S(bad_s1)
+        OUTPUT = 'empty ok'
+        :(s1)
+bad_s1  OUTPUT = 'FAIL: empty pop should FRETURN'
+s1
+        stack_init()
+        stack_push('x')
+        OUTPUT = stack_peek()
+        OUTPUT = stack_depth()
+        OUTPUT = stack_pop()
+        stack_init()
+        stack_push(42)
+        stack_push(99)
+        stack_pop('myvar')
+        OUTPUT = myvar
+        stack_init()
+        subject = 'hello world'
+        subject BREAK(' ') . w1 ' ' REM . w2 =    :F(bad_s2)
+        stack_push(w1)
+        stack_push(w2)
+        OUTPUT = stack_pop()
+        OUTPUT = stack_pop()
+        :(END)
+bad_s2  OUTPUT = 'FAIL: pattern match failed'
+END

@@ -1,0 +1,11 @@
+
+        DATA('node(val,nxt)')
+        HEAD =
+        HEAD = node(3, HEAD)
+        HEAD = node(2, HEAD)
+        HEAD = node(1, HEAD)
+        P = HEAD
+LOOP    IDENT(P)                                   :S(END)
+        OUTPUT = val(P)
+        P = nxt(P)                                 :(LOOP)
+END

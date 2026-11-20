@@ -1,0 +1,8 @@
+        SETEXIT(.H)
+        &ERRLIMIT = 10
+        D = 0
+        X = 1 / D
+        :(END)
+H       OUTPUT = 'PREV=[' SETEXIT('') ']'
+        :(END)
+END

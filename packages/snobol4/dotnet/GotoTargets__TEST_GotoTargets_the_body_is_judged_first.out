@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:26:31 2026
+
+
+
+                                                                                                                page 1
+
+1               'A' = 1 :('L')
+
+GotoTargets__TEST_GotoTargets_the_body_is_judged_first.sno(1) : ERROR 212 -- syntax error: value used where name is requ
+ired

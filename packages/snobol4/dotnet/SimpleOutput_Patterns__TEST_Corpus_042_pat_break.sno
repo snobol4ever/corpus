@@ -1,0 +1,7 @@
+
+        X = 'hello world'
+        X BREAK(' ') . V                                            :S(YES)
+        RESULT = 'no space'
+        :(END)
+YES     RESULT = V
+END

@@ -1,0 +1,9 @@
+        A = ARRAY(2)
+        S = INTEGER(.$'3') 'a'
+        S = S (INTEGER(.$'3.5') 'b', 'n')
+        S = S (INTEGER(.X) 'c', 'n')
+        S = S (INTEGER(.$' 5 ') 'd', 'n')
+        S = S (INTEGER(.A[1]) 'e', 'n')
+        S = S (INTEGER(.$'-4') 'f', 'n')
+        S = S (INTEGER(.&ANCHOR) 'g', 'n')
+END

@@ -1,0 +1,5 @@
+        &ERRLIMIT = 10
+        V = EVAL('f(1)(2) )x')     :S(Y1)
+        OUTPUT = 'F t=' &ERRTYPE ' lim=' &ERRLIMIT   :(END)
+Y1      OUTPUT = 'S'
+END

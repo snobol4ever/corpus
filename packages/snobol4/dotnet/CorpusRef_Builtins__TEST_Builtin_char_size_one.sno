@@ -1,0 +1,5 @@
+
+        DIFFER(SIZE(CHAR(72)), 1)                   :F(ok)
+        OUTPUT = 'FAIL: SIZE(CHAR(72)) != 1'        :(END)
+ok      OUTPUT = 'PASS'
+END

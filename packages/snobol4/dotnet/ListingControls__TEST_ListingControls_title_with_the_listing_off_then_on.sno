@@ -1,0 +1,6 @@
+-NOLIST
+-TITLE T
+-LIST
+        A = 1
+        OUTPUT = 'x'
+END

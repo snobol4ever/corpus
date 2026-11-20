@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:56:19 2026
+
+
+
+                                                                                                                page 1
+
+1               A = 9223372036854775808 + 1
+                    !
+TestLexer__TEST_231_integer_past_the_range_is_reported_at_its_start.sno(1,13) : ERROR 231 -- syntax error: invalid numer
+ic item

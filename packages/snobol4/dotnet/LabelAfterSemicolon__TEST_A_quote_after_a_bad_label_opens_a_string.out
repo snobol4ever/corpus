@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:32:12 2026
+
+
+
+                                                                                                                page 1
+
+1       [X"a ; B = (
+
+LabelAfterSemicolon__TEST_A_quote_after_a_bad_label_opens_a_string.sno(1) : ERROR 214 -- bad label or misplaced continua
+tion line

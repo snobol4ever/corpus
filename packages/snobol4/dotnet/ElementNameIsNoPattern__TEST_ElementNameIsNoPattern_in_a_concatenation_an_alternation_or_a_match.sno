@@ -1,0 +1,35 @@
+        &ERRLIMIT = 30
+        A = ARRAY(3)
+        A[1] = 7
+        T = TABLE()
+        V = .A[1]
+        &ERRTYPE = 0
+        W = 'x' V                                   :S(Y1)
+        OUTPUT = '1 F ' &ERRTYPE                    :(E1)
+Y1      OUTPUT = '1 S ' DATATYPE(W)
+E1      &ERRTYPE = 0
+        W = V 'x'                                   :S(Y2)
+        OUTPUT = '2 F ' &ERRTYPE                    :(E2)
+Y2      OUTPUT = '2 S ' DATATYPE(W)
+E2      &ERRTYPE = 0
+        W = SIZE(V)                                 :S(Y3)
+        OUTPUT = '3 F ' &ERRTYPE                    :(E3)
+Y3      OUTPUT = '3 S ' W
+E3      &ERRTYPE = 0
+        W = 'x' .T['k']                             :S(Y4)
+        OUTPUT = '4 F ' &ERRTYPE                    :(E4)
+Y4      OUTPUT = '4 S ' DATATYPE(W)
+E4      &ERRTYPE = 0
+        W = V | 'x'                                 :S(Y5)
+        OUTPUT = '5 F ' &ERRTYPE                    :(E5)
+Y5      OUTPUT = '5 S ' DATATYPE(W)
+E5      &ERRTYPE = 0
+        'axb' V                                     :S(Y6)
+        OUTPUT = '6 F ' &ERRTYPE                    :(E6)
+Y6      OUTPUT = '6 S'
+E6      &ERRTYPE = 0
+        W = 'x' .X                                  :S(Y7)
+        OUTPUT = '7 F ' &ERRTYPE                    :(E7)
+Y7      OUTPUT = '7 S ' DATATYPE(W) ' ' W
+E7
+END

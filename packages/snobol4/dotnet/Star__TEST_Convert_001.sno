@@ -1,0 +1,6 @@
+
+        a = 'this is a test'
+        b = EVAL(a)
+        x = b
+        y = DATATYPE(b)
+END

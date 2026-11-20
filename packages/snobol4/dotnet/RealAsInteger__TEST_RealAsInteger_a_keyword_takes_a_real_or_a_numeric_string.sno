@@ -1,0 +1,6 @@
+
+        &TRIM = 1.0
+        R = &TRIM
+        &TRIM = '1.0'
+        R = R ' ' &TRIM
+END

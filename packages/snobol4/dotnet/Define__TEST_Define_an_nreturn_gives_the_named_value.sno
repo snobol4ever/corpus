@@ -1,0 +1,18 @@
+
+        DEFINE('TOP()')                :(TOP_END)
+TOP     TOP = .V                       :(NRETURN)
+TOP_END
+        V = 'val'
+        N = TOP()
+        R = N ' ' DATATYPE(N) ' ' TOP() 'x ' SIZE(TOP())
+        X = .TOP()
+        V = .Z
+        TOP() = 'set'
+        S = V ' ' Z ' ' DATATYPE(X)
+        A = ARRAY(2)
+        DEFINE('EL()')                 :(EL_END)
+EL      EL = .A[2]                     :(NRETURN)
+EL_END
+        EL() = 'two'
+        T = A[2] ' ' EL()
+END

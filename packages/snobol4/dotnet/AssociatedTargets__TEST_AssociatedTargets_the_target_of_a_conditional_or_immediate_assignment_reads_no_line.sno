@@ -1,0 +1,6 @@
+        OUTPUT = '@a'
+        'abc' ? LEN(1) . TERMINAL
+        OUTPUT = '@b'
+        X = INPUT
+        OUTPUT = 'input=' X
+END

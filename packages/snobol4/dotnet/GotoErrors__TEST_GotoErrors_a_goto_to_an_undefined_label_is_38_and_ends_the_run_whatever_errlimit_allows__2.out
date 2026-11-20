@@ -1,0 +1,19 @@
+
+
+
+GotoErrors__TEST_GotoErrors_a_goto_to_an_undefined_label_is_38_and_ends_the_run_whatever_errlimit_allows__2.sno(3) : ERR
+OR 038 -- goto undefined label
+
+
+
+
+
+in file              GotoErrors__TEST_GotoErrors_a_goto_to_an_undefined_label_is_38_and_ends_the_run_whatever_errlimit_a
+llows__2.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11672
+memory left (bytes)  1036896

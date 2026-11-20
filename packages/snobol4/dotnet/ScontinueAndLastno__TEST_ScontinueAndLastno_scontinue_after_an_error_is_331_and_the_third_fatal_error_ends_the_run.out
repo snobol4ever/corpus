@@ -1,0 +1,22 @@
+err 251 keyword operand is not name of defined keyword
+err 331 goto scontinue with no user interrupt
+err 331 goto scontinue with no user interrupt
+
+
+
+ScontinueAndLastno__TEST_ScontinueAndLastno_scontinue_after_an_error_is_331_and_the_third_fatal_error_ends_the_run.sno(9
+) : ERROR 331 -- goto scontinue with no user interrupt
+
+
+
+
+
+in file              ScontinueAndLastno__TEST_ScontinueAndLastno_scontinue_after_an_error_is_331_and_the_third_fatal_err
+or_ends_the_run.sno
+in line              9
+in statement         9
+stmts executed       15
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13136
+memory left (bytes)  1035432

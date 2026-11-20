@@ -1,0 +1,43 @@
+
+
+
+dump of natural variables
+
+E = PATTERN
+G = '<<<>><>>'
+GRP = '(12,(3,45),78)'
+ITEM = PATTERN
+L = PATTERN
+LAST = '78'
+LIST = PATTERN
+V = '((XY))'
+W = '((XY))'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'ImmediateVariableAssignment__TEST_ImmediateVariableAssociation_Recursive_001.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'ImmediateVariableAssignment__TEST_ImmediateVariableAssociation_Recursive_001.sno'
+&LASTLINE = 8
+&LASTNO = 8
+&LINE = 9
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 8
+&STLIMIT = 2147483647
+&STNO = 9
+&TRACE = 0
+&TRIM = 1

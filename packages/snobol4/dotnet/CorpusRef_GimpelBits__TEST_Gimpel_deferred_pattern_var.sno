@@ -1,0 +1,9 @@
+
+        DIGITS = SPAN('0123456789')
+        P = BREAK(' ') . WORD ' '
+        LINE = 'hello world foo'
+        LINE *P =
+        OUTPUT = WORD
+        LINE *P =
+        OUTPUT = WORD
+END

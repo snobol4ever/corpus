@@ -1,0 +1,17 @@
+
+
+
+Item__TEST_Array_013.sno(2) : ERROR 067 -- array dimension is zero, negative or out of range
+
+
+
+
+
+in file              Item__TEST_Array_013.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11360
+memory left (bytes)  1037208

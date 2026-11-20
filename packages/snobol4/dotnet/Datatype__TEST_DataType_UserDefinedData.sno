@@ -1,0 +1,5 @@
+
+     	DATA('product(name,price,quantity,mfg)')
+	    item1 = product('CAPERS', 2.39, 48, 'BRINE BROTHERS')
+        b = DATATYPE(item1);
+END

@@ -1,0 +1,12 @@
+        DEFINE('L(X,Y)')               :(LE)
+L       CALLS = CALLS + 1 ; L = X Y    :(RETURN)
+LE      OPSYN('~', .L, 2)
+        OPSYN('|', .L, 1)
+        DEFINE('F()')                  :(FE)
+F                                      :(FRETURN)
+FE      Z = F() ~ 'b'                  :S(BAD)
+        Z = 'a' ~ F()                  :S(BAD)
+        Z = |F()                       :S(BAD)
+        R = 'failed'                   :(END)
+BAD     R = 'succeeded'
+END

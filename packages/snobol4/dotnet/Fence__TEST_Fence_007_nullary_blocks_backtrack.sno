@@ -1,0 +1,7 @@
+
+        &ANCHOR = 0
+        subject = 'abc'
+        subject ('a' FENCE 'x')   :S(bad)F(ok)
+bad     result = 'bad'   :(END)
+ok      result = 'ok'
+END

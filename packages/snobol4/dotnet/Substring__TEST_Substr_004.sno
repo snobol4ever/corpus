@@ -1,0 +1,4 @@
+
+        a = 'this is a test'
+        b = SUBSTR(a,'a',2)
+END

@@ -1,0 +1,16 @@
+
+        DEFINE('ref_a()')                              :(ref_a_end)
+ref_a   ref_a = .a                                     :(NRETURN)
+ref_a_end
+        a = 27
+        DIFFER(ref_a(), 27)                            :F(e001)
+        OUTPUT = 'FAIL 1013/001: nreturn read gives value' :(END)
+e001
+        ref_a() = 26                                   :S(e002)
+        OUTPUT = 'FAIL 1013/002: nreturn lvalue assign failed' :(END)
+e002
+        DIFFER(a, 26)                                  :F(e003)
+        OUTPUT = 'FAIL 1013/003: a updated via nreturn'   :(END)
+e003
+        OUTPUT = 'PASS 1013_func_nreturn (3/3)'
+END

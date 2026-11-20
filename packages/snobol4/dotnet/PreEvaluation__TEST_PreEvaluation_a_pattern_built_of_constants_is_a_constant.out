@@ -1,0 +1,34 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:39:07 2026
+
+
+
+                                                                                                                page 1
+
+2               V = -('a' | 'b')
+
+PreEvaluation__TEST_PreEvaluation_a_pattern_built_of_constants_is_a_constant.sno(2) : ERROR 010 -- negation operand is n
+ot numeric
+
+3               W = ('a' 'b') + 1
+
+PreEvaluation__TEST_PreEvaluation_a_pattern_built_of_constants_is_a_constant.sno(3) : ERROR 001 -- addition left operand
+ is not numeric
+
+4               X = -ARBNO('a' | 'b')
+
+PreEvaluation__TEST_PreEvaluation_a_pattern_built_of_constants_is_a_constant.sno(4) : ERROR 010 -- negation operand is n
+ot numeric
+
+5               Y = -('a' . Z)
+
+PreEvaluation__TEST_PreEvaluation_a_pattern_built_of_constants_is_a_constant.sno(5) : ERROR 010 -- negation operand is n
+ot numeric
+
+6               Z = -(*X . Y)
+
+PreEvaluation__TEST_PreEvaluation_a_pattern_built_of_constants_is_a_constant.sno(6) : ERROR 010 -- negation operand is n
+ot numeric

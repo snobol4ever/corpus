@@ -1,0 +1,6 @@
+
+        r = ''        
+        a = 'this is a test'
+        b = SUBSTR(a,20) :S(END)
+        r = 'fail'
+END

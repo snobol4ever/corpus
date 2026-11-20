@@ -1,0 +1,35 @@
+
+
+
+dump of natural variables
+
+n = -0.1e+151
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 8
+&ERRTEXT = 'char argument not in range'
+&ERRTYPE = 282
+&FILE = 'Char__TEST_Char_a_real_beyond_the_integers_is_out_of_range__2.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Char__TEST_Char_a_real_beyond_the_integers_is_out_of_range__2.sno'
+&LASTLINE = 6
+&LASTNO = 6
+&LINE = 7
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 6
+&STLIMIT = 2147483647
+&STNO = 7
+&TRACE = 0
+&TRIM = 1

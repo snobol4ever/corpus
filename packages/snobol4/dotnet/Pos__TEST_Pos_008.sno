@@ -1,0 +1,3 @@
+
+        pattern = POS('a') 
+END

@@ -1,0 +1,10 @@
+
+        a = 3
+        x = EVAL('a + b1')
+        b1 = 4
+        y = EVAL('a + b1')
+        z = EVAL('a * (b1 + c1)')
+        c1 = 5
+        w = EVAL('a * (b1 + c1)')
+        OUTPUT = x '|' y '|' z '|' w
+END

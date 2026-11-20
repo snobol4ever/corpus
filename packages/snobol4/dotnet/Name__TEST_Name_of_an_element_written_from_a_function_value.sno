@@ -1,0 +1,12 @@
+
+        DEFINE('SW(A2)')               :(SW_END)
+SW      SW = 'v'
+        $A2 = SW
+        SW =                           :(RETURN)
+SW_END
+        B = ARRAY(2)
+        SW(.B[2])
+        N = .B[2]
+        $N = 'new'
+        R = B[2]
+END

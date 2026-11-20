@@ -1,0 +1,4 @@
+        X = EVAL('5 / N0')  :F(OOPS)
+        OUTPUT = 'x=' X  :(END)
+OOPS    OUTPUT = 'failed ' &ERRTYPE ' ' &ERRTEXT
+END

@@ -1,0 +1,7 @@
+
+        subject = 'foobar'
+        pat = 'foo' 'xyz'
+        subject pat              :S(e001)
+        OUTPUT = 'PASS W02/003: seq rightly failed'          :(END)
+e001    OUTPUT = 'FAIL W02/003: seq should have failed'
+END

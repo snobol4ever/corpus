@@ -1,0 +1,9 @@
+
+        &ANCHOR = 0
+        letters = 'abcdefghijklmnopqrstuvwxyz'
+        gap = BREAK(letters) 
+        subject = 'one,,, two,..  three';
+        subject gap . temp1  :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

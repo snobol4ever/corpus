@@ -1,0 +1,6 @@
+
+        N = 0
+        EQ(1, 1)    :S(done)
+        N = 99
+done    N = N + 1
+END

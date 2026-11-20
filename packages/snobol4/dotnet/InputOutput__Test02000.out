@@ -1,0 +1,17 @@
+
+
+
+InputOutput__Test02000.sno(3) : ERROR 117 -- input file cannot be read
+
+
+
+
+
+in file              InputOutput__Test02000.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13000
+memory left (bytes)  1035568

@@ -1,0 +1,18 @@
+        A = 'xyz'
+        B = 'abc'
+        A B ? @X                       :S(S1)F(F1)
+S1      OUTPUT = '1 succ X=' X         :(N2)
+F1      OUTPUT = '1 fail'
+N2      A B ? 'z'                      :S(S2)F(F2)
+S2      OUTPUT = '2 succ'              :(N3)
+F2      OUTPUT = '2 fail'
+N3      A 'y' ? 'q'                    :S(S3)F(F3)
+S3      OUTPUT = '3 succ'              :(N4)
+F3      OUTPUT = '3 fail'
+N4      Z = A B ? 'b'                  :S(S4)F(F4)
+S4      OUTPUT = '4 succ ' Z           :(N5)
+F4      OUTPUT = '4 fail'
+N5      A (B ? 'b')                    :S(S5)F(F5)
+S5      OUTPUT = '5 succ'              :(END)
+F5      OUTPUT = '5 fail'
+END

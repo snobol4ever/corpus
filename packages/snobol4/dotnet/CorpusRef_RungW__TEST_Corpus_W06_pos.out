@@ -1,0 +1,3 @@
+PASS W06/001: POS(0) matched
+PASS W06/002: POS(3) after EL matched
+PASS W06/003: POS(2) H correctly fails

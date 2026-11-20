@@ -1,0 +1,6 @@
+
+        subject = 'hello'
+        subject (FAIL | 'hello') . cap   :S(ok)F(bad)
+ok      result = cap   :(END)
+bad     result = 'bad'
+END

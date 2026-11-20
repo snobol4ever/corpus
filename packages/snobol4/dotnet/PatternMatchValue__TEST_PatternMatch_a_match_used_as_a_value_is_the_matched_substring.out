@@ -1,0 +1,43 @@
+
+
+
+dump of natural variables
+
+C = '<b>'
+D = 'STRING'
+E = 13
+I = 'ident'
+K = 'x'
+L = 'b'
+N = 2
+T = TABLE(11) #1
+V = 'ABC'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'PatternMatchValue__TEST_PatternMatch_a_match_used_as_a_value_is_the_matched_substring.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'PatternMatchValue__TEST_PatternMatch_a_match_used_as_a_value_is_the_matched_substring.sno'
+&LASTLINE = 11
+&LASTNO = 11
+&LINE = 12
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 11
+&STLIMIT = 2147483647
+&STNO = 12
+&TRACE = 0
+&TRIM = 1

@@ -1,0 +1,5 @@
+
+        'anything' SUCCEED                     :F(SFAIL)
+        OUTPUT = 'succeed-ok'                  :(END)
+SFAIL   OUTPUT = 'FAIL'
+END

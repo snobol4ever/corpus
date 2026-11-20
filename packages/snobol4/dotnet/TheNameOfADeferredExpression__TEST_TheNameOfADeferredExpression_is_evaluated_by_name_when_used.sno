@@ -1,0 +1,32 @@
+        &ERRLIMIT = 20
+        A = ARRAY(3)
+        A[1] = 'one'
+        A[2] = 'two'
+        X = 'x'
+        I = 1
+        N = .*A[I]
+        I = 2
+        OUTPUT = '1 ' $N
+        M = .*SIZE(X)
+        X = 'xyz'
+        OUTPUT = '2 ' $M
+        $N = 'set'
+        OUTPUT = '3 ' A[1] ' ' A[2]
+        $M = 5                                  :S(Y4)
+        OUTPUT = '4 F ' &ERRTYPE                :(E4)
+Y4      OUTPUT = '4 S ' X
+E4      K = .*X
+        $K = 'via'
+        OUTPUT = '5 ' X ' ' (IDENT(K, .X) 'ident', 'differ')
+        OUTPUT = '6 ' DATATYPE(.*(X 'q')) ' ' $.*(X 'q')
+        'abc' ? LEN(1) . $(.*A[3])
+        OUTPUT = '7 ' A[3]
+        J = .*$'X'
+        OUTPUT = '8 ' (IDENT(J, .X) 'ident', 'differ') ' ' $J
+        L = .*F()
+        OUTPUT = '9 ' DATATYPE(L)
+        OUTPUT = '10 ' $L                       :S(E10)
+        OUTPUT = '10 F ' &ERRTYPE
+E10     OUTPUT = '11 ' (CONVERT(.*X, 'STRING'), 'no text') ' ' (CONVERT(.*A[1], 'STRING'), 'no text') ' '
++              (CONVERT(.*SIZE(X), 'STRING'), 'no text')
+END

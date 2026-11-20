@@ -1,0 +1,9 @@
+
+        LINE = 'hello world foo bar'
+        SPACES = ' '
+        WORD_P = BREAK(SPACES) . W  SPAN(SPACES)
+LOOP    LINE WORD_P =                                      :F(LAST)
+        OUTPUT = W                                         :(LOOP)
+LAST    IDENT(LINE, '')                                    :S(END)
+        OUTPUT = LINE
+END

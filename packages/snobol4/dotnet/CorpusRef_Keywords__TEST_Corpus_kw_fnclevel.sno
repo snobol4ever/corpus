@@ -1,0 +1,12 @@
+
+        DIFFER(&FNCLEVEL, 0)                        :F(ok1)
+        OUTPUT = 'FAIL: &FNCLEVEL at top level'     :(END)
+ok1
+        DEFINE('chk()')                             :(chk_end)
+chk     DIFFER(&FNCLEVEL, 1)                        :F(ok2)
+        OUTPUT = 'FAIL: &FNCLEVEL inside call'      :(RETURN)
+ok2                                                 :(RETURN)
+chk_end
+        chk()
+        OUTPUT = 'PASS'
+END

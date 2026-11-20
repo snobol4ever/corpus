@@ -1,0 +1,80 @@
+*	test SPITBOL (-PLUSOPS) operators added in [PLB32]
+
+	&TRACE = 100
+	TRACE(.A, .VALUE)
+	TRACE(.B, .VALUE)
+	TRACE(.C, .VALUE)
+
+	C = 'yes'
+
+-PLUSOPS 1
+
+****************
+*	embeded assign, tracing thereof
+	A = (B = C '!!')
+	OUTPUT = A
+	OUTPUT = B
+
+****************
+*	exponents on reals (not an operator)
+	OUTPUT = 4.2E1
+	OUTPUT = 50.E-3
+
+****************
+*	nested table/array access
+	TT = TABLE()
+	TT['blue'] = TABLE()
+	TT['blue']['green'] = 'cyan'
+	OUTPUT = TT['blue']['green']
+*
+****************
+*	'numeric' conversion
+	X = CONVERT('17', .NUMERIC)
+	OUTPUT = DATATYPE(X) ': ' X
+
+	X = CONVERT('3.14159', .NUMERIC)
+	OUTPUT = DATATYPE(X) ': ' X
+
+****************
+*	alternation
+
+	DEFINE("X()")
+	DEFINE("Y()")
+	DEFINE("Z()")					:(EZ)
+X	OUTPUT = 'TOO BIG'				:(FRETURN)
+Y	OUTPUT = 'too small'				:(FRETURN)
+Z	OUTPUT = 'Just Right'				:(RETURN)
+EZ
+
+	(X(), Y(), Z(), DEATH())
+
+****************
+*	match operator
+	A = B = 'yes!!'
+
+	(A ? B . C)					:F(END)
+	(A ? B $ C)					:F(END)
+
+****************
+*	tracing of match assign, replace
+	A B . C
+	A B $ C
+	A ? B . C
+	A ? B $ C
+
+****************************************************************
+* not yet working;
+
+	P = 'yes'
+* either of next two cause "Variable not present where required" err
+	B P =
+*	b 'yes' =
+
+*	variable not present...
+	(A ? '!!' = '')
+
+****************
+*	the very end
+	OUTPUT = 'all done'
+
+END

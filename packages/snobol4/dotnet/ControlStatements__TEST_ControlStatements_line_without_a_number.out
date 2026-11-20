@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:11:22 2026
+
+
+
+                                                                                                                page 1
+
+        -LINE
+         !
+ControlStatements__TEST_ControlStatements_line_without_a_number.sno(1,2) : ERROR 247 -- invalid control statement

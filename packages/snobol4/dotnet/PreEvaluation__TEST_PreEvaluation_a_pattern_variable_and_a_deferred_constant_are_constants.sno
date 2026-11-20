@@ -1,0 +1,8 @@
+        OUTPUT = 'before'
+        V = *+REM
+        W = *'x' + 1
+        X = SIZE(ARB)
+        Y = *'3.' ** '1,000' - -'v'
+        Z = *SIZE('ab') + 'x'
+        OUTPUT = 'after'
+END

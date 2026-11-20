@@ -1,0 +1,14 @@
+
+        DEFINE('NAMER()NV')
+        DEFINE('NAMER2(A)')                :(E)
+NAMER   NV = 'set-by-namer'
+        NAMER = .NV                        :(NRETURN)
+NAMER2  A = 'arg-in-namer2'
+        NAMER2 = .A                        :(NRETURN)
+E       R = NAMER() ','
+        NV = 'global'
+        A = 'caller-a'
+        R = R NAMER() ',' NAMER2('x') ','
+        NAMER() = 'assigned'
+        R = R NV
+END

@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:09:41 2026
+
+
+
+                                                                                                                page 1
+
+        -LINE 5A
+              !
+ControlStatements__TEST_ControlStatements_an_invalid_number_item.sno(1,7) : ERROR 231 -- syntax error: invalid numeric i
+tem

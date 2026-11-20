@@ -1,0 +1,4 @@
+        &ERRLIMIT = 100
+        OUTPUT = &ERRLIMIT
+        OUTPUT = &ERRLIMIT
+END

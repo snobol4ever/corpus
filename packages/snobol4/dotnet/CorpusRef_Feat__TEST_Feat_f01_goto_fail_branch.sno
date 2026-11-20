@@ -1,0 +1,6 @@
+
+        X = 'world'
+        IDENT(X, 'hello')                       :S(WRONG)F(OK)
+WRONG   OUTPUT = 'FAIL'                         :(END)
+OK      OUTPUT = 'PASS'
+END

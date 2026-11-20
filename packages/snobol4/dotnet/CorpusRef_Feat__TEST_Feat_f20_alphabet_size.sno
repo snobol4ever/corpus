@@ -1,0 +1,5 @@
+
+        IDENT(SIZE(&ALPHABET), 256)             :F(FAIL)
+        OUTPUT = 'PASS'                         :(END)
+FAIL    OUTPUT = 'FAIL'
+END

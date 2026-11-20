@@ -1,0 +1,9 @@
+
+        A = 'B'
+        B = 'C'
+        C = 'final'
+        r = $$A
+        IDENT(r, 'final')     :F(FAIL)
+        OUTPUT = 'PASS 217_indirect_chain_assign'   :(END)
+FAIL    OUTPUT = 'FAIL 217'
+END

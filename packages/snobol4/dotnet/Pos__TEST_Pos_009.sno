@@ -1,0 +1,10 @@
+
+        &ANCHOR = 0
+        subject = 'ABCDA'
+        pattern = POS(*A) LEN(*B) . test
+        A = 3
+        B = 1
+        subject pattern      :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

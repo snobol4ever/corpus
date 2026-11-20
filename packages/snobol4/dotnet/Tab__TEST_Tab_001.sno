@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        subject = 'abcde'
+        pattern = TAB(2) . tab1
+        subject pattern      :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

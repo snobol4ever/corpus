@@ -1,0 +1,36 @@
+
+
+
+dump of natural variables
+
+R = 'INTEGER INTEGER STRING STRING'
+S = 'differ'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Prototype__TEST_Prototype_of_a_vector_is_an_integer.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Prototype__TEST_Prototype_of_a_vector_is_an_integer.sno'
+&LASTLINE = 4
+&LASTNO = 3
+&LINE = 5
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 3
+&STLIMIT = 2147483647
+&STNO = 4
+&TRACE = 0
+&TRIM = 1

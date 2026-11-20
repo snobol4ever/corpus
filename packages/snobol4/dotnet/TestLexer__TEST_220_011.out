@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:53:21 2026
+
+
+
+                                                                                                                page 1
+
+1        "str"ID
+              !
+TestLexer__TEST_220_011.sno(1,7) : ERROR 220 -- syntax error: missing operator

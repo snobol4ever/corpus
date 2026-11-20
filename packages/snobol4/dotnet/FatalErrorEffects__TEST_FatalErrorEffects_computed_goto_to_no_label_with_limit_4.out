@@ -1,0 +1,53 @@
+
+
+
+FatalErrorEffects__TEST_FatalErrorEffects_computed_goto_to_no_label_with_limit_4.sno(3) : ERROR 332 -- goto continue wit
+h error in failure goto
+
+
+
+
+
+in file              FatalErrorEffects__TEST_FatalErrorEffects_computed_goto_to_no_label_with_limit_4.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11776
+memory left (bytes)  1036792
+
+
+
+
+dump of natural variables
+
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 1
+&ERRTEXT = 'goto continue with error in failure goto'
+&ERRTYPE = 332
+&FILE = 'FatalErrorEffects__TEST_FatalErrorEffects_computed_goto_to_no_label_with_limit_4.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'FatalErrorEffects__TEST_FatalErrorEffects_computed_goto_to_no_label_with_limit_4.sno'
+&LASTLINE = 2
+&LASTNO = 2
+&LINE = 3
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 3
+&STLIMIT = 2147483647
+&STNO = 3
+&TRACE = 0
+&TRIM = 1

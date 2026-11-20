@@ -1,0 +1,15 @@
+
+        DIFFER(RPAD('hi', 6), 'hi    ')                   :F(e001)
+        OUTPUT = 'FAIL 816/001: rpad to width 6'        :(END)
+e001
+        DIFFER(RPAD('hello', 5), 'hello')                   :F(e002)
+        OUTPUT = 'FAIL 816/002: rpad no-op'              :(END)
+e002
+        DIFFER(RPAD('hello', 3), 'hello')                   :F(e003)
+        OUTPUT = 'FAIL 816/003: rpad longer no-truncate' :(END)
+e003
+        DIFFER(RPAD('hi', 5, '-'), 'hi---')                   :F(e004)
+        OUTPUT = 'FAIL 816/004: rpad custom fill -'     :(END)
+e004
+        OUTPUT = 'PASS 816_rpad (4/4)'
+END

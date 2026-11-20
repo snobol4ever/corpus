@@ -1,0 +1,6 @@
+        &ERRLIMIT = 0
+        &STLIMIT = 20
+L       N = N + 1
+        OUTPUT = N
+        :(L)
+END

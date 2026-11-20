@@ -1,0 +1,4 @@
+        X = 'a' FENCE('b')
+        Y = ARBNO('c')
+        DUMP(1)
+END

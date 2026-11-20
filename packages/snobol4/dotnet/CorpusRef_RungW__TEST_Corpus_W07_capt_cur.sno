@@ -1,0 +1,10 @@
+
+        subject = 'ABCDE'
+        subject ('ABC' @pos1)  :F(e001)
+        OUTPUT = 'PASS W07/001: cursor pos=' pos1   :(t002)
+e001    OUTPUT = 'FAIL W07/001: cursor capture should match'
+t002    subject = 'ABCDE'
+        subject ('ABCDE' @pos2)  :F(e002)
+        OUTPUT = 'PASS W07/002: cursor after match=' pos2   :(END)
+e002    OUTPUT = 'FAIL W07/002: cursor after match should match'
+END

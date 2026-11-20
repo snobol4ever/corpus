@@ -1,0 +1,35 @@
+        &ERRLIMIT = 20
+        N = 0
+        DEFINE('NEG()')                             :(NEG_END)
+NEG     NEG = ~(1 / N)                              :S(RETURN)F(FRETURN)
+NEG_END
+        V = ~(1 / N)                                :S(Y1)
+        OUTPUT = '1 F'                              :(E1)
+Y1      OUTPUT = '1 S [' V ']'
+E1      V = (1 / N, 'b')                            :S(Y2)
+        OUTPUT = '2 F'                              :(E2)
+Y2      OUTPUT = '2 S [' V ']'
+E2      V = EVAL('~(1 / N)')                        :S(Y3)
+        OUTPUT = '3 F ' &ERRTYPE                    :(E3)
+Y3      OUTPUT = '3 S [' V ']'
+E3      V = EVAL("(1 / N, 'd')")                    :S(Y4)
+        OUTPUT = '4 F ' &ERRTYPE                    :(E4)
+Y4      OUTPUT = '4 S [' V ']'
+E4      V = EVAL(*((1 / N), 'e'))                   :S(Y5)
+        OUTPUT = '5 F'                              :(E5)
+Y5      OUTPUT = '5 S [' V ']'
+E5      V = (EVAL('1 / N'), 'f')                    :S(Y6)
+        OUTPUT = '6 F'                              :(E6)
+Y6      OUTPUT = '6 S [' V ']'
+E6      V = EVAL("(EVAL('1 / N'), 'g')")            :S(Y7)
+        OUTPUT = '7 F'                              :(E7)
+Y7      OUTPUT = '7 S [' V ']'
+E7      V = EVAL('NEG()')                           :S(Y8)
+        OUTPUT = '8 F'                              :(E8)
+Y8      OUTPUT = '8 S [' V ']'
+E8      &ERRLIMIT = 0
+        V = EVAL('~(1 / N)')                        :S(Y9)
+        OUTPUT = '9 F &ERRLIMIT=' &ERRLIMIT         :(E9)
+Y9      OUTPUT = '9 S [' V ']'
+E9
+END

@@ -1,0 +1,6 @@
+
+        &ANCHOR = 0
+        'valley' 'a' @at1 ARB 'e' @at2  :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

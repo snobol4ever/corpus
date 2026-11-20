@@ -1,0 +1,17 @@
+
+
+
+Data__TEST_Data_a_system_function_name_is_refused__2.sno(2) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+in file              Data__TEST_Data_a_system_function_name_is_refused__2.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11440
+memory left (bytes)  1037128

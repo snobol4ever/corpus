@@ -1,0 +1,12 @@
+        T = TABLE()
+        T['a'] = 'x'
+        T['b'] = 'y'
+        T['n'] = TABLE()
+        T['n']['m'] = 'deep'
+        A = ARRAY('2,2')
+        A<1,2> = 'el'
+        E = *T['a']
+        R = EVAL(E) ' ' EVAL(*A<1,2>) ' ' EVAL(*T['n']['m'])
+        'abycz' LEN(1) $ C *T[C] @K
+        R = R ' ' C K
+END

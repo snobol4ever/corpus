@@ -1,0 +1,17 @@
+
+
+
+Clear__TEST_Clear_004f.sno(10) : ERROR 072 -- clear argument has null variable name
+
+
+
+
+
+in file              Clear__TEST_Clear_004f.sno
+in line              10
+in statement         10
+stmts executed       8
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11864
+memory left (bytes)  1036704

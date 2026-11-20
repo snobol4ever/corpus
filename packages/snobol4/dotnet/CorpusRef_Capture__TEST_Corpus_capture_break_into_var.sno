@@ -1,0 +1,5 @@
+
+        X = 'hello:world'
+        X BREAK(':') . LEFT
+        OUTPUT = LEFT
+END

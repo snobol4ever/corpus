@@ -1,0 +1,10 @@
+
+        DATA('cat(name,lives)')
+        DATA('dog(name,tricks)')
+        C = cat('Felix', 9)
+        D = dog('Rex', 3)
+        OUTPUT = REPLACE(DATATYPE(C), &LCASE, &UCASE)
+        OUTPUT = REPLACE(DATATYPE(D), &LCASE, &UCASE)
+        OUTPUT = name(C)
+        OUTPUT = name(D)
+END

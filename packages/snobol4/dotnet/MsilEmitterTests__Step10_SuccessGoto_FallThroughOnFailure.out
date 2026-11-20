@@ -1,0 +1,35 @@
+
+
+
+dump of natural variables
+
+N = 43
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'MsilEmitterTests__Step10_SuccessGoto_FallThroughOnFailure.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'MsilEmitterTests__Step10_SuccessGoto_FallThroughOnFailure.sno'
+&LASTLINE = 5
+&LASTNO = 5
+&LINE = 6
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 5
+&STLIMIT = 2147483647
+&STNO = 6
+&TRACE = 0
+&TRIM = 1

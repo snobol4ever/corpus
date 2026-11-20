@@ -1,0 +1,6 @@
+        X = 'keep'
+R       OUTPUT = INPUT   :F(D)
+        :(R)
+D       X = INPUT        :S(END)
+        OUTPUT = 'X=' X
+END

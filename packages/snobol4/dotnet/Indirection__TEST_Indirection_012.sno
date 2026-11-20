@@ -1,0 +1,7 @@
+
+        ''
+        month = 'april'
+        $month = 'cruel'
+        a = month
+        b = $month
+END

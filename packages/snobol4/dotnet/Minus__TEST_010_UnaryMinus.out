@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:34:04 2026
+
+
+
+                                                                                                                page 1
+
+1        a = -'a';end
+
+Minus__TEST_010_UnaryMinus.sno(1) : ERROR 010 -- negation operand is not numeric

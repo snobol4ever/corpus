@@ -1,0 +1,6 @@
+-LIST
+        A = 1
+-SPACE 60
+        B = 2
+        OUTPUT = 'x'
+END

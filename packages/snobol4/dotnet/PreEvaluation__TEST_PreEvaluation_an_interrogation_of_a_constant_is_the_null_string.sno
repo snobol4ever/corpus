@@ -1,0 +1,6 @@
+        OUTPUT = 'before'
+        V = ?')' / *X
+        W = ?')' + 'x'
+        Y = SIZE(?'a') + 'x'
+        OUTPUT = 'after'
+END

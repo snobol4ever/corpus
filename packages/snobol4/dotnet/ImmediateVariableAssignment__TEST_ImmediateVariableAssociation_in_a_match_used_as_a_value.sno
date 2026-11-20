@@ -1,0 +1,6 @@
+
+        Q = LEN(3) $ W
+        V = ('ABCDEF' ? Q)
+        X = 'pre' ('ABCDEF' ? LEN(2) $ W2 LEN(1) $ W3) 'post'
+        Y = SIZE('ABCDEF' ? LEN(4) $ W4)
+END

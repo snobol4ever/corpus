@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:53 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 + * 2 ; Y = 2
+                        !
+SyntaxErrors__TEST_SyntaxErrors_error_before_a_semicolon_leaves_the_next_statement.sno(1,17) : ERROR 221 -- syntax error
+: missing operand

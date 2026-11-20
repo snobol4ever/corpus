@@ -1,0 +1,6 @@
+
+        EQ(EVAL('2 + 3'), 5)                    :F(FAIL)
+        EQ(EVAL('10 * 4'), 40)                  :F(FAIL)
+        OUTPUT = 'PASS'                         :(END)
+FAIL    OUTPUT = 'FAIL'
+END

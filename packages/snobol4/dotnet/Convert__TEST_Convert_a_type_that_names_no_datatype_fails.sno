@@ -1,0 +1,3 @@
+
+        r = (CONVERT('12', 'foo'), 'f') ' ' (CONVERT('12', 3), 'f')
+END

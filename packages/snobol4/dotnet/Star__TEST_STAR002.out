@@ -1,0 +1,41 @@
+
+
+
+dump of natural variables
+
+findw = PATTERN
+line1 = 'these two strings are almost alike.'
+line2 = 'the two strings aren't alike.'
+list = 'two, strings, alike, '
+string2 = ' the two strings aren't alike. '
+w = 'alike'
+word = PATTERN
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Star__TEST_STAR002.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Star__TEST_STAR002.sno'
+&LASTLINE = 11
+&LASTNO = 11
+&LINE = 12
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 24
+&STLIMIT = 2147483647
+&STNO = 12
+&TRACE = 0
+&TRIM = 1

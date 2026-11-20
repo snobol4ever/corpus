@@ -1,0 +1,7 @@
+
+        a = ANY('abc') @n BREAK('xyz')
+        b = ANY('abc') @n BREAK('xyz')
+        DIFFER(a,b)    :S(diff)
+        out = 'not differ'    :(END)
+diff    out = 'differ'
+end;END

@@ -1,0 +1,5 @@
+
+        S = 'aaa:bbb:ccc'
+        S BREAKX(':') . PART ':' 'bbb'
+        OUTPUT = PART
+END

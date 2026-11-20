@@ -1,0 +1,5 @@
+
+        DEFINE('double(x)')     :(main)
+double  double = x * 2          :(RETURN)
+main    result = double(7)
+END

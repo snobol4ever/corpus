@@ -1,0 +1,17 @@
+        &ERRLIMIT = 100
+        A = 1
+        A = 2
+        A = 3
+        A = 4
+        A = 5
+        OUTPUT = 'count ' &STCOUNT ' limit ' &STLIMIT
+        &STLIMIT = 3
+        OUTPUT = 'after set ' &STLIMIT ' err ' &ERRTYPE
+        &STLIMIT = 100
+        OUTPUT = 'after reset ' &STLIMIT ' err ' &ERRTYPE
+        &STLIMIT = 20
+        I = 0
+L       I = I + 1
+        LT(I, 100)   :S(L)
+        OUTPUT = 'after loop ' I ' ' &STCOUNT ' err ' &ERRTYPE
+END

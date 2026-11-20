@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:40:03 2026
+
+
+
+                                                                                                                page 1
+
+2               pattern = RTAB('a')
+
+RTab__TEST_RTab_008.sno(2) : ERROR 181 -- rtab argument is not integer or expression

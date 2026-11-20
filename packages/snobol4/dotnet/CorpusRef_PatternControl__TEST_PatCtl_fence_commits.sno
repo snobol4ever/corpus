@@ -1,0 +1,5 @@
+
+        X = 'ab'
+        X 'a' FENCE 'b'                             :S(pass)F(END)
+pass    OUTPUT = 'PASS'
+END

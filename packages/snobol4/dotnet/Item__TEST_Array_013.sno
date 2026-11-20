@@ -1,0 +1,4 @@
+
+        a = ARRAY(0)
+        b = ITEM(a,30)
+END

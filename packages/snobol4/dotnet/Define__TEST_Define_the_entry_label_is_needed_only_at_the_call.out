@@ -1,0 +1,18 @@
+
+
+
+Define__TEST_Define_the_entry_label_is_needed_only_at_the_call.sno(6) : ERROR 286 -- function call to undefined entry la
+bel
+
+
+
+
+
+in file              Define__TEST_Define_the_entry_label_is_needed_only_at_the_call.sno
+in line              6
+in statement         6
+stmts executed       6
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  16112
+memory left (bytes)  1032456

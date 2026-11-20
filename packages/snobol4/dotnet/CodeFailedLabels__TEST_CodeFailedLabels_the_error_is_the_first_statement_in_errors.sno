@@ -1,0 +1,10 @@
+        T1 = " N = SIZE(EXP(1E300));L2 X = LN(-0.5)"
+        T2 = " N = EXP(1E300);L2 X = LN(-0.5)"
+        T3 = " N = 1;L2 X = LN(-0.5)"
+        I = 0
+L       I = I + 1
+        GT(I, 3)                            :S(END)
+        C = CODE($('T' I))                  :S(OK)
+        OUTPUT = I ' FAIL ' &ERRTYPE        :(L)
+OK      OUTPUT = I ' ok'                    :(L)
+END

@@ -1,0 +1,5 @@
+        &ERRLIMIT = 100
+        OUTPUT = '@a'
+        X  POS(0) REM . S . *F(.T[S], *1)
+        OUTPUT = '@b'
+END

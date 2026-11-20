@@ -1,0 +1,7 @@
+
+        P = 'cat' | 'dog' | 'bird'
+        'I have a dog' P . ANIMAL
+        OUTPUT = ANIMAL
+        'She has a cat' P . ANIMAL
+        OUTPUT = ANIMAL
+END

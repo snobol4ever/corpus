@@ -1,0 +1,17 @@
+
+
+
+Arg__TEST_Arg_004.sno(5) : ERROR 063 -- arg first argument is not program function name
+
+
+
+
+
+in file              Arg__TEST_Arg_004.sno
+in line              5
+in statement         5
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12112
+memory left (bytes)  1036456

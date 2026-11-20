@@ -1,0 +1,3 @@
+-LINE 5 'foo',LIST
+        OUTPUT = 'x'
+END

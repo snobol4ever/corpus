@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        a = ANY('abc')
+        b = CONVERT(a,'code')  :F(END)
+        d = 'success'
+END

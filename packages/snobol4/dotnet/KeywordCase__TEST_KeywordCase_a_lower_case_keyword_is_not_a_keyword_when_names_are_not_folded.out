@@ -1,0 +1,18 @@
+
+
+
+KeywordCase__TEST_KeywordCase_a_lower_case_keyword_is_not_a_keyword_when_names_are_not_folded.sno(1) : ERROR 251 -- keyw
+ord operand is not name of defined keyword
+
+
+
+
+
+in file              KeywordCase__TEST_KeywordCase_a_lower_case_keyword_is_not_a_keyword_when_names_are_not_folded.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11432
+memory left (bytes)  1037136

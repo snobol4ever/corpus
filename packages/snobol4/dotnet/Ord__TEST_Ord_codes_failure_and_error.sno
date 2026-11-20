@@ -1,0 +1,5 @@
+
+        R = ORD('AB') ' ' ORD(5) ' ' ORD(CHAR(200)) ' ' DATATYPE(ORD('A'))
+        S = 'kept'
+        S = ORD('')
+END

@@ -1,0 +1,12 @@
+
+        &ANCHOR = 0
+        letters = 'abcdefghijklmnopqrstuvwxyz'
+        word = SPAN(letters)
+        gap = BREAK(letters)
+        subject = 'sample line'
+        subject word . word1  :F(n)
+        subject = 'plus ten degrees'
+        subject word . word2  :F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

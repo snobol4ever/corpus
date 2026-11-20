@@ -1,0 +1,38 @@
+
+
+
+dump of natural variables
+
+A = 1
+N = .A
+P = PATTERN
+S = '1 INTEGER [],2 INTEGER [],3 INTEGER 2 [],4 INTEGER []'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'AssignNameHolder__TEST_AssignNameHolder_a_cursor_given_to_a_variable_holding_a_name_sets_the_variable.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'AssignNameHolder__TEST_AssignNameHolder_a_cursor_given_to_a_variable_holding_a_name_sets_the_variable.sno'
+&LASTLINE = 16
+&LASTNO = 16
+&LINE = 17
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'NRETURN'
+&STCOUNT = 17
+&STLIMIT = 2147483647
+&STNO = 17
+&TRACE = 0
+&TRIM = 1

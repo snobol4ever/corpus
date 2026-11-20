@@ -1,0 +1,42 @@
+
+
+
+dump of natural variables
+
+B = -0.5
+E = -0.1e+301
+E4 = 266
+E5 = 266
+R = '0. 1. 1. [] 266 [] 266'
+R1 = 0.
+R2 = 1.
+R3 = 1.
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 7
+&ERRTEXT = 'exponentiation caused real overflow'
+&ERRTYPE = 266
+&FILE = 'PowerSpitbol__TEST_Power_a_huge_exponent_of_a_negative_base_is_even.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'PowerSpitbol__TEST_Power_a_huge_exponent_of_a_negative_base_is_even.sno'
+&LASTLINE = 20
+&LASTNO = 20
+&LINE = 21
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 20
+&STLIMIT = 2147483647
+&STNO = 21
+&TRACE = 0
+&TRIM = 1

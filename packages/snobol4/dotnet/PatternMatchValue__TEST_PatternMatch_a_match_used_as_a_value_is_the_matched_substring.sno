@@ -1,0 +1,12 @@
+
+        V = ('ABCDEF' ? LEN(3))
+        D = DATATYPE(V)
+        C = '<' ('abc' ? 'b') '>'
+        N = SIZE('abcd' ? 'bc')
+        L = 'abc' ? 'b' ? 'b'
+        E = ('12345' ? LEN(2)) + 1
+        T = TABLE()
+        T['abc' ? 'b'] = 'x'
+        K = T['b']
+        I = IDENT('b', 'abc' ? 'b') 'ident'
+END

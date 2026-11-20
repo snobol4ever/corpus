@@ -1,0 +1,18 @@
+total words: 
+
+
+
+CorpusRef_Csnobol4Suite__TEST_Csnobol4_tab.sno(18) : ERROR 256 -- sort/rsort 1st arg not suitable array or table
+
+
+
+
+
+in file              CorpusRef_Csnobol4Suite__TEST_Csnobol4_tab.sno
+in line              18
+in statement         14
+stmts executed       7
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  15928
+memory left (bytes)  1032640

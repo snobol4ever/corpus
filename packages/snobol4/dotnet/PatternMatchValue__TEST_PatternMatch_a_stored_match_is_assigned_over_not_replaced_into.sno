@@ -1,0 +1,12 @@
+
+        R = ('abc' ? 'b')
+        R = '<' ('abc' ? 'b') '>'
+        A = ARRAY(1)
+        A[1] = 'xyz' ? 'y'
+        A[1] = 'w'
+        W = A[1]
+        S = 'hello'
+        X = (S ? 'l' = 'L')
+        S2 = 'abc'
+        S2 'b' = 'Q'
+END

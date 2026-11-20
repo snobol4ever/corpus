@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:35:19 2026
+
+
+
+                                                                                                                page 1
+
+1               X = DIFFER(B C = POP())
+
+NameOperands__TEST_NameOperands_the_subject_of_an_equal_in_a_call_is_a_concatenation.sno(1) : ERROR 212 -- syntax error:
+ value used where name is required

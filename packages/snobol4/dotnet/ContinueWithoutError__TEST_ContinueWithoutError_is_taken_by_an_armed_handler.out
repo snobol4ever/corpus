@@ -1,0 +1,19 @@
+handler 37
+
+
+
+ContinueWithoutError__TEST_ContinueWithoutError_is_taken_by_an_armed_handler.sno(3) : ERROR 037 -- goto continue with no
+ preceding error
+
+
+
+
+
+in file              ContinueWithoutError__TEST_ContinueWithoutError_is_taken_by_an_armed_handler.sno
+in line              3
+in statement         6
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11840
+memory left (bytes)  1036728

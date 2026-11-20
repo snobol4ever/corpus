@@ -1,0 +1,6 @@
+        DEFINE('F(N)')
+        OUTPUT = F(50000)
+        :(END)
+F       F = EQ(N,0) 0  :S(RETURN)
+        F = F(N - 1)  :(RETURN)
+END

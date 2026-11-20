@@ -1,0 +1,7 @@
+
+        X = 'cat'
+        X ('dog' | 'cat') . V                                       :S(YES)
+        RESULT = 'no match'
+        :(END)
+YES     RESULT = V
+END

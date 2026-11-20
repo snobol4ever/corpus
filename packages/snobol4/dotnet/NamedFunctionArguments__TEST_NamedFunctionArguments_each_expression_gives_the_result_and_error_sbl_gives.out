@@ -1,0 +1,60 @@
+ok NAME [A] 0
+ok NAME [B] 0
+fail 0
+fail 0
+fail 0
+fail 62
+fail 63
+fail 63
+ok NAME [A] 0
+fail 63
+fail 63
+ok NAME [A] 0
+fail 0
+fail 63
+ok NAME [L1] 0
+ok NAME [L2] 0
+fail 0
+fail 0
+fail 135
+fail 134
+fail 134
+ok NAME [L2] 0
+ok NAME [X] 0
+ok NAME [Z] 0
+fail 0
+fail 0
+fail 108
+fail 107
+fail 107
+fail 108
+ok NAME [Y] 0
+ok NAME [Y] 0
+ok STRING [kay] 0
+ok STRING [two] 0
+fail 236
+fail 235
+fail 237
+fail 238
+fail 0
+ok STRING [] 0
+fail 236
+fail 237
+fail 235
+fail 235
+fail 235
+fail 235
+ok INTEGER [3] 0
+ok INTEGER [3] 0
+fail 22
+fail 60
+ok STRING [called] 0
+fail 22
+fail 41
+ok INTEGER [0] 0
+ok INTEGER [1] 0
+fail 60
+fail 60
+fail 60
+ok STRING [] 0
+fail 0

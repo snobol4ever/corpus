@@ -1,0 +1,10 @@
+
+        $'qq' = 'x'
+        DIFFER(qq, 'x')                   :F(e001)
+        OUTPUT = 'FAIL 211/001: indirect assign sets named var' :(END)
+e001
+        DIFFER($'_no_such_var_')                   :F(e002)
+        OUTPUT = 'FAIL 211/002: undefined indirect is null'     :(END)
+e002
+        OUTPUT = 'PASS 211_indirect_assign (2/2)'
+END

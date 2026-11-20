@@ -1,0 +1,21 @@
+
+        DIFFER(CHAR(65), 'A')                   :F(e001)
+        OUTPUT = 'FAIL 818/001: char(65) = A'              :(END)
+e001
+        DIFFER(CHAR(97), 'a')                   :F(e002)
+        OUTPUT = 'FAIL 818/002: char(97) = a'              :(END)
+e002
+        DIFFER(CHAR(48), '0')                   :F(e003)
+        OUTPUT = 'FAIL 818/003: char(48) = 0'              :(END)
+e003
+        DIFFER(CHAR(90), 'Z')                   :F(e004)
+        OUTPUT = 'FAIL 818/004: char(90) = Z'              :(END)
+e004
+        DIFFER(SIZE(CHAR(32)), 1)                   :F(e005)
+        OUTPUT = 'FAIL 818/005: char returns 1-char string' :(END)
+e005
+        DIFFER(CHAR(65) CHAR(66), 'AB')                   :F(e006)
+        OUTPUT = 'FAIL 818/006: concat two chars'          :(END)
+e006
+        OUTPUT = 'PASS 818_char (6/6)'
+END

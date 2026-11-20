@@ -1,0 +1,4 @@
+        OPSYN('!','SIZE',1)
+        OUTPUT = ^'abc'
+        OUTPUT = !'abcd'
+END

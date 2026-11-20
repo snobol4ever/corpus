@@ -1,0 +1,8 @@
+
+        &ERRLIMIT = 1
+        Z = 0
+        SETEXIT('HANDLER')
+        X = 1 / Z
+        OUTPUT = 'FAIL (should have jumped to HANDLER)'  :(END)
+HANDLER OUTPUT = 'PASS'
+END

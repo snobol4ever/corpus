@@ -1,0 +1,53 @@
+
+
+
+FatalErrorEffects__TEST_FatalErrorEffects_goto_to_an_undefined_label_zeroes_the_error_limit.sno(3) : ERROR 038 -- goto u
+ndefined label
+
+
+
+
+
+in file              FatalErrorEffects__TEST_FatalErrorEffects_goto_to_an_undefined_label_zeroes_the_error_limit.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  15504
+memory left (bytes)  1033064
+
+
+
+
+dump of natural variables
+
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = 'goto undefined label'
+&ERRTYPE = 38
+&FILE = 'FatalErrorEffects__TEST_FatalErrorEffects_goto_to_an_undefined_label_zeroes_the_error_limit.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'FatalErrorEffects__TEST_FatalErrorEffects_goto_to_an_undefined_label_zeroes_the_error_limit.sno'
+&LASTLINE = 2
+&LASTNO = 2
+&LINE = 3
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 3
+&STLIMIT = 2147483647
+&STNO = 3
+&TRACE = 0
+&TRIM = 1

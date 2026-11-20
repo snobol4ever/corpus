@@ -1,0 +1,3 @@
+        C = CODE(' X = 1')
+        D = CODE(' OUTPUT = 1 :(L9)')    :[D]
+END

@@ -1,0 +1,5 @@
+-LIST
+-TITL abcdef
+        A = 1
+        OUTPUT = 'x'
+END

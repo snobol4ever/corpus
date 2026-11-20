@@ -1,0 +1,15 @@
+        &ERRLIMIT = 1000
+        &TRIM = 0
+        S = 'abc'
+        P = LEN(2)
+        TT = TABLE()
+        BIG = 16777217
+        X = TABLE('x')
+        OUTPUT = &ERRTYPE
+        &ERRTYPE = 0
+        X = TABLE(-1)
+        OUTPUT = &ERRTYPE
+        &ERRTYPE = 0
+        X = TABLE(BIG)
+        OUTPUT = &ERRTYPE
+END

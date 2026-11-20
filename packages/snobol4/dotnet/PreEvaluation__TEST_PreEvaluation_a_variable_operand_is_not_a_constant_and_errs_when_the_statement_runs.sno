@@ -1,0 +1,5 @@
+        &ERRLIMIT = 10
+        N = -1
+        X = LEN(N)
+        OUTPUT = 'ran ' &ERRTYPE
+END

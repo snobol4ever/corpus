@@ -1,0 +1,19 @@
+err 321
+
+
+
+ScontinueAndLastno__TEST_ScontinueAndLastno_scontinue_with_no_error_pending_is_321.sno(3) : ERROR 321 -- goto scontinue 
+with no preceding error
+
+
+
+
+
+in file              ScontinueAndLastno__TEST_ScontinueAndLastno_scontinue_with_no_error_pending_is_321.sno
+in line              3
+in statement         7
+stmts executed       5
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11896
+memory left (bytes)  1036672

@@ -1,0 +1,5 @@
+
+        d = 'failure'
+        a = CONVERT(3, 'code') :F(END)
+        d = 'success'
+END

@@ -1,0 +1,8 @@
+        X = 'hello'
+        Y = 'world'
+        CLEAR('Y')
+        OUTPUT = '[' X '][' Y ']'
+        LINE = INPUT
+        CLEAR()
+        OUTPUT = '[' LINE '][' INPUT '][' Y ']'
+END

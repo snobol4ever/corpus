@@ -1,0 +1,18 @@
+
+
+
+SubjectOfALowOperator__TEST_A_blank_after_a_period_ends_the_subject.sno(2) : ERROR 241 -- pattern match left operand is 
+not a string
+
+
+
+
+
+in file              SubjectOfALowOperator__TEST_A_blank_after_a_period_ends_the_subject.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11552
+memory left (bytes)  1037016

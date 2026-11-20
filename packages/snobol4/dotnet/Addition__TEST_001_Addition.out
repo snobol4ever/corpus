@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 16:44:03 2026
+
+
+
+                                                                                                                page 1
+
+1        a = 'a' + 3.1;end
+
+Addition__TEST_001_Addition.sno(1) : ERROR 001 -- addition left operand is not numeric

@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        a = '3.14159'
+        b = CONVERT(a,'table')  :F(END)
+        d = 'success'
+END

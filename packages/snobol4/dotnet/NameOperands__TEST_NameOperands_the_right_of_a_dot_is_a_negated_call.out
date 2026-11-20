@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:35:13 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A . ~LGT('abc', null)
+
+NameOperands__TEST_NameOperands_the_right_of_a_dot_is_a_negated_call.sno(1) : ERROR 212 -- syntax error: value used wher
+e name is required

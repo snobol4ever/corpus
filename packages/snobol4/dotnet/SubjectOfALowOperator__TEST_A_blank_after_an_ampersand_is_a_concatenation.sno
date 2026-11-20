@@ -1,0 +1,8 @@
+        DEFINE('F(A,B)') :(F_E)
+F       F = A :(RETURN)
+F_E     OPSYN('&','F',2)
+        S = 'ab'
+        S & 'q' 'z' :S(Y)
+        R = 'f' :(END)
+Y       R = 's'
+END

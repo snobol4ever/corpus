@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:59:30 2026
+
+
+
+                                                                                                                page 1
+
+1        a = SQRT('test');END
+
+Trig__TEST_313_Sqrt.sno(1) : ERROR 313 -- sqrt argument not numeric

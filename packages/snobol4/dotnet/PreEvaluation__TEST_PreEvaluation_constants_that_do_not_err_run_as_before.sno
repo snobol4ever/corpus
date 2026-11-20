@@ -1,0 +1,4 @@
+        X = 2 ** -1
+        Y = 'ab' ? LEN(1) . Z
+        OUTPUT = X ' ' Z ' ' SIZE('abc') ' ' REMDR(7, 3) ' ' CHAR(65) ' ' LPAD('a', 3, '.')
+END

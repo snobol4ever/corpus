@@ -1,0 +1,11 @@
+         DEFINE('F()') :(F_E)
+F        EVAL('X +') :(RETURN)
+F_E      DEFINE('G(X)') :(G_E)
+G        G = LN(X) :S(RETURN)F(FRETURN)
+G_E      Z = 0
+         F()
+         G(Z) :S(END)
+         R = 'R1=f ' &ERRTYPE
+         G(Z) :S(END)
+         R = R ' R2=f ' &ERRTYPE
+END

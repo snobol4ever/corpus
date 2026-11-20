@@ -1,0 +1,7 @@
+
+        a = ANY('abc')
+        b = ANY('abc')
+        DIFFER(a,b)    :S(diff)
+        out = 'not differ'    :(END)
+diff    out = 'differ'
+end;END

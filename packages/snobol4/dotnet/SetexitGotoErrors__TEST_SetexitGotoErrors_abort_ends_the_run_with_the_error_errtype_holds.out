@@ -1,0 +1,19 @@
+here 14
+
+
+
+SetexitGotoErrors__TEST_SetexitGotoErrors_abort_ends_the_run_with_the_error_errtype_holds.sno(4) : ERROR 014 -- division
+ caused integer overflow
+
+
+
+
+
+in file              SetexitGotoErrors__TEST_SetexitGotoErrors_abort_ends_the_run_with_the_error_errtype_holds.sno
+in line              4
+in statement         4
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11720
+memory left (bytes)  1036848

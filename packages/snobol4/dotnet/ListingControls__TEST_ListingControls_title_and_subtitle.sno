@@ -1,0 +1,9 @@
+-LIST
+-STITL sub
+        A = 1
+-TITLE T2
+        B = 2
+-STITL s2
+        C = 3
+        OUTPUT = 'x'
+END

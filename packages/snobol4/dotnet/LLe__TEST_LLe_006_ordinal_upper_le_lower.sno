@@ -1,0 +1,5 @@
+
+        r = 'success'
+        LLE('A', 'a') :S(END)
+        r = 'failure'
+END

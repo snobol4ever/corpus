@@ -1,0 +1,7 @@
+
+        X = '12345abc'
+        X SPAN('0123456789') . V                                    :S(YES)
+        RESULT = 'no digits'
+        :(END)
+YES     RESULT = V
+END

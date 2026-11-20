@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:56:21 2026
+
+
+
+                                                                                                                page 1
+
+1               A = -9223372036854775808
+                     !
+TestLexer__TEST_231_the_digits_of_a_negative_literal_start_after_the_sign.sno(1,14) : ERROR 231 -- syntax error: invalid
+ numeric item

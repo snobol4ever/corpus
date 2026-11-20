@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:56:26 2026
+
+
+
+                                                                                                                page 1
+
+1        "test"*;end
+               !
+TestLexer__TEST_233_005.sno(1,8) : ERROR 233 -- syntax error: invalid use of operator

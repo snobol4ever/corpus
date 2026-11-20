@@ -1,0 +1,5 @@
+
+	    'AXXXBXXX' ('A' ARB $ r1 'B' ARB $ r2 'C') :F(n)
+	    r3 = 'success' :(END)
+n	    r3 = 'failure'
+END

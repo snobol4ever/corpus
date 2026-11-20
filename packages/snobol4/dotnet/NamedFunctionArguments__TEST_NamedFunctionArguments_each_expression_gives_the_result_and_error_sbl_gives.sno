@@ -1,0 +1,318 @@
+        &ERRLIMIT = 1000
+        &TRIM = 0
+        NEG = -1
+        BAD = 'X'
+        ONE = 1
+        E = ''
+        S = 'str'
+        HUGE = 9223372036854775807
+        P = LEN(2)
+        DEFINE('F(A,B)L1,L2')   :(SKIP)
+F       F = 'called'   :(RETURN)
+SKIP    DATA('D(X,Y,Z)')
+        A = ARRAY(3)
+        A[2] = 'two'
+        T = TABLE()
+        T['k'] = 'kay'
+        M = ARRAY('2,2')
+        &ERRTYPE = 0
+        X = ARG('F',1)   :F(F0)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N0)
+F0     OUTPUT = 'fail ' &ERRTYPE
+N0
+        &ERRTYPE = 0
+        X = ARG('F',2)   :F(F1)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N1)
+F1     OUTPUT = 'fail ' &ERRTYPE
+N1
+        &ERRTYPE = 0
+        X = ARG('F',0)   :F(F2)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N2)
+F2     OUTPUT = 'fail ' &ERRTYPE
+N2
+        &ERRTYPE = 0
+        X = ARG('F',3)   :F(F3)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N3)
+F3     OUTPUT = 'fail ' &ERRTYPE
+N3
+        &ERRTYPE = 0
+        X = ARG('F',NEG)   :F(F4)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N4)
+F4     OUTPUT = 'fail ' &ERRTYPE
+N4
+        &ERRTYPE = 0
+        X = ARG('F',BAD)   :F(F5)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N5)
+F5     OUTPUT = 'fail ' &ERRTYPE
+N5
+        &ERRTYPE = 0
+        X = ARG('G',1)   :F(F6)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N6)
+F6     OUTPUT = 'fail ' &ERRTYPE
+N6
+        &ERRTYPE = 0
+        X = ARG('D',1)   :F(F7)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N7)
+F7     OUTPUT = 'fail ' &ERRTYPE
+N7
+        &ERRTYPE = 0
+        X = ARG(.F,1)   :F(F8)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N8)
+F8     OUTPUT = 'fail ' &ERRTYPE
+N8
+        &ERRTYPE = 0
+        X = ARG(ONE,1)   :F(F9)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N9)
+F9     OUTPUT = 'fail ' &ERRTYPE
+N9
+        &ERRTYPE = 0
+        X = ARG(E,1)   :F(F10)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N10)
+F10     OUTPUT = 'fail ' &ERRTYPE
+N10
+        &ERRTYPE = 0
+        X = ARG('F',1)   :F(F11)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N11)
+F11     OUTPUT = 'fail ' &ERRTYPE
+N11
+        &ERRTYPE = 0
+        X = ARG('F',HUGE)   :F(F12)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N12)
+F12     OUTPUT = 'fail ' &ERRTYPE
+N12
+        &ERRTYPE = 0
+        X = ARG(F,1)   :F(F13)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N13)
+F13     OUTPUT = 'fail ' &ERRTYPE
+N13
+        &ERRTYPE = 0
+        X = LOCAL('F',1)   :F(F14)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N14)
+F14     OUTPUT = 'fail ' &ERRTYPE
+N14
+        &ERRTYPE = 0
+        X = LOCAL('F',2)   :F(F15)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N15)
+F15     OUTPUT = 'fail ' &ERRTYPE
+N15
+        &ERRTYPE = 0
+        X = LOCAL('F',3)   :F(F16)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N16)
+F16     OUTPUT = 'fail ' &ERRTYPE
+N16
+        &ERRTYPE = 0
+        X = LOCAL('F',0)   :F(F17)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N17)
+F17     OUTPUT = 'fail ' &ERRTYPE
+N17
+        &ERRTYPE = 0
+        X = LOCAL('G',1)   :F(F18)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N18)
+F18     OUTPUT = 'fail ' &ERRTYPE
+N18
+        &ERRTYPE = 0
+        X = LOCAL('F',BAD)   :F(F19)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N19)
+F19     OUTPUT = 'fail ' &ERRTYPE
+N19
+        &ERRTYPE = 0
+        X = LOCAL(BAD,BAD)   :F(F20)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N20)
+F20     OUTPUT = 'fail ' &ERRTYPE
+N20
+        &ERRTYPE = 0
+        X = LOCAL(.F,2)   :F(F21)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N21)
+F21     OUTPUT = 'fail ' &ERRTYPE
+N21
+        &ERRTYPE = 0
+        X = FIELD('D',1)   :F(F22)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N22)
+F22     OUTPUT = 'fail ' &ERRTYPE
+N22
+        &ERRTYPE = 0
+        X = FIELD('D',3)   :F(F23)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N23)
+F23     OUTPUT = 'fail ' &ERRTYPE
+N23
+        &ERRTYPE = 0
+        X = FIELD('D',4)   :F(F24)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N24)
+F24     OUTPUT = 'fail ' &ERRTYPE
+N24
+        &ERRTYPE = 0
+        X = FIELD('D',0)   :F(F25)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N25)
+F25     OUTPUT = 'fail ' &ERRTYPE
+N25
+        &ERRTYPE = 0
+        X = FIELD('F',1)   :F(F26)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N26)
+F26     OUTPUT = 'fail ' &ERRTYPE
+N26
+        &ERRTYPE = 0
+        X = FIELD('D',BAD)   :F(F27)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N27)
+F27     OUTPUT = 'fail ' &ERRTYPE
+N27
+        &ERRTYPE = 0
+        X = FIELD(BAD,BAD)   :F(F28)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N28)
+F28     OUTPUT = 'fail ' &ERRTYPE
+N28
+        &ERRTYPE = 0
+        X = FIELD(E,1)   :F(F29)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N29)
+F29     OUTPUT = 'fail ' &ERRTYPE
+N29
+        &ERRTYPE = 0
+        X = FIELD(.D,2)   :F(F30)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N30)
+F30     OUTPUT = 'fail ' &ERRTYPE
+N30
+        &ERRTYPE = 0
+        X = FIELD('D',2)   :F(F31)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N31)
+F31     OUTPUT = 'fail ' &ERRTYPE
+N31
+        &ERRTYPE = 0
+        X = ITEM(T,'k')   :F(F32)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N32)
+F32     OUTPUT = 'fail ' &ERRTYPE
+N32
+        &ERRTYPE = 0
+        X = ITEM(A,2)   :F(F33)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N33)
+F33     OUTPUT = 'fail ' &ERRTYPE
+N33
+        &ERRTYPE = 0
+        X = ITEM(A)   :F(F34)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N34)
+F34     OUTPUT = 'fail ' &ERRTYPE
+N34
+        &ERRTYPE = 0
+        X = ITEM(S,1)   :F(F35)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N35)
+F35     OUTPUT = 'fail ' &ERRTYPE
+N35
+        &ERRTYPE = 0
+        X = ITEM(T,1,2)   :F(F36)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N36)
+F36     OUTPUT = 'fail ' &ERRTYPE
+N36
+        &ERRTYPE = 0
+        X = ITEM(A,BAD)   :F(F37)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N37)
+F37     OUTPUT = 'fail ' &ERRTYPE
+N37
+        &ERRTYPE = 0
+        X = ITEM(A,9)   :F(F38)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N38)
+F38     OUTPUT = 'fail ' &ERRTYPE
+N38
+        &ERRTYPE = 0
+        X = ITEM(M,1,2)   :F(F39)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N39)
+F39     OUTPUT = 'fail ' &ERRTYPE
+N39
+        &ERRTYPE = 0
+        X = ITEM(M,1)   :F(F40)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N40)
+F40     OUTPUT = 'fail ' &ERRTYPE
+N40
+        &ERRTYPE = 0
+        X = ITEM(T)   :F(F41)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N41)
+F41     OUTPUT = 'fail ' &ERRTYPE
+N41
+        &ERRTYPE = 0
+        X = ITEM(E,1)   :F(F42)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N42)
+F42     OUTPUT = 'fail ' &ERRTYPE
+N42
+        &ERRTYPE = 0
+        X = ITEM(ONE,1)   :F(F43)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N43)
+F43     OUTPUT = 'fail ' &ERRTYPE
+N43
+        &ERRTYPE = 0
+        X = ITEM(P,1)   :F(F44)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N44)
+F44     OUTPUT = 'fail ' &ERRTYPE
+N44
+        &ERRTYPE = 0
+        X = ITEM()   :F(F45)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N45)
+F45     OUTPUT = 'fail ' &ERRTYPE
+N45
+        &ERRTYPE = 0
+        X = APPLY('SIZE','abc')   :F(F46)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N46)
+F46     OUTPUT = 'fail ' &ERRTYPE
+N46
+        &ERRTYPE = 0
+        X = APPLY(.SIZE,'abc')   :F(F47)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N47)
+F47     OUTPUT = 'fail ' &ERRTYPE
+N47
+        &ERRTYPE = 0
+        X = APPLY(ONE)   :F(F48)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N48)
+F48     OUTPUT = 'fail ' &ERRTYPE
+N48
+        &ERRTYPE = 0
+        X = APPLY(E)   :F(F49)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N49)
+F49     OUTPUT = 'fail ' &ERRTYPE
+N49
+        &ERRTYPE = 0
+        X = APPLY('F',1,2)   :F(F50)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N50)
+F50     OUTPUT = 'fail ' &ERRTYPE
+N50
+        &ERRTYPE = 0
+        X = APPLY('G')   :F(F51)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N51)
+F51     OUTPUT = 'fail ' &ERRTYPE
+N51
+        &ERRTYPE = 0
+        X = APPLY(BAD)   :F(F52)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N52)
+F52     OUTPUT = 'fail ' &ERRTYPE
+N52
+        &ERRTYPE = 0
+        X = APPLY('SIZE')   :F(F53)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N53)
+F53     OUTPUT = 'fail ' &ERRTYPE
+N53
+        &ERRTYPE = 0
+        X = APPLY('SIZE',1,2)   :F(F54)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N54)
+F54     OUTPUT = 'fail ' &ERRTYPE
+N54
+        &ERRTYPE = 0
+        X = APPLY(P)   :F(F55)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N55)
+F55     OUTPUT = 'fail ' &ERRTYPE
+N55
+        &ERRTYPE = 0
+        X = APPLY()   :F(F56)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N56)
+F56     OUTPUT = 'fail ' &ERRTYPE
+N56
+        &ERRTYPE = 0
+        X = APPLY(.A[1])   :F(F57)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N57)
+F57     OUTPUT = 'fail ' &ERRTYPE
+N57
+        &ERRTYPE = 0
+        X = APPLY('LT',1,2)   :F(F58)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N58)
+F58     OUTPUT = 'fail ' &ERRTYPE
+N58
+        &ERRTYPE = 0
+        X = APPLY('LT',2,1)   :F(F59)
+        OUTPUT = 'ok ' DATATYPE(X) ' [' X '] ' &ERRTYPE   :(N59)
+F59     OUTPUT = 'fail ' &ERRTYPE
+N59
+END

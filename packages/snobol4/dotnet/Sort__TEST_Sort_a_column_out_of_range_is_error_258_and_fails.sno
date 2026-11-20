@@ -1,0 +1,19 @@
+
+        &ERRLIMIT = 10
+        T = TABLE()
+        T['b'] = 2
+        T['a'] = 1
+        X = 'none'
+        X = SORT(T, 3)
+        E1 = &ERRTYPE
+        &ERRTYPE = 0
+        Y = 'none'
+        Y = RSORT(T, 0)
+        E2 = &ERRTYPE
+        &ERRTYPE = 0
+        A = ARRAY('2,2')
+        Z = 'none'
+        Z = SORT(A, 3)
+        E3 = &ERRTYPE
+        R = X ' ' E1 ' ' Y ' ' E2 ' ' Z ' ' E3 ' ' SORT(T, 2)[2, 1]
+END

@@ -1,0 +1,12 @@
+
+        &ERRLIMIT = 5
+        &FULLSCAN = 1
+        DIFFER(&FULLSCAN, 1)                        :F(ok)
+        OUTPUT = 'FAIL: &FULLSCAN not set'          :(END)
+ok      &FULLSCAN = 0
+        DIFFER(&ERRTYPE, 274)                       :F(ok2)
+        OUTPUT = 'FAIL: &FULLSCAN = 0 not refused'  :(END)
+ok2     DIFFER(&FULLSCAN, 1)                        :F(ok3)
+        OUTPUT = 'FAIL: &FULLSCAN changed'          :(END)
+ok3     OUTPUT = 'PASS'
+END

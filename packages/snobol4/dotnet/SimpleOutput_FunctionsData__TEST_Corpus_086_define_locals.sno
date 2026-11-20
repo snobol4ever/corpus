@@ -1,0 +1,10 @@
+
+        DEFINE('swap(a,b)tmp')                                      :(swap_end)
+swap    tmp = a
+        a = b
+        b = tmp
+        SWAPRESULT = a ' ' b                                        :(RETURN)
+swap_end
+        swap('hello', 'world')
+        RESULT = SWAPRESULT
+END

@@ -1,0 +1,5 @@
+        &ERRLIMIT = 5
+        INPUT(.F,,'test1.txt')
+        F = 'hello'
+        OUTPUT = 'err ' &ERRTYPE
+END

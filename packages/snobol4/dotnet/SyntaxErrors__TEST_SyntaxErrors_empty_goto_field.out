@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:49 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A :;
+                       !
+SyntaxErrors__TEST_SyntaxErrors_empty_goto_field.sno(1,16) : ERROR 219 -- syntax error: empty goto field

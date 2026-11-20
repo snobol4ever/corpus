@@ -1,0 +1,7 @@
+
+        X = '(a+b)'
+        X BAL . V                                   :S(ok)F(END)
+ok      DIFFER(V, '(a+b)')                          :F(pass)
+        OUTPUT = 'FAIL: BAL mismatch'               :(END)
+pass    OUTPUT = 'PASS'
+END

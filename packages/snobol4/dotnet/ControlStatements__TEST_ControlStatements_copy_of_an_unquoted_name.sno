@@ -1,0 +1,3 @@
+-COPY x
+        OUTPUT = 'x'
+END

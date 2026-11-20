@@ -1,0 +1,17 @@
+
+
+
+CorpusRef_Builtins__TEST_Builtin_concat_is_undefined_22.sno(2) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              CorpusRef_Builtins__TEST_Builtin_concat_is_undefined_22.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11416
+memory left (bytes)  1037152

@@ -1,0 +1,7 @@
+        OUTPUT = &OUTPUT ' ' DATATYPE(&OUTPUT)
+        &OUTPUT = 0
+        OUTPUT = 'hidden'
+        X = OUTPUT
+        &OUTPUT = 1
+        OUTPUT = 'shown ' X
+END

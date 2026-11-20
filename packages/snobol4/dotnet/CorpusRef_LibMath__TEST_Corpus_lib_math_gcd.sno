@@ -1,0 +1,34 @@
+
+               DEFINE('max(max,x)')                                :(max_end)
+max            max            =   LT(max,x) x                     :(RETURN)
+max_end
+
+               DEFINE('min(min,x)')                                :(min_end)
+min            min            =   GT(min,x) x                     :(RETURN)
+min_end
+
+               DEFINE('abs(abs)')                                  :(abs_end)
+abs            abs            =   LT(abs,0) -abs                  :(RETURN)
+abs_end
+
+               DEFINE('sign(sign)')                                :(sign_end)
+sign           sign           =   LT(sign,0) -1                   :S(RETURN)
+               sign           =   GT(sign,0)  1                   :(RETURN)
+sign_end
+
+               DEFINE('gcd(gcd,b)r')                              :(gcd_end)
+gcd            DIFFER(b,0)                                        :F(RETURN)
+               r              =   REMDR(gcd, b)
+               gcd            =   b
+               b              =   r                               :(gcd)
+gcd_end
+
+               DEFINE('lcm(a,b)g')                                 :(lcm_end)
+lcm            g              =   gcd(a, b)
+               lcm            =   (a / g) * b                      :(RETURN)
+lcm_end
+
+        OUTPUT = gcd(12, 8)
+        OUTPUT = gcd(100, 75)
+        OUTPUT = gcd(7, 13)
+END

@@ -1,0 +1,9 @@
+         DEFINE('F()') :(F_E)
+F        EVAL('X +') :(RETURN)
+F_E      DEFINE('G(X)') :(G_E)
+G        G = LN(X) :S(RETURN)F(FRETURN)
+G_E      Z = 0
+         EVAL('X +')
+         G(Z) :S(END)
+         R = 'reached'
+END

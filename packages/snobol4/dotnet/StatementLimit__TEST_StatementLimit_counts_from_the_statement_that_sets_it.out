@@ -1,0 +1,59 @@
+x4
+x5
+x6
+x7
+
+
+
+StatementLimit__TEST_StatementLimit_counts_from_the_statement_that_sets_it.sno(4) : ERROR 244 -- statement count exceeds
+ value of stlimit keyword
+
+
+
+
+
+in file              StatementLimit__TEST_StatementLimit_counts_from_the_statement_that_sets_it.sno
+in line              4
+in statement         4
+stmts executed       5
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11896
+memory left (bytes)  1036672
+
+
+
+
+dump of natural variables
+
+OUTPUT = 'x7'
+X = 1
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = 'statement count exceeds value of stlimit keyword'
+&ERRTYPE = 244
+&FILE = 'StatementLimit__TEST_StatementLimit_counts_from_the_statement_that_sets_it.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'StatementLimit__TEST_StatementLimit_counts_from_the_statement_that_sets_it.sno'
+&LASTLINE = 4
+&LASTNO = 4
+&LINE = 4
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 5
+&STLIMIT = 15
+&STNO = 4
+&TRACE = 0
+&TRIM = 1

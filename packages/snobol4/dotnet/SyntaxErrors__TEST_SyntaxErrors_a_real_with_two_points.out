@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:39 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1.2.3
+                    !
+SyntaxErrors__TEST_SyntaxErrors_a_real_with_two_points.sno(1,13) : ERROR 231 -- syntax error: invalid numeric item

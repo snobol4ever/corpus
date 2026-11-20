@@ -1,0 +1,4 @@
+        N = 0
+C       N = ?INPUT N + 1               :S(C)
+        OUTPUT = N
+END

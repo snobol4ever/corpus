@@ -1,0 +1,7 @@
+
+        &ANCHOR = 0
+        subject = 'x(a+b)y'
+        subject '(' BAL . inner ')'   :F(bad)
+        result = inner   :(END)
+bad     result = 'bad'
+END

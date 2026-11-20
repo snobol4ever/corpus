@@ -1,0 +1,4 @@
+        OPSYN('&','RPAD',2)
+        X = 'ab' & 5
+        OUTPUT = '[' X ']'
+END

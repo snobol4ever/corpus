@@ -1,0 +1,6 @@
+
+        word = 'run'
+        $(word ':') = 99
+        $(word ':') = $(word ':') + 1
+        a = $(word ':')
+END

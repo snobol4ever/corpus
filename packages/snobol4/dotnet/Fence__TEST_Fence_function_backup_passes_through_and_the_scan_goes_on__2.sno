@@ -1,0 +1,5 @@
+
+        'AB' FENCE(LEN(1) | LEN(2)) RPOS(0) :S(Y)F(N)
+Y       R1 = 'match' :(END)
+N       R1 = 'nomatch'
+END

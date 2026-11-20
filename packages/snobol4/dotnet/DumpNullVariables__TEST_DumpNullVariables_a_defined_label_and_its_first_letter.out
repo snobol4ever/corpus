@@ -1,0 +1,43 @@
+
+
+
+dump of natural variables
+
+DUMP = ''
+E = ''
+END = ''
+INPUT = ''
+L = ''
+LONGNAME = ''
+OUTPUT = ''
+TERMINAL = ''
+X = 1
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 0
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'DumpNullVariables__TEST_DumpNullVariables_a_defined_label_and_its_first_letter.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'DumpNullVariables__TEST_DumpNullVariables_a_defined_label_and_its_first_letter.sno'
+&LASTLINE = 1
+&LASTNO = 1
+&LINE = 2
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 2
+&STLIMIT = 2147483647
+&STNO = 2
+&TRACE = 0
+&TRIM = 1

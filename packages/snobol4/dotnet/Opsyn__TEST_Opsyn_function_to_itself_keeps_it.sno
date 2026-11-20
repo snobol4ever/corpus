@@ -1,0 +1,8 @@
+        DEFINE('F(S)')                 :(FE)
+F       F = 'old(' S ')'               :(RETURN)
+F2      F = 'new[' F.(S) ']'           :(RETURN)
+FE      OPSYN('F.', 'F')
+        DEFINE('F(S)', 'F2')
+        OPSYN('F', 'F')
+        R = F('x') ' ' F.('y')
+END

@@ -1,0 +1,7 @@
+
+        T = TABLE(10)
+        P = PROTOTYPE(T)
+        IDENT(P, '')                                :S(pass)
+        OUTPUT = P                                  :(END)
+pass    OUTPUT = 'PASS'
+END

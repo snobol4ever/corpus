@@ -1,0 +1,4 @@
+        A = ARRAY('2,2')
+        A [1, 2] = 'z'
+        OUTPUT = A [1, 2]
+END

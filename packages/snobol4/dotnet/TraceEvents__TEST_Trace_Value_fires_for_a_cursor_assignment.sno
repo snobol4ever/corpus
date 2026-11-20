@@ -1,0 +1,5 @@
+        &TRACE = 10
+        TRACE('C')
+        'WORLD' 'RL' @C
+        OUTPUT = C
+END

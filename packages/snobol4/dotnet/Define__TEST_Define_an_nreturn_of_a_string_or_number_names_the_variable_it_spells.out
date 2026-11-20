@@ -1,0 +1,39 @@
+
+
+
+dump of natural variables
+
+12 = 'R'
+R = 'old'
+S = 'QR'
+T = 'Q R'
+ZZ = 'Q'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Define__TEST_Define_an_nreturn_of_a_string_or_number_names_the_variable_it_spells.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Define__TEST_Define_an_nreturn_of_a_string_or_number_names_the_variable_it_spells.sno'
+&LASTLINE = 12
+&LASTNO = 12
+&LINE = 13
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'NRETURN'
+&STCOUNT = 15
+&STLIMIT = 2147483647
+&STNO = 13
+&TRACE = 0
+&TRIM = 1

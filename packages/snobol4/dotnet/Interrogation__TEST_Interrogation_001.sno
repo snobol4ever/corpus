@@ -1,0 +1,6 @@
+
+        S = 'this'
+        P = 'is'
+        N = 123
+        N = ?(S ? P) N + 1
+END

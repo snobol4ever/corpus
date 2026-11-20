@@ -1,0 +1,7 @@
+
+        d = 'failure'
+        a = 'test'
+        b = CONVERT(a,'string') :F(END)
+        c = DATATYPE(b) 
+        d = 'success'
+END

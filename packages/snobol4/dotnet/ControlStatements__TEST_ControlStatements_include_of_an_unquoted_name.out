@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:10:53 2026
+
+
+
+                                                                                                                page 1
+
+        -INCLUDE x
+                 !
+ControlStatements__TEST_ControlStatements_include_of_an_unquoted_name.sno(1,10) : ERROR 247 -- invalid control statement

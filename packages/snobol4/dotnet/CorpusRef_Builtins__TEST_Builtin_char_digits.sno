@@ -1,0 +1,7 @@
+
+        DIFFER(CHAR(48), '0')                       :F(ok1)
+        OUTPUT = 'FAIL: CHAR(48)'                   :(END)
+ok1     DIFFER(CHAR(57), '9')                       :F(ok2)
+        OUTPUT = 'FAIL: CHAR(57)'                   :(END)
+ok2     OUTPUT = 'PASS'
+END

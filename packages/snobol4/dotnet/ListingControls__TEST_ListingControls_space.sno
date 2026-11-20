@@ -1,0 +1,10 @@
+-LIST
+        A = 1
+-SPACE 2
+        B = 2
+-SPACE
+        C = 3
+-SPACE 0
+        D = 4
+        OUTPUT = 'x'
+END

@@ -1,0 +1,4 @@
+
+        OUTPUT = REPLACE('hello', 'helo', 'HELO')
+        OUTPUT = REPLACE('aabbcc', 'abc', 'xyz')
+END

@@ -1,0 +1,7 @@
+
+        subject = 'helloworld'
+        &ANCHOR = 1
+        subject 'hello' @mid 'world'   :F(bad)
+        result = mid   :(END)
+bad     result = 'bad'
+END

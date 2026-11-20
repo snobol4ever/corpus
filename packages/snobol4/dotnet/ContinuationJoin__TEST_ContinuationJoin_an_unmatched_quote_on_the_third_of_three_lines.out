@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:08:45 2026
+
+
+
+                                                                                                                page 1
+
+1       +       'c' 'd
+                    !
+ContinuationJoin__TEST_ContinuationJoin_an_unmatched_quote_on_the_third_of_three_lines.sno(3,13) : ERROR 232 -- syntax e
+rror: unmatched string quote

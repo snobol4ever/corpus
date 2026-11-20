@@ -1,0 +1,14 @@
+
+        A = ARRAY(3)
+        A[1] = 'alpha'
+        A[2] = 'charlie'
+        A[3] = 'bravo'
+        A = RSORT(A, 1)
+        DIFFER(A[1], 'charlie')                     :F(ok1)
+        OUTPUT = 'FAIL: A[1] != charlie'            :(END)
+ok1     DIFFER(A[2], 'bravo')                       :F(ok2)
+        OUTPUT = 'FAIL: A[2] != bravo'              :(END)
+ok2     DIFFER(A[3], 'alpha')                       :F(ok3)
+        OUTPUT = 'FAIL: A[3] != alpha'              :(END)
+ok3     OUTPUT = 'PASS'
+END

@@ -1,0 +1,7 @@
+
+        a = snoExpr7 ('#' 2) | epsilon
+        b = snoExpr7 ('#' 2) | epsilon
+        IDENT(a,b)    :S(equ)
+        out = 'not identical'    :(END)
+equ     out = 'identical'
+end;END

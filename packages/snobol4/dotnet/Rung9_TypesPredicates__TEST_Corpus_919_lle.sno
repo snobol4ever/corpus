@@ -1,0 +1,21 @@
+
+        LLE('abc', 'abc')          :S(e001)
+        OUTPUT = 'FAIL 919/001: lle(abc,abc) should succeed' :(END)
+e001
+        LLE('abc', 'xyz')          :S(e002)
+        OUTPUT = 'FAIL 919/002: lle(abc,xyz) should succeed' :(END)
+e002
+        LLE('xyz', 'abc')          :F(e003)
+        OUTPUT = 'FAIL 919/003: lle(xyz,abc) should fail'   :(END)
+e003
+        LLE('', 'abc')             :S(e004)
+        OUTPUT = 'FAIL 919/004: lle(null,abc) should succeed' :(END)
+e004
+        LLE('', '')                :S(e005)
+        OUTPUT = 'FAIL 919/005: lle(null,null) should succeed' :(END)
+e005
+        LLE('A', 'a')              :S(e006)
+        OUTPUT = 'FAIL 919/006: lle(A,a) should succeed (ordinal)' :(END)
+e006
+        OUTPUT = 'PASS 919_lle (6/6)'
+END

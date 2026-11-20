@@ -1,0 +1,4 @@
+        OPSYN('@','SIZE',2)
+        X = 'abc' @ 5
+        OUTPUT = X
+END

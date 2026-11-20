@@ -1,0 +1,7 @@
+        R = R DIFFER(CONVERT('17','numeric')) 'a'
+        R = R DIFFER(CONVERT('17','integer')) 'b'
+        R = R DIFFER(CONVERT('17','Integer')) 'c'
+        R = R DIFFER(CONVERT('17','string')) 'd'
+        R = R DIFFER(CONVERT('17','NUMERIC')) 'e'
+        R = R DIFFER(CONVERT(17,'real')) 'f'
+END

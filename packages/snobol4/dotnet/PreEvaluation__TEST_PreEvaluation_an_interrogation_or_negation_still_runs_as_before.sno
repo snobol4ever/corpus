@@ -1,0 +1,7 @@
+        &ERRLIMIT = 10
+        V = (?'a') 'b'
+        W = ~')' + 'x'
+        OUTPUT = V ' ' &ERRTYPE ' [' W ']'
+        X = ?X + 'x'
+        OUTPUT = &ERRTYPE
+END

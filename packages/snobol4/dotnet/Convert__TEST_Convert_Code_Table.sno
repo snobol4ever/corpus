@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        a = CODE(' len(k) pos(m)')
+        b = CONVERT(a,'table')  :F(END)
+        d = 'success'
+END

@@ -1,0 +1,37 @@
+        &ERRLIMIT = 20
+        DEFINE('f(n)')                              :(fe)
+f       f = n * 10                                  :(RETURN)
+fe      abc = 'lower'
+        ABC = 'upper'
+        &CASE = 1
+        &ERRTYPE = 0
+        V = APPLY('f', 3)                           :S(Y1)
+        OUTPUT = '1 F ' &ERRTYPE                    :(E1)
+Y1      OUTPUT = '1 S ' V
+E1      &ERRTYPE = 0
+        V = $'abc'
+        OUTPUT = '2 ' V ' ' &ERRTYPE
+        &ERRTYPE = 0
+        V = EVAL('abc')
+        OUTPUT = '3 ' V ' ' &ERRTYPE
+        &ERRTYPE = 0
+        V = EVAL("f(4)")                            :S(Y4)
+        OUTPUT = '4 F ' &ERRTYPE                    :(E4)
+Y4      OUTPUT = '4 S ' V
+E4      &ERRTYPE = 0
+        V = APPLY('F', 3)                           :S(Y5)
+        OUTPUT = '5 F ' &ERRTYPE                    :(E5)
+Y5      OUTPUT = '5 S ' V
+E5      &ERRTYPE = 0
+        DEFINE('g()')                               :(ge)
+g       g = 'gee'                                   :(RETURN)
+ge      V = APPLY('g')                              :S(Y6)
+        OUTPUT = '6 F ' &ERRTYPE                    :(E6)
+Y6      OUTPUT = '6 S ' V
+E6      &CASE = 0
+        &ERRTYPE = 0
+        V = APPLY('f', 3)                           :S(Y7)
+        OUTPUT = '7 F ' &ERRTYPE                    :(E7)
+Y7      OUTPUT = '7 S ' V
+E7
+END

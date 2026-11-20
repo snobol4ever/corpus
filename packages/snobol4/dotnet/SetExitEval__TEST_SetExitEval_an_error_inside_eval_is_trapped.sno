@@ -1,0 +1,13 @@
+        &ERRLIMIT = 100
+        M = -4
+        SETEXIT(.T1)
+        O = SQRT(M)  :F(OOPS1)
+        OUTPUT = 'no trap 1'  :(N2)
+OOPS1   OUTPUT = 'oops 1'  :(N2)
+T1      OUTPUT = 'trap 1'
+N2      SETEXIT(.T2)
+        O = EVAL('SQRT(M)')  :F(OOPS2)
+        OUTPUT = 'no trap 2'  :(END)
+OOPS2   OUTPUT = 'oops 2'  :(END)
+T2      OUTPUT = 'trap 2'
+END

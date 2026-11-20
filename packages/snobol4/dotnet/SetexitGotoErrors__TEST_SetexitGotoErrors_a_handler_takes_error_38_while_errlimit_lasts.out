@@ -1,0 +1,23 @@
+h 14
+h 38
+h 38
+h 38
+h 38
+
+
+
+SetexitGotoErrors__TEST_SetexitGotoErrors_a_handler_takes_error_38_while_errlimit_lasts.sno(4) : ERROR 038 -- goto undef
+ined label
+
+
+
+
+
+in file              SetexitGotoErrors__TEST_SetexitGotoErrors_a_handler_takes_error_38_while_errlimit_lasts.sno
+in line              4
+in statement         9
+stmts executed       19
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12504
+memory left (bytes)  1036064

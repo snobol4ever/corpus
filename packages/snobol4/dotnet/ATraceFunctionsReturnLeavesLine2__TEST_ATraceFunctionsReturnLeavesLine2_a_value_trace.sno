@@ -1,0 +1,11 @@
+* c1
+        DEFINE('T()')   :(TE)
+T       N = N + 1
+        M = M + 1     :(RETURN)
+TE      TRACE('V', 'VALUE', , 'T')
+        &TRACE = 1000
+        X = 1
+        V = 2
+        OUTPUT = &LASTLINE ' ' &LINE ' ' &LASTNO ' ' &STNO
+        V = 3 ; OUTPUT = &LASTLINE ' ' &LINE ' ' &LASTNO ' ' &STNO
+END

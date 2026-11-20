@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        subject = 'xbx'
+        pattern = ('a' | ABORT) 'b'
+        subject pattern :S(y)F(n)
+y       result = 'wrong'  :(END)
+n       result = 'correct'
+END

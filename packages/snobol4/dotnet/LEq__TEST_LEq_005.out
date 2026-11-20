@@ -1,0 +1,17 @@
+
+
+
+LEq__TEST_LEq_005.sno(4) : ERROR 123 -- leq second argument is not a string
+
+
+
+
+
+in file              LEq__TEST_LEq_005.sno
+in line              4
+in statement         4
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13512
+memory left (bytes)  1035056

@@ -1,0 +1,2 @@
+HERE="$(cd "$(dirname "${B}")"; MSG="x"
+end

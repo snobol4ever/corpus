@@ -1,0 +1,5 @@
+
+        OUTPUT = LPAD('hi', 6)
+        OUTPUT = RPAD('hi', 6)
+        OUTPUT = LPAD('hi', 6, '0')
+END

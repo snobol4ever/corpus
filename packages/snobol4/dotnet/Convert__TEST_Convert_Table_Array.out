@@ -1,0 +1,41 @@
+
+
+
+dump of natural variables
+
+B = ARRAY(5,2) #2
+R1 = '1 2'
+R2 = '2 4'
+R3 = '3 6'
+R4 = '4 8'
+R5 = '5 10'
+T = TABLE(11) #1
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Convert__TEST_Convert_Table_Array.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Convert__TEST_Convert_Table_Array.sno'
+&LASTLINE = 15
+&LASTNO = 15
+&LINE = 16
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 13
+&STLIMIT = 2147483647
+&STNO = 16
+&TRACE = 0
+&TRIM = 1

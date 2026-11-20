@@ -1,0 +1,9 @@
+        &ERRLIMIT = 10
+        SETEXIT('ERR')
+        C = CODE(' X = 1 :(L2);END;L2 X = 2 :(BACK)')    :[C]
+BACK    OUTPUT = 'back ' X                            :(NEXT)
+ERR     OUTPUT = 'ERROR ' &ERRTYPE ' ' X
+NEXT    D = CODE('END; OUTPUT = "never"')
+        OUTPUT = 'compiled ' DATATYPE(D)              :[D]
+        OUTPUT = 'not reached'
+END

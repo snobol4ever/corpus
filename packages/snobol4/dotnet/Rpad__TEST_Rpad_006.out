@@ -1,0 +1,17 @@
+
+
+
+Rpad__TEST_Rpad_006.sno(3) : ERROR 178 -- rpad third argument is not a string
+
+
+
+
+
+in file              Rpad__TEST_Rpad_006.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13472
+memory left (bytes)  1035096

@@ -1,0 +1,36 @@
+
+
+
+dump of natural variables
+
+S = ' 249 249 249 249 249 249 249 X=y'
+X = 'y'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 93
+&ERRTEXT = 'expression evaluated by name returned value'
+&ERRTYPE = 249
+&FILE = 'Eval__TEST_Eval_called_by_name_of_a_value_is_249.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Eval__TEST_Eval_called_by_name_of_a_value_is_249.sno'
+&LASTLINE = 12
+&LASTNO = 12
+&LINE = 15
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 27
+&STLIMIT = 2147483647
+&STNO = 15
+&TRACE = 0
+&TRIM = 1

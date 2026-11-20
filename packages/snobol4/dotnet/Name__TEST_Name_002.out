@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:35:41 2026
+
+
+
+                                                                                                                page 1
+
+2               a = .'123'
+
+Name__TEST_Name_002.sno(2) : ERROR 212 -- syntax error: value used where name is required

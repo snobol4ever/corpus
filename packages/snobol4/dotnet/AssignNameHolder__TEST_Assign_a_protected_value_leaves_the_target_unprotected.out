@@ -1,0 +1,43 @@
+
+
+
+dump of natural variables
+
+A = ARRAY(1) #1
+ARB = PATTERN
+FAIL = PATTERN
+N = 'Z'
+R = '1 two three el'
+REM = PATTERN
+X = 1
+Y = 'two'
+Z = 'three'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'AssignNameHolder__TEST_Assign_a_protected_value_leaves_the_target_unprotected.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'AssignNameHolder__TEST_Assign_a_protected_value_leaves_the_target_unprotected.sno'
+&LASTLINE = 12
+&LASTNO = 12
+&LINE = 13
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 12
+&STLIMIT = 2147483647
+&STNO = 13
+&TRACE = 0
+&TRIM = 1

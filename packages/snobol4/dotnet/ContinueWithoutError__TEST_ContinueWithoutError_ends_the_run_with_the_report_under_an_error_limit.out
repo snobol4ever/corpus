@@ -1,0 +1,20 @@
+a
+
+
+
+ContinueWithoutError__TEST_ContinueWithoutError_ends_the_run_with_the_report_under_an_error_limit.sno(3) : ERROR 037 -- 
+goto continue with no preceding error
+
+
+
+
+
+in file              ContinueWithoutError__TEST_ContinueWithoutError_ends_the_run_with_the_report_under_an_error_limit.s
+no
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11672
+memory left (bytes)  1036896

@@ -1,0 +1,16 @@
+
+        A = ARRAY(2)
+        A[1] = 'x'
+        N = .A[1]
+        B = A
+        B = 'gone'
+        R = $N
+        $N = 'y'
+        S = A[1]
+        T = TABLE()
+        T['k'] = 'tv'
+        M = .T['k']
+        U = T
+        U = 'gone'
+        V = $M
+END

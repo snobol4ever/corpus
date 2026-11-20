@@ -1,0 +1,5 @@
+
+        ~~INTEGER('3')   :F(n)
+        result = 'succeed'   :(END)
+n       result = 'failure'
+END

@@ -1,0 +1,3 @@
+
+        R = CHAR('65.0') ' ' DUPL('*', '5.9999') ' ' CHAR('6.5E1') ' ' CONVERT('65.0', 'INTEGER')
+END

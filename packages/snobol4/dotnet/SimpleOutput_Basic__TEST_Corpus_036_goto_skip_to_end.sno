@@ -1,0 +1,5 @@
+
+        R1 = 'one'
+        :(END)
+        R1 = 'two'
+END

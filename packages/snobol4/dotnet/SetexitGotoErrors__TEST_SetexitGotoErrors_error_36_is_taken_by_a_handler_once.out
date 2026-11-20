@@ -1,0 +1,20 @@
+a
+h 36
+
+
+
+SetexitGotoErrors__TEST_SetexitGotoErrors_error_36_is_taken_by_a_handler_once.sno(4) : ERROR 036 -- goto abort with no p
+receding error
+
+
+
+
+
+in file              SetexitGotoErrors__TEST_SetexitGotoErrors_error_36_is_taken_by_a_handler_once.sno
+in line              4
+in statement         8
+stmts executed       6
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11872
+memory left (bytes)  1036696

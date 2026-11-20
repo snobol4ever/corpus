@@ -1,0 +1,10 @@
+        &ERRLIMIT = 100
+        SETEXIT(.H)
+        X = SETEXIT('BAD LABEL')
+        OUTPUT = 'after bad setexit ' X
+        Y = SETEXIT()
+        OUTPUT = 'handler now [' Y ']'
+        :(END)
+H       OUTPUT = 'handler ' &ERRTYPE ' ' &ERRTEXT
+        :(CONTINUE)
+END

@@ -1,0 +1,6 @@
+
+        d = DATE()
+        DIFFER(d, '')   :F(bad)
+        result = 'ok'   :(END)
+bad     result = 'bad'
+END

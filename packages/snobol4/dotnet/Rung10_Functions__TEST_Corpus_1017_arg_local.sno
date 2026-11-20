@@ -1,0 +1,28 @@
+
+jlab    DEFINE('jlab(a,b,c)d,e,f')
+        DIFFER(ARG(.jlab, 1), 'A')                   :F(e001)
+        OUTPUT = 'FAIL 1017/001: arg(.jlab,1) = A'     :(END)
+e001
+        DIFFER(ARG(.jlab, 3), 'C')                   :F(e002)
+        OUTPUT = 'FAIL 1017/002: arg(.jlab,3) = C'     :(END)
+e002
+        ARG(.jlab, 0)              :F(e003)
+        OUTPUT = 'FAIL 1017/003: arg(.jlab,0) OOB should fail' :(END)
+e003
+        ARG(.jlab, 4)              :F(e004)
+        OUTPUT = 'FAIL 1017/004: arg(.jlab,4) OOB should fail' :(END)
+e004
+        DIFFER(LOCAL(.jlab, 1), 'D')                   :F(e005)
+        OUTPUT = 'FAIL 1017/005: local(.jlab,1) = D'   :(END)
+e005
+        DIFFER(LOCAL(.jlab, 3), 'F')                   :F(e006)
+        OUTPUT = 'FAIL 1017/006: local(.jlab,3) = F'   :(END)
+e006
+        LOCAL(.jlab, 0)            :F(e007)
+        OUTPUT = 'FAIL 1017/007: local(.jlab,0) OOB should fail' :(END)
+e007
+        LOCAL(.jlab, 4)            :F(e008)
+        OUTPUT = 'FAIL 1017/008: local(.jlab,4) OOB should fail' :(END)
+e008
+        OUTPUT = 'PASS 1017_arg_local (8/8)'
+END

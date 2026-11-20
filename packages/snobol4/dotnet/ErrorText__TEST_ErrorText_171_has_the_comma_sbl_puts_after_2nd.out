@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:10:59 2026
+
+
+
+                                                                                                                page 1
+
+2               X = REPLACE('a', 'ab', 'c')
+
+ErrorText__TEST_ErrorText_171_has_the_comma_sbl_puts_after_2nd.sno(2) : ERROR 171 -- null or unequally long 2nd, 3rd arg
+s to replace

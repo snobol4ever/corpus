@@ -1,0 +1,9 @@
+
+        I = SPAN('0123456789')
+        V = ANY(&LCASE)
+        A = I | V | '(' *X ')'
+        F = '+' *F | '-' *F | A
+        T = F '*' *T | F '/' *T | F
+        X = T '+' *X | T '-' *X | T
+        C = POS(0) ARBNO(X CHAR(10)) RPOS(0)
+END

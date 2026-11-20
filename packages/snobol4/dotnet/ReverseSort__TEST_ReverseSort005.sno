@@ -1,0 +1,8 @@
+
+        b = ARRAY('2,1')
+        b[1,1] = 'apple'
+        b[2,1] = 'zebra'
+        RSORT(b, 1)
+        r1 = b[1,1]
+        r2 = b[2,1]
+END

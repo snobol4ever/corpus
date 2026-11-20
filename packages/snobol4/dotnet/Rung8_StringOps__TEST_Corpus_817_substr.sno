@@ -1,0 +1,21 @@
+
+        DIFFER(SUBSTR('hello', 2, 3), 'ell')                   :F(e001)
+        OUTPUT = 'FAIL 817/001: substr middle 3 chars'     :(END)
+e001
+        DIFFER(SUBSTR('hello', 1, 5), 'hello')                   :F(e002)
+        OUTPUT = 'FAIL 817/002: substr full string'         :(END)
+e002
+        DIFFER(SUBSTR('hello', 3, 0), 'llo')                   :F(e003)
+        OUTPUT = 'FAIL 817/003: substr length=0 means to end' :(END)
+e003
+        DIFFER(SUBSTR('hello', 1, 1), 'h')                   :F(e004)
+        OUTPUT = 'FAIL 817/004: substr first char only'    :(END)
+e004
+        DIFFER(SUBSTR('hello', 5, 1), 'o')                   :F(e005)
+        OUTPUT = 'FAIL 817/005: substr last char only'     :(END)
+e005
+        DIFFER(SUBSTR('abcde', 2, 4), 'bcde')                   :F(e006)
+        OUTPUT = 'FAIL 817/006: substr 4 chars from pos 2'  :(END)
+e006
+        OUTPUT = 'PASS 817_substr (6/6)'
+END

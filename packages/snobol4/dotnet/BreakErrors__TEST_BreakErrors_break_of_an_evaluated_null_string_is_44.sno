@@ -1,0 +1,5 @@
+        &ERRLIMIT = 10
+        E = ''
+        'abc' ? BREAK(*E)
+        OUTPUT = 'null ' &ERRTYPE
+END

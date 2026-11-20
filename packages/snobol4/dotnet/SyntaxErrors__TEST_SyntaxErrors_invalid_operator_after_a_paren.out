@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:49:07 2026
+
+
+
+                                                                                                                page 1
+
+1               X = (| 1)
+                     !
+SyntaxErrors__TEST_SyntaxErrors_invalid_operator_after_a_paren.sno(1,14) : ERROR 233 -- syntax error: invalid use of ope
+rator

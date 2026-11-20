@@ -1,0 +1,8 @@
+
+        :(A)
+        SKIP = 'skipped'
+A       R1 = 'a'
+        :(B)
+        SKIP = 'skipped'
+B       R2 = 'b'
+END

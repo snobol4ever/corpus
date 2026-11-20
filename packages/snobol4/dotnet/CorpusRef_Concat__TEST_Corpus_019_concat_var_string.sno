@@ -1,0 +1,4 @@
+
+        X = 'hello'
+        OUTPUT = X ' world'
+END

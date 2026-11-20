@@ -1,0 +1,18 @@
+
+
+
+CodeImplicitEnd__TEST_CodeImplicitEnd_the_implicit_end_is_checked_against_stlimit.sno(4) : ERROR 244 -- statement count 
+exceeds value of stlimit keyword
+
+
+
+
+
+in file              CodeImplicitEnd__TEST_CodeImplicitEnd_the_implicit_end_is_checked_against_stlimit.sno
+in line              4
+in statement         5
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  15544
+memory left (bytes)  1033024

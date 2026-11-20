@@ -1,0 +1,12 @@
+
+        d = 'failure'
+	    t = TABLE()
+	    t[1] = 2
+	    t[2] = 4
+	    t[3] = 6
+	    t[4] = 8
+	    t[5] = 10
+
+	    b = CONVERT(t, 'code')  :F(END)
+        d = 'success'
+END

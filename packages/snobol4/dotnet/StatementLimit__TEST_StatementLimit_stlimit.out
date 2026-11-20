@@ -1,0 +1,20 @@
+count 7 limit 2147483647
+after set 3 err 0
+after reset 100 err 0
+
+
+
+StatementLimit__TEST_StatementLimit_stlimit.sno(14) : ERROR 244 -- statement count exceeds value of stlimit keyword
+
+
+
+
+
+in file              StatementLimit__TEST_StatementLimit_stlimit.sno
+in line              14
+in statement         14
+stmts executed       40
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  14496
+memory left (bytes)  1034072

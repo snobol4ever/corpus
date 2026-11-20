@@ -1,0 +1,5 @@
+        X = 'ran'
+        OUTPUT = 'A' C = 1
+        X = Y = ('A' C = 1)
+        X = A B = C D = 1
+END

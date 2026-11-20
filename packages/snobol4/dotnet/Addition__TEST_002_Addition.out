@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 16:44:06 2026
+
+
+
+                                                                                                                page 1
+
+1        a = 2 + 'b';end
+
+Addition__TEST_002_Addition.sno(1) : ERROR 002 -- addition right operand is not numeric

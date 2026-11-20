@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        subject = 'ABCDA'
+        pattern = 'A' LEN(0) . test 'A'
+        subject pattern      :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

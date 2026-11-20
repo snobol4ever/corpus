@@ -1,0 +1,17 @@
+
+
+
+Opsyn__TEST_Opsyn_062.sno(2) : ERROR 154 -- opsyn second arg is not natural variable name
+
+
+
+
+
+in file              Opsyn__TEST_Opsyn_062.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13392
+memory left (bytes)  1035176

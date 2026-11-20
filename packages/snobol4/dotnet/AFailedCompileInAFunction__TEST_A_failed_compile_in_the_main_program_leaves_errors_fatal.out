@@ -1,0 +1,18 @@
+
+
+
+AFailedCompileInAFunction__TEST_A_failed_compile_in_the_main_program_leaves_errors_fatal.sno(4) : ERROR 307 -- ln produc
+ed real overflow
+
+
+
+
+
+in file              AFailedCompileInAFunction__TEST_A_failed_compile_in_the_main_program_leaves_errors_fatal.sno
+in line              4
+in statement         4
+stmts executed       6
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12176
+memory left (bytes)  1036392

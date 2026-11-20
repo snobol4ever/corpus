@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:29:55 2026
+
+
+
+                                                                                                                page 1
+
+2               'abcdef' RPOS(16777217)  :S(YES)F(NO)
+
+IntegerArgumentLimit__TEST_IntegerArgumentLimit_rpos_immediate_past_the_limit.sno(2) : ERROR 186 -- rpos argument is neg
+ative or too large

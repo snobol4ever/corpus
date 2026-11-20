@@ -1,0 +1,4 @@
+
+        P = CONCAT('a', 'b')
+        OUTPUT = 'after'
+END

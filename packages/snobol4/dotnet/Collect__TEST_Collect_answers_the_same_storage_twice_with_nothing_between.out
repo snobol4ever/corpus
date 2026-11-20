@@ -1,0 +1,41 @@
+
+
+
+dump of natural variables
+
+D = 0
+DIFFS = ' 0 -3 -2 0 1 0 0 0 -1 -2 0 1 0 0 0 -1 -2 0 1 0 0 0 -1 -2 0 1 0 0 0 -1 -2 0 1 0 0 0 -1 -2 0 1 0 0 0 -1 -2 0 1 0 
+0 0 -1 -2 0 1 0 0 0 -1 -2 0'
+I = 160
+NOW = 129439
+PREV = 129439
+SWINGS = 0
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Collect__TEST_Collect_answers_the_same_storage_twice_with_nothing_between.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Collect__TEST_Collect_answers_the_same_storage_twice_with_nothing_between.sno'
+&LASTLINE = 14
+&LASTNO = 14
+&LINE = 15
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 1145
+&STLIMIT = 2147483647
+&STNO = 15
+&TRACE = 0
+&TRIM = 1

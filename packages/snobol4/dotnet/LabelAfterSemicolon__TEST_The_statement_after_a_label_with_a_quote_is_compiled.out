@@ -1,0 +1,19 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:32:17 2026
+
+
+
+                                                                                                                page 1
+
+1       HERE="$(cd "$(dirname "${B}")"; MSG="x"
+                               !
+LabelAfterSemicolon__TEST_The_statement_after_a_label_with_a_quote_is_compiled.sno(1,24) : ERROR 233 -- syntax error: in
+valid use of operator
+
+
+                                           !
+LabelAfterSemicolon__TEST_The_statement_after_a_label_with_a_quote_is_compiled.sno(1,36) : ERROR 233 -- syntax error: in
+valid use of operator

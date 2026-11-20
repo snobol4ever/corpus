@@ -1,0 +1,34 @@
+
+
+
+dump of natural variables
+
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 2
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'CodeStatementNumbers__TEST_CodeStatementNumbers_goto_end_runs_the_end_statement__2.sno'
+&FNCLEVEL = 1
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'CodeStatementNumbers__TEST_CodeStatementNumbers_goto_end_runs_the_end_statement__2.sno'
+&LASTLINE = 3
+&LASTNO = 3
+&LINE = 7
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 5
+&STLIMIT = 2147483647
+&STNO = 6
+&TRACE = 0
+&TRIM = 1

@@ -1,0 +1,7 @@
+
+        subject = 'a+b'
+        subject BAL . tok   :F(bad)
+        DIFFER(tok, '')   :F(bad)
+        result = 'ok'   :(END)
+bad     result = 'bad'
+END

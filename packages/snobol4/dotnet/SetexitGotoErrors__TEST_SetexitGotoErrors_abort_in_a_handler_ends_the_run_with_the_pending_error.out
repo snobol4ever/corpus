@@ -1,0 +1,20 @@
+h 14
+
+
+
+SetexitGotoErrors__TEST_SetexitGotoErrors_abort_in_a_handler_ends_the_run_with_the_pending_error.sno(8) : ERROR 014 -- d
+ivision caused integer overflow
+
+
+
+
+
+in file              SetexitGotoErrors__TEST_SetexitGotoErrors_abort_in_a_handler_ends_the_run_with_the_pending_error.sn
+o
+in line              8
+in statement         8
+stmts executed       6
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12016
+memory left (bytes)  1036552

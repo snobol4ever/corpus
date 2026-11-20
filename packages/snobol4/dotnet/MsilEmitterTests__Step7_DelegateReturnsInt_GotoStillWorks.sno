@@ -1,0 +1,5 @@
+
+        I = 0
+loop    I = I + 1
+        LT(I, 5)    :S(loop)
+END

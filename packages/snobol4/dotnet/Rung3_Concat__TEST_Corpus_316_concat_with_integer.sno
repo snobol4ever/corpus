@@ -1,0 +1,7 @@
+
+        n = 42
+        r = 'answer=' n
+        IDENT(r, 'answer=42')   :S(ok)F(FAIL)
+ok      OUTPUT = 'PASS 316_concat_with_integer'   :(END)
+FAIL    OUTPUT = 'FAIL 316: r=' r
+END

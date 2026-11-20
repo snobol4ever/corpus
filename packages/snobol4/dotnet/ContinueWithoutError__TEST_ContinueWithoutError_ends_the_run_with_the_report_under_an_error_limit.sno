@@ -1,0 +1,5 @@
+        &ERRLIMIT = 10
+        OUTPUT = 'a'
+        :(CONTINUE)
+        OUTPUT = 'b'
+END

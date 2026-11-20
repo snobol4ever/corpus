@@ -1,0 +1,19 @@
+        &ERRLIMIT = 10
+        V = (&ANCHOR = ' 1')
+        OUTPUT = '1 ' DATATYPE(V) ' [' V '] ' &ANCHOR
+        V = (&ANCHOR = 2.5)
+        OUTPUT = '2 ' DATATYPE(V) ' [' V '] ' &ANCHOR
+        V = (&TRIM = '')
+        OUTPUT = '3 ' DATATYPE(V) ' [' V '] ' &TRIM
+        V = (&ERRTEXT = 5)
+        OUTPUT = '4 ' DATATYPE(V) ' [' V '] ' &ERRTEXT
+        V = (&MAXLNGTH = '5000')
+        OUTPUT = '5 ' DATATYPE(V) ' [' V '] ' &MAXLNGTH
+        V = (&ANCHOR = '0') 'z'
+        OUTPUT = '6 ' DATATYPE(V) ' [' V '] ' &ANCHOR
+        'abc' ? BREAK((&FULLSCAN = 'c')) . W                :S(Y7)
+        OUTPUT = '7 F ' &ERRTYPE                            :(E7)
+Y7      OUTPUT = '7 S ' W
+E7      'abc' ? LEN((&TRIM = '1')) . W
+        OUTPUT = '8 ' W ' ' &TRIM
+END

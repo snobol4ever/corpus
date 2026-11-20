@@ -1,0 +1,5 @@
+        N = 0
+        dest = CODE(' N = 42 :(end)')
+        EQ(1, 2)  :f[dest]
+        N = 99
+END

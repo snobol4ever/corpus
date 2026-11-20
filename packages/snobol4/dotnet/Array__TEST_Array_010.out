@@ -1,0 +1,17 @@
+
+
+
+Array__TEST_Array_010.sno(3) : ERROR 235 -- subscripted operand is not table or array
+
+
+
+
+
+in file              Array__TEST_Array_010.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11352
+memory left (bytes)  1037216

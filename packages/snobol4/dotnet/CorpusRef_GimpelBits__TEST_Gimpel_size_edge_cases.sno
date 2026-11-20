@@ -1,0 +1,6 @@
+
+        OUTPUT = SIZE('')
+        OUTPUT = SIZE('a')
+        OUTPUT = SIZE('hello world')
+        OUTPUT = SIZE(DUPL('x', 100))
+END

@@ -1,0 +1,6 @@
+
+        DATA('node(val,next)')
+        N = node('hello', '')
+        R1 = DATATYPE(N)
+        R2 = val(N)
+END

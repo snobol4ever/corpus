@@ -1,0 +1,18 @@
+
+
+
+SetExitContinue__TEST_SetExit_continue_without_an_error_is_error_37__2.sno(2) : ERROR 037 -- goto continue with no prece
+ding error
+
+
+
+
+
+in file              SetExitContinue__TEST_SetExit_continue_without_an_error_is_error_37__2.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11272
+memory left (bytes)  1037296

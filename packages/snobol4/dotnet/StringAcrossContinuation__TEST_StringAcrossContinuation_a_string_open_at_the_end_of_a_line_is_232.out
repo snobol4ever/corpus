@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:47:44 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 'a
+                    !
+StringAcrossContinuation__TEST_StringAcrossContinuation_a_string_open_at_the_end_of_a_line_is_232.sno(1,13) : ERROR 232 
+-- syntax error: unmatched string quote

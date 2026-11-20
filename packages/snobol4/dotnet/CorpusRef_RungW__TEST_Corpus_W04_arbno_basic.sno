@@ -1,0 +1,6 @@
+
+        subject = 'ababX'
+        subject (ARBNO('ab') 'X')  :F(e001)
+        OUTPUT = 'PASS W04/001: arbno matched'   :(END)
+e001    OUTPUT = 'FAIL W04/001: arbno should match'
+END

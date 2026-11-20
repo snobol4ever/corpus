@@ -1,0 +1,6 @@
+
+        INTEGER('42')                                               :S(YES)F(NO)
+YES     RESULT = 'numeric'
+        :(END)
+NO      RESULT = 'not numeric'
+END

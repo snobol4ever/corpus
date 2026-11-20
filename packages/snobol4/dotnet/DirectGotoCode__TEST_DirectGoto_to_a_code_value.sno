@@ -1,0 +1,8 @@
+        C = CODE(' OUTPUT = "in code" :(BACK)')
+        :[C]
+BACK    OUTPUT = 'back'
+        DEFINE('LP()')                 :(LP_END)
+LP      :[CODE(' LP = "lp" :(RETURN)')]
+LP_END  OUTPUT = 'LP=' LP()
+        :[CODE(' OUTPUT = "direct"')]
+END

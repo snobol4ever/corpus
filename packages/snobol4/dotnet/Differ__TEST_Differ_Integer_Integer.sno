@@ -1,0 +1,7 @@
+
+        a = 2
+        b = 2
+        DIFFER(a,b)    :S(diff)
+        out = 'differ'    :(END)
+diff     out = 'not differ'
+end;END

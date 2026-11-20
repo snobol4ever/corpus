@@ -1,0 +1,11 @@
+
+        &ANCHOR = 0
+        digits = '0123456789'
+        integer = (ANY('+-') | '') SPAN(digits)
+        subject = 'set -43 volts'
+        subject integer . integer1  :F(n)
+        subject = 'set -43.625 volts'
+        subject integer . integer2  :F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

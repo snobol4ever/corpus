@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:06:57 2026
+
+
+
+                                                                                                                page 1
+
+2       +       3
+                !
+CompileErrorReport__TEST_CompileErrorReport_a_continued_statement_reports_the_line_where_it_was_detected.sno(4,9) : ERRO
+R 226 -- syntax error: missing right paren

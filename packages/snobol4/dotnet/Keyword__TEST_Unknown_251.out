@@ -1,0 +1,17 @@
+
+
+
+Keyword__TEST_Unknown_251.sno(2) : ERROR 251 -- keyword operand is not name of defined keyword
+
+
+
+
+
+in file              Keyword__TEST_Unknown_251.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11256
+memory left (bytes)  1037312

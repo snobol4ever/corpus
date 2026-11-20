@@ -1,0 +1,10 @@
+        &ERRLIMIT = 5
+        SETEXIT(.H1)
+        R = EVAL('1 +')                 :S(B)
+        OUTPUT = 'eval failed lim=' &ERRLIMIT ' t=' &ERRTYPE   :(B)
+H1      OUTPUT = 'handler 1 t=' &ERRTYPE ' lim=' &ERRLIMIT     :(CONTINUE)
+B       SETEXIT(.H2)
+        C = CODE(' X = (')              :S(END)
+        OUTPUT = 'code failed lim=' &ERRLIMIT ' t=' &ERRTYPE   :(END)
+H2      OUTPUT = 'handler 2 t=' &ERRTYPE ' lim=' &ERRLIMIT     :(CONTINUE)
+END

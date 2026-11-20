@@ -1,0 +1,7 @@
+
+        DEFINE('FACT(N)')                            :(FACT_END)
+FACT    FACT        =  LE(N, 1) 1                    :S(RETURN)
+        FACT        =  N * FACT(N - 1)               :(RETURN)
+FACT_END
+        OUTPUT = FACT(10)
+END

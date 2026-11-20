@@ -1,0 +1,39 @@
+
+
+
+dump of natural variables
+
+A = ARRAY(2) #1
+G = PT #3
+N = 'a'
+S = '1 N=o A1=STRING m,2 N=o Tk=m,3 N=o U=m,4 N=o A1=a,5 N=o A1=ab,6 N=a'
+T = TABLE(11) #2
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'AssignNameHolder__TEST_AssignNameHolder_an_element_or_field_holding_an_expression_is_assigned_itself.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'AssignNameHolder__TEST_AssignNameHolder_an_element_or_field_holding_an_expression_is_assigned_itself.sno'
+&LASTLINE = 21
+&LASTNO = 21
+&LINE = 22
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 22
+&STLIMIT = 2147483647
+&STNO = 22
+&TRACE = 0
+&TRIM = 1

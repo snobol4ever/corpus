@@ -1,0 +1,18 @@
+
+
+
+UndefinedOperators__TEST_UndefinedOperators_a_binary_operator_nobody_defined_is_error_29__3.sno(1) : ERROR 029 -- undefi
+ned operator referenced
+
+
+
+
+
+in file              UndefinedOperators__TEST_UndefinedOperators_a_binary_operator_nobody_defined_is_error_29__3.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11360
+memory left (bytes)  1037208

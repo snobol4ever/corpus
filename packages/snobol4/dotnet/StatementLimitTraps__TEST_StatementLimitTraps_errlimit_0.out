@@ -1,0 +1,24 @@
+1
+2
+3
+4
+5
+6
+
+
+
+StatementLimitTraps__TEST_StatementLimitTraps_errlimit_0.sno(4) : ERROR 244 -- statement count exceeds value of stlimit 
+keyword
+
+
+
+
+
+in file              StatementLimitTraps__TEST_StatementLimitTraps_errlimit_0.sno
+in line              4
+in statement         4
+stmts executed       20
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11864
+memory left (bytes)  1036704

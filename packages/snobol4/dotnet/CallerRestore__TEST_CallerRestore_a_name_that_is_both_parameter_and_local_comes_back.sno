@@ -1,0 +1,6 @@
+
+        DEFINE('H(R)R')                   :(EH)
+H       R = 'inner'                       :(RETURN)
+EH      R = 'outer'
+        H('arg')
+END

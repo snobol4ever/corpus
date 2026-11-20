@@ -1,0 +1,7 @@
+
+        &ANCHOR = 1
+        subject = '(abc'
+        subject BAL RPOS(0)   :S(bad)
+        result = 'ok'   :(END)
+bad     result = 'bad'
+END

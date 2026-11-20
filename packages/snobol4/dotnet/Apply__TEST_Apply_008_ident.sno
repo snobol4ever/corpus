@@ -1,0 +1,6 @@
+
+        FN = 'IDENT'
+        APPLY(FN, 'x', 'x')   :S(OK)F(BAD)
+OK      R = 'ok'   :(END)
+BAD     R = 'bad'
+END

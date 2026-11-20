@@ -1,0 +1,7 @@
+
+        subject = 'foobar'
+        pat = 'baz' | 'bar'
+        subject pat              :F(e001)
+        OUTPUT = 'PASS W03/002: alt second branch matched'   :(END)
+e001    OUTPUT = 'FAIL W03/002: alt second branch should match'
+END

@@ -1,0 +1,20 @@
+	SETEXIT(.f)
+	&ERRLIMIT = 10
+	&STLIMIT = 1000
+	DEFINE("s()")
+	TRACE('STCOUNT','KEYWORD',,.s)
+	&TRACE = 1000
+
+	OUTPUT = 'a'
+	&z = 1
+	OUTPUT = 'b'
+	OUTPUT = 'c'	:(END)
+
+f	OUTPUT = 'err: ' &ERRTYPE ' (' &ERRTEXT ') @S' &LASTNO
+	SETEXIT(.f)
+	&ERRLIMIT = 10
+	:(SCONTINUE)
+
+s	OUTPUT = 'S' &LASTNO	:(RETURN)
+
+END

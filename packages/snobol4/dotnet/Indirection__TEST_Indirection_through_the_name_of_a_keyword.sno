@@ -1,0 +1,10 @@
+
+        K = .&ANCHOR
+        $K = 1
+        A = &ANCHOR
+        B = $K
+        &ANCHOR = 0
+        K = .&TRIM
+        $K = 1
+        C = &TRIM
+END

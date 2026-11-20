@@ -1,0 +1,4 @@
+        A = 'abc'
+       -    IsType(cpmExpr, 'expression')                                                               :f(Xerror(239))
+        OUTPUT = 'end'
+END

@@ -1,0 +1,6 @@
+
+        r = 'success'
+        LNE('abc', 'abc') :S(bad)
+        r = 'ok'          :(END)
+bad     r = 'bad'
+END

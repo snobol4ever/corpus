@@ -1,0 +1,6 @@
+
+        A = ARRAY(3)
+        A[2] = 'set'
+        OUTPUT = IDENT(A[1]) 'empty'
+        OUTPUT = A[2]
+END

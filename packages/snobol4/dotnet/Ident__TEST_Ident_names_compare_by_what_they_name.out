@@ -1,0 +1,40 @@
+
+
+
+dump of natural variables
+
+A = ARRAY(3) #1
+B = ARRAY(3) #2
+K = NAME
+N = .X
+R = 'aefil'
+T = TABLE(11) #3
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Ident__TEST_Ident_names_compare_by_what_they_name.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Ident__TEST_Ident_names_compare_by_what_they_name.sno'
+&LASTLINE = 15
+&LASTNO = 17
+&LINE = 16
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 18
+&STLIMIT = 2147483647
+&STNO = 18
+&TRACE = 0
+&TRIM = 1

@@ -1,0 +1,3 @@
+-EJECT,LIST
+        OUTPUT = 'x'
+END

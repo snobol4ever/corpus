@@ -1,0 +1,4 @@
+        &ERRLIMIT = 5
+        :($(FAIL))
+        OUTPUT = 'after'
+END

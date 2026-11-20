@@ -1,0 +1,5 @@
+
+        INLINE2 = 'blank'
+        INLINE2 = :(APP)
+APP
+END

@@ -1,0 +1,5 @@
+
+        OUTPUT = DUPL('ab', 4)
+        OUTPUT = DUPL('-', 10)
+        OUTPUT = SIZE(DUPL('x', 0))
+END

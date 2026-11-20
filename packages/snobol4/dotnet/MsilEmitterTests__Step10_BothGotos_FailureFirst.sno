@@ -1,0 +1,6 @@
+
+        EQ(1, 2)    :F(no)S(yes)
+        result = 'neither'  :(END)
+yes     result = 'yes'      :(END)
+no      result = 'no'       :(END)
+END

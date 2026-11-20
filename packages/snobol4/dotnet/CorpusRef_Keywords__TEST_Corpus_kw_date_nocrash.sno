@@ -1,0 +1,6 @@
+
+        D = DATE()
+        GT(SIZE(D), 0)                              :S(ok)
+        OUTPUT = 'FAIL: DATE() empty'               :(END)
+ok      OUTPUT = 'PASS'
+END

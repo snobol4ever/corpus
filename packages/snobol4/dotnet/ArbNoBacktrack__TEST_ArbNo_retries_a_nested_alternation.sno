@@ -1,0 +1,6 @@
+
+        subj = 'ab'
+        subj ? POS(0) ARBNO(('a' | 'ab') | 'c') RPOS(0)   :F(n)
+        result = 'S'       :(END)
+n       result = 'F'
+END

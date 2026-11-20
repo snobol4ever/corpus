@@ -1,0 +1,5 @@
+
+        T = TABLE()
+        T['X'] = 42
+        OUTPUT = T['X']
+END

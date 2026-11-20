@@ -1,0 +1,6 @@
+        OUTPUT = '@a'
+        &OUTPUT = 0
+        'abc' ? LEN(1) @OUTPUT
+        &OUTPUT = 1
+        OUTPUT = '@b'
+END

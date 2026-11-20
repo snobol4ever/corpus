@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:07:03 2026
+
+
+
+                                                                                                                page 1
+
+1               A = 1; B = (2 +
+                              !
+CompileErrorReport__TEST_CompileErrorReport_a_second_statement_on_a_line_reports_the_column_in_the_line.sno(1,23) : ERRO
+R 221 -- syntax error: missing operand

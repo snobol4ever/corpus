@@ -1,0 +1,6 @@
+        E = CONVERT('i', 'EXPRESSION')
+        R = DATATYPE(E) ' ' DATATYPE(CONVERT(E, 'PATTERN')) ' ' DATATYPE(CONVERT(*X, 'PATTERN'))
+        X = 'q'
+        'aqb' ? CONVERT(*X, 'PATTERN') . M
+        R = R ' ' M
+END

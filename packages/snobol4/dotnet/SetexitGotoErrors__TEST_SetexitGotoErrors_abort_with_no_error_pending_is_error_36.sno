@@ -1,0 +1,4 @@
+	OUTPUT = 'a'
+	:(ABORT)
+	OUTPUT = 'b'
+END

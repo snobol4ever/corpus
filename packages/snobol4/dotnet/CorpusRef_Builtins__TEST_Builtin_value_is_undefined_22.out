@@ -1,0 +1,17 @@
+
+
+
+CorpusRef_Builtins__TEST_Builtin_value_is_undefined_22.sno(3) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              CorpusRef_Builtins__TEST_Builtin_value_is_undefined_22.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11464
+memory left (bytes)  1037104

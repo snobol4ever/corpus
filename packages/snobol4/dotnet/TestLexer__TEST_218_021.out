@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:51:42 2026
+
+
+
+                                                                                                                page 1
+
+1           :S(end)S<end>
+                        !
+TestLexer__TEST_218_021.sno(1,17) : ERROR 218 -- syntax error: duplicated goto field

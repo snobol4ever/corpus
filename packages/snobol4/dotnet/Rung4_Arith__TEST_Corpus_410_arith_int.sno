@@ -1,0 +1,30 @@
+
+        DIFFER(3 + 2, 5)                   :F(e001)
+        OUTPUT = 'FAIL 410/001: 3+2'                   :(END)
+e001
+        DIFFER(3 - 2, 1)                   :F(e002)
+        OUTPUT = 'FAIL 410/002: 3-2'                   :(END)
+e002
+        DIFFER(3 * 2, 6)                   :F(e003)
+        OUTPUT = 'FAIL 410/003: 3*2'                   :(END)
+e003
+        DIFFER(5 / 2, 2)                   :F(e004)
+        OUTPUT = 'FAIL 410/004: 5/2 integer division'  :(END)
+e004
+        DIFFER(2 ** 3, 8)                   :F(e005)
+        OUTPUT = 'FAIL 410/005: 2**3'                  :(END)
+e005
+        DIFFER('3' + 2, 5)                   :F(e006)
+        OUTPUT = 'FAIL 410/006: string+int coerce'     :(END)
+e006
+        DIFFER(3 + '-2', 1)                   :F(e007)
+        OUTPUT = 'FAIL 410/007: int+neg-string'        :(END)
+e007
+        DIFFER('1' + '0', 1)                   :F(e008)
+        OUTPUT = 'FAIL 410/008: string+string coerce'  :(END)
+e008
+        DIFFER(5 + '', 5)                   :F(e009)
+        OUTPUT = 'FAIL 410/009: null addend is zero'   :(END)
+e009
+        OUTPUT = 'PASS 410_arith_int (9/9)'
+END

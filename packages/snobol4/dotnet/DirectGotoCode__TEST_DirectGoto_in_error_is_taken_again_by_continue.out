@@ -1,0 +1,21 @@
+ERROR 24
+ERROR 332
+ERROR 332
+
+
+
+DirectGotoCode__TEST_DirectGoto_in_error_is_taken_again_by_continue.sno(3) : ERROR 332 -- goto continue with error in fa
+ilure goto
+
+
+
+
+
+in file              DirectGotoCode__TEST_DirectGoto_in_error_is_taken_again_by_continue.sno
+in line              3
+in statement         6
+stmts executed       9
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12144
+memory left (bytes)  1036424

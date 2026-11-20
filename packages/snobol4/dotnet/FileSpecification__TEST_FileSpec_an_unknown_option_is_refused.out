@@ -1,0 +1,18 @@
+
+
+
+FileSpecification__TEST_FileSpec_an_unknown_option_is_refused.sno(2) : ERROR 160 -- inappropriate file specification for
+ output
+
+
+
+
+
+in file              FileSpecification__TEST_FileSpec_an_unknown_option_is_refused.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11544
+memory left (bytes)  1037024

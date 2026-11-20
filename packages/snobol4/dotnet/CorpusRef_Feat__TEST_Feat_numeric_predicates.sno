@@ -1,0 +1,11 @@
+
+        GT(5, 3)                                   :F(FAIL)
+        LT(3, 5)                                   :F(FAIL)
+        GE(5, 5)                                   :F(FAIL)
+        LE(3, 3)                                   :F(FAIL)
+        EQ(4, 4)                                   :F(FAIL)
+        GT(3, 5)                                   :S(FAIL)
+        LT(5, 3)                                   :S(FAIL)
+        OUTPUT = 'PASS'                            :(END)
+FAIL    OUTPUT = 'FAIL'
+END

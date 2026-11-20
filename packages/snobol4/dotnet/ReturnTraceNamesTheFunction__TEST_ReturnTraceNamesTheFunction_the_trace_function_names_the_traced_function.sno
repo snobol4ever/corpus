@@ -1,0 +1,9 @@
+        DEFINE('F(X)')                     :(FEND)
+F       F = X                              :(RETURN)
+FEND    DEFINE('TF()N')                    :(TFEND)
+TF      N = .F
+        OUTPUT = 'in trace F=' $N          :(RETURN)
+TFEND   TRACE('F','RETURN',,'TF')
+        &TRACE = 10
+        OUTPUT = F(5)
+END

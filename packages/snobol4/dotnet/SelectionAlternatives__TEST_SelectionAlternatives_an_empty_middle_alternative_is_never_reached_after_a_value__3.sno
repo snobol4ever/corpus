@@ -1,0 +1,5 @@
+        X = 'old'
+        X = (A,,B)
+        OUTPUT = 'x=[' X ']'
+        OUTPUT = '@b'
+END

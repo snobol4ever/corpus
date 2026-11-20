@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:54:28 2026
+
+
+
+                                                                                                                page 1
+
+1           :S(end)F(end;end
+                        !
+TestLexer__TEST_227_002.sno(1,17) : ERROR 227 -- syntax error: right paren missing from goto

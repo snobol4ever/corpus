@@ -1,0 +1,7 @@
+
+        A = 42
+        N = 'A'
+        DIFFER($N, 42)                              :F(ok)
+        OUTPUT = 'FAIL'                             :(END)
+ok      OUTPUT = 'PASS'
+END

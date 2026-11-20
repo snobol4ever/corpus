@@ -1,0 +1,17 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 16:45:20 2026
+
+
+
+                                                                                                                page 1
+
+1               X = '┌' `
+                          !
+AnErrorColumnCountsBytes__TEST_AnErrorColumnCountsBytes.sno(1,19) : ERROR 230 -- syntax error: illegal character
+
+2               Y = 'éé' +
+                           !
+AnErrorColumnCountsBytes__TEST_AnErrorColumnCountsBytes.sno(2,20) : ERROR 221 -- syntax error: missing operand

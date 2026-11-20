@@ -1,0 +1,7 @@
+
+* comment line
+        OUTPUT = 'A ' &STNO ' ' &LINE ' ' &LASTNO ' ' &LASTLINE
+        X = 1 ; OUTPUT = 'B ' &STNO ' ' &LINE ' ' &LASTNO ' ' &LASTLINE
+        OUTPUT = 'C ' &STNO ' ' &LINE
++               ' ' &LASTNO ' ' &LASTLINE
+END

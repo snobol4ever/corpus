@@ -1,0 +1,6 @@
+        &ERRLIMIT = 5
+        X = INPUT
+        Y = FOO(INPUT)  :S(SK)F(FL)
+SK      OUTPUT = 'S err ' &ERRTYPE  :(END)
+FL      OUTPUT = 'F err ' &ERRTYPE
+END

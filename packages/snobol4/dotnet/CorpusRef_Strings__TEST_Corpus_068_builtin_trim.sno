@@ -1,0 +1,3 @@
+
+        OUTPUT = SIZE(TRIM('hello   '))
+END

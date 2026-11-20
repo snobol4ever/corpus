@@ -1,0 +1,4 @@
+        OUTPUT = '@a'
+        OUTPUT X = 'Current Directory Path: ' sDirPath
+        OUTPUT = '@b'
+END

@@ -1,0 +1,4 @@
+        &ERRLIMIT = 4
+        &DUMP = 1
+        :($'NOLAB')
+END

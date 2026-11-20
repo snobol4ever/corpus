@@ -1,0 +1,7 @@
+
+        X = 'hello world'
+        X LEN(5) . R1 LEN(1) LEN(5) . R2                          :S(YES)
+        RESULT = 'fail'
+        :(END)
+YES     RESULT = R1 '/' R2
+END

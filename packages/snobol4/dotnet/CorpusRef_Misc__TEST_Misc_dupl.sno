@@ -1,0 +1,6 @@
+
+        OUTPUT = DUPL('ab', 3)
+        OUTPUT = DUPL('x', 1)
+        OUTPUT = DUPL('y', 0)
+        OUTPUT = SIZE(DUPL('abc', 4))
+END

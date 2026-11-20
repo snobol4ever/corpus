@@ -1,0 +1,5 @@
+
+        r = 'success'
+        LNE('A', 'a') :S(END)
+        r = 'failure'
+END

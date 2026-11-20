@@ -1,0 +1,3 @@
+
+        OUTPUT = REVERSE('x')
+END

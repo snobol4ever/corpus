@@ -1,0 +1,7 @@
+
+        X = 'ac'
+        X 'a' FENCE ('b' | 'c') . V                :S(ok)F(END)
+ok      DIFFER(V, 'c')                              :F(pass)
+        OUTPUT = 'FAIL: FENCE alt'                  :(END)
+pass    OUTPUT = 'PASS'
+END

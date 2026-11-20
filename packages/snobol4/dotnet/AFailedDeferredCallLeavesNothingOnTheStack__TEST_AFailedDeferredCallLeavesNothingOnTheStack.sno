@@ -1,0 +1,4 @@
+        X = 'xyab' ? (*EQ(1,2) | 'ab')
+        OUTPUT = '[' X ']'
+        OUTPUT = '7[' ('ab' ? (*EQ(1,2) | 'b')) ']'
+END

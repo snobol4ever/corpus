@@ -1,0 +1,7 @@
+
+        &ANCHOR = 0
+        subject = 'aaa'
+        subject (LEN(1) FAIL)   :S(bad)F(ok)
+bad     result = 'bad'   :(END)
+ok      result = 'ok'
+END

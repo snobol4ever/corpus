@@ -1,0 +1,10 @@
+
+        GT(&MAXLNGTH, 0)                            :S(ok1)
+        OUTPUT = 'FAIL: &MAXLNGTH not positive'     :(END)
+ok1     OLD = &MAXLNGTH
+        &MAXLNGTH = 2000
+        DIFFER(&MAXLNGTH, 2000)                     :F(ok2)
+        OUTPUT = 'FAIL: &MAXLNGTH not set'          :(END)
+ok2     &MAXLNGTH = OLD
+        OUTPUT = 'PASS'
+END

@@ -1,0 +1,6 @@
+
+        t = TIME()
+        t2 = INTEGER(t)   :F(bad)
+        result = 'ok'     :(END)
+bad     result = 'bad'
+END

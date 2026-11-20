@@ -1,0 +1,9 @@
+
+        DEFINE('EVEN(N)')                          :(EVEN_END)
+EVEN    EQ(REMDR(N,2), 0)                         :S(RETURN)F(FRETURN)
+EVEN_END
+        EVEN(4)                                    :F(FAIL)
+        EVEN(3)                                    :S(FAIL)
+        OUTPUT = 'PASS'                            :(END)
+FAIL    OUTPUT = 'FAIL'
+END

@@ -1,0 +1,9 @@
+
+        &ANCHOR = 0
+        subject = '-1a-b-'
+        pattern = ANY('ab') | '1' ABORT
+        subject pattern :F(n)
+        subject pattern      :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

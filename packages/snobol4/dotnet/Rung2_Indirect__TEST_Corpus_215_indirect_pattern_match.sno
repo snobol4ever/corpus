@@ -1,0 +1,7 @@
+
+        varname = 'subject'
+        subject = 'hello world'
+        $varname 'world'   :F(FAIL)
+        OUTPUT = 'PASS 215_indirect_pattern_match'   :(END)
+FAIL    OUTPUT = 'FAIL 215'
+END

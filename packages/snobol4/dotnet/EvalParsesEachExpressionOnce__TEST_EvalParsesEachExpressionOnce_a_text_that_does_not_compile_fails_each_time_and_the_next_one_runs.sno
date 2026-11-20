@@ -1,0 +1,8 @@
+
+        &ERRLIMIT = 100
+        a = EVAL('1 +')
+        b = EVAL('2 + 3')
+        c = EVAL('1 +')
+        d = EVAL('4 * 5')
+        OUTPUT = 'a=' a '|b=' b '|c=' c '|d=' d
+END

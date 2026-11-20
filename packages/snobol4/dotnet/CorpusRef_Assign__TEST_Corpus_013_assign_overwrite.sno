@@ -1,0 +1,5 @@
+
+        X = 'first'
+        X = 'second'
+        OUTPUT = X
+END

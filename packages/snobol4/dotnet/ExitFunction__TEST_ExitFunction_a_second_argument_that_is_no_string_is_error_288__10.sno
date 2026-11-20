@@ -1,0 +1,4 @@
+        &ERRLIMIT = 5
+        EXIT('echo hi', TABLE())
+        OUTPUT = 'after ' &ERRTYPE
+END

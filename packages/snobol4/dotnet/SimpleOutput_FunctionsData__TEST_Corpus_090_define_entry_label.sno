@@ -1,0 +1,6 @@
+
+        DEFINE('bumpit(v)', .bumpit)                                :(bumpend)
+bumpit  bumpit = v + 1                                             :(RETURN)
+bumpend
+        RESULT = bumpit(41)
+END

@@ -1,0 +1,8 @@
+
+        OUTPUT(.F, 1, 'eject004.out')
+        EJECT(1)
+        EJECT(1)
+        EJECT(1)
+        ENDFILE(1)
+        result = 'ok'
+END

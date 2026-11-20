@@ -1,0 +1,19 @@
+        &ERRLIMIT = 100
+        DEFINE('T()')                                   :(TE)
+T       T = EVAL("~$''")                                :S(RETURN)F(FRETURN)
+TE      DEFINE('U()')                                   :(UE)
+U       U = T()                                         :S(RETURN)F(FRETURN)
+UE      R = EVAL("~$''")                                :S(Y1)
+        OUTPUT = '1 level 0: F ' &ERRTYPE               :(E1)
+Y1      OUTPUT = '1 level 0: S'
+E1      R = T()                                         :S(Y2)
+        OUTPUT = '2 in a function: F ' &ERRTYPE         :(E2)
+Y2      OUTPUT = '2 in a function: S'
+E2      R = U()                                         :S(Y3)
+        OUTPUT = '3 two levels down: F ' &ERRTYPE       :(E3)
+Y3      OUTPUT = '3 two levels down: S'
+E3      R = EVAL('T()')                                 :S(Y4)
+        OUTPUT = '4 EVAL of a function that EVALs: F ' &ERRTYPE   :(E4)
+Y4      OUTPUT = '4 EVAL of a function that EVALs: S'
+E4
+END

@@ -1,0 +1,6 @@
+
+        N = 0
+        EQ(1, 1)    :F(skip)
+        N = 42
+skip    N = N + 1
+END

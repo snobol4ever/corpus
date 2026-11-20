@@ -1,0 +1,4 @@
+
+        INLINE2 = 'blank'
+        a = (INLINE2 =, 'blank')
+END

@@ -1,0 +1,5 @@
+        X = 'old'
+        X = LT(2, 1) ((OUTPUT = 'side'), 1)  :F(NO)
+        OUTPUT = 'x=[' X '] S'  :(END)
+NO      OUTPUT = 'x=[' X '] F'
+END

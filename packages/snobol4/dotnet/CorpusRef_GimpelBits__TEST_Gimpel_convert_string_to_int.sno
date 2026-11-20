@@ -1,0 +1,4 @@
+
+        X = CONVERT('42', 'INTEGER')
+        OUTPUT = X + 8
+END

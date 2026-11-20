@@ -1,0 +1,12 @@
+        &ERRLIMIT = 100
+        N = 0
+        DEFINE('T3()')                                  :(T3E)
+T3      T3 = 'p' EVAL("(1 / N, 'x')")                   :S(RETURN)F(FRETURN)
+T3E     DEFINE('T4()')                                  :(T4E)
+T4      T4 = SIZE(EVAL("(1 / N, 'xy')"))                :S(RETURN)F(FRETURN)
+T4E     DEFINE('T6()')                                  :(T6E)
+T6      T6 = EVAL("~EVAL('~(1 / N)')")                  :S(RETURN)F(FRETURN)
+T6E     OUTPUT = '3 ' (T3(), 'F')
+        OUTPUT = '4 ' (T4(), 'F')
+        OUTPUT = '6 ' (T6() 'S', 'F')
+END

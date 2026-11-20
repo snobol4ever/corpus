@@ -1,0 +1,4 @@
+
+        subject = 'abcdef'
+        subject LEN(3) . first LEN(3) . second
+END

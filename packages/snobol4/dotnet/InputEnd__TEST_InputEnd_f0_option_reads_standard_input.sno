@@ -1,0 +1,5 @@
+        INPUT(.X,5,' -f0')   :F(BAD)
+        OUTPUT = 'got ' X
+        OUTPUT = 'got ' X   :(END)
+BAD     OUTPUT = 'failed'
+END

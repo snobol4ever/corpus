@@ -1,0 +1,7 @@
+
+        S = 'abracadabra'
+        N = 0
+LOOP    S 'a' =                                            :F(DONE)
+        N = N + 1                                          :(LOOP)
+DONE    OUTPUT = N
+END

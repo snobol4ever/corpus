@@ -1,0 +1,7 @@
+
+        subject = 'foobar'
+        pat = 'foo' 'bar'
+        subject pat              :F(e001)
+        OUTPUT = 'PASS W02/001: seq match succeeded'         :(END)
+e001    OUTPUT = 'FAIL W02/001: seq match should succeed'
+END

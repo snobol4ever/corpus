@@ -1,0 +1,10 @@
+        &ERRLIMIT = 10
+        X = EVAL('1 / 0')
+        OUTPUT = 'eval ' &ERRTYPE
+        &ERRTYPE = 0
+        C = CODE(' Y = LEN(-1)')
+        OUTPUT = 'code ' &ERRTYPE
+        &ERRTYPE = 0
+        W = EVAL('2 - 3')
+        OUTPUT = 'w ' W
+END

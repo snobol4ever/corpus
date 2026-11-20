@@ -1,0 +1,5 @@
+
+        A = ARRAY(5)
+        A['2.0'] = 'two'
+        R = A[2] ' ' PROTOTYPE(ARRAY(3.5))
+END

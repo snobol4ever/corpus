@@ -1,0 +1,7 @@
+
+        r = 'success'        
+        a = ANY('this is a test')
+        b = 'this is not a test'
+        LNE(a,b) :S(END)
+        r = 'failure'
+END

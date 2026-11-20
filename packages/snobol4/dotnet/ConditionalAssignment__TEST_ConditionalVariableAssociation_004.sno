@@ -1,0 +1,4 @@
+
+        subject = 'hello world'
+        subject ARB . captured 'world'
+END

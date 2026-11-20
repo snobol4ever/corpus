@@ -1,0 +1,11 @@
+
+        IDENT('a', 'a')                            :F(FAIL)
+        DIFFER('a', 'b')                           :F(FAIL)
+        INTEGER(42)                                :F(FAIL)
+        LGT('b', 'a')                              :F(FAIL)
+        IDENT(REPLACE(DATATYPE(42),&LCASE,&UCASE), 'INTEGER')  :F(FAIL)
+        IDENT(REPLACE(DATATYPE('hi'),&LCASE,&UCASE), 'STRING') :F(FAIL)
+        IDENT(CONVERT(3, 'STRING'), '3')           :F(FAIL)
+        OUTPUT = 'PASS'                            :(END)
+FAIL    OUTPUT = 'FAIL'
+END

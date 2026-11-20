@@ -1,0 +1,17 @@
+
+        DEFINE('myfunc(n)')                            :(myfunc_end)
+myfunc  myfunc = n * 2                                 :(RETURN)
+myfunc_end
+        NE(myfunc(3), 6)           :F(e001)
+        OUTPUT = 'FAIL 1011/001: first definition myfunc(3)=6' :(END)
+e001
+        DIFFER(DEFINE('myfunc(myfunc)', 'myfunc2'))                   :F(e002)
+        OUTPUT = 'FAIL 1011/002: define returns function name' :(END)
+e002    :(myfunc2_end)
+myfunc2 myfunc = NE(myfunc, 1) myfunc * myfunc(myfunc - 1) :(RETURN)
+myfunc2_end
+        NE(myfunc(4), 24)          :F(e003)
+        OUTPUT = 'FAIL 1011/003: redefined myfunc(4)=24'   :(END)
+e003
+        OUTPUT = 'PASS 1011_func_redefine (3/3)'
+END

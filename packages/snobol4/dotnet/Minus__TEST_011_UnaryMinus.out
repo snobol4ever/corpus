@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:34:05 2026
+
+
+
+                                                                                                                page 1
+
+1        a = -'-9223372036854775808';end
+
+Minus__TEST_011_UnaryMinus.sno(1) : ERROR 011 -- negation caused integer overflow

@@ -1,0 +1,17 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:11:30 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST,SPACE x
+                    !
+ControlStatements__TEST_ControlStatements_space_of_a_name_with_a_listing.sno(1,13) : ERROR 247 -- invalid control statem
+ent
+
+1               OUTPUT = 'x'
+2       END

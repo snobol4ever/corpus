@@ -1,0 +1,7 @@
+
+        &ANCHOR = 0
+        subject = 'hello world'
+        subject ABORT   :S(y)F(n)
+y       result = 'wrong'  :(END)
+n       result = 'correct'
+END

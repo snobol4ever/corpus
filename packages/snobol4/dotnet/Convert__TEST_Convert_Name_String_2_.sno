@@ -1,0 +1,8 @@
+
+        A = '#$%'
+        OUTPUT = B = CONVERT(A, 'NAME')   :F(END)
+        OUTPUT = C = DATATYPE(B)
+        OUTPUT = D = CONVERT(B, 'STRING')   :F(END)
+        OUTPUT = E = DATATYPE(D)
+        OUTPUT = F = 'success'
+END

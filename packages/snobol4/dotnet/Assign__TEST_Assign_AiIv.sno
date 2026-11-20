@@ -1,0 +1,6 @@
+
+        a =  'subject'
+        b = ARRAY(20)
+        b[10] = 'replacement'
+        a = b[10]
+END

@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:59:27 2026
+
+
+
+                                                                                                                page 1
+
+1        a = EXP(1.23e45);END
+
+Trig__TEST_305_Exp.sno(1) : ERROR 305 -- exp produced real overflow

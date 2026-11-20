@@ -1,0 +1,9 @@
+
+        &ANCHOR = 0
+        subject = '12345'
+        char = '8'
+        gap = BREAKX(char)
+        subject gap . temp1  :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:38:36 2026
+
+
+
+                                                                                                                page 1
+
+1        a = +'a';end
+
+Plus__TEST_004_UnaryPlus.sno(1) : ERROR 004 -- affirmation operand is not numeric

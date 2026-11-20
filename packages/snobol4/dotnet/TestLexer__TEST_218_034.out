@@ -1,0 +1,35 @@
+
+
+
+dump of natural variables
+
+e = CODE
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'TestLexer__TEST_218_034.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'TestLexer__TEST_218_034.sno'
+&LASTLINE = 3
+&LASTNO = 3
+&LINE = 5
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 3
+&STLIMIT = 2147483647
+&STNO = 5
+&TRACE = 0
+&TRIM = 1

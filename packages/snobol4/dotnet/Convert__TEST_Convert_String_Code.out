@@ -1,0 +1,35 @@
+
+
+
+dump of natural variables
+
+S = 'L  A = A ' ' N; N = LT(N,10) N + 1 :S(L)F(DONE)'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Convert__TEST_Convert_String_Code.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Convert__TEST_Convert_String_Code.sno'
+&LASTLINE = 3
+&LASTNO = 3
+&LINE = 6
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 3
+&STLIMIT = 2147483647
+&STNO = 6
+&TRACE = 0
+&TRIM = 1

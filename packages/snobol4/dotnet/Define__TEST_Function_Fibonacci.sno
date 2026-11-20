@@ -1,0 +1,11 @@
+
+                    DEFINE('fibonacci(n)')  :(fibonacci_end)
+fibonacci           OUTPUT = n '  (' &FNCLEVEL ')'
+                    LE(n,1)  :S(next)
+                    fibonacci = fibonacci(n - 1) 
+                    fibonacci = fibonacci + fibonacci(n - 2)  
+                         :(RETURN)
+next                fibonacci = n  :(RETURN)    
+fibonacci_end       f = fibonacci(12)
+                    OUTPUT = f
+END

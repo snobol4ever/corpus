@@ -1,0 +1,5 @@
+
+        INLINE2 = 'blank'
+        a = TABLE(10)
+        a[INLINE2 =]
+END

@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        a = ANY('abc')
+        b = CONVERT(a,'name')  :F(END)
+        d = 'success'
+END

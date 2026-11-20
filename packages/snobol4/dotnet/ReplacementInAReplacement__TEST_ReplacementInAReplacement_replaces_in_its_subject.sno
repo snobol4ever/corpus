@@ -1,0 +1,26 @@
+        A = 'xyz'
+        X = A 'y' = 1
+        OUTPUT = 'X=[' X '] A=[' A ']'
+        A = 'xyz'
+        X = A 'y' 'z' = 2
+        OUTPUT = 'X=[' X '] A=[' A ']'
+        A = 'xyz'
+        C = 'abc'
+        X = A 'y' = C 'b' = 3
+        OUTPUT = 'X=[' X '] A=[' A '] C=[' C ']'
+        A = 'xyz'
+        C = 'abc'
+        A 'y' = C 'b' = 5
+        OUTPUT = 'A=[' A '] C=[' C ']'
+        T = TABLE()
+        T[1] = 'pqr'
+        X = T[1] 'q' = 'Q'
+        OUTPUT = 'X=[' X '] T1=[' T[1] ']'
+        A = 'xyz'
+        X = A LEN(1) . V = V V
+        OUTPUT = 'X=[' X '] A=[' A ']'
+        A = 'xyz'
+        X = A 'q' = 1                       :S(S1)F(F1)
+S1      OUTPUT = 'succ'                     :(END)
+F1      OUTPUT = 'fail X=[' X '] A=[' A ']'
+END

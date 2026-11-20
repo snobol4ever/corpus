@@ -1,0 +1,6 @@
+
+        '(A(B)C)D' ? &BAL . m1 'D'
+        '(A)(B)C' ? POS(0) &BAL . m2 'C'
+        '()(' ? POS(0) &BAL . m3 RPOS(1)
+        'AB)' ? POS(0) &BAL . m4 ')'
+END

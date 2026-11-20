@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:49:31 2026
+
+
+
+                                                                                                                page 1
+
+1               X = F( 1
+                       !
+SyntaxErrors__TEST_SyntaxErrors_missing_right_paren_of_a_call.sno(1,16) : ERROR 226 -- syntax error: missing right paren

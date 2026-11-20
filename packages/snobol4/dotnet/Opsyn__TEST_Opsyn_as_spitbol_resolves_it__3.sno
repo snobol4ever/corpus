@@ -1,0 +1,4 @@
+
+        OPSYN('PLUS', '+')
+        R = PLUS(1, 2)
+END

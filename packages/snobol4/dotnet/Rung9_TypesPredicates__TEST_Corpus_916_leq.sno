@@ -1,0 +1,18 @@
+
+        LEQ('abc', 'abc')          :S(e001)
+        OUTPUT = 'FAIL 916/001: leq(abc,abc) should succeed' :(END)
+e001
+        LEQ('abc', 'xyz')          :F(e002)
+        OUTPUT = 'FAIL 916/002: leq(abc,xyz) should fail'   :(END)
+e002
+        LEQ('', '')                :S(e003)
+        OUTPUT = 'FAIL 916/003: leq(null,null) should succeed' :(END)
+e003
+        LEQ('', 'a')               :F(e004)
+        OUTPUT = 'FAIL 916/004: leq(null,a) should fail'    :(END)
+e004
+        LEQ('A', 'a')              :F(e005)
+        OUTPUT = 'FAIL 916/005: leq(A,a) should fail (ordinal)' :(END)
+e005
+        OUTPUT = 'PASS 916_leq (5/5)'
+END

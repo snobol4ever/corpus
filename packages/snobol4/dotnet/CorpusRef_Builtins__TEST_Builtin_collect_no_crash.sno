@@ -1,0 +1,4 @@
+
+        COLLECT()
+        OUTPUT = 'PASS'
+END

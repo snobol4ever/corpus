@@ -1,0 +1,9 @@
+
+        DIFFER(REMDR(10, 3), 1)                   :F(e001)
+        OUTPUT = 'FAIL 414/001: remdr(10,3)'           :(END)
+e001
+        DIFFER(REMDR(11, 10), 1)                   :F(e002)
+        OUTPUT = 'FAIL 414/002: remdr(11,10)'          :(END)
+e002
+        OUTPUT = 'PASS 414_remdr (2/2)'
+END

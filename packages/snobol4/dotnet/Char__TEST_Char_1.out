@@ -1,0 +1,17 @@
+
+
+
+Char__TEST_Char_1.sno(2) : ERROR 281 -- char argument not integer
+
+
+
+
+
+in file              Char__TEST_Char_1.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11432
+memory left (bytes)  1037136

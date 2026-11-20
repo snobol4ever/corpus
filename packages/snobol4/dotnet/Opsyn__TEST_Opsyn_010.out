@@ -1,0 +1,17 @@
+
+
+
+Opsyn__TEST_Opsyn_010.sno(2) : ERROR 156 -- opsyn first arg is not correct operator name
+
+
+
+
+
+in file              Opsyn__TEST_Opsyn_010.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11312
+memory left (bytes)  1037256

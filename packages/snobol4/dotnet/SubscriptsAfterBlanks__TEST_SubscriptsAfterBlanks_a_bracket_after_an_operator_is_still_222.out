@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:02 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 + [1]
+                        !
+SubscriptsAfterBlanks__TEST_SubscriptsAfterBlanks_a_bracket_after_an_operator_is_still_222.sno(1,17) : ERROR 222 -- synt
+ax error: invalid use of left bracket

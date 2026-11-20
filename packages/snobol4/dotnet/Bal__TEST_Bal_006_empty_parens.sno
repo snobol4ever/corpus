@@ -1,0 +1,6 @@
+
+        subject = '()'
+        subject BAL . cap   :F(bad)
+        result = cap   :(END)
+bad     result = 'bad'
+END

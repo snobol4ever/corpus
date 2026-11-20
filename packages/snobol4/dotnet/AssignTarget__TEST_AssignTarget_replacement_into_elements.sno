@@ -1,0 +1,12 @@
+        A = ARRAY(3, 'abc')
+        A[1] 'a' = 'z'
+        K = 2
+        A[K] LEN(1) . S1 TAB(2) . S2 = S2 S1
+        T = TABLE()
+        T['k'] = 'abc'
+        T['k'] 'a' = 'w'
+        DATA('P(F)')
+        X = P('abc')
+        F(X) 'b' = 'y'
+        R = A[1] ' ' A[2] ' ' A[3] ' ' T['k'] ' ' F(X)
+END

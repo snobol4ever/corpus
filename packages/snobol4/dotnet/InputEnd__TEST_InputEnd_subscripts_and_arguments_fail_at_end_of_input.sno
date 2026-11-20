@@ -1,0 +1,4 @@
+        T = TABLE()
+L       T[INPUT] = 0                   :S(L)
+        OUTPUT = T['banana'] ' ' PROTOTYPE(CONVERT(T,'ARRAY'))
+END

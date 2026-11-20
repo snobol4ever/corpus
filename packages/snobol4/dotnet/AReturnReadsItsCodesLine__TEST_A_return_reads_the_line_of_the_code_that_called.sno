@@ -1,0 +1,11 @@
+ DEFINE('F()') :(E)
+F :(RETURN)
+E Z = *F() 'x'
+
+ A = ('x' ? Z) &LINE
+ B = EVAL('F()') &LINE
+
+ C = F() &LINE
+
+ D = EVAL('1') &LINE
+END

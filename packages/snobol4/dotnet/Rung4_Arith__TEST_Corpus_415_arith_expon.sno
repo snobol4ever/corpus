@@ -1,0 +1,12 @@
+
+        DIFFER(2 ^ 10, 1024)                   :F(e001)
+        OUTPUT = 'FAIL 415/001: 2^10=1024'             :(END)
+e001
+        DIFFER(3 ^ 3, 27)                   :F(e002)
+        OUTPUT = 'FAIL 415/002: 3^3=27'               :(END)
+e002
+        DIFFER(2 ^ 0, 1)                   :F(e003)
+        OUTPUT = 'FAIL 415/003: 2^0=1'                :(END)
+e003
+        OUTPUT = 'PASS 415_arith_expon (3/3)'
+END

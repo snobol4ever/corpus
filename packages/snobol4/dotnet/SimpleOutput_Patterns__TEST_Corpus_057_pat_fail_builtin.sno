@@ -1,0 +1,7 @@
+
+        X = 'abc'
+        X (LEN(1) . V FAIL)                                        :S(YES)F(DONE)
+YES     RESULT = 'should not reach'
+        :(END)
+DONE    RESULT = 'exhausted'
+END

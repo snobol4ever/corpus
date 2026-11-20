@@ -1,0 +1,6 @@
+
+        subject = 'hello'
+        subject ANY('aeiou')  :F(e001)
+        OUTPUT = 'PASS W05/001: any matched'   :(END)
+e001    OUTPUT = 'FAIL W05/001: any should match'
+END

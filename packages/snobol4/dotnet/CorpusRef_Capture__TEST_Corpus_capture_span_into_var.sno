@@ -1,0 +1,5 @@
+
+        X = 'abc123def'
+        X SPAN('abcdefghijklmnopqrstuvwxyz') . WORD
+        OUTPUT = WORD
+END

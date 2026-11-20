@@ -1,0 +1,5 @@
+
+        EQ(CHOP(COS(0)), 1)                         :F(FAIL)
+        OUTPUT = 'PASS'                             :(END)
+FAIL    OUTPUT = 'FAIL'
+END

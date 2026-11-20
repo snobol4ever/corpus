@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        b = ARRAY('5,3')
+        a = CONVERT(b, 'table') :F(END)
+        d = 'success'
+END

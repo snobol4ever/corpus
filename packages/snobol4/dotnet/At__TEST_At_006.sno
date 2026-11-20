@@ -1,0 +1,7 @@
+
+        subject = 'abcd'
+        &ANCHOR = 1
+        subject LEN(3) @pos   :F(bad)
+        result = pos   :(END)
+bad     result = 'bad'
+END

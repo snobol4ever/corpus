@@ -1,0 +1,7 @@
+
+        &ANCHOR = 0
+        subject = 'abc'
+        subject ('ab' . cap ABORT)   :S(bad)F(ok)
+bad     result = 'bad'   :(END)
+ok      result = 'ok'
+END

@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:49:52 2026
+
+
+
+                                                                                                                page 1
+
+2               pattern = TAB(2147483648)
+
+Tab__TEST_Tab_006.sno(2) : ERROR 184 -- tab argument is negative or too large

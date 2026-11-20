@@ -1,0 +1,17 @@
+
+
+
+Define__TEST_Define_008_error_two_functions_deep_ends_program.sno(5) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              Define__TEST_Define_008_error_two_functions_deep_ends_program.sno
+in line              5
+in statement         5
+stmts executed       5
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11872
+memory left (bytes)  1036696

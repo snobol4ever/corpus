@@ -1,0 +1,3 @@
+
+        RESULT = SUBSTR('hello world', 7, 5)
+END

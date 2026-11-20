@@ -1,0 +1,7 @@
+
+        &ANCHOR = 0
+        subject = 'abc'
+        n = 0
+        subject (LEN(1) . c FAIL) :F(done)
+done    result = 'done'
+END

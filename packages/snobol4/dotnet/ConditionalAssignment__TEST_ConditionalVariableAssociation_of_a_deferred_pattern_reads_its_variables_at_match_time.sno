@@ -1,0 +1,5 @@
+
+        p = *BREAK(q)
+        q = 'L'
+        'HELLO' p . str
+END

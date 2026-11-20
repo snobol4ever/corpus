@@ -1,0 +1,4 @@
+-IN8
+        OUTPUT = 'x'
+        OUTPUT = 'y'
+END

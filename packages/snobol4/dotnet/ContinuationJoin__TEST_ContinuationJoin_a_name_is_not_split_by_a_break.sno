@@ -1,0 +1,5 @@
+        AB = 'ab'
+        C = 'c'
+        OUTPUT = AB
++C
+END

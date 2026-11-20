@@ -1,0 +1,6 @@
+        &ERRLIMIT = 100
+        X = 16777216
+        'abcdef' TAB(*X)  :S(YES)F(NO)
+YES     OUTPUT = 'S ' &ERRTYPE  :(END)
+NO      OUTPUT = 'F ' &ERRTYPE
+END

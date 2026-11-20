@@ -1,0 +1,84 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:10:40 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 0 +
+                      !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(1,15) : ERROR 221 -- syntax error: 
+missing operand
+
+2               X = 1 +
+                      !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(2,15) : ERROR 221 -- syntax error: 
+missing operand
+
+3               X = 2 +
+                      !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(3,15) : ERROR 221 -- syntax error: 
+missing operand
+
+4               X = 3 +
+                      !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(4,15) : ERROR 221 -- syntax error: 
+missing operand
+
+5               X = 4 +
+                      !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(5,15) : ERROR 221 -- syntax error: 
+missing operand
+
+6               X = 5 +
+                      !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(6,15) : ERROR 221 -- syntax error: 
+missing operand
+
+7               X = 6 +
+                      !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(7,15) : ERROR 221 -- syntax error: 
+missing operand
+
+8               X = 7 +
+                      !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(8,15) : ERROR 221 -- syntax error: 
+missing operand
+
+9               X = 8 +
+                      !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(9,15) : ERROR 221 -- syntax error: 
+missing operand
+
+10              X = 9 +
+                      !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(10,15) : ERROR 221 -- syntax error:
+ missing operand
+
+11              X = 10 +
+                       !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(11,16) : ERROR 221 -- syntax error:
+ missing operand
+
+12              X = 11 +
+                       !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(12,16) : ERROR 221 -- syntax error:
+ missing operand
+
+13              X = 12 +
+                       !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(13,16) : ERROR 221 -- syntax error:
+ missing operand
+
+
+
+
+                                                                                                                page 2
+
+14              X = 13 +
+                       !
+ErrorPageBreaks__TEST_ErrorPageBreaks_fourteen_errors_break_after_the_thirteenth.sno(14,16) : ERROR 221 -- syntax error:
+ missing operand

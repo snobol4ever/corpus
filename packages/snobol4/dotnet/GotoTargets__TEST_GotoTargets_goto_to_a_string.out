@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:26:24 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A :('L')
+
+GotoTargets__TEST_GotoTargets_goto_to_a_string.sno(1) : ERROR 212 -- syntax error: value used where name is required

@@ -1,0 +1,5 @@
+
+        OUTPUT = TRIM('hello   ')
+        OUTPUT = TRIM('  no trim leading  ')
+        OUTPUT = SIZE(TRIM('abc'))
+END

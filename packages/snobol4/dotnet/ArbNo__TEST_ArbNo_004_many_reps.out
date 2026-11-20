@@ -1,0 +1,37 @@
+
+
+
+dump of natural variables
+
+pattern = PATTERN
+result = 'success'
+subject = 'aaaaaa'
+
+
+dump of keyword values
+
+&ANCHOR = 1
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'ArbNo__TEST_ArbNo_004_many_reps.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'ArbNo__TEST_ArbNo_004_many_reps.sno'
+&LASTLINE = 6
+&LASTNO = 6
+&LINE = 8
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 6
+&STLIMIT = 2147483647
+&STNO = 8
+&TRACE = 0
+&TRIM = 1

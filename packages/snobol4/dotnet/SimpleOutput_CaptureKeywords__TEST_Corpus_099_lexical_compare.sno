@@ -1,0 +1,10 @@
+
+        LGT('b', 'a')                                               :S(A)F(END)
+A       R1 = 'b > a'
+        LLT('a', 'b')                                               :S(B)F(END)
+B       R2 = 'a < b'
+        LEQ('cat', 'cat')                                           :S(C)F(END)
+C       R3 = 'cat = cat'
+        LNE('cat', 'dog')                                           :S(D)F(END)
+D       R4 = 'cat != dog'
+END

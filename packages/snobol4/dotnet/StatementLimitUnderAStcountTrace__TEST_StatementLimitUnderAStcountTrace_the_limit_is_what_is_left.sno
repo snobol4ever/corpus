@@ -1,0 +1,12 @@
+        DEFINE('T()')   :(TE)
+T       OUTPUT = 'T ' &STCOUNT ' ' &LASTNO
+        EQ(1,2)   :S(RETURN)
+        N = N + 1   :(RETURN)
+TE      TRACE('STCOUNT', 'KEYWORD', , 'T')
+        &TRACE = 1000
+        &STLIMIT = 12
+A       :(B)
+C       :(D)
+B       :(C)
+D       :(A)
+END

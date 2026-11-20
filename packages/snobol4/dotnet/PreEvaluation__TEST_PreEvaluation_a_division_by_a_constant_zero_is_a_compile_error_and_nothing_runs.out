@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:39:05 2026
+
+
+
+                                                                                                                page 1
+
+2               X = 1 / 0
+
+PreEvaluation__TEST_PreEvaluation_a_division_by_a_constant_zero_is_a_compile_error_and_nothing_runs.sno(2) : ERROR 014 -
+- division caused integer overflow

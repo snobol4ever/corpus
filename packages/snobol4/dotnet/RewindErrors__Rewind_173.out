@@ -1,0 +1,17 @@
+
+
+
+RewindErrors__Rewind_173.sno(1) : ERROR 173 -- rewind argument is null
+
+
+
+
+
+in file              RewindErrors__Rewind_173.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11208
+memory left (bytes)  1037360

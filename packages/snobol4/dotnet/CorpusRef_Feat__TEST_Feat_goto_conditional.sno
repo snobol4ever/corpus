@@ -1,0 +1,7 @@
+
+        X = 5
+        GT(X, 3)                                   :S(BIG)F(SMALL)
+BIG     OUTPUT = 'big'
+        :(END)
+SMALL   OUTPUT = 'small'
+END

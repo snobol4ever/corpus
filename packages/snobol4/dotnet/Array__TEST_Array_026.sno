@@ -1,0 +1,7 @@
+
+        a = ARRAY(10,999)
+        b = a[3]
+        EQ(b,999) :S(y)F(n)
+y       result = 'success' :(END)
+n       result = 'failure'
+END

@@ -1,0 +1,7 @@
+        &TRACE = 10
+        TRACE('B')
+        B = 'yes!!'
+        P = 'yes'
+        B P =
+        OUTPUT = B
+END

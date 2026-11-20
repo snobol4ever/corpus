@@ -1,0 +1,14 @@
+
+        DATA('POINT(PX,PY)')
+        P = POINT(3, 4)
+        IDENT(REPLACE(DATATYPE(P),&LCASE,&UCASE), 'POINT') :F(FAIL)
+        EQ(PX(P), 3)                               :F(FAIL)
+        A = ARRAY(3, 0)
+        A[2] = 99
+        EQ(A[2], 99)                               :F(FAIL)
+        T = TABLE()
+        T['key'] = 'val'
+        IDENT(T['key'], 'val')                     :F(FAIL)
+        OUTPUT = 'PASS'                            :(END)
+FAIL    OUTPUT = 'FAIL'
+END

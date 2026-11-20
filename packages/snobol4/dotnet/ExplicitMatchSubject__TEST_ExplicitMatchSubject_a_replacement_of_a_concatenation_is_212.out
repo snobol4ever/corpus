@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:18:31 2026
+
+
+
+                                                                                                                page 1
+
+1               A B ? 'b' = 'Q'
+
+ExplicitMatchSubject__TEST_ExplicitMatchSubject_a_replacement_of_a_concatenation_is_212.sno(1) : ERROR 212 -- syntax err
+or: value used where name is required

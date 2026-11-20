@@ -1,0 +1,7 @@
+
+        X = 'aaa'
+        X ARBNO('a') . V                                            :S(YES)
+        RESULT = 'fail'
+        :(END)
+YES     RESULT = SIZE(V)
+END

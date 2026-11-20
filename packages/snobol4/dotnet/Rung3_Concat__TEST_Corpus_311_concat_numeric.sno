@@ -1,0 +1,12 @@
+
+        DIFFER(1 2, '12')                   :F(e001)
+        OUTPUT = 'FAIL 311/001: int int concat'         :(END)
+e001
+        DIFFER(2 2 2, '222')                   :F(e002)
+        OUTPUT = 'FAIL 311/002: three int concat'       :(END)
+e002
+        DIFFER(1 3.4, '13.4')                   :F(e003)
+        OUTPUT = 'FAIL 311/003: int real concat'        :(END)
+e003
+        OUTPUT = 'PASS 311_concat_numeric (3/3)'
+END

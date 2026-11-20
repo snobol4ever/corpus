@@ -1,0 +1,6 @@
+
+        subject = 'abcdef'
+        subject LEN(2) @pos   :F(bad)
+        result = pos   :(END)
+bad     result = 'bad'
+END

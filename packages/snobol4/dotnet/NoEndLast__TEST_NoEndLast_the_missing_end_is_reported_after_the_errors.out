@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:36:44 2026
+
+
+
+                                                                                                                page 1
+
+2               B = (
+                    !
+NoEndLast__TEST_NoEndLast_the_missing_end_is_reported_after_the_errors.sno(2,13) : ERROR 226 -- syntax error: missing ri
+ght paren

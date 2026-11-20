@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:24:12 2026
+
+
+
+                                                                                                                page 1
+
+17      	x = 1 / 0
+
+CorpusRef_Csnobol4Suite__TEST_Csnobol4_setexit5.sno(18) : ERROR 014 -- division caused integer overflow

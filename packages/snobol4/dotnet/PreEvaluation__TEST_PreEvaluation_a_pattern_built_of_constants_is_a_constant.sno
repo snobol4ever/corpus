@@ -1,0 +1,8 @@
+        OUTPUT = 'before'
+        V = -('a' | 'b')
+        W = ('a' 'b') + 1
+        X = -ARBNO('a' | 'b')
+        Y = -('a' . Z)
+        Z = -(*X . Y)
+        OUTPUT = 'after'
+END

@@ -1,0 +1,7 @@
+        DEFINE('F()')
+        OUTPUT = 'a'
+        F()
+        OUTPUT = 'not reached'  :(END)
+F       OUTPUT = 'in F'
+        X = BAR()
+END

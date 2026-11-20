@@ -1,0 +1,5 @@
+
+        a = ANY('this is a test')
+        b = 'this is a test'
+        LGE(a,b)
+END

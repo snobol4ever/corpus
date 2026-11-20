@@ -1,0 +1,47 @@
+* lexical compariston tests
+
+*	return argument in quotes if it's a STRING
+	DEFINE("Q(X)T")					:(EQ)
+Q	T = DATATYPE(X)
+	Q = LEQ(T,"STRING") "'" X "'"			:S(RETURN)
+	Q = X						:(RETURN)
+EQ
+
+*	try given function, disply result
+	DEFINE("TRY(FN,A,B)")				:(ETRY)
+TRY	OUTPUT = APPLY(FN,A,B) FN '(' Q(A) ',' Q(B) ')'	:(RETURN)
+ETRY
+
+*	given args, try all the functions, plus ident/differ
+	DEFINE("CHECK(A,B)")				:(ECHECK)
+CHECK	TRY(.LLT,A,B)
+	TRY(.LLE,A,B)
+	TRY(.LEQ,A,B)	
+	TRY(.LNE,A,B)
+	TRY(.LGT,A,B)
+	TRY(.LGE,A,B)
+	TRY(.IDENT,A,B)
+	TRY(.DIFFER,A,B)				:(RETURN)
+ECHECK
+
+* check this case manually -- q() depends on it!!
+	LEQ(DATATYPE('x'),"STRING")			:F(END)
+
+	CHECK('','')
+	CHECK('a','a')
+
+	CHECK('a','')
+	CHECK('','a')
+
+	CHECK('a','z')
+	CHECK('z','a')
+
+	CHECK(1,'1')
+	CHECK('1',1)
+
+	CHECK(1,'2')
+	CHECK('2',1)
+
+	CHECK(2,'1')
+	CHECK('1',2)
+END

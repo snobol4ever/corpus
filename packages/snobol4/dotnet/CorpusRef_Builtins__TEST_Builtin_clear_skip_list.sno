@@ -1,0 +1,10 @@
+
+        A = 'keep'
+        B = 'lose'
+        CLEAR('A,OUTPUT')
+        DIFFER(A, 'keep')                           :F(ok1)
+        OUTPUT = 'FAIL: A should be kept'           :(END)
+ok1     IDENT(B, '')                                :S(ok2)
+        OUTPUT = 'FAIL: B should be cleared'        :(END)
+ok2     OUTPUT = 'PASS'
+END

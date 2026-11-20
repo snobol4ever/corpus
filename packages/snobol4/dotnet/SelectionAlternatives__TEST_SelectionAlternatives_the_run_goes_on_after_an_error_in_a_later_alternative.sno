@@ -1,0 +1,5 @@
+        &ERRLIMIT = 100
+        OUTPUT = '@a'
+        ?( ,F(X) G(X) )
+        OUTPUT = '@b'
+END

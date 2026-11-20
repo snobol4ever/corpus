@@ -1,0 +1,5 @@
+        &TRACE = 10
+        TRACE('X', 'VALUE')
+        X = DUPL('0123456789', 15)
+        OUTPUT = X
+END

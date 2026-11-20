@@ -1,0 +1,5 @@
+        &DUMP = 1
+        X = 1
+        &STLIMIT = 5
+L       OUTPUT = 'x' &STCOUNT  :(L)
+END

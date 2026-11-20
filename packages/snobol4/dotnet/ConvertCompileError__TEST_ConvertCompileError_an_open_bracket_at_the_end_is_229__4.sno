@@ -1,0 +1,5 @@
+        &ERRLIMIT = 10
+        V = CONVERT('a[1, ', 'EXPRESSION')     :S(Y1)
+        OUTPUT = 'F t=' &ERRTYPE ' lim=' &ERRLIMIT   :(END)
+Y1      OUTPUT = 'S'
+END

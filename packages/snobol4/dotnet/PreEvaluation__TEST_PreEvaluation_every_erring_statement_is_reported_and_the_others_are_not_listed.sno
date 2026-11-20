@@ -1,0 +1,5 @@
+        Y = 'a' + 1
+        Z = -'b'
+        OUTPUT = 'ok'
+        W = 3 ** 'c'
+END

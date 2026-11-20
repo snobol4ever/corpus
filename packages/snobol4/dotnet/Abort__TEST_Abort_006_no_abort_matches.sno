@@ -1,0 +1,6 @@
+
+        subject = 'abc'
+        subject ('xyz' | 'abc')   :S(matched)F(notmatched)
+matched result = 'matched'   :(END)
+notmatched result = 'notmatched'
+END

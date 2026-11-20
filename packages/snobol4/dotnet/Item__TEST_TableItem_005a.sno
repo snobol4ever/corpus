@@ -1,0 +1,7 @@
+
+        a = TABLE()
+        ITEM(a,'abc') = 'ABC'
+        ITEM(a,'def') = 'DEF'
+        r1 = ITEM(a,'abc')
+        r2 = ITEM(a,'def')
+END

@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:54 2026
+
+
+
+                                                                                                                page 1
+
+1               : S
+                  !
+SyntaxErrors__TEST_SyntaxErrors_goto_field_after_a_colon.sno(1,11) : ERROR 234 -- syntax error: goto field incorrect

@@ -1,0 +1,9 @@
+
+        DIFFER(1 + 2.0, 3.0)                   :F(e001)
+        OUTPUT = 'FAIL 413/001: int+real promotes to real' :(END)
+e001
+        DIFFER(3.0 / 2, 1.5)                   :F(e002)
+        OUTPUT = 'FAIL 413/002: real/int promotes to real' :(END)
+e002
+        OUTPUT = 'PASS 413_arith_mixed (2/2)'
+END

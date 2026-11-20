@@ -1,0 +1,17 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:07:31 2026
+
+
+
+                                                                                                                page 1
+
+2               X = 'a' (
+                        !
+CompileErrors__TEST_CompileErrors_suppress_execution.sno(2,17) : ERROR 226 -- syntax error: missing right paren
+
+3               Y = )
+                    !
+CompileErrors__TEST_CompileErrors_suppress_execution.sno(3,13) : ERROR 224 -- syntax error: unbalanced right parenthesis

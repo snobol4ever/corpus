@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:36:57 2026
+
+
+
+                                                                                                                page 1
+
+2               A = NOTANY('')
+
+NotAny__TEST_NotAny_008.sno(2) : ERROR 151 -- notany argument is not a string or expression

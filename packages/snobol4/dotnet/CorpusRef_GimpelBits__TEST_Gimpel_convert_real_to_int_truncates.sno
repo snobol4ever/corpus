@@ -1,0 +1,4 @@
+
+        OUTPUT = CONVERT(7.9, 'INTEGER')
+        OUTPUT = CONVERT(-3.2, 'INTEGER')
+END

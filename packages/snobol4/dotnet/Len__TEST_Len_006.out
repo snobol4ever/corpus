@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:32:32 2026
+
+
+
+                                                                                                                page 1
+
+2               pattern = LEN(2147483648)
+
+Len__TEST_Len_006.sno(2) : ERROR 121 -- len argument is negative or too large

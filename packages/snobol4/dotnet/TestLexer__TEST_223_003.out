@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:54:02 2026
+
+
+
+                                                                                                                page 1
+
+1          C = A ,B;end
+                 !
+TestLexer__TEST_223_003.sno(1,10) : ERROR 223 -- syntax error: invalid use of comma

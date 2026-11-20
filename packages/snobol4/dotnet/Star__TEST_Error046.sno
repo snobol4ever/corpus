@@ -1,0 +1,6 @@
+
+        &ANCHOR = 1;
+        p = 'a' | ('b' *r)
+        r = TABLE(1)
+        'bbba' p . match
+END

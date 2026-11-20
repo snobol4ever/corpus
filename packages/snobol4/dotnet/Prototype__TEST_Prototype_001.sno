@@ -1,0 +1,4 @@
+
+        a = ARRAY('-5:10,3:5,20')
+        b = PROTOTYPE(a)
+END

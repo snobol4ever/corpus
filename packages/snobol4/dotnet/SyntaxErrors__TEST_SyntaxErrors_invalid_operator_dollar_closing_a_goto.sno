@@ -1,0 +1,3 @@
+        X = A :S($)
+        OUTPUT = 'x'
+END

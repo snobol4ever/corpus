@@ -1,0 +1,6 @@
+
+        R1 = 'before'
+        :(DONE)
+        R1 = 'skipped'
+DONE
+END

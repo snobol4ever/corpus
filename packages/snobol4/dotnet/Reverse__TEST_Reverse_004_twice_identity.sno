@@ -1,0 +1,7 @@
+
+        s = 'abcde'
+        r = REVERSE(REVERSE(s))
+        DIFFER(r, s)   :S(bad)
+        result = 'ok'  :(END)
+bad     result = 'bad'
+END

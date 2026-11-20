@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:07:34 2026
+
+
+
+                                                                                                                page 1
+
+2        X = 'a' (
+                 !
+CompileErrors__TEST_CompileErrors_suppress_execution__2.sno(2,10) : ERROR 226 -- syntax error: missing right paren

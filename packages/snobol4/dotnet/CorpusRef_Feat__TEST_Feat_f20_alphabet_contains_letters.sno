@@ -1,0 +1,7 @@
+
+        &ALPHABET 'A'                           :F(FAIL)
+        &ALPHABET 'z'                           :F(FAIL)
+        &ALPHABET '0'                           :F(FAIL)
+        OUTPUT = 'PASS'                         :(END)
+FAIL    OUTPUT = 'FAIL'
+END

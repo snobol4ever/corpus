@@ -1,0 +1,41 @@
+
+
+
+dump of natural variables
+
+p = 'HELPME'
+p1 = 'PLEASE'
+p2 = 'HELP'
+p3 = 'ME'
+p4 = 'OUT'
+r = 'success'
+ss = 'PLEASEHELPMEOUT'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Concatenate__TEST_Concatenate_002.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Concatenate__TEST_Concatenate_002.sno'
+&LASTLINE = 10
+&LASTNO = 10
+&LINE = 13
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 10
+&STLIMIT = 2147483647
+&STNO = 13
+&TRACE = 0
+&TRIM = 1

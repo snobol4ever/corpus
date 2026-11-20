@@ -1,0 +1,7 @@
+
+        &ANCHOR = 0
+        subject = 'aXb'
+        subject ARBNO(ANY('ab') | ABORT)   :S(ok)F(bad)
+ok      result = 'ok'   :(END)
+bad     result = 'bad'
+END

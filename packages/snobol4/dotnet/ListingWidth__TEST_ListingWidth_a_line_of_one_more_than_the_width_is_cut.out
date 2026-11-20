@@ -1,0 +1,16 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:33:20 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+1               X = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+aa'
+2               OUTPUT = SIZE(X)
+3       END
+101

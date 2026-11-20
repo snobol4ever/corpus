@@ -1,0 +1,4 @@
+    a =  'subject'
+        b = 'replacement'
+        a = b
+END

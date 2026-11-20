@@ -1,0 +1,9 @@
+
+        subject = 'BEARROOSDSITS'
+        P = 'BE'  | 'BEA' | 'BEAR'
+        Q = 'RO'  | 'ROO' | 'ROOS'
+        R = 'D'  | 'DS'
+        S = 'ITA' | 'ITS'
+        PAT = P $ temp1  Q $ temp2  R $ temp3  S $ temp4
+        subject PAT
+END

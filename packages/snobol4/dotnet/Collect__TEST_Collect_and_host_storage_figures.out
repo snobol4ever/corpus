@@ -1,0 +1,35 @@
+
+
+
+dump of natural variables
+
+R = 'INTEGER INTEGER 73 1048576 134217728 8 254'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 7
+&ERRTEXT = 'erroneous argument for host'
+&ERRTYPE = 254
+&FILE = 'Collect__TEST_Collect_and_host_storage_figures.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Collect__TEST_Collect_and_host_storage_figures.sno'
+&LASTLINE = 7
+&LASTNO = 7
+&LINE = 8
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 8
+&STLIMIT = 2147483647
+&STNO = 8
+&TRACE = 0
+&TRIM = 1

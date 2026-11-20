@@ -1,0 +1,4 @@
+-LIST
+        X = 'abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababab'
+        OUTPUT = SIZE(X)
+END

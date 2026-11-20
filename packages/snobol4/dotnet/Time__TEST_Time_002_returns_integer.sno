@@ -1,0 +1,6 @@
+
+        t = TIME()
+        GE(t, 0)   :S(ok)F(bad)
+ok      result = 'nonneg'   :(END)
+bad     result = 'negative'
+END

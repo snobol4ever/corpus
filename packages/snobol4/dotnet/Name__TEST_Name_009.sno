@@ -1,0 +1,9 @@
+
+        a = TABLE()
+		a[2] = 'something'
+		n = .a[2]
+		x = a[2]
+		y = $n
+		z = DATATYPE(a[2])
+
+END

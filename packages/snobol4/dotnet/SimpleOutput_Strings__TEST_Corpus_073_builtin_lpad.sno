@@ -1,0 +1,3 @@
+
+        RESULT = LPAD('hi', 6)
+END

@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 16:59:16 2026
+
+
+
+                                                                                                                page 1
+
+2               A = BREAKX('')
+
+BreakX__TEST_BreakX_013.sno(2) : ERROR 070 -- breakx argument is not a string or expression

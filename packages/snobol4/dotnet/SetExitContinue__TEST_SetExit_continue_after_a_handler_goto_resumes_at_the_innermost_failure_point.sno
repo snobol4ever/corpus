@@ -1,0 +1,14 @@
+        &ERRLIMIT = 10
+        DEFINE('H()')                       :(HE)
+H       H = .E
+        DIFFER(H)                           :S(NRETURN)F(FRETURN)
+HE      SETEXIT('ERR')
+N2      Y = ~$H()                           :S(S2)F(F2)
+S2      OUTPUT = 'succ2 [' Y ']'            :(N3)
+F2      OUTPUT = 'fail2'                    :(N3)
+ERR     OUTPUT = 'ERROR ' &ERRTYPE ' in statement ' &LASTNO     :(ERR2)
+ERR2    SETEXIT('ERR')                      :(CONTINUE)
+N3      Z = ~$H()                           :S(S3)F(F3)
+S3      OUTPUT = 'succ3'                    :(END)
+F3      OUTPUT = 'fail3'
+END

@@ -1,0 +1,15 @@
+        I = 0
+        SWINGS = 0
+        PREV = COLLECT()
+LOOP    I = I + 1
+        NOW = COLLECT()
+        D = NOW - PREV
+        PREV = NOW
+        LE(I,100)                  :S(NEXT)
+        DIFFS = DIFFS ' ' D
+        GT(D,128)                  :S(SWING)
+        LT(D,-128)                 :S(SWING)
+NEXT    LT(I,160)                  :S(LOOP)F(DONE)
+SWING   SWINGS = SWINGS + 1        :(NEXT)
+DONE
+END

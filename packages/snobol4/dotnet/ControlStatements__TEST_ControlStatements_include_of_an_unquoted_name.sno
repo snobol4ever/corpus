@@ -1,0 +1,3 @@
+-INCLUDE x
+        OUTPUT = 'x'
+END

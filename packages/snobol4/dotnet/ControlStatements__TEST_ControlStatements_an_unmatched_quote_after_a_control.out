@@ -1,0 +1,17 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:09:54 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST 'abc
+              !
+ControlStatements__TEST_ControlStatements_an_unmatched_quote_after_a_control.sno(1,7) : ERROR 232 -- syntax error: unmat
+ched string quote
+
+1               OUTPUT = 'x'
+2       END

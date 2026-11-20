@@ -1,0 +1,13 @@
+
+        &ANCHOR = 1;
+        line1 = 'two strings for testing'
+        line2 = 'abcdefghijklmnopqrstuvwxyz'
+        char = LEN(1) . ch
+        findch = BREAK(*ch)
+        string1 = line1
+        string2 = line2
+loop    string1 char =                          :F(out)
+        string2 findch                          :F(loop)
+        list = list ch                          :(loop)
+out     list
+END

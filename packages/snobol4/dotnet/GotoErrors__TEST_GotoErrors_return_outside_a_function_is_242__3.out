@@ -1,0 +1,17 @@
+
+
+
+GotoErrors__TEST_GotoErrors_return_outside_a_function_is_242__3.sno(3) : ERROR 242 -- function return from level zero
+
+
+
+
+
+in file              GotoErrors__TEST_GotoErrors_return_outside_a_function_is_242__3.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11680
+memory left (bytes)  1036888

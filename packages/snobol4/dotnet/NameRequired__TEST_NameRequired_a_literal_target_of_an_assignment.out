@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:35:27 2026
+
+
+
+                                                                                                                page 1
+
+2               'A' = 2
+
+NameRequired__TEST_NameRequired_a_literal_target_of_an_assignment.sno(2) : ERROR 212 -- syntax error: value used where n
+ame is required

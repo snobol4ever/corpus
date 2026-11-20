@@ -1,0 +1,8 @@
+
+        &ANCHOR = 1
+        subject = 'aaaaaa'
+        pattern = POS(0) ARBNO('a') RPOS(0)
+        subject pattern :F(n)
+y       result = 'success'   :(END)
+n       result = 'fail'
+END

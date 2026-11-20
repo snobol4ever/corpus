@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:44 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1, 2
+                     !
+SyntaxErrors__TEST_SyntaxErrors_comma_at_the_top.sno(1,14) : ERROR 223 -- syntax error: invalid use of comma

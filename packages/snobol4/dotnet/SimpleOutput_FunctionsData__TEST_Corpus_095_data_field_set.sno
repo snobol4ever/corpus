@@ -1,0 +1,8 @@
+
+        DATA('point(x,y)')
+        P = point(10, 20)
+        R1 = x(P)
+        R2 = y(P)
+        x(P) = 99
+        R3 = x(P)
+END

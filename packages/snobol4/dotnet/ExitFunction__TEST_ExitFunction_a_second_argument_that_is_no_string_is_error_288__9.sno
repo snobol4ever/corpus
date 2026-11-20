@@ -1,0 +1,4 @@
+        &ERRLIMIT = 5
+        EXIT(3, TABLE())
+        OUTPUT = 'after ' &ERRTYPE
+END

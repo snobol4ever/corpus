@@ -1,0 +1,6 @@
+
+        subject = 'hello world'
+        subject 'xyz'                      :S(e001)
+        OUTPUT = 'PASS W01/002: literal mismatch failed correctly'   :(END)
+e001    OUTPUT = 'FAIL W01/002: literal mismatch should fail'
+END

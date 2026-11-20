@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:51:12 2026
+
+
+
+                                                                                                                page 1
+
+1       END   'test"
+              !
+TestLexer__TEST_215_002.sno(1,7) : ERROR 232 -- syntax error: unmatched string quote

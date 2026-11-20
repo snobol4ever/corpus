@@ -1,0 +1,27 @@
+        &ERRLIMIT = 100
+        DATA('NODE(HEAD,TAIL)')
+        E = ''
+        V1 = ARRAY(2)
+        V2 = TABLE()
+        V3 = NODE(1,2)
+        V4 = LEN(2)
+        V5 = *E
+        V6 = .E
+        V7 = CODE(' X = 1')
+        I = 0
+L       I = I + 1
+        V = $('V' I)
+        R = E V
+        OUTPUT = I ' left ' DATATYPE(R) ' ' IDENT(R, V) ' ' &ERRTYPE
+        &ERRTYPE = 0
+        R = V E
+        OUTPUT = I ' right ' DATATYPE(R) ' ' IDENT(R, V) ' ' &ERRTYPE
+        &ERRTYPE = 0
+        R = E V E
+        OUTPUT = I ' both ' DATATYPE(R) ' ' IDENT(R, V) ' ' &ERRTYPE
+        &ERRTYPE = 0
+        R = E V V
+        OUTPUT = I ' two ' DATATYPE(R) ' ' &ERRTYPE
+        &ERRTYPE = 0
+        LT(I, 7)   :S(L)
+END

@@ -1,0 +1,11 @@
+
+        OPSYN('@', .DUPL, 2)
+        DIFFER('a' @ 4, 'aaaa')                   :F(E001)
+        OUTPUT = 'FAIL 1015/001: @ as binary dupl'     :(END)
+E001
+        OPSYN('|', .SIZE, 1)
+        DIFFER(|'string', 6)                   :F(E002)
+        OUTPUT = 'FAIL 1015/002: | as unary size'      :(END)
+E002
+        OUTPUT = 'PASS 1015_opsyn (2/2)'
+END

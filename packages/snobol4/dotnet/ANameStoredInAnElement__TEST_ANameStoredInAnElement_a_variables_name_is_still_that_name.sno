@@ -1,0 +1,13 @@
+        hold = 'held'
+        R2 = .hold
+        T = TABLE()
+        T['n'] = .hold
+        R = T['n']
+        OUTPUT = IDENT(R, R2) 'd'
+        OUTPUT = DIFFER(R, R2) 'e'
+        OUTPUT = IDENT(T['n'], .hold) 'ident'
+        OUTPUT = $R
+        A = ARRAY(2)
+        A[1] = .hold
+        OUTPUT = IDENT(A[1], .hold) 'ident4'
+END

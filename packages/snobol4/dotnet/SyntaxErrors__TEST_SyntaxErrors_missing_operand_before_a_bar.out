@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:49:24 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 | | 2
+                        !
+SyntaxErrors__TEST_SyntaxErrors_missing_operand_before_a_bar.sno(1,17) : ERROR 221 -- syntax error: missing operand

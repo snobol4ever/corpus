@@ -1,0 +1,14 @@
+        DEFINE('ONCE()')               :(ONCE_END)
+ONCE    ONCE = DIFFER(DONE) FAIL       :S(RETURN)
+        DONE = 1
+        ONCE = ''                      :(RETURN)
+ONCE_END
+        P = *ONCE()
+        'xyz' P                        :F(T2)
+        R = R 'a'
+T2      'xyz' P                        :F(T3)
+        R = R 'b'
+T3      'xyz' P                        :F(T4)
+        R = R 'c'
+T4
+END

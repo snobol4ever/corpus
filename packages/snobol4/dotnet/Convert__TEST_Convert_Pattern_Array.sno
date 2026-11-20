@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        a = ANY('abc')
+        b = CONVERT(a,'array')  :F(END)
+        d = 'success'
+END

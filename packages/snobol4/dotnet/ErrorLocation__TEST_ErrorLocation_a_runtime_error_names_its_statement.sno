@@ -1,0 +1,6 @@
+* a comment
+        &ERRLIMIT = 1
+        A = 'a'
+        Y = A + 1
+        X = 1
+END

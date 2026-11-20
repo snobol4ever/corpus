@@ -1,0 +1,15 @@
+
+        DIFFER(REVERSE('hello'), 'olleh')                   :F(e001)
+        OUTPUT = 'FAIL 813/001: reverse hello'           :(END)
+e001
+        DIFFER(REVERSE('x'), 'x')                   :F(e002)
+        OUTPUT = 'FAIL 813/002: reverse single char'    :(END)
+e002
+        DIFFER(REVERSE(''), '')                   :F(e003)
+        OUTPUT = 'FAIL 813/003: reverse null is null'   :(END)
+e003
+        DIFFER(REVERSE('abcba'), 'abcba')                   :F(e004)
+        OUTPUT = 'FAIL 813/004: reverse palindrome'     :(END)
+e004
+        OUTPUT = 'PASS 813_reverse (4/4)'
+END

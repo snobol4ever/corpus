@@ -1,0 +1,5 @@
+
+        E2 = ('[' *E2 ']' | 'Q' | 'QR') $ X *DIFFER(L = L X ' ')
+        '[[QR]]' ? POS(0) E2 RPOS(0)
+        'AXYC' ? POS(0) (FENCE(('A' 'X') $ Y) ('Y' | 'YC') $ Z) $ W RPOS(0)
+END

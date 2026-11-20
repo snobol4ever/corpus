@@ -1,0 +1,4 @@
+
+        A = ARRAY(5)
+        OUTPUT = PROTOTYPE(A)
+END

@@ -1,0 +1,7 @@
+ &DUMP = 2
+ DEFINE('F()')  :(FE)
+F :(END)
+FE F()
+ Z = 3
+* c
+END

@@ -1,0 +1,5 @@
+         C = CODE(' OUTPUT = "in code" :(L1)')
+                                                :[C]
+         OUTPUT = 'not here'
+L1       OUTPUT = 'after'
+END

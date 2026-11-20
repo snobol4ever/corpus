@@ -1,0 +1,11 @@
+
+        DEFINE('bump(v)') :(bumpend)
+bump    bump = v + 1 :(RETURN)
+bumpend
+        s = ''
+        j = 0
+loop    s = s bump(2 * j)
+        j = j + 1
+        LT(j,10)     :S(loop)
+        
+END

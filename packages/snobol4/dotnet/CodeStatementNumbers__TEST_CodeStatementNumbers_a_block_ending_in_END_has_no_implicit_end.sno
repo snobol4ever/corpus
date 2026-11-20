@@ -1,0 +1,7 @@
+        C = CODE('END')
+        D = CODE(' X = &STNO :(BACK)')   :[D]
+BACK    OUTPUT = X
+        E = CODE(' OUTPUT = 1;END')
+        F = CODE(' Y = &STNO :(LAST)')   :[F]
+LAST    OUTPUT = Y
+END

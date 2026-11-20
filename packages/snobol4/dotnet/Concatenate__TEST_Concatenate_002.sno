@@ -1,0 +1,13 @@
+
+        &ANCHOR = 0
+        ss = 'PLEASEHELPMEOUT'
+        p1 = 'PLEASE'
+        p2 = 'HELP'
+        p3 = 'ME'
+        p4 = 'OUT'
+        p = p2 p3
+        ss p		:F(n)
+        r = 'success' :(END)
+n		r = 'fail'  :(END)
+
+END

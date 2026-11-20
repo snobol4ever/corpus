@@ -1,0 +1,5 @@
+
+        X = '[hello]'
+        X '[' ARB . INNER ']'
+        OUTPUT = INNER
+END

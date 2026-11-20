@@ -1,0 +1,15 @@
+
+        DIFFER(DATATYPE('hello'), 'STRING')                   :F(e001)
+        OUTPUT = 'FAIL 911/001: string literal datatype' :(END)
+e001
+        DIFFER(DATATYPE(12), 'INTEGER')                   :F(e002)
+        OUTPUT = 'FAIL 911/002: integer datatype'       :(END)
+e002
+        DIFFER(DATATYPE(1.33), 'REAL')                   :F(e003)
+        OUTPUT = 'FAIL 911/003: real datatype'          :(END)
+e003
+        DIFFER(DATATYPE(''), 'STRING')                   :F(e004)
+        OUTPUT = 'FAIL 911/004: null is string'         :(END)
+e004
+        OUTPUT = 'PASS 911_datatype (4/4)'
+END

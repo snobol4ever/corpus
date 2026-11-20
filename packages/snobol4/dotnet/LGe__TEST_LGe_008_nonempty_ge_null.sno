@@ -1,0 +1,5 @@
+
+        r = 'success'
+        LGE('a', '') :S(END)
+        r = 'failure'
+END

@@ -1,0 +1,18 @@
+
+
+
+ExitFunction__TEST_ExitFunction_an_unwritable_save_file_is_error_106_and_says_nothing_else.sno(1) : ERROR 106 -- exit ac
+tion caused irrecoverable error
+
+
+
+
+
+in file              ExitFunction__TEST_ExitFunction_an_unwritable_save_file_is_error_106_and_says_nothing_else.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        1
+memory used (bytes)  11480
+memory left (bytes)  1037088

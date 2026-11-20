@@ -1,0 +1,6 @@
+
+        CODE("F OUTPUT = 'F sees [' P ']' :(RETURN) ;")
+        DEFINE('F(P)X')
+        F('lit')
+        F('lit2')
+END

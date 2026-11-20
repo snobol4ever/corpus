@@ -1,0 +1,5 @@
+
+        X = 'hello world'
+        X 'world' = 'there'
+        RESULT = X
+END

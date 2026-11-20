@@ -1,0 +1,7 @@
+        OUTPUT = 'before'
+        V = -&FENCE ANY('')
+        W = 1 + &ALPHABET
+        X = LEN(&LCASE)
+        Y = &ARB | -&REM
+        OUTPUT = 'after'
+END

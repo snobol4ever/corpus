@@ -1,0 +1,6 @@
+
+        r = ''
+        s = 'this is a test'
+        r = RPAD(s,-2) :S(END)
+        r = 'fail'
+END

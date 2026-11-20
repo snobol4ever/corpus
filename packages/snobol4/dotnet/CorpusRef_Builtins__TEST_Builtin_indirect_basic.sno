@@ -1,0 +1,6 @@
+
+        X = 'hello'
+        DIFFER($'X', 'hello')                       :F(ok)
+        OUTPUT = 'FAIL'                             :(END)
+ok      OUTPUT = 'PASS'
+END

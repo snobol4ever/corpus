@@ -1,0 +1,17 @@
+
+
+
+TestGoto__TEST_CONTINUE.sno(2) : ERROR 037 -- goto continue with no preceding error
+
+
+
+
+
+in file              TestGoto__TEST_CONTINUE.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11224
+memory left (bytes)  1037344

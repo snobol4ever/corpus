@@ -1,0 +1,6 @@
+
+         &TRIM    =  1
+NEXTL    CHARS    =  CHARS + SIZE(INPUT)                    :F(DONE)
+         LINES    =  LINES + 1                              :(NEXTL)
+DONE     OUTPUT   =  CHARS ' characters, ' LINES ' lines read'
+END

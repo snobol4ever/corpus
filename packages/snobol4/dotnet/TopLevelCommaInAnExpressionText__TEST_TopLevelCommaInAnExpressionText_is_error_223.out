@@ -1,0 +1,4 @@
+1 F t=223 lim=9
+2 F t=223 lim=8
+3 S 1
+4 TRAP t=223 lim=7

@@ -1,0 +1,12 @@
+
+        INTEGER('abc')             :F(e001)
+        OUTPUT = 'FAIL 913/001: integer(string) should fail' :(END)
+e001
+        INTEGER(12)                :S(e002)
+        OUTPUT = 'FAIL 913/002: integer(12) should succeed'  :(END)
+e002
+        INTEGER('12')              :S(e003)
+        OUTPUT = 'FAIL 913/003: integer(numeric-string) should succeed' :(END)
+e003
+        OUTPUT = 'PASS 913_integer_pred (3/3)'
+END

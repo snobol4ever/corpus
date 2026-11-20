@@ -1,0 +1,3 @@
+        X = A 'abc'def
+        OUTPUT = 'x'
+END

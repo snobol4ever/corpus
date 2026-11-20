@@ -1,0 +1,37 @@
+
+
+
+dump of natural variables
+
+FENCE = PATTERN
+X = PATTERN
+Y = PATTERN
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 0
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'DumpFormat__TEST_DumpFormat_fence_called_as_a_function_names_the_pattern_variable.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'DumpFormat__TEST_DumpFormat_fence_called_as_a_function_names_the_pattern_variable.sno'
+&LASTLINE = 2
+&LASTNO = 2
+&LINE = 3
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 3
+&STLIMIT = 2147483647
+&STNO = 3
+&TRACE = 0
+&TRIM = 1

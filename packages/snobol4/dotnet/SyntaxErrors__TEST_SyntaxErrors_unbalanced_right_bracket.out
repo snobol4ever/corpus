@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:49:46 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A<1>>
+                        !
+SyntaxErrors__TEST_SyntaxErrors_unbalanced_right_bracket.sno(1,17) : ERROR 225 -- syntax error: unbalanced right bracket

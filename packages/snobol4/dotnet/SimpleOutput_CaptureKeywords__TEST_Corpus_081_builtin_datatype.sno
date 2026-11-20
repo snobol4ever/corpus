@@ -1,0 +1,5 @@
+
+        R1 = DATATYPE('hello')
+        R2 = DATATYPE(42)
+        R3 = DATATYPE(3.14)
+END

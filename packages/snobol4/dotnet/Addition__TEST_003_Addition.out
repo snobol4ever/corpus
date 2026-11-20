@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 16:44:09 2026
+
+
+
+                                                                                                                page 1
+
+1        a = 9223372036854775807 + 2;end
+
+Addition__TEST_003_Addition.sno(1) : ERROR 003 -- addition caused integer overflow

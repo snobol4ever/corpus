@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:32:14 2026
+
+
+
+                                                                                                                page 1
+
+1        X = "a ; B = ( ; C = (
+             !
+LabelAfterSemicolon__TEST_An_unclosed_string_runs_to_the_end_of_the_line.sno(1,6) : ERROR 232 -- syntax error: unmatched
+ string quote

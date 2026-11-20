@@ -1,0 +1,18 @@
+
+
+
+UndefinedOperators__TEST_UndefinedOperators_a_unary_caret_is_error_29.sno(1) : ERROR 029 -- undefined operator reference
+d
+
+
+
+
+
+in file              UndefinedOperators__TEST_UndefinedOperators_a_unary_caret_is_error_29.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11280
+memory left (bytes)  1037288

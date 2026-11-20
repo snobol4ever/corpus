@@ -1,0 +1,7 @@
+
+        X = 'hello world'
+        X 'goodbye'                     :S(FOUND)F(NOTFOUND)
+FOUND   OUTPUT = 'found'
+        :(END)
+NOTFOUND OUTPUT = 'not found'
+END

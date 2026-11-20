@@ -1,0 +1,28 @@
+
+        SIGN = '+' | '-' | NULL
+        DIGITS = SPAN('0123456789')
+        INTEGER = DIGITS
+        DFORM = DIGITS '.' (DIGITS | NULL)
+        EFORM = 'E' SIGN DIGITS
+        REAL = DFORM EFORM
+        NUMBER = SIGN (REAL | INTEGER)
+
+        '1234' NUMBER . O
+        RESULT = RESULT ' ' O
+        '-1234' NUMBER . O
+        RESULT = RESULT ' ' O
+        '+1234' NUMBER . O
+        RESULT = RESULT ' ' O
+        '1234.5678' NUMBER . O
+        RESULT = RESULT ' ' O
+        '-1234.5678' NUMBER . O
+        RESULT = RESULT ' ' O
+        '1234E+10' NUMBER . O
+        RESULT = RESULT ' ' O
+        '-1234E+10' NUMBER . O
+        RESULT = RESULT ' ' O
+        '1234.5678E-10' NUMBER . O
+        RESULT = RESULT ' ' O
+        '-1234.5678E-10' NUMBER . O
+        RESULT = RESULT ' ' O
+END

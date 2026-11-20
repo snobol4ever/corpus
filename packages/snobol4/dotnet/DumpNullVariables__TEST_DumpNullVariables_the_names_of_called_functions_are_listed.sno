@@ -1,0 +1,3 @@
+        X = LEN(1) SIZE('ab')
+        DUMP(3)
+END

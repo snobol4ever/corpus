@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:59:22 2026
+
+
+
+                                                                                                                page 1
+
+1        a = ATAN('test');END
+
+Trig__TEST_301_Atan.sno(1) : ERROR 301 -- atan argument not numeric

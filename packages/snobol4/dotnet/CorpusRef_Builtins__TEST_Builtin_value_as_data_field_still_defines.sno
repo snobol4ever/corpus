@@ -1,0 +1,5 @@
+
+        DATA('CLUNK(VALUE)')
+        C = CLUNK('v')
+        OUTPUT = VALUE(C)
+END

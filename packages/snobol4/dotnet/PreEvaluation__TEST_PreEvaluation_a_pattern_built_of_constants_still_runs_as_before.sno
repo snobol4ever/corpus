@@ -1,0 +1,7 @@
+        &ERRLIMIT = 10
+        V = ('1' '2') + 1
+        W = -('a' . A[1])
+        OUTPUT = V ' ' &ERRTYPE
+        X = -(X | 'b')
+        OUTPUT = &ERRTYPE ' ' DATATYPE('a' | 'b') ' ' SIZE('a' 'b')
+END

@@ -1,0 +1,7 @@
+
+        subject = 'hello'
+        &ANCHOR = 1
+        subject REM . cap   :F(bad)
+        result = cap   :(END)
+bad     result = 'bad'
+END

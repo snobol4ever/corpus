@@ -1,0 +1,5 @@
+        &ERRLIMIT = 5
+        X = 'abc'
+        :[X]
+        OUTPUT = 'after'
+END

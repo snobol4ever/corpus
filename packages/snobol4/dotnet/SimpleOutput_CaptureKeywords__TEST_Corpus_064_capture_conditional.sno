@@ -1,0 +1,5 @@
+
+        X = 'hello'
+        X 'hello'                                                   :F(END)
+        RESULT = 'found'
+END

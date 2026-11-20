@@ -1,0 +1,3 @@
+
+        OUTPUT = SIZE(DUPL('abc', 0))
+END

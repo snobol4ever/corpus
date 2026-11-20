@@ -1,0 +1,10 @@
+        &ERRLIMIT = 5
+        N = 0
+        SETEXIT('ERR')
+        Y = ~(1 / N)                        :S(S1)F(F1)
+S1      OUTPUT = 'succ [' Y ']'             :(END)
+F1      OUTPUT = 'fail'                     :(END)
+ERR     OUTPUT = 'ERR ' &ERRTYPE            :(ERR2)
+ERR2    Z = 2 / N
+        OUTPUT = 'after untrapped ' &ERRTYPE  :(CONTINUE)
+END

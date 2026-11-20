@@ -1,0 +1,18 @@
+
+        DATA('NODE(VAL,LSON,RSON)')
+        DATA('CLUNK(VALUE,LSON)')
+        A = NODE('x', 'y', 'z')
+        B = NODE()
+        LSON(B) = A
+        DIFFER(RSON(LSON(B)), 'z')                   :F(E001)
+        OUTPUT = 'FAIL 1116/001: node.rson after clunk data def' :(END)
+E001
+        DIFFER(VALUE('B'), B)                   :F(E002)
+        OUTPUT = 'FAIL 1116/002: value() still works after clunk' :(END)
+E002
+        C = CLUNK('alpha', 'beta')
+        DIFFER(LSON(C), 'beta')                   :F(E003)
+        OUTPUT = 'FAIL 1116/003: clunk.lson accessor'  :(END)
+E003
+        OUTPUT = 'PASS 1116_data_overlap (3/3)'
+END

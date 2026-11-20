@@ -1,0 +1,9 @@
+1 [arr] [pat] [exp] []
+2 ARRAY arr
+2 PATTERN pat
+2 EXPRESSION exp
+2 INTEGER int
+2 REAL real
+3 ident
+4 [pat] []
+5 [kwN]

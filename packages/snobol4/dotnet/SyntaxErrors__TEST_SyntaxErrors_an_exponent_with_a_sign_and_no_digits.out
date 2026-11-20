@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:42 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1e+
+                    !
+SyntaxErrors__TEST_SyntaxErrors_an_exponent_with_a_sign_and_no_digits.sno(1,13) : ERROR 231 -- syntax error: invalid num
+eric item

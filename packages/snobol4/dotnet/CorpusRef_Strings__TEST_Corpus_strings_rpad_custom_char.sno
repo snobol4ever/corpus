@@ -1,0 +1,3 @@
+
+        OUTPUT = RPAD('hi', 6, '-')
+END

@@ -1,0 +1,20 @@
+ERR 14
+after untrapped 14
+
+
+
+SetExitContinue__TEST_SetExit_an_error_no_handler_takes_uses_the_continuation_up.sno(9) : ERROR 037 -- goto continue wit
+h no preceding error
+
+
+
+
+
+in file              SetExitContinue__TEST_SetExit_an_error_no_handler_takes_uses_the_continuation_up.sno
+in line              9
+in statement         9
+stmts executed       7
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12576
+memory left (bytes)  1035992

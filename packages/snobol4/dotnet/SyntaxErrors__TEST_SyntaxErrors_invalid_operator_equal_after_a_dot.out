@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:49:11 2026
+
+
+
+                                                                                                                page 1
+
+1               .= X
+                 !
+SyntaxErrors__TEST_SyntaxErrors_invalid_operator_equal_after_a_dot.sno(1,10) : ERROR 233 -- syntax error: invalid use of
+ operator

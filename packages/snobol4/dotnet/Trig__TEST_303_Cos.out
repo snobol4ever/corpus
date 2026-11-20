@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:59:24 2026
+
+
+
+                                                                                                                page 1
+
+1        a = COS('test');END
+
+Trig__TEST_303_Cos.sno(1) : ERROR 303 -- cos argument not numeric

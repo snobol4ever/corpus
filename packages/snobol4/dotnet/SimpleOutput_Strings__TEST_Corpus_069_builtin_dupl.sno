@@ -1,0 +1,3 @@
+
+        RESULT = DUPL('ab', 3)
+END

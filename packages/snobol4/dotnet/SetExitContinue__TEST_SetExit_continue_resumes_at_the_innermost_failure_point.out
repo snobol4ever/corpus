@@ -1,0 +1,14 @@
+ERROR 239
+1 succ []
+ERROR 239
+2 succ [b]
+ERROR 239
+3 fail
+ERROR 239
+4 fail
+ERROR 239
+5 fail
+ERR2 239 Y=[y]
+ERR3 239
+ERR3 two
+7 succ []

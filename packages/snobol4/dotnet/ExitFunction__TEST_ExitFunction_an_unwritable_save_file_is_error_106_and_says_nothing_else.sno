@@ -1,0 +1,3 @@
+        EXIT(-4, '/nonexistent/dir/x')
+        OUTPUT = 'after'
+END

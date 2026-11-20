@@ -1,0 +1,5 @@
+        DEFINE('F(A,B)')  :(START)
+F       F = 'a=' A ' b=' B  :(RETURN)
+START   OPSYN('%','F',1)
+        OUTPUT = %7
+END

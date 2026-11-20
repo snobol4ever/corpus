@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 16:56:17 2026
+
+
+
+                                                                                                                page 1
+
+1           (a | b) = table()[1]
+
+Assign__TEST_Assign_TiP.sno(1) : ERROR 212 -- syntax error: value used where name is required

@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        a = CODE(' len(k) pos(m)')
+        b = CONVERT(a,'expression')  :F(END)
+        d = 'success'
+END

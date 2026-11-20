@@ -1,0 +1,4 @@
+        X = (
++       Y
+        OUTPUT = 'x'
+END

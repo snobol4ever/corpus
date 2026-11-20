@@ -1,0 +1,9 @@
+
+        $'~' = 'doublequote'
+        $'$#@!*' = 53.1
+        nm = DUPL('ab cd', 1000)
+        $nm = 'long'
+        a = $'$#@!*' $'~' $nm
+        b = SIZE(nm)
+        d = 'success'
+END

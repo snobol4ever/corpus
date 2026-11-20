@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:53:17 2026
+
+
+
+                                                                                                                page 1
+
+1        A<0>"test"
+             !
+TestLexer__TEST_220_008.sno(1,6) : ERROR 220 -- syntax error: missing operator

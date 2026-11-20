@@ -1,0 +1,9 @@
+
+        DIFFER(-5, 0 - 5)                   :F(e001)
+        OUTPUT = 'FAIL 411/001: unary minus'           :(END)
+e001
+        DIFFER(+'4', 4)                   :F(e002)
+        OUTPUT = 'FAIL 411/002: unary plus string->int' :(END)
+e002
+        OUTPUT = 'PASS 411_arith_unary (2/2)'
+END

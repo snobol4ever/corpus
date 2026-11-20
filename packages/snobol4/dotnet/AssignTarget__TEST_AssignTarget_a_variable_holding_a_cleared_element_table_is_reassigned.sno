@@ -1,0 +1,12 @@
+
+        P = TABLE()
+        P['a'] = TABLE()
+        P['a']['k1'] = 'v1'
+        P['b'] = TABLE()
+        P['b']['k2'] = 'v2'
+        T = CONVERT(P,'ARRAY')
+        X = T[1,2]
+        T[1,2] =
+        X = T[2,2]
+        R = X['k2']
+END

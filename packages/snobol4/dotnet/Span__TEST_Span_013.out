@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:47:06 2026
+
+
+
+                                                                                                                page 1
+
+2               A = SPAN('')
+
+Span__TEST_Span_013.sno(2) : ERROR 188 -- span argument is not a string or expression

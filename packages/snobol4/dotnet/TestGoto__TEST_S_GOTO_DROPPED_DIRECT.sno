@@ -1,0 +1,7 @@
+
+        y = CODE(" a = 'success'        :(end)")
+        n = CODE(" a = 'failure'        :(end)")
+        u = CODE(" a = 'unconditional'  :(end)")
+        EQ(0,1)      :s[n]
+        a = "dropped"  :(END)
+end;END

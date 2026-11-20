@@ -1,0 +1,6 @@
+
+        S = "L  A = A ' ' N; N = LT(N,10) N + 1 :S(L)F(DONE)"
+        X = CONVERT(S,'code') :F(END)
+                    :(L)
+DONE    A
+END

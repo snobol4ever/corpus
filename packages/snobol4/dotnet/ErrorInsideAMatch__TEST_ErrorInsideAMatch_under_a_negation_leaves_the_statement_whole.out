@@ -1,0 +1,37 @@
+
+
+
+dump of natural variables
+
+E = 'xxi'
+N = -1
+S = 'axxi,bxxi,cxxi,dxxi'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 16
+&ERRTEXT = 'len evaluated argument is negative or too large'
+&ERRTYPE = 48
+&FILE = 'ErrorInsideAMatch__TEST_ErrorInsideAMatch_under_a_negation_leaves_the_statement_whole.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'ErrorInsideAMatch__TEST_ErrorInsideAMatch_under_a_negation_leaves_the_statement_whole.sno'
+&LASTLINE = 16
+&LASTNO = 16
+&LINE = 17
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 15
+&STLIMIT = 2147483647
+&STNO = 17
+&TRACE = 0
+&TRIM = 1

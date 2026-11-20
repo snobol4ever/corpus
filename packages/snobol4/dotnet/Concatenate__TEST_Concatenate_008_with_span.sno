@@ -1,0 +1,6 @@
+
+        subject = 'x123y'
+        subject 'x' SPAN('0123456789') . digits   :F(bad)
+        result = digits   :(END)
+bad     result = 'bad'
+END

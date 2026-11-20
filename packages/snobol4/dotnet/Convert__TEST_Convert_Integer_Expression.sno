@@ -1,0 +1,6 @@
+
+        a = CONVERT(3, 'expression')
+        b = DATATYPE(a);
+        c = EVAL(a)
+        d = DATATYPE(c)
+END

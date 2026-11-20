@@ -1,0 +1,37 @@
+
+
+
+dump of natural variables
+
+b = ARRAY(2,1) #1
+r1 = 'apple'
+r2 = 'zebra'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'ReverseSort__TEST_ReverseSort005.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'ReverseSort__TEST_ReverseSort005.sno'
+&LASTLINE = 7
+&LASTNO = 7
+&LINE = 8
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 7
+&STLIMIT = 2147483647
+&STNO = 8
+&TRACE = 0
+&TRIM = 1

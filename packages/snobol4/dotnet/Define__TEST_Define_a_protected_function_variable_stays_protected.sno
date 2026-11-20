@@ -1,0 +1,7 @@
+
+        DEFINE('BAL()')                :(BAL_END)
+BAL     BAL = 'x'                      :(RETURN)
+BAL_END &ERRLIMIT = 1
+        R = BAL()
+        S = &ERRTYPE ' [' R '] ' DATATYPE(BAL)
+END

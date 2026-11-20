@@ -1,0 +1,17 @@
+
+
+
+RewindErrors__Rewind_003.sno(1) : ERROR 172 -- rewind argument is not a suitable name
+
+
+
+
+
+in file              RewindErrors__Rewind_003.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11256
+memory left (bytes)  1037312

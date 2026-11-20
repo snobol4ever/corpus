@@ -1,0 +1,9 @@
+
+        DIFFER(1 ' ' 2.5, '1 2.5')                   :F(e001)
+        OUTPUT = 'FAIL 313/001: int-space-real concat'   :(END)
+e001
+        DIFFER('' '' '', '')                   :F(e002)
+        OUTPUT = 'FAIL 313/002: triple null concat'      :(END)
+e002
+        OUTPUT = 'PASS 313_concat_mixed (2/2)'
+END

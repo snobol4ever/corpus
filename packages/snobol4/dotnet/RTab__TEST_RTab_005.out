@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:39:54 2026
+
+
+
+                                                                                                                page 1
+
+2               pattern = RTAB(-1)
+
+RTab__TEST_RTab_005.sno(2) : ERROR 182 -- rtab argument is negative or too large

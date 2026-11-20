@@ -1,0 +1,7 @@
+
+        a = snoExpr7 ('#' 2) | epsilon
+        b = snoExpr7 ('#' 2) | epsilon
+        DIFFER(a,b)    :S(diff)
+        out = 'differ'    :(END)
+diff     out = 'not differ'
+end;END

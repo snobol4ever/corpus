@@ -1,0 +1,5 @@
+
+        result = 'wrong'    :(skip)
+        result = 'skipped'
+skip    result = result 'right'
+END

@@ -1,0 +1,17 @@
+
+
+
+Table__TEST_Table_006.sno(3) : ERROR 237 -- table referenced with more than one subscript
+
+
+
+
+
+in file              Table__TEST_Table_006.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11552
+memory left (bytes)  1037016

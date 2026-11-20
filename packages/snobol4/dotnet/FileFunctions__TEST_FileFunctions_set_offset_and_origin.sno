@@ -1,0 +1,43 @@
+        &ERRLIMIT = 100
+        OUTPUT(.W, 9, 'sf.txt')
+        W = 'x'
+        W = 'y'
+        W = 'z'
+        ENDFILE(9)
+        INPUT(.G, 8, 'sf.txt')
+        R = SET(8, 0, 'x')
+        OUTPUT = '1 ' &ERRTYPE
+        &ERRTYPE = 0
+        R = SET(8, 0, -1)
+        OUTPUT = '2 ' &ERRTYPE
+        &ERRTYPE = 0
+        R = SET(8, 0, 3)
+        OUTPUT = '3 ' &ERRTYPE
+        &ERRTYPE = 0
+        R = SET(8, 0, 1.5)
+        OUTPUT = '4 [' R '] ' &ERRTYPE
+        &ERRTYPE = 0
+        R = SET(8, -1, 0)
+        OUTPUT = '5 [' R '] ' &ERRTYPE
+        &ERRTYPE = 0
+        R = SET(8, 100, 0)
+        OUTPUT = '6 [' R '] ' &ERRTYPE
+        &ERRTYPE = 0
+        R = SET(8, 0, 2)
+        OUTPUT = '7 [' R '] ' &ERRTYPE
+        &ERRTYPE = 0
+        R = SET(8, -2, 2)
+        OUTPUT = '8 [' R '] ' &ERRTYPE
+        &ERRTYPE = 0
+        R = SET(8, 'x', 'y')
+        OUTPUT = '9 ' &ERRTYPE
+        &ERRTYPE = 0
+        R = SET(8, 1.5, 0)
+        OUTPUT = '10 [' R '] ' &ERRTYPE
+        &ERRTYPE = 0
+        R = SET(8, 2, 1)
+        OUTPUT = '11 [' R '] ' &ERRTYPE
+        &ERRTYPE = 0
+        R = SET(8, 2, 100000000000)
+        OUTPUT = '12 [' R '] ' &ERRTYPE
+END

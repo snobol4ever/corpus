@@ -1,0 +1,10 @@
+	SETEXIT(.H)
+	&ERRLIMIT = 5
+	N = 0
+	X = 1 / N :F(NOLAB)
+	OUTPUT = 'c'
+	:(END)
+H	OUTPUT = 'h ' &ERRTYPE
+	SETEXIT(.H)
+	:(CONTINUE)
+END

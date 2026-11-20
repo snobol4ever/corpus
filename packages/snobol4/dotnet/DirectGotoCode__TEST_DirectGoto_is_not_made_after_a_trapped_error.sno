@@ -1,0 +1,14 @@
+        &ERRLIMIT = 10
+        SETEXIT('E1')
+        X = LT(1, 'a')      :[C]
+        OUTPUT = 'next'     :(END)
+E1      OUTPUT = 'ERROR ' &ERRTYPE
+        SETEXIT('E2')
+        X = LT(1, 'b')      :F[C]
+        OUTPUT = 'next 2'   :(END)
+E2      OUTPUT = 'ERROR2 ' &ERRTYPE
+        SETEXIT('E3')
+        X = LT(1, 'c')      :S(E3)F[C]
+        OUTPUT = 'next 3'
+E3      OUTPUT = 'ERROR3 ' &ERRTYPE
+END

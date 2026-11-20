@@ -1,0 +1,17 @@
+
+
+
+Opsyn__TEST_Opsyn_011.sno(2) : ERROR 153 -- opsyn third argument is negative or too large
+
+
+
+
+
+in file              Opsyn__TEST_Opsyn_011.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11312
+memory left (bytes)  1037256

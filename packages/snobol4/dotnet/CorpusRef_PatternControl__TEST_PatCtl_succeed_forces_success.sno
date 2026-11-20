@@ -1,0 +1,5 @@
+
+        X = 'abc'
+        X POS(0) SUCCEED                            :S(ok)F(END)
+ok      OUTPUT = 'PASS'
+END

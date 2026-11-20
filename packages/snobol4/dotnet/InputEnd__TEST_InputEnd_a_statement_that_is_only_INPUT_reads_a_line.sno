@@ -1,0 +1,8 @@
+        INPUT
+        OUTPUT = INPUT
+        INPUT :F(E)
+        OUTPUT = 'third read ok'
+E       OUTPUT = 'next=' INPUT
+        INPUT :S(END)
+        OUTPUT = 'end of input fails a bare INPUT'
+END

@@ -1,0 +1,7 @@
+
+        a = ARRAY(10)
+        b = ARRAY(10)
+        DIFFER(a,b)    :S(diff)
+        out = 'differ'    :(END)
+diff     out = 'not differ'
+end;END

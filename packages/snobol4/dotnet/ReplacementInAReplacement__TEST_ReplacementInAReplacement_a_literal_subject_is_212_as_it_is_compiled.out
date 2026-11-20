@@ -1,0 +1,19 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:40:55 2026
+
+
+
+                                                                                                                page 1
+
+2               OUTPUT = 'A' C = 1
+
+ReplacementInAReplacement__TEST_ReplacementInAReplacement_a_literal_subject_is_212_as_it_is_compiled.sno(2) : ERROR 212 
+-- syntax error: value used where name is required
+
+3               X = Y = ('A' C = 1)
+
+ReplacementInAReplacement__TEST_ReplacementInAReplacement_a_literal_subject_is_212_as_it_is_compiled.sno(3) : ERROR 212 
+-- syntax error: value used where name is required

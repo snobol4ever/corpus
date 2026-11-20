@@ -1,0 +1,6 @@
+
+        DEFINE('f()')       :(fend)
+f       x = undef()         :(RETURN)
+fend    f()
+        after = 'ran'
+END

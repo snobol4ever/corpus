@@ -1,0 +1,11 @@
+
+        DEFINE('F(N)')                 :(F_END)
+F       F = 'v' N
+        LT(N, 2)                       :F(RETURN)
+        X = F(N + 1)
+        INNER = F ' ' X                :(RETURN)
+F_END
+        F = 'global'
+        R = F(1)
+        S = F
+END

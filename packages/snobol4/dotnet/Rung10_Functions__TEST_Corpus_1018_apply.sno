@@ -1,0 +1,12 @@
+
+        APPLY(.EQ, 1, 2)           :F(E001)
+        OUTPUT = 'FAIL 1018/001: apply(.eq,1,2) should fail' :(END)
+E001
+        APPLY(.EQ, 1, 1)           :S(E002)
+        OUTPUT = 'FAIL 1018/002: apply(.eq,1,1) should succeed' :(END)
+E002
+        DIFFER(APPLY(.TRIM, 'abc   '), 'abc')                   :F(E003)
+        OUTPUT = 'FAIL 1018/003: apply(.trim,...)'     :(END)
+E003
+        OUTPUT = 'PASS 1018_apply (3/3)'
+END

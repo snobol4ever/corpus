@@ -1,0 +1,41 @@
+
+
+
+dump of natural variables
+
+A = ARRAY(2) #1
+LONG = 'abcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijab
+cdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghijabcdefghij'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 0
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'PrintWidthWrap__TEST_PrintWidthWrap_dump_lines_are_cut_at_120.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'PrintWidthWrap__TEST_PrintWidthWrap_dump_lines_are_cut_at_120.sno'
+&LASTLINE = 3
+&LASTNO = 3
+&LINE = 4
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 4
+&STLIMIT = 2147483647
+&STNO = 4
+&TRACE = 0
+&TRIM = 1
+
+ARRAY(2) #1
+A<2> = 'xyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxyxy
+xyxyxyxyxyxyxyxyxyxyxyxyxyxy'

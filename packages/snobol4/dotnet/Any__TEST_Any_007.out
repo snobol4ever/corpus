@@ -1,0 +1,17 @@
+
+
+
+Any__TEST_Any_007.sno(4) : ERROR 043 -- any evaluated argument is not a string
+
+
+
+
+
+in file              Any__TEST_Any_007.sno
+in line              4
+in statement         4
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11664
+memory left (bytes)  1036904

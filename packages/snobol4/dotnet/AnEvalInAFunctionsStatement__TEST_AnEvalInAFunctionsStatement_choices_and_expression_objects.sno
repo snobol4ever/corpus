@@ -1,0 +1,30 @@
+        &ERRLIMIT = 100
+        N = 0
+        DEFINE('T(S)')                                  :(TE)
+T       T = EVAL(S)                                     :S(RETURN)F(FRETURN)
+TE      DEFINE('TX(E)')                                 :(TXE)
+TX      TX = EVAL(E)                                    :S(RETURN)F(FRETURN)
+TXE     R = T("(1 / N, 'd')")                           :S(Y1)
+        OUTPUT = '1 F ' &ERRTYPE                        :(E1)
+Y1      OUTPUT = '1 S [' R ']'
+E1      R = TX(*((1 / N), 'e'))                         :S(Y2)
+        OUTPUT = '2 F ' &ERRTYPE                        :(E2)
+Y2      OUTPUT = '2 S [' R ']'
+E2      R = T("(EVAL('1 / N'), 'g')")                   :S(Y3)
+        OUTPUT = '3 F ' &ERRTYPE                        :(E3)
+Y3      OUTPUT = '3 S [' R ']'
+E3      R = T("EVAL('~(1 / N)')")                       :S(Y4)
+        OUTPUT = '4 F ' &ERRTYPE                        :(E4)
+Y4      OUTPUT = '4 S [' R ']'
+E4      &ERRLIMIT = 0
+        R = T('~(1 / N)')                               :S(Y5)
+        OUTPUT = '5 F ' &ERRTYPE                        :(E5)
+Y5      OUTPUT = '5 S [' R ']'
+E5      R = T("(1 / N, 'f')")                           :S(Y6)
+        OUTPUT = '6 F ' &ERRTYPE                        :(E6)
+Y6      OUTPUT = '6 S [' R ']'
+E6      R = EVAL("T('~(1 / N)')")                       :S(Y7)
+        OUTPUT = '7 F ' &ERRTYPE                        :(E7)
+Y7      OUTPUT = '7 S [' R ']'
+E7      OUTPUT = 'end ' &ERRLIMIT
+END

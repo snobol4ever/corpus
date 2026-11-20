@@ -1,0 +1,17 @@
+
+
+
+Apply__TEST_Apply_003.sno(6) : ERROR 060 -- apply first arg is not natural variable name
+
+
+
+
+
+in file              Apply__TEST_Apply_003.sno
+in line              6
+in statement         6
+stmts executed       5
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11656
+memory left (bytes)  1036912

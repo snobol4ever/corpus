@@ -1,0 +1,5 @@
+-ERRORS
+        X = 1 +
+-NOERRORS
+        Y = 1
+END

@@ -1,0 +1,12 @@
+
+        DEFINE('SWAP(X,Y)TEMP')                      :(SWAP_END)
+SWAP    TEMP        =  $X
+        $X          =  $Y
+        $Y          =  TEMP                          :(RETURN)
+SWAP_END
+        P = 100
+        Q = 200
+        SWAP(.P, .Q)
+        OUTPUT = P
+        OUTPUT = Q
+END

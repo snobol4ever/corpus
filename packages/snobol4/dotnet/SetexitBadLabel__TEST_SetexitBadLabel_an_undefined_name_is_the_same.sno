@@ -1,0 +1,9 @@
+        &ERRLIMIT = 100
+        SETEXIT(.H)
+        X = SETEXIT(.NOLAB)
+        Y = SETEXIT()
+        OUTPUT = 'handler now [' Y ']'
+        :(END)
+H       OUTPUT = 'handler ' &ERRTYPE
+        :(CONTINUE)
+END

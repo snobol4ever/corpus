@@ -1,0 +1,4 @@
+        &ERRLIMIT = 10
+        A = ARRAY(0)
+        OUTPUT = &ERRTYPE ' ' &ERRTEXT
+END

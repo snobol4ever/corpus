@@ -1,0 +1,6 @@
+
+        S = 'hello'
+        S ('hx' | FENCE 'hell') 'o'            :F(FAIL)
+        OUTPUT = 'fence-ok'                    :(END)
+FAIL    OUTPUT = 'FAIL'
+END

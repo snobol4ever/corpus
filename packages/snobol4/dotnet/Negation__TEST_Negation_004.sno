@@ -1,0 +1,5 @@
+
+        ~DIFFER('hello', 'hello')   :F(n)
+        result = 'succeed'          :(END)
+n       result = 'failure'
+END

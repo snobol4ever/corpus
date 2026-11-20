@@ -1,0 +1,6 @@
+
+        subject = 'xyz'
+        subject 'abc' . captured   :S(matched)
+        result = 'no-match'        :(END)
+matched result = 'matched'
+END

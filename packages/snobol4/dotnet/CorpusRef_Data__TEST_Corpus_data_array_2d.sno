@@ -1,0 +1,9 @@
+
+        A = ARRAY('3,3')
+        A[1,1] = 'a'
+        A[2,2] = 'b'
+        A[3,3] = 'c'
+        OUTPUT = A[1,1]
+        OUTPUT = A[2,2]
+        OUTPUT = A[3,3]
+END

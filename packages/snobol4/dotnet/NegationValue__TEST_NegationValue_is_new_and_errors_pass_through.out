@@ -1,0 +1,11 @@
+1 F
+2 [abc]
+3 S [abc]
+4 STRING
+5 F
+6 S STRING
+7 S [qabc]
+8 []
+9 F 1
+10 STRING [p]
+11 [z]

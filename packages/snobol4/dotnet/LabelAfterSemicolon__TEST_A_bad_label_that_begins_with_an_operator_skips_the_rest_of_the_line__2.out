@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:32:08 2026
+
+
+
+                                                                                                                page 1
+
+1       =X ; B = (
+
+LabelAfterSemicolon__TEST_A_bad_label_that_begins_with_an_operator_skips_the_rest_of_the_line__2.sno(1) : ERROR 214 -- b
+ad label or misplaced continuation line

@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:00:05 2026
+
+
+
+                                                                                                                page 1
+
+2               A = BREAK('')
+
+Break__TEST_Break_013.sno(2) : ERROR 069 -- break argument is not a string or expression

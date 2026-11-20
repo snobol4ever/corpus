@@ -1,0 +1,5 @@
+
+        GT(1,1.2) :S(true)F(false)
+true    a =  'true'   :(END)
+false   a =  'false'  :(END)
+end;END

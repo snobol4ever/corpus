@@ -1,0 +1,39 @@
+
+
+
+dump of natural variables
+
+A = 16
+C1 = CODE
+C2 = CODE
+R = '13 226 syntax error: missing right paren 233 226 16'
+TERMINAL = '13 226 syntax error: missing right paren 233 226 16'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = 'syntax error: missing right paren'
+&ERRTYPE = 226
+&FILE = 'CodeStatementNumbers__TEST_CodeStatementNumbers_failed_compile_is_quiet.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'CodeStatementNumbers__TEST_CodeStatementNumbers_failed_compile_is_quiet.sno'
+&LASTLINE = 11
+&LASTNO = 11
+&LINE = 12
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 14
+&STLIMIT = 2147483647
+&STNO = 12
+&TRACE = 0
+&TRIM = 1

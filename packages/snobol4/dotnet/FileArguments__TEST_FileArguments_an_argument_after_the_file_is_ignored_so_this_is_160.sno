@@ -1,0 +1,5 @@
+        &ERRLIMIT = 5
+        OUTPUT(.F,10,,'x')
+        F = 'hello'
+        OUTPUT = 'err ' &ERRTYPE
+END

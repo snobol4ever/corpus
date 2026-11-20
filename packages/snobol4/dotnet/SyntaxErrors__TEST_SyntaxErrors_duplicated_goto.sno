@@ -1,0 +1,3 @@
+        X = A :(L)(M)
+        OUTPUT = 'x'
+END

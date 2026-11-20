@@ -1,0 +1,5 @@
+
+        N = 0
+loop    N = N + 1
+        LT(N, 10)   :S(loop)
+END

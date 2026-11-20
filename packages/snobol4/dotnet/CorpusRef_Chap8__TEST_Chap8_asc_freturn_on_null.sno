@@ -1,0 +1,11 @@
+
+        DEFINE('ASC(S)C')
+        ASC_ONE     =  LEN(1) . C
+        ASC_PAT     =  BREAK(*C) @ASC                :(ASC_END)
+ASC     S           ?  ASC_ONE                       :F(FRETURN)
+        &ALPHABET   ?  ASC_PAT                       :(RETURN)
+ASC_END
+        ASC('')                                      :S(FAIL)
+        OUTPUT = 'PASS'                              :(END)
+FAIL    OUTPUT = 'FAIL'
+END

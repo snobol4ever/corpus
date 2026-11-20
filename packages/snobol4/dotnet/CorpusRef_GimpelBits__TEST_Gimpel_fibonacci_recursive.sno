@@ -1,0 +1,11 @@
+
+        DEFINE('FIB(N)')                                   :(FIB_END)
+FIB     LE(N, 1)                                           :F(FIB_REC)
+        FIB = N                                            :(RETURN)
+FIB_REC FIB = FIB(N - 1) + FIB(N - 2)                     :(RETURN)
+FIB_END
+        OUTPUT = FIB(0)
+        OUTPUT = FIB(1)
+        OUTPUT = FIB(7)
+        OUTPUT = FIB(10)
+END

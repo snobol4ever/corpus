@@ -1,0 +1,19 @@
+
+
+
+GotoErrors__TEST_GotoErrors_a_goto_to_an_undefined_label_is_38_and_ends_the_run_whatever_errlimit_allows.sno(2) : ERROR1
+038 -- goto undefined label
+
+
+
+
+
+in file              GotoErrors__TEST_GotoErrors_a_goto_to_an_undefined_label_is_38_and_ends_the_run_whatever_errlimit_a
+llows.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11344
+memory left (bytes)  1037224

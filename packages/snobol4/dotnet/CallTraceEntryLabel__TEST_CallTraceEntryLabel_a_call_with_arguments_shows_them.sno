@@ -1,0 +1,7 @@
+        DEFINE('E(A,B)')
+        TRACE(.E, 'CALL')
+        &ERRLIMIT = 5
+        &TRACE = 100
+        E('x', 3)
+        OUTPUT = 'after ' &ERRTYPE
+END

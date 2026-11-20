@@ -1,0 +1,13 @@
+        A = ARRAY(2)
+        T = TABLE()
+        N = 'V'
+        $N = 'dollar'
+        A[1] = 'arr'
+        T['k'] = 'tab'
+        'abc' ? LEN(1) . Y
+        'abc' ? LEN(2) $ Z
+        S = 'hello'
+        S 'l' = 'L'
+        &ANCHOR = 0
+        OUTPUT = V ' ' A[1] ' ' T['k'] ' ' Y ' ' Z ' ' S
+END

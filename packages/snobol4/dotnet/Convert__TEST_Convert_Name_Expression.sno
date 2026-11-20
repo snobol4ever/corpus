@@ -1,0 +1,9 @@
+
+        E = CONVERT('1 + 2', 'NAME')
+        H = CONVERT(E, 'EXPRESSION')
+        $E = 45
+        C = $E    
+        F = EVAL(E)
+        G = $'1 + 2'
+        D = 'success'
+END

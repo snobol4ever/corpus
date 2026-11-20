@@ -1,0 +1,5 @@
+        digits = '0123456789'; P1 = SPAN(digits); P2 = *P1; P3 = *P2; S = 'A1'
+        S POS(0) 'A' *P3 RPOS(0)       :F(NO)
+        OUTPUT = 'match'               :(END)
+NO      OUTPUT = 'nomatch'
+END

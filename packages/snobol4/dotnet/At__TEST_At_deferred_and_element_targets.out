@@ -1,0 +1,40 @@
+
+
+
+dump of natural variables
+
+A = ARRAY(3) #1
+CUR2 = 4
+N = 2
+Q = 3
+R = '3 4 3 2 4'
+V = 3
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'At__TEST_At_deferred_and_element_targets.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'At__TEST_At_deferred_and_element_targets.sno'
+&LASTLINE = 12
+&LASTNO = 12
+&LINE = 13
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'NRETURN'
+&STCOUNT = 12
+&STLIMIT = 2147483647
+&STNO = 13
+&TRACE = 0
+&TRIM = 1

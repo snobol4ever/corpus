@@ -1,0 +1,7 @@
+        DEFINE('F()')                  :(FE)
+F                                      :(RETURN)
+FE      TRACE('F','CALL')
+        TRACE('F','RETURN')
+        X = STOPTR('F','CALL') STOPTR('F','RETURN')
+        R = DATATYPE(X) '[' X ']'
+END

@@ -1,0 +1,4 @@
+        OPSYN('#','DUPL',1)
+        X = #'ab'
+        OUTPUT = '[' X ']'
+END

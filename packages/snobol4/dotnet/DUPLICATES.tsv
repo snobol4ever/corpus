@@ -1,0 +1,112 @@
+# DUPLICATES.tsv -- programs of snobol4dotnet's TestSnobol4 suite the corpus already holds, so no entry here: test<TAB>where the corpus has it.
+Test.TestSourceReader.ControlStatements.TEST_ControlStatements_a_chained_control_may_begin_with_a_minus	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_snobol4_list_listing_matches_sbl__p_chain.sno
+Test.TestSourceReader.EndStatement.TEST_EndStatement_under_no_folding_a_line_spelled_end_ends_the_program	tests/snobol4 MULTI-LINERS end_lower__a_line_after_end_is_not_compiled
+Test.TestSourceReader.EndStatement.TEST_EndStatement_under_no_folding_end_takes_an_entry_label	tests/snobol4 MULTI-LINERS end_lower__end_with_an_entry_label_starts_there
+Test.TestSourceReader.EndStatement.TEST_EndStatement_under_no_folding_a_goto_to_end_reaches_a_line_spelled_end	tests/snobol4 MULTI-LINERS end_lower__a_syntax_error_after_end_is_not_read
+Test.TestSourceReader.EndStatement.TEST_EndStatement_under_no_folding_a_variable_named_end_and_a_label_End_are_untouched	tests/snobol4 MULTI-LINERS end_lower__a_variable_named_end_and_a_label_End_are_untouched
+Test.TestLexer.TestLexer.TEST_216_001	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.TestLexer.TestLexer.TEST_216_003	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.TestLexer.TestLexer.TEST_216_004	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.TestLexer.TestLexer.TEST_216_002	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.TestLexer.TestLexer.TEST_216_006	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.TestLexer.TestLexer.TEST_216_007	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.TestLexer.TestLexer.TEST_216_008	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.TestLexer.TestLexer.TEST_216_005	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.TestLexer.TestLexer.TEST_LABEL_004	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.TestLexer.TestLexer.TEST_LABEL_006	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.TestLexer.TestLexer.TEST_LABEL_007	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.TestLexerChecks.AChainedQuerysSubjectIsNoName.TEST_AChainedQuerysSubjectIsNoName_is_212	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_a_statement_level_query_takes_a_concatenated_subject_and_chains_left_to_right__refuse2.sno
+Test.TestGoto.DirectGotoSquare.TEST_DirectGotoSquare_every_form_goes_to_the_code	tests/snobol4 MULTI-LINERS sweep__a_direct_goto_in_square_brackets_is_a_direct_goto
+Test.TestGoto.GotoFieldCallByName.TEST_GotoFieldCallByName_a_value_returned_is_error_21	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_goto_field_call_is_by_name__val.sno
+Test.ProgramControl.TraceFunctionUnderFtrace.TEST_TraceFunctionUnderFtrace_a_call_trace_calls_its_function_first	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_a_trace_callback_is_ftraced_like_any_called_function__call.sno
+Test.ProgramControl.TraceFunctionUnderFtrace.TEST_TraceFunctionUnderFtrace_a_return_trace_function_sets_the_value_returned	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_a_traced_call_keeps_its_procedure_and_its_value_across_a_collection__wb.sno
+Test.ProgramControl.TraceOfAnElement.TEST_TraceOfAnElement_an_array_and_a_table_element	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_trace_of_an_array_or_table_element_fires_and_spells_it_like_the_oracle__element.sno
+Test.ProgramControl.TraceOfAnElement.TEST_TraceOfAnElement_through_an_alias	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_trace_of_an_array_or_table_element_fires_and_spells_it_like_the_oracle__alias.sno
+Test.ProgramControl.TraceOfAnElement.TEST_TraceOfAnElement_a_new_array_is_not_traced	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_trace_of_an_array_or_table_element_fires_and_spells_it_like_the_oracle__rebind.sno
+Test.ProgramControl.TraceOfAnElement.TEST_TraceOfAnElement_a_cell_of_two_dimensions	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_sno_the_value_trace_of_a_multi_dimensional_array_element_fires_and_spells_a_i_j_like_sbl__named_cell.sno
+Test.Pattern.DeferredAssigneeFailure.TEST_DeferredAssigneeFailure_an_error_in_a_function_the_target_calls_fails_only_its_statement	tests/snobol4 MULTI-LINERS ladder__rung32_an_error_in_a_function_called_from_a_deferred_capture_target_fails_only_its_statement
+Test.FunctionControl.ExtXnblkTests.Xnblk_DotNet_StatefulLibrary	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.FunctionControl.AFunctionAtTheFirstStatementUnderAnEntryLabel.TEST_AFunctionAtTheFirstStatementUnderAnEntryLabel_runs_its_body	/home/packages/snobol4/snobol4hs_examples/examples/define.sno
+Test.Compiilation.ACarriageReturnIsACharacterOfTheLine.TEST_ACarriageReturnIsACharacterOfTheLine_end_then_cr_is_no_end	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__Q.sno
+Test.Miscellaneous.TraceEvents.TEST_Trace_Access_check_takes_an_empty_name	/home/corpus/packages/snobol4/gate_cases_snobol4/test_gate_package_contract_merges_stderr_and_a_rebuild_keeps_settings_rows__Q.sno
+Test.Corpus.CorpusRef_ArithNew.TEST_Corpus_030_arith_remdr	tests/snobol4 MULTI-LINERS simple_output_183
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4__100func	/home/corpus/packages/snobol4/csnobol4_suite/100func.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_a	/home/corpus/packages/snobol4/csnobol4_suite/a.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_alis	/home/corpus/packages/snobol4/csnobol4_suite/alis.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_alt1	/home/corpus/packages/snobol4/csnobol4_suite/alt1.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_alt2	/home/corpus/packages/snobol4/csnobol4_suite/alt2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_any	/home/corpus/packages/snobol4/csnobol4_suite/any.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_bal	/home/corpus/packages/snobol4/csnobol4_suite/bal.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_breakx	/home/corpus/packages/snobol4/csnobol4_suite/breakx.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_cat	/home/corpus/packages/snobol4/csnobol4_suite/cat.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_char	/home/corpus/packages/snobol4/csnobol4_suite/char.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_collect	/home/corpus/packages/snobol4/csnobol4_suite/collect.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_collect2	/home/corpus/packages/snobol4/csnobol4_suite/collect2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_comment	/home/corpus/packages/snobol4/csnobol4_suite/comment.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_contin	/home/corpus/packages/snobol4/csnobol4_suite/contin.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_convert	/home/corpus/packages/snobol4/csnobol4_suite/convert.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_diag2	/home/packages/snobol4/decus_vax84a/diag2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_digits	/home/corpus/packages/snobol4/csnobol4_suite/digits.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_dump	/home/corpus/packages/snobol4/csnobol4_suite/dump.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_end	/home/corpus/packages/snobol4/csnobol4_suite/preload2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_err	/home/corpus/packages/snobol4/csnobol4_suite/err.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_fact	/home/corpus/packages/snobol4/csnobol4_suite/fact.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_factor	/home/corpus/packages/snobol4/csnobol4_suite/factor.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_file	/home/corpus/packages/snobol4/csnobol4_suite/file.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_float	/home/corpus/packages/snobol4/csnobol4_suite/float.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_float2	/home/corpus/packages/snobol4/csnobol4_suite/float2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_ftrace	/home/corpus/packages/snobol4/csnobol4_suite/ftrace.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_fun1	/home/corpus/packages/snobol4/csnobol4_suite/fun1.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_fun2	/home/corpus/packages/snobol4/csnobol4_suite/fun2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_func2	/home/corpus/packages/snobol4/csnobol4_suite/func2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_function	/home/corpus/packages/snobol4/csnobol4_suite/function.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_hello	/home/corpus/packages/snobol4/csnobol4_suite/hello.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_include2	/home/corpus/packages/snobol4/csnobol4_suite/include2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_include3	/home/corpus/packages/snobol4/csnobol4_suite/include3.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_include4	/home/corpus/packages/snobol4/csnobol4_suite/include3.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_ind	/home/corpus/packages/snobol4/csnobol4_suite/ind.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_intval	/home/corpus/packages/snobol4/csnobol4_suite/intval.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_keytrace	/home/corpus/packages/snobol4/csnobol4_suite/keytrace.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_label	/home/corpus/packages/snobol4/csnobol4_suite/label.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_lgt	/home/corpus/packages/snobol4/csnobol4_suite/lgt.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_local	/home/corpus/packages/snobol4/csnobol4_suite/local.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_longline	/home/corpus/packages/snobol4/csnobol4_suite/longline.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_loop	/home/corpus/packages/snobol4/csnobol4_suite/loop.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_match	/home/corpus/packages/snobol4/csnobol4_suite/match.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_match2	/home/corpus/packages/snobol4/csnobol4_suite/match2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_match3	/home/corpus/packages/snobol4/csnobol4_suite/match3.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_match4	/home/corpus/packages/snobol4/csnobol4_suite/match4.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_matchloop	/home/corpus/packages/snobol4/csnobol4_suite/matchloop.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_maxint	/home/corpus/packages/snobol4/csnobol4_suite/maxint.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_noexec	/home/corpus/packages/snobol4/csnobol4_suite/noexec.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_nqueens	/home/corpus/packages/snobol4/csnobol4_suite/nqueens.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_openi	/home/corpus/packages/snobol4/csnobol4_suite/openi.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_openo	/home/corpus/packages/snobol4/csnobol4_suite/openo.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_openo2	/home/corpus/packages/snobol4/csnobol4_suite/openo2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_ops	/home/corpus/packages/snobol4/csnobol4_suite/ops.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_ord	/home/corpus/packages/snobol4/csnobol4_suite/ord.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_pad	/home/corpus/packages/snobol4/csnobol4_suite/pad.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_popen	/home/corpus/packages/snobol4/csnobol4_suite/popen.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_popen2	/home/corpus/packages/snobol4/csnobol4_suite/popen2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_pow	/home/corpus/packages/snobol4/csnobol4_suite/pow.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_punch	/home/corpus/packages/snobol4/csnobol4_suite/punch.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_reverse	/home/corpus/packages/snobol4/csnobol4_suite/reverse.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_roman	/home/corpus/packages/snobol4/csnobol4_suite/roman.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_scanerr	/home/corpus/packages/snobol4/csnobol4_suite/scanerr.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_setexit3	/home/corpus/packages/snobol4/csnobol4_suite/setexit3.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_str	/home/corpus/packages/snobol4/csnobol4_suite/str.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_substr	/home/corpus/packages/snobol4/csnobol4_suite/substr.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_t	/home/corpus/packages/snobol4/csnobol4_suite/t.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_trace1	/home/corpus/packages/snobol4/csnobol4_suite/trace1.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_trace2	/home/corpus/packages/snobol4/csnobol4_suite/trace2.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_trfunc	/home/corpus/packages/snobol4/csnobol4_suite/trfunc.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_uneval	/home/corpus/packages/snobol4/csnobol4_suite/uneval.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_unsc	/home/corpus/packages/snobol4/csnobol4_suite/unsc.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_update	/home/corpus/packages/snobol4/csnobol4_suite/update.sno
+Test.Corpus.CorpusRef_Csnobol4Suite.TEST_Csnobol4_vdiffer	/home/corpus/packages/snobol4/csnobol4_suite/vdiffer.sno
+Test.Corpus.CorpusRef_Feat.TEST_Feat_f14_dyn_opt_pattern_cache	tests/snobol4 MULTI-LINERS simple_output_3
+Test.Corpus.CorpusRef_Keywords.TEST_Corpus_100_roman_numeral	tests/snobol4 MULTI-LINERS user_function_array_branch_2
+Test.Corpus.CorpusRef_Keywords.TEST_Corpus_099_lexical_compare	tests/snobol4 MULTI-LINERS simple_output_139
+Test.Corpus.CorpusRef_Misc.TEST_Corpus_213_indirect_name	tests/snobol4 MULTI-LINERS user_function_indirect_branch_1
+Test.Corpus.CorpusRef_Strings.TEST_Corpus_069_builtin_dupl	tests/snobol4 MULTI-LINERS dupl_3
+Test.Corpus.Rung2_Indirect.TEST_Corpus_213_indirect_name	tests/snobol4 MULTI-LINERS user_function_indirect_branch_1

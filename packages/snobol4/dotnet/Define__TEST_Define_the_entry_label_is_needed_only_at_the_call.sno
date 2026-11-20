@@ -1,0 +1,7 @@
+
+        DEFINE('ZZ(X)')
+        CODE('ZZ ZZ = X + 1 :(RETURN)')
+        R = ZZ(1)
+        DEFINE('YY(X)')
+        S = YY(1)
+END

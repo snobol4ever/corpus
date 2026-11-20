@@ -1,0 +1,9 @@
+
+        T = TABLE()
+        T[1] = 'one'
+        T[2] = 'two'
+        T[3] = 'three'
+        OUTPUT = T[1]
+        OUTPUT = T[2]
+        OUTPUT = T[3]
+END

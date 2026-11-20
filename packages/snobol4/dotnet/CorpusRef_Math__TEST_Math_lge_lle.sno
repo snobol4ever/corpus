@@ -1,0 +1,11 @@
+
+        LGE('b', 'a')                               :S(ok1)
+        OUTPUT = 'FAIL: LGE b a'                    :(END)
+ok1     LGE('a', 'a')                               :S(ok2)
+        OUTPUT = 'FAIL: LGE a a'                    :(END)
+ok2     LLE('a', 'b')                               :S(ok3)
+        OUTPUT = 'FAIL: LLE a b'                    :(END)
+ok3     LLE('a', 'a')                               :S(ok4)
+        OUTPUT = 'FAIL: LLE a a'                    :(END)
+ok4     OUTPUT = 'PASS'
+END

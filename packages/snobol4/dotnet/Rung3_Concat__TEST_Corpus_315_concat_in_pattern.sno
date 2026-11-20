@@ -1,0 +1,8 @@
+
+        a = 'hel'
+        b = 'lo'
+        pat = a b
+        'hello world' pat   :F(FAIL)
+        OUTPUT = 'PASS 315_concat_in_pattern'   :(END)
+FAIL    OUTPUT = 'FAIL 315'
+END

@@ -1,0 +1,6 @@
+
+        subject = 'abcd'
+        subject 'ab' 'cd'   :S(ok)F(bad)
+ok      result = 'ok'   :(END)
+bad     result = 'bad'
+END

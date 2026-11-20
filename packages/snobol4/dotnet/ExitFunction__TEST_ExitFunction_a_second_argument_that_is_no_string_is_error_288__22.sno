@@ -1,0 +1,4 @@
+        &ERRLIMIT = 5
+        EXIT('echo hi', CODE(' X = 1'))
+        OUTPUT = 'after ' &ERRTYPE
+END

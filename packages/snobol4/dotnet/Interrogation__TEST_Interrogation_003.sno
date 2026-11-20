@@ -1,0 +1,6 @@
+
+        result = ?DIFFER('abc', 'abc')   :S(succeeded)
+        result = 'null-result'           :(END)
+succeeded
+        result = 'should-not-reach'
+END

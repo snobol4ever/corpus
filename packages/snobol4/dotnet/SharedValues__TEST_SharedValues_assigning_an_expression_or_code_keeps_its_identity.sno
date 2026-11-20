@@ -1,0 +1,22 @@
+        E = ''
+        V5 = *E
+        V7 = CODE(' X = 1')
+        R5 = V5
+        R7 = V7
+        OUTPUT = '1 ' IDENT(R5, V5) 'expr same'
+        OUTPUT = '2 ' IDENT(R7, V7) 'code same'
+        OUTPUT = '3 ' IDENT(V5, V5) 'expr self'
+        OUTPUT = '4 ' IDENT(V7, V7) 'code self'
+        W5 = *E
+        OUTPUT = '5 ' IDENT(V5, W5) 'expr two'
+        W7 = CODE(' X = 1')
+        OUTPUT = '6 ' IDENT(V7, W7) 'code two'
+        P = LEN(2)
+        Q = P
+        OUTPUT = '7 ' IDENT(P, Q) 'pat same'
+        OUTPUT = '8 ' IDENT(LEN(2), LEN(2)) 'pat two'
+        N1 = .E
+        N2 = .E
+        OUTPUT = '9 ' IDENT(N1, N2) 'name same'
+        OUTPUT = '10 ' IDENT(V7, V5) 'diff'
+END

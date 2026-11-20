@@ -1,0 +1,36 @@
+
+
+
+dump of natural variables
+
+A = ARRAY(2) #1
+R = 'top,child'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'CallerRestore__TEST_CallerRestore_a_local_array_passed_on_comes_back_after_return.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'CallerRestore__TEST_CallerRestore_a_local_array_passed_on_comes_back_after_return.sno'
+&LASTLINE = 10
+&LASTNO = 10
+&LINE = 11
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 13
+&STLIMIT = 2147483647
+&STNO = 11
+&TRACE = 0
+&TRIM = 1

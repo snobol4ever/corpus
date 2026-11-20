@@ -1,0 +1,12 @@
+
+        DEFINE('SWAP(A,B)T')                               :(SWAP_END)
+SWAP    T = $A
+        $A = $B
+        $B = T                                             :(RETURN)
+SWAP_END
+        X = 'hello'
+        Y = 'world'
+        SWAP(.X, .Y)
+        OUTPUT = X
+        OUTPUT = Y
+END

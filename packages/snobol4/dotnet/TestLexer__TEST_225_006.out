@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:54:11 2026
+
+
+
+                                                                                                                page 1
+
+1          A[B + C(];end
+                   !
+TestLexer__TEST_225_006.sno(1,12) : ERROR 225 -- syntax error: unbalanced right bracket

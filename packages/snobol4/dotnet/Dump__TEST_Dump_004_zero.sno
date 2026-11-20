@@ -1,0 +1,5 @@
+
+        I = 99
+        DUMP(0)
+        result = 'ok'
+END

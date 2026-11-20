@@ -1,0 +1,5 @@
+        &ERRLIMIT = 10
+        E = ''
+        X = CONVERT('abc', E)
+        OUTPUT = &ERRTYPE
+END

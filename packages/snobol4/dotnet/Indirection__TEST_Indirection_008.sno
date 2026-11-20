@@ -1,0 +1,5 @@
+
+        v = ANY('abc')
+        $v = 'abc'
+        b = $v
+END

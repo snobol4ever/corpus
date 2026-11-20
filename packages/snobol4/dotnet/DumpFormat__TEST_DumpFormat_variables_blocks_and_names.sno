@@ -1,0 +1,11 @@
+        T = TABLE(5)
+        T['a'] = ARRAY(2)
+        T['a'][1] = 'q'
+        U = T
+        AA = ARRAY(3)
+        AA[2] = AA
+        DATA('NODE(VAL,NXT)')
+        N = NODE(1, NODE(2))
+        DUMP(2)
+        OUTPUT = 'after'
+END

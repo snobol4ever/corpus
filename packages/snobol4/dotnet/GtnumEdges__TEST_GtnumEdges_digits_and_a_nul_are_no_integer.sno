@@ -1,0 +1,4 @@
+        &ERRLIMIT = 100
+        S = '12' CHAR(0)
+        OUTPUT = (CONVERT(S,'INTEGER'), 'FAIL') ' ' (S + 0, 'FAIL')
+END

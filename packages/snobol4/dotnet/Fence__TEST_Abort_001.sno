@@ -1,0 +1,5 @@
+
+        P = FENCE(BREAK(',') | REM) $ STR *DIFFER(STR)
+        'ABC' P . R1
+        '123,,456' P . R2
+END

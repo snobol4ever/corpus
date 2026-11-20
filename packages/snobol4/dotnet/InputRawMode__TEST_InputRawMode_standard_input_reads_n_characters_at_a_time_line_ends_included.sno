@@ -1,0 +1,4 @@
+        INPUT(.INPUT, 9, '[-f0 -r10]')
+L       X = INPUT   :F(END)
+        OUTPUT = SIZE(X) ' ' REPLACE(X, CHAR(10), '|')   :(L)
+END

@@ -1,0 +1,7 @@
+1 F t=222 lim=9
+2 F t=222 lim=8
+3 S EXPRESSION []
+4 F t=221 lim=7
+5 TRAP t=226 lim=6
+6 F t=222 lim=5
+7 F t=222 lim=4

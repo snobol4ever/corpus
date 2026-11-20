@@ -1,0 +1,13 @@
+
+        DEFINE('F()')                  :(EF)
+F       F = .Q                         :(NRETURN)
+EF      V = .P
+        'ABCDE' 'BC' @*V
+        N = 2
+        'ABCDE' 'CD' @*$('CUR' N)
+        'ABCDE' 'BC' @*F()
+        A = ARRAY(3)
+        'ABCDE' 'B' @*A[2]
+        'ABCDE' 'D' @A[1]
+        R = V ' ' CUR2 ' ' Q ' ' A[2] ' ' A[1]
+END

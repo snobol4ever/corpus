@@ -1,0 +1,7 @@
+
+        X = 'bc'
+        X ('a' | 'b') . V                                          :S(YES)
+        RESULT = 'no match'
+        :(END)
+YES     RESULT = V
+END

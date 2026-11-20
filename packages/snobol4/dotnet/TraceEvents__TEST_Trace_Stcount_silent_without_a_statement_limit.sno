@@ -1,0 +1,6 @@
+        &TRACE = 100
+        &STLIMIT = -1
+        TRACE('STCOUNT', 'KEYWORD')
+        OUTPUT = 'a'
+        OUTPUT = 'done ' &TRACE
+END

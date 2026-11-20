@@ -1,0 +1,7 @@
+
+        b = ARRAY('1,2')
+        b[1,1] = 'z'
+        b[1,2] = 99
+        RSORT(b, 1)
+        result = b[1,1]
+END

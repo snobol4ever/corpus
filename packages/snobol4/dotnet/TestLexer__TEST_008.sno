@@ -1,0 +1,4 @@
+
+        INLINE2 = 'blank'
+        a = (EQ(0,1) 'blank',INLINE2 =)
+END

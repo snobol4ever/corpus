@@ -1,0 +1,3 @@
+PASS W06/001: TAB(3) then DE matched
+PASS W06/002: AB TAB(2) CDE matched
+PASS W06/003: TAB(1) behind cursor correctly fails

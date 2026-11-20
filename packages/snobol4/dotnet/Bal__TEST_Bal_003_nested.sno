@@ -1,0 +1,6 @@
+
+        subject = '(a(b)c)rest'
+        subject BAL . matched   :F(bad)
+        result = matched   :(END)
+bad     result = 'bad'
+END

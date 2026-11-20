@@ -1,0 +1,3 @@
+
+        r = CONVERT(' ', .integer) ' ' CONVERT(' ', .real) ' ' CONVERT('12', .integer)
+END

@@ -1,0 +1,6 @@
+        DEFINE('F(A)')
+        &FTRACE = 4
+        Y = F(DUPL('abcdefghij', 13))
+        :(END)
+F       F = A  :(RETURN)
+END

@@ -1,0 +1,9 @@
+
+        n = 0
+loop    n = n + 1
+        acc = acc 'x'
+        DIFFER(n, 5)   :F(loop)
+        DIFFER(acc, 'xxxxx')   :F(FAIL)
+        OUTPUT = 'PASS 317_concat_in_loop'   :(END)
+FAIL    OUTPUT = 'FAIL 317'
+END

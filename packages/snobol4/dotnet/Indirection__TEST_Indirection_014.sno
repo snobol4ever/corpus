@@ -1,0 +1,11 @@
+
+        dog = 'bark'
+        cat = 'meow'
+        animal = 'cat'
+        a = $animal
+        animal = 'dog'
+        b = $animal
+        $dog = 'ruff'
+        c = $animal
+        d = $$animal
+END

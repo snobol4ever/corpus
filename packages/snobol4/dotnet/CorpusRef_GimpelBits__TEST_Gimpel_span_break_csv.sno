@@ -1,0 +1,7 @@
+
+        LINE = 'one,two,three,four'
+        DELIM = ','
+LOOP    LINE BREAK(DELIM) . WORD SPAN(DELIM) =             :F(LAST)
+        OUTPUT = WORD                                      :(LOOP)
+LAST    OUTPUT = LINE
+END

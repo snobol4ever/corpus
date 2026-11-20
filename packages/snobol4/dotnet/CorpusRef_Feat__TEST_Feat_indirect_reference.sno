@@ -1,0 +1,6 @@
+
+        VARNAME = 'X'
+        $VARNAME = 'hello'
+        OUTPUT = X
+        OUTPUT = $VARNAME
+END

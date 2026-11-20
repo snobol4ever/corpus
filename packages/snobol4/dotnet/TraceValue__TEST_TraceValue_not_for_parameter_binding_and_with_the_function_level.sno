@@ -1,0 +1,8 @@
+        &TRACE = 10
+        TRACE('A', 'VALUE')
+        TRACE('L', 'VALUE')
+        A = 'outer'
+        DEFINE('F(A)L')  :(EF)
+F       L = A 'x'        :(RETURN)
+EF      F('in')
+END

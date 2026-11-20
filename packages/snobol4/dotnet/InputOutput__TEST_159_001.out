@@ -1,0 +1,17 @@
+
+
+
+InputOutput__TEST_159_001.sno(2) : ERROR 159 -- inappropriate first argument for output
+
+
+
+
+
+in file              InputOutput__TEST_159_001.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12688
+memory left (bytes)  1035880

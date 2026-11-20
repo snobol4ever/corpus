@@ -1,0 +1,4 @@
+
+        T = ('{' ARBNO(*T | NOTANY('{}')) '}') $ X *DIFFER(L = L X ' ')
+        '{a{b}{{c}d}}' ? POS(0) T RPOS(0)
+END

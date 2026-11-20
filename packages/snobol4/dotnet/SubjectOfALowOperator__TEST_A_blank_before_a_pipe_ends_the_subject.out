@@ -1,0 +1,36 @@
+
+
+
+dump of natural variables
+
+R = 'f'
+S = 'ab'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'SubjectOfALowOperator__TEST_A_blank_before_a_pipe_ends_the_subject.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'SubjectOfALowOperator__TEST_A_blank_before_a_pipe_ends_the_subject.sno'
+&LASTLINE = 6
+&LASTNO = 6
+&LINE = 8
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 6
+&STLIMIT = 2147483647
+&STNO = 8
+&TRACE = 0
+&TRIM = 1

@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 16:44:12 2026
+
+
+
+                                                                                                                page 1
+
+1        a = 1.6e308 + 0.7e308;end
+
+Addition__TEST_261_Addition.sno(1) : ERROR 261 -- addition caused real overflow

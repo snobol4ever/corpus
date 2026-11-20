@@ -1,0 +1,17 @@
+
+
+
+Opsyn__TEST_Opsyn_as_spitbol_resolves_it__4.sno(2) : ERROR 248 -- attempted redefinition of system function
+
+
+
+
+
+in file              Opsyn__TEST_Opsyn_as_spitbol_resolves_it__4.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11312
+memory left (bytes)  1037256

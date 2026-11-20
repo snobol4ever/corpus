@@ -1,0 +1,5 @@
+        DEFINE('F()')  :(EF)
+F       OUTPUT = 'F ' &STNO ' ' &LINE ' ' &LASTNO ' ' &LASTLINE  :(RETURN)
+EF      F()
+        OUTPUT = 'D ' &STNO ' ' &LINE ' ' &LASTNO ' ' &LASTLINE
+END

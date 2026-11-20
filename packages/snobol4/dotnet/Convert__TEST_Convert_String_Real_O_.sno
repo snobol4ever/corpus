@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        a = '3.14159e900'
+        b = CONVERT(a,'real')  :F(END)
+        d = 'success'
+END

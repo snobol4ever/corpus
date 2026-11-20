@@ -1,0 +1,4 @@
+
+        a = TABLE(20)
+        b = PROTOTYPE(a)
+END

@@ -1,0 +1,34 @@
+        DEFINE('F()')                               :(FE)
+F       N = N + 1
+        F = 'z'                                     :(RETURN)
+FE      DEFINE('G()')                               :(GE)
+G       M = M + 1                                   :(FRETURN)
+GE      N = 0
+        'abc' ? *F()                                :S(Y1)
+        OUTPUT = '1 F calls=' N                     :(E1)
+Y1      OUTPUT = '1 S calls=' N
+E1      M = 0
+        'abc' ? *G()                                :S(Y2)
+        OUTPUT = '2 F calls=' M                     :(E2)
+Y2      OUTPUT = '2 S calls=' M
+E2      N = 0
+        &ANCHOR = 1
+        'abc' ? *F()                                :S(Y3)
+        OUTPUT = '3 F calls=' N                     :(E3)
+Y3      OUTPUT = '3 S calls=' N
+E3      &ANCHOR = 0
+        N = 0
+        'abz' ? *F()                                :S(Y4)
+        OUTPUT = '4 F calls=' N                     :(E4)
+Y4      OUTPUT = '4 S calls=' N
+E4      N = 0
+        'abc' *F()                                  :S(Y5)
+        OUTPUT = '5 F calls=' N                     :(E5)
+Y5      OUTPUT = '5 S calls=' N
+E5      N = 0
+        P = *F()
+        'abc' ? P                                   :S(Y6)
+        OUTPUT = '6 F calls=' N                     :(E6)
+Y6      OUTPUT = '6 S calls=' N
+E6
+END

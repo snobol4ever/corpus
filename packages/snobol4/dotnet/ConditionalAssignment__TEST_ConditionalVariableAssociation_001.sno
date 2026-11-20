@@ -1,0 +1,9 @@
+
+	subject = 'mississippi'
+	pattern = 'is' . temp1  'si' . temp2
+	subject pattern :S(y)F(n)
+y	result = 'success' 
+	temp4 = temp3 = temp1 '  ' temp2  :(END)
+n	result = 'fail'
+
+END

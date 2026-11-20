@@ -1,0 +1,13 @@
+
+        X = FAIL
+        X = 1
+        Y = ARB
+        Y = 'two'
+        N = 'Z'
+        $N = REM
+        $N = 'three'
+        A = ARRAY(1)
+        A[1] = FAIL
+        A[1] = 'el'
+        R = X ' ' Y ' ' Z ' ' A[1]
+END

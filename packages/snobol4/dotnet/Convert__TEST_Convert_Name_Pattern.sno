@@ -1,0 +1,7 @@
+
+        OUTPUT = A = .ABC
+		OUTPUT = B = DATATYPE(A)
+		OUTPUT = C = CONVERT(B , 'PATTERN')
+		OUTPUT = D = DATATYPE(C)
+        OUTPUT = E = 'success'
+END

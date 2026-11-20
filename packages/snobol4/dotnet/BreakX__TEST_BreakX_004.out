@@ -1,0 +1,17 @@
+
+
+
+BreakX__TEST_BreakX_004.sno(4) : ERROR 070 -- breakx argument is not a string or expression
+
+
+
+
+
+in file              BreakX__TEST_BreakX_004.sno
+in line              4
+in statement         4
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11792
+memory left (bytes)  1036776

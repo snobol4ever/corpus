@@ -1,0 +1,14 @@
+
+	    DEFINE('BASEB(N,B)R,C')
+	    BASEB_ALPHA  =  '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+					    :(BASEB_END)
+BASEB	EQ(N,0)					:S(RETURN)
+	    R  =  REMDR(N,B)
+	    BASEB_ALPHA  TAB(*R)   LEN(1) . C	:F(ERROR)
+        BASEB  =  C BASEB
+	    N  =  N / B					:(BASEB)
+BASEB_END
+        R1 = BASEB(1, 2)
+        R2 = BASEB(7, 2)
+        R3 = BASEB(16, 16)
+END

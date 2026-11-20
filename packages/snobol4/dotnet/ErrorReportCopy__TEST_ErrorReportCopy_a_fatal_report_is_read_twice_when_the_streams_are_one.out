@@ -1,0 +1,19 @@
+before
+
+
+
+ErrorReportCopy__TEST_ErrorReportCopy_a_fatal_report_is_read_twice_when_the_streams_are_one.sno(3) : ERROR 001 -- additi
+on left operand is not numeric
+
+
+
+
+
+in file              ErrorReportCopy__TEST_ErrorReportCopy_a_fatal_report_is_read_twice_when_the_streams_are_one.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11568
+memory left (bytes)  1037000

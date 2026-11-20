@@ -1,0 +1,7 @@
+
+        &TRIM = 1
+        S = 'hello   '
+        S RPOS(0)                              :S(TRIMMED)
+        OUTPUT = 'FAIL'                        :(END)
+TRIMMED OUTPUT = 'trim-ok'
+END

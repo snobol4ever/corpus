@@ -1,0 +1,5 @@
+
+        'anything' FAIL   :S(bad)F(ok)
+bad     result = 'bad'   :(END)
+ok      result = 'ok'
+END

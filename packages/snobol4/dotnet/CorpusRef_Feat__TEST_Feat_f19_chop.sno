@@ -1,0 +1,6 @@
+
+        EQ(CHOP(3.9), 3.0)                         :F(FAIL)
+        EQ(CHOP(-2.7), -2.0)                       :F(FAIL)
+        OUTPUT = 'PASS'                            :(END)
+FAIL    OUTPUT = 'FAIL'
+END

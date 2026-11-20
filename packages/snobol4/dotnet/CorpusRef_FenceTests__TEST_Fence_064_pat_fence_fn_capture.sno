@@ -1,0 +1,7 @@
+*  064 - FENCE(P) with $ capture: identifier pattern from corpus
+        alnum = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz_'
+        &ANCHOR = 1
+        X = 'hello_world rest'
+        X  ANY(&UCASE &LCASE)  FENCE(SPAN(alnum) | '') . ID
+        OUTPUT = ID
+END

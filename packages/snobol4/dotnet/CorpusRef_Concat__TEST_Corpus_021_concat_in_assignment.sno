@@ -1,0 +1,4 @@
+
+        X = 'foo' 'bar'
+        OUTPUT = X
+END

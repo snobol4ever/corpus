@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        subject = 'ABCDA'
+        pattern = RTAB(3) LEN(1) . test
+        subject pattern      :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

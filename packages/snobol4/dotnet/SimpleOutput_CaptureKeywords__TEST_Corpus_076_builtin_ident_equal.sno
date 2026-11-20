@@ -1,0 +1,6 @@
+
+        IDENT('abc', 'abc')                                         :S(YES)F(NO)
+YES     RESULT = 'equal'
+        :(END)
+NO      RESULT = 'not equal'
+END

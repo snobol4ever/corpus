@@ -1,0 +1,4 @@
+        OUTPUT = '@a'
+        OUTPUT 'a' = 'b'
+        OUTPUT = '@b'
+END

@@ -1,0 +1,17 @@
+        DEFINE('H()')                     :(H_END)
+H       H = .A                            :(NRETURN)
+H_END   A = .I
+        'xyz' @A
+        S = '1 ' DATATYPE(A) ' [' I ']'
+        A = .I
+        N = .A
+        'xyz' LEN(1) @$N
+        S = S ',2 ' DATATYPE(A) ' [' I ']'
+        A = .I
+        'xyz' LEN(2) @H()
+        S = S ',3 ' DATATYPE(A) ' ' A ' [' I ']'
+        P = LEN(1) @A
+        A = .I
+        'xyz' P
+        S = S ',4 ' DATATYPE(A) ' [' I ']'
+END

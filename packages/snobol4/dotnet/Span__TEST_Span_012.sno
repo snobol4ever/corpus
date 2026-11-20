@@ -1,0 +1,5 @@
+
+        A = SPAN('123456')
+        'ABCDEF' A . R1 :S(END)
+        R1 = 'fail'
+END

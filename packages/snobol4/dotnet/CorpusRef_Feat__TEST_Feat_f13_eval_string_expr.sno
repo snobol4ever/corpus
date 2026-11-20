@@ -1,0 +1,8 @@
+
+        A = 'hel'
+        B = 'lo'
+        RESULT = EVAL('A B')
+        IDENT(RESULT, 'hello')                  :F(FAIL)
+        OUTPUT = 'PASS'                         :(END)
+FAIL    OUTPUT = 'FAIL'
+END

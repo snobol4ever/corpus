@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:35:16 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A . ?B
+
+NameOperands__TEST_NameOperands_the_right_of_a_dot_is_an_interrogation.sno(1) : ERROR 212 -- syntax error: value used wh
+ere name is required

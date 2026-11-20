@@ -1,0 +1,10 @@
+        &ERRLIMIT = 10
+        SETEXIT('ERR')
+        R = EVAL("(Q = 'x') ARRAY(1)[1] ? 'x' = 'gt'")  :F(NO)
+        OUTPUT = 'value ' R                          :(CAPS)
+NO      OUTPUT = 'FAIL'                              :(CAPS)
+ERR     OUTPUT = 'ERROR ' &ERRTYPE
+CAPS    OUTPUT = 'Q=' Q
+        R = EVAL("ARRAY(1)[1] ? '' = 'gt'")
+        OUTPUT = 'element ' R
+END

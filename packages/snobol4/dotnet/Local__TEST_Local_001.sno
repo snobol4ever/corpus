@@ -1,0 +1,8 @@
+
+                DEFINE('pythagoras(a,b)c,d')  :(double_end)
+pythagoras      pythagoras = SQRT(a * a + b * b)  :(RETURN)
+double_end      b = pythagoras(4,12)
+                r1 = LOCAL('pythagoras',1);
+                r2 = LOCAL('pythagoras',2);
+
+END

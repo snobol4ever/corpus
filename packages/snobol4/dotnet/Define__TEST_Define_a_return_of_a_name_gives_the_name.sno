@@ -1,0 +1,7 @@
+
+        DEFINE('G()')                  :(GEND)
+G       G = .DUMMY                     :(RETURN)
+GEND    DUMMY = 'VAL'
+        RV = G()
+        R = RV ' ' DATATYPE(RV)
+END

@@ -1,0 +1,3 @@
+        &errlimit = 100
+        OUTPUT = 'after'
+END

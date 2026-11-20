@@ -1,0 +1,6 @@
+
+        OPSYN('%','DIFFER',2)
+        1 % 1.0 :S(Y)F(N)
+Y       R = 'success' :(END)
+N       R = 'failure'
+END

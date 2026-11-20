@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:53:51 2026
+
+
+
+                                                                                                                page 1
+
+1          [[0]];end
+           !
+TestLexer__TEST_222_004.sno(1,4) : ERROR 222 -- syntax error: invalid use of left bracket

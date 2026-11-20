@@ -1,0 +1,17 @@
+
+
+
+Sort__TEST_Sort258b.sno(3) : ERROR 258 -- sort/rsort 2nd arg out of range or non-integer
+
+
+
+
+
+in file              Sort__TEST_Sort258b.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12640
+memory left (bytes)  1035928

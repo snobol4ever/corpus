@@ -1,0 +1,7 @@
+
+        LINE = '1876 Bell  Telephone'
+        LINE POS(0) LEN(4) . YEAR LEN(1) BREAK(' ') . NAME SPAN(' ') REM . THING
+        OUTPUT = YEAR
+        OUTPUT = NAME
+        OUTPUT = THING
+END

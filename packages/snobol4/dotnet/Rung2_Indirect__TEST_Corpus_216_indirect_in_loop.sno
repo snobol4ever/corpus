@@ -1,0 +1,11 @@
+
+        N = 1
+loop    IDENT(N, 4)           :S(done)
+        $('V' N) = N
+        N = N + 1             :(loop)
+done    IDENT(V1, 1)          :F(FAIL)
+        IDENT(V2, 2)          :F(FAIL)
+        IDENT(V3, 3)          :F(FAIL)
+        OUTPUT = 'PASS 216_indirect_in_loop'   :(END)
+FAIL    OUTPUT = 'FAIL 216'
+END

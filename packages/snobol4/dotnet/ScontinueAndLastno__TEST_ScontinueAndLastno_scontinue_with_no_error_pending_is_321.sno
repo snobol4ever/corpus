@@ -1,0 +1,8 @@
+        SETEXIT(.F)
+        &ERRLIMIT = 10
+        :(SCONTINUE)
+        OUTPUT = 'after'
+        :(END)
+F       OUTPUT = 'err ' &ERRTYPE
+        :(CONTINUE)
+END

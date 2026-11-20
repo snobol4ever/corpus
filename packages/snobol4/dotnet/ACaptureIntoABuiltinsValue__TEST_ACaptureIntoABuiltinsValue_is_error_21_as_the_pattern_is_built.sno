@@ -1,0 +1,62 @@
+        &ERRLIMIT = 100
+        X = 'x'
+        A = ARRAY(2)
+        DATA('PT(PX)')
+        V = PT(1)
+        P = LEN(1) . BREAK('a')                     :S(Y1)
+        OUTPUT = '1 F ' &ERRTYPE                    :(E1)
+Y1      OUTPUT = '1 ' DATATYPE(P)
+E1
+        P = LEN(1) $ BREAK('a')                     :S(Y2)
+        OUTPUT = '2 F ' &ERRTYPE                    :(E2)
+Y2      OUTPUT = '2 ' DATATYPE(P)
+E2
+        P = @BREAK('a')                             :S(Y3)
+        OUTPUT = '3 F ' &ERRTYPE                    :(E3)
+Y3      OUTPUT = '3 ' DATATYPE(P)
+E3
+        P = LEN(1) . SIZE('a')                      :S(Y4)
+        OUTPUT = '4 F ' &ERRTYPE                    :(E4)
+Y4      OUTPUT = '4 ' DATATYPE(P)
+E4
+        P = LEN(1) . TRIM(X)                        :S(Y5)
+        OUTPUT = '5 F ' &ERRTYPE                    :(E5)
+Y5      OUTPUT = '5 ' DATATYPE(P)
+E5
+        P = LEN(1) . CONVERT(X, 'STRING')           :S(Y6)
+        OUTPUT = '6 F ' &ERRTYPE                    :(E6)
+Y6      OUTPUT = '6 ' DATATYPE(P)
+E6
+        P = @SIZE('a')                              :S(Y7)
+        OUTPUT = '7 F ' &ERRTYPE                    :(E7)
+Y7      OUTPUT = '7 ' DATATYPE(P)
+E7
+        P = LEN(1) . ITEM(A, 1)                     :S(Y8)
+        OUTPUT = '8 F ' &ERRTYPE                    :(E8)
+Y8      OUTPUT = '8 ' DATATYPE(P)
+E8
+        P = LEN(1) . PX(V)                          :S(Y9)
+        OUTPUT = '9 F ' &ERRTYPE                    :(E9)
+Y9      OUTPUT = '9 ' DATATYPE(P)
+E9
+        P = LEN(1) . $'X'                           :S(Y10)
+        OUTPUT = '10 F ' &ERRTYPE                   :(E10)
+Y10     OUTPUT = '10 ' DATATYPE(P)
+E10
+        P = LEN(1) . EVAL('X')                      :S(Y11)
+        OUTPUT = '11 F ' &ERRTYPE                   :(E11)
+Y11     OUTPUT = '11 ' DATATYPE(P)
+E11
+        P = LEN(1) . &TRACE                         :S(Y12)
+        OUTPUT = '12 F ' &ERRTYPE                   :(E12)
+Y12     OUTPUT = '12 ' DATATYPE(P)
+E12
+        P = LEN(1) . *SIZE(X)                       :S(Y13)
+        OUTPUT = '13 F ' &ERRTYPE                   :(E13)
+Y13     OUTPUT = '13 ' DATATYPE(P)
+E13
+        P = LEN(1) $ ITEM(A, 1)                     :S(Y14)
+        OUTPUT = '14 F ' &ERRTYPE                   :(E14)
+Y14     OUTPUT = '14 ' DATATYPE(P)
+E14
+END

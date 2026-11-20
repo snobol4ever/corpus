@@ -1,0 +1,9 @@
+*  066 - FENCE(P) nested: real number pattern with inner FENCE
+        digits = '0123456789'
+        &ANCHOR = 1
+        Real = SPAN(digits) '.' FENCE(SPAN(digits) | '')
++          |   SPAN(digits)
+        X = '3.14rest'
+        X  FENCE(Real) . N
+        OUTPUT = N
+END

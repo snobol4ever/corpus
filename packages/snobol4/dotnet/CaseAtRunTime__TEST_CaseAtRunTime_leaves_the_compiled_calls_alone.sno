@@ -1,0 +1,15 @@
+        &ERRLIMIT = 10
+        DEFINE('h(n)')                              :(he)
+h       h = n + 1                                   :(RETURN)
+he      &CASE = 1
+        OUTPUT = '1 ' h(1)
+        V = APPLY('h', 1)                           :S(Y2)
+        OUTPUT = '2 F ' &ERRTYPE                    :(E2)
+Y2      OUTPUT = '2 S ' V
+E2      &CASE = 0
+        V = EVAL("(&CASE = 1) h(3)")                :S(Y3)
+        OUTPUT = '3 F ' &ERRTYPE                    :(E3)
+Y3      OUTPUT = '3 S ' V
+E3      &CASE = 0
+        C = CODE(" &CASE = 1; OUTPUT = '4 ' h(4)") :S<C>
+END

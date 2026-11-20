@@ -1,0 +1,9 @@
+
+        &ANCHOR = 1
+        subject = '()'
+        item = SPAN('0123456789')
+        pattern = POS(0) '(' ARBNO(',' item) ')' RPOS(0)
+        subject pattern :F(n)
+y       result = 'success'   :(END)
+n       result = 'fail'
+END

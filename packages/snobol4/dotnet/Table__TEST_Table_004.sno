@@ -1,0 +1,3 @@
+
+        a = TABLE(,'a',ARRAY(20))
+END

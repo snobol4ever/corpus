@@ -1,0 +1,4 @@
+
+        line = 'say "HELLO HELLO" now'
+        line ("'" | '"') $ quote *BREAK(quote) . str *quote
+END

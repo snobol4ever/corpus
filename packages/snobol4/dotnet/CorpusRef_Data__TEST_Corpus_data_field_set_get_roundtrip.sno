@@ -1,0 +1,14 @@
+
+        DATA('color(r,g,b)')
+        C = color(10, 20, 30)
+        DIFFER(r(C), 10)                            :F(ok1)
+        OUTPUT = 'FAIL: r field'                    :(END)
+ok1     DIFFER(g(C), 20)                            :F(ok2)
+        OUTPUT = 'FAIL: g field'                    :(END)
+ok2     DIFFER(b(C), 30)                            :F(ok3)
+        OUTPUT = 'FAIL: b field'                    :(END)
+ok3     r(C) = 99
+        DIFFER(r(C), 99)                            :F(ok4)
+        OUTPUT = 'FAIL: r set'                      :(END)
+ok4     OUTPUT = 'PASS'
+END

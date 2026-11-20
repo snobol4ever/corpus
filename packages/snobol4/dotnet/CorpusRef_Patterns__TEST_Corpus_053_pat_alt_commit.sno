@@ -1,0 +1,8 @@
+
+        P = ('a' | 'b' | 'c')
+        X = 'b'
+        X P . V                                                     :S(YES)F(NO)
+YES     OUTPUT = V
+        :(END)
+NO      OUTPUT = 'no match'
+END

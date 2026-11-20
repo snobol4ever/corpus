@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:10:22 2026
+
+
+
+                                                                                                                page 1
+
+        -COPY
+         !
+ControlStatements__TEST_ControlStatements_copy_without_a_name.sno(1,2) : ERROR 247 -- invalid control statement

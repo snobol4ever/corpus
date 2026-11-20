@@ -1,0 +1,5 @@
+
+        EQ(ATAN(0), 0)                              :F(FAIL)
+        OUTPUT = 'PASS'                             :(END)
+FAIL    OUTPUT = 'FAIL'
+END

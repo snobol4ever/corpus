@@ -1,0 +1,18 @@
+
+
+
+GotoErrors__TEST_GotoErrors_a_computed_goto_with_errlimit_is_followed_by_332__5.sno(2) : ERROR 332 -- goto continue with
+ error in failure goto
+
+
+
+
+
+in file              GotoErrors__TEST_GotoErrors_a_computed_goto_with_errlimit_is_followed_by_332__5.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11648
+memory left (bytes)  1036920

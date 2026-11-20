@@ -1,0 +1,5 @@
+
+        v = TABLE(1)
+        $v = 'abc'
+        b = $v
+END

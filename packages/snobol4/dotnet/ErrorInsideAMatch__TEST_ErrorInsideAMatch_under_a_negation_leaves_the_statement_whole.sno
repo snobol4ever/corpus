@@ -1,0 +1,17 @@
+        &ERRLIMIT = 20
+        N = -1
+        X = ~((E = 'xxi') ('abc' ? LEN(*N)))    :F(F1)
+        S = 'a' E
+F1      E =
+        X = ~((E = 'xxi') (E ? LEN(*N)))        :F(F2)
+        S = S ',b' E
+F2      E =
+        X = EVAL("~((E = 'xxi') (E ? LEN(*N)))")    :S(S3)
+        S = S ',c' E                            :(F3)
+S3      S = S ',cs' E
+F3      E =
+        X = ((E = 'xxi') ('abc' ? LEN(*N)))     :S(S4)
+        S = S ',d' E                            :(F4)
+S4      S = S ',ds' E
+F4
+END

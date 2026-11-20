@@ -1,0 +1,38 @@
+
+
+
+dump of natural variables
+
+ITEM1 = PRO+DUCT #1
+R1 = 'PRO+DUCT'
+R2 = 2.39
+R3 = .1PRICE
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Data__TEST_Data_005.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Data__TEST_Data_005.sno'
+&LASTLINE = 6
+&LASTNO = 6
+&LINE = 8
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 6
+&STLIMIT = 2147483647
+&STNO = 8
+&TRACE = 0
+&TRIM = 1

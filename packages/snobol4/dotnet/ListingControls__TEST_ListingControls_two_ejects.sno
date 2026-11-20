@@ -1,0 +1,6 @@
+-LIST
+-EJECT
+-EJECT
+        A = 1
+        OUTPUT = 'x'
+END

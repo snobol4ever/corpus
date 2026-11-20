@@ -1,0 +1,6 @@
+        OUTPUT('E', 9, '[-f2 -r1]')
+        E = 'err'
+        OUTPUT('O', 8, '[-f1 -r1]')
+        O = 'raw'
+        OUTPUT = 'line'
+END

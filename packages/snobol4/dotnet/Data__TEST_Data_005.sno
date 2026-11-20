@@ -1,0 +1,8 @@
+
+        DATA('PRO+DUCT(NAME,1PRICE,QUANTITY,MFG)')    :S(Y)F(N)
+Y       ITEM1 = APPLY(.$'PRO+DUCT', 'CAPERS', 2.39, 48, 'BRINE BROTHERS')
+        R1 = DATATYPE(ITEM1)
+        R2 = APPLY(.$'1PRICE', ITEM1)
+        R3 = FIELD(.$'PRO+DUCT',2)                         :(END)
+N       R4 = 'FAILURE'
+END

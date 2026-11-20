@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:49:18 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 + <2>
+                        !
+SyntaxErrors__TEST_SyntaxErrors_left_bracket_after_an_operator.sno(1,17) : ERROR 222 -- syntax error: invalid use of lef
+t bracket

@@ -1,0 +1,4 @@
+        &ERRLIMIT = 5
+        EXIT(-4, ARRAY(2))
+        OUTPUT = 'after ' &ERRTYPE
+END

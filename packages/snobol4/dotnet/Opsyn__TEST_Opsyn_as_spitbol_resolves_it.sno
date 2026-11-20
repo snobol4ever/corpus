@@ -1,0 +1,4 @@
+
+        OPSYN('%', 'DUPL', 7)
+        R = 'ab' % 2
+END

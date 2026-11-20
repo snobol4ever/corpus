@@ -1,0 +1,12 @@
+
+        &ANCHOR = 1
+        X = 'hello world'
+        X 'hello'                                                   :S(YES)F(NO)
+YES     R1 = 'anchored match ok'
+        X 'world'                                                   :S(YES2)F(NO2)
+YES2    R2 = 'should not reach'
+        :(END)
+NO      R2 = 'wrong'
+        :(END)
+NO2     R2 = 'anchor prevented mid-string match'
+END

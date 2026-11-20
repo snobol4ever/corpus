@@ -1,0 +1,17 @@
+
+
+
+Replace__TEST_Replace_171c.sno(5) : ERROR 171 -- null or unequally long 2nd, 3rd args to replace
+
+
+
+
+
+in file              Replace__TEST_Replace_171c.sno
+in line              5
+in statement         5
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11520
+memory left (bytes)  1037048

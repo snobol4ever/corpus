@@ -1,0 +1,4 @@
+
+        OPSYN('MYSIZE', 'SIZE', 0)
+        OUTPUT = MYSIZE('hello')
+END

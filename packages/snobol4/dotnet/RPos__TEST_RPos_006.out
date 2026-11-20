@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:39:46 2026
+
+
+
+                                                                                                                page 1
+
+2               pattern = RPOS(2147483648)
+
+RPos__TEST_RPos_006.sno(2) : ERROR 186 -- rpos argument is negative or too large

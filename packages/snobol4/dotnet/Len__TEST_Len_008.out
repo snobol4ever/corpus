@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:32:34 2026
+
+
+
+                                                                                                                page 1
+
+2               pattern = LEN('a')
+
+Len__TEST_Len_008.sno(2) : ERROR 120 -- len argument is not integer or expression

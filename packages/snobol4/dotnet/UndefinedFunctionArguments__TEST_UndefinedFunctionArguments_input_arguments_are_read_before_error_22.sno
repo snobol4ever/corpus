@@ -1,0 +1,12 @@
+        &ERRLIMIT = 5
+        X = FOO(INPUT)  :S(SK)F(FL)
+SK      OUTPUT = 'S err ' &ERRTYPE  :(NEXT)
+FL      OUTPUT = 'F err ' &ERRTYPE
+NEXT    Y = INPUT
+        OUTPUT = 'Y=' Y
+        Z = FOO(INPUT, INPUT)  :S(SK2)F(FL2)
+SK2     OUTPUT = 'S2 err ' &ERRTYPE  :(NEXT2)
+FL2     OUTPUT = 'F2 err ' &ERRTYPE
+NEXT2   W = INPUT
+        OUTPUT = 'W=' W
+END

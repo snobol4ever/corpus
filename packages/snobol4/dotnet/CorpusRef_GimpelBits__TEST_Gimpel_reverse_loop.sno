@@ -1,0 +1,11 @@
+
+        DEFINE('REV(S)R,C')                                :(REV_END)
+REV     R = ''
+RVLOOP  S LEN(1) . C =                                     :F(RVDONE)
+        R = C R                                            :(RVLOOP)
+RVDONE  REV = R                                            :(RETURN)
+REV_END
+        OUTPUT = REV('hello')
+        OUTPUT = REV('abcde')
+        OUTPUT = REV('x')
+END

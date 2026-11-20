@@ -1,0 +1,4 @@
+
+        GT(1, 2)        :F(next)
+next    result = 'ok'
+END

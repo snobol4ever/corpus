@@ -1,0 +1,3 @@
+        &STLIMIT = 3
+        C = CODE(' X = 1') :<C>
+END

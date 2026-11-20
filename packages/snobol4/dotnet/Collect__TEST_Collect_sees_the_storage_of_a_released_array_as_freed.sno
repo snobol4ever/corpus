@@ -1,0 +1,9 @@
+        I = 0
+WARM    I = I + 1
+        COLLECT()
+        LT(I,100)                  :S(WARM)
+        A = ARRAY(3000)
+        HELD = COLLECT()
+        A =
+        FREED = COLLECT() - HELD
+END

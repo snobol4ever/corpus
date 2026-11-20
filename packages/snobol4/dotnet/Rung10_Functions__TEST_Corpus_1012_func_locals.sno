@@ -1,0 +1,37 @@
+
+        DEFINE('lfunc(a,b,c)d,e,f')               :(lfunc_end)
+lfunc
+        IDENT(a, 'p')              :S(e001)
+        OUTPUT = 'FAIL 1012/001: arg a should be p'    :(END)
+e001    IDENT(b, 'q')              :S(e002)
+        OUTPUT = 'FAIL 1012/002: arg b should be q'    :(END)
+e002
+        DIFFER(d)                  :F(e003)
+        OUTPUT = 'FAIL 1012/003: local d should be null' :(END)
+e003
+        a = 'aa' ; b = 'bb' ; d = 'dd'
+        lfunc = a b d                                  :(RETURN)
+lfunc_end
+        a = 'global_a'
+        d = 'global_d'
+        DIFFER(lfunc('p', 'q', 'r'), 'aabbdd')                   :F(e004)
+        OUTPUT = 'FAIL 1012/004: lfunc return value'   :(END)
+e004
+        IDENT(a, 'global_a')                           :S(e005)
+        OUTPUT = 'FAIL 1012/005: global a not clobbered' :(END)
+e005
+        IDENT(d, 'global_d')                           :S(e006)
+        OUTPUT = 'FAIL 1012/006: global d not clobbered' :(END)
+e006
+        DEFINE('checklocal()x')                        :(cl_end)
+checklocal
+        DIFFER(x)                  :F(e007_inner)
+        checklocal = 'local-not-null'                  :(RETURN)
+e007_inner
+        checklocal =                                   :(RETURN)
+cl_end
+        DIFFER(checklocal())       :F(e007)
+        OUTPUT = 'FAIL 1012/007: local null on fresh call' :(END)
+e007
+        OUTPUT = 'PASS 1012_func_locals (7/7)'
+END

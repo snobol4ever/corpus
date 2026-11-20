@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:47:45 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 'a' 'b
+                        !
+StringAcrossContinuation__TEST_StringAcrossContinuation_the_quote_in_the_second_line_is_232_at_its_own_column.sno(1,17) 
+: ERROR 232 -- syntax error: unmatched string quote

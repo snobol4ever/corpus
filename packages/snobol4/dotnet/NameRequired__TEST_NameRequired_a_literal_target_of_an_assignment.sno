@@ -1,0 +1,4 @@
+        OUTPUT = 'before'
+        'A' = 2
+        OUTPUT = 'after'
+END

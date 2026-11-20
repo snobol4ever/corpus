@@ -1,0 +1,6 @@
+
+        subject = 'aab'
+        subject ARBNO('a') . cap 'b'   :F(bad)
+        result = cap   :(END)
+bad     result = 'bad'
+END

@@ -1,0 +1,24 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:00 2026
+
+
+
+                                                                                                                page 1
+
+1               X = ARRAY(1)[1] . ~B
+
+SubscriptOfACall__TEST_SubscriptOfACall_the_statement_is_still_checked.sno(1) : ERROR 212 -- syntax error: value used wh
+ere name is required
+
+2               X = (Q SORT(T)[1, 2] ? 'x' = 'gt')
+
+SubscriptOfACall__TEST_SubscriptOfACall_the_statement_is_still_checked.sno(2) : ERROR 212 -- syntax error: value used wh
+ere name is required
+
+3               X = 1 / 0 ARRAY(1)<1>
+
+SubscriptOfACall__TEST_SubscriptOfACall_the_statement_is_still_checked.sno(3) : ERROR 014 -- division caused integer ove
+rflow

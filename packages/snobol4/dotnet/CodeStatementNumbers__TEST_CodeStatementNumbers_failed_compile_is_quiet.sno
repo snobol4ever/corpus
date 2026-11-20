@@ -1,0 +1,12 @@
+        C1 = CODE(' A = &STNO :(R1)')  :[C1]
+R1      R = A
+        X = CODE(' B = 1 ; Y = (')     :S(END)
+        R = R ' ' &ERRTYPE ' ' &ERRTEXT
+        X = CONVERT('a=b+c?','EXPRESSION')  :S(END)
+        R = R ' ' &ERRTYPE
+        X = CONVERT(' Y = (','CODE')   :S(END)
+        R = R ' ' &ERRTYPE
+        C2 = CODE(' A = &STNO :(R2)')  :[C2]
+R2      R = R ' ' A
+        TERMINAL = R
+END

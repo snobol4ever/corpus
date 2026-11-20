@@ -1,0 +1,11 @@
+
+        DEFINE('FLOOR(X)')                         :(FLOOR_END)
+FLOOR   FLOOR  =  CONVERT(X,'INTEGER')
+        GE(X,0)                                    :S(RETURN)
+        FLOOR  =  NE(X,FLOOR)  FLOOR - 1           :(RETURN)
+FLOOR_END
+
+        OUTPUT = FLOOR(3.7)
+        OUTPUT = FLOOR(3.0)
+        OUTPUT = FLOOR(0.1)
+END

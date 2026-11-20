@@ -1,0 +1,7 @@
+
+        d = 'failure'
+        a = 3.14159e200
+        b = CONVERT(a,'integer') :F(END)
+        c = DATATYPE(b)
+        d = 'success'
+END

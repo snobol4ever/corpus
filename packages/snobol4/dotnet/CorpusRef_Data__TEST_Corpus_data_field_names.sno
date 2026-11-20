@@ -1,0 +1,8 @@
+
+        DATA('POINT(X,Y)')
+        DIFFER(FIELD('POINT', 1), .X)               :F(ok1)
+        OUTPUT = 'FAIL: FIELD POINT 1'              :(END)
+ok1     DIFFER(FIELD('POINT', 2), .Y)               :F(ok2)
+        OUTPUT = 'FAIL: FIELD POINT 2'              :(END)
+ok2     OUTPUT = 'PASS'
+END

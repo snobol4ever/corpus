@@ -1,0 +1,7 @@
+        &ERRLIMIT = 5
+        &ERRTEXT = 'my own text'
+        &ERRTYPE = 500
+        OUTPUT = 'after ' &ERRTYPE ' ' &ERRTEXT
+        &ERRTYPE = 5
+        OUTPUT = 'after5 ' &ERRTYPE ' ' &ERRTEXT
+END

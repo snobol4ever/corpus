@@ -1,0 +1,7 @@
+
+        i = 0
+loop    i = i + 1
+        x = EVAL('1 + 2')
+        y = EVAL('x * 2')
+        LT(i, 300)                :S(loop)
+END

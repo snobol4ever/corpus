@@ -1,0 +1,7 @@
+-LIST
+-DOUBLE
+        A = 1 +
++       2
+        B = 3
+        OUTPUT = 'x'
+END

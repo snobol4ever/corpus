@@ -1,0 +1,4 @@
+        &ERRLIMIT = 10
+        &ALPHABET = 1
+        OUTPUT = 'ran ' &ERRTYPE ' ' SIZE(&UCASE) ' ' SIZE(&ALPHABET) ' ' DATATYPE(&FENCE)
+END

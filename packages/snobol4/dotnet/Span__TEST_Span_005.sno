@@ -1,0 +1,9 @@
+
+        &ANCHOR = 0
+        subject = 'c'
+        pattern = SPAN('c')
+        subject pattern = '****'   :F(n)
+        temp1 = '[' subject ']'   
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

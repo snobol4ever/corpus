@@ -1,0 +1,35 @@
+
+
+
+dump of natural variables
+
+R1 = '1. -1. 1. -1. 1000. 0.1e-4 10000. 0.1e-3'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'InputOutput__RealOutput.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'InputOutput__RealOutput.sno'
+&LASTLINE = 9
+&LASTNO = 9
+&LINE = 10
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 9
+&STLIMIT = 2147483647
+&STNO = 10
+&TRACE = 0
+&TRIM = 1

@@ -1,0 +1,10 @@
+
+        UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        ROT13U = 'NOPQRSTUVWXYZABCDEFGHIJKLM'
+        LOWER = 'abcdefghijklmnopqrstuvwxyz'
+        ROT13L = 'nopqrstuvwxyzabcdefghijklm'
+        FROM = UPPER LOWER
+        TO   = ROT13U ROT13L
+        OUTPUT = REPLACE('Hello World', FROM, TO)
+        OUTPUT = REPLACE(REPLACE('Hello World', FROM, TO), FROM, TO)
+END

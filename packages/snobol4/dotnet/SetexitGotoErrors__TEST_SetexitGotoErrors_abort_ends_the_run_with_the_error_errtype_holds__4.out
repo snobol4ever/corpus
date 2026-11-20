@@ -1,0 +1,19 @@
+here 0
+
+
+
+SetexitGotoErrors__TEST_SetexitGotoErrors_abort_ends_the_run_with_the_error_errtype_holds__4.sno(5) : ERROR 036 -- goto 
+abort with no preceding error
+
+
+
+
+
+in file              SetexitGotoErrors__TEST_SetexitGotoErrors_abort_ends_the_run_with_the_error_errtype_holds__4.sno
+in line              5
+in statement         5
+stmts executed       5
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11880
+memory left (bytes)  1036688

@@ -1,0 +1,22 @@
+
+
+
+RecursionDepth__TEST_RecursionDepth_parameters_locals_and_waiting_operands_make_the_frames_bigger__2.sno(4) : ERROR 246 
+-- stack overflow
+
+
+
+
+
+in file              RecursionDepth__TEST_RecursionDepth_parameters_locals_and_waiting_operands_make_the_frames_bigger__
+2.sno
+in line              4
+in statement         4
+stmts executed       52390
+execution time msec  3
+stmt / microsec      17
+stmt / millisec      17463
+stmt / second        17463000
+REGENERATIONS        0
+memory used (bytes)  849888
+memory left (bytes)  198680

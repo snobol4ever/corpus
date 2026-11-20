@@ -1,0 +1,5 @@
+ 
+        A = ANY('123456')
+        '' A . R1  :S(END)F(N)
+N       R1 = 'FAIL'
+END

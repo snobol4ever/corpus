@@ -1,0 +1,10 @@
+        T0 = TABLE(0)
+        T9 = TABLE(100)
+        T9[2.5] = 'real'
+        T9[-7] = 'neg'
+        T9['abcdefghijklmnopqrstuvwxyz0123'] = 'long'
+        A = ARRAY('2,2')
+        A[2,1] = 21
+        A[1,2] = 12
+        DUMP(2)
+END

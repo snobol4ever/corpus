@@ -1,0 +1,3 @@
+        OPSYN('#','DUPL',2)
+        OUTPUT = 'ab' # 3
+END

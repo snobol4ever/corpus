@@ -1,0 +1,6 @@
+
+        a = 'abc'
+        from = 'cb' | 'CB'
+        to = 'CB'
+        b = REPLACE(a,from, to)
+END

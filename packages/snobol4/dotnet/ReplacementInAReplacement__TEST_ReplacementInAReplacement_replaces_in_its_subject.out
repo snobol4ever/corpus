@@ -1,0 +1,7 @@
+X=[x1z] A=[x1z]
+X=[x2] A=[x2]
+X=[xa3cz] A=[xa3cz] C=[a3c]
+A=[xa5cz] C=[a5c]
+X=[pQr] T1=[pQr]
+X=[xxyz] A=[xxyz]
+fail X=[xxyz] A=[xyz]

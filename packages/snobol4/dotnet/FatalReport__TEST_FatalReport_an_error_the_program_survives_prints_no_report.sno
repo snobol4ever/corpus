@@ -1,0 +1,7 @@
+        OUTPUT = 'before'
+        &ERRLIMIT = 3
+        X = FOO(1)
+        OUTPUT = 'mid'
+        Y = BAR(2)
+        OUTPUT = 'after'
+END

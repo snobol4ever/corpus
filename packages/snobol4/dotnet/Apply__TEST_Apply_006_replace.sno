@@ -1,0 +1,4 @@
+
+        FN = 'REPLACE'
+        R = APPLY(FN, 'abc', 'abc', 'xyz')
+END

@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:38 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A+B
+                    !
+SyntaxErrors__TEST_SyntaxErrors_a_plus_ends_no_name.sno(1,13) : ERROR 233 -- syntax error: invalid use of operator

@@ -1,0 +1,6 @@
+        &ERRLIMIT = 100
+        X = ARRAY(2)
+        'abcdef' BREAKX(*X)  :S(YES)F(NO)
+YES     OUTPUT = 'S ' &ERRTYPE  :(END)
+NO      OUTPUT = 'F ' &ERRTYPE
+END

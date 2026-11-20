@@ -1,0 +1,5 @@
+
+        &ERRLIMIT = 1
+        A[1] =
+        R = &ERRTYPE ' ' &ERRTEXT
+END

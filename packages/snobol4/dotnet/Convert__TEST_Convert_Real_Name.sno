@@ -1,0 +1,7 @@
+
+        a = 3.14159
+        b = CONVERT(a,'name')   :F(END)
+        c = DATATYPE(b)
+        d = CONVERT(b,'real')   :F(END)
+        e = 'success'
+END

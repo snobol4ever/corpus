@@ -1,0 +1,6 @@
+
+        subject = 'abc123xyz'
+        subject (LEN(3) . a) (LEN(3) . b) (LEN(3) . c)   :F(bad)
+        result = a ' ' b ' ' c   :(END)
+bad     result = 'bad'
+END

@@ -1,0 +1,6 @@
+-ERRORS
+ OUTPUT = 'first'  :(E)
+ X = 'a' (
+E OUTPUT = 'last'
+F OUTPUT = 'f'
+END

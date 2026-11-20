@@ -1,0 +1,17 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:09:44 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST 5A
+              !
+ControlStatements__TEST_ControlStatements_an_invalid_number_item_after_a_control.sno(1,7) : ERROR 231 -- syntax error: i
+nvalid numeric item
+
+1               OUTPUT = 'x'
+2       END

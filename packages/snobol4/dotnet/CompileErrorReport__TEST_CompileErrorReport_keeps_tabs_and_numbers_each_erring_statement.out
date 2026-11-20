@@ -1,0 +1,19 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:07:13 2026
+
+
+
+                                                                                                                page 1
+
+1       	L	A	=  \INTEGER(I)	:(RETURN)
+        	 	 	   !
+CompileErrorReport__TEST_CompileErrorReport_keeps_tabs_and_numbers_each_erring_statement.sno(1,9) : ERROR 230 -- syntax 
+error: illegal character
+
+3       	V	B	=  \INTEGER(V)
+        	 	 	   !
+CompileErrorReport__TEST_CompileErrorReport_keeps_tabs_and_numbers_each_erring_statement.sno(3,9) : ERROR 230 -- syntax 
+error: illegal character

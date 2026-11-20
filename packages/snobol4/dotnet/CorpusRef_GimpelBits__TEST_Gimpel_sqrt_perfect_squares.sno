@@ -1,0 +1,8 @@
+
+        DEFINE('MYSQRT(Y)')                                :(MYSQRT_END)
+MYSQRT  MYSQRT = Y ** 0.5                                  :(RETURN)
+MYSQRT_END
+        OUTPUT = CONVERT(MYSQRT(4.0), 'INTEGER')
+        OUTPUT = CONVERT(MYSQRT(9.0), 'INTEGER')
+        OUTPUT = CONVERT(MYSQRT(100.0), 'INTEGER')
+END

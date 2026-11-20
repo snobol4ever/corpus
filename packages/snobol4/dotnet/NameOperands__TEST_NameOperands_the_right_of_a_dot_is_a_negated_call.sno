@@ -1,0 +1,3 @@
+        X = A . ~LGT('abc', null)
+        OUTPUT = 'x'
+END

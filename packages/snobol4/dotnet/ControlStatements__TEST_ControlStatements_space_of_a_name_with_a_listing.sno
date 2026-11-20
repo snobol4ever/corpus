@@ -1,0 +1,3 @@
+-LIST,SPACE x
+        OUTPUT = 'x'
+END

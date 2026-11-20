@@ -1,0 +1,6 @@
+
+        subject = 'foobar'
+        subject ('baz' | 'qux')  :S(e001)
+        OUTPUT = 'PASS W03/003: alt both fail as expected'   :(END)
+e001    OUTPUT = 'FAIL W03/003: alt should have failed but succeeded'
+END

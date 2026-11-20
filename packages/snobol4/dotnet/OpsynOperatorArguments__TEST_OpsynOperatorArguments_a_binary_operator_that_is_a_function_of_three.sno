@@ -1,0 +1,4 @@
+        OPSYN('#','LPAD',2)
+        X = 'ab' # 5
+        OUTPUT = '[' X ']'
+END

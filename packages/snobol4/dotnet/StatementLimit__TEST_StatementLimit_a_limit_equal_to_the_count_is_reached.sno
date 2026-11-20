@@ -1,0 +1,4 @@
+        X = 1
+        &STLIMIT = 2
+L       OUTPUT = 'x' &STCOUNT  :(L)
+END

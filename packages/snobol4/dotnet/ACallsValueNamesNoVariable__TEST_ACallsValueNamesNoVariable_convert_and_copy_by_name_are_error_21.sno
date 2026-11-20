@@ -1,0 +1,34 @@
+        &ERRLIMIT = 20
+        X = 'x'
+        N = 5
+        P = LEN(1)
+        A = ARRAY(2)
+        T = TABLE()
+        V = .CONVERT(X, 'STRING')                   :S(Y1)
+        OUTPUT = '1 F ' &ERRTYPE                    :(E1)
+Y1      OUTPUT = '1 S ' DATATYPE(V)
+E1      V = .CONVERT(N, 'INTEGER')                  :S(Y2)
+        OUTPUT = '2 F ' &ERRTYPE                    :(E2)
+Y2      OUTPUT = '2 S ' DATATYPE(V)
+E2      V = .CONVERT(P, 'PATTERN')                  :S(Y3)
+        OUTPUT = '3 F ' &ERRTYPE                    :(E3)
+Y3      OUTPUT = '3 S ' DATATYPE(V)
+E3      V = .CONVERT(A, 'ARRAY')                    :S(Y4)
+        OUTPUT = '4 F ' &ERRTYPE                    :(E4)
+Y4      OUTPUT = '4 S ' DATATYPE(V)
+E4      V = .CONVERT(T, 'TABLE')                    :S(Y5)
+        OUTPUT = '5 F ' &ERRTYPE                    :(E5)
+Y5      OUTPUT = '5 S ' DATATYPE(V)
+E5      V = .COPY(X)                                :S(Y6)
+        OUTPUT = '6 F ' &ERRTYPE                    :(E6)
+Y6      OUTPUT = '6 S ' DATATYPE(V)
+E6      OUTPUT = '7 ' (IDENT(A, CONVERT(A, 'ARRAY')) 'same', 'differ') ' '
++              (IDENT(T, CONVERT(T, 'TABLE')) 'same', 'differ') ' ' (IDENT(P, CONVERT(P, 'PATTERN')) 'same', 'differ')
+        B = CONVERT(A, 'ARRAY')
+        B[1] = 'set'
+        U = CONVERT(T, 'TABLE')
+        U['k'] = 'kv'
+        OUTPUT = '8 ' A[1] ' ' T['k']
+        'abc' ? CONVERT(P, 'PATTERN') . W
+        OUTPUT = '9 ' W ' ' CONVERT(X, 'STRING') ' ' CONVERT(N, 'INTEGER') + 1
+END

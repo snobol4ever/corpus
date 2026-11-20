@@ -1,0 +1,7 @@
+
+        a = 'quick'
+        b = CONVERT(a,'name')   :F(END)
+        c = DATATYPE(b)
+        d = CONVERT(b,'string')   :F(END)
+        e = 'success'
+END

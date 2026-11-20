@@ -1,0 +1,8 @@
+
+        DATA('STACK(TOP,REST)')
+        NIL = STACK()
+        DEFINE('NULL(X)')                 :(NULL_END)
+NULL    IDENT(X, NIL)                     :S(RETURN)F(FRETURN)
+NULL_END
+        R = (NULL(NIL) 'null', 'notnull')
+END

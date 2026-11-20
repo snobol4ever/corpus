@@ -1,0 +1,6 @@
+
+        X = 'hello world'
+        X POS(0) TAB(5) . LEFT REM . RIGHT
+        OUTPUT = LEFT
+        OUTPUT = RIGHT
+END

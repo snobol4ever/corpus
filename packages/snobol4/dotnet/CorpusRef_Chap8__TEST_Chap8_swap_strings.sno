@@ -1,0 +1,12 @@
+
+        DEFINE('SWAP(X,Y)TEMP')                      :(SWAP_END)
+SWAP    TEMP        =  $X
+        $X          =  $Y
+        $Y          =  TEMP                          :(RETURN)
+SWAP_END
+        A = 'alpha'
+        B = 'beta'
+        SWAP(.A, .B)
+        OUTPUT = A
+        OUTPUT = B
+END

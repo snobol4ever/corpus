@@ -1,0 +1,17 @@
+
+
+
+Comparison__TEST_GT_008.sno(2) : ERROR 111 -- gt first argument is not numeric
+
+
+
+
+
+in file              Comparison__TEST_GT_008.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11464
+memory left (bytes)  1037104

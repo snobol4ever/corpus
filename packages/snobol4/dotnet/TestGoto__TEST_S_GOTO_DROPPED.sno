@@ -1,0 +1,6 @@
+     EQ(0,1)      :S(n)
+         a = 'dropped'  :(END)
+y        a = 'success'  :(END)
+n        a = 'failure'   (end)
+u        a = 'unconditional'
+end;END

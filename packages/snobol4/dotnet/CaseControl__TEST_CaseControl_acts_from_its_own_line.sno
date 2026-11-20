@@ -1,0 +1,11 @@
+
+        abc = 'lower'
+-case
+        abc = 'L2'
+        R = ABC ',' abc
+-case 1
+        R = R ',' abc
+-CASE 1
+        R = R ',' abc
+-HIDE
+END

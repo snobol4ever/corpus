@@ -1,0 +1,10 @@
+
+        subject = 'HELLO WORLD'
+        subject ('HELLO' . cap1)  :F(e001)
+        OUTPUT = 'PASS W07/001: cond cap=' cap1   :(t002)
+e001    OUTPUT = 'FAIL W07/001: cond capture should match'
+t002    subject = 'ABC'
+        subject ('XYZ' . cap2)  :S(e002)
+        OUTPUT = 'PASS W07/002: cond cap correctly fails'  :(END)
+e002    OUTPUT = 'FAIL W07/002: failed match should not succeed'
+END

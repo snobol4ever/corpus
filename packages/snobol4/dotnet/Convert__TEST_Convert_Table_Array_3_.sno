@@ -1,0 +1,16 @@
+
+	    T = TABLE()
+	    T[1] = ANY('one')
+	    T[2] = ANY('two')
+	    T[3] = ANY('three')
+	    T[4] = ANY('four')
+	    T[5] = ANY('five')
+
+	    B = CONVERT(T, 'ARRAY')
+
+	    R1 = B[1,1] ' ' B[1,2]
+	    R2 = B[2,1] ' ' B[2,2]
+	    R3 = B[3,1] ' ' B[3,2]
+	    R4 = B[4,1] ' ' B[4,2]
+	    R5 = B[5,1] ' ' B[5,2]
+END

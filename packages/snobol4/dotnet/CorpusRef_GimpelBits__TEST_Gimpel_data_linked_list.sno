@@ -1,0 +1,11 @@
+
+        DATA('NODE(VAL,NEXT)')
+        HEAD =
+        HEAD = NODE(3, HEAD)
+        HEAD = NODE(2, HEAD)
+        HEAD = NODE(1, HEAD)
+        P = HEAD
+LOOP    IDENT(P)                                           :S(END)
+        OUTPUT = VAL(P)
+        P = NEXT(P)                                        :(LOOP)
+END

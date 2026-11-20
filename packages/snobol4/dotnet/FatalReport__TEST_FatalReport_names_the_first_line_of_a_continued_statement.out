@@ -1,0 +1,19 @@
+x
+
+
+
+FatalReport__TEST_FatalReport_names_the_first_line_of_a_continued_statement.sno(4) : ERROR 022 -- undefined function cal
+led
+
+
+
+
+
+in file              FatalReport__TEST_FatalReport_names_the_first_line_of_a_continued_statement.sno
+in line              4
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11480
+memory left (bytes)  1037088

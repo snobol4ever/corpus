@@ -1,0 +1,5 @@
+        DEFINE('F(N)')
+        OUTPUT = F(1)
+        :(END)
+F       F = F(N + 1)  :(RETURN)
+END

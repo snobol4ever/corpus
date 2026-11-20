@@ -1,0 +1,15 @@
+
+        DIFFER(LPAD('hi', 6), '    hi')                   :F(e001)
+        OUTPUT = 'FAIL 815/001: lpad to width 6'        :(END)
+e001
+        DIFFER(LPAD('hello', 5), 'hello')                   :F(e002)
+        OUTPUT = 'FAIL 815/002: lpad no-op'              :(END)
+e002
+        DIFFER(LPAD('hello', 3), 'hello')                   :F(e003)
+        OUTPUT = 'FAIL 815/003: lpad longer no-truncate' :(END)
+e003
+        DIFFER(LPAD('hi', 5, '*'), '***hi')                   :F(e004)
+        OUTPUT = 'FAIL 815/004: lpad custom fill *'     :(END)
+e004
+        OUTPUT = 'PASS 815_lpad (4/4)'
+END

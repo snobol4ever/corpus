@@ -1,0 +1,6 @@
+
+        r = REVERSE('x')
+        DIFFER(r, 'x')   :S(bad)
+        result = 'ok'    :(END)
+bad     result = 'bad'
+END

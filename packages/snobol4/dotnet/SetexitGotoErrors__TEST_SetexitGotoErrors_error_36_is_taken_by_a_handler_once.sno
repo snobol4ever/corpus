@@ -1,0 +1,9 @@
+	&ERRLIMIT = 100
+	SETEXIT(.H)
+	OUTPUT = 'a'
+	:(ABORT)
+	OUTPUT = 'b'
+	:(END)
+H	OUTPUT = 'h ' &ERRTYPE
+	:(CONTINUE)
+END

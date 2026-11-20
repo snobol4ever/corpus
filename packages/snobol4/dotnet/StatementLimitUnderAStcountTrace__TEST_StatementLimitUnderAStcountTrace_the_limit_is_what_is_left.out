@@ -1,0 +1,21 @@
+T 5 7
+T 9 8
+
+
+
+StatementLimitUnderAStcountTrace__TEST_StatementLimitUnderAStcountTrace_the_limit_is_what_is_left.sno(10) : ERROR 244 --
+ statement count exceeds value of stlimit keyword
+
+
+
+
+
+in file              StatementLimitUnderAStcountTrace__TEST_StatementLimitUnderAStcountTrace_the_limit_is_what_is_left.s
+no
+in line              10
+in statement         10
+stmts executed       12
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12800
+memory left (bytes)  1035768

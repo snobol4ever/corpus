@@ -1,0 +1,7 @@
+
+        X = 'abcdef'
+        X RPOS(3) LEN(1) . V                                        :S(YES)
+        RESULT = 'fail'
+        :(END)
+YES     RESULT = V
+END

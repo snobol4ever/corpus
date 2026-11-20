@@ -1,0 +1,6 @@
+
+        a = ARRAY(10)
+        b = a[0]       :S(y)F(n)
+y       result = 'success' :(END)
+n       result = 'failure'
+END

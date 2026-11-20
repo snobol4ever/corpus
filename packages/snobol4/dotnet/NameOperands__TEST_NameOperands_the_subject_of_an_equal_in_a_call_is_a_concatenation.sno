@@ -1,0 +1,3 @@
+        X = DIFFER(B C = POP())
+        OUTPUT = 'x'
+END

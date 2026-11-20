@@ -1,0 +1,2 @@
+PASS W07/001: imm cap=FOO
+PASS W07/002: imm cap BAR=BAR

@@ -1,0 +1,7 @@
+
+        DEFINE('SUM(N)')                :(SUM_END)
+SUM     EQ(N,0)                         :S(RETURN)
+        SUM = N + SUM(N - 1)            :(RETURN)
+SUM_END
+        R = SUM(4)
+END

@@ -1,0 +1,9 @@
+
+        &ANCHOR = 0
+        subject = ''
+        pattern = LEN(*B) . test TAB(*B)
+        B = 3
+        subject pattern      :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

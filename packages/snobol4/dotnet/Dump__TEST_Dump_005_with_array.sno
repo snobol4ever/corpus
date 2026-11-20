@@ -1,0 +1,7 @@
+
+        A = ARRAY(5)
+        A[1] = 'first'
+        A[5] = 'last'
+        DUMP(1)
+        result = 'ok'
+END

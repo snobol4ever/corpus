@@ -1,0 +1,9 @@
+
+        ITEM = SPAN('0123456789') $ LAST | *LIST
+        LIST = ('(' ITEM ARBNO(',' ITEM) ')') $ GRP
+        '(12,(3,45),78)' ? POS(0) LIST RPOS(0)
+        E = ('(' *E ')' | 'X' | 'XY') $ V
+        '((XY))' ? POS(0) E $ W RPOS(0)
+        L = ('<' ARBNO(*L) '>') $ G
+        '<<<>><>>' ? POS(0) L RPOS(0)
+END

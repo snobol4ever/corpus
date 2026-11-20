@@ -1,0 +1,14 @@
+        DEFINE('F(X)')                     :(FEND)
+F       F = X                              :(RETURN)
+FEND    DEFINE('H()')                      :(HEND)
+H       H = 'h'                            :(RETURN)
+HEND    DEFINE('TF()')                     :(TFEND)
+TF      OUTPUT = H()                       :(RETURN)
+TFEND   TRACE('F','RETURN',,'TF')
+        &TRACE = 10
+        SETEXIT(.HANDLER)
+        &ERRLIMIT = 5
+        N = .F(5)
+        OUTPUT = 'after ' &ERRTYPE         :(END)
+HANDLER OUTPUT = 'caught ' &ERRTYPE        :(CONTINUE)
+END

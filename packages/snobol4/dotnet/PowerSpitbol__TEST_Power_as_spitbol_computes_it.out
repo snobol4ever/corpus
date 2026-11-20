@@ -1,0 +1,40 @@
+
+
+
+dump of natural variables
+
+A = 0.179434868275613e-279
+E1 = 17
+E2 = 311
+M = -8.
+N = 2
+R = '0.179434868275613e-279 [] 17 [] 311 8. 18.5202591774521'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 3
+&ERRTEXT = 'exponentiation of negative base to non-integral power'
+&ERRTYPE = 311
+&FILE = 'PowerSpitbol__TEST_Power_as_spitbol_computes_it.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'PowerSpitbol__TEST_Power_as_spitbol_computes_it.sno'
+&LASTLINE = 10
+&LASTNO = 10
+&LINE = 11
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 10
+&STLIMIT = 2147483647
+&STNO = 11
+&TRACE = 0
+&TRIM = 1

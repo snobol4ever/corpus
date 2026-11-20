@@ -1,0 +1,5 @@
+
+        x = ?INTEGER('42')   :F(n)
+        result = 'success'   :(END)
+n       result = 'failure'
+END

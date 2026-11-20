@@ -1,0 +1,14 @@
+
+        OPSYN('LENGTH','SIZE')
+        R1 = LENGTH('rabbit')
+        OPSYN('LENGTH','DATATYPE')
+        R2 = LENGTH('bunny')
+        OPSYN('LENGTH','SIZE',0)
+        R3 = LENGTH('rabbit')
+        OPSYN('LENGTH','DATATYPE',0)
+        R4 = LENGTH('bunny')
+        OPSYN('#','SIZE',1);   
+        R5 = #'rabbit'
+        OPSYN('#','DATATYPE',1)
+        R6 = #'bunny'
+END

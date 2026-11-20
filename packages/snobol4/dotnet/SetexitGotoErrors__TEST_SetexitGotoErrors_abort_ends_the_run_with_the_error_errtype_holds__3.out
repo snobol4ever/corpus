@@ -1,0 +1,19 @@
+here 77
+
+
+
+SetexitGotoErrors__TEST_SetexitGotoErrors_abort_ends_the_run_with_the_error_errtype_holds__3.sno(3) : ERROR 077 -- data 
+argument is missing a left paren
+
+
+
+
+
+in file              SetexitGotoErrors__TEST_SetexitGotoErrors_abort_ends_the_run_with_the_error_errtype_holds__3.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11720
+memory left (bytes)  1036848

@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:59:29 2026
+
+
+
+                                                                                                                page 1
+
+1        a = LN(0);END
+
+Trig__TEST_307_Ln.sno(1) : ERROR 307 -- ln produced real overflow

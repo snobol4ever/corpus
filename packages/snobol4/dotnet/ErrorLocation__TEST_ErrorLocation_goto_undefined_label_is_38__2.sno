@@ -1,0 +1,4 @@
+        X = 'NOLAB'
+        N = 5
+        OUTPUT = DIFFER('') 'go'   :F(NOLAB)
+END

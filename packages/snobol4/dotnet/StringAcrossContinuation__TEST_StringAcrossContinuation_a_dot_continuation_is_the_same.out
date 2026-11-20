@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:47:41 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 'a
+                    !
+StringAcrossContinuation__TEST_StringAcrossContinuation_a_dot_continuation_is_the_same.sno(1,13) : ERROR 232 -- syntax e
+rror: unmatched string quote

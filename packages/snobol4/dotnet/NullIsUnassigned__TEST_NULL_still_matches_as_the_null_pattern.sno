@@ -1,0 +1,5 @@
+
+        'abc' ? NULL 'a'   :F(n)
+        r = 'S'            :(END)
+n       r = 'F'
+END

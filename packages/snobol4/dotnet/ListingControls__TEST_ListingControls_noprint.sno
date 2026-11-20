@@ -1,0 +1,9 @@
+-LIST
+-NOPRINT
+-FOO
+        A = 1
+-PRINT
+-BAR
+        B = 2
+        OUTPUT = 'x'
+END

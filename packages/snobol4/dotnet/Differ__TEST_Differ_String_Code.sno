@@ -1,0 +1,7 @@
+
+        a = '1.0'
+        b = CODE(' b = 1.0')
+        DIFFER(a,b)    :S(diff)
+        out = 'differ'    :(END)
+diff     out = 'not differ'
+end;END

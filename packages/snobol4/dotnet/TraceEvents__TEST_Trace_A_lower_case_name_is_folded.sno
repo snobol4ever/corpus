@@ -1,0 +1,5 @@
+-CASE 1
+        &TRACE = 10
+        TRACE('bar')
+        BAR = 2
+END

@@ -1,0 +1,18 @@
+        T = TABLE(16)
+        K = 'abcdefgh'
+LOOP    K LEN(1) . C =  :F(DONE)
+        T[C] = 1  :(LOOP)
+DONE    B = SORT(T, 2)
+        I = 0
+L2      I = I + 1
+        R = R B[I,1]  :F(S2)
+        :(L2)
+S2      OUTPUT = 'sort  ' R
+        B = RSORT(T, 2)
+        I = 0
+        R =
+L3      I = I + 1
+        R = R B[I,1]  :F(S3)
+        :(L3)
+S3      OUTPUT = 'rsort ' R
+END

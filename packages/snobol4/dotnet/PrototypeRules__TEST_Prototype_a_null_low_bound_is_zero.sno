@@ -1,0 +1,9 @@
+        &ERRLIMIT = 1000
+        &TRIM = 0
+        S = 'abc'
+        P = LEN(2)
+        TT = TABLE()
+        A = ARRAY(':3')
+        A[0] = 'zero'
+        OUTPUT = A[0] ' ' A[3] ' ' &ERRTYPE
+END

@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:35:23 2026
+
+
+
+                                                                                                                page 1
+
+1               'abc' ? LEN(1) $ 'V'
+
+NameRequired__TEST_NameRequired_a_literal_right_of_the_dollar.sno(1) : ERROR 212 -- syntax error: value used where name 
+is required

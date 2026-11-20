@@ -1,0 +1,6 @@
+
+        DATA('complex(real,imag)')
+        x = complex(3.2, -2.0)
+        i = imag(x)
+        r = real(x)
+END

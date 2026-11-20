@@ -1,0 +1,9 @@
+
+        DEFINE('always_fail()')                        :(af_end)
+always_fail                                            :(FRETURN)
+af_end
+        always_fail()                                  :F(e001)
+        OUTPUT = 'FAIL 1014/001: freturn should cause statement failure' :(END)
+e001
+        OUTPUT = 'PASS 1014_func_freturn (1/1)'
+END

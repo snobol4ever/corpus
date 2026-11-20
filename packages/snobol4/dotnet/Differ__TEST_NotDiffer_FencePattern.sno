@@ -1,0 +1,7 @@
+
+        a = FENCE 'abc' POS(10)
+        b = FENCE 'abc' POS(10)
+        DIFFER(a,b)    :S(diff)
+        out = 'differ'    :(END)
+diff     out = 'not differ'
+end;END

@@ -1,0 +1,5 @@
+
+        DATA('NODE(A)')
+        DATA('NODE(B)')
+        R = B(NODE(5))
+END

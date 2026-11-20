@@ -1,0 +1,7 @@
+
+        DEFINE('upcase(s)')                                         :(upcase_end)
+upcase  upcase = REPLACE(s, &LCASE, &UCASE)                       :(RETURN)
+upcase_end
+        R1 = upcase('hello')
+        R2 = upcase('world')
+END

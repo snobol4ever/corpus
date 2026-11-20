@@ -1,0 +1,21 @@
+
+        LLT('abc', 'xyz')          :S(e001)
+        OUTPUT = 'FAIL 915/001: llt(abc,xyz) should succeed' :(END)
+e001
+        LLT('abc', 'abc')          :F(e002)
+        OUTPUT = 'FAIL 915/002: llt(abc,abc) should fail'   :(END)
+e002
+        LLT('xyz', 'abc')          :F(e003)
+        OUTPUT = 'FAIL 915/003: llt(xyz,abc) should fail'   :(END)
+e003
+        LLT('', 'abc')             :S(e004)
+        OUTPUT = 'FAIL 915/004: llt(null,abc) should succeed' :(END)
+e004
+        LLT('abc', '')             :F(e005)
+        OUTPUT = 'FAIL 915/005: llt(abc,null) should fail'  :(END)
+e005
+        LLT('A', 'a')              :S(e006)
+        OUTPUT = 'FAIL 915/006: llt(A,a) should succeed (ordinal)' :(END)
+e006
+        OUTPUT = 'PASS 915_llt (6/6)'
+END

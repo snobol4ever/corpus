@@ -1,0 +1,6 @@
+
+        subject = 'key:value'
+        subject BREAKX(':')  :F(e001)
+        OUTPUT = 'PASS W05/005: breakx matched'   :(END)
+e001    OUTPUT = 'FAIL W05/005: breakx should match'
+END

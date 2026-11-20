@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        subject = 'ABCDE'
+        pattern = RTAB(5)
+        subject pattern = '****'     :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

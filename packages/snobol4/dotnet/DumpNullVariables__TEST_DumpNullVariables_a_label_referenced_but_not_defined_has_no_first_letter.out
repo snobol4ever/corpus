@@ -1,0 +1,43 @@
+
+
+
+dump of natural variables
+
+DUMP = ''
+E = ''
+END = ''
+ERRLIMIT = ''
+INPUT = ''
+NOLAB = ''
+OUTPUT = ''
+TERMINAL = ''
+X = 1
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 0
+&ERRLIMIT = 5
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'DumpNullVariables__TEST_DumpNullVariables_a_label_referenced_but_not_defined_has_no_first_letter.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'DumpNullVariables__TEST_DumpNullVariables_a_label_referenced_but_not_defined_has_no_first_letter.sno'
+&LASTLINE = 2
+&LASTNO = 2
+&LINE = 3
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 3
+&STLIMIT = 2147483647
+&STNO = 3
+&TRACE = 0
+&TRIM = 1

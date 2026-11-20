@@ -1,0 +1,4 @@
+        Y = 'hello'
+        Y ? 'l' = 'L'
+        OUTPUT = Y
+END

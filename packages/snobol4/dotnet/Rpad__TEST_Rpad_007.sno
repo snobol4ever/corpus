@@ -1,0 +1,4 @@
+
+        s = 'this is a test'
+        r = RPAD(s,2)
+END

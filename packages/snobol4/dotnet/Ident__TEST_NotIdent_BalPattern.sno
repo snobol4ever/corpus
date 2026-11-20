@@ -1,0 +1,7 @@
+
+        a = ANY('abc') BAL LEN(10)
+        b = ANY('abc') BAL LEN(10)
+        IDENT(a,b)    :S(equ)
+        out = 'not identical'    :(END)
+equ     out = 'identical'
+end;END

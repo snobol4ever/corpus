@@ -1,0 +1,10 @@
+
+        X = 'aaa'
+        N = 0
+        COUNT = 0
+LOOP    X POS(N) 'a' . V                                           :F(DONE)
+        COUNT = COUNT + 1
+        N = N + 1
+        :(LOOP)
+DONE    RESULT = COUNT
+END

@@ -1,0 +1,12 @@
+
+        DIFFER('5' + '3', 8)                   :F(e001)
+        OUTPUT = 'FAIL 416/001: string coerce add'      :(END)
+e001
+        DIFFER('10' - '4', 6)                   :F(e002)
+        OUTPUT = 'FAIL 416/002: string coerce sub'      :(END)
+e002
+        DIFFER('3' * '4', 12)                   :F(e003)
+        OUTPUT = 'FAIL 416/003: string coerce mul'      :(END)
+e003
+        OUTPUT = 'PASS 416_arith_coerce (3/3)'
+END

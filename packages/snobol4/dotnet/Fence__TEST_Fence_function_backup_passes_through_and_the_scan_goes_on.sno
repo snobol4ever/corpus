@@ -1,0 +1,6 @@
+
+        P = (BREAKX('abc') | FENCE('a'))
+        'aa a' P RPOS(0) :S(Y)F(N)
+Y       R1 = 'match' :(END)
+N       R1 = 'nomatch'
+END

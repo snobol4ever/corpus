@@ -1,0 +1,13 @@
+
+        DEFINE('F()')
+        DEFINE('H()')                  :(FE)
+F       F = 'ZZ'                       :(NRETURN)
+H       H = 12                         :(NRETURN)
+FE      ZZ = 'old'
+        R = F()
+        F() = 'new'
+        H() = 'twelve'
+        S = 'QR'
+        S 'Q' . *F() 'R' . *H()
+        T = ZZ ' ' $'12'
+END

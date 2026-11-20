@@ -1,0 +1,8 @@
+        DEFINE('G()')   :(GO)
+G       OUTPUT = 'in G'
+        X = FOO(3)
+        OUTPUT = 'after error in G'  :(RETURN)
+GO      'abc' *G()  :F(OOPS)
+        OUTPUT = 'matched err ' &ERRTYPE  :(END)
+OOPS    OUTPUT = 'failed ' &ERRTYPE
+END

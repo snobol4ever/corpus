@@ -1,0 +1,18 @@
+        &ERRLIMIT = 20
+        Y =
+        &ERRTYPE = 0
+        V = BREAK('a') ? *$Y
+        OUTPUT = '1 ' &ERRTYPE
+        &ERRTYPE = 0
+        V = ARRAY(2) ? *F()
+        OUTPUT = '2 ' &ERRTYPE
+        &ERRTYPE = 0
+        V = 'abc' ? *TABLE()
+        OUTPUT = '3 ' &ERRTYPE
+        &ERRTYPE = 0
+        'abc' *ARRAY(1)
+        OUTPUT = '4 ' &ERRTYPE
+        &ERRTYPE = 0
+        V = 'abc' ? TABLE()
+        OUTPUT = '5 ' &ERRTYPE
+END

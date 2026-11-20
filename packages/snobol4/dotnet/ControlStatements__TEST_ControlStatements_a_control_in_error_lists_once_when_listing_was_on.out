@@ -1,0 +1,15 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:09:16 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+        -NOLIST,5
+                !
+ControlStatements__TEST_ControlStatements_a_control_in_error_lists_once_when_listing_was_on.sno(2,9) : ERROR 247 -- inva
+lid control statement

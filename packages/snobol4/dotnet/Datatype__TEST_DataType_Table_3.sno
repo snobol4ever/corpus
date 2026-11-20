@@ -1,0 +1,4 @@
+
+        a = TABLE(,,10)
+        b = DATATYPE(a[2])
+END

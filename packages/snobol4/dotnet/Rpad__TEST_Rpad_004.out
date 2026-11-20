@@ -1,0 +1,17 @@
+
+
+
+Rpad__TEST_Rpad_004.sno(3) : ERROR 180 -- rpad first argument is not a string
+
+
+
+
+
+in file              Rpad__TEST_Rpad_004.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13448
+memory left (bytes)  1035120

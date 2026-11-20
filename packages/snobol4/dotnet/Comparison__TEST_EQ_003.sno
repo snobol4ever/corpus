@@ -1,0 +1,5 @@
+
+        EQ(1.23,12) :S(true)F(false)
+true    a =  'true'   :(END)
+false   a =  'false'  :(END)
+end;END

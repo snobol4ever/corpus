@@ -1,0 +1,55 @@
+define 0 ok
+data 0 ok
+define 1 ok
+data 1 ok
+define 2 ok
+data 2 fail 80
+define 3 ok
+data 3 fail 80
+define 4 ok
+data 4 ok
+define 5 ok
+data 5 fail 80
+define 6 fail 85
+data 6 fail 80
+define 7 ok
+data 7 fail 80
+define 8 fail 85
+data 8 fail 79
+define 9 fail 83
+data 9 fail 77
+define 10 fail 83
+data 10 fail 77
+define 11 fail 85
+data 11 fail 79
+define 12 fail 84
+data 12 fail 78
+define 13 fail 83
+data 13 fail 77
+define 14 ok
+data 14 ok
+define 15 ok
+data 15 ok
+define 16 ok
+data 16 ok
+define 17 ok
+data 17 ok
+define 18 ok
+data 18 ok
+define 19 ok
+data 19 ok
+define 20 ok
+data 20 ok
+define 21 ok
+data 21 ok
+define 22 fail 248
+data 22 fail 248
+define 23 ok
+data 23 ok
+define 24 ok
+data 24 ok
+define 25 ok
+data 25 ok
+define 26 ok
+data 26 ok
+field ABB

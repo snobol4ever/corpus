@@ -1,0 +1,6 @@
+
+        OUTPUT('a','1','file420.txt')
+        OUTPUT('a','2','file421.txt')      :S(y)F(n)
+y       c  = 'success'  :(END)
+n       c  = 'failure'
+END

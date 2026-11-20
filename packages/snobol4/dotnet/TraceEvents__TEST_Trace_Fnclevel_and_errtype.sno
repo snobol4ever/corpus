@@ -1,0 +1,11 @@
+        &TRACE = 100
+        TRACE('FNCLEVEL', 'KEYWORD')
+        TRACE('ERRTYPE', 'KEYWORD')
+        &ERRLIMIT = 5
+        DEFINE('F()')  :(EF)
+F       :(RETURN)
+EF      F()
+        D = 0
+        X = 1 / D
+        OUTPUT = 'after'
+END

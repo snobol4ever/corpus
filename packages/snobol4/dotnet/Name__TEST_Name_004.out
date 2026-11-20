@@ -1,0 +1,17 @@
+
+
+
+Name__TEST_Name_004.sno(2) : ERROR 021 -- function called by name returned a value
+
+
+
+
+
+in file              Name__TEST_Name_004.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11376
+memory left (bytes)  1037192

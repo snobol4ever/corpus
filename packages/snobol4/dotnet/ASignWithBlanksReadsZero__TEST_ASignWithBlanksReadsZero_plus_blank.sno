@@ -1,0 +1,4 @@
+        &ERRLIMIT = 100
+        S = '+ '
+        OUTPUT = (CONVERT(S,'INTEGER') ' ', 'FAIL ') (CONVERT(S,'REAL') ' ', 'FAIL ') (S + 0, 'FAIL')
+END

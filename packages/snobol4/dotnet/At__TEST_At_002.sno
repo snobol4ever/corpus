@@ -1,0 +1,6 @@
+
+        &ANCHOR = 0
+        'DOUBT' @at1 'B'  :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

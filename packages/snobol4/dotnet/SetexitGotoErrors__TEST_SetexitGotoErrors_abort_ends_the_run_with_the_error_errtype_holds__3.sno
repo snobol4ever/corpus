@@ -1,0 +1,4 @@
+	&ERRLIMIT = 5
+	&ERRTYPE = 77
+	OUTPUT = 'here ' &ERRTYPE	:(ABORT)
+END

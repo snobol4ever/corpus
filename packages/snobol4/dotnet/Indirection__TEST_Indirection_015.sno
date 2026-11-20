@@ -1,0 +1,46 @@
+
+        $'Alabama' = 'Montgomery'
+        $'Alaska' = 'Juneau'
+        $'Arizona' = 'Phoenix'
+        $'Arkansas' = 'Little Rock'
+        $'California' = 'Sacramento'
+        $'Colorado' = 'Denver'
+        $'Connecticut' = 'Hartford'
+        $'Delaware' = 'Dover'
+        $'Hawaii' = 'Honolulu'
+        $'Florida' = 'Tallahassee'
+        $'Georgia' = 'Atlanta'
+        $'Idaho' = 'Boise'
+        $'Illinois' = 'Springfield'
+        $'Indiana' = 'Indianapolis'
+        $'Iowa' = 'Des Moines'
+        $'Kansas' = 'Topeka'
+        $'Kentucky' = 'Frankfort'
+        $'Louisiana' = 'Baton Rouge'
+        $'Maine' = 'Augusta'
+        $'Maryland' = 'Annapolis'
+        $'Massachusetts' = 'Boston'
+        LEQ(Alabama,'Montgomery')  :F(END)
+        LEQ(Alaska,'Juneau')  :F(END)
+        LEQ(Arizona,'Phoenix')  :F(END)
+        LEQ(Arkansas,'Little Rock')  :F(END)
+        LEQ(California,'Sacramento')  :F(END)
+        LEQ(Colorado,'Denver')  :F(END)
+        LEQ(Connecticut,'Hartford')  :F(END)
+        LEQ(Delaware,'Dover')  :F(END)
+        LEQ(Florida,'Tallahassee')  :F(END)
+        LEQ(Georgia,'Atlanta')  :F(END)
+        LEQ(Hawaii,'Honolulu')  :F(END)
+        LEQ(Idaho,'Boise')  :F(END)
+        LEQ(Illinois,'Springfield')  :F(END)
+        LEQ(Indiana,'Indianapolis')  :F(END)
+        LEQ(Iowa,'Des Moines')  :F(END)
+        LEQ(Kansas,'Topeka')  :F(END)
+        LEQ(Kentucky,'Frankfort')  :F(END)
+        LEQ(Louisiana,'Baton Rouge')  :F(END)
+        LEQ(Maine,'Augusta')  :F(END)
+        LEQ(Maryland,'Annapolis')  :F(END)
+        LEQ(Massachusetts,'Boston')  :F(END)
+        d = 'success'
+
+END

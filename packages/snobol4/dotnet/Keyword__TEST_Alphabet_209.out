@@ -1,0 +1,17 @@
+
+
+
+Keyword__TEST_Alphabet_209.sno(2) : ERROR 209 -- keyword in assignment is protected
+
+
+
+
+
+in file              Keyword__TEST_Alphabet_209.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11288
+memory left (bytes)  1037280

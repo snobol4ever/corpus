@@ -1,0 +1,7 @@
+
+        a = ANY('abc') BAL LEN(10)
+        b = ANY('abc') BAL LEN(12)
+        DIFFER(a,b)    :S(diff)
+        out = 'differ'    :(END)
+diff     out = 'not differ'
+end;END

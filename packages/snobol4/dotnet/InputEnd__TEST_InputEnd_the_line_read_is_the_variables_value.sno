@@ -1,0 +1,5 @@
+        X = INPUT
+        Y = INPUT
+        DETACH(.INPUT)
+        OUTPUT = X ' ' Y ' ' INPUT
+END

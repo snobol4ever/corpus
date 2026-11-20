@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        a = *(LEN(k) POS(m))
+        b = CONVERT(a,'name')  :F(END)
+        d = 'success'
+END

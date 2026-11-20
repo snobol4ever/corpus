@@ -1,0 +1,17 @@
+
+
+
+LLt__TEST_LLt_004.sno(4) : ERROR 130 -- llt first argument is not a string
+
+
+
+
+
+in file              LLt__TEST_LLt_004.sno
+in line              4
+in statement         4
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13512
+memory left (bytes)  1035056

@@ -1,0 +1,22 @@
+
+
+
+RecursionDepth__TEST_RecursionDepth_runaway_recursion_is_error_246_at_the_depth_the_stack_allows.sno(4) : ERROR 246 -- s
+tack overflow
+
+
+
+
+
+in file              RecursionDepth__TEST_RecursionDepth_runaway_recursion_is_error_246_at_the_depth_the_stack_allows.sn
+o
+in line              4
+in statement         4
+stmts executed       58211
+execution time msec  3
+stmt / microsec      19
+stmt / millisec      19403
+stmt / second        19403000
+REGENERATIONS        0
+memory used (bytes)  942984
+memory left (bytes)  105584

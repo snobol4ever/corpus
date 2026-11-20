@@ -1,0 +1,7 @@
+
+        X = 'abc'
+        X BAL . V                                   :S(ok)F(END)
+ok      DIFFER(V, 'a')                              :F(pass)
+        OUTPUT = 'FAIL: BAL no-paren'               :(END)
+pass    OUTPUT = 'PASS'
+END

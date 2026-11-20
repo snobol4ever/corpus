@@ -1,0 +1,10 @@
+        OUTPUT = 'x' CONVERT(-0.0, 'NAME')
+        OUTPUT = 'x' CONVERT(100.0, 'NAME')
+        OUTPUT = 'x' CONVERT(1.0E-10, 'NAME')
+        OUTPUT = 'x' CONVERT(1.0E20, 'NAME')
+        OUTPUT = 'x' CONVERT(2.5, 'NAME')
+        V = EVAL(CONVERT(100.0, 'EXPRESSION'))
+        OUTPUT = DATATYPE(V) ' ' V
+        V = EVAL(CONVERT(-0.0, 'EXPRESSION'))
+        OUTPUT = DATATYPE(V) ' ' V
+END

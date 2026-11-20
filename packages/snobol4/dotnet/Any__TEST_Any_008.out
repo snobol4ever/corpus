@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 16:46:45 2026
+
+
+
+                                                                                                                page 1
+
+2               A = ANY('')
+
+Any__TEST_Any_008.sno(2) : ERROR 059 -- any argument is not a string or expression

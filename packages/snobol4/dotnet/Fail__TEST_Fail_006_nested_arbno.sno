@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        subject = 'aaa'
+        count = 0
+        subject ARBNO(LEN(1) . c)   :F(bad)
+        result = 'ok'   :(END)
+bad     result = 'bad'
+END

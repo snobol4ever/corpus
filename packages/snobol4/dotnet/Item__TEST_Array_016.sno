@@ -1,0 +1,4 @@
+
+        a = ARRAY('3,3')
+        b = ITEM(a,1)
+END

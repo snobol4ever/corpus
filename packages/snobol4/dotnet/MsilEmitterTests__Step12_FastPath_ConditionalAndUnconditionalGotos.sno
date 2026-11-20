@@ -1,0 +1,7 @@
+
+        result = 'start'
+        EQ(1, 1)        :S(yes)F(no)
+yes     result = 'yes'  :(done)
+no      result = 'no'
+done    result = result 'end'
+END

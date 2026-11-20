@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:07:09 2026
+
+
+
+                                                                                                                page 1
+
+1       .       OUTPUT = 'x'
+
+CompileErrorReport__TEST_CompileErrorReport_an_error_without_a_column_has_an_empty_caret_line.sno(2) : ERROR 214 -- bad 
+label or misplaced continuation line

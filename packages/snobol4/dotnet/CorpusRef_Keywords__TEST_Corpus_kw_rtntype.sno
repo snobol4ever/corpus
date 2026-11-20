@@ -1,0 +1,16 @@
+
+        DEFINE('ok_fn()')                           :(ok_fn_end)
+ok_fn                                               :(RETURN)
+ok_fn_end
+        DEFINE('fail_fn()')                         :(fail_fn_end)
+fail_fn                                             :(FRETURN)
+fail_fn_end
+        ok_fn()
+        DIFFER(&RTNTYPE, 'RETURN')                  :F(ok1)
+        OUTPUT = 'FAIL: &RTNTYPE after RETURN'      :(END)
+ok1     fail_fn()                                   :F(ok2)
+        OUTPUT = 'wrong branch'                     :(END)
+ok2     DIFFER(&RTNTYPE, 'FRETURN')                 :F(ok3)
+        OUTPUT = 'FAIL: &RTNTYPE after FRETURN'     :(END)
+ok3     OUTPUT = 'PASS'
+END

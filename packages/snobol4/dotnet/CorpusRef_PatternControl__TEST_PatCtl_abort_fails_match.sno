@@ -1,0 +1,7 @@
+
+        X = 'hello'
+        X ('hello' | ABORT) . V                     :S(ok)F(END)
+ok      DIFFER(V, 'hello')                          :F(pass)
+        OUTPUT = 'FAIL: ABORT branch taken'         :(END)
+pass    OUTPUT = 'PASS'
+END

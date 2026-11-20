@@ -1,0 +1,4 @@
+copy	OUTPUT = INPUT		:S(copy)
+	REWIND(5)
+copy2	OUTPUT = INPUT		:S(copy2)
+END

@@ -1,0 +1,58 @@
+
+
+
+dump of natural variables
+
+AA = ARRAY(3) #3
+N = NODE #5
+T = TABLE(5) #1
+U = TABLE(5) #1
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 0
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'DumpFormat__TEST_DumpFormat_variables_blocks_and_names.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'DumpFormat__TEST_DumpFormat_variables_blocks_and_names.sno'
+&LASTLINE = 8
+&LASTNO = 8
+&LINE = 9
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 9
+&STLIMIT = 2147483647
+&STNO = 9
+&TRACE = 0
+&TRIM = 1
+
+TABLE(5) #1
+U<'a'> = ARRAY(2) #2
+
+ARRAY(2) #2
+ARRAY(2) #2<1> = 'q'
+
+ARRAY(3) #3
+AA<2> = ARRAY(3) #3
+
+NODE #4
+VAL(NODE #4) = 2
+
+NODE #5
+VAL(N) = 1
+NXT(N) = NODE #4
+
+
+
+after

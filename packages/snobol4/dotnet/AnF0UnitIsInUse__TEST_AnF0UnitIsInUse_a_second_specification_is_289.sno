@@ -1,0 +1,7 @@
+        &ERRLIMIT = 5
+        INPUT(.X, 5, '[-f0]')
+        INPUT(.Y, 5, '[-f0]')    :F(F)
+        OUTPUT = 'second ok'                    :(E)
+F       OUTPUT = 'second fails ' &ERRTYPE
+E       OUTPUT = 'end'
+END

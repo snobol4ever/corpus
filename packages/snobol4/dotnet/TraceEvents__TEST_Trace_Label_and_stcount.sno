@@ -1,0 +1,12 @@
+        &TRACE = 100
+        TRACE('L', 'LABEL')
+        TRACE('M', 'LABEL')
+        TRACE('STCOUNT', 'KEYWORD')
+        X = 1                    :S(L)F(M)
+L       Y = 2                    :F(L)S(M)
+M       &ANCHOR = 1
+        STOPTR('STCOUNT', 'KEYWORD')
+        N = 0
+LOOP    N = LT(N, 2) N + 1       :S(LOOP)
+        &ANCHOR = 0
+END

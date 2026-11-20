@@ -1,0 +1,6 @@
+
+        OUTPUT = LPAD('hi', 5)
+        OUTPUT = RPAD('hi', 5)
+        OUTPUT = LPAD('hi', 5, '*')
+        OUTPUT = RPAD('hi', 5, '-')
+END

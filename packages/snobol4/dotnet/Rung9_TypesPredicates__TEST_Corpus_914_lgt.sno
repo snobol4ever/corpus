@@ -1,0 +1,18 @@
+
+        LGT('abc', 'xyz')          :F(e001)
+        OUTPUT = 'FAIL 914/001: lgt(abc,xyz) should fail'   :(END)
+e001
+        LGT('abc', 'abc')          :F(e002)
+        OUTPUT = 'FAIL 914/002: lgt(abc,abc) should fail'   :(END)
+e002
+        LGT('xyz', 'abc')          :S(e003)
+        OUTPUT = 'FAIL 914/003: lgt(xyz,abc) should succeed' :(END)
+e003
+        LGT('', 'abc')             :F(e004)
+        OUTPUT = 'FAIL 914/004: lgt(null,abc) should fail'  :(END)
+e004
+        LGT('abc', '')             :S(e005)
+        OUTPUT = 'FAIL 914/005: lgt(abc,null) should succeed' :(END)
+e005
+        OUTPUT = 'PASS 914_lgt (5/5)'
+END

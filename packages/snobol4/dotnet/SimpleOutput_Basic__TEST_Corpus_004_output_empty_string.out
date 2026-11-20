@@ -1,0 +1,34 @@
+
+
+
+dump of natural variables
+
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'SimpleOutput_Basic__TEST_Corpus_004_output_empty_string.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'SimpleOutput_Basic__TEST_Corpus_004_output_empty_string.sno'
+&LASTLINE = 2
+&LASTNO = 2
+&LINE = 3
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 2
+&STLIMIT = 2147483647
+&STNO = 3
+&TRACE = 0
+&TRIM = 1

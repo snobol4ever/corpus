@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:35:25 2026
+
+
+
+                                                                                                                page 1
+
+1               'A' Y = 1
+
+NameRequired__TEST_NameRequired_a_literal_subject_before_the_blank_pattern.sno(1) : ERROR 212 -- syntax error: value use
+d where name is required

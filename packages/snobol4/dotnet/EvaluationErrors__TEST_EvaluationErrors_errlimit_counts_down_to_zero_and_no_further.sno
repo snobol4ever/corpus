@@ -1,0 +1,10 @@
+        DEFINE('G()')   :(GO)
+G       X = FOO(3)
+        X = FOO(4)
+        X = FOO(5)
+        OUTPUT = 'G errlimit ' &ERRLIMIT :(RETURN)
+GO      &ERRLIMIT = 2
+        Y = EVAL('G()')  :F(OOPS)
+        OUTPUT = 'y=[' Y '] err ' &ERRTYPE ' errlimit ' &ERRLIMIT :(END)
+OOPS    OUTPUT = 'failed ' &ERRTYPE
+END

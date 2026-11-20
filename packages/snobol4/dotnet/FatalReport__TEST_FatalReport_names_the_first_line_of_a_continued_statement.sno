@@ -1,0 +1,7 @@
+* a comment
+
+        OUTPUT = 'x'
+        Y = 1 +
++          FOO(2)
+        OUTPUT = 'not reached'
+END

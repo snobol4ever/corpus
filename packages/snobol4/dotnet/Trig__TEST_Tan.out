@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 19:00:11 2026
+
+
+
+                                                                                                                page 1
+
+1        a = TAN('test');END
+
+Trig__TEST_Tan.sno(1) : ERROR 309 -- tan argument not numeric

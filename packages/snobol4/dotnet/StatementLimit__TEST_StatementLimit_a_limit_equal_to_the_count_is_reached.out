@@ -1,0 +1,19 @@
+x3
+
+
+
+StatementLimit__TEST_StatementLimit_a_limit_equal_to_the_count_is_reached.sno(3) : ERROR 244 -- statement count exceeds 
+value of stlimit keyword
+
+
+
+
+
+in file              StatementLimit__TEST_StatementLimit_a_limit_equal_to_the_count_is_reached.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11576
+memory left (bytes)  1036992

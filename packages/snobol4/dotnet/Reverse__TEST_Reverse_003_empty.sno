@@ -1,0 +1,4 @@
+
+        a = ''
+        b = REVERSE(a)
+END

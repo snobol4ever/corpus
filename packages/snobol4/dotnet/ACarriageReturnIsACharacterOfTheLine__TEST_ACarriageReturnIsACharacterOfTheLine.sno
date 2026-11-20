@@ -1,0 +1,6 @@
+        X = 1
+
+        OUTPUT = 'ok ' X
+        Y = 2
+        OUTPUT = 'y ' Y
+END

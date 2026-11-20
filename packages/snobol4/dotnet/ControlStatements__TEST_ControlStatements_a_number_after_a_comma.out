@@ -1,0 +1,16 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:09:32 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST,5
+              !
+ControlStatements__TEST_ControlStatements_a_number_after_a_comma.sno(1,7) : ERROR 247 -- invalid control statement
+
+1               OUTPUT = 'x'
+2       END

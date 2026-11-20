@@ -1,0 +1,7 @@
+
+        a = ARBNO(ANY('abc'))
+        b = ARBNO(NOTANY('abc'))
+        DIFFER(a,b)    :S(diff)
+        out = 'not differ'    :(END)
+diff    out = 'differ'
+end;END

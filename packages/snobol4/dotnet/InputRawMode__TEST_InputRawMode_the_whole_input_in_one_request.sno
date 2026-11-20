@@ -1,0 +1,6 @@
+        INPUT(.INPUT, 9, '[-f0 -r4194304]')
+        X = INPUT
+        OUTPUT = SIZE(X)
+        Y = INPUT   :S(END)
+        OUTPUT = 'then end'
+END

@@ -1,0 +1,5 @@
+
+
+        T = TABLE(3)
+        R = SIZE(T)
+END

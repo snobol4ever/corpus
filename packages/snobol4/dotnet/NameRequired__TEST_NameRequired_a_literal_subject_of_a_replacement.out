@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:35:26 2026
+
+
+
+                                                                                                                page 1
+
+1               1 ? 'a' = 'b'
+
+NameRequired__TEST_NameRequired_a_literal_subject_of_a_replacement.sno(1) : ERROR 212 -- syntax error: value used where 
+name is required

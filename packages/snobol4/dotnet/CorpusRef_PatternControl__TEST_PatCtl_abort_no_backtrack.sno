@@ -1,0 +1,6 @@
+
+        X = 'hello'
+        X (ABORT | 'hello') . V                     :S(wrong)F(ok)
+wrong   OUTPUT = 'FAIL: should have aborted'        :(END)
+ok      OUTPUT = 'PASS'
+END

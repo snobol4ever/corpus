@@ -1,0 +1,17 @@
+
+
+
+Star__TEST_Error046.sno(5) : ERROR 046 -- expression does not evaluate to pattern
+
+
+
+
+
+in file              Star__TEST_Error046.sno
+in line              5
+in statement         5
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11856
+memory left (bytes)  1036712

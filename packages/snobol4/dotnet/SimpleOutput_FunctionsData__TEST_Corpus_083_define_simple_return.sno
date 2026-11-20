@@ -1,0 +1,7 @@
+
+        DEFINE('double(s)')                                         :(double_end)
+double  double = 2 * s                                             :(RETURN)
+double_end
+        R1 = double(5)
+        R2 = double(21)
+END

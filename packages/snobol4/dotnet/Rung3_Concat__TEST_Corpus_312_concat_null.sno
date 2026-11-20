@@ -1,0 +1,10 @@
+
+        x = 'hello'
+        DIFFER(x '', x)                   :F(e001)
+        OUTPUT = 'FAIL 312/001: null right identity'    :(END)
+e001
+        DIFFER('' x, x)                   :F(e002)
+        OUTPUT = 'FAIL 312/002: null left identity'     :(END)
+e002
+        OUTPUT = 'PASS 312_concat_null (2/2)'
+END

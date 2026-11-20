@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:49:16 2026
+
+
+
+                                                                                                                page 1
+
+1               X == 1
+                   !
+SyntaxErrors__TEST_SyntaxErrors_invalid_operator_two_equals.sno(1,12) : ERROR 233 -- syntax error: invalid use of operat
+or

@@ -1,0 +1,4 @@
+
+        b = CHAR(0)
+        r = SIZE(b)
+END

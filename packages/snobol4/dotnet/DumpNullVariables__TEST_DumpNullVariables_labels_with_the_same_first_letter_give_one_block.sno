@@ -1,0 +1,5 @@
+AB      X = 1
+AC      X = 2
+BD      X = 3
+        DUMP(3)
+END

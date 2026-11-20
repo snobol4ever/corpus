@@ -1,0 +1,8 @@
+        DEFINE('F(A,B)L')
+        N = ARG(.F,2)
+        B = 'bval'
+        R = DATATYPE(N) ' ' $N
+        R = R IDENT(N, .B) ' same'
+        $LOCAL(.F,1) = 'lv'
+        R = R ' ' L ' ' DATATYPE(LOCAL(.F,1)) ' ' ARG(.F,1)
+END

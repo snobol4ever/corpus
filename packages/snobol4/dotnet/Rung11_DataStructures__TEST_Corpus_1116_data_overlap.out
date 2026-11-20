@@ -1,0 +1,17 @@
+
+
+
+Rung11_DataStructures__TEST_Corpus_1116_data_overlap.sno(10) : ERROR 041 -- field function argument is wrong datatype
+
+
+
+
+
+in file              Rung11_DataStructures__TEST_Corpus_1116_data_overlap.sno
+in line              10
+in statement         10
+stmts executed       8
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13368
+memory left (bytes)  1035200

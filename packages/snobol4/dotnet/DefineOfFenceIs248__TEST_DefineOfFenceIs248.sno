@@ -1,0 +1,3 @@
+        &ERRLIMIT = 1
+        DEFINE('FENCE(X)')
+END

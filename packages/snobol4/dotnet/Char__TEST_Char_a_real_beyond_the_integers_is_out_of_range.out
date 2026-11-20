@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:01:29 2026
+
+
+
+                                                                                                                page 1
+
+2               b = CHAR(1E150)
+
+Char__TEST_Char_a_real_beyond_the_integers_is_out_of_range.sno(2) : ERROR 282 -- char argument not in range

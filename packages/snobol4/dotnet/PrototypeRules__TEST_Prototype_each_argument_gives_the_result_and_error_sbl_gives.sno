@@ -1,0 +1,211 @@
+        &ERRLIMIT = 1000
+        &TRIM = 0
+        S = 'abc'
+        P = LEN(2)
+        TT = TABLE()
+        &ERRTYPE = 0
+        A = ARRAY('', 'f')   :F(F0)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N0)
+F0     OUTPUT = 'fail ' &ERRTYPE
+N0
+        &ERRTYPE = 0
+        A = ARRAY(0, 'f')   :F(F1)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N1)
+F1     OUTPUT = 'fail ' &ERRTYPE
+N1
+        &ERRTYPE = 0
+        A = ARRAY(-1, 'f')   :F(F2)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N2)
+F2     OUTPUT = 'fail ' &ERRTYPE
+N2
+        &ERRTYPE = 0
+        A = ARRAY(3, 'f')   :F(F3)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N3)
+F3     OUTPUT = 'fail ' &ERRTYPE
+N3
+        &ERRTYPE = 0
+        A = ARRAY(3.7, 'f')   :F(F4)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N4)
+F4     OUTPUT = 'fail ' &ERRTYPE
+N4
+        &ERRTYPE = 0
+        A = ARRAY('3', 'f')   :F(F5)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N5)
+F5     OUTPUT = 'fail ' &ERRTYPE
+N5
+        &ERRTYPE = 0
+        A = ARRAY('2,3', 'f')   :F(F6)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N6)
+F6     OUTPUT = 'fail ' &ERRTYPE
+N6
+        &ERRTYPE = 0
+        A = ARRAY('1:3', 'f')   :F(F7)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N7)
+F7     OUTPUT = 'fail ' &ERRTYPE
+N7
+        &ERRTYPE = 0
+        A = ARRAY('0:2', 'f')   :F(F8)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N8)
+F8     OUTPUT = 'fail ' &ERRTYPE
+N8
+        &ERRTYPE = 0
+        A = ARRAY('-1:1', 'f')   :F(F9)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N9)
+F9     OUTPUT = 'fail ' &ERRTYPE
+N9
+        &ERRTYPE = 0
+        A = ARRAY('1:0', 'f')   :F(F10)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N10)
+F10     OUTPUT = 'fail ' &ERRTYPE
+N10
+        &ERRTYPE = 0
+        A = ARRAY('2:1', 'f')   :F(F11)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N11)
+F11     OUTPUT = 'fail ' &ERRTYPE
+N11
+        &ERRTYPE = 0
+        A = ARRAY('3:', 'f')   :F(F12)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N12)
+F12     OUTPUT = 'fail ' &ERRTYPE
+N12
+        &ERRTYPE = 0
+        A = ARRAY(':3', 'f')   :F(F13)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N13)
+F13     OUTPUT = 'fail ' &ERRTYPE
+N13
+        &ERRTYPE = 0
+        A = ARRAY(' 3', 'f')   :F(F14)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N14)
+F14     OUTPUT = 'fail ' &ERRTYPE
+N14
+        &ERRTYPE = 0
+        A = ARRAY('3 ', 'f')   :F(F15)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N15)
+F15     OUTPUT = 'fail ' &ERRTYPE
+N15
+        &ERRTYPE = 0
+        A = ARRAY('1 : 3', 'f')   :F(F16)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N16)
+F16     OUTPUT = 'fail ' &ERRTYPE
+N16
+        &ERRTYPE = 0
+        A = ARRAY('a', 'f')   :F(F17)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N17)
+F17     OUTPUT = 'fail ' &ERRTYPE
+N17
+        &ERRTYPE = 0
+        A = ARRAY('1:a', 'f')   :F(F18)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N18)
+F18     OUTPUT = 'fail ' &ERRTYPE
+N18
+        &ERRTYPE = 0
+        A = ARRAY('a:3', 'f')   :F(F19)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N19)
+F19     OUTPUT = 'fail ' &ERRTYPE
+N19
+        &ERRTYPE = 0
+        A = ARRAY('1,,2', 'f')   :F(F20)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N20)
+F20     OUTPUT = 'fail ' &ERRTYPE
+N20
+        &ERRTYPE = 0
+        A = ARRAY('1,', 'f')   :F(F21)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N21)
+F21     OUTPUT = 'fail ' &ERRTYPE
+N21
+        &ERRTYPE = 0
+        A = ARRAY(',1', 'f')   :F(F22)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N22)
+F22     OUTPUT = 'fail ' &ERRTYPE
+N22
+        &ERRTYPE = 0
+        A = ARRAY('+3', 'f')   :F(F23)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N23)
+F23     OUTPUT = 'fail ' &ERRTYPE
+N23
+        &ERRTYPE = 0
+        A = ARRAY('-3', 'f')   :F(F24)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N24)
+F24     OUTPUT = 'fail ' &ERRTYPE
+N24
+        &ERRTYPE = 0
+        A = ARRAY('1e1', 'f')   :F(F25)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N25)
+F25     OUTPUT = 'fail ' &ERRTYPE
+N25
+        &ERRTYPE = 0
+        A = ARRAY('3.0', 'f')   :F(F26)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N26)
+F26     OUTPUT = 'fail ' &ERRTYPE
+N26
+        &ERRTYPE = 0
+        A = ARRAY('3.5', 'f')   :F(F27)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N27)
+F27     OUTPUT = 'fail ' &ERRTYPE
+N27
+        &ERRTYPE = 0
+        A = ARRAY('1:3,2:4', 'f')   :F(F28)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N28)
+F28     OUTPUT = 'fail ' &ERRTYPE
+N28
+        &ERRTYPE = 0
+        A = ARRAY('  ', 'f')   :F(F29)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N29)
+F29     OUTPUT = 'fail ' &ERRTYPE
+N29
+        &ERRTYPE = 0
+        A = ARRAY(P, 'f')   :F(F30)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N30)
+F30     OUTPUT = 'fail ' &ERRTYPE
+N30
+        &ERRTYPE = 0
+        A = ARRAY(*S, 'f')   :F(F31)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N31)
+F31     OUTPUT = 'fail ' &ERRTYPE
+N31
+        &ERRTYPE = 0
+        A = ARRAY(TT, 'f')   :F(F32)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N32)
+F32     OUTPUT = 'fail ' &ERRTYPE
+N32
+        &ERRTYPE = 0
+        A = ARRAY('1:2,3:4,5:6', 'f')   :F(F33)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N33)
+F33     OUTPUT = 'fail ' &ERRTYPE
+N33
+        &ERRTYPE = 0
+        A = ARRAY('100,100', 'f')   :F(F34)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N34)
+F34     OUTPUT = 'fail ' &ERRTYPE
+N34
+        &ERRTYPE = 0
+        A = ARRAY('4000000', 'f')   :F(F35)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N35)
+F35     OUTPUT = 'fail ' &ERRTYPE
+N35
+        &ERRTYPE = 0
+        A = ARRAY('20000000', 'f')   :F(F36)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N36)
+F36     OUTPUT = 'fail ' &ERRTYPE
+N36
+        &ERRTYPE = 0
+        A = ARRAY('1,1,1,1', 'f')   :F(F37)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N37)
+F37     OUTPUT = 'fail ' &ERRTYPE
+N37
+        &ERRTYPE = 0
+        A = ARRAY('0:0', 'f')   :F(F38)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N38)
+F38     OUTPUT = 'fail ' &ERRTYPE
+N38
+        &ERRTYPE = 0
+        A = ARRAY('5:5', 'f')   :F(F39)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N39)
+F39     OUTPUT = 'fail ' &ERRTYPE
+N39
+        &ERRTYPE = 0
+        A = ARRAY('-2:-1', 'f')   :F(F40)
+        OUTPUT = 'ok ' DATATYPE(A) ' [' PROTOTYPE(A) '] ' &ERRTYPE   :(N40)
+F40     OUTPUT = 'fail ' &ERRTYPE
+N40
+END

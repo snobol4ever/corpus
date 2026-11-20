@@ -1,0 +1,17 @@
+
+
+
+Array__TEST_Array_016.sno(3) : ERROR 236 -- array referenced with wrong number of subscripts
+
+
+
+
+
+in file              Array__TEST_Array_016.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11664
+memory left (bytes)  1036904

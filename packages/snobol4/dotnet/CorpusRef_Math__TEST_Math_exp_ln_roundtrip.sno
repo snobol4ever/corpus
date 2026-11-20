@@ -1,0 +1,5 @@
+
+        EQ(CHOP(LN(EXP(2))), 2)                     :F(FAIL)
+        OUTPUT = 'PASS'                             :(END)
+FAIL    OUTPUT = 'FAIL'
+END

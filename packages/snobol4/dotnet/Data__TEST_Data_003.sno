@@ -1,0 +1,6 @@
+
+        DATA('COMPLEX(REAL,IMAG)')
+        X = COMPLEX(ANY('ABC'),SPAN('123'))
+        I = IMAG(X)
+        R = REAL(X)
+END

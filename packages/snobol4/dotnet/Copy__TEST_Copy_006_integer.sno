@@ -1,0 +1,7 @@
+
+        A = 42
+        B = COPY(A)
+        DIFFER(A, B)   :S(bad)
+        result = 'ok'  :(END)
+bad     result = 'bad'
+END

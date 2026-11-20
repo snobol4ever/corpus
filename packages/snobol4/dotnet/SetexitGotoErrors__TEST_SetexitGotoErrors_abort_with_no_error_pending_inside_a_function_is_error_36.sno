@@ -1,0 +1,7 @@
+	OUTPUT = 'a'
+	DEFINE('F()')
+	F()
+	OUTPUT = 'b'
+	:(END)
+F	:(ABORT)
+END

@@ -1,0 +1,7 @@
+*  063 - FENCE(P) optional suffix: FENCE(SPAN(digits)|'') — greedy or empty, committed
+        digits = '0123456789'
+        &ANCHOR = 1
+        X = '123abc'
+        X  FENCE(SPAN(digits) | '') . N
+        OUTPUT = N
+END

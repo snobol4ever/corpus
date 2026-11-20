@@ -1,0 +1,5 @@
+
+        r = 'success'
+        LEQ('', '') :S(END)
+        r = 'failure'
+END

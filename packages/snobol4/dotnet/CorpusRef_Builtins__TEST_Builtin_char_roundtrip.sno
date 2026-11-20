@@ -1,0 +1,6 @@
+
+        S = CHAR(72) CHAR(105)
+        DIFFER(S, 'Hi')                             :F(ok)
+        OUTPUT = 'FAIL: CHAR roundtrip'             :(END)
+ok      OUTPUT = 'PASS'
+END

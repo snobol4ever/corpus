@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:49:09 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A :S($)
+                         !
+SyntaxErrors__TEST_SyntaxErrors_invalid_operator_dollar_closing_a_goto.sno(1,18) : ERROR 233 -- syntax error: invalid us
+e of operator

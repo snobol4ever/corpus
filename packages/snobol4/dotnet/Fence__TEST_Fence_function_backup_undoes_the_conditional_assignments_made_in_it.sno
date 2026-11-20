@@ -1,0 +1,10 @@
+
+        DEFINE('mark(tag)')                    :(mark_end)
+mark    log = log tag
+        mark = .dummy                          :(NRETURN)
+mark_end
+        log = ''
+        'ab' ? 'a' ARBNO('b') FENCE('' . *mark('R') | '') RPOS(0)
+        last = ''
+        'abc' ? ARBNO(LEN(1)) . head FENCE(LEN(1) . last) RPOS(0)
+END

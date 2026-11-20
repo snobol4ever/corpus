@@ -1,0 +1,19 @@
+a
+
+
+
+SetexitGotoErrors__TEST_SetexitGotoErrors_abort_with_no_error_pending_is_error_36.sno(2) : ERROR 036 -- goto abort with 
+no preceding error
+
+
+
+
+
+in file              SetexitGotoErrors__TEST_SetexitGotoErrors_abort_with_no_error_pending_is_error_36.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11360
+memory left (bytes)  1037208

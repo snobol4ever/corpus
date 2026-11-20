@@ -1,0 +1,6 @@
+        A = 'x'
+        B = 'y'
+        X = A
++B
+        OUTPUT = X
+END

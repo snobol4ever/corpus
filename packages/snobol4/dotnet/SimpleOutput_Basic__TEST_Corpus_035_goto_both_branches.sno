@@ -1,0 +1,7 @@
+
+        X = 'abc'
+        X 'abc'                                                     :S(YES)
+        RESULT = 'no'
+        :(END)
+YES     RESULT = 'yes'
+END

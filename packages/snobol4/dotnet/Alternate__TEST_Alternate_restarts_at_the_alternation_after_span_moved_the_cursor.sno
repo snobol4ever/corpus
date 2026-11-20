@@ -1,0 +1,6 @@
+
+        subj = 'aab'
+        subj ? POS(0) (SPAN('a') 'c' | 'b')   :F(n)
+        result = 'S'       :(END)
+n       result = 'F'
+END

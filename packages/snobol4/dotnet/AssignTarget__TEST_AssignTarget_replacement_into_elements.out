@@ -1,0 +1,41 @@
+
+
+
+dump of natural variables
+
+A = ARRAY(3) #1
+K = 2
+R = 'zbc bac abc wbc ayc'
+S1 = 'a'
+S2 = 'b'
+T = TABLE(11) #2
+X = P #3
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'AssignTarget__TEST_AssignTarget_replacement_into_elements.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'AssignTarget__TEST_AssignTarget_replacement_into_elements.sno'
+&LASTLINE = 11
+&LASTNO = 11
+&LINE = 12
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 12
+&STLIMIT = 2147483647
+&STNO = 12
+&TRACE = 0
+&TRIM = 1

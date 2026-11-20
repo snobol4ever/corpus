@@ -1,0 +1,6 @@
+        DEFINE('FN()')
+        X = FN()
+        DUMP(3)
+        :(END)
+FN      FN = 1  :(RETURN)
+END

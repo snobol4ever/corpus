@@ -1,0 +1,4 @@
+         C = CODE('LOGB LOGB = 1 ;LOGB = 2 ; :S(RETURN)F(FRETURN)')   :F(CF)
+         OUTPUT = 'ok'   :(END)
+CF       OUTPUT = 'failed ' &ERRTYPE
+END

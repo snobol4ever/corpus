@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        vowel = NOTANY('aeiou')
+        subject = ''
+        subject vowel . v1  :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

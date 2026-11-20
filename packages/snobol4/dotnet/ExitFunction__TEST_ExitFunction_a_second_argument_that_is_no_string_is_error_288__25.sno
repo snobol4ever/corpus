@@ -1,0 +1,4 @@
+        &ERRLIMIT = 5
+        EXIT(-4, *X)
+        OUTPUT = 'after ' &ERRTYPE
+END

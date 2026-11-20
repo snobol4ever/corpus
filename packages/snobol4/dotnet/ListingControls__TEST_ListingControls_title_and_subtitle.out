@@ -1,0 +1,38 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:33:07 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+
+
+
+                                                                                                                page 2
+sub
+
+        -STITL sub
+1               A = 1
+
+
+
+T2                                                                                                              page 3
+
+
+        -TITLE T2
+2               B = 2
+
+
+
+T2                                                                                                              page 4
+s2
+
+        -STITL s2
+3               C = 3
+4               OUTPUT = 'x'
+5       END
+x

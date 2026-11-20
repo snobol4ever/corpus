@@ -1,0 +1,5 @@
+        LONG = DUPL('abcdefghij', 20)
+        A = ARRAY(2)
+        A[2] = DUPL('xy', 70)
+        DUMP(2)
+END

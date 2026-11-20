@@ -1,0 +1,24 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:39:16 2026
+
+
+
+                                                                                                                page 1
+
+1               Y = 'a' + 1
+
+PreEvaluation__TEST_PreEvaluation_every_erring_statement_is_reported_and_the_others_are_not_listed.sno(1) : ERROR 001 --
+ addition left operand is not numeric
+
+2               Z = -'b'
+
+PreEvaluation__TEST_PreEvaluation_every_erring_statement_is_reported_and_the_others_are_not_listed.sno(2) : ERROR 010 --
+ negation operand is not numeric
+
+4               W = 3 ** 'c'
+
+PreEvaluation__TEST_PreEvaluation_every_erring_statement_is_reported_and_the_others_are_not_listed.sno(4) : ERROR 015 --
+ exponentiation right operand is not numeric

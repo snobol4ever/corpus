@@ -1,0 +1,8 @@
+
+	    DEFINE('ucase(s)')
+	    OPSYN('!','ucase',1)	:(ucase_end)
+ucase   ucase = REPLACE(s,&LCASE, &UCASE) :(RETURN)
+ucase_end
+        OUTPUT = DATATYPE(&LCASE)
+	    r = ucase('spitbol is very fast.')
+END

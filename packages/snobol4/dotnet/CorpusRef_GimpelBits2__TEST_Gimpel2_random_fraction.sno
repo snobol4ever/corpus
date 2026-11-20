@@ -1,0 +1,16 @@
+
+        DEFINE('RANDOM(N)')
+        RAN_VAR = 1                                :(RANDOM_END)
+RANDOM  RAN_VAR = REMDR(RAN_VAR * 4676., 414971.)
+        RANDOM = RAN_VAR / 414971.
+        RANDOM = NE(N,0) CONVERT(RANDOM * N,'INTEGER') + 1
+                                                    :(RETURN)
+RANDOM_END
+
+        R = RANDOM(0)
+        GT(R, 0.0)                                 :F(FAIL)
+        LT(R, 1.0)                                 :F(FAIL)
+        OUTPUT = 'ok'
+        :(END)
+FAIL    OUTPUT = 'out of range'
+END

@@ -1,0 +1,9 @@
+
+        A = ARRAY('3,3')
+        A[1,1] = 'a11'
+        A[2,3] = 'a23'
+        A[3,2] = 'a32'
+        OUTPUT = A[1,1]
+        OUTPUT = A[2,3]
+        OUTPUT = A[3,2]
+END

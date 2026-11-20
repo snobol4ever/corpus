@@ -1,0 +1,18 @@
+        &TRACE = 100
+        DEFINE('F(X)')
+        DEFINE('G()')
+        DEFINE('H()')
+        TRACE('F', 'FUNCTION')
+        TRACE('G', 'FUNCTION')
+        TRACE('H', 'RETURN')
+        F(1)
+        F(-1)
+        G()
+        H()
+        F(1.5)
+        :(END)
+F       GT(X, 0)                 :F(FRETURN)
+        F = X                    :(RETURN)
+G       G = .Z                   :(NRETURN)
+H                                :(RETURN)
+END

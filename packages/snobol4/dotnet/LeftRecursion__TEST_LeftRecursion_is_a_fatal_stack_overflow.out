@@ -1,0 +1,20 @@
+
+
+
+LeftRecursion__TEST_LeftRecursion_is_a_fatal_stack_overflow.sno(4) : ERROR 246 -- stack overflow
+
+
+
+
+
+in file              LeftRecursion__TEST_LeftRecursion_is_a_fatal_stack_overflow.sno
+in line              4
+in statement         4
+stmts executed       3
+execution time msec  5
+stmt / microsec      0
+stmt / millisec      0
+stmt / second        0
+REGENERATIONS        0
+memory used (bytes)  11768
+memory left (bytes)  1036800

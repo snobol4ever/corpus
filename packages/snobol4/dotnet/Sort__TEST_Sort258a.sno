@@ -1,0 +1,4 @@
+
+		a = ARRAY('15,4')
+		b = SORT(a,'b')
+END

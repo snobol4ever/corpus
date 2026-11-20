@@ -1,0 +1,22 @@
+        &ERRLIMIT = 20
+        &TRIM = 0
+        S = 'abcdef'
+        AB = 'ab'
+        E = ''
+        NEG = -2
+        BAD = 'x'
+        BIG = 16777217
+        MAX = 16777216
+        HUGE = 9223372036854775807
+        P = LEN(2)
+        EX = *S
+        CD = 'cd'
+        X = REPLACE(EX, AB, CD)
+        OUTPUT = &ERRTYPE
+        &ERRTYPE = 0
+        X = REPLACE(EX, EX, CD)
+        OUTPUT = &ERRTYPE
+        &ERRTYPE = 0
+        X = REPLACE(EX, AB, EX)
+        OUTPUT = &ERRTYPE
+END

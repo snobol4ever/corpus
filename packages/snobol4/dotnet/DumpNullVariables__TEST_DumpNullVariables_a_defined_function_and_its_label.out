@@ -1,0 +1,45 @@
+
+
+
+dump of natural variables
+
+DEFINE = ''
+DUMP = ''
+E = ''
+END = ''
+F = ''
+FN = ''
+INPUT = ''
+OUTPUT = ''
+RETURN = ''
+TERMINAL = ''
+X = 1
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 0
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'DumpNullVariables__TEST_DumpNullVariables_a_defined_function_and_its_label.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'DumpNullVariables__TEST_DumpNullVariables_a_defined_function_and_its_label.sno'
+&LASTLINE = 2
+&LASTNO = 2
+&LINE = 3
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 4
+&STLIMIT = 2147483647
+&STNO = 3
+&TRACE = 0
+&TRIM = 1

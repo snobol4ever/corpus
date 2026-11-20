@@ -1,0 +1,11 @@
+
+        DEFINE('fib(n)')                                            :(fib_end)
+fib     LE(n, 1)                                                   :S(base)
+        fib = fib(n - 1) + fib(n - 2)                             :(RETURN)
+base    fib = n                                                    :(RETURN)
+fib_end
+        R1 = fib(0)
+        R2 = fib(1)
+        R3 = fib(6)
+        R4 = fib(10)
+END

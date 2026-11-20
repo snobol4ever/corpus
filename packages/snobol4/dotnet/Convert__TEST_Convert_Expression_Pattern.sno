@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        a = *(LEN(k) POS(m))
+        b = CONVERT(a,'pattern')  :F(END)
+        d = 'success'
+END

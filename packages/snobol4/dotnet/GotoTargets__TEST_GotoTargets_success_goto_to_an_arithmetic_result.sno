@@ -1,0 +1,3 @@
+        X = A :S(A + B)
+        OUTPUT = 'x'
+END

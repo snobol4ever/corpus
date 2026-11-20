@@ -1,0 +1,7 @@
+
+        &ERRLIMIT = 1
+        P = *P 'Z' | 'Y'
+        'Y' P                          :S(Y)F(N)
+Y       R = 'yes'                      :(END)
+N       R = 'no'
+END

@@ -1,0 +1,33 @@
+
+        T = TABLE(10)
+        DIFFER(T['cat'])           :F(E001)
+        OUTPUT = 'FAIL 1113/001: absent key is null'   :(END)
+E001
+        T['cat'] = 'dog'
+        DIFFER(T['cat'], 'dog')                   :F(E002)
+        OUTPUT = 'FAIL 1113/002: string key assign/read' :(END)
+E002
+        T[7] = 45
+        DIFFER(T[7], 45)                   :F(E003)
+        OUTPUT = 'FAIL 1113/003: integer key assign/read' :(END)
+E003
+        DIFFER(T['cat'], 'dog')                   :F(E004)
+        OUTPUT = 'FAIL 1113/004: string key survives int key add' :(END)
+E004
+        TA = CONVERT(T, 'ARRAY')
+        DIFFER(PROTOTYPE(TA), '2,2')                   :F(E005)
+        OUTPUT = 'FAIL 1113/005: table->array prototype 2,2' :(END)
+E005
+        ATA = CONVERT(TA, 'TABLE')
+        DIFFER(ATA[7], 45)                   :F(E006)
+        OUTPUT = 'FAIL 1113/006: array->table int key roundtrip' :(END)
+E006
+        DIFFER(ATA['cat'], 'dog')                   :F(E007)
+        OUTPUT = 'FAIL 1113/007: array->table string key roundtrip' :(END)
+E007
+        T['cat'] = 'fish'
+        DIFFER(T['cat'], 'fish')                   :F(E008)
+        OUTPUT = 'FAIL 1113/008: [] and <> syntax equivalent' :(END)
+E008
+        OUTPUT = 'PASS 1113_table (8/8)'
+END

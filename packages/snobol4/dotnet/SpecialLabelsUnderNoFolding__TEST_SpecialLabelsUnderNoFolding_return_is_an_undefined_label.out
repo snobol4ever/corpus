@@ -1,0 +1,19 @@
+in f
+
+
+
+SpecialLabelsUnderNoFolding__TEST_SpecialLabelsUnderNoFolding_return_is_an_undefined_label.sno(2) : ERROR 038 -- goto un
+defined label
+
+
+
+
+
+in file              SpecialLabelsUnderNoFolding__TEST_SpecialLabelsUnderNoFolding_return_is_an_undefined_label.sno
+in line              2
+in statement         2
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11640
+memory left (bytes)  1036928

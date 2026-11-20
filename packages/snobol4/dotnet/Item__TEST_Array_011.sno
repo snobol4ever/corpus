@@ -1,0 +1,4 @@
+
+        a = ARRAY(20)
+        b = ITEM(a, 'abc')
+END

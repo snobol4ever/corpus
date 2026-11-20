@@ -1,0 +1,5 @@
+        INPUT(.SRC)
+        A = SRC
+        B = SRC
+        OUTPUT = A '|' B
+END

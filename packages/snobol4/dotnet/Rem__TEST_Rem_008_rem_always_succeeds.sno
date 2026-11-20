@@ -1,0 +1,6 @@
+
+        subject = 'ab'
+        subject 'ab' REM . cap   :S(ok)F(bad)
+ok      result = 'ok:' cap   :(END)
+bad     result = 'bad'
+END

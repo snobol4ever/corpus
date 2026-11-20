@@ -1,0 +1,17 @@
+
+
+
+Arg__TEST_Arg_005.sno(5) : ERROR 062 -- arg second argument is not integer
+
+
+
+
+
+in file              Arg__TEST_Arg_005.sno
+in line              5
+in statement         5
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  14224
+memory left (bytes)  1034344

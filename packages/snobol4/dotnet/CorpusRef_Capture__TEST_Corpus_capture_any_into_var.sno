@@ -1,0 +1,5 @@
+
+        X = 'hello'
+        X ANY('aeiou') . V
+        OUTPUT = V
+END

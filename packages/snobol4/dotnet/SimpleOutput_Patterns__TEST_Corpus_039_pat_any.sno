@@ -1,0 +1,7 @@
+
+        X = 'hello'
+        X ANY('aeiou') . V                                          :S(YES)
+        RESULT = 'no vowel'
+        :(END)
+YES     RESULT = V
+END

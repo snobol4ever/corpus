@@ -1,0 +1,5 @@
+
+        OUTPUT = 'line one'
+        OUTPUT = 'line two'
+        OUTPUT = 'line three'
+END

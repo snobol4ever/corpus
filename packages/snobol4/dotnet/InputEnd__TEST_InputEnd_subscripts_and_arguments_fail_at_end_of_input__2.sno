@@ -1,0 +1,2 @@
+L       OUTPUT = SIZE(INPUT)           :S(L)
+END

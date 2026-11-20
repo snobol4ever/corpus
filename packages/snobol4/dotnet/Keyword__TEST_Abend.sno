@@ -1,0 +1,5 @@
+
+        &ABEND = 1
+        a = &ABEND
+        &ABEND = 'abc'
+END

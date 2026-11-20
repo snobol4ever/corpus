@@ -1,0 +1,5 @@
+-TITLE ttl
+-STITL sss
+        A = (
+        OUTPUT = 'x'
+END

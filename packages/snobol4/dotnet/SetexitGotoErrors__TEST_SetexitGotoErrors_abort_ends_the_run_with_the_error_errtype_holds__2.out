@@ -1,0 +1,20 @@
+ERR 14
+after 14
+
+
+
+SetexitGotoErrors__TEST_SetexitGotoErrors_abort_ends_the_run_with_the_error_errtype_holds__2.sno(5) : ERROR 014 -- divis
+ion caused integer overflow
+
+
+
+
+
+in file              SetexitGotoErrors__TEST_SetexitGotoErrors_abort_ends_the_run_with_the_error_errtype_holds__2.sno
+in line              5
+in statement         5
+stmts executed       6
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11992
+memory left (bytes)  1036576

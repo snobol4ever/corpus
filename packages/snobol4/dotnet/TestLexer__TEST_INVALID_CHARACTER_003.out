@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:57:48 2026
+
+
+
+                                                                                                                page 1
+
+1           12.34`;end
+                 !
+TestLexer__TEST_INVALID_CHARACTER_003.sno(1,10) : ERROR 230 -- syntax error: illegal character

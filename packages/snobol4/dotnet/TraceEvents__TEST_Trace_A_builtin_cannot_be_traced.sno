@@ -1,0 +1,4 @@
+        &ERRLIMIT = 1
+        TRACE('SIZE', 'CALL')
+        OUTPUT = &ERRTYPE
+END

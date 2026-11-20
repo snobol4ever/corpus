@@ -1,0 +1,17 @@
+
+
+
+Item__TEST_Array_011.sno(3) : ERROR 238 -- array subscript is not integer
+
+
+
+
+
+in file              Item__TEST_Array_011.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11544
+memory left (bytes)  1037024

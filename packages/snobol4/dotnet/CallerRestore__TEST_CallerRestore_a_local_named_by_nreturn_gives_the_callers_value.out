@@ -1,0 +1,37 @@
+
+
+
+dump of natural variables
+
+A = 'caller-a'
+NV = 'assigned'
+R = ',global,caller-a,assigned'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'CallerRestore__TEST_CallerRestore_a_local_named_by_nreturn_gives_the_callers_value.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'CallerRestore__TEST_CallerRestore_a_local_named_by_nreturn_gives_the_callers_value.sno'
+&LASTLINE = 13
+&LASTNO = 13
+&LINE = 14
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'NRETURN'
+&STCOUNT = 17
+&STLIMIT = 2147483647
+&STNO = 14
+&TRACE = 0
+&TRIM = 1

@@ -1,0 +1,21 @@
+        P = LEN(1)
+        X = 'x'
+        N = 3
+        R = 2.5
+        E = *X
+        C = CODE(' Z = 7  :(BACK)')
+        M = .X
+        OUTPUT = 'P ' (IDENT(P, COPY(P)) 'same', 'differ')
+        OUTPUT = 'X ' (IDENT(X, COPY(X)) 'same', 'differ')
+        OUTPUT = 'N ' (IDENT(N, COPY(N)) 'same', 'differ')
+        OUTPUT = 'R ' (IDENT(R, COPY(R)) 'same', 'differ')
+        OUTPUT = 'E ' (IDENT(E, COPY(E)) 'same', 'differ')
+        OUTPUT = 'C ' (IDENT(C, COPY(C)) 'same', 'differ')
+        OUTPUT = 'M ' (IDENT(M, COPY(M)) 'same', 'differ')
+        Q = COPY(P)
+        'abc' ? Q . V
+        OUTPUT = 'Q matched ' V ' ' DATATYPE(Q)
+        OUTPUT = 'E copy ' EVAL(COPY(E))
+        D = COPY(C)                                 :[D]
+BACK    OUTPUT = 'C copy ran ' Z
+END

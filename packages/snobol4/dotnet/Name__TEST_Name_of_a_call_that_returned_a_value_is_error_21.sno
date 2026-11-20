@@ -1,0 +1,17 @@
+
+        &ERRLIMIT = 10
+        DEFINE('F()')
+        DEFINE('G()')                             :(FE)
+F       F = .ZZ                                   :(NRETURN)
+G       G = 'val'                                 :(RETURN)
+FE      N = .F()
+        R = DATATYPE(N)
+        M = .G()                                  :S(Y3)
+        R = R ' ' &ERRTYPE
+Y3      &ERRTYPE = 0
+        K = .SIZE('abc')                          :S(Y4)
+        R = R ' ' &ERRTYPE
+Y4      A = ARRAY(2)
+        P = .ITEM(A, 1)
+        R = R ' ' DATATYPE(P)
+END

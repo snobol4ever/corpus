@@ -1,0 +1,18 @@
+        &ERRLIMIT = 10
+        N = 0
+        SETEXIT('HANDLER')
+        P = SETEXIT()
+        OUTPUT = '1 previous [' P ']'
+        V = 1 / N                                       :S(Y2)
+        OUTPUT = '2 F ' &ERRTYPE                        :(E2)
+Y2      OUTPUT = '2 S'
+E2      V = EVAL('H(1)')                                :S(Y3)
+        OUTPUT = '3 F ' &ERRTYPE                        :(E3)
+Y3      OUTPUT = '3 S'
+E3      P = SETEXIT()
+        OUTPUT = '4 previous [' P ']'
+        SETEXIT('HANDLER')
+        V = 1 / N
+        OUTPUT = '5 not reached'                        :(END)
+HANDLER OUTPUT = '6 handler ' &ERRTYPE
+END

@@ -1,0 +1,7 @@
+
+        &ANCHOR = 0
+        subject = 'abc'
+        subject FENCE('abc') . cap   :S(ok)F(bad)
+ok      result = cap   :(END)
+bad     result = 'bad'
+END

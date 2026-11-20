@@ -1,0 +1,18 @@
+        T = TABLE()
+        A = ARRAY(3)
+        T[.X] = 'nameX'
+        OUTPUT = '1 [' T[.X] '] [' T['X'] ']'
+        T['Y'] = 'strY'
+        OUTPUT = '2 [' T[.Y] '] [' T['Y'] ']'
+        T[.A[1]] = 'el1'
+        OUTPUT = '3 [' T[.A[1]] '] [' T[.A[2]] '] [' T[''] ']'
+        T[.&TRACE] = 'kw'
+        OUTPUT = '4 [' T[.&TRACE] '] [' T['&trace'] '] [' T['&TRACE'] ']'
+        N = .*A[1]
+        T[N] = 'deferred'
+        OUTPUT = '5 [' T[N] '] [' T[.*A[1]] '] [' T[.A[1]] ']'
+        C = CONVERT(T, 'ARRAY')
+        I = 0
+L       I = I + 1
+        OUTPUT = '6 ' DATATYPE(C[I, 1]) ' ' C[I, 2]          :S(L)
+END

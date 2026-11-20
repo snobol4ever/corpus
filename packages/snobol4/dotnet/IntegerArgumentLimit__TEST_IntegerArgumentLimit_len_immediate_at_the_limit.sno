@@ -1,0 +1,5 @@
+        &ERRLIMIT = 100
+        'abcdef' LEN(16777216)  :S(YES)F(NO)
+YES     OUTPUT = 'S ' &ERRTYPE  :(END)
+NO      OUTPUT = 'F ' &ERRTYPE
+END

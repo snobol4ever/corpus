@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:10:03 2026
+
+
+
+                                                                                                                page 1
+
+        -CASE 'x'
+              !
+ControlStatements__TEST_ControlStatements_case_of_a_string_that_is_no_number.sno(1,7) : ERROR 247 -- invalid control sta
+tement

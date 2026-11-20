@@ -1,0 +1,16 @@
+
+        d = 'failure'
+        b = ARRAY('5,2')
+	    b[1,1] = 'a'
+	    b[2,1] = 'b'
+	    b[3,1] = 'c'
+	    b[4,1] = 'd'
+	    b[5,1] = 'e'
+        b[1,2] = 1
+	    b[2,2] = 2
+	    b[3,2] = 3
+	    b[4,2] = 4
+	    b[5,2] = 5
+        a = CONVERT(b, 'pattern') :F(END)
+        d = 'success'
+END

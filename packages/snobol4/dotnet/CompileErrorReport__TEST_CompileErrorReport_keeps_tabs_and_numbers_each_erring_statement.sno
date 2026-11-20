@@ -1,0 +1,4 @@
+	L	A	=  \INTEGER(I)	:(RETURN)
+        OUTPUT = 'ok'
+	V	B	=  \INTEGER(V)
+END

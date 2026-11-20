@@ -1,0 +1,27 @@
+        DEFINE('G()')                               :(GE)
+G       N = N + 1
+        G = ''                                      :(RETURN)
+GE      DEFINE('K()')                               :(KE)
+K       M = M + 1
+        K = ''                                      :(RETURN)
+KE      N = 0
+        M = 0
+        '' ? ARBNO(*G()) *K() FAIL
+        OUTPUT = '1 G=' N ' K=' M
+        N = 0
+        M = 0
+        '4' ? ARBNO(*G()) *K() FAIL
+        OUTPUT = '2 G=' N ' K=' M
+        N = 0
+        M = 0
+        '4' ? POS(0) ARBNO('' | *G()) *K() FAIL
+        OUTPUT = '3 G=' N ' K=' M
+        N = 0
+        M = 0
+        'ab' ? POS(0) ARBNO(LEN(1) | *G()) *K() FAIL
+        OUTPUT = '4 G=' N ' K=' M
+        '4' ? ARBNO(@Z) $ Z FAIL
+        OUTPUT = '5 Z=' Z
+        'abc' ? POS(0) ARBNO('' | LEN(1)) $ Y RPOS(0)
+        OUTPUT = '6 Y=' Y
+END

@@ -1,0 +1,7 @@
+
+        X = 'world'
+        NM = .X
+        DIFFER($NM, 'world')                        :F(ok)
+        OUTPUT = 'FAIL'                             :(END)
+ok      OUTPUT = 'PASS'
+END

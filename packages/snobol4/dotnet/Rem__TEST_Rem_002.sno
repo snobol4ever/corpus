@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        subject = 'THE WINTER WINDS'
+        pattern = 'WIN' REM . test
+        subject pattern      :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

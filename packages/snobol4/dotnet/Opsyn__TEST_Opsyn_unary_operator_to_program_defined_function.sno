@@ -1,0 +1,8 @@
+        DEFINE('Q(X)')                 :(QE)
+Q       Q = '<' X '>'                  :(RETURN)
+QE      OPSYN('%', .Q, 1)
+        OPSYN('|', .Q, 1)
+        R1 = %'a'
+        C = CODE(" R2 = |'b' ; :(DONE)")   :[C]
+DONE    R3 = EVAL("|'c'")
+END

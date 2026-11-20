@@ -1,0 +1,7 @@
+
+        a = '1.0'
+        b = '1.0'
+        IDENT(a,b)    :S(equ)
+        out = 'not identical'    :(END)
+equ     out = 'identical'
+end;END

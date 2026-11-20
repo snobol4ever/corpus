@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:38:49 2026
+
+
+
+                                                                                                                page 1
+
+2               pattern = POS(2147483648)
+
+Pos__TEST_Pos_006.sno(2) : ERROR 163 -- pos argument is negative or too large

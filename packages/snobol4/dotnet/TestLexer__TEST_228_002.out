@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:54:32 2026
+
+
+
+                                                                                                                page 1
+
+1           :S(end)F<end;end
+                        !
+TestLexer__TEST_228_002.sno(1,17) : ERROR 228 -- syntax error: right bracket missing from goto

@@ -1,0 +1,5 @@
+
+        s = 'test1   a = 42   :(end)'
+        test = CODE(s)
+        :S[test];test
+END

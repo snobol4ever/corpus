@@ -1,0 +1,10 @@
+-LIST
+        A = 1
+-NOPRINT
+* a comment
+        B = 2
+-FOO
+-PRINT
+        C = 3
+        OUTPUT = 'x'
+END

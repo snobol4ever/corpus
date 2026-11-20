@@ -1,0 +1,16 @@
+        &ERRLIMIT = 100
+        DEFINE('G(X)')                                  :(GE)
+G       G = A[X]                                        :(RETURN)
+GE      OUTPUT = '0 level ' &FNCLEVEL
+        SETEXIT('H')
+        R = EVAL('G(1)')
+        OUTPUT = 'not trapped'                          :(END)
+H       OUTPUT = '1 handler level ' &FNCLEVEL ' type ' &ERRTYPE
+        R = EVAL("~$''")                                :S(Y2)
+        OUTPUT = '2 F ' &ERRTYPE                        :(E2)
+Y2      OUTPUT = '2 S [' R ']'
+E2      R = ~$''                                        :S(Y3)
+        OUTPUT = '3 F'                                  :(E3)
+Y3      OUTPUT = '3 S'
+E3      OUTPUT = '4 level ' &FNCLEVEL
+END

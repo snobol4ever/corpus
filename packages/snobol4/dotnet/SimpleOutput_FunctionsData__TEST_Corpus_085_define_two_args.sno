@@ -1,0 +1,7 @@
+
+        DEFINE('add(a,b)')                                          :(add_end)
+add     add = a + b                                                :(RETURN)
+add_end
+        R1 = add(3, 4)
+        R2 = add(10, 32)
+END

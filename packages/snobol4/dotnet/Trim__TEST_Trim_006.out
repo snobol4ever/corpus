@@ -1,0 +1,17 @@
+
+
+
+Trim__TEST_Trim_006.sno(3) : ERROR 200 -- trim argument is not a string
+
+
+
+
+
+in file              Trim__TEST_Trim_006.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11408
+memory left (bytes)  1037160

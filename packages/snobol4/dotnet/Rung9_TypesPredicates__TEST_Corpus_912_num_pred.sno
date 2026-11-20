@@ -1,0 +1,47 @@
+
+        LT(5, 4)                   :F(e001)
+        OUTPUT = 'FAIL 912/001: lt(5,4) should fail'   :(END)
+e001    LT(4, 4)                   :F(e002)
+        OUTPUT = 'FAIL 912/002: lt(4,4) should fail'   :(END)
+e002    LT(4, 5)                   :S(e003)
+        OUTPUT = 'FAIL 912/003: lt(4,5) should succeed' :(END)
+e003
+        LE(5, 2)                   :F(e004)
+        OUTPUT = 'FAIL 912/004: le(5,2) should fail'   :(END)
+e004    LE(4, 4)                   :S(e005)
+        OUTPUT = 'FAIL 912/005: le(4,4) should succeed' :(END)
+e005    LE(4, 10)                  :S(e006)
+        OUTPUT = 'FAIL 912/006: le(4,10) should succeed' :(END)
+e006
+        EQ(4, 5)                   :F(e007)
+        OUTPUT = 'FAIL 912/007: eq(4,5) should fail'   :(END)
+e007    EQ(5, 5)                   :S(e008)
+        OUTPUT = 'FAIL 912/008: eq(5,5) should succeed' :(END)
+e008
+        NE(4, 4)                   :F(e009)
+        OUTPUT = 'FAIL 912/009: ne(4,4) should fail'   :(END)
+e009    NE(4, 6)                   :S(e010)
+        OUTPUT = 'FAIL 912/010: ne(4,6) should succeed' :(END)
+e010
+        GT(4, 6)                   :F(e011)
+        OUTPUT = 'FAIL 912/011: gt(4,6) should fail'   :(END)
+e011    GT(4, 4)                   :F(e012)
+        OUTPUT = 'FAIL 912/012: gt(4,4) should fail'   :(END)
+e012    GT(5, 2)                   :S(e013)
+        OUTPUT = 'FAIL 912/013: gt(5,2) should succeed' :(END)
+e013
+        GE(5, 7)                   :F(e014)
+        OUTPUT = 'FAIL 912/014: ge(5,7) should fail'   :(END)
+e014    GE(4, 4)                   :S(e015)
+        OUTPUT = 'FAIL 912/015: ge(4,4) should succeed' :(END)
+e015    GE(7, 5)                   :S(e016)
+        OUTPUT = 'FAIL 912/016: ge(7,5) should succeed' :(END)
+e016
+        NE(4, 5 - 1)               :F(e017)
+        OUTPUT = 'FAIL 912/017: ne(4,5-1) should fail (both=4)' :(END)
+e017
+        NE('12', 12)                   :F(e018)
+        OUTPUT = 'FAIL 912/018: ne(string,int) type mismatch' :(END)
+e018
+        OUTPUT = 'PASS 912_num_pred (18/18)'
+END

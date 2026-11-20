@@ -1,0 +1,7 @@
+
+        DATA('POINT(X,Y,Z)')
+        P = POINT(1, 2, 3)
+        F1 = FIELD('POINT', 1)
+        F2 = FIELD('POINT', 2)
+        F3 = FIELD('POINT', 3)
+END

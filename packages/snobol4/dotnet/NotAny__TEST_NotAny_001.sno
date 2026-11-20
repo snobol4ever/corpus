@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        notVowel = NOTANY('aeiou')
+        subject = 'vacuum'
+        subject notVowel . v1  :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

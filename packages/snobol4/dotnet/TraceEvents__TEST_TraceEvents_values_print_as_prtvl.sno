@@ -1,0 +1,16 @@
+        DATA('CONS(CAR,CDR)')
+        DEFINE('F(X)')                 :(FE)
+F       F = X                          :(RETURN)
+FE      OPSYN('G', 'F')
+        &FTRACE = 1000
+        F(CONS(1,2))
+        F(ARRAY('2,3'))
+        F(TABLE())
+        F(LEN(1))
+        F(.X)
+        F(.&ANCHOR)
+        F(*X)
+        F(*(X + 1))
+        F(CODE(' X = 1'))
+        G('via g')
+END

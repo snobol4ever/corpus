@@ -1,0 +1,19 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:33:01 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST
+
+
+
+        -SPACE 3
+1               A = 1
+2               OUTPUT = 'x'
+3       END
+x

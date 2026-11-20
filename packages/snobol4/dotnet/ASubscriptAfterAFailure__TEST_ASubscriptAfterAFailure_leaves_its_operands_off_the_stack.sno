@@ -1,0 +1,21 @@
+        &ERRLIMIT = 10
+        U = ''
+        T = TABLE()
+        T['v'] = 'tv'
+        R = (NE(1, 1) U['v'], 'alt1')                   :S(Y1)
+        OUTPUT = '1 F ' &ERRTYPE                        :(E1)
+Y1      OUTPUT = '1 S [' R ']'
+E1      R = ~(NE(1, 1) U['v'])                          :S(Y2)
+        OUTPUT = '2 F ' &ERRTYPE                        :(E2)
+Y2      OUTPUT = '2 S [' R ']'
+E2      R = EVAL("(NE(1, 1) ? U['v'], 'alt3')")         :S(Y3)
+        OUTPUT = '3 F ' &ERRTYPE                        :(E3)
+Y3      OUTPUT = '3 S [' R ']'
+E3      R = (NE(1, 1) T['v'] T['v'], 'alt4') 'z'        :S(Y4)
+        OUTPUT = '4 F ' &ERRTYPE                        :(E4)
+Y4      OUTPUT = '4 S [' R ']'
+E4      R = ~(EQ(1, 2) T['v', 1]) 'w'                   :S(Y5)
+        OUTPUT = '5 F ' &ERRTYPE                        :(E5)
+Y5      OUTPUT = '5 S [' R '] ' &ERRLIMIT
+E5
+END

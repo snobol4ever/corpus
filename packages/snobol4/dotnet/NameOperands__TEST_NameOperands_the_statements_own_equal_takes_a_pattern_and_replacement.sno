@@ -1,0 +1,4 @@
+        Y = 'abc'
+        Y 'b' = 'X'
+        OUTPUT = 'x'
+END

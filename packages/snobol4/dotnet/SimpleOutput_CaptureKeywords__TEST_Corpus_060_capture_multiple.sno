@@ -1,0 +1,7 @@
+
+        X = 'John Smith'
+        X BREAK(' ') . FIRST LEN(1) REM . LAST                    :S(YES)
+        RESULT = 'fail'
+        :(END)
+YES     RESULT = FIRST '/' LAST
+END

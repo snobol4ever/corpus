@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:45 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A :S(L,)
+                          !
+SyntaxErrors__TEST_SyntaxErrors_comma_in_a_goto.sno(1,19) : ERROR 223 -- syntax error: invalid use of comma

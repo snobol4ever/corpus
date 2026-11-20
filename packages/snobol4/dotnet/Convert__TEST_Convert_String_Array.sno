@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        a = '3.14159'
+        b = CONVERT(a,'array')  :F(END)
+        d = 'success'
+END

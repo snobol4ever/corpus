@@ -1,0 +1,17 @@
+        &ERRLIMIT = 10
+        X = 'x'
+        Y = 'X'
+        OUTPUT = '1 ' DATATYPE(*$~*X)
+        OUTPUT = '2 ' DATATYPE(.*~*X)
+        OUTPUT = '3 ' DATATYPE(.*$*X)
+        E = *$~*X
+        V = EVAL(E)                                     :S(Y5)
+        OUTPUT = '5 F ' &ERRTYPE                        :(E5)
+Y5      OUTPUT = '5 S [' V ']'
+E5      E = *$$*Y
+        V = EVAL(E)                                     :S(Y6)
+        OUTPUT = '6 F ' &ERRTYPE                        :(E6)
+Y6      OUTPUT = '6 S [' V ']'
+E6      'abc' ? LEN(1) . $(.*$*Y) LEN(1) . *$*Y
+        OUTPUT = '7 ' X
+END

@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        subject = 'abcdef'
+        p = 'ab' 'cd' 'ef'
+        subject p :F(n)
+y       result = 'success'   :(END)
+n       result = 'fail'
+END

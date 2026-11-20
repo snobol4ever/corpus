@@ -1,0 +1,5 @@
+        N = 0
+C       ~INPUT                         :S(E)
+        N = N + 1                      :(C)
+E       OUTPUT = N
+END

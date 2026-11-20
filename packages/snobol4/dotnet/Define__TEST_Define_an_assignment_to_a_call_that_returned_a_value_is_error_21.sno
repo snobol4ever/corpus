@@ -1,0 +1,9 @@
+
+        &ERRLIMIT = 5
+        DEFINE('G()')                  :(GE)
+G       G = 'ZZ'                       :(RETURN)
+GE      G() = 'v'                      :S(Y)F(N)
+Y       R = 'S'                        :(E)
+N       R = 'F'
+E       R = R ' ' &ERRTYPE ' [' ZZ '][' G ']'
+END

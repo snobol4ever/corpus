@@ -1,0 +1,9 @@
+
+        A = ARRAY(5)
+        A[1] = 'first'
+        A[3] = 'third'
+        A[5] = 'fifth'
+        R1 = A[1]
+        R2 = A[3]
+        R3 = A[5]
+END

@@ -1,0 +1,5 @@
+
+        DEFINE('F(X)')                    :(EF)
+F       F = BREAK(X)                      :(RETURN)
+EF      'HELLO' *F('L') . R
+END

@@ -1,0 +1,17 @@
+
+
+
+Sort__TEST_Sort256a.sno(3) : ERROR 256 -- sort/rsort 1st arg not suitable array or table
+
+
+
+
+
+in file              Sort__TEST_Sort256a.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13664
+memory left (bytes)  1034904

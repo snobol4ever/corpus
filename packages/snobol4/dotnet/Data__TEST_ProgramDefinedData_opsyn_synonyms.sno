@@ -1,0 +1,9 @@
+        DATA('PT(XC,YC)')
+        OPSYN('MK','PT')
+        OPSYN('GX','XC')
+        P = MK(3,4)
+        R = GX(P) ' ' YC(P) ' ' DATATYPE(P)
+        GX(P) = 9
+        OPSYN('GX2','GX')
+        R = R ' ' XC(P) ' ' GX2(P)
+END

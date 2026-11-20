@@ -1,0 +1,5 @@
+-LIST
+        A = 1 ;-TITLE x
+        C = 3
+        OUTPUT = 'x'
+END

@@ -1,0 +1,11 @@
+
+        DATA('COMPLEX(REAL,IMAG)')
+        X1 = COMPLEX(3.2, -2.0)
+        I1 = IMAG(X1)
+        R1 = REAL(X1)
+        X2 = COMPLEX('AAA', 'BBB')
+        IMAG(X2) = 45
+        REAL(X2) = -5
+        I2 = IMAG(X2)
+        R2 = REAL(X2)
+END

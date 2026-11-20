@@ -1,0 +1,5 @@
+        &ERRLIMIT = 100
+        OUTPUT = '@a'
+        X ? REM . *F(*1)
+        OUTPUT = '@b'
+END

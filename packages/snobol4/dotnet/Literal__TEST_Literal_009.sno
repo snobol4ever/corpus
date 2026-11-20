@@ -1,0 +1,9 @@
+
+        &ANCHOR = 0
+        subject = 'programmer    '
+        pattern = *B
+        B = 'gram'
+        subject pattern =     :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

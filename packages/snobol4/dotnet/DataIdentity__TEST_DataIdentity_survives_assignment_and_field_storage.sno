@@ -1,0 +1,7 @@
+
+        DATA('STACK(TOP,REST)')
+        NIL = STACK()
+        T = REST(STACK('a', NIL))
+        T2 = T
+        R = (IDENT(T, NIL) 'ident', 'differ') ' ' (IDENT(T2, NIL) 'ident', 'differ')
+END

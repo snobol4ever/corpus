@@ -1,0 +1,7 @@
+
+        r = 'success'        
+        a = 'this is a test'
+        b = 'this is not a test'
+        LGE(b,a) :S(END)
+        r = 'failure'
+END

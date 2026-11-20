@@ -1,0 +1,35 @@
+
+
+
+dump of natural variables
+
+A = ARRAY(5) #1
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 0
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Dump__TEST_Dump_005_with_array.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Dump__TEST_Dump_005_with_array.sno'
+&LASTLINE = 4
+&LASTNO = 4
+&LINE = 5
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 4
+&STLIMIT = 2147483647
+&STNO = 5
+&TRACE = 0
+&TRIM = 1

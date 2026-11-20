@@ -1,0 +1,3 @@
+        A = 'x'
+        C = (A, 'fallback')
+END

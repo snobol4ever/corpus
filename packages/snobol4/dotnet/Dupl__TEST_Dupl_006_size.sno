@@ -1,0 +1,4 @@
+
+        R = DUPL('xyz', 4)
+        S = SIZE(R)
+END

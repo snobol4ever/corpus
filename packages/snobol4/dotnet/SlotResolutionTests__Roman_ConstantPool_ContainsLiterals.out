@@ -1,0 +1,17 @@
+
+
+
+SlotResolutionTests__Roman_ConstantPool_ContainsLiterals.sno(2) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              SlotResolutionTests__Roman_ConstantPool_ContainsLiterals.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11448
+memory left (bytes)  1037120

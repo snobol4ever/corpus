@@ -1,0 +1,7 @@
+        T = TABLE()
+        T['x'] = 2
+        T['y'] = 1
+        B = RSORT(T, 2)
+        C = ARRAY(3)
+        DUMP(1)
+END

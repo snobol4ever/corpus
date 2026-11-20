@@ -1,0 +1,10 @@
+        SETEXIT(.ERRTRACE)
+        &ERRLIMIT = 100
+        N1 = 1.0
+        N0 = 0.0
+        R = EVAL('N1 / N0') :S(END)F(OOPS)
+        OUTPUT = 'next'
+OOPS    OUTPUT = 'oops'                :(END)
+ERRTRACE OUTPUT = 'trace ' &ERRTYPE
+        SETEXIT(.ERRTRACE)             :(CONTINUE)
+END

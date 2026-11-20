@@ -1,0 +1,2 @@
+    OUTPUT('a','a' | 'b','file78.txt')
+END

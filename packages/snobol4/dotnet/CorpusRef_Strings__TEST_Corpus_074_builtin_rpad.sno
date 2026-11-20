@@ -1,0 +1,3 @@
+
+        OUTPUT = SIZE(RPAD('hi', 6))
+END

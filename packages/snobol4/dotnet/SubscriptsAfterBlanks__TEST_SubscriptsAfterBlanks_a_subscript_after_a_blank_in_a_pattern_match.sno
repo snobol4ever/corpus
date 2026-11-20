@@ -1,0 +1,4 @@
+        A = ARRAY(2)
+        A [1] = 'abc'
+        A [1] ? 'b' . OUTPUT
+END

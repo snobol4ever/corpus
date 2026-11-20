@@ -1,0 +1,17 @@
+
+
+
+Eject__TEST_Eject_001f.sno(3) : ERROR 093 -- eject file does not exist
+
+
+
+
+
+in file              Eject__TEST_Eject_001f.sno
+in line              3
+in statement         3
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11240
+memory left (bytes)  1037328

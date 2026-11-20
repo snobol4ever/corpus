@@ -1,0 +1,6 @@
+        X = (INPUT = 'zz')
+        Y = 'a' (INPUT = 'zz')
+        Z = SIZE(INPUT = 'qqq')
+        W = INPUT
+        OUTPUT = X '|' Y '|' Z '|' W
+END

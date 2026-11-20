@@ -1,0 +1,12 @@
+
+        DIFFER(SIZE('abc'), 3)                   :F(e001)
+        OUTPUT = 'FAIL 811/001: size of 3-char string'  :(END)
+e001
+        DIFFER(SIZE(12), 2)                   :F(e002)
+        OUTPUT = 'FAIL 811/002: size of integer 12 = 2 digits' :(END)
+e002
+        DIFFER(SIZE(''), 0)                   :F(e003)
+        OUTPUT = 'FAIL 811/003: size of null = 0'       :(END)
+e003
+        OUTPUT = 'PASS 811_size (3/3)'
+END

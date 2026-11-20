@@ -1,0 +1,6 @@
+
+        &ANCHOR = 0
+        'xyzABCdef' 'A' @p1 'BC' @p2   :F(bad)
+        result = 'ok'   :(END)
+bad     result = 'bad'
+END

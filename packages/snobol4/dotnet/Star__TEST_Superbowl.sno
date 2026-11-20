@@ -1,0 +1,12 @@
+
+        bigp = (*p $ try *GT(SIZE(try),SIZE(big))) $ big FAIL
+        str = 'IN 1964 NFL ATTENDANCE JUMPED TO 4,807,884; AN INCREASE OF 401,810'
+        p = SPAN('ABCDEFGHIJKLMNOPQRSTUVWXYZ,')
+        big = ''
+        str bigp
+        result = 'The largest word is: ' big '. '
+        p = SPAN('0123456789,')
+        big = ''
+        str bigp
+        result = result 'The largest number is: ' big '.'
+END

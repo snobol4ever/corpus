@@ -1,0 +1,22 @@
+        N = 'o'
+        A = ARRAY(2)
+        A[1] = *N
+        A[1] = 'm'
+        S = '1 N=' N ' A1=' DATATYPE(A[1]) ' ' A[1]
+        T = TABLE()
+        T['k'] = *N
+        T['k'] = 'm'
+        S = S ',2 N=' N ' Tk=' T['k']
+        DATA('PT(U,V)')
+        G = PT(CONVERT('N', 'EXPRESSION'), 1)
+        U(G) = 'm'
+        S = S ',3 N=' N ' U=' U(G)
+        A[1] = *N
+        'abc' ? LEN(1) . A[1]
+        S = S ',4 N=' N ' A1=' A[1]
+        A[1] = *N
+        'abc' ? LEN(2) $ A[1]
+        S = S ',5 N=' N ' A1=' A[1]
+        'abc' ? LEN(1) . *N
+        S = S ',6 N=' N
+END

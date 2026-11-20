@@ -1,0 +1,4 @@
+        OUTPUT = 'before'
+        X = 1 / 0
+        OUTPUT = 'after'
+END

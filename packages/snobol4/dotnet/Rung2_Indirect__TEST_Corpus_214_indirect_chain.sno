@@ -1,0 +1,8 @@
+
+        A = 'B'
+        B = 'C'
+        C = 'final'
+        r1 = $A
+        r2 = $$A
+        OUTPUT = 'PASS 214_indirect_chain'
+END

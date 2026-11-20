@@ -1,0 +1,7 @@
+
+        t = TIME()
+        t2 = t + 0
+        GE(t2, 0)   :F(bad)
+        result = 'ok'   :(END)
+bad     result = 'bad'
+END

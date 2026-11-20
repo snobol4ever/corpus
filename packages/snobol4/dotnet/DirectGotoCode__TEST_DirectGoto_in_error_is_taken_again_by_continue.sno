@@ -1,0 +1,7 @@
+        &ERRLIMIT = 10
+        SETEXIT('ERR')
+        X = 1                :[Z]
+        OUTPUT = 'after'     :(END)
+ERR     OUTPUT = 'ERROR ' &ERRTYPE
+        SETEXIT('ERR')       :(CONTINUE)
+END

@@ -1,0 +1,6 @@
+
+        line = 'key: value here'
+        line 'key: ' REM . val   :F(bad)
+        result = val   :(END)
+bad     result = 'bad'
+END

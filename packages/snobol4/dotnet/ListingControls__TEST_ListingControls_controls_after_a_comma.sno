@@ -1,0 +1,6 @@
+-LIST,DOUBLE,NOPRINT
+-FOO
+        A = 1
+-PRINT
+        OUTPUT = 'x'
+END

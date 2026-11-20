@@ -1,0 +1,9 @@
+        &ERRLIMIT = 10
+        C = CODE(' OUTPUT = "old" :(BACK);L2 OUTPUT = "old L2" :(BACK)')
+        D = CODE(' X = 1;L2 OUTPUT = "new L2" :(BACK); Y = SQRT(-0.5)')    :S(D1)
+        OUTPUT = 'D failed ' &ERRTYPE
+D1      SETEXIT('ERR')
+        :(L2)
+BACK    OUTPUT = 'back'                    :(END)
+ERR     OUTPUT = 'ERROR ' &ERRTYPE
+END

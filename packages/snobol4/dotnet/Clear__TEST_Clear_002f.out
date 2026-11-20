@@ -1,0 +1,36 @@
+
+
+
+dump of natural variables
+
+b = 'b'
+bb = '2'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Clear__TEST_Clear_002f.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Clear__TEST_Clear_002f.sno'
+&LASTLINE = 10
+&LASTNO = 10
+&LINE = 11
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 9
+&STLIMIT = 2147483647
+&STNO = 11
+&TRACE = 0
+&TRIM = 1

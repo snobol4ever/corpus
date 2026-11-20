@@ -1,0 +1,7 @@
+
+        d1 = DATE()
+        d2 = DATE()
+        DIFFER(d1, d2)   :S(bad)
+        result = 'ok'    :(END)
+bad     result = 'bad'
+END

@@ -1,0 +1,8 @@
+
+        c1 = COLLECT()
+        c2 = COLLECT()
+        GE(c1, 0)   :F(bad)
+        GE(c2, 0)   :F(bad)
+        result = 'ok'   :(END)
+bad     result = 'bad'
+END

@@ -1,0 +1,5 @@
+        &ERRLIMIT = 5
+        OUTPUT = 'before'
+        EXIT()
+        OUTPUT = 'after ' &ERRTYPE
+END

@@ -1,0 +1,6 @@
+*  062 - FENCE(P) outer alts: enclosing pattern can still backtrack outside fence
+        X = 'bx'
+        X  ('a' | 'b')  FENCE('x')                            :F(NO)
+        OUTPUT = 'outer alt worked'                            :(END)
+NO      OUTPUT = 'failed'
+END

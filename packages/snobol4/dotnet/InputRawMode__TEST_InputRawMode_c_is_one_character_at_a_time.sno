@@ -1,0 +1,5 @@
+        INPUT(.INPUT, 9, '[-f0 -c]')
+        X = INPUT
+        Y = INPUT
+        OUTPUT = X '|' Y
+END

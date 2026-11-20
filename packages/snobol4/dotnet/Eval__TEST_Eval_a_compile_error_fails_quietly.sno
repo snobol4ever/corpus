@@ -1,0 +1,9 @@
+
+        X = EVAL('1.8E+308')           :S(A)F(B)
+A       R = 'succ ' X                  :(C)
+B       R = 'fail ' &ERRTYPE
+C       Y = EVAL('1 +')                :S(D)F(E)
+D       S = 'succ2'                    :(F)
+E       S = 'fail2 ' &ERRTYPE
+F       Z = EVAL('1.7E+308')
+END

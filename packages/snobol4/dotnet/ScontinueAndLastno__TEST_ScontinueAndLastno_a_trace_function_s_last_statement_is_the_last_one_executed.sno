@@ -1,0 +1,9 @@
+        DEFINE('S()')
+        TRACE('STCOUNT','KEYWORD',,.S)
+        &TRACE = 1000
+        OUTPUT = 'a ' &LASTNO
+        OUTPUT = 'b ' &LASTNO
+        :(END)
+S       OUTPUT = 'S ' &LASTNO ' ' &STNO
+        :(RETURN)
+END

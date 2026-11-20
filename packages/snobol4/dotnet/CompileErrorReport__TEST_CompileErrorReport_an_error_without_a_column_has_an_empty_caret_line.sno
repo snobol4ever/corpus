@@ -1,0 +1,4 @@
+* a comment
+.       OUTPUT = 'x'
+        OUTPUT = 'y'
+END

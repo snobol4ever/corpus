@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        b = CONVERT(.abc,'name')   :F(END)
+        c = DATATYPE(.abc)
+        d = 'success'
+END

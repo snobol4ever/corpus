@@ -1,0 +1,26 @@
+
+        DATA('NODE(VAL,LSON,RSON)')
+        A = NODE('x', 'y', 'z')
+        DIFFER(DATATYPE(A), 'NODE')                   :F(E001)
+        OUTPUT = 'FAIL 1115/001: datatype of node'     :(END)
+E001
+        DIFFER(VAL(A), 'x')                   :F(E002)
+        OUTPUT = 'FAIL 1115/002: field accessor val'   :(END)
+E002
+        B = NODE()
+        DIFFER(RSON(B))            :F(E003)
+        OUTPUT = 'FAIL 1115/003: unset field is null'  :(END)
+E003
+        LSON(B) = A
+        DIFFER(RSON(LSON(B)), 'z')                   :F(E004)
+        OUTPUT = 'FAIL 1115/004: nested accessor after mutate' :(END)
+E004
+        DIFFER($'B', B)                   :F(E005)
+        OUTPUT = 'FAIL 1115/005: indirect by variable name' :(END)
+E005
+        VAL(A) = 'new'
+        DIFFER(VAL(A), 'new')                   :F(E006)
+        OUTPUT = 'FAIL 1115/006: mutate field and read back' :(END)
+E006
+        OUTPUT = 'PASS 1115_data_basic (6/6)'
+END

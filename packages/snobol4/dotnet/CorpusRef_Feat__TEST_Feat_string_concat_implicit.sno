@@ -1,0 +1,6 @@
+
+        A = 'hello'
+        B = ' '
+        C = 'world'
+        OUTPUT = A B C
+END

@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:39:48 2026
+
+
+
+                                                                                                                page 1
+
+2               pattern = RPOS('a')
+
+RPos__TEST_RPos_008.sno(2) : ERROR 185 -- rpos argument is not integer or expression

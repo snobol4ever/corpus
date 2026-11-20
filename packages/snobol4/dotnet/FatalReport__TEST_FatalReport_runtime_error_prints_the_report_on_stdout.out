@@ -1,0 +1,18 @@
+before
+
+
+
+FatalReport__TEST_FatalReport_runtime_error_prints_the_report_on_stdout.sno(2) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              FatalReport__TEST_FatalReport_runtime_error_prints_the_report_on_stdout.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11456
+memory left (bytes)  1037112

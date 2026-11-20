@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:09:07 2026
+
+
+
+                                                                                                                page 1
+
+        -,LIST
+         !
+ControlStatements__TEST_ControlStatements_a_comma_first_is_no_control.sno(1,2) : ERROR 247 -- invalid control statement

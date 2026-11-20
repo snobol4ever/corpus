@@ -1,0 +1,8 @@
+
+        X = 1
+        X = X + 1
+        X = X + 1
+        GT(&LASTNO, 0)                              :S(ok)
+        OUTPUT = 'FAIL: &LASTNO not positive'       :(END)
+ok      OUTPUT = 'PASS'
+END

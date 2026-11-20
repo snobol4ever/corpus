@@ -1,0 +1,11 @@
+
+        T = TABLE()
+        T['cat'] = T['cat'] + 1
+        T['dog'] = T['dog'] + 1
+        T['cat'] = T['cat'] + 1
+        T['bird'] = T['bird'] + 1
+        T['cat'] = T['cat'] + 1
+        OUTPUT = T['cat']
+        OUTPUT = T['dog']
+        OUTPUT = T['bird']
+END

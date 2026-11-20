@@ -1,0 +1,11 @@
+
+
+        a = 'a'
+        b = 'b'
+        c = 'c'
+        aa = '1'
+        bb = '2'
+        cc = '3'
+        skip = ''
+        CLEAR(skip)
+END

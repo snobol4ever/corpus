@@ -1,0 +1,7 @@
+
+        a = 'hello'
+        b = 'world'
+        ~IDENT(a, b)   :F(n)
+        result = 'differ'  :(END)
+n       result = 'same'
+END

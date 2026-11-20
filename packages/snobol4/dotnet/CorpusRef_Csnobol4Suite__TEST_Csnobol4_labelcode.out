@@ -1,0 +1,17 @@
+
+
+
+CorpusRef_Csnobol4Suite__TEST_Csnobol4_labelcode.sno(1) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              CorpusRef_Csnobol4Suite__TEST_Csnobol4_labelcode.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11456
+memory left (bytes)  1037112

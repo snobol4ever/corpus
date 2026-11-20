@@ -1,0 +1,20 @@
+        &ERRLIMIT = 20
+        &TRIM = 0
+        S = 'abcdef'
+        AB = 'ab'
+        E = ''
+        NEG = -2
+        BAD = 'x'
+        BIG = 16777217
+        MAX = 16777216
+        HUGE = 9223372036854775807
+        P = LEN(2)
+        X = DUPL(P, 2)
+        OUTPUT = DATATYPE(X)
+        'abcd' ? X . R
+        OUTPUT = '[' R ']'
+        X = DUPL(P, 0)
+        OUTPUT = DATATYPE(X)
+        'abcd' ? X . R
+        OUTPUT = '[' R ']'
+END

@@ -1,0 +1,5 @@
+        &ERRLIMIT = 100
+        OUTPUT = 'r=[' SETEXIT(' X') ']'  :S(OK)F(NO)
+OK      OUTPUT = 'ok ' &ERRTYPE  :(END)
+NO      OUTPUT = 'fail ' &ERRTYPE
+END

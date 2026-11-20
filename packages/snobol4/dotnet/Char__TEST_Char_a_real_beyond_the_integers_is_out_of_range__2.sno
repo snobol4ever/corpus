@@ -1,0 +1,7 @@
+
+        &ERRLIMIT = 10
+        n = 1E150
+        b = CHAR(n)
+        n = -1E150
+        c = CHAR(n)
+END

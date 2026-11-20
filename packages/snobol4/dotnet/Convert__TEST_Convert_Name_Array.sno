@@ -1,0 +1,6 @@
+
+        d = 'failure'
+        a = 'something'
+        b = CONVERT(.a,'array')  :F(END)
+        d = 'success'
+END

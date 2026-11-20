@@ -1,0 +1,7 @@
+
+        N = 0
+LOOP    N = N + 1
+        GT(N, 5)                                                    :S(DONE)
+        :(LOOP)
+DONE    RESULT = N
+END

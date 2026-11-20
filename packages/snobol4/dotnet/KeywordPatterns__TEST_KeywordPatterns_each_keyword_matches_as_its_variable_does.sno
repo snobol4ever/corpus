@@ -1,0 +1,18 @@
+        V = '1' ? ARB
+        OUTPUT = '1 [' V ']'
+        V = '1' ? &ARB
+        OUTPUT = '2 [' V ']'
+        V = 'abc' ? &ARB 'c'
+        OUTPUT = '3 [' V ']'
+        V = '1' ? &BAL
+        OUTPUT = '5 [' V ']'
+        V = 'xy' ? &REM
+        OUTPUT = '6 [' V ']'
+        V = 'xy' ? &FAIL                            :S(Y7)
+        OUTPUT = '7 failed'                         :(E7)
+Y7      OUTPUT = '7 [' V ']'
+E7      V = 'xy' ? &SUCCEED
+        OUTPUT = '8 [' V ']'
+        V = 'xy' ? (&FENCE 'x')
+        OUTPUT = '9 [' V ']'
+END

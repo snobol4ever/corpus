@@ -1,0 +1,10 @@
+* a comment line
+        &ERRLIMIT = 10
+        X = EVAL('1 + 1')
+        C = CODE(' OUTPUT = "a " &LINE " " &FILE :(R1)')   :[C]
+R1      Y = CODE(' Z = (')
+        D = CODE(' OUTPUT = "b " &LINE :(R2)')
++                                                 :[D]
+R2      E = CODE(' OUTPUT = "c " &LINE " " &LASTLINE " " &FILE :(R3)')   :[E]
+R3      OUTPUT = 'main ' &LINE
+END

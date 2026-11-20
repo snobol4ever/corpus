@@ -1,0 +1,6 @@
+        &ERRLIMIT = 10
+        V = *'x'
+        OUTPUT = DATATYPE(V) ' ' DATATYPE(*SIZE('ab')) ' ' DATATYPE(REM) ' ' DATATYPE(LEN(*'x'))
+        P = *X
+        OUTPUT = DATATYPE(P)
+END

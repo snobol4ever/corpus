@@ -1,0 +1,17 @@
+
+
+
+InputOutput__Test12101.sno(3) : ERROR 160 -- inappropriate file specification for output
+
+
+
+
+
+in file              InputOutput__Test12101.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12904
+memory left (bytes)  1035664

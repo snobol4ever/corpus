@@ -1,0 +1,8 @@
+
+        LT(3, 5)                                                    :S(A)F(END)
+A       R1 = '3 < 5'
+        LE(5, 5)                                                    :S(B)F(END)
+B       R2 = '5 <= 5'
+        GE(7, 5)                                                    :S(C)F(END)
+C       R3 = '7 >= 5'
+END

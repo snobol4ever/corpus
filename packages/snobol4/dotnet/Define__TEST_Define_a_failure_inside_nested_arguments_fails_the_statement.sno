@@ -1,0 +1,12 @@
+
+        DEFINE('F()')                  :(F_END)
+F                                      :(FRETURN)
+F_END
+        DEFINE('G(X)')                 :(G_END)
+G       G = 5                          :(RETURN)
+G_END
+        X = 'kept'
+        X = -G(REPLACE(F(), 'a', 'b'))  :F(L1)
+        X = 'no fail'
+L1      R = X
+END

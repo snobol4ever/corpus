@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:18:10 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 / 0
+
+ExitStatus__TEST_ExitStatus_a_constant_that_errs_when_compiled_exits_231.sno(1) : ERROR 014 -- division caused integer o
+verflow

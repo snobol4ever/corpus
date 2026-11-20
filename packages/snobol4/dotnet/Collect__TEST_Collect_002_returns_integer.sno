@@ -1,0 +1,6 @@
+
+        c = COLLECT()
+        GE(c, 0)   :S(ok)F(bad)
+ok      result = 'ok'  :(END)
+bad     result = 'bad'
+END

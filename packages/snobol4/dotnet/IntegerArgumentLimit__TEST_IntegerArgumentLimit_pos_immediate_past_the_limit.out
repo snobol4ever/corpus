@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:29:51 2026
+
+
+
+                                                                                                                page 1
+
+2               'abcdef' POS(16777217)  :S(YES)F(NO)
+
+IntegerArgumentLimit__TEST_IntegerArgumentLimit_pos_immediate_past_the_limit.sno(2) : ERROR 163 -- pos argument is negat
+ive or too large

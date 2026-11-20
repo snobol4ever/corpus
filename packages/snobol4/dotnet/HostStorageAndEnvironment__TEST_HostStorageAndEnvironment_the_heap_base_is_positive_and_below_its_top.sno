@@ -1,0 +1,3 @@
+        OUTPUT = GT(HOST(-1,2),0) 'base positive'
+        OUTPUT = GE(HOST(-1,3),HOST(-1,2)) 'top not below base'
+END

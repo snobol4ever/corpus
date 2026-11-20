@@ -1,0 +1,5 @@
+        &ERRLIMIT = 10
+        S = LEN(1)
+        'abc' ? BREAKX(*S)
+        OUTPUT = 'evaluated ' &ERRTYPE
+END

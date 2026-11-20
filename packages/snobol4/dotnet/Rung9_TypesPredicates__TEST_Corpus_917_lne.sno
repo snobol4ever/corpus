@@ -1,0 +1,18 @@
+
+        LNE('abc', 'xyz')          :S(e001)
+        OUTPUT = 'FAIL 917/001: lne(abc,xyz) should succeed' :(END)
+e001
+        LNE('abc', 'abc')          :F(e002)
+        OUTPUT = 'FAIL 917/002: lne(abc,abc) should fail'   :(END)
+e002
+        LNE('', 'a')               :S(e003)
+        OUTPUT = 'FAIL 917/003: lne(null,a) should succeed' :(END)
+e003
+        LNE('', '')                :F(e004)
+        OUTPUT = 'FAIL 917/004: lne(null,null) should fail' :(END)
+e004
+        LNE('A', 'a')              :S(e005)
+        OUTPUT = 'FAIL 917/005: lne(A,a) should succeed (ordinal)' :(END)
+e005
+        OUTPUT = 'PASS 917_lne (5/5)'
+END

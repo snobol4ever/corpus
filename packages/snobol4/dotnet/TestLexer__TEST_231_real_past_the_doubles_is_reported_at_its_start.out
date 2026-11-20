@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:56:20 2026
+
+
+
+                                                                                                                page 1
+
+1               A = 1e400 + 1
+                    !
+TestLexer__TEST_231_real_past_the_doubles_is_reported_at_its_start.sno(1,13) : ERROR 231 -- syntax error: invalid numeri
+c item

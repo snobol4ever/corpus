@@ -1,0 +1,41 @@
+
+
+
+dump of natural variables
+
+FAIL = PATTERN
+big = '4,807,884'
+bigp = PATTERN
+p = PATTERN
+result = 'The largest word is: ATTENDANCE. The largest number is: 4,807,884.'
+str = 'IN 1964 NFL ATTENDANCE JUMPED TO 4,807,884; AN INCREASE OF 401,810'
+try = '0'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Star__TEST_Superbowl.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Star__TEST_Superbowl.sno'
+&LASTLINE = 11
+&LASTNO = 11
+&LINE = 12
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 11
+&STLIMIT = 2147483647
+&STNO = 12
+&TRACE = 0
+&TRIM = 1

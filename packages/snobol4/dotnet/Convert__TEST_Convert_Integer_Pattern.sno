@@ -1,0 +1,7 @@
+
+        d = 'failure'
+        a = '32767'
+        b = CONVERT(a,'pattern') :F(END)
+        c = DATATYPE(b)
+        d = 'success'
+END

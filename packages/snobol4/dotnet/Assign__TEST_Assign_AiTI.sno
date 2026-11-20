@@ -1,0 +1,2 @@
+    a = TABLE()[1] = ARRAY(3)[2] = 'subject'
+END

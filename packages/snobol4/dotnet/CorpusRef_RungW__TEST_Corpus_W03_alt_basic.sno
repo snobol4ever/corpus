@@ -1,0 +1,6 @@
+
+        subject = 'foobar'
+        subject ('foo' | 'baz')  :F(e001)
+        OUTPUT = 'PASS W03/001: alt first branch matched'    :(END)
+e001    OUTPUT = 'FAIL W03/001: alt first branch should match'
+END

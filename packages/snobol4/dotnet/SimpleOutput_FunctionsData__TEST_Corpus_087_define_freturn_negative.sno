@@ -1,0 +1,9 @@
+
+        DEFINE('ispos(x)')                                          :(ispos_end)
+ispos   GT(x, 0)                                                   :S(RETURN)F(FRETURN)
+ispos_end
+        ispos(-3)                                                   :S(C)F(D)
+C       RESULT = 'wrong'
+        :(END)
+D       RESULT = 'not positive'
+END

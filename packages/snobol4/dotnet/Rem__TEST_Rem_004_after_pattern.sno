@@ -1,0 +1,6 @@
+
+        subject = 'hello world'
+        subject 'hello ' REM . rest   :F(bad)
+        result = rest   :(END)
+bad     result = 'bad'
+END

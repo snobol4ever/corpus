@@ -1,0 +1,16 @@
+        &ERRLIMIT = 10
+        V = CONVERT('4 +', 'EXPRESSION')            :S(Y1)
+        OUTPUT = '1 F t=' &ERRTYPE ' lim=' &ERRLIMIT
+Y1      V = CONVERT('4 :(L)', 'EXPRESSION')         :S(Y2)
+        OUTPUT = '2 F t=' &ERRTYPE ' lim=' &ERRLIMIT  :(E2)
+Y2      OUTPUT = '2 S'
+E2      V = CONVERT('4 + ;', 'EXPRESSION')          :S(Y3)
+        OUTPUT = '3 F t=' &ERRTYPE ' lim=' &ERRLIMIT  :(E3)
+Y3      OUTPUT = '3 S'
+E3      V = CONVERT('(4 :(L))', 'EXPRESSION')       :S(Y4)
+        OUTPUT = '4 F t=' &ERRTYPE ' lim=' &ERRLIMIT  :(E4)
+Y4      OUTPUT = '4 S'
+E4      V = CONVERT('0:35', 'EXPRESSION')           :S(Y5)
+        OUTPUT = '5 F t=' &ERRTYPE ' lim=' &ERRLIMIT  :(END)
+Y5      OUTPUT = '5 S'
+END

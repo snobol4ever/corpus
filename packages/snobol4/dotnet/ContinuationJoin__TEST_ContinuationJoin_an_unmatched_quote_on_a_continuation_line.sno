@@ -1,0 +1,4 @@
+        OUTPUT = 'a'
++       'b' 'c
+        OUTPUT = 'x'
+END

@@ -1,0 +1,7 @@
+        &ERRLIMIT = 100
+        E = *5
+        X = E - 1  :F(NO)
+        OUTPUT = 'val=' X  :(OUT)
+NO      OUTPUT = 'fail ' &ERRTYPE
+OUT     OUTPUT = '@b'
+END

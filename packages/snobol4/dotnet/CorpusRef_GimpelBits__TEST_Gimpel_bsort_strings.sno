@@ -1,0 +1,21 @@
+
+        DEFINE('BSORT(A,I,N)J,K,V')                       :(BSORT_END)
+BSORT   J = I
+BS1     J = J + 1   LT(J, N)                              :F(RETURN)
+        K = J
+        V = A[J]
+BS2     K = K - 1   GT(K, I)                              :F(BS_RO)
+        A[K + 1] = LGT(A[K], V) A[K]                      :S(BS2)
+        A[K + 1] = V                                       :(BS1)
+BS_RO   A[I] = V                                          :(BS1)
+BSORT_END
+        A = ARRAY(5)
+        A[1] = 'banana'; A[2] = 'apple'; A[3] = 'cherry'
+        A[4] = 'date';   A[5] = 'avocado'
+        BSORT(A, 1, 5)
+        OUTPUT = A[1]
+        OUTPUT = A[2]
+        OUTPUT = A[3]
+        OUTPUT = A[4]
+        OUTPUT = A[5]
+END

@@ -1,0 +1,7 @@
+
+
+        LIST = 'LEFT,HALT,LEFT,CANCEL,RIGHT'
+        NEXTI = BREAK(',') . ITEM LEN(1) | (LEN(1) REM) . ITEM
+GETI    LIST NEXTI =          :F(END)
+        RESULT = ITEM RESULT  :(GETI)
+END

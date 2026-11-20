@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 17:01:01 2026
+
+
+
+                                                                                                                page 1
+
+2               b = CHAR(-1)
+
+Char__TEST_Char_2.sno(2) : ERROR 282 -- char argument not in range

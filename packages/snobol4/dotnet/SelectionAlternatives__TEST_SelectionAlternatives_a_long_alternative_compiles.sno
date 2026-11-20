@@ -1,0 +1,6 @@
+        X = 'old'
+        P = 'pv'
+        X = (DIFFER(Z), (DIFFER(Q), DUPL(REPLACE(TRIM(LPAD(P, 5, '.')), 'p', 'q'), SIZE(REVERSE(P))) RPAD(P, 4)))
+        OUTPUT = 'x=[' X ']'
+        OUTPUT = '@b'
+END

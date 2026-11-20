@@ -1,0 +1,4 @@
+
+        a = TABLE()
+        ITEM(a,'abc','def') = 'ABC'
+END

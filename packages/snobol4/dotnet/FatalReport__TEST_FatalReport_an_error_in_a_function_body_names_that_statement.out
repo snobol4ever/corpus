@@ -1,0 +1,20 @@
+a
+in F
+
+
+
+FatalReport__TEST_FatalReport_an_error_in_a_function_body_names_that_statement.sno(6) : ERROR 022 -- undefined function 
+called
+
+
+
+
+
+in file              FatalReport__TEST_FatalReport_an_error_in_a_function_body_names_that_statement.sno
+in line              6
+in statement         6
+stmts executed       5
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11816
+memory left (bytes)  1036752

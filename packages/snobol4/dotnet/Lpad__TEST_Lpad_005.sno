@@ -1,0 +1,4 @@
+
+        s = 'this is a test'
+        r = LPAD(s,'abc','')
+END

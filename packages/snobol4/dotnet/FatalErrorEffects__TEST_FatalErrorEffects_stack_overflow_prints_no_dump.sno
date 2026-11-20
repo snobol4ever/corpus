@@ -1,0 +1,6 @@
+        &ERRLIMIT = 100
+        &DUMP = 1
+        DEFINE('F(X)')  :(GO)
+F       F = F(X + 1)  :(RETURN)
+GO      F(1)
+END

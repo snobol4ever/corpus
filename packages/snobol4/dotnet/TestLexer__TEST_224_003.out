@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:54:05 2026
+
+
+
+                                                                                                                page 1
+
+1       	(A + B[);end
+        	       !
+TestLexer__TEST_224_003.sno(1,9) : ERROR 224 -- syntax error: unbalanced right parenthesis

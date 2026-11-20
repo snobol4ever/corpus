@@ -1,0 +1,3 @@
+        X = A :; Y = 2
+        OUTPUT = 'x'
+END

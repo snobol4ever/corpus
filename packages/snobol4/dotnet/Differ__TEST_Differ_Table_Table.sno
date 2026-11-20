@@ -1,0 +1,7 @@
+
+        a = TABLE()
+        b = a
+        DIFFER(a,b)    :S(diff)
+        out = 'differ'    :(END)
+diff     out = 'not differ'
+end;END

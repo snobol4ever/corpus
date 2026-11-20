@@ -1,0 +1,15 @@
+        &ERRLIMIT = 20
+        &TRIM = 0
+        S = 'abcdef'
+        AB = 'ab'
+        E = ''
+        NEG = -2
+        BAD = 'x'
+        BIG = 16777217
+        MAX = 16777216
+        HUGE = 9223372036854775807
+        P = LEN(2)
+        X = DUPL(AB, NEG)   :F(NO)
+        OUTPUT = 'ok'   :(END)
+NO      OUTPUT = 'fails ' &ERRTYPE
+END

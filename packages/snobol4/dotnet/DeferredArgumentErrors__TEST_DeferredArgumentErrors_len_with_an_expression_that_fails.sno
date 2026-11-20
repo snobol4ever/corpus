@@ -1,0 +1,7 @@
+        DEFINE('F()')   :(GO)
+F       :(FRETURN)
+GO      &ERRLIMIT = 100
+        'abcdef' LEN(*F())  :S(YES)F(NO)
+YES     OUTPUT = 'S ' &ERRTYPE  :(END)
+NO      OUTPUT = 'F ' &ERRTYPE
+END

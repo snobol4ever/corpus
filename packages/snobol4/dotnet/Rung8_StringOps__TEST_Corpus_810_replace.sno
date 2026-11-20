@@ -1,0 +1,13 @@
+
+        DIFFER(REPLACE('axxbyyy', 'xy', '01'), 'a00b111')                   :F(e001)
+        OUTPUT = 'FAIL 810/001: xy->01 mapping'             :(END)
+e001
+        a = REPLACE(&ALPHABET, 'xy', 'ab')
+        DIFFER(REPLACE('axy', &ALPHABET, a), 'aab')                   :F(e002)
+        OUTPUT = 'FAIL 810/002: alphabet translation'       :(END)
+e002
+        DIFFER(REPLACE('hello', 'aeiou', 'aeiou'), 'hello')                   :F(e003)
+        OUTPUT = 'FAIL 810/003: identity replace'           :(END)
+e003
+        OUTPUT = 'PASS 810_replace (3/3)'
+END

@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:49:28 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A 'abc'def
+                           !
+SyntaxErrors__TEST_SyntaxErrors_missing_operator_before_a_quote.sno(1,20) : ERROR 220 -- syntax error: missing operator

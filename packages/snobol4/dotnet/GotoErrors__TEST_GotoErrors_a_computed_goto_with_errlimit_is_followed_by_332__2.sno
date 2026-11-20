@@ -1,0 +1,5 @@
+        &ERRLIMIT = 5
+        X = 'NOWHERE'
+        :($X)
+        OUTPUT = 'after'
+END

@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:35:20 2026
+
+
+
+                                                                                                                page 1
+
+2               'FOO' @1
+
+NameRequired__TEST_NameRequired_a_literal_cursor_target.sno(2) : ERROR 212 -- syntax error: value used where name is req
+uired

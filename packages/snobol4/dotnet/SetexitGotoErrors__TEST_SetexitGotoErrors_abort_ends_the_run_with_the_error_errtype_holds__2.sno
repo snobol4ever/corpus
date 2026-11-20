@@ -1,0 +1,7 @@
+	&ERRLIMIT = 5
+	N = 0
+	SETEXIT('ERR')
+	Y = 1 / N
+	OUTPUT = 'after ' &ERRTYPE	:(ABORT)
+ERR	OUTPUT = 'ERR ' &ERRTYPE	:(CONTINUE)
+END

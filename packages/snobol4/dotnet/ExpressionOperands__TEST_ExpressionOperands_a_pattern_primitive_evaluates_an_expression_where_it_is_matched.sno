@@ -1,0 +1,6 @@
+        N = 2
+        'abcd' ? LEN(*N) . X
+        OUTPUT = X
+        'abcd' ? POS(*N) LEN(1) . Y
+        OUTPUT = Y
+END

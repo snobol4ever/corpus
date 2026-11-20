@@ -1,0 +1,6 @@
+*  059 - FENCE(P) basic: P matches, overall match succeeds
+        X = 'hello'
+        X  FENCE('hello')                                      :F(NO)
+        OUTPUT = 'matched'                                     :(END)
+NO      OUTPUT = 'failed'
+END

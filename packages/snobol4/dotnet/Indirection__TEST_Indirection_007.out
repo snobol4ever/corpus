@@ -1,0 +1,17 @@
+
+
+
+Indirection__TEST_Indirection_007.sno(3) : ERROR 239 -- indirection operand is not name
+
+
+
+
+
+in file              Indirection__TEST_Indirection_007.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11560
+memory left (bytes)  1037008

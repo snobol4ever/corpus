@@ -1,0 +1,4 @@
+-LIST,TITLE x
+        A = 1
+        OUTPUT = 'x'
+END

@@ -1,0 +1,35 @@
+
+
+
+dump of natural variables
+
+R = 'F 21 [][]'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 4
+&ERRTEXT = 'function called by name returned a value'
+&ERRTYPE = 21
+&FILE = 'Define__TEST_Define_an_assignment_to_a_call_that_returned_a_value_is_error_21.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Define__TEST_Define_an_assignment_to_a_call_that_returned_a_value_is_error_21.sno'
+&LASTLINE = 8
+&LASTNO = 8
+&LINE = 9
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 7
+&STLIMIT = 2147483647
+&STNO = 9
+&TRACE = 0
+&TRIM = 1

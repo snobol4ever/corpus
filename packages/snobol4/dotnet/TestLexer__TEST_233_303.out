@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:56:38 2026
+
+
+
+                                                                                                                page 1
+
+1        123e45+;end
+         !
+TestLexer__TEST_233_303.sno(1,2) : ERROR 231 -- syntax error: invalid numeric item

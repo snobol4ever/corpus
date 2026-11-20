@@ -1,0 +1,8 @@
+        &ERRLIMIT = 5
+        &MAXLNGTH = 4096
+        X = 'a'
+L       X = X X        :F(F1)
+        LT(SIZE(X), 3000000)   :S(L)
+        OUTPUT = 'grew to ' SIZE(X)   :(END)
+F1      OUTPUT = 'failed at ' SIZE(X) ' ' &ERRTYPE
+END

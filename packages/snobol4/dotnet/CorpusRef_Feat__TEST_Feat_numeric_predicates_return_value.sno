@@ -1,0 +1,8 @@
+
+        OUTPUT = GT(5, 3) 'gt_ok'
+        OUTPUT = LT(3, 5) 'lt_ok'
+        OUTPUT = GE(5, 5) 'ge_ok'
+        OUTPUT = LE(3, 3) 'le_ok'
+        OUTPUT = EQ(4, 4) 'eq_ok'
+        OUTPUT = NE(1, 2) 'ne_ok'
+END

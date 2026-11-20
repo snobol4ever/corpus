@@ -1,0 +1,10 @@
+
+        myvar = 'the real myvar'
+        DIFFER($'myvar', myvar)                   :F(e001)
+        OUTPUT = 'FAIL 210/001: $string lookup'        :(END)
+e001
+        DIFFER($.myvar, myvar)                   :F(e002)
+        OUTPUT = 'FAIL 210/002: $.var lookup'          :(END)
+e002
+        OUTPUT = 'PASS 210_indirect_ref (2/2)'
+END

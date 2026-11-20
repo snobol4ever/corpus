@@ -1,0 +1,9 @@
+
+        DEFINE('F(A)local1')                       :(F_END)
+F       local1 = 'inside'
+        F = A ' ' local1                           :(RETURN)
+F_END
+        local1 = 'outside'
+        OUTPUT = F('hi')
+        OUTPUT = local1
+END

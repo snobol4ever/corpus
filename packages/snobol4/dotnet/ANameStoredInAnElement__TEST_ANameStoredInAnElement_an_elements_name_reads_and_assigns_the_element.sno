@@ -1,0 +1,14 @@
+        A = ARRAY(2)
+        A[1] = 'x'
+        T = TABLE()
+        T['n'] = .A[1]
+        R = T['n']
+        OUTPUT = $R
+        $R = 'y'
+        OUTPUT = A[1]
+        OUTPUT = T['n']
+        OUTPUT = IDENT(R, .A[1]) 'same'
+        B = ARRAY(2)
+        B[2] = .A[1]
+        OUTPUT = $B[2]
+END

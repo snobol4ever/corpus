@@ -1,0 +1,6 @@
+        N = .INPUT
+        OUTPUT = DATATYPE(N) ' ' N
+        L = INPUT
+        OUTPUT = 'L=' L
+        OUTPUT = 'via=' $N
+END

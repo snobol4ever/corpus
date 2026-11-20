@@ -1,0 +1,9 @@
+
+        a = TABLE()
+        abc = ANY('abc')
+        def = ANY('def')
+        a[ANY('abc')] = 'ABC'
+        a[ANY('def')] = 'DEF'
+        r1 = a[ANY('abc')]
+        r2 = a[ANY('def')]
+END

@@ -1,0 +1,12 @@
+        &ERRLIMIT = 10
+        SETEXIT(.H)
+        DATA('P(F)')
+        DATA('Q(G)')
+        X = F('x')
+        X = F(Q(1))
+        X = F(LEN(1))
+        X = F()
+        R = R 'end'                    :(END)
+H       R = R &ERRTYPE ' '
+        SETEXIT(.H)                    :(CONTINUE)
+END

@@ -1,0 +1,8 @@
+LEQ 123
+LGE 125
+LGT 127
+LLE 129
+LLT 131
+LNE 133
+first 124
+second 125

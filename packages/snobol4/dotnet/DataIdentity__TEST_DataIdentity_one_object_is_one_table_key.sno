@@ -1,0 +1,8 @@
+
+        DATA('STACK(TOP,REST)')
+        T = TABLE()
+        N = STACK()
+        M = N
+        T[N] = 'found'
+        R = T[M]
+END

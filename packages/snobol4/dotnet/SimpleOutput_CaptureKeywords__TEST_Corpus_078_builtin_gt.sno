@@ -1,0 +1,10 @@
+
+        GT(5, 3)                                                    :S(YES)F(NO)
+YES     R1 = '5 > 3'
+        :(NEXT)
+NO      R1 = 'wrong'
+NEXT    GT(3, 5)                                                    :S(YES2)F(NO2)
+YES2    R2 = 'wrong'
+        :(END)
+NO2     R2 = '3 not > 5'
+END

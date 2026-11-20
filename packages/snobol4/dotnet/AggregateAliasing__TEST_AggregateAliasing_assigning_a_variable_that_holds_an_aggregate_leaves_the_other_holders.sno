@@ -1,0 +1,22 @@
+
+        V = ARRAY(3)
+        L = V
+        V = TABLE()
+        OUTPUT = '1: V=' DATATYPE(V) ' L=' DATATYPE(L)
+        A = ARRAY(3)
+        B = COPY(A)
+        A = TABLE()
+        OUTPUT = '2: A=' DATATYPE(A) ' B=' DATATYPE(B)
+        C = ARRAY(3)
+        D = CONVERT(C, 'ARRAY')
+        C = TABLE()
+        OUTPUT = '3: C=' DATATYPE(C) ' D=' DATATYPE(D)
+        E = ARRAY(3)
+        F = IDENT(E, E) E
+        E = TABLE()
+        OUTPUT = '4: E=' DATATYPE(E) ' F=' DATATYPE(F)
+        G = TABLE()
+        H = G
+        G = 5
+        OUTPUT = '5: G=' DATATYPE(G) ' H=' DATATYPE(H)
+END

@@ -1,0 +1,17 @@
+
+
+
+Lpad__TEST_Lpad_005.sno(3) : ERROR 145 -- lpad second argument is not integer
+
+
+
+
+
+in file              Lpad__TEST_Lpad_005.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11360
+memory left (bytes)  1037208

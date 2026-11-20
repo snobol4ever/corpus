@@ -1,0 +1,8 @@
+
+        a = ARRAY(3)
+        a[2] = 'x'
+        DIFFER($.a[2], 'x')                   :F(e001)
+        OUTPUT = 'FAIL 212/001: $.var<index> indirect array' :(END)
+e001
+        OUTPUT = 'PASS 212_indirect_array (1/1)'
+END

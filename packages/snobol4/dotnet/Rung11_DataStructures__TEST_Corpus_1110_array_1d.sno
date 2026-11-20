@@ -1,0 +1,36 @@
+
+        a = ARRAY(3)
+        DIFFER(a[1])               :F(e001)
+        OUTPUT = 'FAIL 1110/001: array element init null' :(END)
+e001
+        a[2] = 4.5
+        DIFFER(a[2], 4.5)                   :F(e002)
+        OUTPUT = 'FAIL 1110/002: array assign/read'    :(END)
+e002
+        a[4]                       :F(e003)
+        OUTPUT = 'FAIL 1110/003: OOB high should fail' :(END)
+e003
+        a[0]                       :F(e004)
+        OUTPUT = 'FAIL 1110/004: OOB zero should fail' :(END)
+e004
+        DIFFER(PROTOTYPE(a), '3')                   :F(e005)
+        OUTPUT = 'FAIL 1110/005: prototype(array(3))=3' :(END)
+e005
+        b = ARRAY('3')
+        b[2] = 'x'
+        DIFFER(b[2], 'x')                   :F(e006)
+        OUTPUT = 'FAIL 1110/006: array from string dim' :(END)
+e006
+        DIFFER(PROTOTYPE(b), '3')                   :F(e007)
+        OUTPUT = 'FAIL 1110/007: prototype string-dim array' :(END)
+e007
+        a[1] = 3.14
+        DIFFER(a[1], 3.14)                   :F(e008)
+        OUTPUT = 'FAIL 1110/008: array stores real'    :(END)
+e008
+        a[3] = 'z'
+        DIFFER(a[3], 'z')                   :F(e009)
+        OUTPUT = 'FAIL 1110/009: array stores string'  :(END)
+e009
+        OUTPUT = 'PASS 1110_array_1d (9/9)'
+END

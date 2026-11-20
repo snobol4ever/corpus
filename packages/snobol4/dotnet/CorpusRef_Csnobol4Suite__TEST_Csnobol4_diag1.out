@@ -1,0 +1,113 @@
+************************************************
+****	s n o b o l	 d i a g n o s t i c s ****
+****		 p h a s e    o	n e	       ****
+************************************************
+****	 any trace output indicates an error   ****
+************************************************
+****102*****  TEST = '	error detected		***'
+****222*****  TEST = '	error detected		***'
+****223*****  TEST = '	error detected		***'
+****226*****  TEST = '	error detected		***'
+****227*****  TEST = '	error detected		***'
+************************************************
+****	   number of errors detected  5	   ****
+****	e n d	 o f	 d i a g n o s t i c s ****
+************************************************
+
+
+
+dump of natural variables
+
+A = ARRAY(3) #9
+AA = 'a'
+AAA = ARRAY(10) #13
+AMA = ARRAY(2,2,2,2) #14
+ATA = TABLE(2) #12
+B = NODE #7
+BAL = PATTERN
+BB = 'b'
+C = CLUNK #8
+CC = 'c'
+D = ARRAY(-1:1,2) #5
+DIAGNOSTICS = 5
+E = 'e'
+EXPR = EXPRESSION
+F = 'f'
+FEXP = EXPRESSION
+OUTPUT = '************************************************'
+Q = 'qqq'
+QQ = 'x'
+SEXP = *Q
+STARS = '	error detected		***'
+T = TABLE(10) #10
+TA = ARRAY(2,2) #11
+TEST = '	error detected		***'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 1
+&CODE = 0
+&DUMP = 2
+&ERRLIMIT = 998
+&ERRTEXT = 'field function argument is wrong datatype'
+&ERRTYPE = 41
+&FILE = 'CorpusRef_Csnobol4Suite__TEST_Csnobol4_diag1.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'CorpusRef_Csnobol4Suite__TEST_Csnobol4_diag1.sno'
+&LASTLINE = 343
+&LASTNO = 239
+&LINE = 358
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'FRETURN'
+&STCOUNT = 268
+&STLIMIT = 2147483647
+&STNO = 248
+&TRACE = 999995
+&TRIM = 1
+
+ARRAY(-1:1,2) #5
+D<-1,1> = 0
+
+NODE #6
+VAL(NODE #6) = 'x'
+LSON(NODE #6) = 'y'
+RSON(NODE #6) = 'z'
+
+NODE #7
+LSON(B) = NODE #6
+
+CLUNK #8
+VALUE(C) = 'a'
+LSON(C) = 'b'
+
+ARRAY(3) #9
+A<2> = 'x'
+
+TABLE(10) #10
+T<'cat'> = 'dog'
+T<7> = 45
+
+ARRAY(2,2) #11
+TA<1,1> = 'cat'
+TA<1,2> = 'dog'
+TA<2,1> = 7
+TA<2,2> = 45
+
+TABLE(2) #12
+ATA<'cat'> = 'dog'
+ATA<7> = 45
+
+ARRAY(10) #13
+AAA<1> = 5
+AAA<2> = 22
+
+ARRAY(2,2,2,2) #14
+AMA<1,2,1,2> = 1212
+AMA<2,1,2,1> = 2121

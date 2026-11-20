@@ -1,0 +1,8 @@
+        V = *(X + 1)
+        V = *Y
+        E = *X
+        'abc' LEN(1) . *X
+        R = X
+        'abc' LEN(2) $ E
+        R = R ' ' DATATYPE(V) ' ' E ' ' X
+END

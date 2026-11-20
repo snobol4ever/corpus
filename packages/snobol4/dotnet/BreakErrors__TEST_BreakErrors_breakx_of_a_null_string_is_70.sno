@@ -1,0 +1,5 @@
+        &ERRLIMIT = 10
+        E = ''
+        P = BREAKX(E)
+        OUTPUT = 'built ' &ERRTYPE
+END

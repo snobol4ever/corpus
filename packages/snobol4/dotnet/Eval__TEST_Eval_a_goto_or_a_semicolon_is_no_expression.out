@@ -1,0 +1,42 @@
+
+
+
+dump of natural variables
+
+R = 'fail 103'
+S = 'fail 103'
+T = 'fail 103'
+U = 'fail 221'
+V = 'fail 226'
+W = 'a:b;c'
+X = 'error 103'
+Y = 'error 103'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 8
+&ERRTEXT = 'eval argument is not expression'
+&ERRTYPE = 103
+&FILE = 'Eval__TEST_Eval_a_goto_or_a_semicolon_is_no_expression.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Eval__TEST_Eval_a_goto_or_a_semicolon_is_no_expression.sno'
+&LASTLINE = 18
+&LASTNO = 18
+&LINE = 19
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 18
+&STLIMIT = 2147483647
+&STNO = 19
+&TRACE = 0
+&TRIM = 1

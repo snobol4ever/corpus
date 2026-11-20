@@ -1,0 +1,6 @@
+
+        DIFFER('abc', 'xyz')                                        :S(YES)F(NO)
+YES     RESULT = 'different'
+        :(END)
+NO      RESULT = 'same'
+END

@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        dvowel = ANY('aeiou') NOTANY('aeiou') 
+        subject = 'vacuum'
+        subject dvowel . v1  :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

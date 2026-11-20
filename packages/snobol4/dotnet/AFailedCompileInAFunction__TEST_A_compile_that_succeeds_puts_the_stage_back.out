@@ -1,0 +1,18 @@
+
+
+
+AFailedCompileInAFunction__TEST_A_compile_that_succeeds_puts_the_stage_back.sno(4) : ERROR 307 -- ln produced real overf
+low
+
+
+
+
+
+in file              AFailedCompileInAFunction__TEST_A_compile_that_succeeds_puts_the_stage_back.sno
+in line              4
+in statement         4
+stmts executed       8
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  16288
+memory left (bytes)  1032280

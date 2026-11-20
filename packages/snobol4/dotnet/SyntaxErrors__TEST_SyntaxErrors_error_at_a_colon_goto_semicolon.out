@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:51 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A :; Y = 2
+                       !
+SyntaxErrors__TEST_SyntaxErrors_error_at_a_colon_goto_semicolon.sno(1,16) : ERROR 219 -- syntax error: empty goto field

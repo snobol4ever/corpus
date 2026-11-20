@@ -1,0 +1,15 @@
+
+        DIFFER(TRIM('hello   '), 'hello')                   :F(e001)
+        OUTPUT = 'FAIL 814/001: trim trailing spaces'   :(END)
+e001
+        DIFFER(TRIM('hello'), 'hello')                   :F(e002)
+        OUTPUT = 'FAIL 814/002: trim no-op'             :(END)
+e002
+        DIFFER(TRIM('   '), '')                   :F(e003)
+        OUTPUT = 'FAIL 814/003: trim all-spaces to null' :(END)
+e003
+        DIFFER(TRIM(''), '')                   :F(e004)
+        OUTPUT = 'FAIL 814/004: trim null is null'      :(END)
+e004
+        OUTPUT = 'PASS 814_trim (4/4)'
+END

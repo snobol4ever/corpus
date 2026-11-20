@@ -1,0 +1,6 @@
+        R = DATATYPE(CONVERT('1.0','NUMERIC')) ' ' CONVERT('1.0','NUMERIC')
+        R = R ' ' DATATYPE(CONVERT('','NUMERIC')) ' ' CONVERT('','NUMERIC')
+        R = R ' ' DATATYPE(CONVERT(' 12 ','numeric')) ' ' CONVERT(-15.9999,'NUMERIC')
+        R = R ' ' CONVERT('1e3','NUMERIC')
+        R = R DIFFER(CONVERT(ARRAY(1),'NUMERIC')) ' array converted'
+END

@@ -1,0 +1,3 @@
+        OUTPUT = 'a'
+X       OUTPUT = 'x'
+END X

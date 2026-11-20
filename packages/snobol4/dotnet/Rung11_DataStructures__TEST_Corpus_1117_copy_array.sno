@@ -1,0 +1,15 @@
+
+        a = ARRAY(3)
+        a[1] = 'x'
+        a[2] = 'y'
+        a[3] = 'z'
+        b = COPY(a)
+        b[1] = 'changed'
+        DIFFER(a[1], 'x')                   :F(e001)
+        OUTPUT = 'FAIL 1117/001: copy is independent of original' :(END)
+e001
+        DIFFER(b[1], 'changed')                   :F(e002)
+        OUTPUT = 'FAIL 1117/002: copy reflects own mutation' :(END)
+e002
+        OUTPUT = 'PASS 1117_copy_array (2/2)'
+END

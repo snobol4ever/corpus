@@ -1,0 +1,8 @@
+        &ERRLIMIT = 10
+        C = CODE(" X = 1;L2 Y = 2;L3 D = EXP(1E300); OUTPUT = 'after'")   :S(S)F(F)
+S       OUTPUT = 'code ok'                  :(J)
+F       OUTPUT = 'code failed ' &ERRTYPE
+J       SETEXIT('H')
+        OUTPUT = 'Y=[' Y ']'                :(L2)
+H       OUTPUT = 'H ' &ERRTYPE ' Y=[' Y ']'  :(END)
+END

@@ -1,0 +1,16 @@
+        &ERRLIMIT = 10
+        C = CODE(' OUTPUT = 1' CHAR(10) ' OUTPUT = 2')    :F(F1)
+        OUTPUT = 'compiled'                               :[C]
+F1      OUTPUT = 'LF ' &ERRTYPE
+        C = CODE(' OUTPUT = 3' CHAR(13) ' OUTPUT = 4')    :F(F2)
+        OUTPUT = 'compiled CR'                            :[C]
+F2      OUTPUT = 'CR ' &ERRTYPE
+        X = EVAL('1' CHAR(10) ' + 2')                     :F(F3)
+        OUTPUT = 'eval ' X                                :(F4)
+F3      OUTPUT = 'EVAL ' &ERRTYPE
+F4      C = CODE(' OUTPUT = 6;' CHAR(10))                 :F(F5)
+        OUTPUT = 'trailing compiled'                      :[C]
+F5      OUTPUT = 'trailing ' &ERRTYPE
+        X = EVAL("'a" CHAR(10) "b'")
+        OUTPUT = 'literal ' SIZE(X)
+END

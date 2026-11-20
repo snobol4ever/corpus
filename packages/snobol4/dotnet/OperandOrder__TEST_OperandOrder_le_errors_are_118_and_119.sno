@@ -1,0 +1,15 @@
+        &ERRLIMIT = 20
+        A = 'a'
+        B = 'b'
+        ONE = 1
+        Z = 0.
+        P = 12
+        Q = 3.7
+        N = -12
+        LE(A, B)
+        OUTPUT = 'le ' &ERRTYPE
+        LE(A, ONE)
+        OUTPUT = 'le1 ' &ERRTYPE
+        LE(ONE, B)
+        OUTPUT = 'le2 ' &ERRTYPE
+END

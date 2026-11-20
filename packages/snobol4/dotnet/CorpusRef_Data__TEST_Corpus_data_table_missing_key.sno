@@ -1,0 +1,6 @@
+
+        T = TABLE()
+        T['x'] = 'found'
+        OUTPUT = IDENT(T['missing']) 'empty'
+        OUTPUT = T['x']
+END

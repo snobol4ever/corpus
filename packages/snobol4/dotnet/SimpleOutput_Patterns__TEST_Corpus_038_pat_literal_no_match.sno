@@ -1,0 +1,7 @@
+
+        X = 'hello world'
+        X 'goodbye'                                                 :S(YES)F(NO)
+YES     RESULT = 'matched'
+        :(END)
+NO      RESULT = 'no match'
+END

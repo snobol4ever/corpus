@@ -1,0 +1,18 @@
+        &ERRLIMIT = 10
+        DEFINE('H()')                       :(HE)
+H       H = .E
+        DIFFER(H)                           :S(NRETURN)F(FRETURN)
+HE      SETEXIT('ERR')
+        Y = EVAL('~$H()')                   :S(S1)F(F1)
+S1      OUTPUT = 'succ [' Y ']'             :(N2)
+F1      OUTPUT = 'fail'                     :(N2)
+ERR     OUTPUT = 'ERROR ' &ERRTYPE
+        SETEXIT('ERR')                      :(CONTINUE)
+N2      Y = EVAL("(DIFFER($H()), 'c')")     :S(S2)F(F2)
+S2      OUTPUT = 'succ2 [' Y ']'            :(N3)
+F2      OUTPUT = 'fail2'
+N3      E = *(~$H())
+        Y = EVAL(E)                         :S(S3)F(F3)
+S3      OUTPUT = 'succ3 [' Y ']'            :(END)
+F3      OUTPUT = 'fail3'
+END

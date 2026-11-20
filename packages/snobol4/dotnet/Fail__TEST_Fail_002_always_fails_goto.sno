@@ -1,0 +1,6 @@
+
+        subject = 'hello'
+        subject FAIL    :S(success)F(done)
+success result = 'wrong'   :(END)
+done    result = 'correct'
+END

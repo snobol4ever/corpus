@@ -1,0 +1,17 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 16:46:04 2026
+
+
+
+                                                                                                                page 1
+
+        -LIST `
+              !
+AnIllegalCharacterAfterAControlIs230__TEST_AnIllegalCharacterAfterAControlIs230__3.sno(1,7) : ERROR 230 -- syntax error:
+ illegal character
+
+1               X = 1
+2       END

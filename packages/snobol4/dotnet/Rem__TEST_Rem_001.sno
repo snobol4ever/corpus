@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        subject = 'programmer'
+        pattern = 'gra' REM . test
+        subject pattern      :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

@@ -1,0 +1,19 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:32:01 2026
+
+
+
+                                                                                                                page 1
+
+1       :X ; B = ( ; C = 3
+
+LabelAfterSemicolon__TEST_A_bad_label_that_begins_with_a_bracket_ends_at_its_semicolon__4.sno(1) : ERROR 214 -- bad labe
+l or misplaced continuation line
+
+
+                   !
+LabelAfterSemicolon__TEST_A_bad_label_that_begins_with_a_bracket_ends_at_its_semicolon__4.sno(1,12) : ERROR 226 -- synta
+x error: missing right paren

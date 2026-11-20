@@ -1,0 +1,5 @@
+    a =  'subject'
+        b = TABLE()
+        b[1] = 'replacement'
+        a = b[1]
+END

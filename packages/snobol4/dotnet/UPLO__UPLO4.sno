@@ -1,0 +1,9 @@
+
+	    DEFINE('UPLO(S)')
+	    UP_LO  =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+	    LO_UP  =  'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+				:(UPLO_END)
+UPLO	UPLO   =  REPLACE(S, UP_LO, LO_UP)	:(RETURN)
+UPLO_END
+        R = UPLO('0123456789!@#$%')
+END

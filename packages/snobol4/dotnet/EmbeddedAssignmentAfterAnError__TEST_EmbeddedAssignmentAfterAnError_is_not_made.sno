@@ -1,0 +1,21 @@
+        &ERRLIMIT = 20
+        A = 'f'
+        Z = 1
+        T = TABLE()
+        DEFINE('F()')                               :(FE)
+F                                                   :(FRETURN)
+FE      V = -A + (Y = 2)
+        OUTPUT = '1 ' &ERRTYPE ' Y=' Y
+        V = (Z / 0) + (Y = 2)
+        OUTPUT = '2 ' &ERRTYPE ' Y=' Y
+        V = SIZE(T) (Y = 2)
+        OUTPUT = '3 ' &ERRTYPE ' Y=' Y
+        &ERRTYPE = 0
+        V = F() (Y = 2)
+        OUTPUT = '4 ' &ERRTYPE ' Y=' Y
+        V = (-A, (Y = 2))
+        OUTPUT = '5 ' &ERRTYPE ' Y=' Y ' V=' V
+        Y =
+        V = EVAL("-A ! -(Y = '(')")
+        OUTPUT = '6 ' &ERRTYPE ' Y=' Y
+END

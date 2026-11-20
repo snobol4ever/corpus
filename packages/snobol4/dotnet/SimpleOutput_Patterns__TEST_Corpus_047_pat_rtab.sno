@@ -1,0 +1,7 @@
+
+        X = 'abcdef'
+        X RTAB(2) . V                                               :S(YES)
+        RESULT = 'fail'
+        :(END)
+YES     RESULT = V
+END

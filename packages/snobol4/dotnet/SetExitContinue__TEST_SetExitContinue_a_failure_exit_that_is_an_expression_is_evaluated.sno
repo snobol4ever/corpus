@@ -1,0 +1,15 @@
+        &ERRLIMIT = 5
+        DEFINE('F()')
+        DEFINE('G()')                              :(FE)
+F       SETEXIT(.H)
+        X = Z / 0                                  :F($'RETURN')
+        F = 'normal'                               :(RETURN)
+G       SETEXIT(.H)
+        L = 'THERE'
+        X = Z / 0                                  :F($L)
+        G = 'normal'                               :(RETURN)
+THERE   G = 'there'                                :(RETURN)
+H       OUTPUT = 'handler t=' &ERRTYPE             :(CONTINUE)
+FE      Z = 1
+        OUTPUT = 'F [' F() '] G [' G() ']'
+END

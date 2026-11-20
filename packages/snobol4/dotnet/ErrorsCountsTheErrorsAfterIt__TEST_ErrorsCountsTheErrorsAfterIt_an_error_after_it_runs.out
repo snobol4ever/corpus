@@ -1,0 +1,33 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:11:17 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 1 +
+                      !
+ErrorsCountsTheErrorsAfterIt__TEST_ErrorsCountsTheErrorsAfterIt_an_error_after_it_runs.sno(2,15) : ERROR 221 -- syntax e
+rror: missing operand
+
+
+
+
+ErrorsCountsTheErrorsAfterIt__TEST_ErrorsCountsTheErrorsAfterIt_an_error_after_it_runs.sno(2) : ERROR 007 -- compilation
+ error encountered during execution
+
+
+
+
+
+in file              ErrorsCountsTheErrorsAfterIt__TEST_ErrorsCountsTheErrorsAfterIt_an_error_after_it_runs.sno
+in line              2
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11400
+memory left (bytes)  1037168

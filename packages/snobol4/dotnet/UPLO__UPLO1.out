@@ -1,0 +1,40 @@
+
+
+
+dump of natural variables
+
+LO_UP = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+R2 = 'abc'
+R3 = 'ABC'
+R4 = '123!@#'
+R5 = 'AaBbCc'
+UP_LO = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'UPLO__UPLO1.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'UPLO__UPLO1.sno'
+&LASTLINE = 12
+&LASTNO = 12
+&LINE = 13
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 16
+&STLIMIT = 2147483647
+&STNO = 13
+&TRACE = 0
+&TRIM = 1

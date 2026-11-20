@@ -1,0 +1,4 @@
+
+        a = ANY('this is a test')
+        b = REVERSE(a)
+END

@@ -1,0 +1,6 @@
+        hold = 'held'
+        T = TABLE()
+        T['n'] = .hold
+        T['n'] = 'z'
+        OUTPUT = T['n'] ' ' hold
+END

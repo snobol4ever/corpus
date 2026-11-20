@@ -1,0 +1,4 @@
+        OUTPUT = '@a'
+        'abc' ? ARB @OUTPUT FAIL
+        OUTPUT = '@b'
+END

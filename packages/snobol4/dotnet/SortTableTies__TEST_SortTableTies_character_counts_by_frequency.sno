@@ -1,0 +1,11 @@
+        T = TABLE(1000)
+        S = 'hello world abracadabra'
+LOOP    S LEN(1) . C =  :F(DONE)
+        T[C] = T[C] + 1  :(LOOP)
+DONE    B = RSORT(T, 2)
+        I = 0
+L1      I = I + 1
+        R = R B[I,1]  :F(S1)
+        :(L1)
+S1      OUTPUT = R
+END

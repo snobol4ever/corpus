@@ -1,0 +1,7 @@
+        DEFINE('G()')   :(GO)
+G       OUTPUT = 'in G'
+        X = FOO(3)
+        OUTPUT = 'after error in G'  :(RETURN)
+GO      'abc' LEN(*G())
+        OUTPUT = 'done err ' &ERRTYPE  :(END)
+END

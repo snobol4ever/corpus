@@ -1,0 +1,34 @@
+
+
+
+FatalErrorEffects__TEST_FatalErrorEffects_stack_overflow_prints_no_dump.sno(4) : ERROR 246 -- stack overflow
+
+
+
+
+
+in file              FatalErrorEffects__TEST_FatalErrorEffects_stack_overflow_prints_no_dump.sno
+in line              4
+in statement         4
+stmts executed       58213
+execution time msec  7
+stmt / microsec      8
+stmt / millisec      8316
+stmt / second        8316000
+REGENERATIONS        0
+memory used (bytes)  943168
+memory left (bytes)  105400
+
+
+
+
+stack overflow in garbage collection
+in statement         4
+stmts executed       58213
+execution time msec  8
+stmt / microsec      7
+stmt / millisec      7276
+stmt / second        7276000
+REGENERATIONS        0
+memory used (bytes)  943168
+memory left (bytes)  106200

@@ -1,0 +1,9 @@
+
+        pair = (LEN(1) $ x *x) $ double
+        'cook' pair
+        list = list double
+        'arron' pair
+        list = list double
+        'chickadee' pair
+        list = list double
+END

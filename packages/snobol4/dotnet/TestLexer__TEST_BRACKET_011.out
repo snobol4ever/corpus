@@ -1,0 +1,17 @@
+
+
+
+TestLexer__TEST_BRACKET_011.sno(1) : ERROR 235 -- subscripted operand is not table or array
+
+
+
+
+
+in file              TestLexer__TEST_BRACKET_011.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11272
+memory left (bytes)  1037296

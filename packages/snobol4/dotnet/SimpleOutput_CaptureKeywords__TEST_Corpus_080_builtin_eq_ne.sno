@@ -1,0 +1,10 @@
+
+        EQ(42, 42)                                                  :S(YES)F(NO)
+YES     R1 = '42 = 42'
+        :(NEXT)
+NO      R1 = 'wrong'
+NEXT    NE(42, 99)                                                  :S(YES2)F(NO2)
+YES2    R2 = '42 != 99'
+        :(END)
+NO2     R2 = 'wrong'
+END

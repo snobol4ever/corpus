@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:39:02 2026
+
+
+
+                                                                                                                page 1
+
+2               X = LEN(2 - 3)
+
+PreEvaluation__TEST_PreEvaluation_a_constant_that_a_constant_makes_is_pre_evaluated_too.sno(2) : ERROR 121 -- len argume
+nt is negative or too large

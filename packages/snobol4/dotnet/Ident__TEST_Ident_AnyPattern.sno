@@ -1,0 +1,7 @@
+
+        a = ANY('abc')
+        b = a
+        IDENT(a,b)    :S(equ)
+        out = 'not identical'    :(END)
+equ     out = 'identical'
+end;END

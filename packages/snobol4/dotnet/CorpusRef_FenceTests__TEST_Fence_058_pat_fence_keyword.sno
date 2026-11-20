@@ -1,0 +1,6 @@
+*  058 - FENCE keyword (0-arg): matches null, aborts match on backtrack
+        X = 'AB'
+        X  LEN(1)  FENCE  LEN(2)                              :S(YES)F(NO)
+YES     OUTPUT = 'should not reach'                            :(END)
+NO      OUTPUT = 'aborted correctly'
+END

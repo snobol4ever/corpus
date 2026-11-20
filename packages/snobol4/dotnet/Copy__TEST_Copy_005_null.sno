@@ -1,0 +1,6 @@
+
+        B = COPY(A)
+        DIFFER(B, '')   :S(bad)
+        result = 'ok'   :(END)
+bad     result = 'bad'
+END

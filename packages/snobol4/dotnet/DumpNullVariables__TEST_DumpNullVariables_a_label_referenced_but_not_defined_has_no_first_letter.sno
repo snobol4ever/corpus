@@ -1,0 +1,4 @@
+        &ERRLIMIT = 5
+        X = 1  :F(NOLAB)
+        DUMP(3)
+END

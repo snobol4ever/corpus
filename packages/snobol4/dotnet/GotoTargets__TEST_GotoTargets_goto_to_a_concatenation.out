@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:26:19 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A :(L M)
+
+GotoTargets__TEST_GotoTargets_goto_to_a_concatenation.sno(1) : ERROR 212 -- syntax error: value used where name is requi
+red

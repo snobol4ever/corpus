@@ -1,0 +1,12 @@
+
+        line1 = 'these two strings are almost alike.'
+        line2 = "the two strings aren't alike."
+        word = BREAK(' .,') . w SPAN(' ,.')
+        string1 = line1 ' '                     :F(error)
+        string2 = ' ' line2 ' '                 :F(error)
+loop    string1 word =                          :F(out)
+        string2 ' ' w ANY(' .,')                :F(loop)
+        list = list w ', '                      :(loop)
+out
+END
+;END

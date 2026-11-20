@@ -1,0 +1,8 @@
+
+        PAT = 'hello'
+        X = 'hello world'
+        X *PAT . V                                                  :S(YES)
+        RESULT = 'fail'
+        :(END)
+YES     RESULT = V
+END

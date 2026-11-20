@@ -1,0 +1,4 @@
+        OUTPUT = 'before'
+        EXIT('exit 7')
+        OUTPUT = 'after'
+END

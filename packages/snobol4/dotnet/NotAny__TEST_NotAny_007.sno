@@ -1,0 +1,5 @@
+ 
+        A = NOTANY(*B)
+        B = '123' | 'ABC'
+        'ABCD3FG' A . R1
+END

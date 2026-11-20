@@ -1,0 +1,17 @@
+
+
+
+GotoErrors__TEST_GotoErrors_a_computed_goto_with_errlimit_is_followed_by_332.sno(2) : ERROR 038 -- goto undefined label
+
+
+
+
+
+in file              GotoErrors__TEST_GotoErrors_a_computed_goto_with_errlimit_is_followed_by_332.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11368
+memory left (bytes)  1037200

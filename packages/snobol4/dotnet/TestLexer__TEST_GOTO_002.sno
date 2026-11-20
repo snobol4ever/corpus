@@ -1,0 +1,6 @@
+
+        S = 'TEST1   A = 42   :(end)'
+        T = CODE(S)
+        :F(TEST)S(TEST1)
+TEST
+END

@@ -1,0 +1,8 @@
+        DEFINE('G()')   :(GO)
+G       OUTPUT = 'in G'
+        X = FOO(3)
+        OUTPUT = 'after error in G'  :(RETURN)
+GO      Y = EVAL('G()')  :F(OOPS)
+        OUTPUT = 'y=[' Y '] err ' &ERRTYPE  :(END)
+OOPS    OUTPUT = 'failed ' &ERRTYPE
+END

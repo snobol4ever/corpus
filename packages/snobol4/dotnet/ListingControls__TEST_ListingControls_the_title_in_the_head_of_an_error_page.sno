@@ -1,0 +1,4 @@
+-TITLE My title
+        A = (
+        OUTPUT = 'x'
+END

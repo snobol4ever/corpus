@@ -1,0 +1,6 @@
+
+        result = ?DIFFER('abc', 'xyz')   :F(failed)
+        result = 'success-path'          :(END)
+failed
+        result = 'failure-path'
+END

@@ -1,0 +1,8 @@
+        OUTPUT = 'ABORT ' DATATYPE(&ABORT) ' ' (IDENT(&ABORT, ABORT) 'same', 'different')
+        OUTPUT = 'ARB ' DATATYPE(&ARB) ' ' (IDENT(&ARB, ARB) 'same', 'different')
+        OUTPUT = 'BAL ' DATATYPE(&BAL) ' ' (IDENT(&BAL, BAL) 'same', 'different')
+        OUTPUT = 'FAIL ' DATATYPE(&FAIL) ' ' (IDENT(&FAIL, FAIL) 'same', 'different')
+        OUTPUT = 'FENCE ' DATATYPE(&FENCE) ' ' (IDENT(&FENCE, FENCE) 'same', 'different')
+        OUTPUT = 'REM ' DATATYPE(&REM) ' ' (IDENT(&REM, REM) 'same', 'different')
+        OUTPUT = 'SUCCEED ' DATATYPE(&SUCCEED) ' ' (IDENT(&SUCCEED, SUCCEED) 'same', 'different')
+END

@@ -1,0 +1,21 @@
+        &ERRLIMIT = 1000
+        &TRIM = 0
+        S = 'abc'
+        P = LEN(2)
+        TT = TABLE()
+        T = TABLE(5)
+        X = PROTOTYPE(T)
+        OUTPUT = DATATYPE(X) ' ' X
+        T = TABLE()
+        X = PROTOTYPE(T)
+        OUTPUT = DATATYPE(X) ' ' X
+        T = TABLE(1.5)
+        X = PROTOTYPE(T)
+        OUTPUT = DATATYPE(X) ' ' X
+        T = TABLE('7')
+        X = PROTOTYPE(T)
+        OUTPUT = DATATYPE(X) ' ' X
+        T = TABLE(0)
+        X = PROTOTYPE(T)
+        OUTPUT = DATATYPE(X) ' ' X
+END

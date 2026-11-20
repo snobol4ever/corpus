@@ -1,0 +1,20 @@
+
+        DEFINE('PUSH(X)')
+        DEFINE('POP()')
+        DEFINE('TOP()')
+        DATA('LINK(LNEXT,LVALUE)')
+                                                    :(PUSH_END)
+PUSH    PUSH_POP  =  LINK(PUSH_POP, X)
+        PUSH  =  .LVALUE(PUSH_POP)                 :(NRETURN)
+POP     IDENT(PUSH_POP)                            :S(FRETURN)
+        POP  =  LVALUE(PUSH_POP)
+        PUSH_POP  =  LNEXT(PUSH_POP)              :(RETURN)
+TOP     IDENT(PUSH_POP)                            :S(FRETURN)
+        TOP  =  .LVALUE(PUSH_POP)                  :(NRETURN)
+PUSH_END
+
+        PUSH(10)
+        PUSH(20)
+        PUSH(30)
+        OUTPUT = POP() + POP() + POP()
+END

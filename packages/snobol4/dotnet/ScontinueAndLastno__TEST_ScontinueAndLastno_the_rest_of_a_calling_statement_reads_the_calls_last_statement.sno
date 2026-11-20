@@ -1,0 +1,9 @@
+        DEFINE('G()')
+        X = G() ' ' &LASTNO
+        OUTPUT = X
+        OUTPUT = 'next ' &LASTNO
+        :(END)
+G       Z = 5
+        G = 'g'
+        :(RETURN)
+END

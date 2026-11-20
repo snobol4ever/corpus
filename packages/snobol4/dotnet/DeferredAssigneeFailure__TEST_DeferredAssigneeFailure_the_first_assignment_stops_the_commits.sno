@@ -1,0 +1,5 @@
+        &ERRLIMIT = 5
+        'abc' ('a' . *FOO() 'b' . X)  :S(YES)F(NO)
+YES     OUTPUT = 'S err ' &ERRTYPE ' X=[' X ']'  :(END)
+NO      OUTPUT = 'F err ' &ERRTYPE ' X=[' X ']'
+END

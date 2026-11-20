@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:51:14 2026
+
+
+
+                                                                                                                page 1
+
+2       test a = b
+
+TestLexer__TEST_217_001.sno(2) : ERROR 217 -- syntax error: duplicate label

@@ -1,0 +1,3 @@
+
+        R = (INTEGER('65.0') 'yes', 'no') ' ' (INTEGER(65.0) 'yes', 'no') ' ' (INTEGER('65') 'yes', 'no')
+END

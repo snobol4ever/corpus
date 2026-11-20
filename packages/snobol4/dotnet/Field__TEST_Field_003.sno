@@ -1,0 +1,6 @@
+
+        DATA('PAIR(A,B)')
+        FIELD('PAIR', 3)   :S(bad)
+        result = 'ok'      :(END)
+bad     result = 'fail'
+END

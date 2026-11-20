@@ -1,0 +1,19 @@
+
+        R = EVAL('4 :(L)') 'succ'                        :S(A)
+        R = 'fail ' &ERRTYPE
+A       S = EVAL(' B = 4 :S(OK)F(NO);END') 'succ'        :S(B)
+        S = 'fail ' &ERRTYPE
+B       T = EVAL('4; 5') 'succ'                          :S(C)
+        T = 'fail ' &ERRTYPE
+C       U = EVAL('4 + ; ') 'succ'                        :S(D)
+        U = 'fail ' &ERRTYPE
+D       V = EVAL('(4 :(L))') 'succ'                      :S(E)
+        V = 'fail ' &ERRTYPE
+E       W = EVAL("'a:b;c'")
+        &ERRLIMIT = 10
+        X = EVAL('4 ;') 'succ'                           :S(F)
+        X = 'error ' &ERRTYPE
+F       Y = EVAL(':') 'succ'                             :S(G)
+        Y = 'error ' &ERRTYPE
+G
+END

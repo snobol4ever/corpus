@@ -1,0 +1,6 @@
+-TITLE T
+        A = 1
+-LIST
+        B = 2
+        OUTPUT = 'x'
+END

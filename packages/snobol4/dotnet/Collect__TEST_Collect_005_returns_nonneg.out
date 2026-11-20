@@ -1,0 +1,37 @@
+
+
+
+dump of natural variables
+
+c1 = 129523
+c2 = 129530
+result = 'ok'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'Collect__TEST_Collect_005_returns_nonneg.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Collect__TEST_Collect_005_returns_nonneg.sno'
+&LASTLINE = 6
+&LASTNO = 6
+&LINE = 8
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 6
+&STLIMIT = 2147483647
+&STNO = 8
+&TRACE = 0
+&TRIM = 1

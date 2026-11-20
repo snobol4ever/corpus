@@ -1,0 +1,17 @@
+
+
+
+InputOutput__TEST_114_001.sno(1) : ERROR 114 -- inappropriate second argument for input
+
+
+
+
+
+in file              InputOutput__TEST_114_001.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11376
+memory left (bytes)  1037192

@@ -1,0 +1,13 @@
+	&ERRLIMIT = 5
+	ABC = 'hello'
+	DEFINE('H()')	:(M)
+H	H = TABLE()	:(NRETURN)
+M	X = H()	:F(F1)
+	OUTPUT = 'ok ' DATATYPE(X) ' [' X ']'
+	Y = APPLY('H')	:F(F2)
+	OUTPUT = 'apply ok'	:(END)
+F1	OUTPUT = 'failed ' &ERRTYPE
+	Y = APPLY('H')	:F(F2)
+	OUTPUT = 'apply ok'	:(END)
+F2	OUTPUT = 'apply failed ' &ERRTYPE
+END

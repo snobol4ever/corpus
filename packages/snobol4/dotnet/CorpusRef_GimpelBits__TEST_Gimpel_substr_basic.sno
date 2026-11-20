@@ -1,0 +1,6 @@
+
+        S = 'hello world'
+        OUTPUT = SUBSTR(S, 1, 5)
+        OUTPUT = SUBSTR(S, 7, 5)
+        OUTPUT = SUBSTR(S, 7)
+END

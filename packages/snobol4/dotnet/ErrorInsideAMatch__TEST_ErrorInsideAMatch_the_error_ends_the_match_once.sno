@@ -1,0 +1,20 @@
+        &ERRLIMIT = 10
+        'ykm' ? (LEN(1) $ X) SPAN(*Y)               :S(Y1)
+        OUTPUT = '1 F X=' X ' lim=' &ERRLIMIT ' t=' &ERRTYPE :(E1)
+Y1      OUTPUT = '1 S X=' X
+E1      X =
+        'ykm' ? (LEN(1) $ X) LEN(*'z')              :S(Y2)
+        OUTPUT = '2 F X=' X ' lim=' &ERRLIMIT ' t=' &ERRTYPE :(E2)
+Y2      OUTPUT = '2 S X=' X
+E2      X =
+        'ykm' ? (LEN(1) . X) SPAN(*Y)               :S(Y3)
+        OUTPUT = '3 F X=' X ' lim=' &ERRLIMIT ' t=' &ERRTYPE :(E3)
+Y3      OUTPUT = '3 S X=' X
+E3      X =
+        'ykm' ? (LEN(1) $ X) ('q' | SPAN(*Y))       :S(Y4)
+        OUTPUT = '4 F X=' X ' lim=' &ERRLIMIT ' t=' &ERRTYPE :(E4)
+Y4      OUTPUT = '4 S X=' X
+E4      R = EVAL("'ykm' ? (LEN(1) $ X) SPAN(*Y)")    :S(Y5)
+        OUTPUT = '5 F X=' X ' lim=' &ERRLIMIT ' t=' &ERRTYPE :(END)
+Y5      OUTPUT = '5 S X=' X
+END

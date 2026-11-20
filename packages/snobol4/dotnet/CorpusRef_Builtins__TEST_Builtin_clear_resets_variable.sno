@@ -1,0 +1,10 @@
+
+        A = 'hello'
+        B = 42
+        CLEAR('OUTPUT')
+        IDENT(A, '')                                :S(ok1)
+        OUTPUT = 'FAIL: A not cleared'              :(END)
+ok1     IDENT(B, '')                                :S(ok2)
+        OUTPUT = 'FAIL: B not cleared'              :(END)
+ok2     OUTPUT = 'PASS'
+END

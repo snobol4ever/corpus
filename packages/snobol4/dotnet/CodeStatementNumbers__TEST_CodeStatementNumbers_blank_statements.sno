@@ -1,0 +1,17 @@
+ X = 1 ; 
+ OUTPUT = &STNO
+ X = 1 ; ; Y = 2
+ OUTPUT = &STNO
+ 
+ OUTPUT = &STNO
+
+ OUTPUT = &STNO
+ X = 1 ;
+ OUTPUT = &STNO
+ C1 = CODE(' A = &STNO :(R1) ; ; ')  :[C1]
+R1 OUTPUT = A
+ C2 = CODE(' ; A = &STNO :(R2)')  :[C2]
+R2 OUTPUT = A
+ C3 = CODE(' A = &STNO :(R3) ;')  :[C3]
+R3 OUTPUT = A
+END

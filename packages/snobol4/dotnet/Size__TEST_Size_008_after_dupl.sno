@@ -1,0 +1,3 @@
+
+        r = SIZE(DUPL('ab', 3))
+END

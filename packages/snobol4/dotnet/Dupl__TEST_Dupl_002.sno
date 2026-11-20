@@ -1,0 +1,7 @@
+
+        P = 'A' | '1'
+        R = DUPL(P, 5)
+        '11111' R . R1
+        '1A1A1' R . R2
+        'AAAAA' R . R3
+END

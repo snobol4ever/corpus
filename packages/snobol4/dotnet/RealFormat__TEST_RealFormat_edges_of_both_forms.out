@@ -1,0 +1,36 @@
+
+
+
+dump of natural variables
+
+R = ' 0.15e-2 0.999e-1 0.1 999999999999999. 100000000000000. 0.123456789012346e+17 -0.1e-19 0.1e+101 0.25e-299 0. 3. 1.2
+5 0.7 123.456 999999999999999. 0.999999999999999 1.'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'RealFormat__TEST_RealFormat_edges_of_both_forms.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'RealFormat__TEST_RealFormat_edges_of_both_forms.sno'
+&LASTLINE = 18
+&LASTNO = 18
+&LINE = 19
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 18
+&STLIMIT = 2147483647
+&STNO = 19
+&TRACE = 0
+&TRIM = 1

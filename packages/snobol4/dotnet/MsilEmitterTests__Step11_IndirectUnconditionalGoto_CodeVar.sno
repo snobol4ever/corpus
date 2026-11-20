@@ -1,0 +1,5 @@
+        N = 0
+        dest = CODE(' N = 42 :(end)')
+        :[dest]
+        N = 99
+END

@@ -1,0 +1,17 @@
+
+
+
+Define__TEST_Define_007_error_inside_function_ends_program.sno(3) : ERROR 022 -- undefined function called
+
+
+
+
+
+in file              Define__TEST_Define_007_error_inside_function_ends_program.sno
+in line              3
+in statement         3
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11608
+memory left (bytes)  1036960

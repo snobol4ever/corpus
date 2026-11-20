@@ -1,0 +1,17 @@
+
+
+
+Assign__TEST_Assign_IA.sno(1) : ERROR 021 -- function called by name returned a value
+
+
+
+
+
+in file              Assign__TEST_Assign_IA.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11320
+memory left (bytes)  1037248

@@ -1,0 +1,3 @@
+-LIST 'abc
+        OUTPUT = 'x'
+END

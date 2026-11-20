@@ -1,0 +1,9 @@
+        &ERRLIMIT = 1
+        I = 0
+L       I = I + 1
+        LT(I,10)   :S(L)
+        &STLIMIT = 25
+        J = 0
+M       J = J + 1   :S(M)F(X)
+X       OUTPUT = 'j ' J ' type ' &ERRTYPE
+END

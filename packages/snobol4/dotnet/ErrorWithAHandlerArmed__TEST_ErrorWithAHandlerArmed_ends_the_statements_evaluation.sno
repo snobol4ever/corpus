@@ -1,0 +1,20 @@
+        &ERRLIMIT = 10
+        A = 'f'
+        V = ~$Q                                     :S(Y0)
+        OUTPUT = '0 F ' &ERRTYPE                    :(E0)
+Y0      OUTPUT = '0 S ' &ERRTYPE ' [' V ']'
+E0      SETEXIT('H1')
+        V = 'a' + ~$Q                               :S(Y1)
+        OUTPUT = '1 F ' &ERRTYPE                    :(E1)
+Y1      OUTPUT = '1 S'                              :(E1)
+H1      OUTPUT = '1 H ' &ERRTYPE
+E1      SETEXIT('H2')
+        V = (-A, (Y = 2))                           :S(Y2)
+        OUTPUT = '2 F ' &ERRTYPE ' Y=' Y            :(E2)
+Y2      OUTPUT = '2 S Y=' Y                         :(E2)
+H2      OUTPUT = '2 H ' &ERRTYPE ' Y=' Y
+E2      V = (-A, (Y = 3))                           :S(Y3)
+        OUTPUT = '3 F ' &ERRTYPE ' Y=' Y            :(E3)
+Y3      OUTPUT = '3 S Y=' Y
+E3
+END

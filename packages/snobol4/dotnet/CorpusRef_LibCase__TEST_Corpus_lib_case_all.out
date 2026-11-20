@@ -1,0 +1,7 @@
+hello world
+HELLO WORLD
+Hello world
+ok: icase hello
+ok: icase HELLO
+ok: icase HeLLo
+no match ok

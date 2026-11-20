@@ -1,0 +1,17 @@
+
+
+
+Ord__TEST_Ord_codes_failure_and_error__2.sno(2) : ERROR 333 -- ord argument is not a string
+
+
+
+
+
+in file              Ord__TEST_Ord_codes_failure_and_error__2.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11296
+memory left (bytes)  1037272

@@ -1,0 +1,6 @@
+
+        a = ARRAY(100)
+        t = TABLE(50)
+        COLLECT()
+        result = 'ok'
+END

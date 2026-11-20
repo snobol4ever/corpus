@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:53:29 2026
+
+
+
+                                                                                                                page 1
+
+1        A ** :(end)
+              !
+TestLexer__TEST_221_001.sno(1,7) : ERROR 221 -- syntax error: missing operand

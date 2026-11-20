@@ -1,0 +1,17 @@
+
+
+
+Clear__TEST_Clear_005.sno(9) : ERROR 071 -- clear argument is not a string
+
+
+
+
+
+in file              Clear__TEST_Clear_005.sno
+in line              9
+in statement         9
+stmts executed       7
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13864
+memory left (bytes)  1034704

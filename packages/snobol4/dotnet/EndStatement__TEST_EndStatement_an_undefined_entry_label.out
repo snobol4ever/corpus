@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:09:28 2026
+
+
+
+                                                                                                                page 1
+
+2       END X
+            !
+EndStatement__TEST_EndStatement_an_undefined_entry_label.sno(2,5) : ERROR 215 -- syntax error: undefined or erroneous en
+try label

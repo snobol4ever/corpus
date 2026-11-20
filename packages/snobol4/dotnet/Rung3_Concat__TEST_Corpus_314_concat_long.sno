@@ -1,0 +1,13 @@
+
+        a = 'hello'
+        b = ' '
+        c = 'world'
+        r = a b c
+        DIFFER(r, 'hello world')                   :F(e001)
+        OUTPUT = 'FAIL 314/001: 3-part concat via vars'   :(END)
+e001
+        DIFFER(SIZE(r), 11)                   :F(e002)
+        OUTPUT = 'FAIL 314/002: size of concat result'    :(END)
+e002
+        OUTPUT = 'PASS 314_concat_long (2/2)'
+END

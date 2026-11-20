@@ -1,0 +1,5 @@
+
+        R1 = SIZE(&ALPHABET)
+        R2 = SIZE(&UCASE)
+        R3 = SIZE(&LCASE)
+END

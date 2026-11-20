@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:35:28 2026
+
+
+
+                                                                                                                page 1
+
+1               X = @.Y
+
+NameRequired__TEST_NameRequired_a_name_taken_as_a_value_is_no_name.sno(1) : ERROR 212 -- syntax error: value used where 
+name is required

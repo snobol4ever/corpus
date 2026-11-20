@@ -1,0 +1,4 @@
+        A = ARRAY(3)
+        A [1] = 'x'
+        OUTPUT = A [1]
+END

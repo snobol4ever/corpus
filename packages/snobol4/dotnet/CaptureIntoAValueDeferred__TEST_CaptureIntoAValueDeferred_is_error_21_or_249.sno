@@ -1,0 +1,26 @@
+        &ERRLIMIT = 10
+        DEFINE('h(n)')                              :(he)
+h       h = n + 1                                   :(RETURN)
+he      DEFINE('k()')                               :(ke)
+k       k = .Q                                      :(NRETURN)
+ke      'ab' ? LEN(1) . *h(2)                       :S(Y1)
+        OUTPUT = '1 F ' &ERRTYPE ' ' &ERRLIMIT      :(E1)
+Y1      OUTPUT = '1 S'
+E1      'ab' ? LEN(1) $ *SIZE('a')                  :S(Y2)
+        OUTPUT = '2 F ' &ERRTYPE ' ' &ERRLIMIT      :(E2)
+Y2      OUTPUT = '2 S'
+E2      'ab' ? LEN(1) . *('a' 'b')                  :S(Y3)
+        OUTPUT = '3 F ' &ERRTYPE ' ' &ERRLIMIT      :(E3)
+Y3      OUTPUT = '3 S'
+E3      'ab' ? @*h(2)                               :S(Y4)
+        OUTPUT = '4 F ' &ERRTYPE ' ' &ERRLIMIT      :(E4)
+Y4      OUTPUT = '4 S'
+E4      'ab' ? LEN(1) . *k()                        :S(Y5)
+        OUTPUT = '5 F ' &ERRTYPE                    :(E5)
+Y5      OUTPUT = '5 S ' Q
+E5      &ERRTYPE = 0
+        &ERRLIMIT = 0
+        'ab' ? LEN(1) . *'abc'                      :S(Y6)
+        OUTPUT = '6 F ' &ERRTYPE ' ' &ERRLIMIT      :(END)
+Y6      OUTPUT = '6 S'
+END

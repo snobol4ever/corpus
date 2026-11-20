@@ -1,0 +1,5 @@
+        DEFINE('F()')   :(M)
+F       OUTPUT = 'in f'   :(return)
+M       F()
+        OUTPUT = 'after'
+END

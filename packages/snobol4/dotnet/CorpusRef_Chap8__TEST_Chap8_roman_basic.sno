@@ -1,0 +1,12 @@
+
+        DEFINE('Roman(n)units')
+        RomanXlat   =  '0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,'      :(RomanEnd)
+Roman   n           RPOS(1) LEN(1) . units =                            :F(RETURN)
+        RomanXlat   units BREAK(',') . units                            :F(FRETURN)
+        Roman       =  REPLACE(Roman(n), 'IVXLCDM', 'XLCDM**') units   :S(RETURN)F(FRETURN)
+RomanEnd
+        OUTPUT = Roman(4)
+        OUTPUT = Roman(9)
+        OUTPUT = Roman(14)
+        OUTPUT = Roman(42)
+END

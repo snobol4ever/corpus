@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:35:30 2026
+
+
+
+                                                                                                                page 1
+
+2               X + 1 = 2
+
+NameRequired__TEST_NameRequired_an_arithmetic_result_as_target.sno(2) : ERROR 212 -- syntax error: value used where name
+ is required

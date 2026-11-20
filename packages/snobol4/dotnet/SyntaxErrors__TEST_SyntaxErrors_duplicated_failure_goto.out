@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:46 2026
+
+
+
+                                                                                                                page 1
+
+1               X = A :F(L)F(M)
+                              !
+SyntaxErrors__TEST_SyntaxErrors_duplicated_failure_goto.sno(1,23) : ERROR 218 -- syntax error: duplicated goto field

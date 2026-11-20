@@ -1,0 +1,25 @@
+        &ERRLIMIT = 10
+        V = CONVERT('[]', 'EXPRESSION')             :S(Y1)
+        OUTPUT = '1 F t=' &ERRTYPE ' lim=' &ERRLIMIT :(E1)
+Y1      OUTPUT = '1 S ' DATATYPE(V)
+E1      V = EVAL('[]')                              :S(Y2)
+        OUTPUT = '2 F t=' &ERRTYPE ' lim=' &ERRLIMIT :(E2)
+Y2      OUTPUT = '2 S ' DATATYPE(V)
+E2      V = CONVERT('', 'EXPRESSION')               :S(Y3)
+        OUTPUT = '3 F t=' &ERRTYPE ' lim=' &ERRLIMIT :(E3)
+Y3      OUTPUT = '3 S ' DATATYPE(V) ' [' EVAL(V) ']'
+E3      V = CONVERT('1 +', 'EXPRESSION')            :S(Y4)
+        OUTPUT = '4 F t=' &ERRTYPE ' lim=' &ERRLIMIT :(E4)
+Y4      OUTPUT = '4 S ' DATATYPE(V)
+E4      SETEXIT('TRAP')
+        V = CONVERT('(', 'EXPRESSION')              :S(Y5)
+        OUTPUT = '5 F t=' &ERRTYPE ' lim=' &ERRLIMIT :(E5)
+Y5      OUTPUT = '5 S ' DATATYPE(V)                 :(E5)
+TRAP    OUTPUT = '5 TRAP t=' &ERRTYPE ' lim=' &ERRLIMIT :(E5)
+E5      V = CODE(' X = [')                          :S(Y6)
+        OUTPUT = '6 F t=' &ERRTYPE ' lim=' &ERRLIMIT :(E6)
+Y6      OUTPUT = '6 S'
+E6      V = CONVERT(' X = [', 'CODE')               :S(Y7)
+        OUTPUT = '7 F t=' &ERRTYPE ' lim=' &ERRLIMIT :(END)
+Y7      OUTPUT = '7 S'
+END

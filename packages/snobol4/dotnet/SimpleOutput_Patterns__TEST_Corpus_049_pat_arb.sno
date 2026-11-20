@@ -1,0 +1,7 @@
+
+        X = 'ab12cd'
+        X ARB SPAN('0123456789') . V                                :S(YES)
+        RESULT = 'fail'
+        :(END)
+YES     RESULT = V
+END

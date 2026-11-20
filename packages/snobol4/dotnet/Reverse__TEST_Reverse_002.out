@@ -1,0 +1,17 @@
+
+
+
+Reverse__TEST_Reverse_002.sno(3) : ERROR 177 -- reverse argument is not a string
+
+
+
+
+
+in file              Reverse__TEST_Reverse_002.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13416
+memory left (bytes)  1035152

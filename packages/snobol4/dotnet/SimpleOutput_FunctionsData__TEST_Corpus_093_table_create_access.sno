@@ -1,0 +1,9 @@
+
+        T = TABLE()
+        T['name'] = 'Alice'
+        T['age'] = 30
+        T['lang'] = 'SNOBOL4'
+        R1 = T['name']
+        R2 = T['age']
+        R3 = T['lang']
+END

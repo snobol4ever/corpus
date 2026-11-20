@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:54:25 2026
+
+
+
+                                                                                                                page 1
+
+1       	B A(;end
+        	    !
+TestLexer__TEST_226_001.sno(1,6) : ERROR 226 -- syntax error: missing right paren

@@ -1,0 +1,4 @@
+* comment
++ 'b'
+ OUTPUT = 'x'
+END

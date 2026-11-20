@@ -1,0 +1,10 @@
+1 [nameX] []
+2 [] [strY]
+3 [el1] [] []
+4 [] [] []
+5 [deferred] [] [el1]
+6 NAME nameX
+6 STRING strY
+6 NAME el1
+6 NAME kw
+6 NAME deferred

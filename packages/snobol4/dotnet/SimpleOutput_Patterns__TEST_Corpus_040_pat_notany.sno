@@ -1,0 +1,7 @@
+
+        X = 'hello'
+        X NOTANY('aeiou') . V                                       :S(YES)
+        RESULT = 'all vowels'
+        :(END)
+YES     RESULT = V
+END

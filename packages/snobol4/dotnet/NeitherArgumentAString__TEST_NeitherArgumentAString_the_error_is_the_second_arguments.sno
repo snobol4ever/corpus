@@ -1,0 +1,28 @@
+        &ERRLIMIT = 30
+        P = ANY('bcd')
+        T = TABLE()
+        &ERRTYPE = 0
+        LEQ(P, T)
+        OUTPUT = 'LEQ ' &ERRTYPE
+        &ERRTYPE = 0
+        LGE(P, T)
+        OUTPUT = 'LGE ' &ERRTYPE
+        &ERRTYPE = 0
+        LGT(P, T)
+        OUTPUT = 'LGT ' &ERRTYPE
+        &ERRTYPE = 0
+        LLE(P, T)
+        OUTPUT = 'LLE ' &ERRTYPE
+        &ERRTYPE = 0
+        LLT(P, T)
+        OUTPUT = 'LLT ' &ERRTYPE
+        &ERRTYPE = 0
+        LNE(P, T)
+        OUTPUT = 'LNE ' &ERRTYPE
+        &ERRTYPE = 0
+        LGE(P, 'a')
+        OUTPUT = 'first ' &ERRTYPE
+        &ERRTYPE = 0
+        LGE('a', T)
+        OUTPUT = 'second ' &ERRTYPE
+END

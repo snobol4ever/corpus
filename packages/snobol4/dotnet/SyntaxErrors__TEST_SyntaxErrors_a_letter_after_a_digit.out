@@ -1,0 +1,13 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:33 2026
+
+
+
+                                                                                                                page 1
+
+1               X = 3A
+                    !
+SyntaxErrors__TEST_SyntaxErrors_a_letter_after_a_digit.sno(1,13) : ERROR 231 -- syntax error: invalid numeric item

@@ -1,0 +1,24 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:39:12 2026
+
+
+
+                                                                                                                page 1
+
+2               V = ?')' / *X
+
+PreEvaluation__TEST_PreEvaluation_an_interrogation_of_a_constant_is_the_null_string.sno(2) : ERROR 013 -- division right
+ operand is not numeric
+
+3               W = ?')' + 'x'
+
+PreEvaluation__TEST_PreEvaluation_an_interrogation_of_a_constant_is_the_null_string.sno(3) : ERROR 002 -- addition right
+ operand is not numeric
+
+4               Y = SIZE(?'a') + 'x'
+
+PreEvaluation__TEST_PreEvaluation_an_interrogation_of_a_constant_is_the_null_string.sno(4) : ERROR 002 -- addition right
+ operand is not numeric

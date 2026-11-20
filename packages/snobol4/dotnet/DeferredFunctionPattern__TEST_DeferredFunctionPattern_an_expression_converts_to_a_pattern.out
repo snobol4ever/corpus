@@ -1,0 +1,38 @@
+
+
+
+dump of natural variables
+
+E = *i
+M = 'q'
+R = 'EXPRESSION PATTERN PATTERN q'
+X = 'q'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'DeferredFunctionPattern__TEST_DeferredFunctionPattern_an_expression_converts_to_a_pattern.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'DeferredFunctionPattern__TEST_DeferredFunctionPattern_an_expression_converts_to_a_pattern.sno'
+&LASTLINE = 5
+&LASTNO = 5
+&LINE = 6
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 6
+&STLIMIT = 2147483647
+&STNO = 6
+&TRACE = 0
+&TRIM = 1

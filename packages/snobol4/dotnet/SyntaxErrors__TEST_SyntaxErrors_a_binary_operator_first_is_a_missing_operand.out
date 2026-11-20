@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:48:32 2026
+
+
+
+                                                                                                                page 1
+
+1               =
+                !
+SyntaxErrors__TEST_SyntaxErrors_a_binary_operator_first_is_a_missing_operand.sno(1,9) : ERROR 221 -- syntax error: missi
+ng operand

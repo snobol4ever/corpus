@@ -1,0 +1,6 @@
+        X = INPUT
+        OUTPUT = SIZE(X)
+        Y = INPUT                    :S(TWO)
+        OUTPUT = 'eof'               :(END)
+TWO     OUTPUT = 'second ' SIZE(Y)
+END

@@ -1,0 +1,6 @@
+
+        X = 'abcdef'
+        X LEN(3) . FIRST REM . REST
+        OUTPUT = FIRST
+        OUTPUT = REST
+END

@@ -1,0 +1,19 @@
+1
+
+
+
+CodeSourceLocation__TEST_CodeSourceLocation_an_error_in_CODE_is_reported_there.sno(5) : ERROR 038 -- goto undefined labe
+l
+
+
+
+
+
+in file              CodeSourceLocation__TEST_CodeSourceLocation_an_error_in_CODE_is_reported_there.sno
+in line              5
+in statement         6
+stmts executed       3
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  19624
+memory left (bytes)  1028944

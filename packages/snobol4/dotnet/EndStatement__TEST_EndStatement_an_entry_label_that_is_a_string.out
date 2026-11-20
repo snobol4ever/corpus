@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:09:20 2026
+
+
+
+                                                                                                                page 1
+
+2       END 'a'
+            !
+EndStatement__TEST_EndStatement_an_entry_label_that_is_a_string.sno(2,5) : ERROR 215 -- syntax error: undefined or erron
+eous entry label

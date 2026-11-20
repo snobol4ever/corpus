@@ -1,0 +1,14 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Thu Nov 19 18:08:35 2026
+
+
+
+                                                                                                                page 1
+
+3       END X,Y
+             !
+EndStatement__TEST_EndStatement_a_comma_after_the_entry_label.sno(3,6) : ERROR 215 -- syntax error: undefined or erroneo
+us entry label

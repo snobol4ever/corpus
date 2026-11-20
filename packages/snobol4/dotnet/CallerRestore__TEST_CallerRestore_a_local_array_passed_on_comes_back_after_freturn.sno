@@ -1,0 +1,11 @@
+
+        DEFINE('G(B)C')                   :(EG)
+G       C = COPY(B)
+        C[1] = 'child'
+        IDENT(B[1], 'top')                :F(FRETURN)
+        G(C)
+        R = B[1] ',' C[1]                 :(RETURN)
+EG      A = ARRAY(2)
+        A[1] = 'top'
+        G(A)
+END

@@ -1,0 +1,43 @@
+
+
+
+dump of natural variables
+
+A = ARRAY(2,2) #2
+E1 = 258
+E2 = 258
+E3 = 258
+R = 'none 258 none 258 none 258 b'
+T = TABLE(11) #1
+X = 'none'
+Y = 'none'
+Z = 'none'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 5
+&ERRTEXT = 'sort/rsort 2nd arg out of range or non-integer'
+&ERRTYPE = 258
+&FILE = 'Sort__TEST_Sort_a_column_out_of_range_is_error_258_and_fails.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'Sort__TEST_Sort_a_column_out_of_range_is_error_258_and_fails.sno'
+&LASTLINE = 18
+&LASTNO = 18
+&LINE = 19
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 18
+&STLIMIT = 2147483647
+&STNO = 19
+&TRACE = 0
+&TRIM = 1

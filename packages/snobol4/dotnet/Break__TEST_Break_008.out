@@ -1,0 +1,17 @@
+
+
+
+Break__TEST_Break_008.sno(5) : ERROR 069 -- break argument is not a string or expression
+
+
+
+
+
+in file              Break__TEST_Break_008.sno
+in line              5
+in statement         5
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11776
+memory left (bytes)  1036792

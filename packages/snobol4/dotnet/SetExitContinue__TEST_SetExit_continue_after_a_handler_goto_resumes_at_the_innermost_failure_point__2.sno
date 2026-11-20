@@ -1,0 +1,11 @@
+        &ERRLIMIT = 10000
+        N = 0
+        SETEXIT('ERR')
+LOOP    I = I + 1
+        Y = ~(1 / N)                        :S(S1)F(F1)
+S1      OUTPUT = 'succ ' I                  :(END)
+F1      OUTPUT = 'fail ' I                  :(END)
+ERR     LT(I, 3000)                         :F(ERR2)
+        SETEXIT('ERR')                      :(LOOP)
+ERR2    SETEXIT('ERR')                      :(CONTINUE)
+END

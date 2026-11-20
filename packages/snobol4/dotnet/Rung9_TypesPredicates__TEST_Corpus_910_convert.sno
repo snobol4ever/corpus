@@ -1,0 +1,15 @@
+
+        DIFFER(CONVERT('12', 'integer'), 12)                   :F(e001)
+        OUTPUT = 'FAIL 910/001: string->integer'        :(END)
+e001
+        DIFFER(CONVERT(2.5, 'integer'), 2)                   :F(e002)
+        OUTPUT = 'FAIL 910/002: real->integer truncation' :(END)
+e002
+        DIFFER(CONVERT(2, 'real'), 2.0)                   :F(e003)
+        OUTPUT = 'FAIL 910/003: integer->real'          :(END)
+e003
+        DIFFER(CONVERT('.2', 'real'), 0.2)                   :F(e004)
+        OUTPUT = 'FAIL 910/004: string->real'           :(END)
+e004
+        OUTPUT = 'PASS 910_convert (4/4)'
+END

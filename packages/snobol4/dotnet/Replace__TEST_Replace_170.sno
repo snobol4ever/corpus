@@ -1,0 +1,6 @@
+
+        a = 'abc' | 'def'
+        from = 'cb'
+        to = 'CB'
+        b = REPLACE(a,from, to)
+END

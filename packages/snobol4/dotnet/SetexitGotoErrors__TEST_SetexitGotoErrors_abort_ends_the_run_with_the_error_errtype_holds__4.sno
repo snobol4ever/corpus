@@ -1,0 +1,6 @@
+	&ERRLIMIT = 5
+	N = 0
+	Y = 1 / N
+	&ERRTYPE = 0
+	OUTPUT = 'here ' &ERRTYPE	:(ABORT)
+END

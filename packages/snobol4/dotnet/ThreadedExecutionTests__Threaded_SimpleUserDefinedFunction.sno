@@ -1,0 +1,6 @@
+
+        DEFINE('DOUBLE(N)')             :(DOUBLE_END)
+DOUBLE  DOUBLE = N + N                  :(RETURN)
+DOUBLE_END
+        R = DOUBLE(5)
+END

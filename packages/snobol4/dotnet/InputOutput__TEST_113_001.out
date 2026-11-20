@@ -1,0 +1,17 @@
+
+
+
+InputOutput__TEST_113_001.sno(2) : ERROR 113 -- input third argument is not a string
+
+
+
+
+
+in file              InputOutput__TEST_113_001.sno
+in line              2
+in statement         2
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11368
+memory left (bytes)  1037200

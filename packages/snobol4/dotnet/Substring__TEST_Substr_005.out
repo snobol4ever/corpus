@@ -1,0 +1,17 @@
+
+
+
+Substring__TEST_Substr_005.sno(3) : ERROR 192 -- substr third argument is not integer
+
+
+
+
+
+in file              Substring__TEST_Substr_005.sno
+in line              3
+in statement         3
+stmts executed       2
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11384
+memory left (bytes)  1037184

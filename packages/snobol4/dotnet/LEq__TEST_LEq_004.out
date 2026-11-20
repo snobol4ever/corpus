@@ -1,0 +1,17 @@
+
+
+
+LEq__TEST_LEq_004.sno(5) : ERROR 122 -- leq first argument is not a string
+
+
+
+
+
+in file              LEq__TEST_LEq_004.sno
+in line              5
+in statement         5
+stmts executed       4
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  13696
+memory left (bytes)  1034872

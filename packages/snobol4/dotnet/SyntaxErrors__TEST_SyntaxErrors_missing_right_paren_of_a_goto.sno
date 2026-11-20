@@ -1,0 +1,3 @@
+        X = A :(END
+        OUTPUT = 'x'
+END

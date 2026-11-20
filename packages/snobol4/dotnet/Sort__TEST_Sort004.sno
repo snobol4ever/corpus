@@ -1,0 +1,10 @@
+
+        a = ARRAY('5')
+        a[1] = 'LE1;K3'
+        a[2] = ')1B!M/'
+        a[3] = 'ZZZZZZ'
+        a[4] = 'AAAAAA'
+        a[5] = 'mmmmm'
+        b = SORT(a,1)
+        r = b[1] ' ' b[2] ' ' b[3] ' ' b[4] ' ' b[5]
+END

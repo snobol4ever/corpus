@@ -1,0 +1,8 @@
+
+        &ANCHOR = 1
+        subject = 'abXX'
+        p = 'ab' 'cd'
+        subject p :F(n)
+y       result = 'wrong'    :(END)
+n       result = 'correct'
+END

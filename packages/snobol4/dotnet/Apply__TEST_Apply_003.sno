@@ -1,0 +1,7 @@
+
+          a = 'gt'
+        b = 3
+        c = 1
+        r1 = GT(,b) 'success'
+        r2 = APPLY(,b) 'success'
+end;END

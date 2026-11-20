@@ -1,0 +1,5 @@
+
+        v = ARRAY('10')
+        $v = 'abc'
+        b = $v
+END

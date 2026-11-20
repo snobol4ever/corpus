@@ -1,0 +1,7 @@
+        DEFINE('G()')                  :(G_END)
+G       X = INPUT                      :F(END)
+        G = X                          :(RETURN)
+G_END   OUTPUT = 'got ' G()
+        OUTPUT = 'got ' G()
+        OUTPUT = 'after'
+END

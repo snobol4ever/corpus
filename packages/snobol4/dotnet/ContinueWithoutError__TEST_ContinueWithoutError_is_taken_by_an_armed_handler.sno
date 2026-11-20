@@ -1,0 +1,7 @@
+        &ERRLIMIT = 10
+        SETEXIT(.H)
+        :(CONTINUE)
+        OUTPUT = 'b'
+        :(END)
+H       OUTPUT = 'handler ' &ERRTYPE  :(CONTINUE)
+END

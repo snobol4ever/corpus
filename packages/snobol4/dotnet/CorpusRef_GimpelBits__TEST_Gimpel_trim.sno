@@ -1,0 +1,5 @@
+
+        OUTPUT = TRIM('  hello  ')
+        OUTPUT = TRIM('no spaces')
+        OUTPUT = SIZE(TRIM('   '))
+END

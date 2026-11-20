@@ -1,0 +1,17 @@
+
+
+
+CorpusRef_Csnobol4Suite__TEST_Csnobol4_setexit7.sno(1) : ERROR 251 -- keyword operand is not name of defined keyword
+
+
+
+
+
+in file              CorpusRef_Csnobol4Suite__TEST_Csnobol4_setexit7.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12840
+memory left (bytes)  1035728

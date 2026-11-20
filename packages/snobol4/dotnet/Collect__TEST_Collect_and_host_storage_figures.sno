@@ -1,0 +1,8 @@
+        &ERRLIMIT = 9
+        R = DATATYPE(COLLECT()) ' ' DATATYPE(COLLECT(100))
+        R = R DIFFER(COLLECT(100000000)) ' big'
+        X = COLLECT('a')
+        R = R ' ' &ERRTYPE ' ' HOST(-1,0) ' ' HOST(-1,1) ' ' HOST(-1,6)
+        X = HOST(-1,-1)
+        R = R ' ' &ERRTYPE
+END

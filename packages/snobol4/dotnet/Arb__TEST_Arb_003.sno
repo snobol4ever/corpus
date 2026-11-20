@@ -1,0 +1,8 @@
+
+        &ANCHOR = 0
+        subject = 'MOUNTAIN'
+        pattern = 'O' ARB . test 'U'
+        subject pattern      :S(y)F(n)
+y       result = 'success'   :(END)
+n       result = 'fail' 
+END

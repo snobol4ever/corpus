@@ -1,0 +1,19 @@
+        &ERRLIMIT = 10
+        DEFINE('h(n)')                              :(he)
+h       h = n + 1                                   :(RETURN)
+he      P = LEN(1) . h(2)                           :S(Y1)
+        OUTPUT = '1 F ' &ERRTYPE ' ' DATATYPE(P)    :(E1)
+Y1      OUTPUT = '1 S ' DATATYPE(P)
+E1      P = 'x'
+        P = LEN(1) $ h(2)                           :S(Y2)
+        OUTPUT = '2 F ' &ERRTYPE ' ' DATATYPE(P)    :(E2)
+Y2      OUTPUT = '2 S ' DATATYPE(P)
+E2      P = 'x'
+        P = @h(2)                                   :S(Y3)
+        OUTPUT = '3 F ' &ERRTYPE ' ' DATATYPE(P)    :(E3)
+Y3      OUTPUT = '3 S ' DATATYPE(P)
+E3      V = EVAL("'ab' ? @h(2)")                    :S(Y4)
+        OUTPUT = '4 F ' &ERRTYPE                    :(E4)
+Y4      OUTPUT = '4 S'
+E4
+END

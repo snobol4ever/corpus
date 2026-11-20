@@ -1,0 +1,9 @@
+
+        dog = 'kharma'
+        dog
+        a = .dog
+        DATATYPE(a)
+        b = $.dog
+        c = .$dog
+        
+END
