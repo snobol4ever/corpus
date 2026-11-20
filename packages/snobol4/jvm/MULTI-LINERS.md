@@ -40455,6 +40455,10 @@ END
 hello
 ```
 
+```stdout
+failed
+```
+
 ## core_test__tab-fails-when-the-cursor-is-already-past-its-target
 
 ```SNOBOL4
@@ -41777,6 +41781,13 @@ ab
 cdefgh
 ```
 
+```stdout
+[ab]
+[cdef]
+eof
+to stdout
+```
+
 ## core_test__convert-a-real-to-integer-follows-sbl
 
 ```SNOBOL4
@@ -42940,6 +42951,54 @@ first line
 second line
 ```
 
+```stdout
+written to out
+last
+
+
+
+dump of natural variables
+
+IN = 'first line'
+INPUT = 'second line'
+OUT = 'written to out'
+OUTPUT = 'last'
+X = 'first line'
+Y = 'second line'
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 'core_test__a-dump-lists-associated-variables-with-their-last-records.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'core_test__a-dump-lists-associated-variables-with-their-last-records.sno'
+&LASTLINE = 7
+&LASTNO = 7
+&LINE = 8
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 8
+&STLIMIT = 2147483647
+&STNO = 8
+&TRACE = 0
+&TRIM = 1
+
+
+
+```
+
 ## core_test__endfile-of-a-null-or-closed-unit-is-97-or-98
 
 ```SNOBOL4
@@ -43120,6 +43179,15 @@ bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 short
+```
+
+```stdout
+1024 aaa
+1024 bbb
+1024 ccc
+1024 ddd
+5 sho
+eof
 ```
 
 ## core_test__a-label-may-hold-any-character-but-a-blank
@@ -44081,6 +44149,13 @@ a
 b
 ```
 
+```stdout
+got a
+got 
+got b
+eof
+```
+
 ## core_test__input-at-end-of-file-fails__2
 
 ```SNOBOL4
@@ -44091,6 +44166,10 @@ END
 ```
 
 ```stdin
+```
+
+```stdout
+eof
 ```
 
 ## core_test__a-keyword-is-a-capture-target
@@ -44145,6 +44224,16 @@ c
 d e  
 ```
 
+```stdout
+[a]
+[b]
+[c]
+[]
+[]
+[d e]
+&TRIM=1
+```
+
 ## core_test__input-records-lose-their-trailing-blanks-while-trim-is-set__2
 
 ```SNOBOL4
@@ -44162,6 +44251,16 @@ c
    
 
 d e  
+```
+
+```stdout
+[a   ]
+[b	]
+[c 	 ]
+[   ]
+[]
+[d e  ]
+&TRIM=0
 ```
 
 ## core_test__integer-is-a-predicate
@@ -44476,6 +44575,10 @@ END
 one
 two
 three
+```
+
+```stdout
+[one] [two] [three]
 ```
 
 ## core_test__a-character-set-argument-is-checked-and-its-error-ends-the-match
@@ -49852,6 +49955,14 @@ ab
 cdefgh
 ```
 
+```stdout
+10
+ab
+cdefgh
+
+eof
+```
+
 ## core_test__binary-query-is-left-associative
 
 ```SNOBOL4
@@ -51238,6 +51349,16 @@ END
 ```stdin
 ab
 cdefgh
+```
+
+```stdout
+[ab
+]
+[cde]
+[fgh]
+[
+]
+eof
 ```
 
 ## core_test__a-function-name-keeps-its-case
@@ -52723,6 +52844,15 @@ two
 ```stdin
 abc
 def
+```
+
+```stdout
+1 [abc]
+2 [on]
+3 fails 116
+4 fails 116
+5 fails 0
+6 fails 116
 ```
 
 ## core_test__a-bare-fence-is-a-pattern
@@ -63794,7 +63924,8 @@ ntinuation line
 ## test_spitbol_rules_1118__a-carriage-return-is-a-character-of-its-line__4
 
 ```SNOBOL4
-        X = 'ab'
+        X = 'a
+b'
         OUTPUT = SIZE(X)
 END
 ```
