@@ -1,0 +1,8 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,delphi-1018,delphi-1018.pas,pascal_bottles99__delphi-1018,pascal_bottles99,36,0,131072,4096,60,,fpc
+2,delphi-211,delphi-211.pas,pascal_bottles99__delphi-211,pascal_bottles99,25,0,131072,4096,60,,fpc
+3,free-pascal-270,free-pascal-270.pas,pascal_bottles99__free-pascal-270,pascal_bottles99,17,0,131072,4096,60,,iso
+4,irie-pascal-337,irie-pascal-337.pas,pascal_bottles99__irie-pascal-337,pascal_bottles99,21,0,131072,4096,60,,fpc
+5,pascal-1067,pascal-1067.pas,pascal_bottles99__pascal-1067,pascal_bottles99,33,0,131072,4096,60,,iso
+6,portable-iso-standard-pascal-554,portable-iso-standard-pascal-554.pas,pascal_bottles99__portable-iso-standard-pascal-554,pascal_bottles99,12,0,131072,4096,60,,iso
+7,turbo-pascal-471,turbo-pascal-471.pas,pascal_bottles99__turbo-pascal-471,pascal_bottles99,25,0,131072,4096,60,,fpc

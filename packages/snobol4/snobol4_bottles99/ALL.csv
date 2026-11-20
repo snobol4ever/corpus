@@ -1,0 +1,6 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,snobol-2051,snobol-2051.sno,snobol4_bottles99__snobol-2051,snobol4_bottles99,32,0,131072,4096,60,
+2,snobol-602,snobol-602.sno,snobol4_bottles99__snobol-602,snobol4_bottles99,13,0,131072,4096,60,
+3,spitbol-1572,spitbol-1572.sno,snobol4_bottles99__spitbol-1572,snobol4_bottles99,8,0,131072,4096,60,
+4,spitbol-1573,spitbol-1573.sno,snobol4_bottles99__spitbol-1573,snobol4_bottles99,13,0,131072,4096,60,
+5,spitbol-606,spitbol-606.sno,snobol4_bottles99__spitbol-606,snobol4_bottles99,16,0,131072,4096,60,

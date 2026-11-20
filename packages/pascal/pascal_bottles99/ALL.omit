@@ -1,0 +1,8 @@
+delphi-210.pas: ORACLE-REFUSES: fpc and gpc compile it in no mode of the ladder; the last says: delphi-210.pas:4: error: module/unit `windows' could not be compiled
+delphi-861.pas: LIBRARY: the source names unit Singers;
+delphi-864.pas: LIBRARY: the source names unit Singers;
+delphi-867.pas: LIBRARY: the source names unit Singers;
+pascalx-531.pas: ORACLE-REFUSES: fpc and gpc compile it in no mode of the ladder; the last says: pascalx-531.pas:5: error: unknown identifier `bigint'
+pascalx-532.pas: ORACLE-REFUSES: fpc and gpc compile it in no mode of the ladder; the last says: pascalx-532.pas:5: error: syntax error before `PROGRAMA'
+tmt-pascal-456.pas: NEEDS-DISPLAY: the source names uses WinCRT
+turbo-pascal-470.pas: NEEDS-DISPLAY: the source names uses wincrt

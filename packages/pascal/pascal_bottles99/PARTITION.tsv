@@ -1,0 +1,11 @@
+# PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
+# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
+# shape: entries=7 features=1 ubiquitous=1(package) distinctive=0 core=1 clusters=6 chunks=1 sizes=6
+entry	part	cluster	shells
+delphi-1018	core	core	
+delphi-211	chunk:01	family:delphi	
+free-pascal-270	chunk:01	family:free-pascal	
+irie-pascal-337	chunk:01	family:irie-pascal	
+pascal-1067	chunk:01	family:pascal	
+portable-iso-standard-pascal-554	chunk:01	family:portable-iso-standard-pascal	
+turbo-pascal-471	chunk:01	family:turbo-pascal	

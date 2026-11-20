@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,icon-1051,icon-1051.icn,icon_bottles99__icon-1051,icon_bottles99,61,0,131072,4096,60,,unicon

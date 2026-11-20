@@ -1,0 +1,2 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
+1,prolog-1114,prolog-1114.pl,prolog_bottles99__prolog-1114,prolog_bottles99,30,0,131072,4096,60,,swi
