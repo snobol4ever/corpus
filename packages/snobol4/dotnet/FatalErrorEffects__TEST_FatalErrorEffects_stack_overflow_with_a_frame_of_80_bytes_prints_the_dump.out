@@ -1,0 +1,58 @@
+
+
+
+FatalErrorEffects__TEST_FatalErrorEffects_stack_overflow_with_a_frame_of_80_bytes_prints_the_dump.sno(4) : ERROR 246 -- 
+stack overflow
+
+
+
+
+
+in file              FatalErrorEffects__TEST_FatalErrorEffects_stack_overflow_with_a_frame_of_80_bytes_prints_the_dump.s
+no
+in line              4
+in statement         4
+stmts executed       52392
+execution time msec  4
+stmt / microsec      13
+stmt / millisec      13098
+stmt / second        13098000
+REGENERATIONS        0
+memory used (bytes)  850096
+memory left (bytes)  198472
+
+
+
+
+dump of natural variables
+
+X = 52389
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 100
+&ERRTEXT = 'stack overflow'
+&ERRTYPE = 246
+&FILE = 'FatalErrorEffects__TEST_FatalErrorEffects_stack_overflow_with_a_frame_of_80_bytes_prints_the_dump.sno'
+&FNCLEVEL = 52388
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 'FatalErrorEffects__TEST_FatalErrorEffects_stack_overflow_with_a_frame_of_80_bytes_prints_the_dump.sno'
+&LASTLINE = 4
+&LASTNO = 4
+&LINE = 4
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 52392
+&STLIMIT = 2147483647
+&STNO = 4
+&TRACE = 0
+&TRIM = 1

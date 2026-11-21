@@ -1,0 +1,21 @@
+
+
+
+PatternHistory__TEST_PatternHistory_arb_with_a_conditional_assignment_past_the_stack_is_246.sno(2) : ERROR 246 -- stack 
+overflow
+
+
+
+
+
+in file              PatternHistory__TEST_PatternHistory_arb_with_a_conditional_assignment_past_the_stack_is_246.sno
+in line              2
+in statement         2
+stmts executed       2
+execution time msec  12
+stmt / microsec      0
+stmt / millisec      0
+stmt / second        0
+REGENERATIONS        0
+memory used (bytes)  51696
+memory left (bytes)  996872

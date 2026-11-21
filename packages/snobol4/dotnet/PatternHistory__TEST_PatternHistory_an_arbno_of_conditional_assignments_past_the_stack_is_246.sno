@@ -1,0 +1,4 @@
+        S = DUPL('a', 50000)
+        S ? POS(0) ARBNO(LEN(1) . X) RPOS(0)     :F(END)
+        OUTPUT = 'matched ' SIZE(S)
+END
