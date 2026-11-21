@@ -1,0 +1,51 @@
+snobol4: I cannot read "-- log opened by logd 2.1 --"
+snobol4: I cannot read "#### clock stepped by ntp ####"
+snobol4: I cannot read "lost 3 lines, buffer full"
+snobol4: I cannot read "-- end of log --"
+snobol4: 38 events read, 4 lines are no event
+prolog: 38 events are facts
+prolog: r5 started and never finished
+prolog: r11 started and never finished
+prolog: r6 failed after the retry of event 21, at event 22
+prolog: r8 failed after the retry of event 30, at event 32
+prolog: r8 failed after the retry of event 31, at event 32
+prolog: auth failed after cache failed
+prolog: gateway failed after auth failed
+prolog: gateway failed after cache failed
+prolog: gateway failed after db failed
+prolog: gateway failed after orders failed
+prolog: gateway failed after payments failed
+prolog: orders failed after db failed
+prolog: orders failed after payments failed
+prolog: payments failed after db failed
+prolog: the root of r4 is cache, event 12, proved by events 14 15
+prolog: the root of r5 is cache, event 12, proved by events 17
+prolog: the root of r6 is db, event 22, proved by events 22 23 24 25
+prolog: the root of r8 is orders, event 32, proved by events 32 33
+icon: 38 events to walk, 4 failed requests proved
+the first error:
+   event 12 at 10:02:05 in cache: node cache-2 unreachable
+the worst minute (an error counts 2, a warning 1):
+   10:03 scores 10
+the timeline, a line a minute and a mark an event (. info, w warn, E error):
+   10:00 |........
+   10:01 |.w.
+   10:02 |E.EE.E
+   10:03 |..wwEEEE
+   10:04 |..w
+   10:05 |.wwEE
+   10:06 |..
+   10:07 |...
+the longest request:
+   r6 took 18 seconds
+every request slower than the median of 2 seconds:
+   r2 3 seconds
+   r6 18 seconds
+   r8 8 seconds
+started and never finished:
+   r5 since 10:02:30
+   r11 since 10:07:30
+QUESTIONS
+what failed first? cache at 10:02:05, node cache-2 unreachable
+why did r6 fail? db (event 22 at 10:03:25); the errors that prove it are events 22 23 24 25
+which service is the root? cache, the root of 2 failed requests
