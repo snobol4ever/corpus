@@ -1,0 +1,148 @@
+{
+  "name": "Snocone",
+  "scopeName": "source.snocone",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#declarations" },
+    { "include": "#goto" },
+    { "include": "#control" },
+    { "include": "#label" },
+    { "include": "#keyword" },
+    { "include": "#numbers" },
+    { "include": "#builtin-call" },
+    { "include": "#user-call" },
+    { "include": "#predefined" },
+    { "include": "#identifier" },
+    { "include": "#operators" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "match": "//.*$",
+          "name": "comment.line.double-slash.snocone"
+        },
+        {
+          "begin": "/\\*",
+          "end": "\\*/",
+          "name": "comment.block.snocone",
+          "beginCaptures": { "0": { "name": "punctuation.definition.comment.begin.snocone" } },
+          "endCaptures": { "0": { "name": "punctuation.definition.comment.end.snocone" } }
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "match": "(')((?:[^']|'')*)(?:(')|$)",
+          "name": "string.quoted.single.snocone",
+          "captures": {
+            "1": { "name": "punctuation.definition.string.begin.snocone" },
+            "3": { "name": "punctuation.definition.string.end.snocone" }
+          }
+        },
+        {
+          "match": "(\")((?:[^\"]|\"\")*)(?:(\")|$)",
+          "name": "string.quoted.double.snocone",
+          "captures": {
+            "1": { "name": "punctuation.definition.string.begin.snocone" },
+            "3": { "name": "punctuation.definition.string.end.snocone" }
+          }
+        }
+      ]
+    },
+    "declarations": {
+      "patterns": [
+        {
+          "match": "\\b(procedure|function)\\b(?:\\s+([A-Za-z_][A-Za-z0-9_]*))?",
+          "captures": {
+            "1": { "name": "keyword.declaration.function.snocone" },
+            "2": { "name": "entity.name.function.snocone" }
+          }
+        },
+        {
+          "match": "\\b(struct)\\b(?:\\s+([A-Za-z_][A-Za-z0-9_]*))?",
+          "captures": {
+            "1": { "name": "keyword.declaration.struct.snocone" },
+            "2": { "name": "entity.name.type.struct.snocone" }
+          }
+        },
+        {
+          "match": "\\bimport\\b",
+          "name": "keyword.control.import.snocone"
+        }
+      ]
+    },
+    "goto": {
+      "match": "\\b(goto|go\\s+to)\\b(?:\\s+([A-Za-z_][A-Za-z0-9_]*))?",
+      "captures": {
+        "1": { "name": "keyword.control.goto.snocone" },
+        "2": { "name": "entity.name.label.snocone" }
+      }
+    },
+    "control": {
+      "match": "\\b(?:if|else|while|do|for|switch|case|default|break|continue|return|freturn|nreturn)\\b",
+      "name": "keyword.control.snocone"
+    },
+    "label": {
+      "match": "^(\\s*)(?!(?:default|else|do)\\b)([A-Za-z_][A-Za-z0-9_]*)(\\s*:)(?!:)",
+      "captures": {
+        "2": { "name": "entity.name.label.snocone" },
+        "3": { "name": "punctuation.separator.label.snocone" }
+      }
+    },
+    "keyword": {
+      "match": "(?<![\\w)\\]'\"&])(?<![\\w)\\]'\"]\\s)&[A-Za-z][A-Za-z0-9_]*",
+      "name": "variable.language.keyword.snocone"
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "match": "(?<![\\w.$])(?:\\d+\\.\\d*(?:[eEdD][+-]?\\d+)?|\\d+[eEdD][+-]?\\d+)(?!\\w)",
+          "name": "constant.numeric.float.snocone"
+        },
+        {
+          "match": "(?<![\\w.$])\\d+(?![\\w])",
+          "name": "constant.numeric.integer.snocone"
+        }
+      ]
+    },
+    "builtin-call": {
+      "match": "(?<![\\w.])(?:ARRAY|ITEM|PROTOTYPE|RSORT|SORT|TABLE|EVAL|CODE|APPLY|ARG|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD|BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET|CLEAR|COLLECT|DUMP|CHAR|CONVERT|DATATYPE|DATE|SIZE|TIME|ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN|EQ|GE|GT|INTEGER|LE|LT|NE|DIFFER|IDENT|COPY|DUPL|ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB|EXIT|HOST|SETEXIT|STOPTR|TRACE|DATA|FIELD|LEQ|LGE|LGT|LLE|LLT|LNE|LPAD|REPLACE|REVERSE|RPAD|SUBSTR|TRIM)(?=\\s*\\()",
+      "name": "support.function.builtin.snocone"
+    },
+    "user-call": {
+      "match": "(?<![\\w.])[A-Za-z_][A-Za-z0-9_]*(?=\\()",
+      "name": "entity.name.function.call.snocone"
+    },
+    "predefined": {
+      "patterns": [
+        {
+          "match": "(?<![\\w.])(?:ARB|BAL|REM|FAIL|ABORT|SUCCEED|FENCE)(?![\\w.(])",
+          "name": "constant.language.pattern.snocone"
+        },
+        {
+          "match": "(?<![\\w.])(?:INPUT|OUTPUT|TERMINAL)(?![\\w.])",
+          "name": "variable.language.io.snocone"
+        }
+      ]
+    },
+    "identifier": {
+      "match": "(?<![\\w.])[A-Za-z_][A-Za-z0-9_]*",
+      "name": "variable.other.snocone"
+    },
+    "operators": {
+      "match": "[-+*/%^!=<>|?.$@~&#:]+",
+      "name": "keyword.operator.snocone"
+    },
+    "punctuation": {
+      "patterns": [
+        { "match": ",", "name": "punctuation.separator.comma.snocone" },
+        { "match": ";", "name": "punctuation.terminator.statement.snocone" },
+        { "match": "[{}()\\[\\]]", "name": "punctuation.section.brackets.snocone" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,414 @@
+{
+  "$comment": "SCRIP step 2a of plan scrip_ide: the grammar of Pascal, written from ISO 7185 6.1 (the special words, the identifiers, the numbers, the strings, the comments) and the Free Pascal 3.2.2 token table (compiler/tokens.pas, the words of the modes). A TextMate grammar colours by the shape of a line and parses nothing: a word that is an identifier outside one position (read, write, name, index, default) is coloured only where its position is certain.",
+  "name": "Pascal",
+  "scopeName": "source.pascal",
+  "fileTypes": [
+    "pas",
+    "p",
+    "pp",
+    "lpr",
+    "dpr"
+  ],
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#asm"
+    },
+    {
+      "include": "#uses"
+    },
+    {
+      "include": "#header"
+    },
+    {
+      "include": "#routine"
+    },
+    {
+      "include": "#property"
+    },
+    {
+      "include": "#modifier"
+    },
+    {
+      "include": "#visibility"
+    },
+    {
+      "include": "#handler"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#words"
+    },
+    {
+      "include": "#operators"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "meta.preprocessor.pascal",
+          "begin": "\\{\\$",
+          "end": "\\}",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.preprocessor.begin.pascal"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.preprocessor.end.pascal"
+            }
+          },
+          "patterns": [
+            {
+              "match": "\\G[A-Za-z_]\\w*|\\G[A-Za-z][+-]",
+              "name": "keyword.control.directive.pascal"
+            },
+            {
+              "include": "#strings"
+            }
+          ]
+        },
+        {
+          "name": "meta.preprocessor.pascal",
+          "begin": "\\(\\*\\$",
+          "end": "\\*\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.preprocessor.begin.pascal"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.preprocessor.end.pascal"
+            }
+          },
+          "patterns": [
+            {
+              "match": "\\G[A-Za-z_]\\w*|\\G[A-Za-z][+-]",
+              "name": "keyword.control.directive.pascal"
+            },
+            {
+              "include": "#strings"
+            }
+          ]
+        },
+        {
+          "name": "comment.block.pascal",
+          "begin": "\\{",
+          "end": "\\}",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.begin.pascal"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.end.pascal"
+            }
+          }
+        },
+        {
+          "name": "comment.block.pascal",
+          "begin": "\\(\\*",
+          "end": "\\*\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.begin.pascal"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.end.pascal"
+            }
+          }
+        },
+        {
+          "name": "comment.line.double-slash.pascal",
+          "match": "(//).*$",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.comment.pascal"
+            }
+          }
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.single.pascal",
+          "begin": "'",
+          "end": "'(?!')|$",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.pascal"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.pascal"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.quote.pascal",
+              "match": "''"
+            }
+          ]
+        },
+        {
+          "name": "constant.character.pascal",
+          "match": "#(?:\\d+|\\$[0-9A-Fa-f]+)"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.hex.pascal",
+          "match": "(?<![\\w$&%#])\\$[0-9A-Fa-f]+\\b"
+        },
+        {
+          "name": "constant.numeric.binary.pascal",
+          "match": "(?<![\\w$&%#])%[01]+\\b"
+        },
+        {
+          "name": "constant.numeric.octal.pascal",
+          "match": "(?<![\\w$&%#])&[0-7]+\\b"
+        },
+        {
+          "name": "constant.numeric.float.pascal",
+          "match": "(?<![\\w$])\\d+\\.\\d+(?:[eE][+-]?\\d+)?\\b|(?<![\\w$])\\d+[eE][+-]?\\d+\\b"
+        },
+        {
+          "name": "constant.numeric.integer.pascal",
+          "match": "(?<![\\w$])\\d+\\b"
+        }
+      ]
+    },
+    "asm": {
+      "name": "meta.embedded.block.assembly.pascal",
+      "begin": "(?i)\\b(asm)\\b",
+      "end": "(?i)\\b(end)\\b",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.pascal"
+        }
+      },
+      "endCaptures": {
+        "1": {
+          "name": "keyword.other.pascal"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#comments"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#numbers"
+        }
+      ]
+    },
+    "uses": {
+      "begin": "(?i)\\b(uses)\\b",
+      "end": ";",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.pascal"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.terminator.pascal"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#comments"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "match": "(?i)\\bin\\b",
+          "name": "keyword.operator.word.pascal"
+        },
+        {
+          "match": "[A-Za-z_]\\w*",
+          "name": "entity.name.namespace.pascal"
+        },
+        {
+          "match": ",",
+          "name": "punctuation.separator.comma.pascal"
+        }
+      ]
+    },
+    "header": {
+      "match": "(?i)\\b(program|unit|library)\\b(?:\\s+([A-Za-z_]\\w*(?:\\.[A-Za-z_]\\w*)*))?",
+      "captures": {
+        "1": {
+          "name": "keyword.other.pascal"
+        },
+        "2": {
+          "name": "entity.name.namespace.pascal"
+        }
+      }
+    },
+    "routine": {
+      "match": "(?i)\\b(function|procedure|constructor|destructor|operator)\\b(?:\\s+(?:([A-Za-z_]\\w*)\\s*\\.\\s*)?([A-Za-z_]\\w*))?",
+      "captures": {
+        "1": {
+          "name": "keyword.other.pascal"
+        },
+        "2": {
+          "name": "entity.name.type.class.pascal"
+        },
+        "3": {
+          "name": "entity.name.function.pascal"
+        }
+      }
+    },
+    "property": {
+      "begin": "(?i)\\b(property)\\b",
+      "end": ";",
+      "beginCaptures": {
+        "1": {
+          "name": "keyword.other.pascal"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.terminator.pascal"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#comments"
+        },
+        {
+          "match": "(?i)\\b(?:read|write|index|stored|default|implements|nodefault)\\b",
+          "name": "storage.modifier.pascal"
+        },
+        {
+          "include": "#strings"
+        },
+        {
+          "include": "#numbers"
+        },
+        {
+          "include": "#words"
+        },
+        {
+          "include": "#operators"
+        }
+      ]
+    },
+    "modifier": {
+      "match": "(;)\\s*((?i:\\b(?:virtual|override|overload|cdecl|stdcall|register|safecall|pascal|inline|forward|external|abstract|reintroduce|static|dynamic|export|assembler|far|near|interrupt|deprecated|platform|experimental|unimplemented|noreturn|nostackframe|final|sealed|message|iocheck|local|alias|public|private|protected|published|strict)\\b))",
+      "captures": {
+        "1": {
+          "name": "punctuation.terminator.pascal"
+        },
+        "2": {
+          "name": "storage.modifier.pascal"
+        }
+      }
+    },
+    "visibility": {
+      "match": "(?i)^\\s*((?:strict\\s+)?(?:private|protected|public|published))\\b(?=\\s*(?:$|//|\\{|\\(\\*))",
+      "captures": {
+        "1": {
+          "name": "storage.modifier.visibility.pascal"
+        }
+      }
+    },
+    "handler": {
+      "match": "(?i)\\b(on)\\b(?=\\s+[A-Za-z_]\\w*\\s*:|\\s+[A-Za-z_][\\w.]*\\s+do\\b)",
+      "name": "keyword.control.pascal"
+    },
+    "words": {
+      "patterns": [
+        {
+          "name": "keyword.control.pascal",
+          "match": "(?i)\\b(?:if|then|else|case|of|for|to|downto|do|while|repeat|until|goto|with|break|continue|exit|try|except|finally|raise|otherwise)\\b"
+        },
+        {
+          "name": "keyword.operator.word.pascal",
+          "match": "(?i)\\b(?:and|or|not|xor|div|mod|shl|shr|in|is|as)\\b"
+        },
+        {
+          "name": "keyword.other.pascal",
+          "match": "(?i)\\b(?:program|unit|library|uses|interface|implementation|initialization|finalization|label|const|type|var|threadvar|resourcestring|procedure|function|constructor|destructor|operator|begin|end|exports|inherited|property|array|record|set|packed|bitpacked|class|object|file|dispinterface)\\b"
+        },
+        {
+          "name": "constant.language.pascal",
+          "match": "(?i)\\b(?:true|false|nil|maxint|maxlongint)\\b"
+        },
+        {
+          "name": "storage.type.pascal",
+          "match": "(?i)\\b(?:integer|shortint|smallint|longint|int64|byte|word|longword|cardinal|qword|uint64|nativeint|nativeuint|boolean|bytebool|wordbool|longbool|char|widechar|ansichar|real|single|double|extended|comp|currency|string|ansistring|shortstring|widestring|unicodestring|rawbytestring|pointer|text|variant|olevariant)\\b"
+        },
+        {
+          "name": "variable.language.self.pascal",
+          "match": "(?i)\\bself\\b"
+        },
+        {
+          "name": "support.function.pascal",
+          "match": "(?i)\\b(?:write|writeln|read|readln|new|dispose|abs|arctan|cos|exp|ln|sin|sqr|sqrt|trunc|round|odd|ord|chr|succ|pred|eof|eoln|get|put|reset|rewrite|page|pack|unpack|assign|close|append|seek|flush|erase|rename|blockread|blockwrite|filepos|filesize|truncate|halt|inc|dec|length|setlength|copy|pos|concat|delete|insert|val|str|upcase|low|high|sizeof|include|exclude|assigned|getmem|freemem|reallocmem|fillchar|move|paramcount|paramstr|random|randomize|int|frac|pi|swap|hi|lo|assert|addr|ptr)\\b"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.assignment.pascal",
+          "match": ":=|\\+=|-=|\\*=|/="
+        },
+        {
+          "name": "keyword.operator.comparison.pascal",
+          "match": "<>|<=|>=|=|<|>"
+        },
+        {
+          "name": "keyword.operator.arithmetic.pascal",
+          "match": "\\*\\*|><|<<|>>|\\+|-|\\*|/"
+        },
+        {
+          "name": "keyword.operator.pointer.pascal",
+          "match": "[@^]"
+        },
+        {
+          "name": "punctuation.range.pascal",
+          "match": "\\.\\."
+        },
+        {
+          "name": "punctuation.terminator.pascal",
+          "match": ";"
+        },
+        {
+          "name": "punctuation.separator.comma.pascal",
+          "match": ","
+        },
+        {
+          "name": "punctuation.separator.colon.pascal",
+          "match": ":"
+        },
+        {
+          "name": "punctuation.accessor.pascal",
+          "match": "\\."
+        }
+      ]
+    }
+  }
+}

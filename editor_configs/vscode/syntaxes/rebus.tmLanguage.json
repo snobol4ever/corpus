@@ -1,0 +1,131 @@
+{
+  "name": "Rebus",
+  "scopeName": "source.rebus",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#strings" },
+    { "include": "#declarations" },
+    { "include": "#control" },
+    { "include": "#keyword" },
+    { "include": "#numbers" },
+    { "include": "#builtin-call" },
+    { "include": "#user-call" },
+    { "include": "#predefined" },
+    { "include": "#identifier" },
+    { "include": "#operators" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comment": {
+      "match": "#.*$",
+      "name": "comment.line.number-sign.rebus"
+    },
+    "strings": {
+      "patterns": [
+        {
+          "begin": "'",
+          "end": "'|(?<!_)(?=\\n)",
+          "name": "string.quoted.single.rebus",
+          "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.rebus" } },
+          "endCaptures": { "0": { "name": "punctuation.definition.string.end.rebus" } }
+        },
+        {
+          "begin": "\"",
+          "end": "\"|(?<!_)(?=\\n)",
+          "name": "string.quoted.double.rebus",
+          "beginCaptures": { "0": { "name": "punctuation.definition.string.begin.rebus" } },
+          "endCaptures": { "0": { "name": "punctuation.definition.string.end.rebus" } }
+        }
+      ]
+    },
+    "declarations": {
+      "patterns": [
+        {
+          "match": "(?<![\\w.])((?i:function))(?![\\w.])(?:\\s+([A-Za-z_][A-Za-z0-9_]*))?",
+          "captures": {
+            "1": { "name": "keyword.declaration.function.rebus" },
+            "2": { "name": "entity.name.function.rebus" }
+          }
+        },
+        {
+          "match": "(?<![\\w.])((?i:record))(?![\\w.])(?:\\s+([A-Za-z_][A-Za-z0-9_]*))?",
+          "captures": {
+            "1": { "name": "keyword.declaration.record.rebus" },
+            "2": { "name": "entity.name.type.record.rebus" }
+          }
+        },
+        {
+          "match": "(?<![\\w.])(?i:local|initial)(?![\\w.])",
+          "name": "keyword.declaration.rebus"
+        },
+        {
+          "match": "(?<![\\w.])(?i:end)(?![\\w.])",
+          "name": "keyword.declaration.end.rebus"
+        }
+      ]
+    },
+    "control": {
+      "match": "(?<![\\w.])(?i:if|then|else|unless|while|until|repeat|do|exit|next|for|from|to|by|case|of|default|fail|return|stop)(?![\\w.])",
+      "name": "keyword.control.rebus"
+    },
+    "keyword": {
+      "match": "(?<![\\w)\\]'\"&])(?<![\\w)\\]'\"]\\s)&[A-Za-z][A-Za-z0-9_]*",
+      "name": "variable.language.keyword.rebus"
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "match": "(?<![\\w.$])(?:\\d+\\.\\d*(?:[eE][+-]?\\d+)?|\\d+[eE][+-]?\\d+)(?!\\w)",
+          "name": "constant.numeric.float.rebus"
+        },
+        {
+          "match": "(?<![\\w.$])\\d+(?![\\w])",
+          "name": "constant.numeric.integer.rebus"
+        }
+      ]
+    },
+    "builtin-call": {
+      "match": "(?<![\\w.])(?i:ARRAY|ITEM|PROTOTYPE|RSORT|SORT|TABLE|EVAL|CODE|APPLY|ARG|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD|BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET|CLEAR|COLLECT|DUMP|CHAR|CONVERT|DATATYPE|DATE|SIZE|TIME|ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN|EQ|GE|GT|INTEGER|LE|LT|NE|DIFFER|IDENT|COPY|DUPL|ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB|EXIT|HOST|SETEXIT|STOPTR|TRACE|DATA|FIELD|LEQ|LGE|LGT|LLE|LLT|LNE|LPAD|REPLACE|REVERSE|RPAD|SUBSTR|TRIM)(?=\\s*\\()",
+      "name": "support.function.builtin.rebus"
+    },
+    "user-call": {
+      "match": "(?<![\\w.])[A-Za-z_][A-Za-z0-9_]*(?=\\()",
+      "name": "entity.name.function.call.rebus"
+    },
+    "predefined": {
+      "patterns": [
+        {
+          "match": "(?<![\\w.])(?i:ARB|BAL|REM|FAIL|ABORT|SUCCEED|FENCE)(?![\\w.(])",
+          "name": "constant.language.pattern.rebus"
+        },
+        {
+          "match": "(?<![\\w.])(?i:INPUT|OUTPUT|TERMINAL)(?![\\w.])",
+          "name": "variable.language.io.rebus"
+        }
+      ]
+    },
+    "identifier": {
+      "match": "(?<![\\w.])[A-Za-z_][A-Za-z0-9_]*",
+      "name": "variable.other.rebus"
+    },
+    "operators": {
+      "patterns": [
+        {
+          "match": "\\|\\|:=|[+\\-]:=|:=:|:=",
+          "name": "keyword.operator.assignment.rebus"
+        },
+        {
+          "match": "\\?-|<-|~?={2,3}|[<>]{1,2}=?|~=|\\|\\||[-+*/%^!=<>|?&.\\\\~@$:]",
+          "name": "keyword.operator.rebus"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        { "match": ",", "name": "punctuation.separator.comma.rebus" },
+        { "match": ";", "name": "punctuation.terminator.statement.rebus" },
+        { "match": "[{}()\\[\\]]", "name": "punctuation.section.brackets.rebus" }
+      ]
+    }
+  }
+}

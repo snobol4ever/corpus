@@ -1,0 +1,168 @@
+{
+  "name": "SNOBOL4",
+  "scopeName": "source.snobol4",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#control" },
+    { "include": "#program-end" },
+    { "include": "#continuation" },
+    { "include": "#label" },
+    { "include": "#goto" },
+    { "include": "#strings" },
+    { "include": "#keyword" },
+    { "include": "#numbers" },
+    { "include": "#builtin-call" },
+    { "include": "#user-call" },
+    { "include": "#predefined" },
+    { "include": "#identifier" },
+    { "include": "#operators" },
+    { "include": "#punctuation" }
+  ],
+  "repository": {
+    "comment": {
+      "match": "^\\*.*$",
+      "name": "comment.line.asterisk.snobol4"
+    },
+    "control": {
+      "begin": "^(-)([A-Za-z0-9_]*)",
+      "end": "$",
+      "name": "meta.preprocessor.control.snobol4",
+      "beginCaptures": {
+        "1": { "name": "punctuation.definition.directive.snobol4" },
+        "2": { "name": "keyword.control.directive.snobol4" }
+      },
+      "patterns": [{ "include": "#strings" }, { "include": "#numbers" }]
+    },
+    "program-end": {
+      "begin": "^(END)(?=\\s|$)",
+      "end": "(?!\\s)\\s",
+      "beginCaptures": {
+        "1": { "name": "keyword.control.end.snobol4" }
+      },
+      "contentName": "meta.data.snobol4"
+    },
+    "continuation": {
+      "match": "^[+.]",
+      "name": "punctuation.separator.continuation.snobol4"
+    },
+    "label": {
+      "match": "^[^\\s*+.\\-]\\S*",
+      "name": "entity.name.label.snobol4"
+    },
+    "goto": {
+      "begin": ":",
+      "end": "$",
+      "name": "meta.goto.snobol4",
+      "beginCaptures": {
+        "0": { "name": "punctuation.separator.goto.snobol4" }
+      },
+      "patterns": [
+        {
+          "match": "(?<![\\w.])[SF](?=[(<])",
+          "name": "keyword.control.goto.snobol4"
+        },
+        {
+          "match": "(\\()\\s*(RETURN|FRETURN|NRETURN|END|CONTINUE|SCONTINUE)\\s*(\\))",
+          "captures": {
+            "1": { "name": "punctuation.section.parens.begin.snobol4" },
+            "2": { "name": "keyword.control.snobol4" },
+            "3": { "name": "punctuation.section.parens.end.snobol4" }
+          }
+        },
+        {
+          "match": "(\\()\\s*([^\\s()$'\"<>]+)\\s*(\\))",
+          "captures": {
+            "1": { "name": "punctuation.section.parens.begin.snobol4" },
+            "2": { "name": "entity.name.label.snobol4" },
+            "3": { "name": "punctuation.section.parens.end.snobol4" }
+          }
+        },
+        {
+          "begin": "\\(",
+          "end": "\\)",
+          "name": "meta.goto.computed.snobol4",
+          "beginCaptures": { "0": { "name": "punctuation.section.parens.begin.snobol4" } },
+          "endCaptures": { "0": { "name": "punctuation.section.parens.end.snobol4" } },
+          "patterns": [
+            { "include": "#strings" },
+            { "include": "#builtin-call" },
+            { "include": "#user-call" },
+            { "include": "#identifier" },
+            { "include": "#operators" }
+          ]
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "match": "(')([^']*)(?:(')|$)",
+          "name": "string.quoted.single.snobol4",
+          "captures": {
+            "1": { "name": "punctuation.definition.string.begin.snobol4" },
+            "3": { "name": "punctuation.definition.string.end.snobol4" }
+          }
+        },
+        {
+          "match": "(\")([^\"]*)(?:(\")|$)",
+          "name": "string.quoted.double.snobol4",
+          "captures": {
+            "1": { "name": "punctuation.definition.string.begin.snobol4" },
+            "3": { "name": "punctuation.definition.string.end.snobol4" }
+          }
+        }
+      ]
+    },
+    "keyword": {
+      "match": "&[A-Za-z][A-Za-z0-9_.]*",
+      "name": "variable.language.keyword.snobol4"
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "match": "(?<![\\w.$])(?:\\d+\\.\\d*(?:[eE][+-]?\\d+)?|\\d+[eE][+-]?\\d+)(?!\\w)",
+          "name": "constant.numeric.float.snobol4"
+        },
+        {
+          "match": "(?<![\\w.$])\\d+(?![\\w])",
+          "name": "constant.numeric.integer.snobol4"
+        }
+      ]
+    },
+    "builtin-call": {
+      "match": "(?<![\\w.])(?:ARRAY|ITEM|PROTOTYPE|RSORT|SORT|TABLE|EVAL|CODE|APPLY|ARG|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD|BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET|CLEAR|COLLECT|DUMP|CHAR|CONVERT|DATATYPE|DATE|SIZE|TIME|ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN|EQ|GE|GT|INTEGER|LE|LT|NE|DIFFER|IDENT|COPY|DUPL|ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB|EXIT|HOST|SETEXIT|STOPTR|TRACE|DATA|FIELD|LEQ|LGE|LGT|LLE|LLT|LNE|LPAD|REPLACE|REVERSE|RPAD|SUBSTR|TRIM)(?=\\()",
+      "name": "support.function.builtin.snobol4"
+    },
+    "user-call": {
+      "match": "(?<![\\w.])[A-Za-z][A-Za-z0-9_.]*(?=\\()",
+      "name": "entity.name.function.call.snobol4"
+    },
+    "predefined": {
+      "patterns": [
+        {
+          "match": "(?<![\\w.])(?:ARB|BAL|REM|FAIL|ABORT|SUCCEED|FENCE)(?![\\w.(])",
+          "name": "constant.language.pattern.snobol4"
+        },
+        {
+          "match": "(?<![\\w.])(?:INPUT|OUTPUT|TERMINAL)(?![\\w.])",
+          "name": "variable.language.io.snobol4"
+        }
+      ]
+    },
+    "identifier": {
+      "match": "(?<![\\w.])[A-Za-z][A-Za-z0-9_.]*",
+      "name": "variable.other.snobol4"
+    },
+    "operators": {
+      "match": "\\*\\*|[-+*/^!=?|~@#%&$.]",
+      "name": "keyword.operator.snobol4"
+    },
+    "punctuation": {
+      "patterns": [
+        { "match": ",", "name": "punctuation.separator.comma.snobol4" },
+        { "match": ";", "name": "punctuation.terminator.statement.snobol4" },
+        { "match": "[()\\[\\]<>]", "name": "punctuation.section.brackets.snobol4" }
+      ]
+    }
+  }
+}

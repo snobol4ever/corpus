@@ -1,0 +1,302 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Prolog",
+  "scopeName": "source.prolog",
+  "fileTypes": [
+    "pro",
+    "prolog",
+    "plt",
+    "pl"
+  ],
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#directive"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#variables"
+    },
+    {
+      "include": "#head"
+    },
+    {
+      "include": "#neck"
+    },
+    {
+      "include": "#control"
+    },
+    {
+      "include": "#builtin"
+    },
+    {
+      "include": "#word-operators"
+    },
+    {
+      "include": "#call"
+    },
+    {
+      "include": "#end"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#punctuation"
+    },
+    {
+      "include": "#atoms"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.percent.prolog",
+          "match": "%.*$",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.prolog"
+            }
+          }
+        },
+        {
+          "name": "comment.block.prolog",
+          "begin": "/\\*",
+          "end": "\\*/",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.begin.prolog"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.end.prolog"
+            }
+          }
+        }
+      ]
+    },
+    "directive": {
+      "match": "^\\s*(:-|\\?-)\\s*(module_transparent|set_prolog_flag|initialization|meta_predicate|discontiguous|ensure_loaded|thread_local|style_check|use_module|multifile|encoding|dynamic|include|license|module|public|table|op)(?![\\p{L}\\p{N}_])",
+      "captures": {
+        "1": {
+          "name": "keyword.control.directive.prolog"
+        },
+        "2": {
+          "name": "keyword.other.directive.prolog"
+        }
+      }
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.prolog",
+          "begin": "\"",
+          "end": "\"(?!\")|(?<!\\\\)(?=\\n)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.prolog"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.prolog"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.quote.prolog",
+              "match": "\"\""
+            },
+            {
+              "name": "constant.character.escape.prolog",
+              "match": "\\\\(?:x[0-9a-fA-F]+\\\\?|[0-7]+\\\\?|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8}|[abfnrtv0\\\\'\\\"`esz]|(?=\\n)|.)"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.prolog",
+          "begin": "'",
+          "end": "'(?!')|(?<!\\\\)(?=\\n)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.prolog"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.prolog"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.quote.prolog",
+              "match": "''"
+            },
+            {
+              "name": "constant.character.escape.prolog",
+              "match": "\\\\(?:x[0-9a-fA-F]+\\\\?|[0-7]+\\\\?|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8}|[abfnrtv0\\\\'\\\"`esz]|(?=\\n)|.)"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.other.backquote.prolog",
+          "begin": "`",
+          "end": "`(?!`)|(?<!\\\\)(?=\\n)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.prolog"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.prolog"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.quote.prolog",
+              "match": "``"
+            },
+            {
+              "name": "constant.character.escape.prolog",
+              "match": "\\\\(?:x[0-9a-fA-F]+\\\\?|[0-7]+\\\\?|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8}|[abfnrtv0\\\\'\\\"`esz]|(?=\\n)|.)"
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.character-code.prolog",
+          "match": "(?<![\\p{L}\\p{N}_])0'(?:\\\\(?:x[0-9a-fA-F]+\\\\?|[0-7]+\\\\?|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8}|.)|''|[^\\\\'\\n])"
+        },
+        {
+          "name": "constant.numeric.integer.hexadecimal.prolog",
+          "match": "(?<![\\p{L}\\p{N}_])0x[0-9a-fA-F]+(?![\\p{L}\\p{N}_])"
+        },
+        {
+          "name": "constant.numeric.integer.octal.prolog",
+          "match": "(?<![\\p{L}\\p{N}_])0o[0-7]+(?![\\p{L}\\p{N}_])"
+        },
+        {
+          "name": "constant.numeric.integer.binary.prolog",
+          "match": "(?<![\\p{L}\\p{N}_])0b[01]+(?![\\p{L}\\p{N}_])"
+        },
+        {
+          "name": "constant.numeric.integer.radix.prolog",
+          "match": "(?<![\\p{L}\\p{N}_])(?:[2-9]|[12][0-9]|3[0-6])'[0-9a-zA-Z]+(?![\\p{L}\\p{N}_])"
+        },
+        {
+          "name": "constant.numeric.float.prolog",
+          "match": "(?<![\\p{L}\\p{N}_.])[0-9]+(?:_[0-9]+)*\\.[0-9]+(?:[eE][+-]?[0-9]+|Inf|NaN)?(?![\\p{L}\\p{N}_])"
+        },
+        {
+          "name": "constant.numeric.float.prolog",
+          "match": "(?<![\\p{L}\\p{N}_.])[0-9]+[eE][+-]?[0-9]+(?![\\p{L}\\p{N}_])"
+        },
+        {
+          "name": "constant.numeric.rational.prolog",
+          "match": "(?<![\\p{L}\\p{N}_.])[0-9]+(?:_[0-9]+)*r[0-9]+(?![\\p{L}\\p{N}_])"
+        },
+        {
+          "name": "constant.numeric.integer.prolog",
+          "match": "(?<![\\p{L}\\p{N}_.])[0-9]+(?:_[0-9]+)*(?![\\p{L}\\p{N}_])"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.language.anonymous.prolog",
+          "match": "(?<![\\p{L}\\p{N}_])_(?![\\p{L}\\p{N}_])"
+        },
+        {
+          "name": "variable.other.prolog",
+          "match": "(?<![\\p{L}\\p{N}_])[\\p{Lu}_][\\p{L}\\p{N}_]*"
+        }
+      ]
+    },
+    "head": {
+      "name": "entity.name.function.prolog",
+      "match": "^[\\p{Ll}][\\p{L}\\p{N}_]*(?=\\s*(?:\\(|:-|-->|\\.(?:\\s|%|$)))"
+    },
+    "neck": {
+      "name": "keyword.operator.neck.prolog",
+      "match": "(?<![#$&*+\\-./:<=>?@^~\\\\])(?::-|-->|\\?-)(?![#$&*+\\-./:<=>?@^~\\\\])"
+    },
+    "control": {
+      "patterns": [
+        {
+          "name": "keyword.control.cut.prolog",
+          "match": "!"
+        },
+        {
+          "name": "keyword.control.prolog",
+          "match": "(?<![\\p{L}\\p{N}_])(?:aggregate_all|otherwise|findall|forall|ignore|repeat|bagof|catch|false|setof|throw|call|fail|halt|once|true|not)(?![\\p{L}\\p{N}_])"
+        },
+        {
+          "name": "keyword.control.prolog",
+          "match": "(?<![#$&*+\\-./:<=>?@^~\\\\])(?:\\*->|->|\\\\\\+)(?![#$&*+\\-./:<=>?@^~\\\\])"
+        },
+        {
+          "name": "keyword.control.prolog",
+          "match": ";"
+        }
+      ]
+    },
+    "builtin": {
+      "name": "support.function.builtin.prolog",
+      "match": "(?<![\\p{L}\\p{N}_])(?:unify_with_occurs_check|current_prolog_flag|atomic_list_concat|module_transparent|atomics_to_string|assoc_to_values|garbage_collect|set_prolog_flag|write_canonical|initialization|meta_predicate|string_to_atom|term_variables|with_output_to|assoc_to_keys|assoc_to_list|discontiguous|downcase_atom|ensure_loaded|list_to_assoc|number_string|print_message|string_concat|string_length|intersection|number_chars|number_codes|split_string|string_chars|string_codes|term_to_atom|thread_local|atom_concat|atom_length|atom_number|atom_string|format_atom|list_to_set|number_vars|permutation|term_string|upcase_atom|atom_chars|atom_codes|current_op|max_member|min_member|numbervars|retractall|statistics|sub_string|use_module|write_term|char_code|char_type|code_type|copy_term|get_assoc|memberchk|multifile|nb_getval|nb_setarg|nb_setval|partition|peek_char|put_assoc|read_term|selectchk|b_getval|b_setval|callable|compound|get_byte|get_char|get_time|is_assoc|max_list|min_list|predsort|put_byte|put_char|sub_atom|subtract|sum_list|truncate|abolish|asserta|assertz|between|compare|consult|dynamic|exclude|flatten|functor|include|integer|is_dict|is_list|keysort|listing|maplist|numlist|retract|reverse|sformat|sumlist|tabling|append|assert|atomic|clause|delete|format|ground|length|member|module|nonvar|number|public|select|setarg|writeq|apply|close|float|foldl|msort|print|table|union|write|atom|last|nth0|nth1|open|plus|read|seen|sign|sort|succ|tell|told|abs|arg|gcd|max|min|see|tab|var|nl|op)(?![\\p{L}\\p{N}_])(?=\\s*\\()"
+    },
+    "word-operators": {
+      "name": "keyword.operator.word.prolog",
+      "match": "(?<![\\p{L}\\p{N}_])(?:is|rem|mod|div|rdiv|divmod|xor|as|tnot)(?![\\p{L}\\p{N}_])"
+    },
+    "call": {
+      "name": "entity.name.function.call.prolog",
+      "match": "(?<![\\p{L}\\p{N}_])[\\p{Ll}][\\p{L}\\p{N}_]*(?=\\()"
+    },
+    "end": {
+      "name": "punctuation.terminator.clause.prolog",
+      "match": "\\.(?=\\s|%|$)"
+    },
+    "operators": {
+      "name": "keyword.operator.prolog",
+      "match": "[#$&*+\\-./:<=>?@^~\\\\]+"
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.section.parens.prolog",
+          "match": "[()]"
+        },
+        {
+          "name": "punctuation.section.brackets.prolog",
+          "match": "[\\[\\]]"
+        },
+        {
+          "name": "punctuation.section.braces.prolog",
+          "match": "[{}]"
+        },
+        {
+          "name": "punctuation.separator.prolog",
+          "match": ",|\\|"
+        }
+      ]
+    },
+    "atoms": {
+      "name": "constant.other.atom.prolog",
+      "match": "(?<![\\p{L}\\p{N}_])[\\p{Ll}][\\p{L}\\p{N}_]*"
+    }
+  }
+}

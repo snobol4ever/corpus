@@ -1,0 +1,186 @@
+{
+  "name": "scrip",
+  "displayName": "SCRIP",
+  "description": "The languages SCRIP runs: SNOBOL4, Snocone, Rebus, Icon and Unicon, Prolog, Pascal, SCRIPtix documents and the SCRIP notebook kernel.",
+  "version": "0.1.0",
+  "publisher": "scrip",
+  "license": "SEE LICENSE IN the SCRIP repository",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "snobol4",
+        "aliases": ["SNOBOL4", "SPITBOL", "snobol"],
+        "extensions": [".sno", ".spt", ".sbl"],
+        "configuration": "./language-configuration/snobol4.json"
+      },
+      {
+        "id": "snocone",
+        "aliases": ["Snocone"],
+        "extensions": [".sc"],
+        "configuration": "./language-configuration/snocone.json"
+      },
+      {
+        "id": "rebus",
+        "aliases": ["Rebus"],
+        "extensions": [".reb"],
+        "configuration": "./language-configuration/rebus.json"
+      },
+      {
+        "id": "icon",
+        "aliases": ["Icon", "Unicon"],
+        "extensions": [".icn"],
+        "configuration": "./language-configuration/icon.json"
+      },
+      {
+        "id": "prolog",
+        "aliases": ["Prolog"],
+        "extensions": [".pro", ".prolog", ".plt"],
+        "configuration": "./language-configuration/prolog.json"
+      },
+      {
+        "id": "pascal",
+        "aliases": ["Pascal", "Free Pascal", "Object Pascal"],
+        "extensions": [".pas", ".p", ".pp", ".lpr", ".dpr"],
+        "configuration": "./language-configuration/pascal.json"
+      },
+      {
+        "id": "scrip",
+        "aliases": ["SCRIP", "SCRIP notebook cell"],
+        "configuration": "./language-configuration/snobol4.json"
+      },
+      {
+        "id": "scriptix",
+        "aliases": ["SCRIPtix"],
+        "extensions": [".scrip"],
+        "configuration": "./language-configuration/scriptix.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "pascal",
+        "scopeName": "source.pascal",
+        "path": "./syntaxes/pascal.tmLanguage.json"
+      },
+      {
+        "language": "snobol4",
+        "scopeName": "source.snobol4",
+        "path": "./syntaxes/snobol4.tmLanguage.json"
+      },
+      {
+        "language": "snocone",
+        "scopeName": "source.snocone",
+        "path": "./syntaxes/snocone.tmLanguage.json"
+      },
+      {
+        "language": "rebus",
+        "scopeName": "source.rebus",
+        "path": "./syntaxes/rebus.tmLanguage.json"
+      },
+      {
+        "language": "prolog",
+        "scopeName": "source.prolog",
+        "path": "./syntaxes/prolog.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "scrip.openPlAsProlog",
+        "category": "SCRIP",
+        "title": "Open .pl files as Prolog"
+      },
+      {
+        "command": "scrip.runFile",
+        "category": "SCRIP",
+        "title": "Run file"
+      }
+    ],
+    "configuration": {
+      "title": "SCRIP",
+      "properties": {
+        "scrip.path": {
+          "type": "string",
+          "default": "/home/install/bin/scrip",
+          "description": "The scrip binary that runs a program or a SCRIPtix document."
+        }
+      }
+    },
+    "taskDefinitions": [
+      {
+        "type": "scrip",
+        "required": ["file"],
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "The program or SCRIPtix document to run, as an absolute path or ${file}."
+          }
+        }
+      }
+    ],
+    "problemMatchers": [
+      {
+        "name": "scrip",
+        "owner": "scrip",
+        "source": "scrip",
+        "severity": "error",
+        "fileLocation": "absolute",
+        "pattern": [
+          { "regexp": "^scrip: error (\\d+): (.*)$", "code": 1, "message": 2 },
+          { "regexp": "^\\s+at (.+):(\\d+)$", "file": 1, "line": 2 }
+        ]
+      },
+      {
+        "name": "scrip-icon",
+        "owner": "scrip",
+        "source": "scrip",
+        "severity": "error",
+        "fileLocation": "absolute",
+        "pattern": { "regexp": "^icon: parse error in (.+): line (\\d+): (.*)$", "file": 1, "line": 2, "message": 3 }
+      },
+      {
+        "name": "scrip-prolog",
+        "owner": "scrip",
+        "source": "scrip",
+        "severity": "error",
+        "fileLocation": "absolute",
+        "pattern": { "regexp": "^(.+):(\\d+): parse error: (.*)$", "file": 1, "line": 2, "message": 3 }
+      },
+      {
+        "name": "scrip-pascal",
+        "owner": "scrip",
+        "source": "scrip",
+        "severity": "error",
+        "fileLocation": "absolute",
+        "pattern": [
+          { "regexp": "^pascal parse error line (\\d+): (.*)$", "line": 1, "message": 2 },
+          { "regexp": "^pascal: parse error in (.+)$", "file": 1 }
+        ]
+      },
+      {
+        "name": "scrip-raku",
+        "owner": "scrip",
+        "source": "scrip",
+        "severity": "error",
+        "fileLocation": "absolute",
+        "pattern": { "regexp": "^(.+):(\\d+):(\\d+): raku syntax error: (.*)$", "file": 1, "line": 2, "column": 3, "message": 4 }
+      },
+      {
+        "name": "scrip-snocone",
+        "owner": "scrip",
+        "source": "scrip",
+        "severity": "error",
+        "fileLocation": "absolute",
+        "pattern": { "regexp": "^(.+):(\\d+): snocone parse error: (.*)$", "file": 1, "line": 2, "message": 3 }
+      }
+    ]
+  }
+}
