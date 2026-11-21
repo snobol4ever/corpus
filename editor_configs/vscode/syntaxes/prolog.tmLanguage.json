@@ -1,302 +1,249 @@
 {
-  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-  "name": "Prolog",
-  "scopeName": "source.prolog",
-  "fileTypes": [
-    "pro",
-    "prolog",
-    "plt",
-    "pl"
-  ],
-  "patterns": [
-    {
-      "include": "#comments"
-    },
-    {
-      "include": "#directive"
-    },
-    {
-      "include": "#strings"
-    },
-    {
-      "include": "#numbers"
-    },
-    {
-      "include": "#variables"
-    },
-    {
-      "include": "#head"
-    },
-    {
-      "include": "#neck"
-    },
-    {
-      "include": "#control"
-    },
-    {
-      "include": "#builtin"
-    },
-    {
-      "include": "#word-operators"
-    },
-    {
-      "include": "#call"
-    },
-    {
-      "include": "#end"
-    },
-    {
-      "include": "#operators"
-    },
-    {
-      "include": "#punctuation"
-    },
-    {
-      "include": "#atoms"
-    }
-  ],
-  "repository": {
-    "comments": {
-      "patterns": [
-        {
-          "name": "comment.line.percent.prolog",
-          "match": "%.*$",
-          "captures": {
-            "0": {
-              "name": "punctuation.definition.comment.prolog"
-            }
-          }
-        },
-        {
-          "name": "comment.block.prolog",
-          "begin": "/\\*",
-          "end": "\\*/",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.comment.begin.prolog"
-            }
-          },
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.comment.end.prolog"
-            }
-          }
-        }
-      ]
-    },
-    "directive": {
-      "match": "^\\s*(:-|\\?-)\\s*(module_transparent|set_prolog_flag|initialization|meta_predicate|discontiguous|ensure_loaded|thread_local|style_check|use_module|multifile|encoding|dynamic|include|license|module|public|table|op)(?![\\p{L}\\p{N}_])",
-      "captures": {
-        "1": {
-          "name": "keyword.control.directive.prolog"
-        },
-        "2": {
-          "name": "keyword.other.directive.prolog"
-        }
-      }
-    },
-    "strings": {
-      "patterns": [
-        {
-          "name": "string.quoted.double.prolog",
-          "begin": "\"",
-          "end": "\"(?!\")|(?<!\\\\)(?=\\n)",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.begin.prolog"
-            }
-          },
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.end.prolog"
-            }
-          },
-          "patterns": [
-            {
-              "name": "constant.character.escape.quote.prolog",
-              "match": "\"\""
-            },
-            {
-              "name": "constant.character.escape.prolog",
-              "match": "\\\\(?:x[0-9a-fA-F]+\\\\?|[0-7]+\\\\?|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8}|[abfnrtv0\\\\'\\\"`esz]|(?=\\n)|.)"
-            }
-          ]
-        },
-        {
-          "name": "string.quoted.single.prolog",
-          "begin": "'",
-          "end": "'(?!')|(?<!\\\\)(?=\\n)",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.begin.prolog"
-            }
-          },
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.end.prolog"
-            }
-          },
-          "patterns": [
-            {
-              "name": "constant.character.escape.quote.prolog",
-              "match": "''"
-            },
-            {
-              "name": "constant.character.escape.prolog",
-              "match": "\\\\(?:x[0-9a-fA-F]+\\\\?|[0-7]+\\\\?|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8}|[abfnrtv0\\\\'\\\"`esz]|(?=\\n)|.)"
-            }
-          ]
-        },
-        {
-          "name": "string.quoted.other.backquote.prolog",
-          "begin": "`",
-          "end": "`(?!`)|(?<!\\\\)(?=\\n)",
-          "beginCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.begin.prolog"
-            }
-          },
-          "endCaptures": {
-            "0": {
-              "name": "punctuation.definition.string.end.prolog"
-            }
-          },
-          "patterns": [
-            {
-              "name": "constant.character.escape.quote.prolog",
-              "match": "``"
-            },
-            {
-              "name": "constant.character.escape.prolog",
-              "match": "\\\\(?:x[0-9a-fA-F]+\\\\?|[0-7]+\\\\?|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8}|[abfnrtv0\\\\'\\\"`esz]|(?=\\n)|.)"
-            }
-          ]
-        }
-      ]
-    },
-    "numbers": {
-      "patterns": [
-        {
-          "name": "constant.numeric.character-code.prolog",
-          "match": "(?<![\\p{L}\\p{N}_])0'(?:\\\\(?:x[0-9a-fA-F]+\\\\?|[0-7]+\\\\?|u[0-9a-fA-F]{4}|U[0-9a-fA-F]{8}|.)|''|[^\\\\'\\n])"
-        },
-        {
-          "name": "constant.numeric.integer.hexadecimal.prolog",
-          "match": "(?<![\\p{L}\\p{N}_])0x[0-9a-fA-F]+(?![\\p{L}\\p{N}_])"
-        },
-        {
-          "name": "constant.numeric.integer.octal.prolog",
-          "match": "(?<![\\p{L}\\p{N}_])0o[0-7]+(?![\\p{L}\\p{N}_])"
-        },
-        {
-          "name": "constant.numeric.integer.binary.prolog",
-          "match": "(?<![\\p{L}\\p{N}_])0b[01]+(?![\\p{L}\\p{N}_])"
-        },
-        {
-          "name": "constant.numeric.integer.radix.prolog",
-          "match": "(?<![\\p{L}\\p{N}_])(?:[2-9]|[12][0-9]|3[0-6])'[0-9a-zA-Z]+(?![\\p{L}\\p{N}_])"
-        },
-        {
-          "name": "constant.numeric.float.prolog",
-          "match": "(?<![\\p{L}\\p{N}_.])[0-9]+(?:_[0-9]+)*\\.[0-9]+(?:[eE][+-]?[0-9]+|Inf|NaN)?(?![\\p{L}\\p{N}_])"
-        },
-        {
-          "name": "constant.numeric.float.prolog",
-          "match": "(?<![\\p{L}\\p{N}_.])[0-9]+[eE][+-]?[0-9]+(?![\\p{L}\\p{N}_])"
-        },
-        {
-          "name": "constant.numeric.rational.prolog",
-          "match": "(?<![\\p{L}\\p{N}_.])[0-9]+(?:_[0-9]+)*r[0-9]+(?![\\p{L}\\p{N}_])"
-        },
-        {
-          "name": "constant.numeric.integer.prolog",
-          "match": "(?<![\\p{L}\\p{N}_.])[0-9]+(?:_[0-9]+)*(?![\\p{L}\\p{N}_])"
-        }
-      ]
-    },
-    "variables": {
-      "patterns": [
-        {
-          "name": "variable.language.anonymous.prolog",
-          "match": "(?<![\\p{L}\\p{N}_])_(?![\\p{L}\\p{N}_])"
-        },
-        {
-          "name": "variable.other.prolog",
-          "match": "(?<![\\p{L}\\p{N}_])[\\p{Lu}_][\\p{L}\\p{N}_]*"
-        }
-      ]
-    },
-    "head": {
-      "name": "entity.name.function.prolog",
-      "match": "^[\\p{Ll}][\\p{L}\\p{N}_]*(?=\\s*(?:\\(|:-|-->|\\.(?:\\s|%|$)))"
-    },
-    "neck": {
-      "name": "keyword.operator.neck.prolog",
-      "match": "(?<![#$&*+\\-./:<=>?@^~\\\\])(?::-|-->|\\?-)(?![#$&*+\\-./:<=>?@^~\\\\])"
-    },
-    "control": {
-      "patterns": [
-        {
-          "name": "keyword.control.cut.prolog",
-          "match": "!"
-        },
-        {
-          "name": "keyword.control.prolog",
-          "match": "(?<![\\p{L}\\p{N}_])(?:aggregate_all|otherwise|findall|forall|ignore|repeat|bagof|catch|false|setof|throw|call|fail|halt|once|true|not)(?![\\p{L}\\p{N}_])"
-        },
-        {
-          "name": "keyword.control.prolog",
-          "match": "(?<![#$&*+\\-./:<=>?@^~\\\\])(?:\\*->|->|\\\\\\+)(?![#$&*+\\-./:<=>?@^~\\\\])"
-        },
-        {
-          "name": "keyword.control.prolog",
-          "match": ";"
-        }
-      ]
-    },
-    "builtin": {
-      "name": "support.function.builtin.prolog",
-      "match": "(?<![\\p{L}\\p{N}_])(?:unify_with_occurs_check|current_prolog_flag|atomic_list_concat|module_transparent|atomics_to_string|assoc_to_values|garbage_collect|set_prolog_flag|write_canonical|initialization|meta_predicate|string_to_atom|term_variables|with_output_to|assoc_to_keys|assoc_to_list|discontiguous|downcase_atom|ensure_loaded|list_to_assoc|number_string|print_message|string_concat|string_length|intersection|number_chars|number_codes|split_string|string_chars|string_codes|term_to_atom|thread_local|atom_concat|atom_length|atom_number|atom_string|format_atom|list_to_set|number_vars|permutation|term_string|upcase_atom|atom_chars|atom_codes|current_op|max_member|min_member|numbervars|retractall|statistics|sub_string|use_module|write_term|char_code|char_type|code_type|copy_term|get_assoc|memberchk|multifile|nb_getval|nb_setarg|nb_setval|partition|peek_char|put_assoc|read_term|selectchk|b_getval|b_setval|callable|compound|get_byte|get_char|get_time|is_assoc|max_list|min_list|predsort|put_byte|put_char|sub_atom|subtract|sum_list|truncate|abolish|asserta|assertz|between|compare|consult|dynamic|exclude|flatten|functor|include|integer|is_dict|is_list|keysort|listing|maplist|numlist|retract|reverse|sformat|sumlist|tabling|append|assert|atomic|clause|delete|format|ground|length|member|module|nonvar|number|public|select|setarg|writeq|apply|close|float|foldl|msort|print|table|union|write|atom|last|nth0|nth1|open|plus|read|seen|sign|sort|succ|tell|told|abs|arg|gcd|max|min|see|tab|var|nl|op)(?![\\p{L}\\p{N}_])(?=\\s*\\()"
-    },
-    "word-operators": {
-      "name": "keyword.operator.word.prolog",
-      "match": "(?<![\\p{L}\\p{N}_])(?:is|rem|mod|div|rdiv|divmod|xor|as|tnot)(?![\\p{L}\\p{N}_])"
-    },
-    "call": {
-      "name": "entity.name.function.call.prolog",
-      "match": "(?<![\\p{L}\\p{N}_])[\\p{Ll}][\\p{L}\\p{N}_]*(?=\\()"
-    },
-    "end": {
-      "name": "punctuation.terminator.clause.prolog",
-      "match": "\\.(?=\\s|%|$)"
-    },
-    "operators": {
-      "name": "keyword.operator.prolog",
-      "match": "[#$&*+\\-./:<=>?@^~\\\\]+"
-    },
-    "punctuation": {
-      "patterns": [
-        {
-          "name": "punctuation.section.parens.prolog",
-          "match": "[()]"
-        },
-        {
-          "name": "punctuation.section.brackets.prolog",
-          "match": "[\\[\\]]"
-        },
-        {
-          "name": "punctuation.section.braces.prolog",
-          "match": "[{}]"
-        },
-        {
-          "name": "punctuation.separator.prolog",
-          "match": ",|\\|"
-        }
-      ]
-    },
-    "atoms": {
-      "name": "constant.other.atom.prolog",
-      "match": "(?<![\\p{L}\\p{N}_])[\\p{Ll}][\\p{L}\\p{N}_]*"
-    }
+ "comment": "GENERATED by util_sublime_to_highlight_grammar.py --write-tm, never edited; its source is the Sublime syntax Prolog.sublime-syntax",
+ "fileTypes": [
+  "pl"
+ ],
+ "name": "Prolog",
+ "patterns": [
+  {
+   "include": "#main"
   }
+ ],
+ "repository": {
+  "main": {
+   "patterns": [
+    {
+     "begin": "%",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.pl"
+      }
+     },
+     "end": "$",
+     "name": "comment.line.percentage.pl",
+     "patterns": [
+      {
+       "include": "#main-1"
+      }
+     ]
+    },
+    {
+     "begin": "/\\*",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.begin.pl"
+      }
+     },
+     "end": "\\*/",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.end.pl"
+      }
+     },
+     "name": "comment.block.pl",
+     "patterns": [
+      {
+       "include": "#main-2"
+      }
+     ]
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "keyword.operator.definition.pl"
+      },
+      "2": {
+       "name": "keyword.other.directive.pl"
+      }
+     },
+     "match": "(:-)\\s*(dynamic|discontiguous|multifile|module_transparent|meta_predicate|use_module|ensure_loaded|initialization|module|mode|op|current_prolog_flag|if|elif|else|endif)\\b"
+    },
+    {
+     "match": ":-|\\?-|-->",
+     "name": "keyword.operator.definition.pl"
+    },
+    {
+     "match": "0'(?:\\\\(?:[abfnrtve\\\\'\"`]|[0-7]+\\\\?|x[0-9A-Fa-f]+\\\\?)|''|.)",
+     "name": "constant.character.pl"
+    },
+    {
+     "match": "\\b0[bB][01_]+\\b",
+     "name": "constant.numeric.integer.binary.pl"
+    },
+    {
+     "match": "\\b0[oO][0-7_]+\\b",
+     "name": "constant.numeric.integer.octal.pl"
+    },
+    {
+     "match": "\\b0[xX][0-9A-Fa-f_]+\\b",
+     "name": "constant.numeric.integer.hexadecimal.pl"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+(?:[eE][+-]?[0-9]+)?(?:NaN|Inf)?\\b",
+     "name": "constant.numeric.float.pl"
+    },
+    {
+     "match": "\\b[0-9]+[eE][+-]?[0-9]+\\b",
+     "name": "constant.numeric.float.pl"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.pl"
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\"",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.begin.pl"
+      }
+     },
+     "end": "\"",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.end.pl"
+      }
+     },
+     "name": "string.quoted.double.pl",
+     "patterns": [
+      {
+       "include": "#main-3"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "'",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.begin.pl"
+      }
+     },
+     "end": "'",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.end.pl"
+      }
+     },
+     "name": "string.quoted.single.pl",
+     "patterns": [
+      {
+       "include": "#main-4"
+      }
+     ]
+    },
+    {
+     "match": "(?<![0-9A-Za-z_])_(?![0-9A-Za-z_])",
+     "name": "variable.language.anonymous.pl"
+    },
+    {
+     "match": "\\b[A-Z][0-9A-Za-z_]*\\b|(?<![0-9A-Za-z_])_[0-9A-Za-z_]+\\b",
+     "name": "variable.other.pl"
+    },
+    {
+     "match": "!",
+     "name": "keyword.control.cut.pl"
+    },
+    {
+     "match": "=\\.\\.|=:=|=\\\\=|\\\\==|@=<|@>=|=<|>=|==|@<|@>|\\\\=|<|>",
+     "name": "keyword.operator.comparison.pl"
+    },
+    {
+     "match": "->|;",
+     "name": "keyword.operator.logical.pl"
+    },
+    {
+     "match": "\\\\\\+",
+     "name": "keyword.operator.logical.negation.pl"
+    },
+    {
+     "match": "\\*\\*|<<|>>|//|[+\\-*/^]",
+     "name": "keyword.operator.arithmetic.pl"
+    },
+    {
+     "match": "=",
+     "name": "keyword.operator.unification.pl"
+    },
+    {
+     "match": "[+\\-*/\\\\^<>=~?@#&:.!][+\\-*/\\\\^<>=~?@#&:.!]+",
+     "name": "keyword.operator.pl"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "entity.name.function.pl"
+      }
+     },
+     "match": "^\\s*(\\b[a-z][0-9A-Za-z_]*\\b)(?=\\s*(?:\\(|:-|-->))"
+    },
+    {
+     "match": "\\b(?:is|mod|rem|xor)\\b",
+     "name": "keyword.operator.word.pl"
+    },
+    {
+     "match": "\\bnot\\b",
+     "name": "keyword.operator.logical.negation.pl"
+    },
+    {
+     "match": "\\b(?:true|fail|false)\\b",
+     "name": "constant.language.pl"
+    },
+    {
+     "match": "\\b(?:abolish|abs|acos|acyclic_term|aggregate_all|arg|asin|assert|asserta|assertz|atan|atom|atom_chars|atom_codes|atom_concat|atomic|atomic_list_concat|atom_length|atom_number|atom_string|bagof|between|call|callable|catch|ceiling|char_type|clause|compound|concat_atom|copy_term|cos|current_op|current_predicate|current_prolog_flag|current_stream|downcase_atom|exp|findall|float|float_fractional_part|float_integer_part|floor|flush_output|forall|format|functor|gcd|ground|halt|ignore|integer|is_list|log|max|min|msort|name|nb_getval|nb_setval|nl|nonvar|number|number_chars|number_codes|number_string|numbervars|once|phrase|plus|predicate_property|print|put_char|read|read_term|retract|retractall|round|setof|setup_call_cleanup|sign|sin|sort|sqrt|stream_property|string_chars|string_codes|string_concat|string_length|string_lower|string_to_atom|string_upper|sub_atom|succ|tab|tan|term_string|term_to_atom|throw|truncate|upcase_atom|var|with_output_to|write|write_canonical|writeln|writeq)\\b(?=\\s*\\()",
+     "name": "support.function.pl"
+    },
+    {
+     "match": "\\b(?:nl|halt|fail|true|listing)\\b",
+     "name": "support.function.pl"
+    },
+    {
+     "match": "\\[\\]",
+     "name": "constant.language.empty-list.pl"
+    },
+    {
+     "match": "\\b[a-z][0-9A-Za-z_]*\\b",
+     "name": "constant.other.atom.pl"
+    },
+    {
+     "match": "[()\\[\\]{}]",
+     "name": "punctuation.section.group.pl"
+    },
+    {
+     "match": "\\|",
+     "name": "punctuation.separator.pl"
+    },
+    {
+     "match": ",",
+     "name": "punctuation.separator.pl"
+    }
+   ]
+  },
+  "main-1": {
+   "patterns": []
+  },
+  "main-2": {
+   "patterns": []
+  },
+  "main-3": {
+   "patterns": [
+    {
+     "match": "\\\\(?:[abfnrtve\\\\'\"`]|[0-7]+\\\\?|x[0-9A-Fa-f]+\\\\?|\\n)",
+     "name": "constant.character.escape.pl"
+    }
+   ]
+  },
+  "main-4": {
+   "patterns": [
+    {
+     "match": "''",
+     "name": "constant.character.escape.pl"
+    },
+    {
+     "match": "\\\\(?:[abfnrtve\\\\'\"`]|[0-7]+\\\\?|x[0-9A-Fa-f]+\\\\?|\\n)",
+     "name": "constant.character.escape.pl"
+    }
+   ]
+  }
+ },
+ "scopeName": "source.pl"
 }
