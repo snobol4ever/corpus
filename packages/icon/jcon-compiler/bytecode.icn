@@ -1567,17 +1567,17 @@ procedure j_relocate(insn, locations)
     };
 end
 
-procedure j_create_fieldref(classfile, name, Type, class)
+procedure j_create_fieldref(classfile, name, Type, klass)
     local name_index, type_index, class_index, nat_index, field_index;
 
     type(classfile) == "j_ClassFile" | runerr(500, classfile);
     type(name) == "string" | runerr(500, name);
     type(Type) == "string" | runerr(500, Type);
-    type(class) == "string" | runerr(500, class);
+    type(klass) == "string" | runerr(500, klass);
 
     name_index := j_cp_Utf8(classfile, name);
     type_index := j_cp_Utf8(classfile, Type);
-    class_index := j_cp_Class(classfile, j_cp_Utf8(classfile, class));
+    class_index := j_cp_Class(classfile, j_cp_Utf8(classfile, klass));
     nat_index := j_cp_NameAndType(classfile, name_index, type_index);
     field_index := j_cp_a_Fieldref(classfile, class_index, nat_index);
     return field_index;
@@ -1598,24 +1598,24 @@ procedure j_create_field(classfile, access, name, Type)
     return field;
 end
 
-procedure j_create_methodref(classfile, name, Type, class)
+procedure j_create_methodref(classfile, name, Type, klass)
     local name_index, type_index, class_index, nat_index, method_index;
 
     type(classfile) == "j_ClassFile" | runerr(500, classfile);
     type(name) == "string" | runerr(500, name);
     type(Type) == "string" | runerr(500, Type);
-    type(class) == "string" | runerr(500, class);
+    type(klass) == "string" | runerr(500, klass);
 
     name_index := j_cp_Utf8(classfile, name);
     type_index := j_cp_Utf8(classfile, Type);
-    class_index := j_cp_Class(classfile, j_cp_Utf8(classfile, class));
+    class_index := j_cp_Class(classfile, j_cp_Utf8(classfile, klass));
     nat_index := j_cp_NameAndType(classfile, name_index, type_index);
     method_index := j_cp_Methodref(classfile, class_index, nat_index);
     return method_index;
 end
 
 procedure j_create_method(classfile, access, name, Type)
-    local name_index, type_index, method;
+    local name_index, type_index, methud;
 
     type(classfile) == "j_ClassFile" | runerr(500, classfile);
     type(name) == "string" | runerr(500, name);
@@ -1624,9 +1624,9 @@ procedure j_create_method(classfile, access, name, Type)
 
     name_index := j_cp_Utf8(classfile, name);
     type_index := j_cp_Utf8(classfile, Type);
-    method := j_method_info(access, name_index, type_index, []);
-    put(classfile.methods, method);
-    return method;
+    methud := j_method_info(access, name_index, type_index, []);
+    put(classfile.methods, methud);
+    return methud;
 end
 
 procedure j_create_code(classfile, stacksize, localsize)

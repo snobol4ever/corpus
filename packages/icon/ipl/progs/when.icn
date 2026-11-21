@@ -43,7 +43,7 @@
 global base,      # 1970 calculation baseline number
        today,     # displacement from 12:00:01am today
        now,       # upto the second mark for right now
-       method,    # ascending or descending order
+       methud,    # ascending or descending order
        output,    # long (ls -al) or brief (ls -1) style
        command,   # optional command to do on each file
        files      # list with files, sizes, and ages
@@ -52,7 +52,7 @@ procedure main(param)
   local i, option, j;
   calc_today();
   files   := directory();
-  method  := "none";
+  methud  := "none";
   output  := "long";
   command := "";
   if *param = 0 then show_age();
@@ -73,8 +73,8 @@ procedure main(param)
                   files := since(files,param[i+1]);
                   i    +:= 1
                   };
-      "asc"     : method:="ascending";
-      "des"     : method:="descending";
+      "asc"     : methud:="ascending";
+      "des"     : methud:="descending";
       "long"    : output:="long";
       "brief"   : output:="brief";
       "do"      : {
@@ -92,7 +92,7 @@ procedure main(param)
 #
 procedure show_age()
   local line, age, ks, file, text, results, i;
-  case method of
+  case methud of
     {
     "none" : {  
              every line := !files do

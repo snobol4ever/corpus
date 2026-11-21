@@ -289,7 +289,7 @@ procedure methodrefs()
 	     "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V",
 	     "jcon/iEnv", "announce_undeclared"]
         ];
-    def := [ "name", "type", "class" ];
+    def := [ "name", "type", "klass" ];
     every gen_procedure(!m, def, "methodref");
 
     write("procedure bc_CallN_methodref(c, N)");
@@ -373,7 +373,7 @@ procedure fieldrefs()
         [ "file", "Ljava/lang/String;", "jcon/iTrace"],
         [ "line", "I", "jcon/iTrace"]
     ];
-    def := [ "name", "type", "class" ];
+    def := [ "name", "type", "klass" ];
     every gen_procedure(!f, def, "fieldref");
 end
 

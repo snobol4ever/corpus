@@ -113,7 +113,7 @@ global litName				# string to match against feature name
 
 
 # the classification list finds things based on line type
-record class(				# classification record
+record klass(				# classification record
    prefix,				#    CFCC prefix
    psgray,				#    PostScript graylevel
    pswidth,				#    PostScript linewidth
@@ -464,7 +464,7 @@ end
 
 
 procedure drawmap(hilightOnly);
-   local line, w, worig, lon, lat, dlon, dlat, a, bdy, dim, class, fename, f;
+   local line, w, worig, lon, lat, dlon, dlat, a, bdy, dim, klass, fename, f;
    local drawProc, litFeature;
 
    WAttrib("pointer=wait" | "pointer=watch");
@@ -487,7 +487,7 @@ procedure drawmap(hilightOnly);
 	    return
 	 };
 
-         w := \wintbl[class := move(2)] | next;
+         w := \wintbl[klass := move(2)] | next;
          move(1);
          bdy := move(1);
          if ="|" then {
@@ -526,7 +526,7 @@ procedure drawmap(hilightOnly);
          if /hilightOnly then {
             if any('57', bdy) & (a[1] := \wintbl["Y" || bdy]) then {
                drawProc ! a;		# draw boundary indicator
-               if any('F', class) then
+               if any('F', klass) then
                   next;			# chain is ONLY a boundary
                a[1] := w
             };
@@ -688,23 +688,23 @@ procedure setclasses();
 
    clist := [				# classification list
       # prefix, psgray&w, label,   color,  width
-      class("A1", .0, 4, "roads", "black", 3),		# freeway/tollway
-      class("A2", .0, 2, "roads", "black", 2),		# primary road
-      class("A3", .0, 1, "roads", "black"),		# secondary road
-      class("A4", .0, 0, "roads", "white"),		# local road
-      class("A",  .0, 0, "roads", "white"),		# other road
-      class("B1", .4, 2, "railroads", "deep green", 2),	# railroad line
-      class("B",  .4, 1, "railroads", "deep green"),	# r.r. spur, yard, etc.
-      class("H",  .7, 1, "water", "dark cyanish blue"),	# water
-      class("Y7", .9, 5, "major boundaries", "orange", 3),	# county
-      class("Y5", .9, 3, "major boundaries", "orange", 2),	# city
-      class("E",  .9, 1, "minor boundaries", "light orange"),	# visible
-      class("F",  .9, 1, "minor boundaries", "light orange"),	# invisible
-      class("D",  .0, 1, "landmarks", "dark red"),		# landmark
-      class("C",  .5, 1, "piplines & power", "purple"),		# pipe, power
-      class("LL", .2, 2, "highlighted feature", "yellow", 10),	# hilit feature
-      class("T0", .8, 3, "GPS track", "dark greenish cyan", 2),	# Track data
-      class("X",  .8, 1, "unclassified", "purple")];		# unclassified
+      klass("A1", .0, 4, "roads", "black", 3),		# freeway/tollway
+      klass("A2", .0, 2, "roads", "black", 2),		# primary road
+      klass("A3", .0, 1, "roads", "black"),		# secondary road
+      klass("A4", .0, 0, "roads", "white"),		# local road
+      klass("A",  .0, 0, "roads", "white"),		# other road
+      klass("B1", .4, 2, "railroads", "deep green", 2),	# railroad line
+      klass("B",  .4, 1, "railroads", "deep green"),	# r.r. spur, yard, etc.
+      klass("H",  .7, 1, "water", "dark cyanish blue"),	# water
+      klass("Y7", .9, 5, "major boundaries", "orange", 3),	# county
+      klass("Y5", .9, 3, "major boundaries", "orange", 2),	# city
+      klass("E",  .9, 1, "minor boundaries", "light orange"),	# visible
+      klass("F",  .9, 1, "minor boundaries", "light orange"),	# invisible
+      klass("D",  .0, 1, "landmarks", "dark red"),		# landmark
+      klass("C",  .5, 1, "piplines & power", "purple"),		# pipe, power
+      klass("LL", .2, 2, "highlighted feature", "yellow", 10),	# hilit feature
+      klass("T0", .8, 3, "GPS track", "dark greenish cyan", 2),	# Track data
+      klass("X",  .8, 1, "unclassified", "purple")];		# unclassified
 
    every c := !clist do
       c.vispfx := c.prefix;		# initially, all layers visible
@@ -790,7 +790,7 @@ end
 
 procedure writelch(ofile);
    local line, dim, lon, lat, f, a, b, x, y, dlon, dlat, nlon, nlat, w, head;
-   local startlon, startlat, minlon, minlat, maxlon, maxlat, deltas, class;
+   local startlon, startlat, minlon, minlat, maxlon, maxlat, deltas, klass;
 
    write(ofile, "        ",
       right(ctrlon - lonrange, 7), right(ctrlat - latrange, 7));
@@ -803,8 +803,8 @@ procedure writelch(ofile);
       read(f);			# skip maxima line
 
       while line := read(f) do line ? {
-         w := \wintbl[class := move(2)] | next;
-         head := class || move(2);
+         w := \wintbl[klass := move(2)] | next;
+         head := klass || move(2);
          if ="|" then {
             head ||:= "|" || tab(upto('|') + 1)
          };

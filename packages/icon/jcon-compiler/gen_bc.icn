@@ -185,7 +185,7 @@ end
 
 # record ir_Field(coord, lhs, expr, field, failLabel)
 procedure bc_gen_ir_Field(s, p)
-    local lab, method, fieldname, field, d;
+    local lab, methud, fieldname, field, d;
 
     (/p.lhs | (type(p.lhs) == "ir_Tmp")) | runerr(500, p);
     (type(p.expr) == "ir_Tmp") | runerr(500, p);
@@ -198,11 +198,11 @@ procedure bc_gen_ir_Field(s, p)
                    j_cp_Utf8(bc_current_classptr, p.field)) | runerr(500);
     put(s, j_ldc_w(d) );
     if \bc_nodebuginfo then {
-        method := bc_Field_methodref(bc_current_classptr);
-        put(s, j_invokevirtual(method))
+        methud := bc_Field_methodref(bc_current_classptr);
+        put(s, j_invokevirtual(methud))
     } else {
-        method := bc_trampoline_Field_methodref(bc_current_classptr);
-        put(s, j_invokestatic(method))
+        methud := bc_trampoline_Field_methodref(bc_current_classptr);
+        put(s, j_invokestatic(methud))
     };
     if \p.lhs then {
         put(s, j_dup() );
@@ -582,7 +582,7 @@ end
 
 # record ir_MakeList( lhs valueList )
 procedure bc_gen_ir_MakeList(s, p)
-    local r, v, i, method, class_index;
+    local r, v, i, methud, class_index;
 
     \p.lhs | return s;
     (type(p.lhs) == "ir_Tmp") | runerr(500, p);
@@ -601,15 +601,15 @@ procedure bc_gen_ir_MakeList(s, p)
         bc_gen(s, p.valueList[i]);
         put(s, j_aastore())
     };
-    method := bc_New_vList_methodref(bc_current_classptr);
-    put(s, j_invokestatic(method));
+    methud := bc_New_vList_methodref(bc_current_classptr);
+    put(s, j_invokestatic(methud));
     bc_gen_assign_to(s, p.lhs);
     return s;
 end
 
 # record ir_OpFunction( coord lhs fn argList failLabel )
 procedure bc_gen_ir_OpFunction(s, p)
-    local c, method, i;
+    local c, methud, i;
 
     (/p.lhs | type(p.lhs) == "ir_Tmp") | runerr(500, p);
     (/p.failLabel | type(p.failLabel) == "ir_Label") | runerr(500, p);
@@ -619,20 +619,20 @@ procedure bc_gen_ir_OpFunction(s, p)
 
     p.fn.arity = *p.argList | runerr(500, p);
     if \bc_nodebuginfo then {
-        method := bc_op_methodref(bc_current_classptr, p.fn.name, p.fn.arity, p.fn.rval);
-        \method | runerr(500);
+        methud := bc_op_methodref(bc_current_classptr, p.fn.name, p.fn.arity, p.fn.rval);
+        \methud | runerr(500);
         every bc_gen(s, !p.argList);
-        put(s, j_invokevirtual(method))
+        put(s, j_invokevirtual(methud))
     } else {
 	bc_push_coordinate(s, p.coord);
 	if p.fn.name == "@" then {
             c := j_cp_String(bc_current_classptr, j_cp_Utf8(bc_current_classptr, bc_function_name));
             put(s, j_ldc_w(c))
 	};
-        method := bc_trampoline_op_methodref(bc_current_classptr, p.fn.name, p.fn.arity, p.fn.rval);
-        \method | runerr(500);
+        methud := bc_trampoline_op_methodref(bc_current_classptr, p.fn.name, p.fn.arity, p.fn.rval);
+        \methud | runerr(500);
         every bc_gen(s, !p.argList);
-        put(s, j_invokestatic(method))
+        put(s, j_invokestatic(methud))
     };
     return ir_CallTail(s, p);
 end
@@ -664,7 +664,7 @@ end
 
 # record ir_Call( coord lhs fn argList failLabel )
 procedure bc_gen_ir_Call(s, p)
-    local r, l, f, v, n, i, method, class_index;
+    local r, l, f, v, n, i, methud, class_index;
 
     (type(p.lhs) == "ir_Tmp") | runerr(500, p);
     (type(p.fn) == "ir_Tmp") | runerr(500, p);
@@ -680,7 +680,7 @@ procedure bc_gen_ir_Call(s, p)
     bc_gen(s, p.fn);
     if *p.argList <= 9 then {			#%#%#% hard-wired constant!!!!!
         every bc_gen(s, !p.argList);
-        method := bc_CallN_methodref(bc_current_classptr, *p.argList)
+        methud := bc_CallN_methodref(bc_current_classptr, *p.argList)
     } else {
         put(s, j_ipush(*p.argList));
         class_index := j_cp_Class(bc_current_classptr,
@@ -692,13 +692,13 @@ procedure bc_gen_ir_Call(s, p)
             bc_gen(s, p.argList[i]);
             put(s, j_aastore())
         };
-        method := bc_CallV_methodref(bc_current_classptr)
+        methud := bc_CallV_methodref(bc_current_classptr)
     };
     if \bc_nodebuginfo then {
-        put(s, j_invokevirtual(method))
+        put(s, j_invokevirtual(methud))
     } else {
-        method := bc_trampoline_CallN_methodref(bc_current_classptr, *p.argList);
-        put(s, j_invokestatic(method))
+        methud := bc_trampoline_CallN_methodref(bc_current_classptr, *p.argList);
+        put(s, j_invokestatic(methud))
     };
     return ir_CallTail(s, p);
 end
@@ -717,7 +717,7 @@ end
 
 # record ir_Create( lhs coexpLabel )
 procedure bc_gen_ir_Create(s, p)
-    local class, init, newmethod, createmethod, vararray;
+    local klass, init, newmethod, createmethod, vararray;
 
     (type(p.lhs) == "ir_Tmp") | runerr(500, p);
     (type(p.coexpLabel) == "ir_Label") | runerr(500, p);
@@ -729,7 +729,7 @@ procedure bc_gen_ir_Create(s, p)
 	return s
     };
 
-    class := j_cp_Class(bc_current_classptr, 
+    klass := j_cp_Class(bc_current_classptr, 
                         j_cp_Utf8(bc_current_classptr, bc_vClosure_classname));
     init := bc_initVI_methodref(bc_current_classptr, bc_vClosure_classname);
     newmethod := bc_New_vCoexp_methodref(bc_current_classptr);
@@ -737,7 +737,7 @@ procedure bc_gen_ir_Create(s, p)
     vararray := j_create_fieldref(bc_current_classptr, "tmpVarArray",
                                   "[Ljcon/vDescriptor;", bc_current_classname);
 
-    put(s, j_new(class));
+    put(s, j_new(klass));
     put(s, j_dup());
     put(s, j_aload_0() );
     put(s, j_getfield(vararray) );
@@ -922,7 +922,7 @@ procedure bc_find_save_restore(code)
     };
 end
 
-procedure bc_alloc_tmps(s, c, class, classname)
+procedure bc_alloc_tmps(s, c, klass, classname)
     local a, class_index;
 
     if *bc_tmp_table > 0 then {
@@ -930,19 +930,19 @@ procedure bc_alloc_tmps(s, c, class, classname)
         put(s, j_ipush(*bc_tmp_table) );
         class_index := j_cp_Class(c, j_cp_Utf8(c, "jcon/vDescriptor"));
         put(s, j_anewarray(class_index) );
-        a := j_create_fieldref(class, "tmpArray",
+        a := j_create_fieldref(klass, "tmpArray",
                              "[Ljcon/vDescriptor;", classname);
         put(s, j_putfield(a) )
     };
 end
 
-procedure bc_alloc_tmplabels(s, c, class, classname)
+procedure bc_alloc_tmplabels(s, c, klass, classname)
     local a;
     if *bc_tmplabel_table > 0 then {
         put(s, j_aload_0() );
         put(s, j_ipush(*bc_tmplabel_table) );
         put(s, j_newarray(10) );
-        a := j_create_fieldref(class, "tmpLabelArray", "[I",
+        a := j_create_fieldref(klass, "tmpLabelArray", "[I",
                              classname);
         put(s, j_putfield(a) )
     };
@@ -1125,19 +1125,19 @@ procedure bc_create_vClosure_constructor(c, params, locals, undeclared, accumula
 end
 
 procedure bc_create_refresher(c)
-    local refresher, code, s, class, init, refreshArray, refreshPC;
+    local refresher, code, s, klass, init, refreshArray, refreshPC;
 
     refresher := j_create_method(c, 1, "refreshcopy", "()Ljcon/vClosure;");
     code := j_create_code(c, 15, 15);
     put(refresher.attributes, code);
     s := code.code;
 
-    class := j_cp_Class(c, j_cp_Utf8(c, bc_vClosure_classname));
+    klass := j_cp_Class(c, j_cp_Utf8(c, bc_vClosure_classname));
     init := bc_initVI_methodref(c, bc_vClosure_classname);
     refreshArray := bc_refreshArray_fieldref(c, bc_vClosure_classname);
     refreshPC := bc_refreshPC_fieldref(c, bc_vClosure_classname);
 
-    put(s, j_new(class));
+    put(s, j_new(klass));
     put(s, j_dup());
     put(s, j_aload_0() );
     put(s, j_getfield(refreshArray) );
@@ -1325,16 +1325,16 @@ procedure bc_create_Call(c, start, params, locals, undeclared, accumulate)
 end
 
 procedure bc_trampoline(nextvalcode, c, params, locals, undeclared, accumulate)
-    local s, class, init, resume, target, retval;
+    local s, klass, init, resume, target, retval;
 
     s := nextvalcode.code;
-    class := j_cp_Class(c, j_cp_Utf8(c, bc_vClosure_classname));
+    klass := j_cp_Class(c, j_cp_Utf8(c, bc_vClosure_classname));
     init := bc_initV_methodref(c, bc_vClosure_classname); 
     resume := bc_Resume_methodref(c);
     retval := bc_retval_fieldref(c);
     target := j_label();
 
-    put(s, j_new(class));
+    put(s, j_new(klass));
     put(s, j_dup());
 
     bc_createvars_into_array(s, c, params, locals, undeclared, accumulate);
@@ -1774,7 +1774,7 @@ end
 procedure bc_create_declare(c)
     local declare, declarecode, declareGlobal, k, s, declareProcedure;
     local declareRecord, stringclass, i, f, nm;
-    local class, init;
+    local klass, init;
     local declareDebugging;
 
     declare := j_create_method(c, 0, "declare", "()V");
@@ -1798,9 +1798,9 @@ procedure bc_create_declare(c)
         put(declarecode.code, j_ldc_w(s) );
 
 	nm := "p_" || bc_java_classname || "$" || k;
-        class := j_cp_Class(c, j_cp_Utf8(c, nm));
+        klass := j_cp_Class(c, j_cp_Utf8(c, nm));
         init := bc_init_methodref(c, nm);
-        put(declarecode.code, j_new(class) );
+        put(declarecode.code, j_new(klass) );
         put(declarecode.code, j_dup() );
         put(declarecode.code, j_invokespecial(init) );
 

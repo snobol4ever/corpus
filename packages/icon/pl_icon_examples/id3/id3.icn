@@ -148,8 +148,8 @@ procedure disorder(samples, property, attribute)
       if not(*branch_set=0) then
       {
         classes := table(0.0);
-        every class := !branch_set do
-          classes[class[*class]] +:= 1.0;
+        every klass := !branch_set do
+          classes[klass[*klass]] +:= 1.0;
           sum := 0.0;
           classlist := sort(classes,2);
           while frcypair := pop(classlist) do

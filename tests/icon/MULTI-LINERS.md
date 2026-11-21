@@ -41717,7 +41717,7 @@ key=8 record r5_15(5)
 
 
 
-record method(name, ncalls, tself, tcalled, tlocal)
+record methud(name, ncalls, tself, tcalled, tlocal)
 record skey(key, orig)
 
 global ptab
@@ -41794,7 +41794,7 @@ procedure lookup(s)
    if p := \ptab[s] then
       return p
    else
-      return ptab[s] := method(s, 0, 0, 0);
+      return ptab[s] := methud(s, 0, 0, 0);
 end
 
 

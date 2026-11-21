@@ -174,14 +174,14 @@ procedure bc_trampoline_op_methodref(c, name, arity, rval)
 	if arity = 2 & name == "--" then return j_create_methodref(c, "Diff", "(Ljava/lang/String;ILjcon/vDescriptor;Ljcon/vDescriptor;)Ljcon/vValue;", "jcon/iTrampoline");
 	runerr(500, name || arity);
 end
-procedure bc_init_methodref(c, class)
-    return j_create_methodref(c, "<init>", "()V", class);
+procedure bc_init_methodref(c, klass)
+    return j_create_methodref(c, "<init>", "()V", klass);
 end
-procedure bc_initV_methodref(c, class)
-    return j_create_methodref(c, "<init>", "([Ljcon/vDescriptor;)V", class);
+procedure bc_initV_methodref(c, klass)
+    return j_create_methodref(c, "<init>", "([Ljcon/vDescriptor;)V", klass);
 end
-procedure bc_initVI_methodref(c, class)
-    return j_create_methodref(c, "<init>", "([Ljcon/vDescriptor;I)V", class);
+procedure bc_initVI_methodref(c, klass)
+    return j_create_methodref(c, "<init>", "([Ljcon/vDescriptor;I)V", klass);
 end
 procedure bc_Assign_methodref(c)
     return j_create_methodref(c, "Assign", "(Ljcon/vDescriptor;)Ljcon/vVariable;", "jcon/vDescriptor");
@@ -237,8 +237,8 @@ end
 procedure bc_trampoline_cofail_methodref(c)
     return j_create_methodref(c, "cofail", "(Ljava/lang/String;ILjava/lang/String;Ljcon/vCoexp;)V", "jcon/iTrampoline");
 end
-procedure bc_copy_methodref(c, class)
-    return j_create_methodref(c, "copy", "(I)Ljcon/vClosure;", class);
+procedure bc_copy_methodref(c, klass)
+    return j_create_methodref(c, "copy", "(I)Ljcon/vClosure;", klass);
 end
 procedure bc_coret_methodref(c)
     return j_create_methodref(c, "coret", "(Ljcon/vDescriptor;)V", "jcon/vCoexp");
@@ -249,8 +249,8 @@ end
 procedure bc_create_methodref(c)
     return j_create_methodref(c, "create", "()V", "jcon/vCoexp");
 end
-procedure bc_createVars_methodref(c, class)
-    return j_create_methodref(c, "createVars", "()V", class);
+procedure bc_createVars_methodref(c, klass)
+    return j_create_methodref(c, "createVars", "()V", klass);
 end
 procedure bc_declareDebugging_methodref(c)
     return j_create_methodref(c, "declareDebugging", "()V", "jcon/iEnv");
@@ -393,8 +393,8 @@ procedure bc_initN_method(c, N)
 	default : runerr(500, N)
 	};
 end
-procedure bc_PC_fieldref(c, class)
-    return j_create_fieldref(c, "PC", "I", class);
+procedure bc_PC_fieldref(c, klass)
+    return j_create_fieldref(c, "PC", "I", klass);
 end
 procedure bc_arguments_fieldref(c)
     return j_create_fieldref(c, "arguments", "[Ljcon/vDescriptor;", "jcon/vClosure");
@@ -402,11 +402,11 @@ end
 procedure bc_retval_fieldref(c)
     return j_create_fieldref(c, "retval", "Ljcon/vDescriptor;", "jcon/vClosure");
 end
-procedure bc_refreshArray_fieldref(c, class)
-    return j_create_fieldref(c, "refreshArray", "[Ljcon/vDescriptor;", class);
+procedure bc_refreshArray_fieldref(c, klass)
+    return j_create_fieldref(c, "refreshArray", "[Ljcon/vDescriptor;", klass);
 end
-procedure bc_refreshPC_fieldref(c, class)
-    return j_create_fieldref(c, "refreshPC", "I", class);
+procedure bc_refreshPC_fieldref(c, klass)
+    return j_create_fieldref(c, "refreshPC", "I", klass);
 end
 procedure bc_cur_coexp_fieldref(c)
     return j_create_fieldref(c, "cur_coexp", "Ljcon/vCoexp;", "jcon/iEnv");
