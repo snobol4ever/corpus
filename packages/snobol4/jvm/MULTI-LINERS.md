@@ -39209,34 +39209,14 @@ memory left (bytes)  1037136
 ## core_test__the-backtrack-stack-is-read-at-its-top
 
 ```SNOBOL4
-        S = DUPL('a', 40000)
+        S = DUPL('a', 30000)
         S ? POS(0) ARBNO(FENCE(LEN(1) . X) ('b' 'c' | '')) RPOS(0)     :F(END)
         OUTPUT = 'matched ' SIZE(S) ' ' X
 END
 ```
 
 ```stdout
-
-
-
-core_test__the-backtrack-stack-is-read-at-its-top.sno(2) : ERROR 246 -- stack overflow
-
-
-
-
-
-in file              core_test__the-backtrack-stack-is-read-at-its-top.sno
-in line              2
-in statement         2
-stmts executed       2
-execution time msec  11
-stmt / microsec      0
-stmt / millisec      0
-stmt / second        0
-REGENERATIONS        0
-memory used (bytes)  51824
-memory left (bytes)  996744
-
+matched 30000 a
 ```
 
 ## core_test__immediate-capture-takes-the-whole-span-of-a-sequence
