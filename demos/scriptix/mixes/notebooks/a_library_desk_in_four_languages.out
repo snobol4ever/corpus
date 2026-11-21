@@ -1,0 +1,62 @@
+THE CATALOGUE
+  B01  The Dispossessed (Ursula K. Le Guin), shelf SF-LEG
+  B02  Middlemarch (George Eliot), shelf FIC-ELI
+  B03  Godel, Escher, Bach (Douglas Hofstadter), shelf 510.HOF
+  B04  Gnomon (Nick Harkaway), shelf FIC-HAR
+  B05  The Pragmatic Programmer (Andrew Hunt), shelf 005.HUN
+  B06  Cosmos (Carl Sagan), shelf 520.SAG
+  catalogue line 7 refused: cannot read: Anonymous pamphlet with no shelf mark
+  B07  Dune (Frank Herbert), shelf SF-HER
+THE DAY BOOK
+  2026-03-02 ana lends B01, due 2026-03-16
+  2026-03-03 bo lends B02, due 2026-03-17
+  2026-03-05 cy lends B03, due 2026-03-19
+  2026-03-09 ana returns B01
+  2026-03-10 di lends B01, due 2026-03-24
+  2026-03-12 bo reserves B03
+  2026-03-20 ed lends B03: refused, B03 is already out with cy
+  day book line 8 refused: cannot read: on the fifth ana took B04
+  2026-03-25 ana lends B04, due 2026-04-08
+  2026-03-26 ana lends B05, due 2026-04-09
+  2026-04-02 ana lends B06, due 2026-04-16
+  2026-04-03 bo reserves B01
+  2026-04-05 ed lends B07, due 2026-04-19
+  2026-04-06 ed returns B02: refused, B02 is held by bo, not by ed
+  2026-04-07 cy reserves B01
+  2026-04-09 di reserves B05
+  day book line 17 refused: cannot read: 2026-13-02 di lends B02
+  2026-04-12 cy returns B03
+  2026-04-12 bo lends B03, due 2026-04-26
+  2026-04-17 di returns B01
+  2026-04-18 ed reserves B99: refused, there is no such book
+  6 books out, 3 reservations waiting, 5 members
+THE RULES, on 2026-04-20
+  ana may not borrow: 3 overdue, owes 270p
+  bo may not borrow: 1 overdue, owes 300p
+  cy may borrow: 0 of 3 loans, none overdue
+  di may borrow: 0 of 3 loans, none overdue
+  ed may not borrow: 1 overdue, owes 10p
+RESERVATIONS
+  B01 goes first to cy, reserved 2026-04-07: the earliest reservation of a member with nothing overdue
+    bo waits behind: an overdue loan
+  B05 goes first to di, reserved 2026-04-09: the only reservation
+  fines owed in all: 580p
+THE REPORTS, 2026-04-20
+overdue loans, longest first
+  B02  Middlemarch               bo   2026-03-17   34 days
+  B04  Gnomon                    ana  2026-04-08   12 days
+  B05  The Pragmatic Programmer  ana  2026-04-09   11 days
+  B06  Cosmos                    ana  2026-04-16    4 days
+  B07  Dune                      ed   2026-04-19    1 day
+shelf list, by shelf mark
+  005.HUN  B05  The Pragmatic Programmer  out with ana
+  510.HOF  B03  Godel, Escher, Bach       out with bo
+  520.SAG  B06  Cosmos                    out with ana
+  FIC-ELI  B02  Middlemarch               out with bo
+  FIC-HAR  B04  Gnomon                    out with ana
+  SF-HER   B07  Dune                      out with ed
+  SF-LEG   B01  The Dispossessed          on the shelf
+next free day of each reserved book
+  B01  The Dispossessed          2026-04-20  on the shelf
+  B05  The Pragmatic Programmer  2026-04-20  out with ana, due 2026-04-09, overdue
+fines owed, as Prolog reckoned them: 580p
