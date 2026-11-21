@@ -25,3 +25,5 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 24,mixes/notebooks/calculus_homework_in_three_languages,mixes/notebooks/calculus_homework_in_three_languages.ipynb,demos__scriptix/mixes/notebooks/calculus_homework_in_three_languages,scriptix-demos,691,0,131072,4096,300,,
 25,mixes/a_calculator_in_three_languages,mixes/a_calculator_in_three_languages.md,demos__scriptix/mixes/a_calculator_in_three_languages,scriptix-demos,94,0,131072,4096,300,,
 26,mixes/notebooks/a_calculator_in_three_languages,mixes/notebooks/a_calculator_in_three_languages.ipynb,demos__scriptix/mixes/notebooks/a_calculator_in_three_languages,scriptix-demos,145,0,131072,4096,300,,
+27,mixes/a_spreadsheet_in_three_languages,mixes/a_spreadsheet_in_three_languages.md,demos__scriptix/mixes/a_spreadsheet_in_three_languages,scriptix-demos,421,0,131072,4096,300,,
+28,mixes/notebooks/a_spreadsheet_in_three_languages,mixes/notebooks/a_spreadsheet_in_three_languages.ipynb,demos__scriptix/mixes/notebooks/a_spreadsheet_in_three_languages,scriptix-demos,583,0,131072,4096,300,,
