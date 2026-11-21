@@ -1,0 +1,238 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/syntax.html
+#
+# Pascal.sublime-syntax -- the colouring of SCRIP's Pascal (ISO 7185 with the Free Pascal and Delphi words SCRIP reads), written 2026-11-21 (scrip_ide step 2a, the
+# Sublime half; Lon 2026-11-21 16:3x CST, verbatim: "Also install all proper syntax files for SNOBOL4, Icon, and Prolog, Pascal, and Raku, and Snocone").
+#
+# EVERY RULE AND EVERY VARIABLE BELOW CITES THE LINE OF SCRIP's bootstrap/parser_pascal.sc THAT READS ITS WORDS (plan scrip_ide D3b; Lon 2026-11-21 13:4x CST,
+# verbatim: "Best grammar definitions are parser.sc programs."): a cite is the word parser_pascal.sc, a colon and the line, in the comment lines right above the
+# rule or variable. The five words the parser.sc lacks and the C front end reads (bitpacked, resourcestring, specialize, generic, external) cite the C lexer
+# instead, src/parsers/pascal/pascal.l, a line of C_LEXER_CITES.tsv, marked C-LEXER on the rule's own line. No parser.sc is given a word (Lon 14:1x CST:
+# parser.sc accuracy comes later).
+#
+# WHAT THE PARSER READS, and so what this file colours (each MEASURED by reading parser_pascal.sc at SCRIP 40da04e84):
+#   * PASCAL IS CASE-INSENSITIVE: every keyword is folded through lwr() before it is compared (parser_pascal.sc:15-16, 37-92). A Sublime syntax has no flag
+#     for it and the converter of this family refuses an inline (?i), so each word is written as letter classes, [Ff][Oo][Rr].
+#   * COMMENTS: {...}, (*...*) and // to the end of the line, none nesting (parser_pascal.sc:28-30). A compiler directive is the BRACE form {$...} alone
+#     (parser_pascal.sc:27); (*$ is a plain comment to the parser, so it is one here.
+#   * STRINGS: single-quoted, a doubled quote is one quote of the string (parser_pascal.sc:360-361). The parser takes any character but a quote, a line end
+#     included (NOTANY), so a string may cross lines to it, and this file ends it at the closing quote alone, as the parser does; fpc refuses such a string.
+#     Character codes #13 and #$0D join strings (parser_pascal.sc:375).
+#   * NUMBERS: a decimal integer or a dollar and hexadecimal digits (parser_pascal.sc:347); a real is digits, a point and digits with an optional exponent, or
+#     digits and an exponent (parser_pascal.sc:348-357), so 1..3 is the integer 1, a range and the integer 3. The ampersand octal and percent binary forms of
+#     fpc are not read by the parser and carry NO rule (the table of C-lexer words, C_LEXER_CITES.tsv, holds five words and no number).
+#   * WORDS: the keywords the parser.sc compares (parser_pascal.sc:37-92, 520, 528), their roles by the scope: control flow, declarations, the structured types,
+#     the word operators. Words fpc reads that neither reader makes a word (virtual, override, private and the others: pascal.l and the parser.sc both take them for
+#     identifiers) carry NO rule. try and raise stand in BOTH readers (parser_pascal.sc:434 and :780, pascal.l:264) and are coloured. The standard identifiers of ISO 7185 6.4.2 (the types, the constants, the procedures and functions) are not tokens to the parser either, so
+#     their lists cite the Id token they are made of (parser_pascal.sc:36), as Prolog.sublime-syntax does for its builtins.
+#
+# Scope vocabulary kept consistent with the other files of the family so one color scheme renders every dialect alike.
+
+name: Pascal
+file_extensions: [pas, pp, lpr, dpr]
+scope: source.pascal
+
+variables:
+  # parser_pascal.sc:36, Id: a letter or _, then letters, digits and _.
+  id: '[A-Za-z_][A-Za-z0-9_]*'
+
+contexts:
+  main:
+    - include: comments
+    - include: strings
+    - include: numbers
+    - include: headers
+    - include: c-lexer-words
+    - include: words
+    - include: operators
+    - include: punctuation
+
+  comments:
+    # parser_pascal.sc:27, a {$ compiler directive, to the first }.
+    - match: '\{\$'
+      scope: punctuation.definition.preprocessor.begin.pascal
+      push:
+        - meta_scope: meta.preprocessor.pascal
+        # parser_pascal.sc:27, the first } closes it.
+        - match: '\}'
+          scope: punctuation.definition.preprocessor.end.pascal
+          pop: true
+    # parser_pascal.sc:28, a { comment, non-nesting.
+    - match: '\{'
+      scope: punctuation.definition.comment.begin.pascal
+      push:
+        - meta_scope: comment.block.pascal
+        # parser_pascal.sc:28, the first } closes it.
+        - match: '\}'
+          scope: punctuation.definition.comment.end.pascal
+          pop: true
+    # parser_pascal.sc:29, a (* comment, non-nesting.
+    - match: '\(\*'
+      scope: punctuation.definition.comment.begin.pascal
+      push:
+        - meta_scope: comment.block.pascal
+        # parser_pascal.sc:29, the first *) closes it.
+        - match: '\*\)'
+          scope: punctuation.definition.comment.end.pascal
+          pop: true
+    # parser_pascal.sc:30, a // comment to the end of the line.
+    - match: '//'
+      scope: punctuation.definition.comment.pascal
+      push:
+        - meta_scope: comment.line.double-slash.pascal
+        # parser_pascal.sc:30, the line's end closes it.
+        - match: $
+          pop: true
+
+  strings:
+    # parser_pascal.sc:361 and parser_pascal.sc:374, Quoted and String: a single-quoted text.
+    - match: "'"
+      scope: punctuation.definition.string.begin.pascal
+      push:
+        - meta_scope: string.quoted.single.pascal
+        # parser_pascal.sc:360, StrChars: a doubled quote is one quote of the string.
+        - match: "''"
+          scope: constant.character.escape.quote.pascal
+        # parser_pascal.sc:361, the closing quote.
+        - match: "'"
+          scope: punctuation.definition.string.end.pascal
+          pop: true
+    # parser_pascal.sc:375, Piece: # and decimal digits, or #$ and hexadecimal digits, a character code.
+    - match: '#\$[0-9A-Fa-f]+|#[0-9]+'
+      scope: constant.character.pascal
+
+  numbers:
+    # parser_pascal.sc:347, Integer: a dollar and hexadecimal digits.
+    - match: '\$[0-9A-Fa-f]+\b'
+      scope: constant.numeric.integer.hexadecimal.pascal
+    # parser_pascal.sc:348-352, Real: digits, a point, digits and an optional exponent.
+    - match: '\b[0-9]+\.[0-9]+(?:[eE][+-]?[0-9]+)?\b'
+      scope: constant.numeric.float.pascal
+    # parser_pascal.sc:353-356, Real: digits and an exponent alone.
+    - match: '\b[0-9]+[eE][+-]?[0-9]+\b'
+      scope: constant.numeric.float.pascal
+    # parser_pascal.sc:347, Integer: decimal digits.
+    - match: '\b[0-9]+\b'
+      scope: constant.numeric.integer.decimal.pascal
+
+  headers:
+    # parser_pascal.sc:51 and parser_pascal.sc:64, program and unit, then parser_pascal.sc:36, the Id of the name they declare.
+    - match: '\b([Pp][Rr][Oo][Gg][Rr][Aa][Mm]|[Uu][Nn][Ii][Tt])\b(?:\s+({{id}}))?'
+      captures:
+        1: keyword.other.pascal
+        2: entity.name.namespace.pascal
+    # parser_pascal.sc:45, 50, 69 and 70, function, procedure, constructor and destructor; parser_pascal.sc:36, the Id of the name they declare, after an optional
+    # Class. qualifier; parser_pascal.sc:85, of, which follows a procedure type (procedure of object) and is no name.
+    - match: '\b([Ff][Uu][Nn][Cc][Tt][Ii][Oo][Nn]|[Pp][Rr][Oo][Cc][Ee][Dd][Uu][Rr][Ee]|[Cc][Oo][Nn][Ss][Tt][Rr][Uu][Cc][Tt][Oo][Rr]|[Dd][Ee][Ss][Tt][Rr][Uu][Cc][Tt][Oo][Rr])\b(?:\s+(?![Oo][Ff]\b)(?:({{id}})\s*\.\s*)?({{id}}))?'
+      captures:
+        1: keyword.other.pascal
+        2: entity.name.type.class.pascal
+        3: entity.name.function.pascal
+
+  c-lexer-words:
+    # C-LEXER pascal.l:531, the word bitpacked: the C lexer reads it and the parser.sc does not.
+    - match: '\b[Bb][Ii][Tt][Pp][Aa][Cc][Kk][Ee][Dd]\b'  # C-LEXER pascal.l:531 bitpacked
+      scope: storage.type.pascal
+    # C-LEXER pascal.l:513, the word resourcestring: the C lexer reads it and the parser.sc does not.
+    - match: '\b[Rr][Ee][Ss][Oo][Uu][Rr][Cc][Ee][Ss][Tt][Rr][Ii][Nn][Gg]\b'  # C-LEXER pascal.l:513 resourcestring
+      scope: keyword.other.pascal
+    # C-LEXER pascal.l:305, the word specialize: the C lexer reads it and the parser.sc does not.
+    - match: '\b[Ss][Pp][Ee][Cc][Ii][Aa][Ll][Ii][Zz][Ee]\b'  # C-LEXER pascal.l:305 specialize
+      scope: keyword.other.pascal
+    # C-LEXER pascal.l:306, the word generic: the C lexer reads it and the parser.sc does not.
+    - match: '\b[Gg][Ee][Nn][Ee][Rr][Ii][Cc]\b'  # C-LEXER pascal.l:306 generic
+      scope: keyword.other.pascal
+    # C-LEXER pascal.l:311, the word external: the C lexer reads it and the parser.sc does not.
+    - match: '\b[Ee][Xx][Tt][Ee][Rr][Nn][Aa][Ll]\b'  # C-LEXER pascal.l:311 external
+      scope: keyword.other.pascal
+
+  words:
+    # the control words (try and raise: the OoT table at 434 and the command table at 780, which pascal.l reads too at 264): parser_pascal.sc:46 parser_pascal.sc:53 parser_pascal.sc:42 parser_pascal.sc:78 parser_pascal.sc:85 parser_pascal.sc:44 parser_pascal.sc:54 parser_pascal.sc:41 parser_pascal.sc:40 parser_pascal.sc:57 parser_pascal.sc:52 parser_pascal.sc:55 parser_pascal.sc:82 parser_pascal.sc:58 parser_pascal.sc:76 parser_pascal.sc:62 parser_pascal.sc:63 parser_pascal.sc:61 parser_pascal.sc:434 parser_pascal.sc:434 parser_pascal.sc:780
+    - match: |-
+        (?x)\b(?:
+           [Ii][Ff]|[Tt][Hh][Ee][Nn]|[Ee][Ll][Ss][Ee]|[Cc][Aa][Ss][Ee]|[Oo][Ff]|[Ff][Oo][Rr]
+          |[Tt][Oo]|[Dd][Oo][Ww][Nn][Tt][Oo]|[Dd][Oo]|[Ww][Hh][Ii][Ll][Ee]|[Rr][Ee][Pp][Ee][Aa][Tt]|[Uu][Nn][Tt][Ii][Ll]
+          |[Gg][Oo][Tt][Oo]|[Ww][Ii][Tt][Hh]|[Oo][Tt][Hh][Ee][Rr][Ww][Ii][Ss][Ee]|[Ee][Xx][Cc][Ee][Pp][Tt]|[Ff][Ii][Nn][Aa][Ll][Ll][Yy]|[Oo][Nn]
+          |[Tt][Rr][Yy]|[Rr][Aa][Ii][Ss][Ee]
+        )\b
+      scope: keyword.control.pascal
+    # the declaration words: parser_pascal.sc:59 parser_pascal.sc:65 parser_pascal.sc:66 parser_pascal.sc:67 parser_pascal.sc:68 parser_pascal.sc:84 parser_pascal.sc:79 parser_pascal.sc:92 parser_pascal.sc:56 parser_pascal.sc:38 parser_pascal.sc:43 parser_pascal.sc:71 parser_pascal.sc:87 parser_pascal.sc:72 parser_pascal.sc:73 parser_pascal.sc:86 parser_pascal.sc:88 parser_pascal.sc:81 parser_pascal.sc:60
+    - match: |-
+        (?x)\b(?:
+           [Uu][Ss][Ee][Ss]|[Ii][Nn][Tt][Ee][Rr][Ff][Aa][Cc][Ee]|[Ii][Mm][Pp][Ll][Ee][Mm][Ee][Nn][Tt][Aa][Tt][Ii][Oo][Nn]|[Ii][Nn][Ii][Tt][Ii][Aa][Ll][Ii][Zz][Aa][Tt][Ii][Oo][Nn]|[Ff][Ii][Nn][Aa][Ll][Ii][Zz][Aa][Tt][Ii][Oo][Nn]|[Ll][Aa][Bb][Ee][Ll]
+          |[Cc][Oo][Nn][Ss][Tt]|[Tt][Yy][Pp][Ee]|[Vv][Aa][Rr]|[Bb][Ee][Gg][Ii][Nn]|[Ee][Nn][Dd]|[Cc][Ll][Aa][Ss][Ss]
+          |[Oo][Bb][Jj][Ee][Cc][Tt]|[Pp][Rr][Oo][Pp][Ee][Rr][Tt][Yy]|[Ii][Nn][Hh][Ee][Rr][Ii][Tt][Ee][Dd]|[Aa][Bb][Ss][Oo][Ll][Uu][Tt][Ee]|[Ee][Xx][Pp][Oo][Rr][Tt][Ss]|[Ff][Oo][Rr][Ww][Aa][Rr][Dd]
+          |[Oo][Uu][Tt]
+        )\b
+      scope: keyword.other.pascal
+    # the structured types, packed, and the string types the parser notes: parser_pascal.sc:77 parser_pascal.sc:90 parser_pascal.sc:91 parser_pascal.sc:80 parser_pascal.sc:89 parser_pascal.sc:209 parser_pascal.sc:210 parser_pascal.sc:211
+    - match: |-
+        (?x)\b(?:
+           [Aa][Rr][Rr][Aa][Yy]|[Rr][Ee][Cc][Oo][Rr][Dd]|[Ss][Ee][Tt]|[Ff][Ii][Ll][Ee]|[Pp][Aa][Cc][Kk][Ee][Dd]|[Ss][Tt][Rr][Ii][Nn][Gg]
+          |[Aa][Nn][Ss][Ii][Ss][Tt][Rr][Ii][Nn][Gg]|[Pp][Cc][Hh][Aa][Rr]
+        )\b
+      scope: storage.type.pascal
+    # the standard types of ISO 7185 6.4.2.2, names the parser holds as an Id: parser_pascal.sc:36
+    - match: |-
+        (?x)\b(?:
+           [Ii][Nn][Tt][Ee][Gg][Ee][Rr]|[Bb][Oo][Oo][Ll][Ee][Aa][Nn]|[Cc][Hh][Aa][Rr]|[Rr][Ee][Aa][Ll]|[Tt][Ee][Xx][Tt]
+        )\b
+      scope: storage.type.pascal
+    # the word operators: parser_pascal.sc:37 parser_pascal.sc:49 parser_pascal.sc:48 parser_pascal.sc:39 parser_pascal.sc:47 parser_pascal.sc:83 parser_pascal.sc:74 parser_pascal.sc:75 parser_pascal.sc:520 parser_pascal.sc:520 parser_pascal.sc:528
+    - match: |-
+        (?x)\b(?:
+           [Aa][Nn][Dd]|[Oo][Rr]|[Nn][Oo][Tt]|[Dd][Ii][Vv]|[Mm][Oo][Dd]|[Ii][Nn]
+          |[Ii][Ss]|[Aa][Ss]|[Ss][Hh][Ll]|[Ss][Hh][Rr]|[Xx][Oo][Rr]
+        )\b
+      scope: keyword.operator.word.pascal
+    # the standard constants of ISO 7185 6.4.2.2 and the pointer value, names the parser holds as an Id: parser_pascal.sc:36
+    - match: |-
+        (?x)\b(?:
+           [Tt][Rr][Uu][Ee]|[Ff][Aa][Ll][Ss][Ee]|[Mm][Aa][Xx][Ii][Nn][Tt]|[Nn][Ii][Ll]
+        )\b
+      scope: constant.language.pascal
+    # the standard procedures and functions of ISO 7185 6.6.1 and 6.6.2, names the parser holds as an Id: parser_pascal.sc:36
+    - match: |-
+        (?x)\b(?:
+           [Aa][Bb][Ss]|[Aa][Rr][Cc][Tt][Aa][Nn]|[Cc][Hh][Rr]|[Cc][Oo][Ss]|[Ee][Oo][Ff]|[Ee][Oo][Ll][Nn]
+          |[Ee][Xx][Pp]|[Ll][Nn]|[Oo][Dd][Dd]|[Oo][Rr][Dd]|[Pp][Rr][Ee][Dd]|[Rr][Oo][Uu][Nn][Dd]
+          |[Ss][Ii][Nn]|[Ss][Qq][Rr]|[Ss][Qq][Rr][Tt]|[Ss][Uu][Cc][Cc]|[Tt][Rr][Uu][Nn][Cc]|[Dd][Ii][Ss][Pp][Oo][Ss][Ee]
+          |[Gg][Ee][Tt]|[Nn][Ee][Ww]|[Pp][Aa][Cc][Kk]|[Pp][Aa][Gg][Ee]|[Pp][Uu][Tt]|[Rr][Ee][Aa][Dd]
+          |[Rr][Ee][Aa][Dd][Ll][Nn]|[Rr][Ee][Ss][Ee][Tt]|[Rr][Ee][Ww][Rr][Ii][Tt][Ee]|[Uu][Nn][Pp][Aa][Cc][Kk]|[Ww][Rr][Ii][Tt][Ee]|[Ww][Rr][Ii][Tt][Ee][Ll][Nn]
+        )\b
+      scope: support.function.pascal
+
+  operators:
+    # parser_pascal.sc:448 and parser_pascal.sc:459-461, 463, the assignment := and += -= *= /=.
+    - match: ':=|\+=|-=|\*=|/='
+      scope: keyword.operator.assignment.pascal
+    # parser_pascal.sc:449-454, the comparisons = <> <= >= < >.
+    - match: '<>|<=|>=|=|<|>'
+      scope: keyword.operator.comparison.pascal
+    # parser_pascal.sc:455-458 and parser_pascal.sc:462, + - * / and **.
+    - match: '\*\*|[-+*/]'
+      scope: keyword.operator.arithmetic.pascal
+    # parser_pascal.sc:446 and parser_pascal.sc:447, the pointer ^ and the address @.
+    - match: '[\^@]'
+      scope: keyword.operator.pointer.pascal
+
+  punctuation:
+    # parser_pascal.sc:445, the range ..
+    - match: '\.\.'
+      scope: punctuation.separator.range.pascal
+    # parser_pascal.sc:437-440, the brackets.
+    - match: '[()\[\]]'
+      scope: punctuation.section.group.pascal
+    # parser_pascal.sc:441, the comma.
+    - match: ','
+      scope: punctuation.separator.pascal
+    # parser_pascal.sc:442, the semicolon.
+    - match: ';'
+      scope: punctuation.terminator.pascal
+    # parser_pascal.sc:443, the colon.
+    - match: ':'
+      scope: punctuation.separator.colon.pascal
+    # parser_pascal.sc:444, the point.
+    - match: '\.'
+      scope: punctuation.accessor.pascal

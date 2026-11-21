@@ -14,6 +14,8 @@ them consistently.
 | `Snocone.sublime-syntax`          | Syntax highlighting for Snocone  (`source.sc`)           |
 | `Rebus.sublime-syntax`            | Syntax highlighting for Rebus (`source.reb`, `.reb`); every rule cites its line of `bootstrap/parser_rebus.sc` or of the C lexer |
 | `syntax_test_rebus.reb`           | Sublime syntax test of `Rebus.sublime-syntax` (run it in Sublime: Tools > Build with the syntax test build) |
+| `Pascal.sublime-syntax`           | Syntax highlighting for Pascal (`source.pascal`, `.pas .pp .lpr .dpr`); case-insensitive, and every rule cites its line of `bootstrap/parser_pascal.sc` or, for five words, of the C lexer `pascal.l` |
+| `syntax_test_pascal.pas`          | Sublime syntax test of `Pascal.sublime-syntax` (run it in Sublime: Tools > Build with the syntax test build) |
 | `GAS-x86.sublime-syntax`          | Base GAS / GNU-`as` Intel-syntax x86_64 (`source.asm.gas`) |
 | `SCRIP-x86.sublime-syntax`        | SCRIP-emitted-`.s` overlay extending GAS-x86 (`source.asm.scrip`) |
 | `SNOBOL4.sublime-settings`        | Editor settings applied when SNOBOL4 syntax is active    |
