@@ -34,3 +34,11 @@ chunks (1507 documents, about 28 CPU-minutes each) are held in `/home/resources/
 by the grader, in the batch class on a clean tree at origin, so the row's Earliest stamp is that reading and the row is whole. A seat
 that cures something in the xml package or in the launch asks for the chunks it touches (`s4e_test_request.sh uni_xml ENTRY...`). The
 26 lines come out of CYCLE.skip when the launch compiles a driver once for all its documents, or the compile itself is cured.
+
+THE HOLD IS LIFTED (the grader 2026-11-21 11:5x CST, on the chairman's telegram carrying Lon's question in the chairman's window, verbatim:
+"Why would UniconXml take 14+ hours?"): the compile is cured, so the 26 lines are out of CYCLE.skip (the file before them kept as
+`CYCLE.skip.bak-2026-11-21-grader-before-uni-xml-lift`) and the cycle reads every chunk each lap. MEASURED from `CYCLE.log`: the `core`
+cell (165 documents) took 2355 s at lap 49 on 2026-11-18, 1607 s at lap 50, 1005 s at lap 51 and 621 s to 673 s at laps 52 to 57, so
+about 3.8 s a document, a chunk of 60 about four minutes and the package about 1h45m a lap in the slow lane. HYPOTHESIS, the drop's
+cause: SCRIP 1a9b86dfe6 (2026-11-18 21:05Z, between laps 50 and 51), whose lowerer reads a whole-program fact once a program and not
+once a procedure. Until the lift the banner's 14h24m was the sum of each document's one reading of 2026-11-14 and 11-15.
