@@ -1,0 +1,13 @@
+// SCRIP's language server, written 2026-11-21 by the chairman on Lon's word. One server, scrip --lsp, for every SCRIP language.
+// The scopes are those of the Sublime syntaxes of /home/corpus/editor_configs/sublime. Pascal is Sublime's own built-in syntax and Raku a placeholder that only names the scope, until the SCRIP family's own are written; Rebus joins with its syntax.
+{
+	"clients":
+	{
+		"scrip":
+		{
+			"enabled": true,
+			"command": ["/home/install/bin/scrip", "--lsp"],
+			"selector": "source.sno | source.sc | source.icn | source.pl | source.pascal | source.raku | text.html.markdown.scriptix"
+		}
+	}
+}

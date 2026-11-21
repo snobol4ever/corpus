@@ -1,0 +1,10 @@
+%YAML 1.2
+---
+# PLACEHOLDER, 2026-11-21 (the chairman, on Lon's word): this file gives a Raku file its scope and NOTHING ELSE, so that SCRIP's language server
+# attaches to it and its diagnostics show. It colours nothing. The real Raku syntax of the SCRIP family (plan scrip_ide step 2r, read from the Raku
+# front end) replaces this file under the same name when it reaches /home/corpus/editor_configs/sublime.
+name: Raku (SCRIP, colouring to come)
+file_extensions: [raku, rakumod, rakutest, p6, pm6]
+scope: source.raku
+contexts:
+  main: []

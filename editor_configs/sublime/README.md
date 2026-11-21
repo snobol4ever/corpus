@@ -39,6 +39,36 @@ Sublime auto-loads every `.sublime-syntax`, `.sublime-settings`,
 `.sublime-build`, and `.sublime-snippet` file in `Packages/User/` on
 the next file-open.  No restart required.
 
+## The language server and the debugger (`scrip --lsp`, `scrip --dap`)
+
+Sublime drives SCRIP through two packages of Package Control: `LSP` (the
+language server client) and `Debugger` (the Debug Adapter Protocol client).
+Install both (`Package Control: Install Package`), then:
+
+  * `LSP.sublime-settings` and `language-ids.sublime-settings` go into
+    `Packages/User/` with the syntaxes. The first names one client, `scrip`,
+    started as `/home/install/bin/scrip --lsp`, for the scopes of this
+    family (`source.sno`, `source.sc`, `source.icn`, `source.pl`,
+    `source.pascal`, `source.raku`, `text.html.markdown.scriptix`). The
+    second maps each scope to the language id the server knows (`snobol4`,
+    `snocone`, `icon`, `prolog`, `pascal`, `raku`, `scriptix`); without it
+    the LSP package sends the scope's second word (`sno`, `icn`, `pl`) and
+    no diagnostic comes back.
+  * The folder `SCRIP/` goes into `Packages/` as a package of its own
+    (`Packages/SCRIP/scrip_debugger.py` and its `.python-version`). It
+    registers the adapter type `scrip` with the Debugger package, started as
+    `/home/install/bin/scrip --dap`; nothing of Debugger is edited. A launch
+    configuration needs only the program:
+    `{"name": "SCRIP", "type": "scrip", "request": "launch", "program": "${file}"}`.
+  * `Raku.sublime-syntax` is a PLACEHOLDER: it gives a Raku file its scope so
+    the server attaches, and colours nothing, until the family's own Raku
+    syntax replaces it under the same name. Pascal uses Sublime's built-in
+    `source.pascal` until the family's own is written.
+
+What the two answer is counted by `scrip --dap --requests` and by the
+table of the server's features; on 2026-11-21 the server published
+diagnostics and the adapter ran a program to its end.
+
 ## Activating the syntax
 
 Both syntaxes are auto-applied by file extension on the next file
