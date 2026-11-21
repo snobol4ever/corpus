@@ -1,3 +1,13 @@
+```pascal
+{$mode objfpc}
+program decl;
+type
+  ptree = ^tree;
+  tree = record t: string; v: string; n: integer; c: array[1..2] of ptree end;
+begin
+end.
+```
+
 ```prolog
 :- nb_setval('ROOT', tree(plus, '+', 2, [tree(num, '1', 0, []), tree(num, '2', 0, [])])).
 ```

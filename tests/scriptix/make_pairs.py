@@ -235,8 +235,20 @@ def backtrack_files(kind, cells_of, langs, ref):
 def set_files(kind, cells_of, langs, ref):
     return (backtrack_files if kind == "backtracking" else pair_files)(kind, cells_of, langs, ref)
 
+TREE_DECL = {
+    "snobol4": "        DATA('tree(t,v,n,c)')\nEND\n",
+    "snocone": "DATA('tree(t,v,n,c)');\n",
+    "rebus":   "record tree(t, v, n, c)\nfunction main()\nend\n",
+    "icon":    "record tree(t, v, n, c)\n",
+    "pascal":  "{$mode objfpc}\nprogram decl;\n" + PAS_TREE + "begin\nend.\n",
+    "raku":    "class tree { has $.t; has $.v; has $.n; has $.c; }\n",
+}
+
 def structure_cells(kind):
-    return lambda a, b: [(a, STRUCT_DEF[kind][a]), (b, struct_use(kind, b, a)), (a, struct_fin(kind, a, b))]
+    def cells(a, b):
+        three = [(a, STRUCT_DEF[kind][a]), (b, struct_use(kind, b, a)), (a, struct_fin(kind, a, b))]
+        return [(b, TREE_DECL[b])] + three if kind == "records" and a == "prolog" and b != "prolog" else three
+    return cells
 
 SETS = tuple((k, (lambda d, u: (lambda a, b: [(a, d[a]), (b, u(b, a))]))(dd, uu), LANGS, REF[k]) for k, dd, uu in (("variables", VAR_DEF, var_use), ("functions", FUN_DEF, fun_use))) + \
        tuple((k, structure_cells(k), STRUCT_LANGS[k], STRUCT_REF[k]) for k in ("records", "sequences", "tables")) + \

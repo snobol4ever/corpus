@@ -1,3 +1,9 @@
+```rebus
+record tree(t, v, n, c)
+function main()
+end
+```
+
 ```prolog
 :- nb_setval('ROOT', tree(plus, '+', 2, [tree(num, '1', 0, []), tree(num, '2', 0, [])])).
 ```

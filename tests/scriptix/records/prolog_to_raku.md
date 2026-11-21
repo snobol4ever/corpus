@@ -1,3 +1,7 @@
+```raku
+class tree { has $.t; has $.v; has $.n; has $.c; }
+```
+
 ```prolog
 :- nb_setval('ROOT', tree(plus, '+', 2, [tree(num, '1', 0, []), tree(num, '2', 0, [])])).
 ```
