@@ -67,6 +67,11 @@
     ],
     "grammars": [
       {
+        "language": "raku",
+        "scopeName": "source.raku",
+        "path": "./syntaxes/raku.tmLanguage.json"
+      },
+      {
         "language": "pascal",
         "scopeName": "source.pascal",
         "path": "./syntaxes/pascal.tmLanguage.json"
