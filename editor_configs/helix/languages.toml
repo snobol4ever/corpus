@@ -1,0 +1,161 @@
+# SCRIP in Helix: the language server (scrip --lsp) and the debugger (scrip --dap).
+# Written 2026-11-21 by the chairman on Lon's word. The home of this file is corpus editor_configs/helix; the one command of its README installs it as ~/.config/helix/languages.toml.
+# The server and the debugger are the scrip first on PATH; the README's command writes /home/install/bin/scrip in where scrip is on no PATH.
+# In Helix: diagnostics show as you edit (space d lists them); the debugger is space G (l launches, b toggles a breakpoint, c continues).
+
+[language-server.scrip]
+command = "scrip"
+args = ["--lsp"]
+
+# ---- languages Helix does not know: a scope, the file types, the server, the debugger ----
+
+[[language]]
+name = "snobol4"
+scope = "source.sno"
+file-types = ["sno", "spt"]
+comment-token = "*"
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["scrip"]
+
+[language.debugger]
+name = "scrip"
+transport = "stdio"
+command = "scrip"
+args = ["--dap"]
+
+[[language.debugger.templates]]
+name = "run the file"
+request = "launch"
+completion = [ { name = "program", completion = "filename" } ]
+args = { program = "{0}" }
+
+[[language]]
+name = "snocone"
+scope = "source.sc"
+file-types = ["sc"]
+comment-token = "//"
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["scrip"]
+
+[language.debugger]
+name = "scrip"
+transport = "stdio"
+command = "scrip"
+args = ["--dap"]
+
+[[language.debugger.templates]]
+name = "run the file"
+request = "launch"
+completion = [ { name = "program", completion = "filename" } ]
+args = { program = "{0}" }
+
+[[language]]
+name = "rebus"
+scope = "source.reb"
+file-types = ["reb"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["scrip"]
+
+[language.debugger]
+name = "scrip"
+transport = "stdio"
+command = "scrip"
+args = ["--dap"]
+
+[[language.debugger.templates]]
+name = "run the file"
+request = "launch"
+completion = [ { name = "program", completion = "filename" } ]
+args = { program = "{0}" }
+
+[[language]]
+name = "icon"
+scope = "source.icn"
+file-types = ["icn"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["scrip"]
+
+[language.debugger]
+name = "scrip"
+transport = "stdio"
+command = "scrip"
+args = ["--dap"]
+
+[[language.debugger.templates]]
+name = "run the file"
+request = "launch"
+completion = [ { name = "program", completion = "filename" } ]
+args = { program = "{0}" }
+
+[[language]]
+name = "raku"
+scope = "source.raku"
+file-types = ["raku", "rakumod", "rakutest", "p6", "pm6"]
+comment-token = "#"
+indent = { tab-width = 4, unit = "    " }
+language-servers = ["scrip"]
+
+[language.debugger]
+name = "scrip"
+transport = "stdio"
+command = "scrip"
+args = ["--dap"]
+
+[[language.debugger.templates]]
+name = "run the file"
+request = "launch"
+completion = [ { name = "program", completion = "filename" } ]
+args = { program = "{0}" }
+
+# ---- languages Helix knows: SCRIP's server and debugger in place of its own ----
+
+[[language]]
+name = "prolog"
+file-types = ["pl", "pro", "prolog"]
+language-servers = ["scrip"]
+
+[language.debugger]
+name = "scrip"
+transport = "stdio"
+command = "scrip"
+args = ["--dap"]
+
+[[language.debugger.templates]]
+name = "run the file"
+request = "launch"
+completion = [ { name = "program", completion = "filename" } ]
+args = { program = "{0}" }
+
+[[language]]
+name = "pascal"
+language-servers = ["scrip"]
+
+[language.debugger]
+name = "scrip"
+transport = "stdio"
+command = "scrip"
+args = ["--dap"]
+
+[[language.debugger.templates]]
+name = "run the file"
+request = "launch"
+completion = [ { name = "program", completion = "filename" } ]
+args = { program = "{0}" }
+
+[[language]]
+name = "markdown"
+language-servers = ["scrip"]
+
+[language.debugger]
+name = "scrip"
+transport = "stdio"
+command = "scrip"
+args = ["--dap"]
+
+[[language.debugger.templates]]
+name = "run the file"
+request = "launch"
+completion = [ { name = "program", completion = "filename" } ]
+args = { program = "{0}" }
