@@ -222,13 +222,13 @@ contexts:
     # parser_raku.sc:265 the statement and term prefixes once quietly react supply start lazy eager sink hyper race, and await at 266
     - match: '\b(?:once|quietly|react|supply|start|lazy|eager|sink|hyper|race|await)\b'
       scope: keyword.control.raku
-    # C-LEXER rkt_01_sh.c:503 fail is read by the C front end as a return of a Failure, and the parser.sc quotes no such word
+    # C-LEXER rkt_01_sh.c:512 fail is read by the C front end as a return of a Failure, and the parser.sc quotes no such word
     - match: '\b(?:fail)\b'
       scope: keyword.control.raku
-    # C-LEXER rkt_01_sh.c:505 redo is read by the C front end beside callsame and nextcallee, and the parser.sc quotes no such word
+    # C-LEXER rkt_01_sh.c:514 redo is read by the C front end beside callsame and nextcallee, and the parser.sc quotes no such word
     - match: '\b(?:redo)\b'
       scope: keyword.control.raku
-    # C-LEXER rkt_01_sh.c:504 exit is read by the C front end as a call of __rk_exit, and the parser.sc quotes no such word
+    # C-LEXER rkt_01_sh.c:513 exit is read by the C front end as a call of __rk_exit, and the parser.sc quotes no such word
     - match: '\b(?:exit)\b'
       scope: support.function.raku
     # parser_raku.sc:248 the listops that are their own node kinds: say print die sort map grep reverse
