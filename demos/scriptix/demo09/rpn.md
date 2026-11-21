@@ -42,6 +42,7 @@ END
 # SCRIP DEMO9 -- RPN calculator (Icon section)
 # Idiom: list as stack; push/pop via put()/pull(); scanning with tab()
 procedure main()
+    local expr, tokens, tok, stack, a, b;
     expr := "5 1 2 + 4 * + 3 -";
     tokens := [];
     expr ? while not pos(0) do {

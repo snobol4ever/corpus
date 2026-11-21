@@ -33,6 +33,7 @@ END
 # SCRIP DEMO8 -- Sort 8 integers (Icon section)
 # Idiom: insertion sort via list subscript shifts
 procedure isort(a)
+    local i, v, j;
     every i := 2 to *a do {
         v := a[i];
         j := i - 1;
@@ -46,6 +47,7 @@ procedure isort(a)
 end
 
 procedure main()
+    local a, out, x;
     a := [5, 3, 8, 1, 9, 2, 7, 4];
     isort(a);
     out := "";

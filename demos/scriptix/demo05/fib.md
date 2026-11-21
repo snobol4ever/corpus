@@ -19,6 +19,7 @@ END
 # SCRIP DEMO5 -- Fibonacci first 10 (Icon section)
 # Idiom: suspend generator produces the sequence lazily
 procedure fibs()
+    local a, b;
     a := 0;
     b := 1;
     repeat {

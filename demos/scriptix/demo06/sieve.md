@@ -29,6 +29,7 @@ END
 # SCRIP DEMO6 -- Sieve of Eratosthenes, primes to 50 (Icon section)
 # Idiom: list subscript marks composites; every drives two passes
 procedure main()
+    local limit, sieve, i, j, out;
     limit := 50;
     sieve := list(limit, 1);
     sieve[1] := 0;
