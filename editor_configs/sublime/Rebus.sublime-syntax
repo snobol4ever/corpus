@@ -7,7 +7,7 @@
 # EVERY RULE AND EVERY VARIABLE BELOW CITES THE LINE OF SCRIP's bootstrap/parser_rebus.sc THAT READS ITS WORDS (plan scrip_ide D3b; Lon 2026-11-21
 # 13:4x CST, verbatim: "Best grammar definitions are parser.sc programs."): a cite is the word parser_rebus.sc, a colon and the line, in the comment
 # lines right above the rule or variable or on its own line.  The one word the parser.sc lacks and the C front end reads, procedure, cites the C lexer
-# (src/parsers/rebus/rebus.l:36, a line of C_LEXER_CITES.tsv).  No parser.sc is given a word (Lon 14:1x CST: parser.sc accuracy comes later).
+# (src/parsers/rebus/rebus.l:45, a line of C_LEXER_CITES.tsv).  No parser.sc is given a word (Lon 14:1x CST: parser.sc accuracy comes later).
 #
 # WHAT THE TWO READERS SAY, MEASURED 2026-11-21 on SCRIP 6419bb959:
 #   * COMMENTS: a hash to the end of the line (parser_rebus.sc:4, rebus.l).  The parser.sc also reads a double slash (:5) and a slash-star block (:6); the
@@ -17,7 +17,7 @@
 #     \'[^\']*\' and \"[^\"]*\").  Neither reader knows the Icon underscore continuation that the report (section 2) names, so no pop on the end of
 #     the line is written: a string with no closing quote runs to the end of the file, as the compiler reads it.
 #   * NUMBERS: an integer is digits (:13); a real is digits, a point and digits (:14).  The C lexer also reads 1. and 1e5 and 1.5e-3, which the
-#     parser.sc lacks; they are coloured from the C lexer (rebus.l:99 and :100, two FORM rows of C_LEXER_CITES.tsv), as a real.
+#     parser.sc lacks; they are coloured from the C lexer (rebus.l:108 and :109, two FORM rows of C_LEXER_CITES.tsv), as a real.
 #   * WORDS ARE CASE-BLIND (the report, section 2: upper- and lowercase letters are equivalent; rebus.l upper-cases every name before the grammar
 #     sees it), so each word is spelled with letter classes; the parser.sc spells them in lower case.  Names are letters, digits, underscore and dot.
 #   * DECLARATIONS: function NAME ( ... ) local ... initial ... end, record NAME ( ... ) (parser_rebus.sc:38 to :39, :55, :56).
@@ -84,7 +84,7 @@ contexts:
           pop: true
 
   declarations:
-    # parser_rebus.sc:38 C-LEXER rebus.l:36 -- function or procedure, then the name it declares (the C lexer reads procedure as function: PROCEDURE, rebus.l:36).
+    # parser_rebus.sc:38 C-LEXER rebus.l:45 -- function or procedure, then the name it declares (the C lexer reads procedure as function: PROCEDURE, rebus.l:45).
     - match: '{{not_name_before}}({{kw_function}}|procedure|[Pp][Rr][Oo][Cc][Ee][Dd][Uu][Rr][Ee])(?:\s+({{id}}))?{{not_name_after}}'
       captures:
         1: keyword.declaration.function.reb
@@ -112,10 +112,10 @@ contexts:
     # parser_rebus.sc:14 -- Real: digits, a point, digits.
     - match: '{{not_name_before}}[0-9]+\.[0-9]+{{not_name_after}}'
       scope: constant.numeric.float.reb
-    # C-LEXER rebus.l:99 -- digits, a point, any digits, an optional exponent: 1. and 1.5e-3 (the parser.sc has digits point digits only).
+    # C-LEXER rebus.l:108 -- digits, a point, any digits, an optional exponent: 1. and 1.5e-3 (the parser.sc has digits point digits only).
     - match: '{{not_name_before}}[0-9]+\.[0-9]*(?:[eE][+-]?[0-9]+)?{{not_name_after}}'
       scope: constant.numeric.float.reb
-    # C-LEXER rebus.l:100 -- digits and an exponent: 1e5.
+    # C-LEXER rebus.l:109 -- digits and an exponent: 1e5.
     - match: '{{not_name_before}}[0-9]+[eE][+-]?[0-9]+{{not_name_after}}'
       scope: constant.numeric.float.reb
     # parser_rebus.sc:13 -- Integer: digits.
