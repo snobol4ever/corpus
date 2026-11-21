@@ -1,0 +1,164 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/syntax.html
+#
+# Rebus.sublime-syntax -- the colouring of SCRIP's Rebus (Griswold, TR 84-9), written 2026-11-21 (scrip_ide step 2b, the Sublime half).
+#
+# EVERY RULE AND EVERY VARIABLE BELOW CITES THE LINE OF SCRIP's bootstrap/parser_rebus.sc THAT READS ITS WORDS (plan scrip_ide D3b; Lon 2026-11-21
+# 13:4x CST, verbatim: "Best grammar definitions are parser.sc programs."): a cite is the word parser_rebus.sc, a colon and the line, in the comment
+# lines right above the rule or variable or on its own line.  The one word the parser.sc lacks and the C front end reads, procedure, cites the C lexer
+# (src/parsers/rebus/rebus.l:36, a line of C_LEXER_CITES.tsv).  No parser.sc is given a word (Lon 14:1x CST: parser.sc accuracy comes later).
+#
+# WHAT THE TWO READERS SAY, MEASURED 2026-11-21 on SCRIP 6419bb959:
+#   * COMMENTS: a hash to the end of the line (parser_rebus.sc:4, rebus.l).  The parser.sc also reads a double slash (:5) and a slash-star block (:6); the
+#     C lexer has no rule for either and the compiler refuses them, so they carry NO rule here: this file colours what the compiler reads (the cqo's
+#     ruling of 2026-11-21 on the three disagreements of the two readers).
+#   * STRINGS: either quote; a string runs to the NEXT quote of its own kind and may cross lines (BREAK, parser_rebus.sc:17 and :18; rebus.l
+#     \'[^\']*\' and \"[^\"]*\").  Neither reader knows the Icon underscore continuation that the report (section 2) names, so no pop on the end of
+#     the line is written: a string with no closing quote runs to the end of the file, as the compiler reads it.
+#   * NUMBERS: an integer is digits (:13); a real is digits, a point and digits (:14).  The C lexer also reads 1. and 1e5 and 1.5e-3, which the
+#     parser.sc lacks; they are coloured from the C lexer (rebus.l:99 and :100, two FORM rows of C_LEXER_CITES.tsv), as a real.
+#   * WORDS ARE CASE-BLIND (the report, section 2: upper- and lowercase letters are equivalent; rebus.l upper-cases every name before the grammar
+#     sees it), so each word is spelled with letter classes; the parser.sc spells them in lower case.  Names are letters, digits, underscore and dot.
+#   * DECLARATIONS: function NAME ( ... ) local ... initial ... end, record NAME ( ... ) (parser_rebus.sc:38 to :39, :55, :56).
+#   * A KEYWORD is an ampersand and a name, &lcase and &ucase among them (:15 and :16).
+
+name: Rebus
+file_extensions: [reb]
+scope: source.reb
+
+variables:
+  # parser_rebus.sc:12 -- Id: a letter or underscore, then letters, digits, underscore and dot.
+  id: '[A-Za-z_][A-Za-z0-9_.]*'
+  # parser_rebus.sc:38 -- function, and end beside it.
+  kw_function: '[Ff][Uu][Nn][Cc][Tt][Ii][Oo][Nn]'
+  # parser_rebus.sc:39 -- record.
+  kw_record: '[Rr][Ee][Cc][Oo][Rr][Dd]'
+  # parser_rebus.sc:38 parser_rebus.sc:55 parser_rebus.sc:56 -- end, local, initial.
+  kw_decl: '(?:[Ll][Oo][Cc][Aa][Ll]|[Ii][Nn][Ii][Tt][Ii][Aa][Ll]|[Ee][Nn][Dd])'
+  # parser_rebus.sc:40 parser_rebus.sc:41 parser_rebus.sc:42 parser_rebus.sc:43 parser_rebus.sc:44 parser_rebus.sc:45 parser_rebus.sc:46 parser_rebus.sc:47
+  # parser_rebus.sc:48 parser_rebus.sc:49 parser_rebus.sc:50 parser_rebus.sc:51 parser_rebus.sc:52 parser_rebus.sc:53 parser_rebus.sc:54 parser_rebus.sc:57
+  # parser_rebus.sc:58 parser_rebus.sc:230 -- if then else unless while until repeat do for from to by return exit fail stop next case of default.
+  kw_control: '(?:[Ii][Ff]|[Tt][Hh][Ee][Nn]|[Ee][Ll][Ss][Ee]|[Uu][Nn][Ll][Ee][Ss][Ss]|[Ww][Hh][Ii][Ll][Ee]|[Uu][Nn][Tt][Ii][Ll]|[Rr][Ee][Pp][Ee][Aa][Tt]|[Dd][Oo]|[Ff][Oo][Rr]|[Ff][Rr][Oo][Mm]|[Tt][Oo]|[Bb][Yy]|[Rr][Ee][Tt][Uu][Rr][Nn]|[Ee][Xx][Ii][Tt]|[Ff][Aa][Ii][Ll]|[Ss][Tt][Oo][Pp]|[Nn][Ee][Xx][Tt]|[Cc][Aa][Ss][Ee]|[Oo][Ff]|[Dd][Ee][Ff][Aa][Uu][Ll][Tt])'
+  # parser_rebus.sc:12 -- a word is not the middle or the tail of a name.
+  not_name_before: '(?<![A-Za-z0-9_.])'
+  # parser_rebus.sc:12 -- nor the head of a longer one.
+  not_name_after: '(?![A-Za-z0-9_.])'
+
+contexts:
+  main:
+    - include: comments
+    - include: strings
+    - include: declarations
+    - include: control
+    - include: keywords
+    - include: numbers
+    - include: operators
+    - include: calls
+    - include: names
+    - include: punctuation
+
+  comments:
+    # parser_rebus.sc:4 -- a hash to the end of the line.
+    - match: '#.*$'
+      scope: comment.line.number-sign.reb
+
+  strings:
+    # parser_rebus.sc:119 parser_rebus.sc:17 -- a double-quoted string runs to the next double quote, over lines.
+    - match: '"'
+      scope: punctuation.definition.string.begin.reb
+      push:
+        - meta_scope: string.quoted.double.reb
+        # parser_rebus.sc:119 -- the next double quote closes the string.
+        - match: '"'
+          scope: punctuation.definition.string.end.reb
+          pop: true
+    # parser_rebus.sc:120 parser_rebus.sc:18 -- a single-quoted string runs to the next single quote, over lines.
+    - match: ''''
+      scope: punctuation.definition.string.begin.reb
+      push:
+        - meta_scope: string.quoted.single.reb
+        # parser_rebus.sc:120 -- the next single quote closes the string.
+        - match: ''''
+          scope: punctuation.definition.string.end.reb
+          pop: true
+
+  declarations:
+    # parser_rebus.sc:38 C-LEXER rebus.l:36 -- function or procedure, then the name it declares (the C lexer reads procedure as function: PROCEDURE, rebus.l:36).
+    - match: '{{not_name_before}}({{kw_function}}|procedure|[Pp][Rr][Oo][Cc][Ee][Dd][Uu][Rr][Ee])(?:\s+({{id}}))?{{not_name_after}}'
+      captures:
+        1: keyword.declaration.function.reb
+        2: entity.name.function.reb
+    # parser_rebus.sc:39 -- record, then the name it declares.
+    - match: '{{not_name_before}}({{kw_record}})(?:\s+({{id}}))?{{not_name_after}}'
+      captures:
+        1: keyword.declaration.record.reb
+        2: entity.name.type.record.reb
+    # parser_rebus.sc:38 parser_rebus.sc:55 parser_rebus.sc:56 -- end, local, initial.
+    - match: '{{not_name_before}}{{kw_decl}}{{not_name_after}}'
+      scope: keyword.declaration.reb
+
+  control:
+    # parser_rebus.sc:40 parser_rebus.sc:41 parser_rebus.sc:47 parser_rebus.sc:50 parser_rebus.sc:57 parser_rebus.sc:230 -- the statement words (the full list stands at the variable).
+    - match: '{{not_name_before}}{{kw_control}}{{not_name_after}}'
+      scope: keyword.control.reb
+
+  keywords:
+    # parser_rebus.sc:15 parser_rebus.sc:16 -- an ampersand and a name: &lcase, &ucase and the keywords of SNOBOL4.
+    - match: '&[A-Za-z_][A-Za-z0-9_]*'
+      scope: variable.language.keyword.reb
+
+  numbers:
+    # parser_rebus.sc:14 -- Real: digits, a point, digits.
+    - match: '{{not_name_before}}[0-9]+\.[0-9]+{{not_name_after}}'
+      scope: constant.numeric.float.reb
+    # C-LEXER rebus.l:99 -- digits, a point, any digits, an optional exponent: 1. and 1.5e-3 (the parser.sc has digits point digits only).
+    - match: '{{not_name_before}}[0-9]+\.[0-9]*(?:[eE][+-]?[0-9]+)?{{not_name_after}}'
+      scope: constant.numeric.float.reb
+    # C-LEXER rebus.l:100 -- digits and an exponent: 1e5.
+    - match: '{{not_name_before}}[0-9]+[eE][+-]?[0-9]+{{not_name_after}}'
+      scope: constant.numeric.float.reb
+    # parser_rebus.sc:13 -- Integer: digits.
+    - match: '{{not_name_before}}[0-9]+{{not_name_after}}'
+      scope: constant.numeric.integer.reb
+
+  operators:
+    # parser_rebus.sc:65 parser_rebus.sc:66 parser_rebus.sc:67 parser_rebus.sc:68 parser_rebus.sc:23 -- the assignments, longest first: ||:= +:= -:= :=: :=.
+    - match: '\|\|:=|\+:=|-:=|:=:|:='
+      scope: keyword.operator.assignment.reb
+    # parser_rebus.sc:60 parser_rebus.sc:35 -- the replacement arrows ?- and <-.
+    - match: '\?-|<-'
+      scope: keyword.operator.replacement.reb
+    # parser_rebus.sc:69 -- the substring extent plus-colon, after the assignments so that +:= stays whole.
+    - match: '\+:'
+      scope: keyword.operator.substring.reb
+    # parser_rebus.sc:30 parser_rebus.sc:31 parser_rebus.sc:32 parser_rebus.sc:33 parser_rebus.sc:34 parser_rebus.sc:36 -- the comparisons, longest first.
+    - match: '~==|==|<<=|>>=|<<|>>|<=|>=|~=|<|>|='
+      scope: keyword.operator.comparison.reb
+    # parser_rebus.sc:28 parser_rebus.sc:26 parser_rebus.sc:27 parser_rebus.sc:29 -- the arithmetic: ** ^ + - * / %.
+    - match: '\*\*|[-+*/^%]'
+      scope: keyword.operator.arithmetic.reb
+    # parser_rebus.sc:37 parser_rebus.sc:24 parser_rebus.sc:25 parser_rebus.sc:70 parser_rebus.sc:71 -- the string join, the pattern operators: || & ? | and the captures . $.
+    - match: '\|\||[&?|.$]'
+      scope: keyword.operator.pattern.reb
+
+  calls:
+    # parser_rebus.sc:116 -- a name with its parenthesis touching it is a call.
+    - match: '{{not_name_before}}{{id}}(?=\()'
+      scope: entity.name.function.call.reb
+
+  names:
+    # parser_rebus.sc:12 -- any other name is a variable.
+    - match: '{{not_name_before}}{{id}}'
+      scope: variable.other.reb
+
+  punctuation:
+    # parser_rebus.sc:22 -- the comma.
+    - match: ','
+      scope: punctuation.separator.comma.reb
+    # parser_rebus.sc:61 parser_rebus.sc:64 -- the semicolon and the colon.
+    - match: '[;:]'
+      scope: punctuation.separator.reb
+    # parser_rebus.sc:19 parser_rebus.sc:20 parser_rebus.sc:62 parser_rebus.sc:63 -- the brackets: ( ) [ ] { }.
+    - match: '[()\[\]{}]'
+      scope: punctuation.section.brackets.reb
