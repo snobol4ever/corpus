@@ -78,7 +78,7 @@
       },
       {
         "language": "snocone",
-        "scopeName": "source.snocone",
+        "scopeName": "source.sc",
         "path": "./syntaxes/snocone.tmLanguage.json"
       },
       {

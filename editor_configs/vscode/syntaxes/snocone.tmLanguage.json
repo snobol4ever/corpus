@@ -1,148 +1,2914 @@
 {
-  "name": "Snocone",
-  "scopeName": "source.snocone",
-  "patterns": [
-    { "include": "#comments" },
-    { "include": "#strings" },
-    { "include": "#declarations" },
-    { "include": "#goto" },
-    { "include": "#control" },
-    { "include": "#label" },
-    { "include": "#keyword" },
-    { "include": "#numbers" },
-    { "include": "#builtin-call" },
-    { "include": "#user-call" },
-    { "include": "#predefined" },
-    { "include": "#identifier" },
-    { "include": "#operators" },
-    { "include": "#punctuation" }
-  ],
-  "repository": {
-    "comments": {
-      "patterns": [
-        {
-          "match": "//.*$",
-          "name": "comment.line.double-slash.snocone"
-        },
-        {
-          "begin": "/\\*",
-          "end": "\\*/",
-          "name": "comment.block.snocone",
-          "beginCaptures": { "0": { "name": "punctuation.definition.comment.begin.snocone" } },
-          "endCaptures": { "0": { "name": "punctuation.definition.comment.end.snocone" } }
-        }
-      ]
-    },
-    "strings": {
-      "patterns": [
-        {
-          "match": "(')((?:[^']|'')*)(?:(')|$)",
-          "name": "string.quoted.single.snocone",
-          "captures": {
-            "1": { "name": "punctuation.definition.string.begin.snocone" },
-            "3": { "name": "punctuation.definition.string.end.snocone" }
-          }
-        },
-        {
-          "match": "(\")((?:[^\"]|\"\")*)(?:(\")|$)",
-          "name": "string.quoted.double.snocone",
-          "captures": {
-            "1": { "name": "punctuation.definition.string.begin.snocone" },
-            "3": { "name": "punctuation.definition.string.end.snocone" }
-          }
-        }
-      ]
-    },
-    "declarations": {
-      "patterns": [
-        {
-          "match": "\\b(procedure|function)\\b(?:\\s+([A-Za-z_][A-Za-z0-9_]*))?",
-          "captures": {
-            "1": { "name": "keyword.declaration.function.snocone" },
-            "2": { "name": "entity.name.function.snocone" }
-          }
-        },
-        {
-          "match": "\\b(struct)\\b(?:\\s+([A-Za-z_][A-Za-z0-9_]*))?",
-          "captures": {
-            "1": { "name": "keyword.declaration.struct.snocone" },
-            "2": { "name": "entity.name.type.struct.snocone" }
-          }
-        },
-        {
-          "match": "\\bimport\\b",
-          "name": "keyword.control.import.snocone"
-        }
-      ]
-    },
-    "goto": {
-      "match": "\\b(goto|go\\s+to)\\b(?:\\s+([A-Za-z_][A-Za-z0-9_]*))?",
-      "captures": {
-        "1": { "name": "keyword.control.goto.snocone" },
-        "2": { "name": "entity.name.label.snocone" }
-      }
-    },
-    "control": {
-      "match": "\\b(?:if|else|while|do|for|switch|case|default|break|continue|return|freturn|nreturn)\\b",
-      "name": "keyword.control.snocone"
-    },
-    "label": {
-      "match": "^(\\s*)(?!(?:default|else|do)\\b)([A-Za-z_][A-Za-z0-9_]*)(\\s*:)(?!:)",
-      "captures": {
-        "2": { "name": "entity.name.label.snocone" },
-        "3": { "name": "punctuation.separator.label.snocone" }
-      }
-    },
-    "keyword": {
-      "match": "(?<![\\w)\\]'\"&])(?<![\\w)\\]'\"]\\s)&[A-Za-z][A-Za-z0-9_]*",
-      "name": "variable.language.keyword.snocone"
-    },
-    "numbers": {
-      "patterns": [
-        {
-          "match": "(?<![\\w.$])(?:\\d+\\.\\d*(?:[eEdD][+-]?\\d+)?|\\d+[eEdD][+-]?\\d+)(?!\\w)",
-          "name": "constant.numeric.float.snocone"
-        },
-        {
-          "match": "(?<![\\w.$])\\d+(?![\\w])",
-          "name": "constant.numeric.integer.snocone"
-        }
-      ]
-    },
-    "builtin-call": {
-      "match": "(?<![\\w.])(?:ARRAY|ITEM|PROTOTYPE|RSORT|SORT|TABLE|EVAL|CODE|APPLY|ARG|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD|BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET|CLEAR|COLLECT|DUMP|CHAR|CONVERT|DATATYPE|DATE|SIZE|TIME|ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN|EQ|GE|GT|INTEGER|LE|LT|NE|DIFFER|IDENT|COPY|DUPL|ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB|EXIT|HOST|SETEXIT|STOPTR|TRACE|DATA|FIELD|LEQ|LGE|LGT|LLE|LLT|LNE|LPAD|REPLACE|REVERSE|RPAD|SUBSTR|TRIM)(?=\\s*\\()",
-      "name": "support.function.builtin.snocone"
-    },
-    "user-call": {
-      "match": "(?<![\\w.])[A-Za-z_][A-Za-z0-9_]*(?=\\()",
-      "name": "entity.name.function.call.snocone"
-    },
-    "predefined": {
-      "patterns": [
-        {
-          "match": "(?<![\\w.])(?:ARB|BAL|REM|FAIL|ABORT|SUCCEED|FENCE)(?![\\w.(])",
-          "name": "constant.language.pattern.snocone"
-        },
-        {
-          "match": "(?<![\\w.])(?:INPUT|OUTPUT|TERMINAL)(?![\\w.])",
-          "name": "variable.language.io.snocone"
-        }
-      ]
-    },
-    "identifier": {
-      "match": "(?<![\\w.])[A-Za-z_][A-Za-z0-9_]*",
-      "name": "variable.other.snocone"
-    },
-    "operators": {
-      "match": "[-+*/%^!=<>|?.$@~&#:]+",
-      "name": "keyword.operator.snocone"
-    },
-    "punctuation": {
-      "patterns": [
-        { "match": ",", "name": "punctuation.separator.comma.snocone" },
-        { "match": ";", "name": "punctuation.terminator.statement.snocone" },
-        { "match": "[{}()\\[\\]]", "name": "punctuation.section.brackets.snocone" }
-      ]
-    }
+ "comment": "GENERATED by util_sublime_to_highlight_grammar.py --write-tm, never edited; its source is the Sublime syntax Snocone.sublime-syntax",
+ "fileTypes": [
+  "sc"
+ ],
+ "name": "Snocone",
+ "patterns": [
+  {
+   "include": "#main"
   }
+ ],
+ "repository": {
+  "block_comment-2": {
+   "patterns": []
+  },
+  "brackets": {
+   "patterns": [
+    {
+     "begin": "//",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.sc"
+      }
+     },
+     "end": "$",
+     "name": "comment.line.double-slash.sc",
+     "patterns": [
+      {
+       "include": "#line_comment-1"
+      }
+     ]
+    },
+    {
+     "begin": "/\\*",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.begin.sc"
+      }
+     },
+     "end": "\\*/",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.end.sc"
+      }
+     },
+     "name": "comment.block.sc",
+     "patterns": [
+      {
+       "include": "#block_comment-2"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\\"",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.begin.sc"
+      }
+     },
+     "end": "\\\"",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.end.sc"
+      }
+     },
+     "name": "string.quoted.double.sc",
+     "patterns": [
+      {
+       "include": "#double_quoted_string"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\'",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.begin.sc"
+      }
+     },
+     "end": "\\'",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.end.sc"
+      }
+     },
+     "name": "string.quoted.single.sc",
+     "patterns": [
+      {
+       "include": "#single_quoted_string"
+      }
+     ]
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "name": "string.quoted.single.sc"
+    },
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "name": "string.quoted.double.sc"
+    },
+    {
+     "begin": "\\(",
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    }
+   ]
+  },
+  "data_proto_double_quoted_string": {
+   "patterns": [
+    {
+     "captures": {
+      "1": {
+       "name": "entity.name.function.sc"
+      }
+     },
+     "match": "([A-Za-z_][0-9A-Z_a-z]*)\\("
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "entity.name.function.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    }
+   ]
+  },
+  "data_proto_single_quoted_string": {
+   "patterns": [
+    {
+     "captures": {
+      "1": {
+       "name": "entity.name.function.sc"
+      }
+     },
+     "match": "([A-Za-z_][0-9A-Z_a-z]*)(\\()"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "entity.name.function.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    }
+   ]
+  },
+  "data_prototype_brackets": {
+   "patterns": [
+    {
+     "begin": "//",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.sc"
+      }
+     },
+     "end": "$",
+     "name": "comment.line.double-slash.sc",
+     "patterns": [
+      {
+       "include": "#line_comment-1"
+      }
+     ]
+    },
+    {
+     "begin": "/\\*",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.begin.sc"
+      }
+     },
+     "end": "\\*/",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.end.sc"
+      }
+     },
+     "name": "comment.block.sc",
+     "patterns": [
+      {
+       "include": "#block_comment-2"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\\"",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\\"",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#data_proto_double_quoted_string"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\'",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\'",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#data_proto_single_quoted_string"
+      }
+     ]
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "begin": "\\(",
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#data_prototype_brackets"
+      }
+     ]
+    }
+   ]
+  },
+  "double_quoted_string": {
+   "patterns": [
+    {
+     "match": "\\\"\\\"",
+     "name": "constant.character.escape.sc"
+    }
+   ]
+  },
+  "function_proto_double_quoted_string": {
+   "patterns": [
+    {
+     "captures": {
+      "1": {
+       "name": "entity.name.function.sc"
+      }
+     },
+     "match": "([A-Za-z_][0-9A-Z_a-z]*)\\("
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    }
+   ]
+  },
+  "function_proto_single_quoted_string": {
+   "patterns": [
+    {
+     "captures": {
+      "1": {
+       "name": "entity.name.function.sc"
+      }
+     },
+     "match": "([A-Za-z_][0-9A-Z_a-z]*)(\\()"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    }
+   ]
+  },
+  "function_prototype_brackets": {
+   "patterns": [
+    {
+     "begin": "//",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.sc"
+      }
+     },
+     "end": "$",
+     "name": "comment.line.double-slash.sc",
+     "patterns": [
+      {
+       "include": "#line_comment-1"
+      }
+     ]
+    },
+    {
+     "begin": "/\\*",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.begin.sc"
+      }
+     },
+     "end": "\\*/",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.end.sc"
+      }
+     },
+     "name": "comment.block.sc",
+     "patterns": [
+      {
+       "include": "#block_comment-2"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\\"",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\\"",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#function_proto_double_quoted_string"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\'",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\'",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#function_proto_single_quoted_string"
+      }
+     ]
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "begin": "\\(",
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#function_prototype_brackets"
+      }
+     ]
+    }
+   ]
+  },
+  "line_comment-1": {
+   "patterns": []
+  },
+  "main": {
+   "patterns": [
+    {
+     "begin": "//",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.sc"
+      }
+     },
+     "end": "$",
+     "name": "comment.line.double-slash.sc",
+     "patterns": [
+      {
+       "include": "#line_comment-1"
+      }
+     ]
+    },
+    {
+     "begin": "/\\*",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.begin.sc"
+      }
+     },
+     "end": "\\*/",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.end.sc"
+      }
+     },
+     "name": "comment.block.sc",
+     "patterns": [
+      {
+       "include": "#block_comment-2"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(function|procedure)\\b",
+     "beginCaptures": {
+      "0": {
+       "name": "storage.type.function.sc keyword.declaration.function.sc"
+      }
+     },
+     "end": "\\)",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.section.parameters.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#snocone_function_head"
+      }
+     ]
+    },
+    {
+     "begin": "\\bstruct\\b",
+     "beginCaptures": {
+      "0": {
+       "name": "storage.type.struct.sc"
+      }
+     },
+     "end": "\\}",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.section.block.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#snocone_struct_head"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\\"",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.begin.sc"
+      }
+     },
+     "end": "\\\"",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.end.sc"
+      }
+     },
+     "name": "string.quoted.double.sc",
+     "patterns": [
+      {
+       "include": "#double_quoted_string"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\'",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.begin.sc"
+      }
+     },
+     "end": "\\'",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.string.end.sc"
+      }
+     },
+     "name": "string.quoted.single.sc",
+     "patterns": [
+      {
+       "include": "#single_quoted_string"
+      }
+     ]
+    },
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "name": "string.quoted.single.sc"
+    },
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "name": "string.quoted.double.sc"
+    },
+    {
+     "begin": "\\b(ARRAY|CODE|EVAL)(\\()",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      },
+      "2": {
+       "name": "punctuation.definition.generic.begin.sc"
+      }
+     },
+     "end": "\\)",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.generic.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#main-3"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(DATA)(\\()",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      },
+      "2": {
+       "name": "punctuation.definition.generic.begin.sc"
+      }
+     },
+     "end": "\\)",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.generic.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#main-4"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(DEFINE)(\\()",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      },
+      "2": {
+       "name": "punctuation.definition.generic.begin.sc"
+      }
+     },
+     "end": "\\)",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.generic.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#main-5"
+      }
+     ]
+    },
+    {
+     "match": "\\{",
+     "name": "punctuation.section.block.begin.sc"
+    },
+    {
+     "match": "\\}",
+     "name": "punctuation.section.block.end.sc"
+    },
+    {
+     "match": ";",
+     "name": "punctuation.terminator.sc"
+    },
+    {
+     "match": "\\b(if|else|while|do|for|switch|case|default|break|continue|goto|return|freturn|nreturn)\\b",
+     "name": "keyword.control.sc"
+    },
+    {
+     "match": "\\+\\=|\\-\\=|\\*\\=|\\/\\=|\\^\\=",
+     "name": "keyword.operator.assignment.augmented.sc"
+    },
+    {
+     "match": "\\=\\=|\\!\\=|\\<\\=|\\>\\=",
+     "name": "keyword.operator.comparison.sc"
+    },
+    {
+     "match": "\\:\\=\\=\\:|\\:\\!\\=\\:|\\:\\<\\=\\:|\\:\\>\\=\\:|\\:\\<\\:|\\:\\>\\:|\\:\\:|\\:\\!\\:",
+     "name": "keyword.operator.comparison.lexical.sc"
+    },
+    {
+     "match": ":",
+     "name": "punctuation.separator.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    }
+   ]
+  },
+  "main-3": {
+   "patterns": [
+    {
+     "begin": "//",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.sc"
+      }
+     },
+     "end": "$",
+     "name": "comment.line.double-slash.sc",
+     "patterns": [
+      {
+       "include": "#line_comment-1"
+      }
+     ]
+    },
+    {
+     "begin": "/\\*",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.begin.sc"
+      }
+     },
+     "end": "\\*/",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.end.sc"
+      }
+     },
+     "name": "comment.block.sc",
+     "patterns": [
+      {
+       "include": "#block_comment-2"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\\"",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\\"",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "name": "string.interpolated.sc",
+     "patterns": [
+      {
+       "include": "#proto_double_quoted_string"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\'",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\'",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "name": "string.interpolated.sc",
+     "patterns": [
+      {
+       "include": "#proto_single_quoted_string"
+      }
+     ]
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "name": "string.quoted.single.sc"
+    },
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "name": "string.quoted.double.sc"
+    },
+    {
+     "begin": "\\(",
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#prototype_brackets"
+      }
+     ]
+    }
+   ]
+  },
+  "main-4": {
+   "patterns": [
+    {
+     "begin": "//",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.sc"
+      }
+     },
+     "end": "$",
+     "name": "comment.line.double-slash.sc",
+     "patterns": [
+      {
+       "include": "#line_comment-1"
+      }
+     ]
+    },
+    {
+     "begin": "/\\*",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.begin.sc"
+      }
+     },
+     "end": "\\*/",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.end.sc"
+      }
+     },
+     "name": "comment.block.sc",
+     "patterns": [
+      {
+       "include": "#block_comment-2"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\\"",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\\"",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#data_proto_double_quoted_string"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\'",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\'",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#data_proto_single_quoted_string"
+      }
+     ]
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "name": "string.quoted.single.sc"
+    },
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "name": "string.quoted.double.sc"
+    },
+    {
+     "begin": "\\(",
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#data_prototype_brackets"
+      }
+     ]
+    }
+   ]
+  },
+  "main-5": {
+   "patterns": [
+    {
+     "begin": "//",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.sc"
+      }
+     },
+     "end": "$",
+     "name": "comment.line.double-slash.sc",
+     "patterns": [
+      {
+       "include": "#line_comment-1"
+      }
+     ]
+    },
+    {
+     "begin": "/\\*",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.begin.sc"
+      }
+     },
+     "end": "\\*/",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.end.sc"
+      }
+     },
+     "name": "comment.block.sc",
+     "patterns": [
+      {
+       "include": "#block_comment-2"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\\"",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\\"",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#function_proto_double_quoted_string"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\'",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\'",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "patterns": [
+      {
+       "include": "#function_proto_single_quoted_string"
+      }
+     ]
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "name": "string.quoted.single.sc"
+    },
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "name": "string.quoted.double.sc"
+    },
+    {
+     "begin": "\\(",
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#function_prototype_brackets"
+      }
+     ]
+    }
+   ]
+  },
+  "proto_double_quoted_string": {
+   "patterns": [
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\'([^\\']*)\\'",
+     "name": "string.quoted.single.sc"
+    },
+    {
+     "begin": "\\'",
+     "beginCaptures": {
+      "0": {
+       "name": "string.other.single.sc"
+      }
+     },
+     "contentName": "string.other.single.sc",
+     "end": "(?:\\')|(?:(?=\\\"))|(?:$)",
+     "patterns": [
+      {
+       "include": "#proto_embedded_single_quoted_string"
+      }
+     ]
+    }
+   ]
+  },
+  "proto_embedded_double_quoted_string": {
+   "patterns": []
+  },
+  "proto_embedded_single_quoted_string": {
+   "patterns": []
+  },
+  "proto_single_quoted_string": {
+   "patterns": [
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "\\$\\\"([^\\\"]*)\\\"",
+     "name": "string.quoted.double.sc"
+    },
+    {
+     "begin": "\\\"",
+     "beginCaptures": {
+      "0": {
+       "name": "string.other.double.sc"
+      }
+     },
+     "contentName": "string.other.double.sc",
+     "end": "(?:\\\")|(?:(?=\\'))|(?:$)",
+     "patterns": [
+      {
+       "include": "#proto_embedded_double_quoted_string"
+      }
+     ]
+    }
+   ]
+  },
+  "prototype_brackets": {
+   "patterns": [
+    {
+     "begin": "//",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.sc"
+      }
+     },
+     "end": "$",
+     "name": "comment.line.double-slash.sc",
+     "patterns": [
+      {
+       "include": "#line_comment-1"
+      }
+     ]
+    },
+    {
+     "begin": "/\\*",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.begin.sc"
+      }
+     },
+     "end": "\\*/",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.end.sc"
+      }
+     },
+     "name": "comment.block.sc",
+     "patterns": [
+      {
+       "include": "#block_comment-2"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\\"",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\\"",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "name": "string.interpolated.sc",
+     "patterns": [
+      {
+       "include": "#proto_double_quoted_string"
+      }
+     ]
+    },
+    {
+     "applyEndPatternLast": 1,
+     "begin": "\\'",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.begin.sc"
+      }
+     },
+     "end": "\\'",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.annotation.end.sc"
+      }
+     },
+     "name": "string.interpolated.sc",
+     "patterns": [
+      {
+       "include": "#proto_single_quoted_string"
+      }
+     ]
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.keyword.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "punctuation.definition.variable.begin.sc"
+      }
+     },
+     "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
+     "name": "constant.other.sc"
+    },
+    {
+     "begin": "\\b(\\b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "variable.language.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b((?:\\b(CODE|EVAL)\\b|\\b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\\b|\\b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\\b|\\b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\\b|\\b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\\b|\\b(CLEAR|COLLECT|DUMP)\\b|\\b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\\b|\\b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\\b|\\b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\\b))\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "support.function.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b(\\b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\\b)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "begin": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\(",
+     "beginCaptures": {
+      "1": {
+       "name": "entity.name.class.forward-decl.sc"
+      }
+     },
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#brackets"
+      }
+     ]
+    },
+    {
+     "match": "\\b\\b(INPUT|OUTPUT|TERMINAL)\\b\\b",
+     "name": "support.function.sc"
+    },
+    {
+     "match": "\\b\\b(ARB|BAL|FAIL|FENCE|REM|epsilon)\\b\\b",
+     "name": "variable.language.sc"
+    },
+    {
+     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
+     "name": "constant.language.sc"
+    },
+    {
+     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
+     "name": "constant.character.sc"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.[0-9]+([eEdD][-+]?[0-9]+)?\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+[eEdD][-+]?[0-9]+\\b",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\.(?![0-9])",
+     "name": "constant.numeric.float.sc"
+    },
+    {
+     "match": "\\b[0-9]+\\b",
+     "name": "constant.numeric.integer.sc"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.assignment.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\=])([ \\t]+|$)"
+    },
+    {
+     "captures": {
+      "2": {
+       "name": "keyword.operator.logical.sc"
+      }
+     },
+     "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "begin": "\\(",
+     "end": "\\)",
+     "patterns": [
+      {
+       "include": "#prototype_brackets"
+      }
+     ]
+    }
+   ]
+  },
+  "single_quoted_string": {
+   "patterns": [
+    {
+     "match": "\\'\\'",
+     "name": "constant.character.escape.sc"
+    }
+   ]
+  },
+  "snocone_function_head": {
+   "patterns": [
+    {
+     "begin": "//",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.sc"
+      }
+     },
+     "end": "$",
+     "name": "comment.line.double-slash.sc",
+     "patterns": [
+      {
+       "include": "#line_comment-1"
+      }
+     ]
+    },
+    {
+     "begin": "/\\*",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.begin.sc"
+      }
+     },
+     "end": "\\*/",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.end.sc"
+      }
+     },
+     "name": "comment.block.sc",
+     "patterns": [
+      {
+       "include": "#block_comment-2"
+      }
+     ]
+    },
+    {
+     "match": "\\(",
+     "name": "punctuation.section.parameters.begin.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "entity.name.function.sc"
+      }
+     },
+     "match": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\b(?=[ \\t]*\\()"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.parameter.sc"
+    },
+    {
+     "match": ",",
+     "name": "punctuation.separator.sc"
+    }
+   ]
+  },
+  "snocone_struct_head": {
+   "patterns": [
+    {
+     "begin": "//",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.sc"
+      }
+     },
+     "end": "$",
+     "name": "comment.line.double-slash.sc",
+     "patterns": [
+      {
+       "include": "#line_comment-1"
+      }
+     ]
+    },
+    {
+     "begin": "/\\*",
+     "beginCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.begin.sc"
+      }
+     },
+     "end": "\\*/",
+     "endCaptures": {
+      "0": {
+       "name": "punctuation.definition.comment.end.sc"
+      }
+     },
+     "name": "comment.block.sc",
+     "patterns": [
+      {
+       "include": "#block_comment-2"
+      }
+     ]
+    },
+    {
+     "match": "\\{",
+     "name": "punctuation.section.block.begin.sc"
+    },
+    {
+     "captures": {
+      "1": {
+       "name": "entity.name.struct.sc"
+      }
+     },
+     "match": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\b(?=[ \\t]*\\{)"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "name": "variable.other.member.sc"
+    },
+    {
+     "match": ",",
+     "name": "punctuation.separator.sc"
+    }
+   ]
+  }
+ },
+ "scopeName": "source.sc"
 }

@@ -1071,16 +1071,16 @@
      "scope": "punctuation.definition.comment.begin.sc"
     },
     {
-     "match": "\\bfunction\\b",
+     "match": "\\b(function|procedure)\\b",
      "push": [
-      "snocone_function_definition#3"
+      "snocone_function_head"
      ],
-     "scope": "storage.type.function.sc"
+     "scope": "storage.type.function.sc keyword.declaration.function.sc"
     },
     {
      "match": "\\bstruct\\b",
      "push": [
-      "snocone_struct_definition#4"
+      "snocone_struct_head"
      ],
      "scope": "storage.type.struct.sc"
     },
@@ -1113,7 +1113,7 @@
      },
      "match": "\\b(ARRAY|CODE|EVAL)(\\()",
      "push": [
-      "main#5"
+      "main#3"
      ]
     },
     {
@@ -1123,7 +1123,7 @@
      },
      "match": "\\b(DATA)(\\()",
      "push": [
-      "main#6"
+      "main#4"
      ]
     },
     {
@@ -1133,7 +1133,7 @@
      },
      "match": "\\b(DEFINE)(\\()",
      "push": [
-      "main#7"
+      "main#5"
      ]
     },
     {
@@ -1268,7 +1268,7 @@
     }
    ]
   },
-  "main#5": {
+  "main#3": {
    "meta_content_scope": null,
    "meta_scope": null,
    "rules": [
@@ -1419,7 +1419,7 @@
     }
    ]
   },
-  "main#6": {
+  "main#4": {
    "meta_content_scope": null,
    "meta_scope": null,
    "rules": [
@@ -1570,7 +1570,7 @@
     }
    ]
   },
-  "main#7": {
+  "main#5": {
    "meta_content_scope": null,
    "meta_scope": null,
    "rules": [
@@ -1829,10 +1829,10 @@
     },
     {
      "match": "\\'",
-     "scope": "string.other.single.sc",
-     "set": [
+     "push": [
       "proto_embedded_single_quoted_string"
-     ]
+     ],
+     "scope": "string.other.single.sc"
     },
     {
      "match": "\\\"",
@@ -1842,48 +1842,38 @@
    ]
   },
   "proto_embedded_double_quoted_string": {
-   "meta_content_scope": "string.interpolated.sc string.other.double.sc",
+   "meta_content_scope": "string.other.double.sc",
    "meta_scope": null,
    "rules": [
     {
      "match": "\\\"",
-     "set": [
-      "proto_single_quoted_string"
-     ]
+     "pop": 1
     },
     {
-     "match": "\\'",
-     "pop": 1,
-     "scope": "string.interpolated.sc punctuation.definition.annotation.end.sc"
+     "match": "(?=\\')",
+     "pop": 1
     },
     {
      "match": "$",
-     "set": [
-      "proto_single_quoted_string"
-     ]
+     "pop": 1
     }
    ]
   },
   "proto_embedded_single_quoted_string": {
-   "meta_content_scope": "string.interpolated.sc string.other.single.sc",
+   "meta_content_scope": "string.other.single.sc",
    "meta_scope": null,
    "rules": [
     {
      "match": "\\'",
-     "set": [
-      "proto_double_quoted_string"
-     ]
+     "pop": 1
     },
     {
-     "match": "\\\"",
-     "pop": 1,
-     "scope": "string.interpolated.sc punctuation.definition.annotation.end.sc"
+     "match": "(?=\\\")",
+     "pop": 1
     },
     {
      "match": "$",
-     "set": [
-      "proto_double_quoted_string"
-     ]
+     "pop": 1
     }
    ]
   },
@@ -1995,10 +1985,10 @@
     },
     {
      "match": "\\\"",
-     "scope": "string.other.double.sc",
-     "set": [
+     "push": [
       "proto_embedded_double_quoted_string"
-     ]
+     ],
+     "scope": "string.other.double.sc"
     },
     {
      "match": "\\'",
@@ -2189,48 +2179,15 @@
    "meta_scope": null,
    "rules": [
     {
-     "match": "\\bfunction\\b",
+     "match": "\\b(function|procedure)\\b",
      "push": [
-      "snocone_function_definition#3"
+      "snocone_function_head"
      ],
-     "scope": "storage.type.function.sc"
+     "scope": "storage.type.function.sc keyword.declaration.function.sc"
     }
    ]
   },
-  "snocone_function_definition#3": {
-   "meta_content_scope": null,
-   "meta_scope": null,
-   "rules": [
-    {
-     "captures": {
-      "1": "entity.name.function.sc"
-     },
-     "match": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\b",
-     "set": [
-      "snocone_function_params_or_done"
-     ]
-    },
-    {
-     "match": "//",
-     "push": [
-      "line_comment#1"
-     ],
-     "scope": "punctuation.definition.comment.sc"
-    },
-    {
-     "match": "/\\*",
-     "push": [
-      "block_comment#2"
-     ],
-     "scope": "punctuation.definition.comment.begin.sc"
-    },
-    {
-     "match": "(?=\\S)",
-     "pop": 1
-    }
-   ]
-  },
-  "snocone_function_params": {
+  "snocone_function_head": {
    "meta_content_scope": null,
    "meta_scope": null,
    "rules": [
@@ -2240,121 +2197,36 @@
      "scope": "punctuation.section.parameters.end.sc"
     },
     {
+     "match": "//",
+     "push": [
+      "line_comment#1"
+     ],
+     "scope": "punctuation.definition.comment.sc"
+    },
+    {
+     "match": "/\\*",
+     "push": [
+      "block_comment#2"
+     ],
+     "scope": "punctuation.definition.comment.begin.sc"
+    },
+    {
+     "match": "\\(",
+     "scope": "punctuation.section.parameters.begin.sc"
+    },
+    {
+     "captures": {
+      "1": "entity.name.function.sc"
+     },
+     "match": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\b(?=[ \\t]*\\()"
+    },
+    {
      "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
      "scope": "variable.parameter.sc"
     },
     {
      "match": ",",
      "scope": "punctuation.separator.sc"
-    },
-    {
-     "match": "//",
-     "push": [
-      "line_comment#1"
-     ],
-     "scope": "punctuation.definition.comment.sc"
-    },
-    {
-     "match": "/\\*",
-     "push": [
-      "block_comment#2"
-     ],
-     "scope": "punctuation.definition.comment.begin.sc"
-    }
-   ]
-  },
-  "snocone_function_params_or_done": {
-   "meta_content_scope": null,
-   "meta_scope": null,
-   "rules": [
-    {
-     "match": "\\(",
-     "scope": "punctuation.section.parameters.begin.sc",
-     "set": [
-      "snocone_function_params"
-     ]
-    },
-    {
-     "match": "//",
-     "push": [
-      "line_comment#1"
-     ],
-     "scope": "punctuation.definition.comment.sc"
-    },
-    {
-     "match": "/\\*",
-     "push": [
-      "block_comment#2"
-     ],
-     "scope": "punctuation.definition.comment.begin.sc"
-    },
-    {
-     "match": "(?=\\S)",
-     "pop": 1
-    }
-   ]
-  },
-  "snocone_struct_body": {
-   "meta_content_scope": null,
-   "meta_scope": null,
-   "rules": [
-    {
-     "match": "\\}",
-     "pop": 1,
-     "scope": "punctuation.section.block.end.sc"
-    },
-    {
-     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
-     "scope": "variable.other.member.sc"
-    },
-    {
-     "match": ",",
-     "scope": "punctuation.separator.sc"
-    },
-    {
-     "match": "//",
-     "push": [
-      "line_comment#1"
-     ],
-     "scope": "punctuation.definition.comment.sc"
-    },
-    {
-     "match": "/\\*",
-     "push": [
-      "block_comment#2"
-     ],
-     "scope": "punctuation.definition.comment.begin.sc"
-    }
-   ]
-  },
-  "snocone_struct_body_or_done": {
-   "meta_content_scope": null,
-   "meta_scope": null,
-   "rules": [
-    {
-     "match": "\\{",
-     "scope": "punctuation.section.block.begin.sc",
-     "set": [
-      "snocone_struct_body"
-     ]
-    },
-    {
-     "match": "//",
-     "push": [
-      "line_comment#1"
-     ],
-     "scope": "punctuation.definition.comment.sc"
-    },
-    {
-     "match": "/\\*",
-     "push": [
-      "block_comment#2"
-     ],
-     "scope": "punctuation.definition.comment.begin.sc"
-    },
-    {
-     "match": "(?=\\S)",
-     "pop": 1
     }
    ]
   },
@@ -2365,24 +2237,20 @@
     {
      "match": "\\bstruct\\b",
      "push": [
-      "snocone_struct_definition#4"
+      "snocone_struct_head"
      ],
      "scope": "storage.type.struct.sc"
     }
    ]
   },
-  "snocone_struct_definition#4": {
+  "snocone_struct_head": {
    "meta_content_scope": null,
    "meta_scope": null,
    "rules": [
     {
-     "captures": {
-      "1": "entity.name.struct.sc"
-     },
-     "match": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\b",
-     "set": [
-      "snocone_struct_body_or_done"
-     ]
+     "match": "\\}",
+     "pop": 1,
+     "scope": "punctuation.section.block.end.sc"
     },
     {
      "match": "//",
@@ -2399,8 +2267,22 @@
      "scope": "punctuation.definition.comment.begin.sc"
     },
     {
-     "match": "(?=\\S)",
-     "pop": 1
+     "match": "\\{",
+     "scope": "punctuation.section.block.begin.sc"
+    },
+    {
+     "captures": {
+      "1": "entity.name.struct.sc"
+     },
+     "match": "\\b([A-Za-z_][0-9A-Z_a-z]*)\\b(?=[ \\t]*\\{)"
+    },
+    {
+     "match": "\\b[A-Za-z_][0-9A-Z_a-z]*\\b",
+     "scope": "variable.other.member.sc"
+    },
+    {
+     "match": ",",
+     "scope": "punctuation.separator.sc"
     }
    ]
   },
