@@ -1,10 +1,300 @@
 %YAML 1.2
 ---
-# PLACEHOLDER, 2026-11-21 (the chairman, on Lon's word): this file gives a Raku file its scope and NOTHING ELSE, so that SCRIP's language server
-# attaches to it and its diagnostics show. It colours nothing. The real Raku syntax of the SCRIP family (plan scrip_ide step 2r, read from the Raku
-# front end) replaces this file under the same name when it reaches /home/corpus/editor_configs/sublime.
-name: Raku (SCRIP, colouring to come)
+# See http://www.sublimetext.com/docs/syntax.html
+#
+# Raku.sublime-syntax -- the Raku of the SCRIP family (plan scrip_ide step 2r, the Sublime half; the family: SNOBOL4, Snocone, Icon, Prolog).
+# It replaces the chairman's placeholder under the same name and scope: the placeholder gave a Raku file its scope and coloured nothing.
+#
+# WHERE THIS FILE GETS ITS RULES (plan scrip_ide D3b, Lon 2026-11-21: "Best grammar definitions are parser.sc programs."): from SCRIP's
+# bootstrap/parser_raku.sc, the Snocone pattern that is the Raku parser (Rakudo 2026.05 src/Raku/Grammar.nqp as a pattern climb). EVERY RULE AND EVERY
+# VARIABLE BELOW CITES THE LINE OF parser_raku.sc THAT STATES IT, in the form parser_raku.sc:N, on its own line or in the comment lines directly above
+# it (read by tools/cites_parser_sc.py of the cqo's evidence folder). WHERE THE parser.sc LACKS A WORD THE C FRONT END READS, THE RULE CITES THE C LEXER,
+# marked C-LEXER FILE:N, and the word is a line of C_LEXER_CITES.tsv (the chairman's ruling of 2026-11-21 14:0x CST): three words, fail, exit and redo,
+# read by src/parsers/raku/rk_tree/rkt_01_sh.c and quoted by no line of the parser.sc. No parser.sc was given a word for this file (Lon: "Don't worry
+# about parser.sc accuracy currently, that comes later when they become the actual parsers.").
+#
+# WHAT A LINE CANNOT DECIDE IS COLOURED LESS, ON PURPOSE (a Sublime syntax is regular expressions over a line, never a parse):
+#   * a bare / is division or a regex by the term position (parser_raku.sc:128-133), which a regex over a line cannot tell: only the spelled forms
+#     m/ /, rx/ / and s/ / are coloured as regexes.
+#   * <...> is a word list (qwords, parser_raku.sc:126) or a comparison by the term position: not coloured as strings.
+#   * the single-letter constants e and i (parser_raku.sc:184) are never coloured, being the commonest names a program gives itself.
+#   * a block of text inside a double-quoted string ({ ... } interpolation, parser_raku.sc:104) keeps the string's own colour.
+#   * a routine name written for a user-defined operator (infix:<+> and kin, parser_raku.sc:141) is coloured as an ordinary name.
+# The scope vocabulary is the family's (comment.line, string.quoted, constant.numeric, variable, keyword.control, keyword.operator, storage, support.function,
+# entity.name.function) so one colour scheme renders every dialect alike.
+
+name: Raku
 file_extensions: [raku, rakumod, rakutest, p6, pm6]
 scope: source.raku
+
+variables:
+  # parser_raku.sc:15 the first character of a name: a letter or an underscore
+  alpha: '[A-Za-z_]'
+  # parser_raku.sc:65 an identifier: letters, digits and underscores, with a hyphen or an apostrophe only when a letter follows it
+  ident: '[A-Za-z_][A-Za-z0-9_]*(?:[-''][A-Za-z_][A-Za-z0-9_]*)*'
+  # parser_raku.sc:67 a name: identifiers joined by ::
+  name: '[A-Za-z_][A-Za-z0-9_]*(?:(?:[-''][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*'
+  # parser_raku.sc:70 a twigil: . ! * ? ^ :
+  twigil: '[.!*?^:]'
+  # parser_raku.sc:71 a variable's body after its sigil: a twigil and a name, a name, one of _ / !, digits, <name>, or [ ]
+  varbody: '(?:{{twigil}}?{{name}}|[_/!]|[0-9]+|<[^>\n]*>)'
+  # parser_raku.sc:155 the word operators (op_xrep to op_lcm, and X and Z at 167)
+  wordops: '(?:xx|x|eqv|eq|ne|lt|gt|le|ge|cmp|leg|min|max|andthen|orelse|and|or|xor|div|mod|gcd|lcm|X|Z)'
+  # parser_raku.sc:169 the control keywords (kw_if to kw_when and the loops at 169 and 170, kw_gather, kw_try, kw_do at 174, kw_whenever at 175)
+  ctl: '(?:if|unless|while|until|for|loop|repeat|given|when|default|else|elsif|CATCH|gather|try|do|with|without|whenever)'
+  # parser_raku.sc:450 the phasers (phaser_stmt)
+  phaser: '(?:BEGIN|END|INIT|CHECK|FIRST|LAST|NEXT|ENTER|LEAVE|KEEP|UNDO|PRE|POST|TEMP|CLOSE|CONTROL|QUIT|DOC)'
+
 contexts:
-  main: []
+  main:
+    - include: comments
+    - include: pod
+    - include: strings
+    - include: regexes
+    - include: numbers
+    - include: declarations
+    - include: phasers
+    - include: words
+    - include: variables
+    - include: methods
+    - include: operators
+
+  comments:
+    # parser_raku.sc:56 an embedded comment #`( ) or #`[ ] inside a line
+    - match: '#`\([^)]*\)|#`\[[^\]]*\]'
+      scope: comment.block.raku
+    # parser_raku.sc:56 a comment: # to the end of the line
+    - match: '#.*$'
+      scope: comment.line.number-sign.raku
+
+  pod:
+    # parser_raku.sc:54 =begin ... =end, a block of documentation
+    - match: '^\s*=begin\b.*$'
+      scope: comment.block.documentation.raku
+      push: pod_block
+    # parser_raku.sc:53 =finish, the rest of the file is documentation
+    - match: '^\s*=finish\b.*$'
+      scope: comment.block.documentation.raku
+      push: pod_finish
+    # parser_raku.sc:55 =word at the start of a line, a documentation paragraph
+    - match: '^\s*=[A-Za-z][A-Za-z0-9_-]*\b.*$'
+      scope: comment.block.documentation.raku
+
+  pod_block:
+    - meta_scope: comment.block.documentation.raku
+    # parser_raku.sc:52 =end closes the block
+    - match: '^\s*=end\b.*$'
+      pop: true
+
+  pod_finish:
+    - meta_scope: comment.block.documentation.raku
+
+  strings:
+    # parser_raku.sc:95 a single-quoted string
+    - match: "'"
+      scope: punctuation.definition.string.begin.raku
+      push: single_string
+    # parser_raku.sc:110 a double-quoted string
+    - match: '"'
+      scope: punctuation.definition.string.begin.raku
+      push: double_string
+    # parser_raku.sc:120 qq[ ] interpolates
+    - match: '\bqq\['
+      scope: punctuation.definition.string.begin.raku
+      push: qq_string
+    # parser_raku.sc:121 q[ ] and q:w[ ], and Q[ ] at 122, do not interpolate
+    - match: '\b(?:q(?::w)?|Q)\['
+      scope: punctuation.definition.string.begin.raku
+      push: q_string
+
+  single_string:
+    - meta_scope: string.quoted.single.raku
+    # parser_raku.sc:91 a backslash keeps a following backslash or quote
+    - match: '\\[\\'']'
+      scope: constant.character.escape.raku
+    # parser_raku.sc:95 the closing quote
+    - match: "'"
+      scope: punctuation.definition.string.end.raku
+      pop: true
+
+  double_string:
+    - meta_scope: string.quoted.double.raku
+    - include: interpolation
+    # parser_raku.sc:110 the closing quote
+    - match: '"'
+      scope: punctuation.definition.string.end.raku
+      pop: true
+
+  qq_string:
+    - meta_scope: string.quoted.double.raku
+    - include: interpolation
+    # parser_raku.sc:120 the closing bracket
+    - match: '\]'
+      scope: punctuation.definition.string.end.raku
+      pop: true
+
+  q_string:
+    - meta_scope: string.quoted.single.raku
+    # parser_raku.sc:121 the closing bracket
+    - match: '\]'
+      scope: punctuation.definition.string.end.raku
+      pop: true
+
+  interpolation:
+    # parser_raku.sc:102 a backslash with x or c and a bracketed code, or x and hex digits (TT_ESC)
+    - match: '\\(?:[xc]\[[^\]]*\]|x[0-9a-fA-F]+)'
+      scope: constant.character.escape.raku
+    # parser_raku.sc:103 a backslash with one of the escaped characters n t r a b e f 0 backslash " { } ' $ @ % & < >
+    - match: '\\[ntrabef0\\"{}''$@%&<>]'
+      scope: constant.character.escape.raku
+    # parser_raku.sc:104 any other backslash pair is kept
+    - match: '\\.'
+      scope: constant.character.escape.raku
+    # parser_raku.sc:105 a $variable interpolates (la_dq_var at 108): a $ followed by a name, a twigil, or one of / < [
+    - match: '\${{twigil}}?{{name}}|\$[/<\[]'
+      scope: variable.other.interpolated.raku
+    # parser_raku.sc:108 an @array interpolates only with a subscript or a method after it
+    - match: '@{{ident}}(?=[\[.])'
+      scope: variable.other.interpolated.raku
+
+  regexes:
+    # parser_raku.sc:131 m/ / and rx/ /
+    - match: '\b(?:m|rx)(?::[A-Za-z]+)*/(?:[^/\\\n]|\\.)*/'
+      scope: string.regexp.raku
+    # parser_raku.sc:132 s/ / /
+    - match: '\bs(?::[A-Za-z]+)*/(?:[^/\\\n]|\\.)*/(?:[^/\\\n]|\\.)*/'
+      scope: string.regexp.raku
+
+  numbers:
+    # parser_raku.sc:81 a radix literal: 0x 0b 0o with underscores
+    - match: '\b0(?:[xX][0-9a-fA-F_]+|[bB][01_]+|[oO][0-7_]+)\b'
+      scope: constant.numeric.integer.raku
+    # parser_raku.sc:82 a float: digits . digits with an exponent, or digits and an exponent (83)
+    - match: '\b[0-9][0-9_]*\.[0-9]+(?:[eE][+-]?[0-9]+)?\b|\b[0-9][0-9_]*[eE][+-]?[0-9]+\b'
+      scope: constant.numeric.float.raku
+    # parser_raku.sc:84 an integer, underscores between its digits
+    - match: '\b[0-9][0-9_]*\b'
+      scope: constant.numeric.integer.raku
+
+  declarations:
+    # parser_raku.sc:474 sub, method and submethod with the routine's name after it (routine_rest at 473, the keywords at 172)
+    - match: '\b(sub|method|submethod)\b(?:\s+(?:\*)?(!|\^)?({{name}}))?'
+      captures:
+        1: storage.type.function.raku
+        3: entity.name.function.raku
+    # parser_raku.sc:477 class, role, grammar and module with the package's name after it
+    - match: '\b(class|role|grammar|module)\b\s+({{name}})'
+      captures:
+        1: storage.type.class.raku
+        2: entity.name.type.class.raku
+    # parser_raku.sc:480 enum with its name
+    - match: '\b(enum)\b\s+({{name}})'
+      captures:
+        1: storage.type.enum.raku
+        2: entity.name.type.enum.raku
+    # parser_raku.sc:483 token, rule and regex declare a named regex (the keywords at 173)
+    - match: '\b(token|rule|regex)\b\s+({{name}})'
+      captures:
+        1: storage.type.regex.raku
+        2: entity.name.function.regex.raku
+    # parser_raku.sc:463 the scope declarators my our state (kw_has and kw_constant at 171)
+    - match: '\b(?:my|our|state|has|constant)\b'
+      scope: storage.modifier.raku
+    # parser_raku.sc:468 the routine qualifiers multi proto only
+    - match: '\b(?:multi|proto|only)\b'
+      scope: storage.modifier.raku
+    # parser_raku.sc:175 unit declares a whole-file package
+    - match: '\bunit\b'
+      scope: storage.modifier.raku
+
+  phasers:
+    # parser_raku.sc:450 a phaser block head
+    - match: '\b{{phaser}}\b'
+      scope: keyword.control.phaser.raku
+
+  words:
+    # parser_raku.sc:251 the listops that end or move a flow: return take next last (252 to 254)
+    - match: '\b(?:return|take|next|last)\b'
+      scope: keyword.control.raku
+    # parser_raku.sc:169 the control words
+    - match: '\b{{ctl}}\b'
+      scope: keyword.control.raku
+    # parser_raku.sc:265 the statement and term prefixes once quietly react supply start lazy eager sink hyper race, and await at 266
+    - match: '\b(?:once|quietly|react|supply|start|lazy|eager|sink|hyper|race|await)\b'
+      scope: keyword.control.raku
+    # C-LEXER rkt_01_sh.c:503 fail is read by the C front end as a return of a Failure, and the parser.sc quotes no such word
+    - match: '\b(?:fail)\b'
+      scope: keyword.control.raku
+    # C-LEXER rkt_01_sh.c:505 redo is read by the C front end beside callsame and nextcallee, and the parser.sc quotes no such word
+    - match: '\b(?:redo)\b'
+      scope: keyword.control.raku
+    # C-LEXER rkt_01_sh.c:504 exit is read by the C front end as a call of __rk_exit, and the parser.sc quotes no such word
+    - match: '\b(?:exit)\b'
+      scope: support.function.raku
+    # parser_raku.sc:248 the listops that are their own node kinds: say print die sort map grep reverse
+    - match: '\b(?:say|print|die|sort|map|grep|reverse)\b'
+      scope: support.function.raku
+    # parser_raku.sc:175 use, no, need, require and import (kw_use at 170)
+    - match: '\b(?:use|no|need|require|import)\b'
+      scope: keyword.control.import.raku
+    # parser_raku.sc:217 the traits is does handles returns of where
+    - match: '\b(?:is|does|handles|returns|of|where)\b'
+      scope: keyword.other.trait.raku
+    # parser_raku.sc:174 the unary words not and so
+    - match: '\b(?:not|so)\b'
+      scope: keyword.operator.word.raku
+    # parser_raku.sc:155 the word operators x xx eq ne lt gt le ge eqv cmp leg min max and or xor andthen orelse div mod gcd lcm (156 to 164), X and Z at 167
+    - match: '\b{{wordops}}\b'
+      scope: keyword.operator.word.raku
+    # parser_raku.sc:184 the constants True False Nil Inf NaN Empty, and Whatever at 186
+    - match: '\b(?:True|False|Nil|Inf|NaN|Empty|Whatever)\b'
+      scope: constant.language.raku
+    # parser_raku.sc:184 pi tau self now time rand, a constant read as a bare word
+    - match: '\b(?:pi|tau|self|now|time|rand)\b'
+      scope: constant.language.raku
+    # parser_raku.sc:185 the type names Any Mu Int Str Num Bool Rat Array Hash List Order Less Same More (185 and 186)
+    - match: '\b(?:Any|Mu|Int|Str|Num|Bool|Rat|Array|Hash|List|Order|Less|Same|More)\b'
+      scope: support.type.raku
+    # parser_raku.sc:259 a word followed by an open bracket is a call
+    - match: '\b{{name}}(?=\()'
+      scope: entity.name.function.call.raku
+
+  variables:
+    # parser_raku.sc:72 a sigilless declaration \name
+    - match: '\\{{name}}'
+      scope: variable.other.sigilless.raku
+    # parser_raku.sc:71 a variable: a sigil, then a twigil and a name, a name, one of _ / !, digits, or <name>
+    - match: '[$@%&]{{varbody}}'
+      scope: variable.other.raku
+
+  methods:
+    # parser_raku.sc:299 a method call: a dot, an optional caret, and its name after a term
+    - match: '(?<=[A-Za-z0-9_)\]}>])(\.\^?)({{ident}})'
+      captures:
+        1: punctuation.accessor.raku
+        2: entity.name.function.method.raku
+    # parser_raku.sc:240 .method on the topic $_ at the start of a term
+    - match: '(?<![A-Za-z0-9_)\]}>.])(\.\^?)({{ident}})'
+      captures:
+        1: punctuation.accessor.raku
+        2: entity.name.function.method.raku
+
+  operators:
+    # parser_raku.sc:225 the pointy arrow -> and the return arrow --> (signature, 209)
+    - match: '-->|->'
+      scope: keyword.operator.pointy.raku
+    # parser_raku.sc:165 the bitwise and string-bitwise operators
+    - match: '\+&|\+<|\+>|\+\||\+\^|~&|~\|'
+      scope: keyword.operator.bitwise.raku
+    # parser_raku.sc:151 the range operators ... ..^ ^..^ ^.. ..
+    - match: '\.\.\.|\^\.\.\^|\^\.\.|\.\.\^|\.\.'
+      scope: keyword.operator.range.raku
+    # parser_raku.sc:143 comparison, smart match and logical operators
+    - match: '===|<=>|!~~|~~|==|!=|<=|>=|&&|\|\||//|\^\^'
+      scope: keyword.operator.comparison.raku
+    # parser_raku.sc:150 binding and the pair arrow, and the ternary pair at 154
+    - match: ':=|=>|\?\?|!!'
+      scope: keyword.operator.assignment.raku
+    # parser_raku.sc:137 the arithmetic, string and assignment operators
+    - match: '\*\*|%%|[-+*/%~&|^<>=!?]'
+      scope: keyword.operator.raku
