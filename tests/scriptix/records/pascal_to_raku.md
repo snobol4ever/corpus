@@ -28,7 +28,7 @@ program final;
 type
   ptree = ^tree;
   tree = record t: string; v: string; n: integer; c: array[1..2] of ptree end;
-var BACK: ptree;
+var BACK: ptree; external name 'BACK';
 begin
   writeln('back ', BACK^.t, ' ', BACK^.n);
   writeln('back leaves ', BACK^.c[1]^.v, ' ', BACK^.c[2]^.v)

@@ -15,7 +15,7 @@ type
   ptree = ^tree;
   tree = record t: string; v: string; n: integer; c: array[1..2] of ptree end;
 var ROOT: ptree; external name 'ROOT';
-    BACK: ptree; external name 'BACK';
+    BACK: ptree;
     a, b: ptree;
 begin
   writeln('root ', ROOT^.t, ' ', ROOT^.n);

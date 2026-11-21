@@ -10,7 +10,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 9,demo09/rpn,demo09/rpn.md,demos__scriptix/demo09/rpn,scriptix-demos,91,0,131072,4096,300,,
 10,demo10/anagram,demo10/anagram.md,demos__scriptix/demo10/anagram,scriptix-demos,126,0,131072,4096,300,,
 11,infinite_snobol4/inf_eval,infinite_snobol4/inf_eval.sno,demos__scriptix/infinite_snobol4/inf_eval,scriptix-demos,210,0,131072,4096,300,,
-12,infinite_snobol4/infinite_snobol4,infinite_snobol4/infinite_snobol4.md,demos__scriptix/infinite_snobol4/infinite_snobol4,scriptix-demos,1249,0,131072,4096,300,--stlimit,folder
+12,infinite_snobol4/infinite_snobol4,infinite_snobol4/infinite_snobol4.md,demos__scriptix/infinite_snobol4/infinite_snobol4,scriptix-demos,1253,0,131072,4096,300,--stlimit,folder
 13,mixes/a_trip_planner_in_three_languages,mixes/a_trip_planner_in_three_languages.md,demos__scriptix/mixes/a_trip_planner_in_three_languages,scriptix-demos,144,0,131072,4096,300,,
 14,mixes/notebooks/a_trip_planner_in_three_languages,mixes/notebooks/a_trip_planner_in_three_languages.ipynb,demos__scriptix/mixes/notebooks/a_trip_planner_in_three_languages,scriptix-demos,227,0,131072,4096,300,,
 15,mixes/icon_writes_the_sentences_snobol4_reads_them,mixes/icon_writes_the_sentences_snobol4_reads_them.md,demos__scriptix/mixes/icon_writes_the_sentences_snobol4_reads_them,scriptix-demos,122,0,131072,4096,300,,

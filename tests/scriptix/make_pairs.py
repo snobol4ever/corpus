@@ -113,7 +113,7 @@ def struct_use(kind, b, a):
             "rebus":   "record tree(t, v, n, c)\nfunction main()\n  OUTPUT := \"root \" || t(ROOT) || \" \" || n(ROOT)\n  K := c(ROOT)\n  OUTPUT := \"leaves \" || v(K[1]) || \" \" || v(K[2])\n  J := ARRAY(2)\n  J[1] := tree(\"num\", \"3\", 0)\n  J[2] := tree(\"num\", \"4\", 0)\n  BACK := tree(\"times\", \"*\", 2, J)\nend\n",
             "icon":    "record tree(t, v, n, c)\nglobal ROOT, BACK\nprocedure main();\n  write(\"root \", ROOT.t, \" \", ROOT.n);\n  write(\"leaves \", ROOT.c[1].v, \" \", ROOT.c[2].v);\n  BACK := tree(\"times\", \"*\", 2, [tree(\"num\", \"3\", 0), tree(\"num\", \"4\", 0)]);\nend\n",
             "pascal":  "{$mode objfpc}\nprogram use;\n" + PAS_TREE +
-                       ("var ROOT: ptree;\n    BACK: ptree;\n" if same else "var ROOT: ptree; external name 'ROOT';\n    BACK: ptree; external name 'BACK';\n") +
+                       ("var ROOT: ptree;\n    BACK: ptree;\n" if same else "var ROOT: ptree; external name 'ROOT';\n    BACK: ptree;\n") +
                        "    a, b: ptree;\nbegin\n  writeln('root ', ROOT^.t, ' ', ROOT^.n);\n  writeln('leaves ', ROOT^.c[1]^.v, ' ', ROOT^.c[2]^.v);\n" +
                        pas_leaf("a", "3") + pas_leaf("b", "4") + pas_root("BACK", "times", "*", "a", "b").rstrip(";\n") + "\nend.\n",
             "prolog":  ":- nb_getval('ROOT', R), R = tree(T, _, N, [tree(_, V1, _, _), tree(_, V2, _, _)]), write('root '), write(T), write(' '), write(N), nl, write('leaves '), write(V1), write(' '), write(V2), nl.\n:- nb_setval('BACK', tree(times, '*', 2, [tree(num, '3', 0, []), tree(num, '4', 0, [])])).\n",
@@ -126,7 +126,7 @@ def struct_use(kind, b, a):
             "rebus":   "function main()\n  OUTPUT := \"size \" || PROTOTYPE(SEQ)\n  OUTPUT := \"second \" || SEQ[2]\n  BACK := ARRAY(3)\n  BACK[1] := 40\n  BACK[2] := 50\n  BACK[3] := 60\nend\n",
             "icon":    "global SEQ, BACK\nprocedure main();\n  write(\"size \", *SEQ);\n  write(\"second \", SEQ[2]);\n  BACK := [40, 50, 60];\nend\n",
             "pascal":  "{$mode objfpc}\nprogram use;\n" +
-                       ("var SEQ: array[1..3] of integer;\n    BACK: array[1..3] of integer;\n" if same else "var SEQ: array[1..3] of integer; external name 'SEQ';\n    BACK: array[1..3] of integer; external name 'BACK';\n") +
+                       ("var SEQ: array[1..3] of integer;\n    BACK: array[1..3] of integer;\n" if same else "var SEQ: array[1..3] of integer; external name 'SEQ';\n    BACK: array[1..3] of integer;\n") +
                        "begin\n  writeln('size ', high(SEQ) - low(SEQ) + 1);\n  writeln('second ', SEQ[2]);\n  BACK[1] := 40;\n  BACK[2] := 50;\n  BACK[3] := 60\nend.\n",
             "prolog":  ":- nb_getval('SEQ', S), length(S, N), write('size '), write(N), nl, nth1(2, S, E), write('second '), write(E), nl.\n:- nb_setval('BACK', [40, 50, 60]).\n",
             "raku":    "our $SEQ;\nour $BACK;\nsay \"size {$SEQ.elems}\";\nsay \"second {$SEQ[1]}\";\n$BACK = [40, 50, 60];\n",
@@ -139,14 +139,14 @@ def struct_use(kind, b, a):
         "raku":    "our $TAB;\nour $BACK;\nsay \"one {$TAB<one>}\";\nsay \"two {$TAB<two>}\";\n$BACK = {three => 3, four => 4};\n",
     }[b]
 
-def struct_fin(kind, a):
+def struct_fin(kind, a, b):
     if kind == "records":
         return {
             "snobol4": "        OUTPUT = 'back ' t(BACK) ' ' n(BACK)\n        K = c(BACK)\n        OUTPUT = 'back leaves ' v(K[1]) ' ' v(K[2])\nEND\n",
             "snocone": "OUTPUT = 'back ' t(BACK) ' ' n(BACK);\nK = c(BACK);\nOUTPUT = 'back leaves ' v(K[1]) ' ' v(K[2]);\n",
             "rebus":   "record tree(t, v, n, c)\nfunction main()\n  OUTPUT := \"back \" || t(BACK) || \" \" || n(BACK)\n  K := c(BACK)\n  OUTPUT := \"back leaves \" || v(K[1]) || \" \" || v(K[2])\nend\n",
             "icon":    "record tree(t, v, n, c)\nglobal BACK\nprocedure main();\n  write(\"back \", BACK.t, \" \", BACK.n);\n  write(\"back leaves \", BACK.c[1].v, \" \", BACK.c[2].v);\nend\n",
-            "pascal":  "{$mode objfpc}\nprogram final;\n" + PAS_TREE + "var BACK: ptree;\nbegin\n  writeln('back ', BACK^.t, ' ', BACK^.n);\n  writeln('back leaves ', BACK^.c[1]^.v, ' ', BACK^.c[2]^.v)\nend.\n",
+            "pascal":  "{$mode objfpc}\nprogram final;\n" + PAS_TREE + ("var BACK: ptree;\n" if a == b else "var BACK: ptree; external name 'BACK';\n") + "begin\n  writeln('back ', BACK^.t, ' ', BACK^.n);\n  writeln('back leaves ', BACK^.c[1]^.v, ' ', BACK^.c[2]^.v)\nend.\n",
             "prolog":  ":- nb_getval('BACK', R), R = tree(T, _, N, [tree(_, V1, _, _), tree(_, V2, _, _)]), write('back '), write(T), write(' '), write(N), nl, write('back leaves '), write(V1), write(' '), write(V2), nl.\n",
             "raku":    "our $BACK;\nsay \"back {$BACK.t} {$BACK.n}\";\nsay \"back leaves {$BACK.c[0].v} {$BACK.c[1].v}\";\n",
         }[a]
@@ -156,7 +156,7 @@ def struct_fin(kind, a):
             "snocone": "OUTPUT = 'back size ' PROTOTYPE(BACK);\nOUTPUT = 'back second ' BACK[2];\n",
             "rebus":   "function main()\n  OUTPUT := \"back size \" || PROTOTYPE(BACK)\n  OUTPUT := \"back second \" || BACK[2]\nend\n",
             "icon":    "global BACK\nprocedure main();\n  write(\"back size \", *BACK);\n  write(\"back second \", BACK[2]);\nend\n",
-            "pascal":  "{$mode objfpc}\nprogram final;\nvar BACK: array[1..3] of integer;\nbegin\n  writeln('back size ', high(BACK) - low(BACK) + 1);\n  writeln('back second ', BACK[2])\nend.\n",
+            "pascal":  "{$mode objfpc}\nprogram final;\n" + ("var BACK: array[1..3] of integer;\n" if a == b else "var BACK: array[1..3] of integer; external name 'BACK';\n") + "begin\n  writeln('back size ', high(BACK) - low(BACK) + 1);\n  writeln('back second ', BACK[2])\nend.\n",
             "prolog":  ":- nb_getval('BACK', S), length(S, N), write('back size '), write(N), nl, nth1(2, S, E), write('back second '), write(E), nl.\n",
             "raku":    "our $BACK;\nsay \"back size {$BACK.elems}\";\nsay \"back second {$BACK[1]}\";\n",
         }[a]
@@ -236,7 +236,7 @@ def set_files(kind, cells_of, langs, ref):
     return (backtrack_files if kind == "backtracking" else pair_files)(kind, cells_of, langs, ref)
 
 def structure_cells(kind):
-    return lambda a, b: [(a, STRUCT_DEF[kind][a]), (b, struct_use(kind, b, a)), (a, struct_fin(kind, a))]
+    return lambda a, b: [(a, STRUCT_DEF[kind][a]), (b, struct_use(kind, b, a)), (a, struct_fin(kind, a, b))]
 
 SETS = tuple((k, (lambda d, u: (lambda a, b: [(a, d[a]), (b, u(b, a))]))(dd, uu), LANGS, REF[k]) for k, dd, uu in (("variables", VAR_DEF, var_use), ("functions", FUN_DEF, fun_use))) + \
        tuple((k, structure_cells(k), STRUCT_LANGS[k], STRUCT_REF[k]) for k in ("records", "sequences", "tables")) + \

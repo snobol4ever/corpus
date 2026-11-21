@@ -22,7 +22,7 @@ END
 ```pascal
 {$mode objfpc}
 program final;
-var BACK: array[1..3] of integer;
+var BACK: array[1..3] of integer; external name 'BACK';
 begin
   writeln('back size ', high(BACK) - low(BACK) + 1);
   writeln('back second ', BACK[2])

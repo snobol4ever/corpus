@@ -11,7 +11,7 @@ end
 {$mode objfpc}
 program use;
 var SEQ: array[1..3] of integer; external name 'SEQ';
-    BACK: array[1..3] of integer; external name 'BACK';
+    BACK: array[1..3] of integer;
 begin
   writeln('size ', high(SEQ) - low(SEQ) + 1);
   writeln('second ', SEQ[2]);

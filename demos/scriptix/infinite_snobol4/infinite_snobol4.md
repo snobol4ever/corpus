@@ -251,10 +251,10 @@ function inf_readargs() inf_index, inf_arg {
     }
     return;
 }
-if (inf_readargs()) { drive(inf_bsize, inf_sbl); }
 ```
 
 ```Icon
+global check, inf_moved_count
 # The Icon section drives: drive(bsize, sbl), called by the Snocone section's last statement once the arguments are read,
 # loops batch after batch -- inf_batch writes the next expressions to inf_batch.txt from one generator held in a co-expression,
 # and the Snocone section's check() evaluates them against the SPITBOL child and returns how many differ. One line per batch, a
@@ -1246,4 +1246,8 @@ procedure drive(bsize, sbl)
     write("total: ", total, " expressions in ", b, " batches of at most ", bsize, ", ", total - differ, " agree, ", differ, " differ");
     return total;
 end
+```
+
+```Snocone
+if (inf_readargs()) { drive(inf_bsize, inf_sbl); }
 ```
