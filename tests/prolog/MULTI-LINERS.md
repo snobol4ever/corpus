@@ -9243,6 +9243,33 @@ main :- clause(t7, _, Ref), ( clause_info(Ref, F, _, _) -> file_base_name(F, B),
 'swi_modclause__mc03_clause_info_module_clause.pl'
 ```
 
+## xpce__l_read_at
+
+```Prolog
+% L28c: library(prolog_source) with no window: a term read at a location, as PceEmacs's mode reads one (read_source_term_at_location/3).
+:- use_module(library(prolog_source)).
+:- initialization(main, main).
+main :-
+    forall(member(L, [5, 6, 2]), ( open('cmp_xref_subject.pl', read, S),
+        ( read_source_term_at_location(S, T, [line(L), module(user)]) -> true ; T = none ), close(S), numbervars(T, 0, _), print(L-T), nl )).
+```
+
+```file cmp_xref_subject.pl
+:- module(xref_subject, [double/2, (===>)/2]).
+:- use_module(library(lists)).
+:- op(700, xfx, ===>).
+:- set_prolog_flag(double_quotes, codes).
+double(X, Y) :- Y is X * 2.
+twice(L, M) :- maplist(double, L, M), last(M, _).
+A ===> B :- twice(A, B), \+ undefined_here(B).
+```
+
+```stdout
+5-(double(A,B):-B is A*2)
+6-(twice(A,B):-maplist(double,A,B),last(B,C))
+2-(:-use_module(library(lists)))
+```
+
 ## cut_directive_8
 
 ```Prolog

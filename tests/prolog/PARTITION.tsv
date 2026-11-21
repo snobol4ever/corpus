@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=748 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=74 chunks=8 sizes=100,100,100,100,100,100,100,10
+# shape: entries=749 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=74 chunks=8 sizes=100,100,100,100,100,100,100,11
 entry	part	cluster	shells
 runtime_consult__a_directive_of_a_file_consulted_at_run_time_runs_as_at_compile_time	chunk:08	family:runtime_consult	
 write_family_writeln_1	chunk:01	family:ladder	
@@ -151,7 +151,7 @@ directive_35	chunk:06	family:rung23
 directive_36	chunk:06	family:rung23	
 directive_49	chunk:06	family:rung24_string_io	
 directive_51	chunk:06	family:rung24_string_io	
-directive_52	chunk:06	family:rung24_string_io	
+directive_52	chunk:07	family:rung24_string_io	
 directive_57	chunk:07	family:rung25	
 directive_58	chunk:07	family:rung25_term_string	
 directive_60	chunk:07	family:rung25_term_string	
@@ -230,7 +230,7 @@ simple_program_103	chunk:07	family:rung39_atom_iso
 simple_program_97	chunk:07	family:rung36_arith_edge	
 clpr_chr__cc03_simpag	chunk:04	feat:findall	findall unify
 directive_19	chunk:06	family:rung12_atom_builtins	
-directive_78	chunk:07	family:rung35_bridge_setup	
+directive_78	chunk:08	family:rung35_bridge_setup	
 simple_program_101	chunk:07	family:rung39_atom_iso	
 streamio_get_byte_peek_byte_1	chunk:02	family:ladder	
 streamio_get_code_peek_code_1	chunk:02	family:ladder	
@@ -518,6 +518,7 @@ catch_between_directive_1	chunk:04	feat:between	between catch
 cut_ite_directive_1	chunk:03	feat:cut	cut if_then_else
 setof_bagof_directive_1	chunk:07	feat:setof	bagof setof
 swi_modclause__mc03_clause_info_module_clause	chunk:05	feat:clause	clause if_then_else writeq
+xpce__l_read_at	chunk:06	feat:forall	forall if_then_else unify
 cut_directive_8	chunk:03	feat:cut	cut unify
 dcg_ite_directive_1	chunk:06	feat:dcg	dcg if_then_else
 lifo__lifo_repeat_read_loop_in_setup_call_cleanup	chunk:05	feat:assertz	assertz catch cut if_then_else
