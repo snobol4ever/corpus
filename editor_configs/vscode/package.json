@@ -88,7 +88,7 @@
       },
       {
         "language": "rebus",
-        "scopeName": "source.rebus",
+        "scopeName": "source.reb",
         "path": "./syntaxes/rebus.tmLanguage.json"
       },
       {
