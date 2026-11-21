@@ -1,0 +1,8 @@
+*  EVAL of a string compiles its text, runs it once and keeps nothing: 150,000 EVALs in a loop fit in the declared heap,
+*  as sbl -bf runs them in -d131072k (snobol4dotnet kept each EVAL's code and ran out of memory)
+        i = 0
+l       i = i + 1
+        x = EVAL('1 + 2')
+        LT(i,150000)                        :S(l)
+        OUTPUT = x
+END
