@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=747 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=74 chunks=8 sizes=100,100,100,100,100,100,100,9
+# shape: entries=748 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=74 chunks=8 sizes=100,100,100,100,100,100,100,10
 entry	part	cluster	shells
 runtime_consult__a_directive_of_a_file_consulted_at_run_time_runs_as_at_compile_time	chunk:08	family:runtime_consult	
 write_family_writeln_1	chunk:01	family:ladder	
@@ -63,10 +63,10 @@ directive_44	chunk:06	family:rung24
 directive_45	chunk:06	family:rung24	
 directive_46	chunk:06	family:rung24	
 directive_47	chunk:06	family:rung24	
-directive_53	chunk:06	family:rung25	
-directive_54	chunk:06	family:rung25	
-directive_55	chunk:06	family:rung25	
-directive_56	chunk:06	family:rung25	
+directive_53	chunk:07	family:rung25	
+directive_54	chunk:07	family:rung25	
+directive_55	chunk:07	family:rung25	
+directive_56	chunk:07	family:rung25	
 directive_82	chunk:01	family:ladder	
 disjunction_left_only_1	chunk:01	family:ladder	
 disjunction_nested_disjunction_1	chunk:01	family:ladder	
@@ -184,8 +184,8 @@ directive_14	chunk:07	family:probe_plz
 directive_33	chunk:06	family:rung23	
 directive_34	chunk:06	family:rung23	
 directive_37	chunk:06	family:rung23	
-directive_48	chunk:06	family:rung24_string_io	
-directive_50	chunk:06	family:rung24_string_io	
+directive_48	chunk:07	family:rung24_string_io	
+directive_50	chunk:07	family:rung24_string_io	
 directive_59	chunk:07	family:rung25_term_string	
 directive_68	chunk:07	family:rung27	
 directive_69	chunk:07	family:rung27	
@@ -248,7 +248,7 @@ streams__st01_process_create_resolution_and_wait	chunk:03	feat:catch	catch
 directive_80	chunk:08	family:rung74_dec10_io	
 directive_81	chunk:08	family:rung80_dec10_streams	
 streams__st02_process_pipes_three_ways	chunk:08	family:streams	
-directive_79	chunk:07	family:rung72_unget	
+directive_79	chunk:08	family:rung72_unget	
 directive_18	chunk:07	family:rung08_recursion_recursion	
 test_rung10_programs_puzzle_10	chunk:02	feat:unify	unify
 arith_compare_ge_1	chunk:02	feat:if_then_else	if_then_else
@@ -332,7 +332,7 @@ clause_choice_no_clause_fails_1	chunk:02	feat:if_then_else	if_then_else
 cut_directive_2	chunk:03	feat:cut	cut
 cut_directive_3	chunk:03	feat:cut	cut
 cut_first_goal_1	chunk:03	feat:cut	cut
-declarations_op_3_1	chunk:07	feat:op	op
+declarations_op_3_1	chunk:06	feat:op	op
 findall_directive_2	chunk:04	feat:findall	findall
 ite_directive_3	chunk:02	feat:if_then_else	if_then_else
 ite_directive_5	chunk:02	feat:if_then_else	if_then_else
@@ -512,7 +512,7 @@ ite_list_directive_1	chunk:03	feat:list_cons	if_then_else list_cons
 ite_replace_1	chunk:02	feat:unify	if_then_else unify
 ofi_forall_all_hold_1	chunk:06	feat:forall	forall if_then_else
 ofi_forall_counterexample_1	chunk:06	feat:forall	forall if_then_else
-op_ite_directive_replace_1	chunk:07	feat:op	if_then_else op
+op_ite_directive_replace_1	chunk:06	feat:op	if_then_else op
 rung50_between_enum__rung50_between_enum	chunk:04	feat:between	between findall
 catch_between_directive_1	chunk:04	feat:between	between catch
 cut_ite_directive_1	chunk:03	feat:cut	cut if_then_else
@@ -532,7 +532,7 @@ catch_directive_replace_1	chunk:04	feat:catch	catch unify
 catch_directive_replace_2	chunk:04	feat:catch	catch unify
 forall_ite_directive_2	chunk:06	feat:forall	forall if_then_else
 ite_directive_replace_4	chunk:02	feat:unify	if_then_else unify
-op_directive_2	chunk:07	feat:op	op unify
+op_directive_2	chunk:06	feat:op	op unify
 resource__r05_deep_compare_caught	chunk:03	feat:cut	catch cut
 resource__r06_deep_write_caught	chunk:03	feat:cut	catch cut
 resource__r09_deep_numbervars_caught	chunk:03	feat:cut	catch cut
@@ -611,7 +611,7 @@ lifo__lifo_soft_cut_det_condition	chunk:04	feat:findall	findall if_then_else uni
 lifo__lifo_throw_through_clauses	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 last_call_nreverse_large_1	chunk:04	feat:between	between findall list_cons
 lifo__lifo_ite_join_depths	chunk:04	feat:findall	findall if_then_else unify
-op_ite_directive_replace_2	core	core	if_then_else op unify
+op_ite_directive_replace_2	chunk:06	feat:op	if_then_else op unify
 swi_cause1__c1a03_ite_cut_fail_else_then_two_clause_call	chunk:07	feat:arg	arg cut forall if_then_else unify
 assertz_retract_directive_1	chunk:05	feat:assert_then_retract	assert_then_retract assertz retract
 findall_directive_replace_1	chunk:06	feat:findall_with_var_goal	findall findall_with_var_goal unify
@@ -622,7 +622,7 @@ catch_throw_1	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 findall_directive_replace_3	chunk:06	feat:findall_with_var_goal	findall findall_with_var_goal unify
 findall_directive_replace_5	chunk:06	feat:findall_with_var_goal	findall findall_with_var_goal unify
 module_import_table__mit_meta_call	chunk:04	feat:call	call findall unify writeq
-op_ite_format_1	chunk:07	feat:op	format if_then_else op
+op_ite_format_1	chunk:06	feat:op	format if_then_else op
 resource__r03_string_overflow_caught	chunk:05	feat:format	catch format list_cons
 writeq_format_directive_2	chunk:05	feat:format	format unify writeq
 call_ite_directive_replace_1	chunk:04	feat:call	call if_then_else unify
@@ -646,7 +646,7 @@ catch_functor_directive_replace_1	chunk:07	feat:functor	catch functor unify
 cut_list_directive_replace_1	chunk:03	feat:list_cons	cut list_cons unify
 dcg_ite_list_replace_1	core	core	dcg if_then_else list_cons
 dicts__dt03_dict_through_a_file	chunk:05	feat:format	format if_then_else unify writeq
-op_ite_format_2	chunk:07	feat:op	format if_then_else op
+op_ite_format_2	chunk:06	feat:op	format if_then_else op
 catch_ite_replace_1	chunk:04	feat:catch	catch if_then_else unify
 clpr_chr__cc04b_late	chunk:06	feat:forall	findall forall if_then_else list_cons unify
 cut_ite_1	chunk:03	feat:cut	cut if_then_else unify
@@ -725,6 +725,7 @@ ladder__rung10_trim_queue_fill_and_drain	chunk:05	feat:assert_then_retract	asser
 ladder__rung09_swi_arg_atomic_concat_functor_formal_terms	chunk:07	feat:arg	arg catch cut functor if_then_else var
 one_engine__oe3_subs_once	core	core	findall forall format if_then_else unify var
 functor_ite_univ_1	core	core	arg atom functor if_then_else unify univ
+xpce__p_expand	core	core	call catch if_then_else op unify univ
 copy_term_call_cut_replace_1	chunk:06	feat:copy_term	call copy_term cut if_then_else unify var
 sentences__sentences	core	core	dcg findall forall format if_then_else unify
 one_engine__oe6_dyn_variant	core	core	assert_then_retract assertz findall forall format retract unify

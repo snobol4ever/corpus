@@ -14746,6 +14746,56 @@ no
 no
 ```
 
+## xpce__p_expand
+
+```Prolog
+:- use_module(cmp_expand).
+foo(1).
+baz(2).
+emit(3).
+where(8).
+:- G = initialization(writeln(called_initialization)), call(G).
+p :- hello.
+hello :- writeln(unexpanded_hello).
+t(N, G) :- write(N), write(': '), ( catch(G, error(F, _), (print(caught(F)), nl, fail)) -> true ; write(no), nl ).
+main :-
+    t(1, (bar(X1), print(X1), nl)),
+    t(2, (qux(X2), print(X2), nl)),
+    t(3, p),
+    t(4, (current_op(_, _, ===>) -> writeln(op_before) ; writeln(no_op_before))),
+    t(5, (push_operators([op(700, xfx, ===>)]), current_op(P, T, ===>), print(pushed(P, T)), nl)),
+    t(6, (term_to_atom(Tm, 'a ===> b'), Tm =.. [Op, A, B], print(read(Op, A, B)), nl)),
+    t(7, (located(F7, L7, X7), print(located(F7, L7, X7)), nl)),
+    t(8, (source_location(_, _) -> writeln(located_at_run_time) ; writeln(no_location_at_run_time))),
+    t(9, (pop_operators, ( current_op(_, _, ===>) -> writeln(op_after) ; writeln(no_op_after) ))).
+:- initialization(main, main).
+```
+
+```file cmp_expand.pl
+:- module(cmp_expand, []).
+:- multifile user:term_expansion/2, system:term_expansion/2, user:goal_expansion/2.
+:- dynamic user:term_expansion/2, system:term_expansion/2, user:goal_expansion/2.
+user:term_expansion(foo(X), bar(X)).
+system:term_expansion(baz(X), qux(X)).
+system:term_expansion(emit(X), (:- initialization(writeln(emitted(X))))).
+user:goal_expansion(hello, writeln(expanded_hello)).
+user:term_expansion(where(X), located(F, L, X)) :- source_location(P, L), file_base_name(P, F).
+```
+
+```stdout
+emitted(3)
+called_initialization
+1: 1
+2: 2
+3: expanded_hello
+4: no_op_before
+5: pushed(700,xfx)
+6: read(===>,a,b)
+7: located('xpce_p_expand.pl',5,8)
+8: no_location_at_run_time
+9: no_op_after
+```
+
 ## copy_term_call_cut_replace_1
 
 ```Prolog
