@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language>
+<!-- SCRIP, 2026-11-21 (the chairman, on Lon's word): this definition gives a SNOBOL4 file its mode in Kate and NOTHING ELSE, so that SCRIP's language
+     server attaches to it (Kate starts a server by highlighting mode). It colours nothing; the colouring of the SCRIP family is the Sublime
+     syntax of corpus editor_configs/sublime, and a Kate definition converted from it replaces this file under the same mode name. -->
+<language name="SNOBOL4" section="Sources" extensions="*.sno;*.spt" version="1" kateversion="5.0" author="SCRIP" license="MIT">
+  <highlighting>
+    <contexts>
+      <context name="Normal" attribute="Normal Text" lineEndContext="#stay"/>
+    </contexts>
+    <itemDatas>
+      <itemData name="Normal Text" defStyleNum="dsNormal"/>
+    </itemDatas>
+  </highlighting>
+  <general>
+    <comments><comment name="singleLine" start="*"/></comments>
+  </general>
+</language>

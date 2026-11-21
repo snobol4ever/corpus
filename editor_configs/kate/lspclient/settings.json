@@ -1,0 +1,68 @@
+{
+    "servers": {
+        "snobol4": {
+            "command": [
+                "/home/install/bin/scrip",
+                "--lsp"
+            ],
+            "url": "https://github.com/snobol4ever/SCRIP",
+            "highlightingModeRegex": "^SNOBOL4$"
+        },
+        "snocone": {
+            "command": [
+                "/home/install/bin/scrip",
+                "--lsp"
+            ],
+            "url": "https://github.com/snobol4ever/SCRIP",
+            "highlightingModeRegex": "^Snocone$"
+        },
+        "rebus": {
+            "command": [
+                "/home/install/bin/scrip",
+                "--lsp"
+            ],
+            "url": "https://github.com/snobol4ever/SCRIP",
+            "highlightingModeRegex": "^Rebus$"
+        },
+        "icon": {
+            "command": [
+                "/home/install/bin/scrip",
+                "--lsp"
+            ],
+            "url": "https://github.com/snobol4ever/SCRIP",
+            "highlightingModeRegex": "^Icon$"
+        },
+        "prolog": {
+            "command": [
+                "/home/install/bin/scrip",
+                "--lsp"
+            ],
+            "url": "https://github.com/snobol4ever/SCRIP",
+            "highlightingModeRegex": "^Prolog$"
+        },
+        "pascal": {
+            "command": [
+                "/home/install/bin/scrip",
+                "--lsp"
+            ],
+            "url": "https://github.com/snobol4ever/SCRIP",
+            "highlightingModeRegex": "^Pascal$"
+        },
+        "raku": {
+            "command": [
+                "/home/install/bin/scrip",
+                "--lsp"
+            ],
+            "url": "https://github.com/snobol4ever/SCRIP",
+            "highlightingModeRegex": "^Raku$"
+        },
+        "markdown": {
+            "command": [
+                "/home/install/bin/scrip",
+                "--lsp"
+            ],
+            "url": "https://github.com/snobol4ever/SCRIP",
+            "highlightingModeRegex": "^Markdown$"
+        }
+    }
+}

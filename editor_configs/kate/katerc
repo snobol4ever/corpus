@@ -1,0 +1,8 @@
+[Kate Plugins]
+lspclientplugin=true
+kategdbplugin=true
+
+[lspclient]
+AllowedServerCommandLines=/home/install/bin/scrip --lsp
+Diagnostics=true
+Messages=true

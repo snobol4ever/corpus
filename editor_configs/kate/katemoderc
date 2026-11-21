@@ -1,0 +1,10 @@
+[Prolog]
+Highlighting=Prolog
+Highlighting Generated=false
+Highlighting Version=17
+Indenter=
+Mimetypes=text/x-prolog
+Priority=20
+Section=Sources
+Variables=
+Wildcards=*.prolog;*.dcg;*.pro;*.pl

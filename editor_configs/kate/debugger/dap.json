@@ -1,0 +1,24 @@
+{
+    "dap": {
+        "scrip": {
+            "url": "https://github.com/snobol4ever/SCRIP",
+            "run": {
+                "command": [
+                    "/home/install/bin/scrip",
+                    "--dap"
+                ],
+                "redirectStderr": true,
+                "redirectStdout": true,
+                "supportsSourceRequest": false
+            },
+            "configurations": {
+                "run the file": {
+                    "request": {
+                        "command": "launch",
+                        "program": "${file}"
+                    }
+                }
+            }
+        }
+    }
+}
