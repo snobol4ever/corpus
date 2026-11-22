@@ -52,10 +52,10 @@ Install both (`Package Control: Install Package`), then:
   * `LSP.sublime-settings` and `language-ids.sublime-settings` go into
     `Packages/User/` with the syntaxes. The first names one client, `scrip`,
     started as `/home/install/bin/scrip --lsp`, for the scopes of this
-    family (`source.sno`, `source.sc`, `source.icn`, `source.pl`,
+    family (`source.sno`, `source.sc`, `source.reb`, `source.icn`, `source.pl`,
     `source.pascal`, `source.raku`, `text.html.markdown.scriptix`). The
     second maps each scope to the language id the server knows (`snobol4`,
-    `snocone`, `icon`, `prolog`, `pascal`, `raku`, `scriptix`); without it
+    `snocone`, `rebus`, `icon`, `prolog`, `pascal`, `raku`, `scriptix`); without it
     the LSP package sends the scope's second word (`sno`, `icn`, `pl`) and
     no diagnostic comes back.
   * The folder `SCRIP/` goes into `Packages/` as a package of its own
@@ -64,10 +64,12 @@ Install both (`Package Control: Install Package`), then:
     `/home/install/bin/scrip --dap`; nothing of Debugger is edited. A launch
     configuration needs only the program:
     `{"name": "SCRIP", "type": "scrip", "request": "launch", "program": "${file}"}`.
-  * `Raku.sublime-syntax` is a PLACEHOLDER: it gives a Raku file its scope so
-    the server attaches, and colours nothing, until the family's own Raku
-    syntax replaces it under the same name. Pascal uses Sublime's built-in
-    `source.pascal` until the family's own is written.
+  * Each of the seven languages (SNOBOL4, Snocone, Rebus, Icon, Prolog,
+    Pascal, Raku) has the family's own syntax in this folder, so its scope
+    is the one the selector and the ids file name. The one launch
+    configuration above serves all seven: the adapter type is `scrip`,
+    whatever the file's language, and `scrip --dap` reads the program's
+    language itself.
 
 What the two answer is counted by `scrip --dap --requests` and by the
 table of the server's features; on 2026-11-21 the server published

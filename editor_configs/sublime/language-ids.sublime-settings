@@ -3,6 +3,7 @@
 {
 	"source.sno": "snobol4",
 	"source.sc": "snocone",
+	"source.reb": "rebus",
 	"source.icn": "icon",
 	"source.pl": "prolog",
 	"source.pascal": "pascal",

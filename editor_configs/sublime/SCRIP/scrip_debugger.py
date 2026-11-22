@@ -34,7 +34,7 @@ def plugin_loaded():
 
 		@property
 		def configuration_snippets(self):
-			return [{'label': 'SCRIP: run the current file', 'description': 'Run a SNOBOL4, Snocone, Icon, Prolog or SCRIPtix file under scrip --dap', 'body': dict(LAUNCH)}]
+			return [{'label': 'SCRIP: run the current file', 'description': 'Run a SNOBOL4, Snocone, Rebus, Icon, Prolog, Pascal, Raku or SCRIPtix file under scrip --dap', 'body': dict(LAUNCH)}]
 
 		@property
 		def configuration_schema(self):
