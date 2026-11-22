@@ -1,0 +1,43 @@
+1010
+ff FF
+two
+e
+X::Syntax::UnlessElse:else X::Syntax::UnlessElse:elsif X::Syntax::UnlessElse:orwith 
+42
+after swallowed die
+caught in handler
+7
+outer catch ok
+1
+after
+1
+2
+after
+100 5
+10 20 5
+1
+2
+1|2
+1|(Any)
+1:2,3
+3|4
+5+6+7
+False
+True
+differ
+True
+False
+True
+end
+digit match ok
+no digit ok
+lower match ok
+no lower ok
+alt a ok
+no alt ok
+dotstar empty ok
+dotstar str ok
+anchor ok
+anchor long ok
+anchor empty ok
+rk_re33 ok

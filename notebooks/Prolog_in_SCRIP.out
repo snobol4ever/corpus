@@ -1,0 +1,43 @@
+a
+b
+c
+:- dynamic dummy/4.
+
+dummy(A, B, C, D) :-
+    A+B,
+    C+D.
+dummy(A, B, C, D) :-
+    A+B,
+    D=C.
+dummy((Head-->Goals), Clause, _, _) :-
+    list_goal(Goals, Body),
+    expand_term((Head-->Body), Clause).
+dummy(g(Goal), [], A, B) :-
+    A=[{Goal}, !|B].
+dummy(Foo, _Bar, _, Baz) :-
+    Baz=[Foo|_].
+
+[0,1,2]
+yes
+yes
+yes
+4
+600 xfx
+300 fy
+yes
+123
+pa_empty
+ret_pa1
+[1]
+pa_valid
+q(4)
+qx_invalid
+[4,6]
+len(9)
+[a-a,a-b,a-c,b-a,b-b,b-c,c-a,c-b,c-c]
+<
+ok
+gone
+hello
+[2]
+[]

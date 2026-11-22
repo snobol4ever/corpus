@@ -1,0 +1,167 @@
+I went to Louisiana, Texas and back looking for people and places.
+He went to Albertsons, Aldi, and Kroger looking for pineapples, and bananas.
+You went to school and work looking for fun, frolic and fantasy.
+Matched: I | Louisiana | back | people | places
+Matched: He | Albertsons | Kroger | pineapples | bananas
+Matched: You | school | work | fun | fantasy
+Matched: I | Louisiana |  and back | back | people |  and places | places
+Matched: He | Albertsons | , and Kroger | Kroger | pineapples | , and bananas | bananas
+Matched: You | school |  and work | work | fun |  and fantasy | fantasy
+Matched: I | Louisiana | , Texas and back | people |  and places
+Matched: He | Albertsons | , Aldi, and Kroger | pineapples | , and bananas
+Matched: You | school |  and work | fun | , frolic and fantasy
+Matched: I | Louisiana, Texas and back | people and places
+Matched: He | Albertsons, Aldi, and Kroger | pineapples, and bananas
+Matched: You | school and work | fun, frolic and fantasy
+Matched: I [ Louisiana Texas back ] [ people places ]
+Matched: He [ Albertsons Aldi Kroger ] [ pineapples bananas ]
+Matched: You [ school work ] [ fun frolic fantasy ]
+Matched. I went to Louisiana, Texas and back looking for people and places.
+Matched. He went to Albertsons, Aldi, and Kroger looking for pineapples, and bananas.
+Matched. You went to school and work looking for fun, frolic and fantasy.
+Matched: I [ Louisiana Texas back ] [ people places ]
+Matched: He [ Albertsons Aldi Kroger ] [ pineapples bananas ]
+Matched: You [ school work ] [ fun frolic fantasy ]
+0
+0
+I
+1
+ went to 
+10
+Louisiana
+19
+19
+, 
+21
+Texas
+26
+26
+ and 
+31
+back
+35
+ looking for 
+48
+people
+54
+54
+ and 
+59
+places
+65
+.
+66
+Matched: I went to Louisiana, Texas and back looking for people and places.
+
+0
+0
+He
+2
+ went to 
+11
+Albertsons
+21
+21
+, 
+23
+Aldi
+27
+27
+, and 
+33
+Kroger
+39
+ looking for 
+52
+pineapples
+62
+62
+, and 
+68
+bananas
+75
+.
+76
+Matched: He went to Albertsons, Aldi, and Kroger looking for pineapples, and bananas.
+
+0
+0
+You
+3
+ went to 
+12
+school
+18
+18
+ and 
+23
+work
+27
+ looking for 
+40
+fun
+43
+43
+, 
+45
+frolic
+51
+51
+ and 
+56
+fantasy
+63
+.
+64
+Matched: You went to school and work looking for fun, frolic and fantasy.
+
+Matched: I [ Louisiana Texas back ] [ people places ]
+Matched: He [ Albertsons Aldi Kroger ] [ pineapples bananas ]
+Matched: You [ school work ] [ fun frolic fantasy ]
+PATTERN
+,: PUN 2
+.: PUN 2
+None: PNI 1
+That: CJT 1
+a: AT0 1
+abolitionist: NN1 1
+and: CJC 1
+appeared: VVD 1
+as: AV0 2 CJS 1
+be: VBI 2
+by: PRP 1
+denied: VVN 1
+destroy: VVI 1
+document: NN1 1
+ever: AV0 1
+exercised: VVN 1
+first: ORD 1
+in: PRP 1
+is: VBZ 2
+issue: NN1 1
+it: PNP 2
+liberator: NN1 1
+manifesto: NN1 1
+may: VM0 1
+no: AT0 1
+obvious: AJ0 1
+of: PRF 2
+one: PNI 1
+other: AJ0 1
+penned: VVD 1
+power: NN1 1
+remembered: VVN 1
+so: AV0 2
+states: NN2 1
+stirring: AJ0 1
+taxing: VVG 1
+that: CJT 1
+the: AT0 5
+to: TO0 2
+too: AV0 1
+well: AV0 1
+2159 different words
+True
+PATTERN PATTERN PATTERN PATTERN
+(BANK (ROOT (S (SBAR (IN that) (S (NP (NP (DT the) (NN power)) (PP (IN of) (S (VP (VBG taxing) (NP (PRP it)) (PP (IN by) (NP (DT the) (NNS states))))))) (VP (MD may) (VP (VB be) (VP (VBN exercised) (ADVP (RB so) (RB as)) (S (VP (TO to) (VP (VB destroy) (NP (PRP it))))))))) (, ,)) (VP (VBZ is) (ADJP (RB too) (JJ obvious)) (S (VP (TO to) (VP (VB be) (VP (VBN denied)))))) (. .))) (ROOT (S (S (NP (NN none)) (ADVP (RB ever)) (VP (VBN penned) (NP (DT a) (NN manifesto)) (PP (IN as) (S (VP (VBG stirring) (PP (IN as) (NP (NP (DT the) (NN one)) (SBAR (WHNP (WDT that)) (S (VP (VBD appeared) (PP (IN in) (NP (NP (DT the) (JJ first) (NN issue)) (PP (IN of) (NP (DT the) (NN liberator))))))))))))))) (, ,) (CC and) (S (NP (DT no) (JJ other) (NN abolitionist) (NN document)) (VP (VBZ is) (ADVP (RB so) (RB well)) (VP (VBN remembered)))) (. .))))
+249 trees processed.

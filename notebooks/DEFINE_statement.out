@@ -1,0 +1,9 @@
+Matched: f x z c v
+Matched: f x ,z z c ,v v
+Matched: f x ,y,z c ,i,n,s,t,v
+Matched: f x,y,z c,i,n,s,t,v
+f [ x y z ] [ c i n s t v ]
+Matched: f [ x y z ] [ c i n s t v ]
+Matched.
+Matched. f [ x y z ] [ c i n s t v ]
+Matched: f [ x y z ] [ c i n s t v ]
