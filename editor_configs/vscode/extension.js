@@ -60,12 +60,80 @@ async function runFile() {
   await vscode.tasks.executeTask(taskFor({ type: 'scrip', file: editor.document.uri.fsPath }));
 }
 
+
+// THE NOTEBOOK'S LANGUAGE IS ITS %%Lang LINE (scrip_ide step 5, D6): a code cell's language is its first line's tag, any case, unicon read as icon (D1), a cell with no
+// %% line SNOBOL4 (kernel.c k_cell_lang); a display magic (%%html, %%svg) leaves the language as it is. The line stays the law: the language follows it when a cell opens
+// or its first line changes, and a language PICKED in VS Code's picker (a change this code did not make) is written into the cell, a %% line rewritten, a cell with none
+// gaining one, the rest of the cell unchanged.
+const CELL_LANG = { snobol4: 'snobol4', snobol: 'snobol4', spitbol: 'snobol4', snocone: 'snocone', rebus: 'rebus', icon: 'icon', unicon: 'icon', prolog: 'prolog', pascal: 'pascal', raku: 'raku' };
+const PERCENT_LINE = /^%%\s*([A-Za-z0-9_]+)\s*$/;
+const seenCells = new Set();
+const expectedLang = new Map();
+
+function cellLanguage(text) {
+  const first = text.split('\n', 1)[0].replace(/\r$/, '');
+  const m = PERCENT_LINE.exec(first);
+  if (!m) return first.startsWith('%%') ? null : 'snobol4';
+  return CELL_LANG[m[1].toLowerCase()] || null;
+}
+
+function codeCellOf(doc) {
+  if (doc.uri.scheme !== 'vscode-notebook-cell') return undefined;
+  for (const nb of vscode.workspace.notebookDocuments) {
+    for (const cell of nb.getCells()) {
+      if (cell.kind === vscode.NotebookCellKind.Code && cell.document.uri.toString() === doc.uri.toString()) return cell;
+    }
+  }
+  return undefined;
+}
+
+async function followLine(doc) {
+  const want = cellLanguage(doc.getText());
+  if (!want || doc.languageId === want) return;
+  const key = doc.uri.toString();
+  expectedLang.set(key, want);
+  try { await vscode.languages.setTextDocumentLanguage(doc, want); } catch (e) { expectedLang.delete(key); }
+}
+
+async function writeLine(cell, lang) {
+  const doc = cell.document, first = doc.lineAt(0), edit = new vscode.WorkspaceEdit();
+  const m = PERCENT_LINE.exec(first.text.replace(/\r$/, ''));
+  if (m && CELL_LANG[m[1].toLowerCase()]) edit.replace(doc.uri, first.range, '%%' + lang);
+  else edit.insert(doc.uri, new vscode.Position(0, 0), '%%' + lang + '\n');
+  await vscode.workspace.applyEdit(edit);
+}
+
+async function cellOpened(doc) {
+  const cell = codeCellOf(doc);
+  if (!cell) return;
+  const key = doc.uri.toString(), lang = doc.languageId;
+  if (!seenCells.has(key)) { seenCells.add(key); await followLine(doc); return; }
+  if (expectedLang.get(key) === lang) { expectedLang.delete(key); return; }
+  if (lang === cellLanguage(doc.getText()) || !Object.values(CELL_LANG).includes(lang)) return;
+  await writeLine(cell, lang);
+}
+
+function notebookOpened(nb) { for (const cell of nb.getCells()) if (cell.kind === vscode.NotebookCellKind.Code) cellOpened(cell.document); }
+
+function followNotebooks(context) {
+  context.subscriptions.push(
+    vscode.workspace.onDidOpenNotebookDocument(notebookOpened),
+    vscode.workspace.onDidOpenTextDocument(cellOpened),
+    vscode.workspace.onDidChangeTextDocument(e => {
+      if (e.document.uri.scheme !== 'vscode-notebook-cell' || !codeCellOf(e.document)) return;
+      if (e.contentChanges.some(c => c.range.start.line === 0)) followLine(e.document);
+    })
+  );
+  vscode.workspace.notebookDocuments.forEach(notebookOpened);
+}
+
 exports.activate = (context) => {
   context.subscriptions.push(
     vscode.commands.registerCommand('scrip.openPlAsProlog', openPlAsProlog),
     vscode.commands.registerCommand('scrip.runFile', runFile),
     vscode.tasks.registerTaskProvider('scrip', provider)
   );
+  followNotebooks(context);
 };
 
 exports.deactivate = () => {};
