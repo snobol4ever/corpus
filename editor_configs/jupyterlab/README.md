@@ -11,10 +11,13 @@ converted from the Sublime syntax files in `../sublime`. The Sublime file is the
 | Snocone | `snocone` | `text/x-snocone` | `.sc` |
 | Icon and Unicon | `icon` | `text/x-icon`, `text/x-unicon` | `.icn` |
 | Prolog | `prolog` | `text/x-prolog` | `.pro` |
+| Pascal | `pascal` | `text/x-pascal` | `.pas` `.pp` `.lpr` `.dpr` |
+| Raku | `raku` | `text/x-raku` | `.raku` `.rakumod` |
+| Rebus | `rebus` | `text/x-rebus` | `.reb` |
 
 The SCRIP kernel answers `kernel_info` with `language_info.codemirror_mode` set to `scrip`. Under that name each cell is coloured by its own language: a cell
-whose first line is two percent signs and a language (`%%icon`, `%%prolog`, `%%snocone`) is coloured as that language and its tag line as a keyword; any other
-cell is SNOBOL4, as the kernel runs it. The four languages are also registered by themselves, for a file opened in the text editor (coloured by its extension).
+whose first line is two percent signs and a language (`%%icon`, `%%prolog`, `%%snocone`, `%%pascal`, `%%raku`, `%%rebus`) is coloured as that language and its tag line as a keyword; any other
+cell is SNOBOL4, as the kernel runs it. The seven languages are also registered by themselves, for a file opened in the text editor (coloured by its extension).
 
 ## The language files
 
@@ -32,15 +35,18 @@ its icon (the kernel's square, the language's two letters and its own colour) st
 
 An editor opened on one of these extensions takes the row's language whatever JupyterLab makes of the extension: a `.pl` file is Prolog here, not Perl (pick
 Perl by hand with View, Text Editor Syntax Highlighting), and `.pp`, `.lpr` and `.dpr` are Pascal. The commands are `scrip-highlight:new-NAME-file`; the launcher
-is their one door. Rebus and Raku have no Sublime syntax yet, so they have no card.
+is their one door. Rebus and Raku have grammars (they colour a cell tagged with them, and a file by its registered extension) but no card, file type or icon yet: a card is one row of `FILES` in `src/index.js`.
 
 ## Install (for one user)
 
+The installer puts this folder's `labextension/` into the Lab's `labextensions/scrip-highlight`, whole by rename, with the kernel spec, and its check reads it behind. Nothing is copied by hand:
+
 ```bash
-cp -r labextension "$(jupyter --data-dir)/labextensions/scrip-highlight"
+python3 /home/harness/scripts/util_scrip_install.py install-labext   # this extension alone; `install` does it beside the kernel
+python3 /home/harness/scripts/util_scrip_install.py check            # its INSTALL_CHECK line says labext=same, missing or differs
 ```
 
-Reload JupyterLab. `jupyter labextension list` then shows `scrip-highlight v0.1.0 enabled OK`. To remove it, delete that folder.
+Close JupyterLab first: both verbs refuse while a Jupyter Lab or server runs (`--force` for a person who says so), because an extension swapped under a running server loses its hashed chunks at the next reload. The folder is `--labext-dir` (S4E_LABEXT_DIR), by default the Jupyter data folder of the user. The check compares BYTES with this folder, never the version: the copy a person made by hand on 2026-11-15 and this one both read `0.1.0` and differ. Reload JupyterLab; `jupyter labextension list` then shows `scrip-highlight v0.1.0 enabled OK`. To remove it, delete that folder.
 
 ## What is here
 
@@ -72,7 +78,8 @@ jupyter labextension build .
 
 - A `.pl` file opened in the text editor is Prolog (the files plugin sets its editor's language); JupyterLab's own registry still takes `.pl` for Perl, so a
   `.pl` file shown anywhere else by its extension alone is taken for Perl. A notebook cell is found by the kernel's language and is right.
-- Pascal is coloured by JupyterLab's own Pascal mode. Rebus and Raku have no Sublime syntax yet and are shown as plain text.
-- A cell tagged with a language that has no grammar yet (`%%pascal`, `%%raku`, `%%rebus`) is shown as plain text under its tag line.
+- Rebus and Raku have no card, file type or icon yet (their grammars colour a tagged cell and a file by its registered extension).
+- A cell tagged with a language this extension holds no grammar for is shown as plain text under its tag line.
+- An INSTALLED COPY OLDER THAN THIS FOLDER shows more than colour wrong (MEASURED 2026-11-22 by developer_01 on the copy of 2026-11-15, which held no grammar for `%%pascal`, `%%raku` and `%%rebus`): in a notebook of the mixed entry a cell tagged with one of the three showed no hover tooltip, and the Lab sent the server no hover request for it at all, where the same look reads ok with this folder installed (`lab_edit_look.py hover mixed:rebus mixed:pascal mixed:raku`). The installer's check reads the copy against this folder for that reason.
 - A cell whose language is set only by cell metadata (`scrip.language`), with no tag line, is coloured as SNOBOL4: the editor sees the cell's text, not its metadata.
 - HTML made by `jupyter nbconvert` is coloured by Pygments, not by this extension; Pygments has no Snocone or Rebus lexer.
