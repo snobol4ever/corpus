@@ -1,98 +1,926 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=94 features=41 ubiquitous=6(package program var for writeln assign) distinctive=35 core=23 clusters=30 chunks=2 sizes=60,11
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=922 features=52 ubiquitous=9(package want_rc compare procedure function var for assign nested_proc) distinctive=43 core=40 clusters=115 chunks=9 sizes=100,100,100,100,100,100,100,100,82
 entry	part	cluster	shells
-abc-problem	core	core	array const for_with_array function in nested_proc ord procedure readln set set_literal subrange type while
-abundant-odd-numbers	core	core	const div function mod odd sqrt while
-almost-prime	chunk:01	feat:div	const div function mod while write
-anonymous-recursion	chunk:01	feat:nested_proc	function nested_proc readln
-apply-a-callback-to-an-array	chunk:01	feat:set_literal	array const for_with_array function nested_proc procedure set_literal subrange
-arithmetic-numbers	core	core	case div mod procedure readln repeat want_rc while with write
-array-concatenation-1	chunk:01	feat:with	array for_with_array function in nested_proc type with
-averages-simple-moving-average	core	core	downto function mod nested_proc procedure read readln record type write
-bell-numbers	core	core	array const downto for_with_array in procedure set_literal subrange type while
-binary-digits	core	core	chr div function ord repeat
-bitwise-operations	chunk:01	feat:in	in readln
-cantor-set	chunk:01	feat:div	const div nested_proc procedure readln write
-case-sensitivity-of-identifiers	chunk:01	family:case-sensitivity-of-identifiers	
-character-codes	chunk:02	feat:chr	chr ord readln
-check-that-file-exists	core	core	file
-code-golf	chunk:01	family:code-golf	
-copy-a-string	core	core	new
-count-in-octal	chunk:01	feat:repeat	div function mod repeat
-count-occurrences-of-a-substring	chunk:01	feat:while	const function while
-count-the-coins	chunk:02	feat:for_with_array	array for_with_array function readln
-create-an-object-at-a-given-address	chunk:01	feat:readln	readln
-cumulative-standard-deviation	chunk:01	feat:in	array const for_with_array function in readln set_literal subrange
-date-manipulation	chunk:01	feat:nested_proc	function nested_proc readln
-detect-division-by-zero	chunk:01	family:detect-division-by-zero	
-dijkstras-algorithm	core	core	array const for_with_array function in new record repeat set_literal subrange type while with with_record
-dot-product	chunk:01	feat:type	array const for_with_array function readln type
-draw-a-sphere	core	core	array for_with_array function nested_proc procedure readln set_literal sqrt subrange trunc type write
-empty-string	chunk:01	feat:const	const function
-entropy	chunk:01	feat:type	array for_with_array function in nested_proc readln type
-environment-variables	chunk:01	family:environment-variables	
-evaluate-binomial-coefficients	chunk:01	feat:div	div function readln while
-exceptions-catch-an-exception-thrown-in-a-nested-call	chunk:02	feat:want_rc	nested_proc procedure type want_rc
-extreme-floating-point-values	chunk:01	feat:readln	readln
-factorial-1	chunk:01	feat:function	function
-factorial-2	chunk:01	feat:function	function
-factorial-3	chunk:01	feat:nested_proc	function nested_proc
-file-size	core	core	const file function in read want_rc
-filter-1	core	core	array const for_with_array in odd set_literal subrange write
-five-weekends	chunk:01	feat:with	with
-fizzbuzz	chunk:01	feat:mod	mod
-formatted-numeric-output	chunk:01	feat:readln	const readln
-generate-lower-case-ascii-alphabet	chunk:01	feat:in	in set_literal subrange write
-generic-swap-2	chunk:01	feat:type	nested_proc procedure type
-gray-code	chunk:01	feat:while	function nested_proc while
-greatest-element-of-a-list	chunk:01	feat:with	array const with
-haversine-formula	core	core	const function sqr sqrt
-hello-world-newline-omission	chunk:01	feat:write	write
-hello-world-text	chunk:01	family:hello-world-text	
-host-introspection	chunk:02	family:host-introspection	
-identity-matrix	core	core	array for_with_array readln want_rc write
-increment-a-numerical-string	chunk:01	feat:readln	const readln
-jump-anywhere-1	core	core	goto label readln
-leap-year	chunk:01	feat:write	readln write
-loop-over-multiple-arrays-simultaneously	chunk:01	feat:set_literal	array const for_with_array readln set_literal subrange
-loops-continue	chunk:01	feat:mod	mod write
-loops-do-while	chunk:01	feat:repeat	mod readln repeat write
-loops-for-with-a-specified-step	chunk:01	feat:while	while
-loops-for	chunk:01	feat:write	write
-loops-foreach	chunk:01	feat:in	in
-loops-n-plus-one-half	chunk:01	feat:write	const write
-multiplication-tables	chunk:01	feat:write	const write
-number-names	core	core	array const div function mod nested_proc readln set_literal subrange while
-numerical-integration-gauss-legendre-quadrature	core	core	abs array const downto for_with_array function nested_proc procedure readln repeat set_literal subrange write
-pangram-checker	chunk:01	feat:const	const function
-pascals-triangle	chunk:01	feat:div	div procedure write
-permutations	core	core	array const div for_with_array mod procedure readln set_literal subrange type while
-polymorphic-copy-1	chunk:01	feat:type	function nested_proc procedure type
-random-numbers	chunk:01	feat:set_literal	array for_with_array readln set_literal subrange
-return-multiple-values	chunk:02	feat:procedure	procedure
-roman-numerals-decode	chunk:01	feat:case	case const downto function nested_proc
-roman-numerals-encode	chunk:01	feat:while	array const for_with_array function set_literal subrange while
-sedols	core	core	array case chr const for_with_array function in mod nested_proc ord procedure readln set_literal subrange
-short-circuit-evaluation	chunk:01	feat:in	function in nested_proc
-show-ascii-table	chunk:01	feat:case	case chr readln while write
-show-the-epoch	chunk:02	family:show-the-epoch	
-sierpinski-triangle	chunk:02	feat:downto	downto procedure write
-sleep	chunk:02	family:sleep	
-sorting-algorithms-bead-sort	chunk:01	feat:while	array const for_with_array procedure readln set_literal subrange while
-sparkline-in-unicode	core	core	const function in nested_proc procedure readln trunc
-special-divisors	chunk:01	feat:div	const div mod procedure readln write
-strange-plus-numbers-2	chunk:01	feat:div	array const div for_with_array mod set_literal subrange write
-string-concatenation	chunk:02	family:string-concatenation	
-string-matching	chunk:02	family:string-matching	
-strip-a-set-of-characters-from-a-string	chunk:01	feat:in	const function in
-strip-comments-from-a-string	chunk:01	feat:readln	const function readln
-strip-whitespace-from-a-string-top-and-tail	chunk:01	feat:with	const with
-substring-top-and-tail	chunk:01	feat:readln	const readln
-substring	chunk:01	feat:in	const in
-sum-and-product-of-an-array	chunk:01	feat:set_literal	array for_with_array set_literal subrange write
-sum-multiples-of-3-and-5	chunk:01	feat:mod	function mod
-symmetric-difference-2	core	core	in set type write
-temperature-conversion	core	core	read readln type want_rc write
-terminal-control-ringing-the-terminal-bell	chunk:02	family:terminal-control-ringing-the-terminal-bell	
-the-isaac-cipher	core	core	array case chr for_with_array function in mod nested_proc ord procedure repeat set set_literal subrange with
+10001th-prime	chunk:01	feat:sqrt	mod sqrt trunc while
+15-puzzle-game	chunk:06	feat:new	array const div for_with_array in mod new program set_literal subrange
+15-puzzle-solver	core	core	abs array case const for_with_array in odd program set_literal subrange type while with write writeln
+2048	core	core	array case for_with_array program readln repeat round set_literal subrange type while with write writeln
+24-game-solve	chunk:06	feat:abs	abs array case const for_with_array in program set_literal subrange type writeln
+24-game	chunk:06	feat:new	array case const for_with_array in new read repeat set_literal subrange while with
+9-billion-names-of-god-the-integer	core	core	array const div downto for_with_array in mod odd program record set_literal subrange type while with with_record write writeln
+a_b	chunk:03	feat:readln	program readln writeln
+abbreviations-automatic	chunk:05	feat:while	in program readln while writeln
+abbreviations-easy	chunk:08	feat:forward	const forward in program read readln repeat set type write writeln
+abbreviations-simple	core	core	const forward in pointer program read readln record repeat set type while with with_record write writeln
+abc-problem	chunk:07	feat:ord	array const for_with_array in ord program readln set set_literal subrange type while writeln
+abc-words	chunk:02	feat:with	in mod program readln with write writeln
+abelian-sandpile-model	chunk:02	feat:with	array const for_with_array program readln set_literal subrange type while with write writeln
+abstract-type-1	chunk:09	family:abstract-type	
+abstract-type-2	chunk:04	feat:type	in type
+abundant-odd-numbers	chunk:07	feat:odd	const div mod odd program sqrt while writeln
+accumulator-factory	chunk:04	feat:type	program readln type writeln
+achilles-numbers	chunk:04	feat:pointer	array for_with_array mod pointer repeat set_literal subrange while
+ackermann-function	chunk:09	family:ackermann-function	
+active-object	chunk:05	feat:while	program readln type while writeln
+additive-primes	chunk:01	feat:sqrt	div in mod repeat sqrt trunc while
+address-of-a-variable-1	chunk:04	feat:pointer	pointer writeln
+address-of-a-variable-2	chunk:09	family:address-of-a-variable	
+air-mass	chunk:01	feat:sqrt	const in sqrt while
+align-columns	chunk:05	feat:file	case const div file in program write
+almost-prime	chunk:01	feat:write	const div mod program while write writeln
+alternade-words	chunk:05	feat:mod	in mod
+anagrams-deranged-anagrams	chunk:05	feat:while	program readln while writeln
+anagrams	chunk:02	feat:downto	downto program readln while writeln
+angles-geometric-normalization-and-conversion	chunk:03	feat:readln	in program readln writeln
+animate-a-pendulum	chunk:03	feat:nil	const div nil trunc type with
+animation-1	chunk:02	feat:with	type with
+animation-2	chunk:09	family:animation	
+anonymous-recursion	chunk:03	feat:readln	program readln writeln
+append-numbers-at-same-position-in-strings	chunk:01	feat:set_literal	array const for_with_array set_literal subrange
+apply-a-callback-to-an-array	chunk:01	feat:set_literal	array const for_with_array set_literal subrange writeln
+approximate-equality	chunk:04	feat:pointer	array const pointer program readln sqrt write writeln
+arbitrary-precision-integers-included-	chunk:01	feat:write	program readln write writeln
+archimedean-spiral	chunk:06	feat:trunc	const div trunc while
+arena-storage-pool	chunk:04	feat:pointer	pointer program readln type while with writeln
+arithmetic-complex	chunk:03	feat:readln	program readln writeln
+arithmetic-geometric-mean-calculate-pi	chunk:06	feat:abs	abs const div program readln sqrt trunc while writeln
+arithmetic-geometric-mean	chunk:01	feat:sqrt	program readln sqrt while write writeln
+arithmetic-integer	chunk:06	feat:trunc	div mod program trunc writeln
+arithmetic-numbers	chunk:06	feat:case	case div mod program readln repeat while with write writeln
+arithmetic-rational	chunk:01	feat:sqrt	div mod program readln sqrt trunc writeln
+array-concatenation-1	chunk:02	feat:with	array for_with_array in type with writeln
+array-concatenation-2	chunk:07	feat:set	array for_with_array set type
+array-length	chunk:09	family:array-length	
+arrays	chunk:01	feat:set_literal	array for_with_array in set_literal subrange
+ascending-primes	chunk:01	feat:sqrt	const mod sqrt trunc type while write
+assertions-1	chunk:09	family:assertions	
+associative-array-creation	chunk:08	feat:program	program
+associative-array-iteration	chunk:07	feat:in	in program writeln
+associative-array-merging	chunk:04	feat:type	in program readln type writeln
+audio-alarm	chunk:05	feat:file	file nil program readln repeat while writeln
+audio-overlap-loop	chunk:05	feat:repeat	in program readln repeat trunc writeln
+average-loop-length	chunk:04	feat:pointer	const pointer program readln while writeln
+averages-arithmetic-mean	chunk:07	feat:in	in program writeln
+averages-mean-time-of-day	chunk:06	feat:trunc	const div in mod program readln trunc writeln
+averages-median	chunk:07	feat:odd	div odd program writeln
+averages-mode	chunk:04	feat:record	const in program readln record type writeln
+averages-pythagorean-means	chunk:07	feat:in	in program writeln
+averages-root-mean-square	chunk:01	feat:sqrt	in program sqrt writeln
+averages-simple-moving-average	chunk:06	feat:read	downto mod program read readln record type write writeln
+balanced-brackets	chunk:02	feat:with	while with writeln
+barnsley-fern	chunk:07	feat:round	const round type
+base-16-numbers-needing-a-to-f	chunk:08	feat:subrange	in mod subrange
+base64-decode-data	chunk:03	feat:const	const program writeln
+base64-encode-data	chunk:03	feat:nil	nil program writeln
+bell-numbers	chunk:02	feat:downto	array const downto for_with_array in program set_literal subrange type while writeln
+bernoulli-numbers	chunk:02	feat:downto	downto program readln writeln
+best-shuffle	chunk:06	feat:read	array downto for_with_array in program read readln record type while writeln
+binary-digits	chunk:08	feat:chr	chr div ord program repeat writeln
+binary-strings	chunk:08	feat:chr	chr nil program readln with writeln
+bioinformatics-base-count	chunk:07	feat:ord	case const in ord program readln while write
+biorhythms	chunk:06	feat:abs	abs array for_with_array in mod program readln set_literal subrange trunc with writeln
+birthday-problem	core	core	abs array const div for_with_array goto in label program readln repeat set_literal sqrt with writeln
+bitcoin-address-validation	chunk:03	feat:nil	array const div downto for_with_array in mod nil type
+bitcoin-public-point-to-address	core	core	array const div downto for_with_array in mod nil program readln record type while writeln
+bitmap-b-zier-curves-cubic	chunk:08	feat:packed	array const for_with_array in packed record trunc type
+bitmap-b-zier-curves-quadratic	core	core	abs array const div for_with_array in mod new packed record set trunc type with with_record
+bitmap-bresenhams-line-algorithm	chunk:07	feat:set	in set
+bitmap-midpoint-circle-algorithm	chunk:05	feat:repeat	div repeat
+bitmap-read-a-ppm-file	core	core	div in mod program read repeat round set_literal subrange type while with write writeln
+bitmap-write-a-ppm-file	chunk:02	feat:with	program type with write writeln
+bitmap	chunk:06	feat:trunc	trunc with
+bitwise-io	chunk:07	feat:ord	mod ord program read readln type while write writeln
+bitwise-operations	chunk:03	feat:readln	in program readln writeln
+brazilian-numbers	core	core	array case const div for_with_array mod odd program read readln record set_literal subrange type while write writeln
+brilliant-numbers	chunk:04	feat:pointer	in mod pointer trunc while with
+brownian-tree	chunk:04	feat:pointer	array const for_with_array pointer set_literal subrange type while
+calculating-the-value-of-e	chunk:05	feat:repeat	const program readln repeat writeln
+calendar	chunk:07	feat:ord	div in mod ord program readln writeln
+call-a-foreign-language-function-2	chunk:09	family:call-a-foreign-language-function	
+call-a-function-1	chunk:08	family:call-a-function	
+call-a-function-2	chunk:08	family:call-a-function	
+call-a-function-3	chunk:08	family:call-a-function	
+call-a-function-4	chunk:03	feat:writeln	writeln
+call-a-function-in-a-shared-library-1	chunk:08	family:call-a-function-in-a-shared-library	
+call-a-function-in-a-shared-library-2	chunk:08	family:call-a-function-in-a-shared-library	
+call-a-function-in-a-shared-library-3	chunk:08	family:call-a-function-in-a-shared-library	
+call-an-object-method	chunk:08	feat:for_with_array	array for_with_array type while
+calmo-numbers	chunk:05	feat:repeat	mod repeat
+calmosoft-primes	chunk:04	feat:record	in mod record type while
+camel-case-and-snake-case	chunk:06	feat:case	array case const for_with_array in set_literal subrange
+cantor-set	chunk:01	feat:write	const div program readln write writeln
+cartesian-product-of-two-or-more-lists	chunk:02	feat:downto	downto in program readln record type writeln
+case-sensitivity-of-identifiers	chunk:03	feat:writeln	program writeln
+change-e-letters-to-i-in-words	chunk:02	feat:downto	downto program readln with writeln
+changeable-words	chunk:06	feat:new	in new
+chaocipher	chunk:01	feat:write	const program readln type write writeln
+chaos-game	chunk:08	feat:with_record	array const div for_with_array in nil record set_literal subrange type with with_record
+character-codes	chunk:08	feat:chr	chr ord program readln writeln
+check-that-file-exists	chunk:05	feat:file	file program writeln
+chemical-calculator-1	chunk:08	feat:for_with_array	array for_with_array in program readln type while writeln
+chemical-calculator-2	chunk:01	feat:set_literal	array const in set_literal subrange
+chinese-remainder-theorem	chunk:07	feat:div	div mod program while writeln
+chinese-zodiac	chunk:04	feat:record	array const for_with_array in mod program readln record trunc type writeln
+circles-of-given-radius-through-two-points	chunk:06	feat:case	array case const for_with_array program readln set_literal sqrt subrange with write
+circular-primes	chunk:02	feat:downto	downto in mod
+closures-value-capture	chunk:01	feat:set_literal	array for_with_array program set_literal subrange type writeln
+code-golf	chunk:03	feat:writeln	program writeln
+collect-and-sort-square-numbers-in-ascending-order-from-three-lists	chunk:08	feat:sqr	array const for_with_array set_literal sqr sqrt subrange trunc
+collections-1	chunk:06	feat:new	array for_with_array in new set set_literal subrange
+collections-2	chunk:07	feat:in	in writeln
+collections-3	chunk:07	feat:in	in
+collections-4	chunk:07	feat:in	in writeln
+collections-5	chunk:07	feat:in	in writeln
+collections-6	chunk:04	feat:type	in type writeln
+color-of-a-screen-pixel	chunk:06	feat:read	const in program read readln repeat writeln
+color-wheel	chunk:08	feat:sqr	case const program sqr sqrt trunc with
+colorful-numbers	chunk:02	feat:downto	downto in mod
+colour-bars-display-1	chunk:02	feat:with	array div for_with_array type with
+colour-bars-display-2	chunk:09	family:colour-bars-display	
+colour-pinstripe-display	chunk:01	feat:set_literal	array div for_with_array mod set_literal subrange
+command-line-arguments	chunk:07	feat:in	in program writeln
+commatizing-numbers	chunk:01	feat:set_literal	array const div for_with_array in program readln set_literal subrange while writeln
+common-list-elements	chunk:07	feat:set	const in set
+compare-a-list-of-strings	chunk:04	feat:record	in program readln record type writeln
+compare-length-of-two-strings	chunk:04	feat:pointer	array for_with_array pointer set_literal subrange
+composite-numbers-k-with-no-single-digit-factors-whose-factors-are-all-substrings-of-k	chunk:05	feat:repeat	div in mod repeat while
+compound-data-type	chunk:04	feat:record	record
+concatenate-two-primes-is-also-prime	chunk:05	feat:mod	const in mod while
+concurrent-computing	chunk:01	feat:set_literal	array const program set_literal subrange type writeln
+consecutive-primes-with-ascending-or-descending-differences	chunk:05	feat:while	in while
+constrained-random-points-on-a-circle	chunk:01	feat:sqrt	repeat sqrt type with
+continued-fraction-arithmetic-construct-from-rational-number	chunk:05	feat:while	in while
+convert-decimal-number-to-rational	chunk:03	feat:const	const in program readln writeln
+convert-seconds-to-compound-duration	chunk:06	feat:trunc	array const for_with_array set_literal subrange trunc
+convex-hull	chunk:03	feat:nil	const downto nil program while write writeln
+conways-game-of-life	chunk:08	feat:with_record	div mod program readln record type while with with_record writeln
+coprime-triplets	chunk:01	feat:write	in mod program readln while write writeln
+coprimes	chunk:01	feat:set_literal	array const for_with_array mod set_literal subrange
+copy-a-string	chunk:06	feat:new	new program writeln
+count-how-many-vowels-and-consonants-occur-in-a-string	chunk:07	feat:set	const in set set_literal subrange type
+count-in-octal	chunk:05	feat:repeat	div mod program repeat writeln
+count-occurrences-of-a-substring	chunk:05	feat:while	const program while writeln
+count-the-coins	chunk:08	feat:for_with_array	array for_with_array program readln writeln
+crc-32	chunk:03	feat:writeln	program writeln
+create-a-file-on-magnetic-tape	chunk:05	feat:file	const file program writeln
+create-a-file	chunk:05	feat:file	const file in program readln writeln
+create-an-html-table-2	chunk:09	family:create-an-html-table	
+create-an-object-at-a-given-address	chunk:03	feat:readln	program readln writeln
+csv-data-manipulation	chunk:04	feat:record	const in program record type
+csv-to-html-translation-1	core	core	const downto file in pred program readln set type with writeln
+csv-to-html-translation-2	chunk:04	feat:type	type
+csv-to-html-translation-3	chunk:04	feat:type	type
+cubic-special-primes	chunk:05	feat:mod	const mod while
+cullen-and-woodall-numbers	chunk:09	family:cullen-and-woodall-numbers	
+cumulative-standard-deviation	chunk:01	feat:set_literal	array const for_with_array in program readln set_literal subrange writeln
+currency	chunk:04	feat:record	const mod program readln record type writeln
+currying	chunk:03	feat:readln	program readln writeln
+cusip	chunk:08	feat:with_record	array case div for_with_array in mod record set_literal subrange type with with_record
+cut-a-rectangle	chunk:07	feat:odd	array div for_with_array odd program readln writeln
+cyclops-numbers	chunk:01	feat:sqrt	div in mod repeat sqrt trunc while with
+date-format	chunk:09	family:date-format	
+date-manipulation	chunk:03	feat:readln	program readln writeln
+day-of-the-week-of-christmas-and-new-year	chunk:06	feat:new	new
+day-of-the-week	chunk:03	feat:writeln	writeln
+days-between-dates	chunk:06	feat:trunc	program readln trunc with writeln
+de-polignac-numbers	chunk:07	feat:odd	mod odd pointer sqrt trunc while
+deal-cards-for-freecell	chunk:04	feat:record	const div mod program readln record type writeln
+death-star	chunk:08	feat:with_record	array const for_with_array program record round sqrt trunc type with with_record
+decimal-floating-point-number-to-binary	chunk:07	feat:ord	downto ord pointer program readln trunc while writeln
+deepcopy	chunk:04	feat:record	program readln record type writeln
+delegates-1	chunk:04	feat:type	type writeln
+delegates-2	chunk:03	feat:readln	in program readln
+delete-a-file	chunk:09	family:delete-a-file	
+department-numbers	chunk:05	feat:while	program readln while writeln
+descending-primes	chunk:01	feat:sqrt	const mod sqrt trunc type while write
+detect-division-by-zero	chunk:03	feat:writeln	program writeln
+determinant-and-permanent	chunk:05	feat:repeat	program readln repeat set_literal type with write writeln
+determine-if-a-string-has-all-the-same-characters	chunk:07	feat:ord	array for_with_array in ord program readln writeln
+determine-if-a-string-has-all-unique-characters	chunk:07	feat:ord	ord program readln writeln
+determine-if-a-string-is-collapsible	chunk:06	feat:new	in new program readln subrange write writeln
+determine-if-a-string-is-numeric-1	chunk:03	feat:const	const
+determine-if-a-string-is-numeric-2	chunk:05	feat:repeat	const program readln repeat type writeln
+determine-if-a-string-is-squeezable	chunk:06	feat:new	in new program readln set_literal subrange writeln
+determine-if-only-one-instance-is-running	chunk:03	feat:nil	nil program readln writeln
+determine-sentence-type	chunk:06	feat:case	case const in type
+digit-fifth-powers	chunk:01	feat:set_literal	array const for_with_array set_literal subrange
+dijkstras-algorithm	core	core	array const for_with_array in new program record repeat set_literal subrange type while with with_record writeln
+dining-philosophers	core	core	array const for_with_array in mod program readln set_literal subrange succ type while writeln
+disarium-numbers	chunk:01	feat:set_literal	array const for_with_array set_literal subrange while
+discordian-date	chunk:04	feat:record	array const div for_with_array in mod program readln record type writeln
+distinct-power-numbers	chunk:04	feat:pointer	pointer trunc
+diversity-prediction-theorem	chunk:08	feat:sqr	array for_with_array sqr
+dns-query	chunk:03	feat:const	const program writeln
+documentation	chunk:04	feat:type	type
+dot-product	chunk:08	feat:for_with_array	array const for_with_array program readln type writeln
+double-twin-primes	chunk:01	feat:sqrt	in mod repeat sqrt trunc while
+doubly-linked-list-definition	chunk:08	feat:forward	forward in program readln while writeln
+doubly-linked-list-element-definition	chunk:04	feat:pointer	pointer record type
+doubly-linked-list-element-insertion	chunk:03	feat:readln	program readln writeln
+doubly-linked-list-traversal	chunk:04	feat:pointer	nil pointer record type while
+dragon-curve	chunk:06	feat:read	const program read sqrt trunc type with
+draw-a-clock-1	chunk:07	feat:round	const div round trunc type with
+draw-a-clock-2	chunk:09	family:draw-a-clock	
+draw-a-cuboid	chunk:02	feat:downto	downto program readln write writeln
+draw-a-pixel	chunk:08	feat:forward	case div forward nil program while with
+draw-a-rotating-cube-1	chunk:01	feat:sqrt	div in sqrt trunc type with
+draw-a-rotating-cube-2	chunk:09	family:draw-a-rotating-cube	
+draw-a-sphere	chunk:01	feat:sqrt	array for_with_array program readln set_literal sqrt subrange trunc type write writeln
+draw-pixel-2	chunk:08	feat:forward	case const div forward in nil program while with
+duffinian-numbers	chunk:05	feat:mod	in mod
+dutch-national-flag-problem	chunk:01	feat:set_literal	array const for_with_array in set_literal subrange
+echo-server	chunk:03	feat:nil	nil program readln type writeln
+egyptian-division	chunk:04	feat:record	in program record set_literal subrange trunc type while write writeln
+empty-directory	chunk:08	feat:for_with_array	array const for_with_array program readln writeln
+empty-string	chunk:03	feat:const	const program writeln
+enforced-immutability	chunk:03	feat:const	const
+entropy	chunk:08	feat:for_with_array	array for_with_array in program readln type writeln
+enumerations	chunk:04	feat:type	type
+environment-variables	chunk:03	feat:writeln	program writeln
+equal-prime-and-composite-sums	chunk:08	feat:for_with_array	array for_with_array while
+erd-s-nicolas-numbers	chunk:01	feat:set_literal	array const for_with_array set_literal subrange while
+erd-s-primes	chunk:01	feat:sqrt	array for_with_array in mod sqrt trunc while
+esthetic-numbers	chunk:06	feat:abs	abs array const div for_with_array in mod repeat set_literal subrange type
+eulers-constant-0.5772...	chunk:06	feat:trunc	const trunc with
+eulers-identity	chunk:03	feat:readln	program readln writeln
+evaluate-binomial-coefficients	chunk:07	feat:div	div program readln while writeln
+even-numbers-which-cannot-be-expressed-as-the-sum-of-two-twin-primes	chunk:02	feat:with	div mod with
+even-or-odd	chunk:07	feat:odd	odd program readln write writeln
+events	chunk:03	feat:nil	const nil program readln type with writeln
+exactly-three-adjacent-3-in-lists	chunk:01	feat:set_literal	array for_with_array in set_literal subrange
+exceptions-1	chunk:08	family:exceptions	
+exceptions-2	chunk:08	family:exceptions	
+exceptions-3	chunk:08	family:exceptions	
+exceptions-catch-an-exception-thrown-in-a-nested-call	chunk:04	feat:type	program type writeln
+execute-a-system-command	chunk:03	feat:nil	nil program
+execute-brain-	core	core	array case chr const for_with_array forward nil ord pointer program repeat set set_literal subrange while write writeln
+execute-computer-zero	core	core	array case for_with_array goto in program record repeat set set_literal subrange type while
+execute-hq9_	chunk:06	feat:case	case repeat writeln
+exponential-digital-sums	chunk:07	feat:ord	in ord program readln record type while write writeln
+exponentiation-operator	chunk:04	feat:record	program readln record type write
+exponentiation-order	chunk:09	family:exponentiation-order	
+extend-your-language-1	chunk:09	family:extend-your-language	
+extend-your-language-2	chunk:09	family:extend-your-language	
+extensible-prime-generator	chunk:06	feat:read	array const div for_with_array in mod read set set_literal subrange type while with write
+extra-primes	chunk:01	feat:sqrt	in mod sqrt trunc while
+extract-file-extension	chunk:02	feat:with	array const for_with_array in program readln set_literal subrange while with writeln
+extreme-floating-point-values	chunk:03	feat:readln	program readln writeln
+factorial-1	chunk:04	feat:writeln	program writeln
+factorial-2	chunk:04	feat:writeln	program writeln
+factorial-3	chunk:04	feat:writeln	program writeln
+factorial-primes	chunk:01	feat:sqrt	mod sqrt trunc while
+factorions	chunk:07	feat:div	div mod program readln while writeln
+fairshare-between-two-and-more	chunk:07	feat:div	div mod while
+fast-fourier-transform	chunk:06	feat:trunc	array const div for_with_array in program readln trunc while writeln
+feigenbaum-constant-calculation	chunk:07	feat:set	const set
+fibonacci-sequence-1	chunk:06	feat:new	new
+fibonacci-sequence-2	chunk:09	family:fibonacci-sequence	
+fibonacci-sequence-3	chunk:01	feat:set_literal	array div for_with_array mod set_literal subrange type
+fibonacci-word-fractal	chunk:07	feat:odd	case downto odd program with
+file-extension-is-in-extensions-list	chunk:01	feat:write	const in program readln set_literal write writeln
+file-input-output-1	chunk:05	feat:file	file readln writeln
+file-input-output-2	chunk:05	feat:file	array file
+file-input-output-3	chunk:05	feat:file	file record type
+file-modification-time	chunk:05	feat:file	const file read
+file-size-distribution	chunk:05	feat:file	file program readln repeat while write writeln
+file-size	chunk:05	feat:file	const file in program read writeln
+filter-1	chunk:07	feat:odd	array const for_with_array in odd program set_literal subrange write writeln
+filter-2	chunk:07	feat:odd	odd program readln writeln
+find-adjacent-primes-which-differ-by-a-square-integer	chunk:01	feat:sqrt	mod repeat sqrt trunc while
+find-common-directory-path	chunk:08	feat:for_with_array	array for_with_array program readln writeln
+find-first-and-last-set-bit-of-a-long-integer	chunk:03	feat:readln	program readln writeln
+find-first-missing-positive	chunk:01	feat:set_literal	array for_with_array set_literal subrange
+find-if-a-point-is-within-a-triangle	chunk:08	feat:packed	const in packed record trunc type
+find-minimum-number-of-coins-that-make-a-given-value	chunk:02	feat:downto	array const div downto for_with_array mod set_literal subrange
+find-prime-n-such-that-reversed-n-is-also-prime	chunk:02	feat:downto	downto mod program readln write writeln
+find-prime-numbers-of-the-form-n-n-n_2	chunk:03	feat:const	const program readln writeln
+find-square-difference	chunk:09	family:find-square-difference	
+find-squares-n-where-n_1-is-prime	chunk:01	feat:sqrt	mod sqrt trunc while
+find-the-intersection-of-two-lines	chunk:08	feat:packed	const in packed record sqrt type
+find-the-last-sunday-of-each-month	chunk:01	feat:write	in program readln set_literal subrange write writeln
+find-uri-in-text	chunk:02	feat:write	const in program readln write writeln
+find-words-which-contain-all-the-vowels	chunk:01	feat:set_literal	array const for_with_array in program readln set_literal subrange writeln
+find-words-which-contain-the-most-consonants	chunk:08	feat:with_record	array for_with_array in mod new record type with with_record
+find-words-which-contains-more-than-3-e-vowels	chunk:02	feat:with	in mod with
+find-words-whose-first-and-last-three-letters-are-equal	chunk:09	family:find-words-whose-first-and-last-three-letters-are-equal	
+find-words-with-alternating-vowels-and-consonants	chunk:05	feat:mod	in mod
+first-9-prime-fibonacci-number	chunk:01	feat:sqrt	mod sqrt trunc while
+first-class-functions	chunk:08	feat:forward	array for_with_array forward in program readln record type writeln
+first-perfect-square-in-base-n-with-n-unique-digits	core	core	abs array const div for_with_array in mod repeat set_literal sqrt subrange trunc while with
+five-weekends	chunk:02	feat:with	program with writeln
+fivenum	chunk:07	feat:odd	array div for_with_array in odd program readln writeln
+fizzbuzz	chunk:05	feat:mod	mod program writeln
+floyds-triangle	chunk:09	family:floyds-triangle	
+fork	chunk:03	feat:readln	program readln writeln
+formatted-numeric-output	chunk:03	feat:const	const program readln writeln
+four-bit-adder	chunk:07	feat:ord	array const downto for_with_array ord program readln record set_literal subrange type write writeln
+four-is-magic	chunk:01	feat:set_literal	array const div for_with_array in mod program readln set_literal subrange while writeln
+four-sides-of-square	chunk:09	family:four-sides-of-square	
+fractal-tree	chunk:06	feat:trunc	trunc
+fractran	chunk:07	feat:round	const mod program readln round type while write writeln
+frobenius-numbers	chunk:01	feat:sqrt	mod repeat sqrt trunc while
+function-composition	chunk:04	feat:type	program readln type writeln
+function-definition	chunk:09	family:function-definition	
+function-prototype-1	core	core	array case const for_with_array in ord pointer program readln record round sqr type with with_record writeln
+function-prototype-2	chunk:02	feat:with	program readln type with
+gamma-function	chunk:01	feat:sqrt	in program readln sqrt writeln
+gaussian-elimination	chunk:06	feat:abs	abs array for_with_array nil program read readln type with write writeln
+generate-chess960-starting-position	chunk:07	feat:div	div in mod program writeln
+generate-lower-case-ascii-alphabet	chunk:02	feat:write	in program set_literal subrange write
+generate-random-numbers-without-repeating-a-value	chunk:06	feat:read	array const for_with_array read type write
+generator-exponential	chunk:07	feat:round	in read repeat round type with write
+generic-swap-1	chunk:09	family:generic-swap	
+generic-swap-2	chunk:04	feat:type	program type writeln
+giuga-numbers	chunk:07	feat:div	div mod
+globally-replace-text-in-several-files	chunk:06	feat:new	in new program
+goldbachs-comet	chunk:07	feat:div	div mod while
+gray-code	chunk:05	feat:while	program while writeln
+greatest-element-of-a-list	chunk:02	feat:with	array const program with writeln
+greyscale-bars-display	chunk:07	feat:round	div in round set subrange with
+guess-the-number-with-feedback-player-	chunk:07	feat:round	case div in program readln repeat round set type
+gui-component-interaction-1	chunk:05	feat:file	file
+gui-component-interaction-2	chunk:04	feat:type	type
+gui-component-interaction-3	chunk:05	feat:file	file
+gui-component-interaction-4	chunk:09	family:gui-component-interaction	
+gui-enabling-disabling-of-controls	chunk:09	feat:succ	pred set succ type
+gui-maximum-window-dimensions-1	chunk:04	feat:type	type
+gui-maximum-window-dimensions-2	chunk:09	family:gui-maximum-window-dimensions	
+hailstone-sequence-1	chunk:07	feat:odd	div odd program readln set_literal while with writeln
+hailstone-sequence-2	chunk:02	feat:with	in program readln with write writeln
+halt-and-catch-fire	chunk:09	family:halt-and-catch-fire	
+happy-numbers	chunk:05	feat:repeat	div mod program readln record repeat type while write writeln
+harmonic-series	chunk:08	feat:subrange	subrange
+hash-from-two-arrays	chunk:04	feat:type	in program readln type writeln
+haversine-formula	chunk:08	feat:sqr	const program sqr sqrt writeln
+hello-world-graphical	chunk:08	feat:program	program
+hello-world-line-printer	chunk:04	feat:writeln	program writeln
+hello-world-newbie-1	chunk:08	family:hello-world-newbie	
+hello-world-newbie-2	chunk:08	family:hello-world-newbie	
+hello-world-newbie-3	chunk:08	family:hello-world-newbie	
+hello-world-newline-omission	chunk:02	feat:write	program write
+hello-world-standard-error	chunk:04	feat:writeln	program writeln
+hello-world-text	chunk:04	feat:writeln	program writeln
+hello-world-web-server	chunk:03	feat:nil	nil program readln type writeln
+hilbert-curve	core	core	array case div for_with_array forward in mod record trunc type with with_record
+history-variables	chunk:06	feat:read	const in program read readln record type write writeln
+hofstadter-q-sequence	chunk:02	feat:with	array for_with_array type with
+holidays-related-to-easter	chunk:04	feat:record	array const div for_with_array in mod program readln record set_literal subrange type write writeln
+honaker-primes	chunk:01	feat:sqrt	div in mod repeat sqrt trunc while
+honeycombs	chunk:07	feat:round	array const div for_with_array in record round set set_literal subrange type while
+horners-rule-for-polynomial-evaluation	chunk:06	feat:abs	abs array downto for_with_array in
+host-introspection	chunk:04	feat:writeln	program writeln
+hostname	chunk:01	feat:set_literal	array program set_literal subrange writeln
+http-1	chunk:02	feat:write	program readln write writeln
+http-2	chunk:03	feat:nil	nil program writeln
+https-authenticated	chunk:03	feat:nil	nil program writeln
+https	chunk:03	feat:nil	nil program writeln
+i-before-e-except-after-c	chunk:07	feat:in	in program writeln
+identity-matrix	chunk:02	feat:write	array for_with_array program readln write writeln
+idiomatically-determine-all-the-characters-that-can-be-used-for-symbols	chunk:07	feat:in	in
+idiomatically-determine-all-the-lowercase-and-uppercase-letters	chunk:06	feat:case	case program readln write writeln
+image-noise-1	chunk:04	feat:pointer	array div for_with_array pointer set_literal subrange type with
+image-noise-2	chunk:09	family:image-noise	
+implicit-type-conversion-1	chunk:08	family:implicit-type-conversion	
+implicit-type-conversion-2	chunk:08	family:implicit-type-conversion	
+implicit-type-conversion-3	chunk:08	family:implicit-type-conversion	
+implicit-type-conversion-4	chunk:08	family:implicit-type-conversion	
+implicit-type-conversion-5	chunk:07	feat:round	round trunc
+implicit-type-conversion-6	chunk:08	family:implicit-type-conversion	
+implicit-type-conversion-7	chunk:08	family:implicit-type-conversion	
+implicit-type-conversion-8	chunk:08	family:implicit-type-conversion	
+implicit-type-conversion-9	chunk:07	feat:round	program readln record round type writeln
+include-a-file	chunk:07	feat:in	in
+inconsummate-numbers-in-base-10	chunk:05	feat:mod	mod while
+increasing-gaps-between-consecutive-niven-numbers	chunk:05	feat:repeat	const div in mod repeat
+increment-a-numerical-string	chunk:03	feat:const	const program readln writeln
+infinity-1	chunk:09	family:infinity	
+infinity-2	chunk:09	family:infinity	
+inheritance-multiple	chunk:04	feat:type	type
+inheritance-single	chunk:04	feat:type	type
+input-loop	chunk:05	feat:while	in program while writeln
+input-output-for-lines-of-text	chunk:05	feat:repeat	program readln repeat writeln
+integer-comparison	chunk:03	feat:readln	program readln writeln
+integer-overflow	chunk:07	feat:div	div in
+integer-roots	chunk:07	feat:round	round while
+inverted-index	chunk:06	feat:read	const in program read readln repeat set set_literal subrange type writeln
+isbn13-check-digit	chunk:07	feat:set	in mod set set_literal subrange
+iterated-digits-squaring	chunk:06	feat:new	div in mod new repeat with
+iterators	core	core	array const dispose for_with_array in repeat type
+jacobsthal-numbers	chunk:05	feat:repeat	mod repeat with
+jensens-device	chunk:05	feat:while	type while
+jewels-and-stones	chunk:07	feat:in	in
+jortsort	chunk:04	feat:type	const program readln type writeln
+josephus-problem-1	chunk:08	feat:subrange	array const for_with_array in mod subrange type
+josephus-problem-2	chunk:01	feat:set_literal	array for_with_array in set_literal subrange
+joystick-position-1	chunk:07	feat:round	const round type with
+joystick-position-2	chunk:09	family:joystick-position	
+json	chunk:04	feat:type	program readln type writeln
+julia-set	chunk:08	feat:set	array for_with_array program set set_literal subrange while
+jump-anywhere-1	core	core	goto label readln writeln
+jump-anywhere-2	chunk:09	feat:goto	goto label readln writeln
+jump-anywhere-3	chunk:09	feat:goto	goto label readln writeln
+k-means__-clustering	core	core	array const div for_with_array in new program repeat set set_literal sqr subrange trunc with
+kaprekar-numbers	chunk:09	family:kaprekar-numbers	
+kernighans-large-earthquake-problem	core	core	array dispose file for_with_array in new pointer pointer_with_new read record round type
+keyboard-input-flush-the-keyboard-buffer	chunk:03	feat:readln	program readln writeln
+keyboard-input-keypress-check	chunk:04	feat:type	type
+keyboard-input-obtain-a-y-or-n-response	chunk:06	feat:case	case program readln while
+keyboard-macros	chunk:07	feat:ord	new nil ord program readln repeat set type with writeln
+klarner-rado-sequence	chunk:06	feat:new	array for_with_array in mod new
+knapsack-problem-0-1	chunk:06	feat:case	array case const for_with_array in record set set_literal subrange type while
+knapsack-problem-continuous	chunk:04	feat:pointer	array const for_with_array pointer record set_literal subrange trunc type
+knights-tour	chunk:06	feat:new	array const div for_with_array in mod new set set_literal subrange
+koch-curve	core	core	abs array const div for_with_array in new packed record sqr sqrt trunc type with with_record
+kosaraju	chunk:02	feat:write	in program type write writeln
+largest-difference-between-adjacent-primes	chunk:01	feat:sqrt	mod sqrt trunc while
+largest-five-adjacent-number	chunk:05	feat:mod	in mod
+largest-number-divisible-by-its-digits-1	chunk:07	feat:ord	div downto in mod ord program readln set type writeln
+largest-number-divisible-by-its-digits-2	chunk:07	feat:ord	div downto in mod ord program readln set type while writeln
+largest-palindrome-product	chunk:06	feat:trunc	div in mod trunc type while with
+largest-prime-factor	chunk:01	feat:sqrt	div mod sqrt trunc while
+largest-product-in-a-grid	chunk:01	feat:set_literal	array const for_with_array in set_literal subrange type
+largest-proper-divisor-of-n	chunk:02	feat:downto	downto in mod subrange
+last-friday-of-each-month	chunk:02	feat:write	program readln while write writeln
+last-letter-first-letter	chunk:06	feat:new	array case div for_with_array in new nil set subrange type while with
+last-list-item	chunk:01	feat:set_literal	array const for_with_array in set_literal subrange while
+law-of-cosines---triples	chunk:05	feat:mod	mod
+leap-year	chunk:02	feat:write	program readln write writeln
+length-of-an-arc-between-two-angles	chunk:06	feat:abs	abs program readln writeln
+leonardo-numbers	chunk:05	feat:mod	array for_with_array mod type
+levenshtein-distance	chunk:08	feat:for_with_array	array for_with_array program readln writeln
+linear-congruential-generator	chunk:06	feat:read	array const for_with_array program read readln record type writeln
+literals-floating-point	chunk:07	feat:in	in
+literals-integer	chunk:03	feat:const	const
+literals-string	chunk:09	family:literals-string	
+logical-operations	chunk:04	feat:writeln	writeln
+long-literals-with-continuations	chunk:01	feat:set_literal	array const program readln set_literal subrange writeln
+long-multiplication	chunk:07	feat:ord	const div mod ord program readln record type writeln
+long-year	chunk:02	feat:write	const div mod program readln write writeln
+longest-common-substring	chunk:02	feat:downto	downto program readln writeln
+longest-common-suffix	chunk:05	feat:repeat	const div program readln record repeat type writeln
+loop-over-multiple-arrays-simultaneously	chunk:01	feat:set_literal	array const for_with_array program readln set_literal subrange writeln
+loops-continue	chunk:02	feat:write	mod program write writeln
+loops-do-while	chunk:05	feat:repeat	mod program readln repeat write writeln
+loops-for-with-a-specified-step	chunk:05	feat:while	program while writeln
+loops-for	chunk:02	feat:write	program write writeln
+loops-foreach	chunk:07	feat:in	in program writeln
+loops-increment-loop-index-within-loop-body	chunk:05	feat:mod	const mod program readln while writeln
+loops-n-plus-one-half	chunk:02	feat:write	const program write writeln
+loops-nested	core	core	array for_with_array set_literal subrange succ with
+loops-while	chunk:07	feat:div	div while writeln
+loops-with-multiple-ranges	chunk:06	feat:abs	abs const program readln while writeln
+loops-wrong-ranges-1	chunk:02	feat:downto	downto program readln write writeln
+loops-wrong-ranges-2	chunk:06	feat:read	in program read readln record type write writeln
+lucas-lehmer-test	chunk:05	feat:mod	mod
+luhn-test-of-credit-card-numbers	chunk:02	feat:downto	array const downto for_with_array mod set_literal subrange
+m-bius-function	chunk:01	feat:sqrt	array div for_with_array in mod repeat sqrt subrange trunc type while
+mac-vendor-lookup	chunk:03	feat:nil	nil program readln with writeln
+machine-code	chunk:07	feat:in	in
+magic-8-ball	chunk:01	feat:set_literal	array const for_with_array program readln set_literal subrange while writeln
+magic-constant	chunk:05	feat:mod	mod
+magnanimous-numbers	chunk:01	feat:sqrt	mod sqrt trunc while
+make-directory-path	chunk:02	feat:with	const program readln with writeln
+man-or-boy-test	chunk:04	feat:type	type writeln
+matrix-exponentiation-operator	chunk:04	feat:pointer	array const for_with_array pointer program read readln record type while write writeln
+matrix-multiplication	chunk:04	feat:record	array for_with_array program readln record type writeln
+matrix-with-two-diagonals	chunk:08	feat:set	array for_with_array set type with
+maximum-difference-between-adjacent-elements-of-list	chunk:06	feat:abs	abs array for_with_array record type
+maze-generation	core	core	array const for_with_array ord pointer program readln record repeat type while with with_record write
+maze-solving	chunk:08	feat:forward	const forward readln repeat while with write
+md4	chunk:03	feat:nil	array const div for_with_array in nil program readln with writeln
+md5-implementation	core	core	array case const for_with_array in mod program read readln record set_literal subrange trunc type while write writeln
+md5	chunk:02	feat:with	program readln with writeln
+median-filter	chunk:06	feat:new	array div for_with_array in new record set_literal subrange type while
+meissel-mertens-constant	chunk:06	feat:abs	abs const mod repeat sqrt trunc while
+memory-layout-of-a-data-structure	chunk:08	feat:set	set type
+menu	chunk:05	feat:repeat	program readln repeat write writeln
+mersenne-primes	chunk:04	feat:pointer	mod pointer sqrt trunc while
+mertens-function	chunk:04	feat:record	div in mod program readln record type write writeln
+metronome	chunk:06	feat:trunc	mod program trunc while writeln
+minimum-multiple-of-m-where-digital-sum-equals-m	chunk:05	feat:repeat	div in mod repeat
+minimum-number-of-cells-after-before-above-and-below-nxn-squares	chunk:02	feat:with	in with
+minimum-numbers-of-three-lists	chunk:01	feat:set_literal	array const for_with_array in set_literal subrange type
+minimum-primes	chunk:01	feat:sqrt	array const for_with_array in mod set_literal sqrt subrange trunc type while
+modular-exponentiation	chunk:03	feat:readln	program readln writeln
+monads-list-monad	chunk:04	feat:record	program readln record type writeln
+monads-maybe-monad	chunk:03	feat:nil	nil program readln record type writeln
+monte-carlo-methods	chunk:02	feat:with	in subrange with
+monty-hall-problem	chunk:05	feat:repeat	array const for_with_array in program repeat set_literal subrange writeln
+morse-code	chunk:02	feat:write	array const for_with_array in program readln set_literal subrange write writeln
+mosaic-matrix	chunk:08	feat:set	array for_with_array mod set type with
+mouse-position-1	chunk:09	family:mouse-position	
+mouse-position-2	chunk:05	feat:while	program while writeln
+multi-dimensional-array	chunk:08	feat:packed	array for_with_array in packed set_literal subrange
+multifactorial	chunk:05	feat:while	while
+multiple-distinct-objects-1	chunk:09	family:multiple-distinct-objects	
+multiple-distinct-objects-2	chunk:09	family:multiple-distinct-objects	
+multiplication-tables	chunk:02	feat:write	const program write writeln
+multisplit	chunk:02	feat:write	in program readln write
+munching-squares	chunk:09	family:munching-squares	
+musical-scale	chunk:07	feat:round	in program readln round
+mutex	chunk:04	feat:type	type
+mutual-recursion	chunk:04	feat:type	type
+n-queens-problem	chunk:01	feat:set_literal	array for_with_array program readln set_literal subrange while writeln
+n-smooth-numbers	chunk:02	feat:write	array const for_with_array in mod program readln set_literal subrange while write writeln
+named-parameters	chunk:04	feat:record	program readln record type writeln
+names-to-numbers	chunk:03	feat:nil	array const downto for_with_array in nil program readln set_literal subrange trunc writeln
+narcissistic-decimal-number	chunk:05	feat:mod	mod
+neighbour-primes	chunk:01	feat:sqrt	mod repeat sqrt trunc while
+next-highest-int-from-digits	chunk:02	feat:downto	downto in program readln while writeln
+nice-primes	chunk:01	feat:sqrt	div in mod repeat sqrt trunc while
+nimber-arithmetic	chunk:08	feat:with_record	array for_with_array in mod program readln record set_literal subrange type while with with_record write writeln
+non-decimal-radices-convert	chunk:06	feat:abs	abs array const div for_with_array mod repeat set_literal subrange
+non-decimal-radices-input	chunk:01	feat:set_literal	in set_literal subrange
+non-decimal-radices-output	chunk:09	family:non-decimal-radices-output	
+nth-root	chunk:06	feat:abs	abs sqrt while
+null-object	chunk:03	feat:nil	nil
+number-names	chunk:01	feat:set_literal	array const div mod program readln set_literal subrange while writeln
+number-reversal-game	chunk:05	feat:repeat	array for_with_array in program repeat set_literal subrange type while
+numbers-divisible-by-their-individual-digits-but-not-by-the-product-of-their-digits	chunk:05	feat:mod	mod
+numbers-in-base-10-that-are-palindromic-in-bases-2-4-and-16	chunk:08	feat:forward	abs array const div for_with_array forward mod repeat set_literal subrange
+numbers-in-base-16-representation-that-cannot-be-written-with-decimal-digits	chunk:01	feat:set_literal	in mod set_literal subrange
+numbers-which-are-not-the-sum-of-distinct-squares	chunk:08	feat:set	array for_with_array in mod set sqrt trunc type while
+numbers-which-are-the-cube-roots-of-the-product-of-their-proper-divisors	chunk:08	feat:set	mod set
+numbers-whose-binary-and-ternary-digit-sums-are-prime	chunk:01	feat:sqrt	div in mod repeat sqrt trunc while
+numbers-whose-count-of-divisors-is-prime	chunk:05	feat:mod	mod
+numbers-with-equal-rises-and-falls	chunk:02	feat:downto	array div downto for_with_array in mod repeat
+numbers-with-prime-digits-whose-sum-is-13-1	chunk:01	feat:sqrt	array div for_with_array in mod repeat sqrt trunc while
+numbers-with-prime-digits-whose-sum-is-13-2	chunk:09	family:numbers-with-prime-digits-whose-sum-is	
+numbers-with-same-digit-set-in-base-10-and-base-16	chunk:05	feat:mod	mod
+numeric-separator-syntax	chunk:03	feat:const	const
+numerical-integration-gauss-legendre-quadrature	chunk:06	feat:abs	abs array const downto for_with_array program readln repeat set_literal subrange write writeln
+numerical-integration	chunk:06	feat:trunc	array for_with_array program readln set_literal subrange trunc type writeln
+odd-and-square-numbers	chunk:01	feat:sqrt	mod sqrt trunc
+odd-squarefree-semiprimes	chunk:01	feat:sqrt	const div in mod sqrt trunc while
+odd-word-problem	chunk:03	feat:nil	nil program readln while write
+odd-words	chunk:05	feat:while	in while
+ohalloran-numbers	chunk:01	feat:set_literal	array const div for_with_array mod set_literal subrange
+old-russian-measure-of-length	chunk:05	feat:repeat	array const for_with_array in program readln repeat set_literal subrange writeln
+one-dimensional-cellular-automata	chunk:06	feat:new	array for_with_array in new type
+opengl	chunk:04	feat:type	const program type writeln
+openwebnet-password	chunk:06	feat:case	case in program readln writeln
+optional-parameters	chunk:03	feat:nil	array div for_with_array nil program readln record type writeln
+order-two-numerical-lists	chunk:04	feat:record	program readln record type writeln
+ordered-words-1	chunk:05	feat:file	case const file nil program with writeln
+ordered-words-2	chunk:09	family:ordered-words	
+ormiston-pairs	chunk:01	feat:sqrt	in mod record repeat sqrt trunc type while
+ormiston-triples	core	core	array const div for_with_array in mod read record repeat set set_literal subrange type while with with_record write
+own-digits-power-sum	chunk:06	feat:case	array case const for_with_array set_literal subrange
+padovan-sequence	chunk:07	feat:round	case in program readln round subrange type while write writeln
+palindrome-dates	chunk:09	family:palindrome-dates	
+palindrome-detection	chunk:03	feat:const	const
+palindromic-gapful-numbers	chunk:07	feat:odd	array div for_with_array in mod new odd repeat set trunc while with
+palindromic-primes-in-base-16	chunk:08	feat:forward	forward mod sqrt trunc while
+palindromic-primes	chunk:08	feat:forward	forward mod sqrt trunc while
+pandigital-prime	chunk:01	feat:sqrt	array div for_with_array in mod set_literal sqrt subrange trunc type while
+pangram-checker	chunk:03	feat:const	const program writeln
+parallel-brute-force	chunk:08	feat:chr	array chr const for_with_array in nil program readln set_literal subrange with writeln
+parallel-calculations	chunk:01	feat:sqrt	array const div for_with_array in mod program readln sqrt while write writeln
+parse-command-line-arguments	chunk:05	feat:file	file program read readln writeln
+parsing-rpn-calculator-algorithm	chunk:06	feat:case	array case for_with_array in set_literal subrange type while with
+partition-function-p	chunk:07	feat:div	const div mod program readln writeln
+pascals-triangle	chunk:02	feat:write	div program write writeln
+pathological-floating-point-problems	chunk:04	feat:record	in program readln record type while writeln
+pells-equation	chunk:08	feat:with_record	const div in program readln record sqrt type while with with_record writeln
+penholodigital-squares	chunk:07	feat:abs	abs array const div for_with_array in mod repeat set_literal sqrt subrange trunc while with
+pentagram-1	chunk:07	feat:round	div round type with
+pentagram-2	chunk:09	family:pentagram	
+perceptron-1	chunk:06	feat:trunc	array const for_with_array mod trunc type with
+perceptron-2	chunk:09	family:perceptron	
+perfect-shuffle	chunk:07	feat:odd	const div in odd program readln record type while writeln
+perfect-totient-numbers	chunk:02	feat:write	div in mod program readln while write writeln
+peripheral-drift-illusion	chunk:01	feat:set_literal	array const div for_with_array in set_literal subrange type
+permutation-test	chunk:03	feat:readln	in program readln writeln
+permutations-by-swapping	chunk:06	feat:read	array const for_with_array in read repeat set subrange type write
+permutations	chunk:01	feat:set_literal	array const div for_with_array mod program readln set_literal subrange type while writeln
+permuted-multiples	chunk:01	feat:set_literal	array for_with_array in set_literal subrange
+pi	core	core	array case const div downto file for_with_array in mod program repeat set set_literal subrange type write
+pierpont-primes	chunk:02	feat:write	const mod program readln write writeln
+pig-the-dice-game	chunk:06	feat:case	case mod program readln while writeln
+pinstripe-display	chunk:07	feat:div	div mod
+piprimes	chunk:01	feat:sqrt	mod repeat sqrt trunc while
+plasma-effect	chunk:07	feat:round	abs const div round
+play-recorded-sounds	chunk:09	feat:program	program
+playing-cards	chunk:06	feat:read	array const downto for_with_array program read readln type with writeln
+plot-coordinate-pairs	chunk:03	feat:readln	program readln writeln
+pointers-and-references-1	chunk:08	family:pointers-and-references	
+pointers-and-references-2	chunk:04	feat:pointer	pointer
+pointers-and-references-3	chunk:04	feat:record	record
+pointers-and-references-4	chunk:04	feat:pointer	pointer
+pointers-and-references-5	chunk:04	feat:pointer	pointer record type
+pointers-and-references-6	chunk:04	feat:pointer	pointer
+pointers-and-references-7	chunk:04	feat:pointer	pointer
+pointers-and-references-8	chunk:08	family:pointers-and-references	
+pointers-and-references-9	chunk:08	family:pointers-and-references	
+polymorphic-copy-1	chunk:04	feat:type	program type writeln
+polymorphic-copy-2	chunk:09	family:polymorphic-copy	
+polymorphism-1	chunk:06	feat:read	read type write
+polymorphism-2	chunk:09	family:polymorphism	
+polynomial-derivative	chunk:07	feat:abs	abs array const downto for_with_array in set_literal subrange with
+polynomial-long-division	core	core	downto new pointer pointer_with_new program read readln record type while write writeln
+polynomial-synthetic-division	chunk:04	feat:record	div in program readln record type write writeln
+polyspiral	chunk:07	feat:round	mod round while
+population-count	chunk:07	feat:odd	div odd pointer program readln repeat round while write writeln
+power-set	chunk:02	feat:write	const program readln write writeln
+pragmatic-directives	chunk:07	feat:div	div mod
+primality-by-trial-division-1	chunk:01	feat:sqrt	mod sqrt trunc
+primality-by-trial-division-2	chunk:01	feat:sqrt	const mod repeat sqrt
+prime-decomposition	chunk:07	feat:round	div in mod program readln round sqrt while write
+prime-numbers-p-for-which-the-sum-of-primes-less-than-or-equal-to-p-is-prime	chunk:05	feat:mod	mod
+prime-numbers-which-contain-123	chunk:05	feat:mod	mod
+prime-triplets	chunk:01	feat:sqrt	mod sqrt trunc while
+prime-words	chunk:01	feat:sqrt	in mod sqrt trunc while
+primes-which-contain-only-one-odd-digit	chunk:07	feat:odd	array div for_with_array in mod odd repeat sqrt trunc while
+primes-whose-first-and-last-number-is-3	chunk:01	feat:sqrt	array div for_with_array in mod repeat sqrt trunc while
+primes-whose-sum-of-digits-is-25	chunk:02	feat:write	in mod program readln write writeln
+primes-with-digits-in-nondecreasing-order	chunk:01	feat:sqrt	array div for_with_array in mod repeat sqrt trunc while
+print-debugging-statement-1	chunk:03	feat:readln	program readln writeln
+print-debugging-statement-2	chunk:05	feat:file	const file program write writeln
+priority-queue	chunk:02	feat:with	program while with writeln
+product-of-divisors	chunk:05	feat:mod	in mod
+product-of-min-and-max-prime-factors	chunk:05	feat:repeat	array div for_with_array in mod repeat
+program-termination-1	chunk:09	family:program-termination	
+program-termination-2	chunk:09	family:program-termination	
+proper-divisors-1	chunk:02	feat:write	const div mod program readln type write writeln
+proper-divisors-2	chunk:02	feat:write	array const div for_with_array mod program readln type write writeln
+pseudo-random-numbers-middle-square-method	chunk:05	feat:while	while
+pseudo-random-numbers-pcg32	chunk:06	feat:trunc	in program readln trunc type writeln
+pseudo-random-numbers-xorshift-star	chunk:04	feat:record	const program readln record type writeln
+pseudorandom-number-generator-image	chunk:08	feat:packed	array const for_with_array packed pointer program record round set_literal subrange type with with_record
+quadrat-special-primes	chunk:01	feat:sqrt	mod sqrt trunc while
+quaternion-1	chunk:08	feat:sqr	record sqr sqrt type
+quaternion-2	chunk:07	feat:in	in program writeln
+queue-definition	chunk:02	feat:write	const program readln type while write writeln
+queue-usage	chunk:04	feat:writeln	program writeln
+quickselect-algorithm	chunk:05	feat:repeat	div program readln repeat while writeln
+ramanujan-primes	chunk:02	feat:downto	array const div downto for_with_array mod
+random-number-generator-included-	chunk:03	feat:const	const
+random-numbers	chunk:01	feat:set_literal	array for_with_array program readln set_literal subrange writeln
+range-expansion	chunk:02	feat:write	const in program readln write
+rate-counter	chunk:07	feat:div	div mod program readln writeln
+read-a-configuration-file-1	chunk:06	feat:new	array case const downto for_with_array in new read record type write
+read-a-configuration-file-2	chunk:03	feat:const	const in program readln writeln
+read-a-file-character-by-character-utf8	chunk:08	feat:chr	chr const file program read readln while write
+read-a-file-line-by-line-1	core	core	eof readln while
+read-a-file-line-by-line-2	chunk:09	family:read-a-file-line-by-line	
+read-a-specific-line-from-a-file	core	core	eof file program read readln writeln
+read-entire-file-1	chunk:02	feat:write	program write writeln
+read-entire-file-2	chunk:02	feat:with	program readln with writeln
+real-constants-and-functions	chunk:09	family:real-constants-and-functions	
+regular-expressions	chunk:03	feat:const	const in program readln writeln
+remove-duplicate-elements	chunk:01	feat:set_literal	array const for_with_array in program set_literal subrange writeln
+remove-lines-from-a-file-1	chunk:05	feat:file	file program
+remove-lines-from-a-file-2	chunk:05	feat:file	file program with
+remove-vowels-from-a-string	chunk:03	feat:const	const in program readln writeln
+rep-string	chunk:02	feat:downto	const div downto in program readln writeln
+repeat-2	chunk:03	feat:readln	program readln writeln
+repeat-a-string-1	chunk:03	feat:const	const writeln
+repeat-a-string-2	chunk:04	feat:writeln	writeln
+repeat-a-string-3	chunk:03	feat:const	const
+repeat-a-string-4	chunk:09	family:repeat-a-string	
+return-multiple-values	chunk:04	feat:writeln	program writeln
+reverse-a-string-1	chunk:02	feat:downto	const downto
+reverse-a-string-2	chunk:09	family:reverse-a-string	
+reverse-a-string-3	chunk:07	feat:div	const div
+reverse-words-in-a-string	chunk:02	feat:downto	const downto in program readln with writeln
+ripemd-160	chunk:03	feat:nil	const div in nil program readln write
+roman-numerals-decode	chunk:06	feat:case	case const downto program writeln
+roman-numerals-encode	chunk:01	feat:set_literal	array const for_with_array program set_literal subrange while writeln
+roots-of-unity	chunk:03	feat:const	const in program readln writeln
+rosetta-code-fix-code-tags	chunk:06	feat:read	array const for_with_array in program read set_literal subrange while writeln
+rosetta-code-rank-languages-by-popularity	chunk:08	feat:with_record	const in nil program readln record type while with with_record writeln
+rot-13	chunk:07	feat:ord	in ord program readln set_literal subrange writeln
+rpg-attributes-generator	chunk:05	feat:repeat	array const for_with_array in program readln repeat type write writeln
+rsa-code	chunk:07	feat:ord	const in ord program readln record set type while write writeln
+run-length-encoding	chunk:08	feat:with_record	const in program readln record type with with_record writeln
+ruth-aaron-numbers	chunk:01	feat:sqrt	array div for_with_array in mod repeat sqrt trunc while
+safe-and-sophie-germain-primes	chunk:01	feat:sqrt	mod sqrt trunc while
+safe-primes-and-unsafe-primes	chunk:08	feat:set	array div for_with_array mod set while
+sattolo-cycle	chunk:02	feat:downto	array downto for_with_array in program readln write
+scope-function-names-and-labels	chunk:06	feat:read	read type write
+scope-modifiers-1	chunk:08	family:scope-modifiers	
+scope-modifiers-2	chunk:08	family:scope-modifiers	
+scope-modifiers-3	chunk:08	family:scope-modifiers	
+scope-modifiers-4	chunk:08	family:scope-modifiers	
+scope-modifiers-5	chunk:08	family:scope-modifiers	
+scope-modifiers-6	chunk:08	family:scope-modifiers	
+search-a-list	chunk:03	feat:readln	program readln writeln
+secure-temporary-file	chunk:05	feat:file	file program readln with write writeln
+sedols	core	core	array case chr const for_with_array in mod ord program readln set_literal subrange writeln
+selectively-replace-multiple-instances-of-a-character-within-a-string	chunk:02	feat:with	with
+self-describing-numbers	chunk:02	feat:downto	array div downto for_with_array in mod set_literal subrange trunc with
+semiprime	chunk:07	feat:div	div in mod while
+semordnilap	chunk:05	feat:while	program readln while writeln
+send-email	chunk:03	feat:nil	nil with
+sequence-of-non-squares	chunk:01	feat:sqrt	program sqrt trunc write writeln
+sequence_-smallest-number-greater-than-previous-term-with-exactly-n-divisors	chunk:05	feat:mod	in mod
+sequence_-smallest-number-with-exactly-n-divisors	chunk:05	feat:repeat	in mod repeat
+set-of-real-numbers	chunk:08	feat:for_with_array	array const for_with_array program readln type writeln
+set	chunk:03	feat:readln	in program readln writeln
+sha-1	chunk:03	feat:nil	array const div for_with_array in nil program readln with writeln
+sha-256-merkle-tree	chunk:06	feat:read	const div in nil program read readln repeat while writeln
+sha-256	chunk:03	feat:nil	array const div for_with_array in nil program readln with writeln
+shell-one-liner	chunk:04	feat:writeln	program writeln
+shift-list-elements-to-left-by-3	chunk:03	feat:readln	program readln writeln
+shoelace-formula-for-polygonal-area	chunk:07	feat:abs	abs array for_with_array record set_literal subrange type
+short-circuit-evaluation	chunk:07	feat:in	in program writeln
+show-ascii-table	chunk:08	feat:chr	case chr program readln while write writeln
+show-the-decimal-value-of-a-number-of-1s-appended-with-a-3-then-squared	chunk:02	feat:with	in with
+show-the-epoch	chunk:04	feat:writeln	program writeln
+sierpinski-arrowhead-curve	chunk:08	feat:packed	odd packed record round type
+sierpinski-triangle-graphical	chunk:06	feat:new	array const for_with_array new set_literal subrange
+sierpinski-triangle	chunk:02	feat:downto	downto program write writeln
+sieve-of-eratosthenes	chunk:08	feat:sqr	array for_with_array in program readln sqr sqrt type while with write
+simple-windowed-application	core	core	div file in label nil program set type with
+sine-wave	core	core	array const div for_with_array in packed program readln round subrange type while with writeln
+singleton	chunk:03	feat:nil	nil type
+singly-linked-list-element-definition	chunk:04	feat:pointer	pointer record type
+singly-linked-list-element-insertion	chunk:06	feat:new	case in new nil pointer program record type
+singly-linked-list-reversal	chunk:02	feat:downto	array const downto for_with_array in record set_literal subrange type
+singly-linked-list-traversal	chunk:04	feat:pointer	nil pointer record type while
+sleep	chunk:04	feat:writeln	program writeln
+smallest-multiple	chunk:02	feat:downto	downto mod subrange
+smallest-square-that-begins-with-n	chunk:02	feat:with	div in with
+smarandache-prime-digital-sequence	chunk:09	family:smarandache-prime-digital-sequence	
+snake-1	chunk:06	feat:case	case const nil trunc type while with
+snake-2	chunk:09	family:snake	
+sockets	chunk:03	feat:nil	nil program writeln
+soloways-recurring-rainfall	chunk:06	feat:new	const in new program read repeat set set_literal subrange trunc type while write
+solve-equations-with-substitution-method	chunk:06	feat:read	array const downto for_with_array in read repeat set type while with write
+solve-the-no-connection-puzzle	core	core	abs array const for_with_array in pointer read record set set_literal subrange type while with with_record write
+sort-an-array-of-composite-structures	chunk:05	feat:record	array const program record type
+sort-an-integer-array	chunk:09	family:sort-an-integer-array	
+sort-disjoint-sublist	chunk:02	feat:with	array for_with_array set_literal subrange with
+sort-primes-from-list-to-a-list	chunk:01	feat:set_literal	array for_with_array in set_literal subrange
+sort-the-letters-of-string-in-alphabetical-order	chunk:03	feat:const	const
+sort-using-a-custom-comparator	chunk:03	feat:const	const program
+sorting-algorithms-bead-sort	chunk:01	feat:set_literal	array const for_with_array program readln set_literal subrange while writeln
+sorting-algorithms-circle-sort	chunk:02	feat:write	const div in program readln while write writeln
+sorting-algorithms-comb-sort	chunk:05	feat:record	in program readln record trunc type while writeln
+sorting-algorithms-insertion-sort-2	chunk:05	feat:while	while
+sorting-algorithms-quicksort	chunk:04	feat:pointer	array for_with_array in pointer repeat set_literal subrange type while
+sorting-algorithms-selection-sort-2	chunk:09	family:sorting-algorithms-selection-sort	
+sorting-algorithms-shell-sort	chunk:01	feat:set_literal	array const for_with_array set_literal subrange while
+sorting-algorithms-sleep-sort	chunk:04	feat:pointer	array for_with_array pointer program readln set_literal subrange type write writeln
+sorting-algorithms-stooge-sort	chunk:01	feat:set_literal	array div for_with_array set_literal subrange
+soundex	chunk:04	feat:writeln	program writeln
+sparkline-in-unicode	chunk:06	feat:trunc	const in program readln trunc writeln
+special-divisors	chunk:02	feat:write	const div mod program readln write writeln
+special-neighbor-primes	chunk:09	family:special-neighbor-primes	
+special-pythagorean-triplet	chunk:05	feat:record	array div for_with_array in record type
+sphenic-numbers	chunk:05	feat:record	array const for_with_array in mod record trunc type
+spinning-rod-animation-text	chunk:01	feat:set_literal	array const for_with_array mod set_literal subrange
+spiral-matrix	chunk:08	feat:set	array downto for_with_array set type while
+split-a-character-string-based-on-change-of-character	chunk:03	feat:const	const
+square-but-not-cube	chunk:06	feat:trunc	program readln trunc while writeln
+stack	chunk:04	feat:writeln	program writeln
+stair-climbing-puzzle-1	chunk:05	feat:while	while
+stair-climbing-puzzle-2	chunk:05	feat:while	while
+stair-climbing-puzzle-3	chunk:05	feat:while	while
+steady-squares	chunk:06	feat:trunc	array div for_with_array in mod trunc
+strange-numbers	chunk:07	feat:abs	abs array div for_with_array in mod trunc
+strange-plus-numbers-1	chunk:02	feat:write	div in mod program readln while write writeln
+strange-plus-numbers-2	chunk:02	feat:write	array const div for_with_array mod program set_literal subrange write writeln
+strange-unique-prime-triplets	chunk:02	feat:write	mod program readln while write writeln
+string-append	chunk:08	feat:with_record	program readln record type with with_record writeln
+string-case	chunk:04	feat:writeln	writeln
+string-comparison	chunk:06	feat:case	case in
+string-concatenation	chunk:04	feat:writeln	program writeln
+string-interpolation-included-	chunk:04	feat:writeln	program writeln
+string-matching	chunk:04	feat:writeln	program writeln
+string-prepend	chunk:08	feat:with_record	program readln record type with with_record writeln
+strip-a-set-of-characters-from-a-string	chunk:03	feat:const	const in program writeln
+strip-block-comments	chunk:05	feat:while	const program readln while writeln
+strip-comments-from-a-string	chunk:03	feat:const	const program readln writeln
+strip-control-codes-and-extended-characters-from-a-string	chunk:02	feat:with	const with
+strip-whitespace-from-a-string-top-and-tail	chunk:02	feat:with	const program with writeln
+strong-and-weak-primes	chunk:06	feat:case	case in mod type
+sub-unit-squares	chunk:01	feat:sqrt	sqrt
+subleq	chunk:06	feat:read	array program read readln repeat write
+substring-primes	chunk:07	feat:div	div mod
+substring-top-and-tail	chunk:03	feat:const	const program readln writeln
+substring	chunk:03	feat:const	const in program writeln
+successive-prime-differences	chunk:06	feat:trunc	array const for_with_array mod program readln set_literal subrange trunc while write writeln
+sudan-function	chunk:09	family:sudan-function	
+sudoku-1	core	core	array div for_with_array mod pred succ type
+sudoku-2	chunk:09	family:sudoku	
+sum-and-product-of-an-array	chunk:02	feat:write	array for_with_array program set_literal subrange write writeln
+sum-multiples-of-3-and-5	chunk:05	feat:mod	mod program writeln
+sum-of-a-series	chunk:05	feat:while	type while
+sum-of-divisors	chunk:07	feat:odd	const div mod odd program readln while with write writeln
+sum-of-elements-below-main-diagonal-of-matrix	chunk:06	feat:trunc	array for_with_array set_literal subrange trunc type
+sum-of-first-n-cubes	chunk:05	feat:mod	mod
+sum-of-primes-in-odd-positions-is-prime	chunk:05	feat:while	while
+sum-of-square-and-cube-digits-of-an-integer-are-primes	chunk:06	feat:trunc	array div for_with_array in mod trunc
+sum-of-squares	chunk:03	feat:nil	array nil program readln type writeln
+sum-of-the-digits-of-n-is-substring-of-n	chunk:06	feat:trunc	array div for_with_array in mod trunc
+sum-of-two-adjacent-numbers-are-primes	chunk:09	family:sum-of-two-adjacent-numbers-are-primes	
+summarize-primes	chunk:05	feat:while	while
+summation-of-primes	chunk:09	family:summation-of-primes	
+superellipse	chunk:02	feat:downto	array const div downto for_with_array trunc with
+superpermutation-minimisation	chunk:07	feat:ord	const ord program readln while write writeln
+symmetric-difference-1	chunk:07	feat:ord	in ord program readln record set type write writeln
+symmetric-difference-2	chunk:08	feat:set	in program set type write writeln
+synchronous-concurrency	core	core	dispose new nil pointer pointer_with_new program read readln record repeat type writeln
+system-time	chunk:09	family:system-time	
+take-notes-on-the-command-line	chunk:02	feat:write	const program write
+tau-function	chunk:02	feat:write	div mod program readln while write writeln
+tau-number	chunk:02	feat:write	div mod program readln while write writeln
+temperature-conversion	chunk:06	feat:read	program read readln type write writeln
+terminal-control-clear-the-screen-1	chunk:09	family:terminal-control-clear-the-screen	
+terminal-control-clear-the-screen-2	chunk:09	family:terminal-control-clear-the-screen	
+terminal-control-ringing-the-terminal-bell	chunk:04	feat:writeln	program writeln
+ternary-logic-1	chunk:04	feat:type	const type
+ternary-logic-2	chunk:04	feat:type	type
+ternary-logic-3	chunk:09	feat:array	array const
+ternary-logic-4	chunk:09	family:ternary-logic	
+test-a-function-1	chunk:09	family:test-a-function	
+test-a-function-2	chunk:09	family:test-a-function	
+test-integerness	chunk:07	feat:abs	abs const record type
+text-between	chunk:07	feat:div	div program readln writeln
+text-completion	chunk:08	feat:for_with_array	array for_with_array program readln type writeln
+textonyms	core	core	const file in ord pointer program read readln type with write writeln
+the-isaac-cipher	core	core	array case chr for_with_array in mod ord program repeat set set_literal subrange with writeln
+the-name-game	chunk:05	feat:while	in while
+the-twelve-days-of-christmas	chunk:02	feat:downto	array const downto for_with_array in set_literal subrange
+three-word-location	chunk:07	feat:round	array const for_with_array program read readln record round set_literal subrange type write writeln
+tic-tac-toe	chunk:06	feat:case	array case div for_with_array in set set_literal subrange type with
+time-a-function	chunk:06	feat:read	read type write
+tokenize-a-string-1	chunk:03	feat:readln	program readln writeln
+tokenize-a-string-2	chunk:09	feat:pred	in pred program readln set writeln
+tokenize-a-string-3	chunk:09	family:tokenize-a-string	
+top-rank-per-group	chunk:04	feat:pointer	array for_with_array pointer record set_literal subrange trunc type
+total-circles-area	chunk:08	feat:sqr	array const for_with_array in record set_literal sqr subrange type
+trabb-pardo-knuth-algorithm	chunk:07	feat:abs	abs array for_with_array sqrt
+tree-from-nesting-levels	chunk:02	feat:downto	array const downto for_with_array set_literal subrange
+tree-traversal	chunk:08	feat:with_record	array for_with_array in nil pointer record set_literal subrange type while with with_record
+trigonometric-functions	chunk:03	feat:const	const
+triplet-of-three-numbers	chunk:09	family:triplet-of-three-numbers	
+truncatable-primes	chunk:02	feat:downto	downto while
+truncate-a-file-1	chunk:06	feat:file	file
+truncate-a-file-2	chunk:09	family:truncate-a-file	
+twin-primes	chunk:06	feat:trunc	const mod program readln trunc while writeln
+two-identical-strings	chunk:02	feat:with	div while with
+two-sum	chunk:05	feat:while	program readln while writeln
+twos-complement	chunk:09	family:twos-complement	
+ulam-numbers	chunk:08	feat:for_with_array	array for_with_array while
+ulam-spiral-for-primes-	core	core	div downto in label odd set trunc while
+undefined-values	chunk:09	feat:dispose	dispose new pointer_with_new
+unicode-variable-names	chunk:02	feat:with	program readln with writeln
+unique-characters-in-each-string	chunk:02	feat:with	array for_with_array in set_literal subrange with
+unique-characters	chunk:02	feat:with	array for_with_array in set_literal subrange with
+unix-ls	chunk:04	feat:pointer	in pointer program readln writeln
+untouchable-numbers	chunk:07	feat:odd	div in mod odd program readln repeat while write writeln
+update-a-configuration-file	chunk:03	feat:const	const in program readln writeln
+upside-down-numbers	chunk:06	feat:case	case div in mod
+url-decoding	chunk:04	feat:writeln	program writeln
+url-encoding	chunk:01	feat:set_literal	in set_literal subrange
+url-shortener	chunk:06	feat:case	case const nil program readln repeat type writeln
+use-another-language-to-call-a-function	chunk:03	feat:const	const
+user-input-graphical	chunk:05	feat:repeat	program repeat
+validate-international-securities-identification-number	chunk:06	feat:case	array case const div downto for_with_array in mod set_literal subrange type
+van-der-corput-sequence	chunk:07	feat:div	div in mod subrange while
+variable-length-quantity	chunk:02	feat:downto	array const downto for_with_array while
+variable-size-get	chunk:04	feat:type	type
+variable-size-set	chunk:08	feat:subrange	in subrange type
+variables	chunk:09	family:variables	
+vector	chunk:03	feat:readln	program readln writeln
+vibrating-rectangles	chunk:02	feat:with	array const for_with_array mod set_literal subrange with
+video-display-modes-1	chunk:09	family:video-display-modes	
+video-display-modes-2	chunk:09	family:video-display-modes	
+vigen-re-cipher	chunk:06	feat:case	case const in set_literal subrange
+visualize-a-tree	chunk:08	feat:with_record	in program readln record type with with_record write writeln
+voronoi-diagram	chunk:07	feat:odd	abs array const for_with_array odd sqrt
+wagstaff-primes	chunk:04	feat:pointer	div pointer while
+walk-a-directory-non-recursively	chunk:03	feat:readln	in program readln writeln
+walk-a-directory-recursively	chunk:03	feat:readln	in program readln writeln
+water-collected-between-towers	chunk:06	feat:new	array for_with_array new set_literal subrange type with
+web-scraping-1	core	core	array const for_with_array in nil pointer pred program read readln repeat set_literal subrange type with write writeln
+web-scraping-2	chunk:03	feat:nil	nil program while writeln
+window-creation-1	chunk:06	feat:file	file in program type with
+window-creation-2	chunk:03	feat:nil	const div nil program while with
+wireworld	chunk:08	feat:chr	case chr const in ord program readln while write writeln
+word-break-problem	chunk:02	feat:downto	const downto in program readln record type writeln
+word-frequency	chunk:05	feat:while	const program readln type while writeln
+word-wheel	chunk:08	feat:set	downto in program readln set writeln
+word-wrap	chunk:02	feat:with	const in while with
+wordle-comparison	chunk:08	feat:with_record	array case const for_with_array in record set set_literal subrange type with with_record
+words-containing-the-substring	chunk:03	feat:readln	in program readln writeln
+words-from-neighbour-ones	chunk:03	feat:downto	const downto program readln with writeln
+write-entire-file	chunk:06	feat:file	file program
+write-float-arrays-to-a-text-file-1	chunk:04	feat:pointer	pointer program
+write-float-arrays-to-a-text-file-2	chunk:01	feat:sqrt	sqrt
+write-float-arrays-to-a-text-file-3	chunk:08	feat:chr	chr
+write-float-arrays-to-a-text-file-4	chunk:09	family:write-float-arrays-to-a-text-file	
+write-language-name-in-3d-ascii	chunk:07	feat:ord	const in ord program readln set_literal subrange trunc while write writeln
+write-to-windows-event-log	chunk:03	feat:nil	nil program
+xml-input	chunk:03	feat:nil	nil type
+xml-output	chunk:03	feat:nil	nil with
+xml-xpath-1	chunk:03	feat:nil	array const for_with_array in nil program writeln
+xml-xpath-2	chunk:09	family:xml-xpath	
+y-combinator	chunk:05	feat:record	program record type writeln
+yellowstone-sequence	chunk:05	feat:repeat	in mod program readln repeat while write writeln
+yin-and-yang	chunk:02	feat:with	div with
+zeckendorf-number-representation	chunk:03	feat:downto	array const downto for_with_array set_literal subrange
+zig-zag-matrix	chunk:05	feat:repeat	array const for_with_array repeat type
