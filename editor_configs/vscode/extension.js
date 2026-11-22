@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const os = require('os');
 const { activateClient, deactivateClient } = require('./lsp_client');
+const { ScripDapProxy } = require('./dap_proxy');
 
 const DEFAULT_SCRIP = '/home/install/bin/scrip';
 const RUNNABLE = new Set(['snobol4', 'snocone', 'rebus', 'icon', 'prolog', 'pascal', 'raku', 'scriptix']);
@@ -163,17 +164,24 @@ function followNotebooks(context) {
 
 const DEBUG_LANGS = ['snobol4', 'snocone', 'rebus', 'icon', 'prolog', 'pascal', 'raku'];
 
+function activeNotebook() {
+  const editor = vscode.window.activeTextEditor, nbe = vscode.window.activeNotebookEditor;
+  if (editor && editor.document.uri.scheme === 'vscode-notebook-cell') return vscode.workspace.notebookDocuments.find(nb => nb.uri.path === editor.document.uri.path);
+  return nbe ? nbe.notebook : undefined;
+}
+
 const debugConfigs = {
   async resolveDebugConfiguration(folder, config) {
-    const editor = vscode.window.activeTextEditor;
+    const editor = vscode.window.activeTextEditor, nb = activeNotebook();
     if (!config.type || config.type === 'scrip') {
-      if (!config.program && (!editor || !DEBUG_LANGS.includes(editor.document.languageId))) { vscode.window.showInformationMessage('Open a SNOBOL4, Snocone, Rebus, Icon, Prolog, Pascal or Raku file to debug it.'); return undefined; }
-      if (!config.program) config.program = editor.document.uri.fsPath;
+      if (!config.program && !nb && (!editor || !DEBUG_LANGS.includes(editor.document.languageId))) { vscode.window.showInformationMessage('Open a SNOBOL4, Snocone, Rebus, Icon, Prolog, Pascal or Raku file, or a notebook, to debug it.'); return undefined; }
+      if (!config.program) config.program = nb ? nb.uri.fsPath : editor.document.uri.fsPath;
       config.type = 'scrip';
       if (!config.request) config.request = 'launch';
       if (!config.name) config.name = 'Debug ' + path.basename(config.program);
       if (!config.cwd && folder) config.cwd = folder.uri.fsPath;
       if (editor && editor.document.isDirty && editor.document.uri.fsPath === config.program) await editor.document.save();
+      for (const open of vscode.workspace.notebookDocuments) if (open.isDirty && open.uri.fsPath === config.program) await open.save();
     }
     return config;
   }
@@ -187,7 +195,7 @@ exports.activate = (context) => {
     vscode.commands.registerCommand('scrip.showReferences', showReferences),
     vscode.tasks.registerTaskProvider('scrip', provider),
     vscode.debug.registerDebugConfigurationProvider('scrip', debugConfigs),
-    vscode.debug.registerDebugAdapterDescriptorFactory('scrip', { createDebugAdapterDescriptor: () => new vscode.DebugAdapterExecutable(scripPath(), ['--dap']) })
+    vscode.debug.registerDebugAdapterDescriptorFactory('scrip', { createDebugAdapterDescriptor: () => new vscode.DebugAdapterInlineImplementation(new ScripDapProxy(scripPath(), ['--dap'])) })
   );
   followNotebooks(context);
   activateClient(context);

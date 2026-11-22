@@ -4,7 +4,7 @@ from xml.sax.saxutils import escape, quoteattr
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 STAMP = (2026, 11, 21, 0, 0, 0)
-TOP = ['package.json', 'extension.js', 'lsp_client.js']
+TOP = ['package.json', 'extension.js', 'lsp_client.js', 'dap_proxy.js']
 TREES = ['language-configuration', 'syntaxes', 'node_modules']
 
 
