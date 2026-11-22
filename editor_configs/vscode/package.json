@@ -95,6 +95,11 @@
         "language": "prolog",
         "scopeName": "source.pl",
         "path": "./syntaxes/prolog.tmLanguage.json"
+      },
+      {
+        "language": "icon",
+        "scopeName": "source.icn",
+        "path": "./syntaxes/icon.tmLanguage.json"
       }
     ],
     "commands": [
