@@ -128,7 +128,7 @@
       {
         "type": "scrip",
         "label": "SCRIP",
-        "languages": ["snobol4", "snocone", "rebus", "icon", "prolog", "pascal", "raku"],
+        "languages": ["snobol4", "snocone", "rebus", "icon", "prolog", "pascal", "raku", "markdown", "scriptix"],
         "configurationAttributes": {
           "launch": {
             "required": ["program"],
@@ -167,7 +167,9 @@
       { "language": "icon" },
       { "language": "prolog" },
       { "language": "pascal" },
-      { "language": "raku" }
+      { "language": "raku" },
+      { "language": "markdown" },
+      { "language": "scriptix" }
     ],
     "commands": [
       {
