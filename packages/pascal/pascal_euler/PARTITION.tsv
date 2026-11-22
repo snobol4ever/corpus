@@ -1,8 +1,11 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=90 features=1 ubiquitous=1(package) distinctive=0 core=4 clusters=2 chunks=2 sizes=60,26
+# shape: entries=114 features=3 ubiquitous=1(package) distinctive=2 core=3 clusters=6 chunks=6 sizes=28,9,11,18,42,3
 entry	part	cluster	shells
-bvbesouw_Euler_FreePascal/problem_1	core	core	
+amuradyan_ProjectEulerPascal/ProjectEuler	core	core	compare want_rc
+armant_acmp/85	chunk:05	feat:want_rc	want_rc
+armant_acmp/Dynamic programming 121	chunk:06	feat:want_rc	want_rc
+bvbesouw_Euler_FreePascal/problem_1	chunk:01	dir:bvbesouw_Euler_FreePascal	
 bvbesouw_Euler_FreePascal/problem_10	chunk:01	dir:bvbesouw_Euler_FreePascal	
 bvbesouw_Euler_FreePascal/problem_100	chunk:01	dir:bvbesouw_Euler_FreePascal	
 bvbesouw_Euler_FreePascal/problem_104	chunk:01	dir:bvbesouw_Euler_FreePascal	
@@ -30,65 +33,86 @@ bvbesouw_Euler_FreePascal/problem_29	chunk:01	dir:bvbesouw_Euler_FreePascal
 bvbesouw_Euler_FreePascal/problem_3	chunk:01	dir:bvbesouw_Euler_FreePascal	
 bvbesouw_Euler_FreePascal/problem_30	chunk:01	dir:bvbesouw_Euler_FreePascal	
 bvbesouw_Euler_FreePascal/problem_31	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_32	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_33	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_34	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_35	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_36	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_37	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_38	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_39	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_4	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_40	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_41	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_42	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_43	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_44	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_45	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_46	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_47	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_48	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_49	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_5	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_50	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_51	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_52	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_55	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_56	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_57	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_59	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_6	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_60	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_62	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_63	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_64	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_65	chunk:01	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_67	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_69	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_69_1	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_71	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_72	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_73	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_74	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_75	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_76	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_77	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_78	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_8	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_80	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_85	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_87	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_89	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_9	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_91	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_92	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_95	chunk:02	dir:bvbesouw_Euler_FreePascal	
-bvbesouw_Euler_FreePascal/problem_97	chunk:02	dir:bvbesouw_Euler_FreePascal	
-clay-siefken_pe1/src/PE1	core	core	
-davaponte_ProjectEuler/0-50/test	core	core	
-kimtg_euler-pascal/euler1	core	core	
-kimtg_euler-pascal/euler2	chunk:02	dir:kimtg_euler-pascal	
-kimtg_euler-pascal/euler3	chunk:02	dir:kimtg_euler-pascal	
-kimtg_euler-pascal/euler4	chunk:02	dir:kimtg_euler-pascal	
-kimtg_euler-pascal/euler5	chunk:02	dir:kimtg_euler-pascal	
-kimtg_euler-pascal/euler6	chunk:02	dir:kimtg_euler-pascal	
+bvbesouw_Euler_FreePascal/problem_32	chunk:02	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_33	chunk:02	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_34	chunk:02	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_35	chunk:02	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_36	chunk:02	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_37	chunk:02	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_38	chunk:02	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_39	chunk:02	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_4	chunk:02	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_40	chunk:03	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_41	chunk:03	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_42	chunk:03	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_43	chunk:03	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_44	chunk:03	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_45	chunk:03	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_46	chunk:03	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_47	chunk:03	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_48	chunk:03	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_49	chunk:03	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_5	chunk:03	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_50	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_51	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_52	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_55	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_56	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_57	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_59	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_6	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_60	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_62	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_63	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_64	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_65	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_67	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_69	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_69_1	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_71	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_72	chunk:04	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_73	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_74	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_75	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_76	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_77	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_78	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_8	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_80	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_85	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_87	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_88	core	core	compare want_rc
+bvbesouw_Euler_FreePascal/problem_89	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_9	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_91	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_92	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_95	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_Euler_FreePascal/problem_97	chunk:05	dir:bvbesouw_Euler_FreePascal	
+bvbesouw_ProjectEulerDelphi/Velthuis.BigDecimals	core	core	compare want_rc
+bvbesouw_ProjectEulerDelphi/Velthuis.BigIntegers	chunk:05	feat:compare	compare want_rc
+bvbesouw_ProjectEulerDelphi/Velthuis.FloatUtils	chunk:05	feat:compare	compare want_rc
+bvbesouw_ProjectEulerDelphi/Velthuis.Numerics	chunk:05	feat:compare	compare want_rc
+bvbesouw_ProjectEulerDelphi/Velthuis.Sizes	chunk:05	feat:compare	compare want_rc
+bvbesouw_ProjectEulerDelphi/Velthuis.StrConsts	chunk:05	feat:compare	compare want_rc
+bvbesouw_ProjectEulerDelphi/Velthuis.XorShifts	chunk:05	feat:compare	compare want_rc
+clay-siefken_pe1/src/PE1	chunk:06	dir:clay-siefken_pe1/src	
+davaponte_ProjectEuler/0-50/000010	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/0-50/000012	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/0-50/000031	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/0-50/test	chunk:06	dir:davaponte_ProjectEuler/0-50	
+davaponte_ProjectEuler/000060	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/000074	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/000075	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/000092	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/000104	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/000206	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/000686	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/extras/BigInt/WaCkO	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/extras/BigInt/testcase	chunk:05	feat:compare	compare want_rc
+davaponte_ProjectEuler/extras/TestGMP	chunk:05	feat:compare	compare want_rc
+kimtg_euler-pascal/euler1	chunk:05	dir:kimtg_euler-pascal	
+kimtg_euler-pascal/euler2	chunk:05	dir:kimtg_euler-pascal	
+kimtg_euler-pascal/euler3	chunk:05	dir:kimtg_euler-pascal	
+kimtg_euler-pascal/euler4	chunk:05	dir:kimtg_euler-pascal	
+kimtg_euler-pascal/euler5	chunk:05	dir:kimtg_euler-pascal	
+kimtg_euler-pascal/euler6	chunk:05	dir:kimtg_euler-pascal	

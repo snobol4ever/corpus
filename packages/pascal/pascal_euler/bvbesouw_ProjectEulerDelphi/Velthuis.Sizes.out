@@ -1,0 +1,7 @@
+Free Pascal Compiler version 3.2.2+dfsg-32 [2024/01/05] for x86_64
+Copyright (c) 1993-2021 by Florian Klaempfl and others
+Target OS: Linux for x86-64
+Compiling Velthuis.Sizes.pas
+Velthuis.Sizes.pas(37,5) Fatal: Syntax error, "BEGIN" expected but "identifier UNIT" found
+Fatal: Compilation aborted
+Error: /usr/bin/ppcx64 returned an error exitcode
