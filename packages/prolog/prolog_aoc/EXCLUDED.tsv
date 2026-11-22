@@ -1,0 +1,5 @@
+# EXCLUDED.tsv -- prolog_aoc: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
+# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit), declared by util_declare_owed.py.
+jesperes_advent-of-code-prolog/aocdata.pl	NEEDS_NETWORK	NEEDS-NETWORK: the source names library(http/http_client) (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row cycle-greased-lightning-grader; Lon 2026-11-17: "Do not worry about network programs. Just exclude them.")
+johnellis1392_advent-of-code-prolog/src/main.pl	NEEDS_NETWORK	NEEDS-NETWORK: the source names library(http/http_client) (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row cycle-greased-lightning-grader; Lon 2026-11-17: "Do not worry about network programs. Just exclude them.")
+johnellis1392_advent-of-code-prolog/src/util/http.pl	NEEDS_NETWORK	NEEDS-NETWORK: the source names library(http/http_open) (the builder's measurement in ALL.omit; declared by util_declare_owed.py, row cycle-greased-lightning-grader; Lon 2026-11-17: "Do not worry about network programs. Just exclude them.")
