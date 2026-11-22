@@ -127,11 +127,31 @@ function followNotebooks(context) {
   vscode.workspace.notebookDocuments.forEach(notebookOpened);
 }
 
+const DEBUG_LANGS = ['snobol4', 'snocone', 'rebus', 'icon', 'prolog', 'pascal', 'raku'];
+
+const debugConfigs = {
+  async resolveDebugConfiguration(folder, config) {
+    const editor = vscode.window.activeTextEditor;
+    if (!config.type || config.type === 'scrip') {
+      if (!config.program && (!editor || !DEBUG_LANGS.includes(editor.document.languageId))) { vscode.window.showInformationMessage('Open a SNOBOL4, Snocone, Rebus, Icon, Prolog, Pascal or Raku file to debug it.'); return undefined; }
+      if (!config.program) config.program = editor.document.uri.fsPath;
+      config.type = 'scrip';
+      if (!config.request) config.request = 'launch';
+      if (!config.name) config.name = 'Debug ' + path.basename(config.program);
+      if (!config.cwd && folder) config.cwd = folder.uri.fsPath;
+      if (editor && editor.document.isDirty && editor.document.uri.fsPath === config.program) await editor.document.save();
+    }
+    return config;
+  }
+};
+
 exports.activate = (context) => {
   context.subscriptions.push(
     vscode.commands.registerCommand('scrip.openPlAsProlog', openPlAsProlog),
     vscode.commands.registerCommand('scrip.runFile', runFile),
-    vscode.tasks.registerTaskProvider('scrip', provider)
+    vscode.tasks.registerTaskProvider('scrip', provider),
+    vscode.debug.registerDebugConfigurationProvider('scrip', debugConfigs),
+    vscode.debug.registerDebugAdapterDescriptorFactory('scrip', { createDebugAdapterDescriptor: () => new vscode.DebugAdapterExecutable(scripPath(), ['--dap']) })
   );
   followNotebooks(context);
 };

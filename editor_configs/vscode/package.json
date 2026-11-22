@@ -121,6 +121,50 @@
         }
       }
     ],
+    "debuggers": [
+      {
+        "type": "scrip",
+        "label": "SCRIP",
+        "languages": ["snobol4", "snocone", "rebus", "icon", "prolog", "pascal", "raku"],
+        "configurationAttributes": {
+          "launch": {
+            "required": ["program"],
+            "properties": {
+              "program": { "type": "string", "description": "The SCRIP program to debug.", "default": "${file}" },
+              "args": { "type": "array", "items": { "type": "string" }, "description": "The arguments the program is given.", "default": [] },
+              "cwd": { "type": "string", "description": "The folder the program runs in.", "default": "${workspaceFolder}" },
+              "console": { "type": "string", "enum": ["internalConsole", "integratedTerminal"], "description": "Where the program's input and output go.", "default": "internalConsole" },
+              "stopOnEntry": { "type": "boolean", "description": "Stop at the program's first statement.", "default": false },
+              "env": { "type": "object", "additionalProperties": { "type": "string" }, "description": "Environment variables of the program.", "default": {} }
+            }
+          }
+        },
+        "initialConfigurations": [
+          { "type": "scrip", "request": "launch", "name": "Debug the current SCRIP file", "program": "${file}", "stopOnEntry": false }
+        ],
+        "configurationSnippets": [
+          {
+            "label": "SCRIP: Launch the current file",
+            "description": "Debug the file open in the editor.",
+            "body": { "type": "scrip", "request": "launch", "name": "Debug the current SCRIP file", "program": "^\"\\${file}\"", "stopOnEntry": false }
+          },
+          {
+            "label": "SCRIP: Launch a program with arguments",
+            "description": "Debug a program of your choice with arguments.",
+            "body": { "type": "scrip", "request": "launch", "name": "Debug ${1:a SCRIP program}", "program": "^\"\\${workspaceFolder}/${2:program.sno}\"", "args": [], "stopOnEntry": false }
+          }
+        ]
+      }
+    ],
+    "breakpoints": [
+      { "language": "snobol4" },
+      { "language": "snocone" },
+      { "language": "rebus" },
+      { "language": "icon" },
+      { "language": "prolog" },
+      { "language": "pascal" },
+      { "language": "raku" }
+    ],
     "commands": [
       {
         "command": "scrip.openPlAsProlog",
