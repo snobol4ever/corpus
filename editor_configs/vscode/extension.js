@@ -1,5 +1,6 @@
 const vscode = require('vscode');
 const path = require('path');
+const { activateClient, deactivateClient } = require('./lsp_client');
 
 const DEFAULT_SCRIP = '/home/install/bin/scrip';
 const RUNNABLE = new Set(['snobol4', 'snocone', 'rebus', 'icon', 'prolog', 'pascal', 'raku', 'scriptix']);
@@ -154,6 +155,7 @@ exports.activate = (context) => {
     vscode.debug.registerDebugAdapterDescriptorFactory('scrip', { createDebugAdapterDescriptor: () => new vscode.DebugAdapterExecutable(scripPath(), ['--dap']) })
   );
   followNotebooks(context);
+  activateClient(context);
 };
 
-exports.deactivate = () => {};
+exports.deactivate = () => deactivateClient();

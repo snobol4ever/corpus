@@ -15,6 +15,9 @@
     "onStartupFinished"
   ],
   "main": "./extension.js",
+  "dependencies": {
+    "vscode-languageclient": "9.0.1"
+  },
   "contributes": {
     "languages": [
       {
@@ -183,7 +186,13 @@
         "scrip.path": {
           "type": "string",
           "default": "/home/install/bin/scrip",
-          "description": "The scrip binary that runs a program or a SCRIPtix document."
+          "description": "The scrip binary that runs a program or a SCRIPtix document and that the language client starts as scrip --lsp."
+        },
+        "scrip.trace.server": {
+          "type": "string",
+          "enum": ["off", "messages", "verbose"],
+          "default": "off",
+          "description": "Traces the messages between VS Code and the SCRIP language server in the SCRIP Language Server output channel."
         }
       }
     },

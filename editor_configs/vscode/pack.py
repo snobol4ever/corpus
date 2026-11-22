@@ -4,15 +4,22 @@ from xml.sax.saxutils import escape, quoteattr
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 STAMP = (2026, 11, 21, 0, 0, 0)
-TOP = ['package.json', 'extension.js']
-TREES = ['language-configuration', 'syntaxes']
+TOP = ['package.json', 'extension.js', 'lsp_client.js']
+TREES = ['language-configuration', 'syntaxes', 'node_modules']
 
-TYPES = ('<?xml version="1.0" encoding="utf-8"?>\n'
-         '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
-         '<Default Extension=".json" ContentType="application/json"/>'
-         '<Default Extension=".js" ContentType="application/javascript"/>'
-         '<Default Extension=".md" ContentType="text/markdown"/>'
-         '<Default Extension=".vsixmanifest" ContentType="text/xml"/></Types>\n')
+
+def types(rels):
+    extless = [r for r in rels if not os.path.splitext(r)[1]]
+    return ('<?xml version="1.0" encoding="utf-8"?>\n'
+            '<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">'
+            '<Default Extension=".json" ContentType="application/json"/>'
+            '<Default Extension=".js" ContentType="application/javascript"/>'
+            '<Default Extension=".md" ContentType="text/markdown"/>'
+            '<Default Extension=".txt" ContentType="text/plain"/>'
+            '<Default Extension=".sh" ContentType="text/x-shellscript"/>'
+            '<Default Extension=".vsixmanifest" ContentType="text/xml"/>'
+            + ''.join(f'<Override PartName={quoteattr("/extension/" + r.replace(os.sep, "/"))} ContentType="text/plain"/>' for r in extless)
+            + '</Types>\n')
 
 
 def manifest(pkg):
@@ -52,7 +59,7 @@ def files():
 def put(z, name, data):
     zi = zipfile.ZipInfo(name, STAMP)
     zi.compress_type = zipfile.ZIP_DEFLATED
-    zi.external_attr = 0o644 << 16
+    zi.external_attr = (0o755 if name.endswith('.sh') else 0o644) << 16
     z.writestr(zi, data)
 
 
@@ -63,9 +70,10 @@ def main(argv):
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, f'{pkg["name"]}-{pkg["version"]}.vsix')
     with zipfile.ZipFile(path, 'w') as z:
-        put(z, '[Content_Types].xml', TYPES)
+        rels = files()
+        put(z, '[Content_Types].xml', types(rels))
         put(z, 'extension.vsixmanifest', manifest(pkg))
-        for rel in files():
+        for rel in rels:
             with open(os.path.join(HERE, rel), 'rb') as f:
                 put(z, 'extension/' + rel.replace(os.sep, '/'), f.read())
     print(path)
