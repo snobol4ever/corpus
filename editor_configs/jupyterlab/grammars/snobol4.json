@@ -133,10 +133,7 @@
       "1": "punctuation.terminator.sno",
       "2": "punctuation.separator.continuation.sno"
      },
-     "match": "(^|;)(\\+)",
-     "set": [
-      "main"
-     ]
+     "match": "(^|;)(\\+)"
     }
    ]
   },
@@ -145,61 +142,8 @@
    "meta_scope": null,
    "rules": [
     {
-     "captures": {
-      "1": "punctuation.terminator.sno",
-      "2": "punctuation.separator.continuation.sno"
-     },
-     "match": "(^|;)(\\+)",
-     "set": [
-      "main"
-     ]
-    },
-    {
-     "captures": {
-      "1": "punctuation.terminator.sno",
-      "2": "punctuation.definition.comment.sno"
-     },
-     "match": "(^|;)(\\*)",
-     "set": [
-      "line_comment"
-     ]
-    },
-    {
-     "captures": {
-      "1": "punctuation.terminator.sno",
-      "2": "punctuation.definition.keyword.begin.sno"
-     },
-     "match": "(^|;)(\\-)",
-     "set": [
-      "control_statement"
-     ]
-    },
-    {
-     "captures": {
-      "1": "punctuation.terminator.sno",
-      "2": "keyword.control.sno"
-     },
-     "match": "(^|;)(\\b(START|END|End|end|[A-Za-z][0-9A-Z_a-z\\.]*_(END|End|end))\\b)[ \\t]*$",
-     "set": [
-      "main"
-     ]
-    },
-    {
-     "captures": {
-      "1": "punctuation.terminator.sno",
-      "2": "entity.name.label.sno"
-     },
-     "match": "(^|;)([^ +\\t]+)",
-     "set": [
-      "main"
-     ]
-    },
-    {
-     "match": ";",
-     "scope": "punctuation.terminator.sno",
-     "set": [
-      "main"
-     ]
+     "match": "(?=;)|$",
+     "pop": 1
     },
     {
      "match": "\\\"",
@@ -324,12 +268,6 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
-    },
-    {
-     "match": "$",
-     "set": [
-      "main"
-     ]
     }
    ]
   },
@@ -1097,61 +1035,8 @@
    "meta_scope": null,
    "rules": [
     {
-     "captures": {
-      "1": "punctuation.terminator.sno",
-      "2": "punctuation.separator.continuation.sno"
-     },
-     "match": "(^|;)(\\+)",
-     "set": [
-      "main"
-     ]
-    },
-    {
-     "captures": {
-      "1": "punctuation.terminator.sno",
-      "2": "punctuation.definition.comment.sno"
-     },
-     "match": "(^|;)(\\*)",
-     "set": [
-      "line_comment"
-     ]
-    },
-    {
-     "captures": {
-      "1": "punctuation.terminator.sno",
-      "2": "punctuation.definition.keyword.begin.sno"
-     },
-     "match": "(^|;)(\\-)",
-     "set": [
-      "control_statement"
-     ]
-    },
-    {
-     "captures": {
-      "1": "punctuation.terminator.sno",
-      "2": "keyword.control.sno"
-     },
-     "match": "(^|;)(\\b(START|END|End|end|[A-Za-z][0-9A-Z_a-z\\.]*_(END|End|end))\\b)[ \\t]*$",
-     "set": [
-      "main"
-     ]
-    },
-    {
-     "captures": {
-      "1": "punctuation.terminator.sno",
-      "2": "entity.name.label.sno"
-     },
-     "match": "(^|;)([^ +\\t]+)",
-     "set": [
-      "main"
-     ]
-    },
-    {
-     "match": ";",
-     "scope": "punctuation.terminator.sno",
-     "set": [
-      "main"
-     ]
+     "match": "(?=;)|$",
+     "pop": 1
     },
     {
      "match": "\\\"",
@@ -1219,12 +1104,6 @@
     {
      "match": ":",
      "scope": "invalid.illegal.sno"
-    },
-    {
-     "match": "$",
-     "set": [
-      "main"
-     ]
     }
    ]
   },
@@ -1267,10 +1146,7 @@
       "1": "punctuation.terminator.sno",
       "2": "punctuation.separator.continuation.sno"
      },
-     "match": "(^|;)(\\+)",
-     "set": [
-      "main"
-     ]
+     "match": "(^|;)(\\+)"
     },
     {
      "captures": {
@@ -1278,7 +1154,7 @@
       "2": "punctuation.definition.comment.sno"
      },
      "match": "(^|;)(\\*)",
-     "set": [
+     "push": [
       "line_comment"
      ]
     },
@@ -1288,7 +1164,7 @@
       "2": "punctuation.definition.keyword.begin.sno"
      },
      "match": "(^|;)(\\-)",
-     "set": [
+     "push": [
       "control_statement"
      ]
     },
@@ -1297,27 +1173,18 @@
       "1": "punctuation.terminator.sno",
       "2": "keyword.control.sno"
      },
-     "match": "(^|;)(\\b(START|END|End|end|[A-Za-z][0-9A-Z_a-z\\.]*_(END|End|end))\\b)[ \\t]*$",
-     "set": [
-      "main"
-     ]
+     "match": "(^|;)(\\b(START|END|End|end|[A-Za-z][0-9A-Z_a-z\\.]*_(END|End|end))\\b)[ \\t]*$"
     },
     {
      "captures": {
       "1": "punctuation.terminator.sno",
       "2": "entity.name.label.sno"
      },
-     "match": "(^|;)([^ +\\t]+)",
-     "set": [
-      "main"
-     ]
+     "match": "(^|;)([^ +\\t]+)"
     },
     {
      "match": ";",
-     "scope": "punctuation.terminator.sno",
-     "set": [
-      "main"
-     ]
+     "scope": "punctuation.terminator.sno"
     },
     {
      "match": "\\\"",
@@ -1335,10 +1202,10 @@
     },
     {
      "match": ":",
-     "scope": "punctuation.separator.sno",
-     "set": [
+     "push": [
       "goto_area"
-     ]
+     ],
+     "scope": "punctuation.separator.sno"
     },
     {
      "captures": {
@@ -1977,10 +1844,10 @@
     },
     {
      "match": "\\'",
-     "scope": "string.other.single.sno",
-     "set": [
+     "push": [
       "proto_embedded_single_quoted_string"
-     ]
+     ],
+     "scope": "string.other.single.sno"
     },
     {
      "match": "\\\"",
@@ -1990,48 +1857,38 @@
    ]
   },
   "proto_embedded_double_quoted_string": {
-   "meta_content_scope": "string.interpolated.sno string.other.double.sno",
+   "meta_content_scope": "string.other.double.sno",
    "meta_scope": null,
    "rules": [
     {
      "match": "\\\"",
-     "set": [
-      "proto_single_quoted_string"
-     ]
+     "pop": 1
     },
     {
-     "match": "\\'",
-     "pop": 1,
-     "scope": "string.interpolated.sno punctuation.definition.annotation.end.sno"
+     "match": "(?=\\')",
+     "pop": 1
     },
     {
      "match": "$",
-     "set": [
-      "proto_single_quoted_string"
-     ]
+     "pop": 1
     }
    ]
   },
   "proto_embedded_single_quoted_string": {
-   "meta_content_scope": "string.interpolated.sno string.other.single.sno",
+   "meta_content_scope": "string.other.single.sno",
    "meta_scope": null,
    "rules": [
     {
      "match": "\\'",
-     "set": [
-      "proto_double_quoted_string"
-     ]
+     "pop": 1
     },
     {
-     "match": "\\\"",
-     "pop": 1,
-     "scope": "string.interpolated.sno punctuation.definition.annotation.end.sno"
+     "match": "(?=\\\")",
+     "pop": 1
     },
     {
      "match": "$",
-     "set": [
-      "proto_double_quoted_string"
-     ]
+     "pop": 1
     }
    ]
   },
@@ -2139,10 +1996,10 @@
     },
     {
      "match": "\\\"",
-     "scope": "string.other.double.sno",
-     "set": [
+     "push": [
       "proto_embedded_double_quoted_string"
-     ]
+     ],
+     "scope": "string.other.double.sno"
     },
     {
      "match": "\\'",
@@ -2306,6 +2163,16 @@
     }
    ]
   },
+  "statement_end": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "(?=;)|$",
+     "pop": 1
+    }
+   ]
+  },
   "string": {
    "meta_content_scope": null,
    "meta_scope": null,
@@ -2436,7 +2303,7 @@
       "2": "punctuation.definition.comment.sno"
      },
      "match": "(^|;)(\\*)",
-     "set": [
+     "push": [
       "line_comment"
      ]
     },
@@ -2446,7 +2313,7 @@
       "2": "punctuation.definition.keyword.begin.sno"
      },
      "match": "(^|;)(\\-)",
-     "set": [
+     "push": [
       "control_statement"
      ]
     },
@@ -2455,27 +2322,18 @@
       "1": "punctuation.terminator.sno",
       "2": "keyword.control.sno"
      },
-     "match": "(^|;)(\\b(START|END|End|end|[A-Za-z][0-9A-Z_a-z\\.]*_(END|End|end))\\b)[ \\t]*$",
-     "set": [
-      "main"
-     ]
+     "match": "(^|;)(\\b(START|END|End|end|[A-Za-z][0-9A-Z_a-z\\.]*_(END|End|end))\\b)[ \\t]*$"
     },
     {
      "captures": {
       "1": "punctuation.terminator.sno",
       "2": "entity.name.label.sno"
      },
-     "match": "(^|;)([^ +\\t]+)",
-     "set": [
-      "main"
-     ]
+     "match": "(^|;)([^ +\\t]+)"
     },
     {
      "match": ";",
-     "scope": "punctuation.terminator.sno",
-     "set": [
-      "main"
-     ]
+     "scope": "punctuation.terminator.sno"
     }
    ]
   }

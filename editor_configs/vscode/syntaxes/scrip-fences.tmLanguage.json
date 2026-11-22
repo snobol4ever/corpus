@@ -27,10 +27,10 @@
         {
           "begin": "(^|\\G)(\\s*)(.*)",
           "while": "(^|\\G)(?!\\s*([`~]{3,})\\s*$)",
-          "contentName": "meta.embedded.block.snobol4 source.snobol4",
+          "contentName": "meta.embedded.block.snobol4 source.sno",
           "patterns": [
             {
-              "include": "source.snobol4"
+              "include": "source.sno"
             }
           ]
         }

@@ -3,7 +3,7 @@ import json, os, sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, 'syntaxes', 'scrip-fences.tmLanguage.json')
 BASE = os.path.join(HERE, 'syntaxes', 'scriptix.tmLanguage.json')
-ROWS = [('snobol4', 'snobol4|snobol|spitbol|scrip', 'source.snobol4'), ('snocone', 'snocone', 'source.sc'), ('rebus', 'rebus', 'source.reb'), ('icon', 'icon|unicon', 'source.icn'),
+ROWS = [('snobol4', 'snobol4|snobol|spitbol|scrip', 'source.sno'), ('snocone', 'snocone', 'source.sc'), ('rebus', 'rebus', 'source.reb'), ('icon', 'icon|unicon', 'source.icn'),
         ('prolog', 'prolog', 'source.pl'), ('pascal', 'pascal', 'source.pascal'), ('raku', 'raku', 'source.raku')]
 OPEN = '(^|\\G)(\\s*)(`{3,}|~{3,})\\s*(?i:(%s)((\\s+|:|,|\\{|\\?)[^`]*)?$)'
 CLOSE = '(^|\\G)(\\2|\\s{0,3})(\\3)\\s*$'

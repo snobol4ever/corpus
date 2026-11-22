@@ -1,6 +1,7 @@
 %YAML 1.2
 ---
 # See http://www.sublimetext.com/docs/3/syntax.html
+# Rules and variables read their words from bootstrap/parser_snobol4.sc, the best definition of the language (Lon 2026-11-21): each cites its line as parser_snobol4.sc:N.
 name: SNOBOL4
 file_extensions: [sno, spt, inc]
 first_line_match: START
@@ -11,8 +12,11 @@ variables:
   # lower-case letter; remaining characters may be letters, numbers,
   # period (.) or underscore (_)".  Mirrors snobol4.l: ALPHA = [A-Za-z]
   # (plus high-byte UTF-8), IDCONT = [A-Za-z0-9_.\x80-\xFF].
+  # parser_snobol4.sc:80
   variable: '[A-Za-z][0-9A-Z_a-z\.]*'
+  # parser_snobol4.sc:201
   indirect_squote_variable: \$\'([^\']*)\'
+  # parser_snobol4.sc:202
   indirect_dquote_variable: \$\"([^\"]*)\"
   # A bare START/END, plus the NAME_end CONVENTION: the label that closes a DEFINE'd
   # function body (DEFINE('EMIT()') :(EMIT_end) ... EMIT_end) is structural control
@@ -21,26 +25,47 @@ variables:
   # :(...) transfer).  The underscore is required: the old [^ ]*(END|End|end) had no
   # separator and so also swallowed ordinary words like APPEND and LEGEND, which are
   # plain labels and now colour as such.
+  # parser_snobol4.sc:268
   control_label: \b(START|END|End|end|{{variable}}_(END|End|end))\b
+  # parser_snobol4.sc:27
   control_flow: \b(ABORT|CONTINUE|FRETURN|NRETURN|RETURN|SCONTINUE|START|END|End|end|{{variable}}_(END|End|end))\b
+  # parser_snobol4.sc:22
   keyword_protected: \b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\b
+  # parser_snobol4.sc:19
   keyword_unprotected: \b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\b
+  # parser_snobol4.sc:26
   io_variable: \b(INPUT|OUTPUT|TERMINAL)\b
+  # parser_snobol4.sc:169
   pattern_variable: \b(ARB|BAL|FAIL|FENCE|REM|epsilon)\b
+  # parser_snobol4.sc:188
   user_constant_general: \b(NULL|TRUE|FALSE|digits)\b
+  # parser_snobol4.sc:188
   user_constant_character: \b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\b
+  # parser_snobol4.sc:166
   pattern_function: \b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\b
+  # parser_snobol4.sc:7
   compiler_function: \b(CODE|EVAL)\b
+  # parser_snobol4.sc:7
   datatype_function: \b(ARRAY|CONVERT|COPY|DATA|FIELD|ITEM|PROTOTYPE|RSORT|SORT|TABLE)\b
+  # parser_snobol4.sc:7
   math_function: \b(ATAN|CHOP|COS|EXP|LN|REMDR|SIN|SQRT|TAN)\b
+  # parser_snobol4.sc:7
   primitive_function: \b(DIFFER|IDENT|INTEGER|LT|LE|GT|GE|EQ|NE|LLT|LLE|LGT|LGE|LEQ|LNE)\b
+  # parser_snobol4.sc:7
   io_function: \b(BACKSPACE|DETACH|EJECT|ENDFILE|INPUT|OUTPUT|REWIND|SET)\b
+  # parser_snobol4.sc:7
   memory_function: \b(CLEAR|COLLECT|DUMP)\b
+  # parser_snobol4.sc:7
   misc_function: \b(DATE|EXIT|HOST|SETEXIT|STOPTR|TIME|TRACE)\b
+  # parser_snobol4.sc:7
   program_function: \b(APPLY|ARG|DATATYPE|DEFINE|LOAD|LOCAL|OPSYN|UNLOAD)\b
+  # parser_snobol4.sc:7
   string_function: \b(CHAR|DUPL|LPAD|REPLACE|REVERSE|RPAD|SIZE|SUBSTR|TRIM)\b
+  # parser_snobol4.sc:176
   library_function: \b(assign|match|not_match|nInc|nDec|nPush|nPop|Push|Pop|Top|PushCounter|PopCounter|TopCounter|IncCounter|DecCounter|UTFLEN|UTFSUBSTR)\b
+  # parser_snobol4.sc:176
   user_function: '{{variable}}'
+  # parser_snobol4.sc:7
   builtin_function: |-
     (?x:
       {{compiler_function}}
@@ -56,110 +81,110 @@ variables:
 
 contexts:
   terminator:
-    - match: (^|;)(\*)
+    - match: (^|;)(\*)  # parser_snobol4.sc:238
       captures:
         1: punctuation.terminator.sno
         2: punctuation.definition.comment.sno
-      set: line_comment
+      push: line_comment
 
-    - match: (^|;)(\-)
+    - match: (^|;)(\-)  # parser_snobol4.sc:236
       captures:
         1: punctuation.terminator.sno
         2: punctuation.definition.keyword.begin.sno
-      set: control_statement
+      push: control_statement
 
-    - match: (^|;)({{control_label}})[ \t]*$
+    - match: (^|;)({{control_label}})[ \t]*$  # parser_snobol4.sc:268 parser_snobol4.sc:27
       captures:
         1: punctuation.terminator.sno
         2: keyword.control.sno
-      set: main
 
-    - match: (^|;)([^ +\t]+)
+    - match: (^|;)([^ +\t]+)  # parser_snobol4.sc:242
       captures:
         1: punctuation.terminator.sno
         2: entity.name.label.sno # s182: THE STATEMENT LABEL, on its own scope at last.  Mariana EXCLUDES entity.name.label from its orange `entity.name - (section|tag|label)` rule and styles it nowhere else, so it lands unstyled (white) in stock and the Packages/User override owns it outright -- no other language competes for it, unlike entity.name.function whose blue5 also carries punctuation, bracket contents, mapping keys and annotations.  Also DECOUPLES the label from the DEFINE('FOO()') name, which keeps entity.name.function.sno. # was entity.name.function.sno (blue5/teal) # entity.name.tag.sno (pink) # entity.name.section.sno (white) # variable.language.sno
-      set: main
 
-    - match: ;
+    - match: ;  # parser_snobol4.sc:275
       scope: punctuation.terminator.sno
-      set: main
 
   continuation:
-    - match: (^|;)(\+)
+    - match: (^|;)(\+)  # parser_snobol4.sc:83
       captures:
         1: punctuation.terminator.sno
         2: punctuation.separator.continuation.sno
-      set: main
+
+  statement_end:
+    - match: (?=;)|$  # parser_snobol4.sc:275 parser_snobol4.sc:237
+      pop: true
 
   line_comment:
     - meta_scope: comment.line.semi-colon.sno
-    - match: $
+    - match: $  # parser_snobol4.sc:238
       pop: true
 
 ################################################################################
   term:
-    - match: '(\&){{keyword_protected}}\b'
+    - match: '(\&){{keyword_protected}}\b'  # parser_snobol4.sc:145 parser_snobol4.sc:22
       scope: constant.language.sno
       captures:
         1: punctuation.definition.keyword.begin.sno
 
-    - match: '(\&){{keyword_unprotected}}\b'
+    - match: '(\&){{keyword_unprotected}}\b'  # parser_snobol4.sc:145 parser_snobol4.sc:19
       scope: constant.other.sno # variable.language.sno (orange slanted) #
       captures:
         1: punctuation.definition.variable.begin.sno
 
-    - match: \b({{pattern_function}})\(
+    - match: \b({{pattern_function}})\(  # parser_snobol4.sc:176 parser_snobol4.sc:166
       captures:
         1: variable.language.sno # (orange slanted) variable.function.sno (blue) # storage.type.sno (blue slanted)
       push: brackets
 
-    - match: \b({{builtin_function}})\(
+    - match: \b({{builtin_function}})\(  # parser_snobol4.sc:176 parser_snobol4.sc:7
       captures:
         1: support.function.sno # entity.name.function.sno
       push: brackets
 
-    - match: \b({{library_function}})\(
+    - match: \b({{library_function}})\(  # parser_snobol4.sc:176
       captures:
         1: support.function.sno # SAME scope as the builtin/runtime calls above (DEFINE, LT, SIZE) -- these ARE runtime library routines, so they take the library colour, blue # was entity.name.class.forward-decl.sno (orange, which the scheme uses for literals)
       push: brackets
 
-    - match: \b({{user_function}})\(
+    - match: \b({{user_function}})\(  # parser_snobol4.sc:176
       captures:
         1: variable.function.sno # Mariana rule "Function call" (variable.function, variable.annotation) = the SAME blue as the runtime calls but WITHOUT their italic, so your own functions read distinctly from DEFINE/LT while both stay call-coloured # was support.function.sno (blue italic) # was entity.name.function.sno (teal, the label colour)
       push: brackets
 
-    - match: \b{{io_variable}}\b
+    - match: \b{{io_variable}}\b  # parser_snobol4.sc:188 parser_snobol4.sc:26
       scope: support.function.sno (blue) # support.module.sno (white) # entity.name.interface.sno (green)
 
-    - match: \b{{pattern_variable}}\b
+    - match: \b{{pattern_variable}}\b  # parser_snobol4.sc:169 parser_snobol4.sc:172
       scope: variable.language.sno # (orange slanted) storage.type.sno (blue slanted)
 
-    - match: \b{{user_constant_general}}\b
+    - match: \b{{user_constant_general}}\b  # parser_snobol4.sc:188
       scope: constant.language.sno # support.constant.sno #
 
-    - match: \b{{user_constant_character}}\b
+    - match: \b{{user_constant_character}}\b  # parser_snobol4.sc:188
       scope: constant.character.sno # (purple) support.type.sno # (blue slanted)
 
-    - match: \b{{variable}}\b
+    - match: \b{{variable}}\b  # parser_snobol4.sc:188
       scope: variable.other.sno # variable.other.sno
 
     # SPITBOL §3 (Reals): "must have at least one digit to the left of
     # the decimal point" and "either a decimal point or an exponent".
     # Forms: 12.9543, 1.0E+7, 1E+7, 2E7, 8.4E–7, .63 INVALID.
-    - match: \b[0-9]+\.[0-9]+([eE][-+]?[0-9]+)?\b
+    - match: \b[0-9]+\.[0-9]+([eE][-+]?[0-9]+)?\b  # parser_snobol4.sc:71
       scope: constant.numeric.float.sno
 
-    - match: \b[0-9]+[eE][-+]?[0-9]+\b
+    - match: \b[0-9]+[eE][-+]?[0-9]+\b  # parser_snobol4.sc:71
       scope: constant.numeric.float.sno
 
-    - match: \b[0-9]+\b
+    - match: \b[0-9]+\b  # parser_snobol4.sc:67 parser_snobol4.sc:191
       scope: constant.numeric.integer.sno
 
-    - match: '(^|[ \t]+)([\=])([ \t]+|$)'
+    - match: '(^|[ \t]+)([\=])([ \t]+|$)'  # parser_snobol4.sc:90
       captures:
         2: keyword.operator.assignment.sno
 
-    - match: '(^|[ \t]+)([\?])([ \t]+|$)'
+    - match: '(^|[ \t]+)([\?])([ \t]+|$)'  # parser_snobol4.sc:91
       captures:
         2: keyword.operator.logical.sno
 
@@ -167,25 +192,25 @@ contexts:
 #     scope: keyword.operator.sno
 
   indirect_squote_variable:
-    - match: '{{indirect_squote_variable}}'
+    - match: '{{indirect_squote_variable}}'  # parser_snobol4.sc:150 parser_snobol4.sc:200
       scope: string.quoted.single.sno # constant.other.sno # variable.other.sno
 
   indirect_dquote_variable:
-    - match: '{{indirect_dquote_variable}}'
+    - match: '{{indirect_dquote_variable}}'  # parser_snobol4.sc:150 parser_snobol4.sc:201
       scope: string.quoted.double.sno # constant.other.sno # variable.other.sno
 
 ################################################################################
   string:
-    - match: \"
+    - match: \"  # parser_snobol4.sc:69 parser_snobol4.sc:68
       scope: punctuation.definition.string.begin.sno
       push: double_quoted_string
-    - match: \'
+    - match: \'  # parser_snobol4.sc:69 parser_snobol4.sc:68
       scope: punctuation.definition.string.begin.sno
       push: single_quoted_string
 
   double_quoted_string:
     - meta_scope: string.quoted.double.sno
-    - match: \"
+    - match: \"  # parser_snobol4.sc:68
       scope: punctuation.definition.string.end.sno
       pop: true
 #   - match: $
@@ -193,7 +218,7 @@ contexts:
 
   single_quoted_string:
     - meta_scope: string.quoted.single.sno
-    - match: \'
+    - match: \'  # parser_snobol4.sc:69
       scope: punctuation.definition.string.end.sno
       pop: true
 #   - match: $
@@ -201,10 +226,10 @@ contexts:
 
 ################################################################################
   proto_string: # includable
-    - match: \"
+    - match: \"  # parser_snobol4.sc:68 parser_snobol4.sc:176
       scope: punctuation.definition.annotation.begin.sno
       push: proto_double_quoted_string
-    - match: \'
+    - match: \'  # parser_snobol4.sc:69 parser_snobol4.sc:176
       scope: punctuation.definition.annotation.begin.sno
       push: proto_single_quoted_string
 
@@ -212,78 +237,76 @@ contexts:
     - meta_scope: string.interpolated.sno # string.quoted.single.sno #
     - include: term
     - include: indirect_dquote_variable
-    - match: \"
+    - match: \"  # parser_snobol4.sc:69
       scope: string.other.double.sno
-      set: proto_embedded_double_quoted_string
-    - match: \'
+      push: proto_embedded_double_quoted_string
+    - match: \'  # parser_snobol4.sc:69
       scope: punctuation.definition.annotation.end.sno
       pop: true
 #   - match: $
 #     pop: true
 
   proto_embedded_double_quoted_string:
-    - meta_content_scope: string.interpolated.sno string.other.double.sno
-    - match: \"
-      set: proto_single_quoted_string
-    - match: \'
-      scope: string.interpolated.sno punctuation.definition.annotation.end.sno
+    - meta_content_scope: string.other.double.sno
+    - match: \"  # parser_snobol4.sc:68
       pop: true
-    - match: $
-      set: proto_single_quoted_string # pop: true
+    - match: (?=\')  # parser_snobol4.sc:69
+      pop: true
+    - match: $  # parser_snobol4.sc:69
+      pop: true
 
   proto_double_quoted_string:
     - meta_scope: string.interpolated.sno # string.quoted.double.sno #
     - include: term
     - include: indirect_squote_variable
-    - match: \'
+    - match: \'  # parser_snobol4.sc:68
       scope: string.other.single.sno
-      set: proto_embedded_single_quoted_string
-    - match: \"
+      push: proto_embedded_single_quoted_string
+    - match: \"  # parser_snobol4.sc:68
       scope: punctuation.definition.annotation.end.sno
       pop: true
 #   - match: $
 #     pop: true
 
   proto_embedded_single_quoted_string:
-    - meta_content_scope: string.interpolated.sno string.other.single.sno
-    - match: \'
-      set: proto_double_quoted_string
-    - match: \"
-      scope: string.interpolated.sno punctuation.definition.annotation.end.sno
+    - meta_content_scope: string.other.single.sno
+    - match: \'  # parser_snobol4.sc:69
       pop: true
-    - match: $
-      set: proto_double_quoted_string # pop: true
+    - match: (?=\")  # parser_snobol4.sc:68
+      pop: true
+    - match: $  # parser_snobol4.sc:68
+      pop: true
 
 ################################################################################
   data_proto_string:
-    - match: \"
+    - match: \"  # parser_snobol4.sc:68 parser_snobol4.sc:176
       scope: punctuation.definition.annotation.begin.sno
       push: data_proto_double_quoted_string
-    - match: \'
+    - match: \'  # parser_snobol4.sc:69 parser_snobol4.sc:176
       scope: punctuation.definition.annotation.begin.sno
       push: data_proto_single_quoted_string
 
   data_proto_double_quoted_string:
-    - match: ({{variable}})\(
+    - match: ({{variable}})\(  # parser_snobol4.sc:176
       captures:
         1: entity.name.function.sno # variable.parameter.sno
-    - match: \b{{variable}}\b
+    - match: \b{{variable}}\b  # parser_snobol4.sc:188
       scope: entity.name.function.sno
     - include: term
-    - match: \"
+    - match: \"  # parser_snobol4.sc:68
       scope: punctuation.definition.annotation.end.sno
       pop: true
 #   - match: $
 #     pop: true
 
   data_proto_single_quoted_string:
-    - match: ({{variable}})(\()
+    - match: ({{variable}})(\()  # parser_snobol4.sc:176
       captures:
         1: entity.name.function.sno # variable.parameter.sno
-    - match: \b{{variable}}\b
+    - match: \b{{variable}}\b  # parser_snobol4.sc:188
       scope: entity.name.function.sno
     - include: term
-    - match: \'
+    - match: \'  # parser_snobol4.sc:69
       scope: punctuation.definition.annotation.end.sno
       pop: true
 #   - match: $
@@ -291,34 +314,34 @@ contexts:
 
 ################################################################################
   function_proto_string:
-    - match: \"
+    - match: \"  # parser_snobol4.sc:68 parser_snobol4.sc:176
       scope: punctuation.definition.annotation.begin.sno
       push: function_proto_double_quoted_string
-    - match: \'
+    - match: \'  # parser_snobol4.sc:69 parser_snobol4.sc:176
       scope: punctuation.definition.annotation.begin.sno
       push: function_proto_single_quoted_string
 
   function_proto_double_quoted_string:
-    - match: ({{variable}})\(
+    - match: ({{variable}})\(  # parser_snobol4.sc:176
       captures:
         1: entity.name.function.sno # variable.parameter.sno
-    - match: \b{{variable}}\b
+    - match: \b{{variable}}\b  # parser_snobol4.sc:188
       scope: variable.other.sno
     - include: term
-    - match: \"
+    - match: \"  # parser_snobol4.sc:68
       scope: punctuation.definition.annotation.end.sno
       pop: true
 #   - match: $
 #     pop: true
 
   function_proto_single_quoted_string:
-    - match: ({{variable}})(\()
+    - match: ({{variable}})(\()  # parser_snobol4.sc:176
       captures:
         1: entity.name.function.sno # variable.parameter.sno
-    - match: \b{{variable}}\b
+    - match: \b{{variable}}\b  # parser_snobol4.sc:188
       scope: variable.other.sno
     - include: term
-    - match: \'
+    - match: \'  # parser_snobol4.sc:69
       scope: punctuation.definition.annotation.end.sno
       pop: true
 #   - match: $
@@ -326,35 +349,35 @@ contexts:
 
 ################################################################################
   brackets:
-    - match: \)
+    - match: \)  # parser_snobol4.sc:110
       pop: true
     - include: string
     - include: term
-    - match: \(
+    - match: \(  # parser_snobol4.sc:108
       push: brackets
 
   prototype_brackets:
-    - match: \)
+    - match: \)  # parser_snobol4.sc:110
       pop: true
     - include: proto_string
     - include: term
-    - match: \(
+    - match: \(  # parser_snobol4.sc:108
       push: prototype_brackets
 
   data_prototype_brackets:
-    - match: \)
+    - match: \)  # parser_snobol4.sc:110
       pop: true
     - include: data_proto_string
     - include: term
-    - match: \(
+    - match: \(  # parser_snobol4.sc:108
       push: data_prototype_brackets
 
   function_prototype_brackets:
-    - match: \)
+    - match: \)  # parser_snobol4.sc:110
       pop: true
     - include: function_proto_string
     - include: term
-    - match: \(
+    - match: \(  # parser_snobol4.sc:108
       push: function_prototype_brackets
 
 ################################################################################
@@ -363,53 +386,53 @@ contexts:
     - include: terminator
     - include: string
 
-    - match: ':'
+    - match: ':'  # parser_snobol4.sc:229
       scope: punctuation.separator.sno
-      set: goto_area
+      push: goto_area
 
-    - match: \b(ARRAY|CODE|EVAL)(\()
+    - match: \b(ARRAY|CODE|EVAL)(\()  # parser_snobol4.sc:176 parser_snobol4.sc:7
       captures:
         1: support.function.sno # entity.name.struct.sno (green)
         2: punctuation.definition.generic.begin.sno
       push:
-        - match: \)
+        - match: \)  # parser_snobol4.sc:110
           scope: punctuation.definition.generic.end.sno
           pop: true
         - include: proto_string
         - include: term
         - include: indirect_squote_variable
         - include: indirect_dquote_variable
-        - match: \(
+        - match: \(  # parser_snobol4.sc:108
           push: prototype_brackets
 
-    - match: \b(DATA)(\()
+    - match: \b(DATA)(\()  # parser_snobol4.sc:176 parser_snobol4.sc:7
       captures:
         1: support.function.sno # entity.name.function.sno
         2: punctuation.definition.generic.begin.sno
       push:
-        - match: \)
+        - match: \)  # parser_snobol4.sc:110
           scope: punctuation.definition.generic.end.sno
           pop: true
         - include: data_proto_string
         - include: term
         - include: indirect_squote_variable
         - include: indirect_dquote_variable
-        - match: \(
+        - match: \(  # parser_snobol4.sc:108
           push: data_prototype_brackets
 
-    - match: \b(DEFINE)(\()
+    - match: \b(DEFINE)(\()  # parser_snobol4.sc:176 parser_snobol4.sc:7
       captures:
         1: support.function.sno # entity.name.function.sno
         2: punctuation.definition.generic.begin.sno
       push:
-        - match: \)
+        - match: \)  # parser_snobol4.sc:110
           scope: punctuation.definition.generic.end.sno
           pop: true
         - include: function_proto_string
         - include: term
         - include: indirect_squote_variable
         - include: indirect_dquote_variable
-        - match: \(
+        - match: \(  # parser_snobol4.sc:108
           push: function_prototype_brackets
 
     - include: term
@@ -417,65 +440,58 @@ contexts:
     - include: indirect_dquote_variable
 
   control_statement:
-    - include: continuation
-    - include: terminator
+    - include: statement_end
     - include: string
-    - match: \b(COPY|INCLUDE)\b
+    - match: \b(COPY|INCLUDE)\b  # parser_snobol4.sc:236 parser_snobol4.sc:49
       scope: keyword.other.sno
-    - match: \b(DOUBLE|EJECT|LINE|LIST|NOLIST|NOPRINT|PRINT|SINGLE|SPACE|TITLE)\b
+    - match: \b(DOUBLE|EJECT|LINE|LIST|NOLIST|NOPRINT|PRINT|SINGLE|SPACE|TITLE)\b  # parser_snobol4.sc:236
       scope: keyword.other.sno
-    - match: \b(CASE|ERRORS|EXECUTE|NOEXECUTE|FAIL|IN|NOFAIL|NOERRORS|NOOPTIMIZE|OPTIMIZE)\b
+    - match: \b(CASE|ERRORS|EXECUTE|NOEXECUTE|FAIL|IN|NOFAIL|NOERRORS|NOOPTIMIZE|OPTIMIZE)\b  # parser_snobol4.sc:236 parser_snobol4.sc:49
       scope: keyword.other.sno
-    - match: ':'
+    - match: ':'  # parser_snobol4.sc:236
       scope: invalid.illegal.sno
     - include: term
-    - match: $
-      set: main
 
   goto_area:
-    - include: continuation
-    - include: terminator
+    - include: statement_end
     - include: string
 
-    - match: ([SF]?)(\()({{control_flow}})(\))
+    - match: ([SF]?)(\()({{control_flow}})(\))  # parser_snobol4.sc:193 parser_snobol4.sc:223 parser_snobol4.sc:27
       captures:
         1: keyword.control.flow.goto.sno
         2: '' # punctuation.section.parens.begin.sno # keyword.control.flow.sno
         3: keyword.control.sno
         6: '' # punctuation.section.parens.end.sno # keyword.control.flow.sno
 
-    - match: ([SF]?)(\()({{variable}})(\))
+    - match: ([SF]?)(\()({{variable}})(\))  # parser_snobol4.sc:193 parser_snobol4.sc:223 parser_snobol4.sc:188
       captures:
         1: keyword.control.flow.goto.sno
         2: '' # punctuation.section.parens.begin.sno # keyword.control.flow.sno
         3: entity.name.label.sno # SAME scope as the statement label (line 73) so goto targets match label colour EXACTLY -- verified s182: neither site carries a meta_scope, so nothing stacks and the two are identical by construction.  NOTE the OTHER goto rule above scopes control_flow targets (END/RETURN/FRETURN/NRETURN/ABORT/CONTINUE/START/X_END) as keyword.control.sno = PINK, matching how control_label is scoped on the definition side -- that pink/cyan split is deliberate, and it is what makes the goto area look like it has 'varying shades'.
         4: '' # punctuation.section.parens.end.sno # keyword.control.flow.sno
 
-    - match: ([SF]?)<({{variable}})>
+    - match: ([SF]?)<({{variable}})>  # parser_snobol4.sc:224
       captures:
         1: keyword.control.flow.goto.sno
         2: variable.other.sno
 
-    - match: ([SF]?)(\(){{indirect_squote_variable}}(\))
+    - match: ([SF]?)(\(){{indirect_squote_variable}}(\))  # parser_snobol4.sc:201 parser_snobol4.sc:223
       captures:
         1: keyword.control.flow.goto.sno
         2: '' # punctuation.section.parens.begin.sno # keyword.control.flow.sno
         3: entity.name.function.sno # SAME scope as the statement label (terminator, line 73) so goto targets match label color # was entity.name.class.forward-decl.sno (green) # variable.other.sno # variable.language.sno (orange)
         4: '' # punctuation.section.parens.end.sno # keyword.control.flow.sno
 
-    - match: ([SF]?)(\(){{indirect_dquote_variable}}(\))
+    - match: ([SF]?)(\(){{indirect_dquote_variable}}(\))  # parser_snobol4.sc:202 parser_snobol4.sc:223
       captures:
         1: keyword.control.flow.goto.sno
         2: '' # punctuation.section.parens.begin.sno # keyword.control.flow.sno
         3: entity.name.function.sno # SAME scope as the statement label (terminator, line 73) so goto targets match label color # was entity.name.class.forward-decl.sno (green) # variable.other.sno # variable.language.sno (orange)
         4: '' # punctuation.section.parens.end.sno # keyword.control.flow.sno
 
-    - match: ([SF]?)\(
+    - match: ([SF]?)\(  # parser_snobol4.sc:223
       captures:
         1: keyword.control.flow.goto.sno
 
-    - match: ':'
+    - match: ':'  # parser_snobol4.sc:229
       scope: invalid.illegal.sno
-
-    - match: $
-      set: main

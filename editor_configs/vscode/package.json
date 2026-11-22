@@ -81,7 +81,7 @@
       },
       {
         "language": "snobol4",
-        "scopeName": "source.snobol4",
+        "scopeName": "source.sno",
         "path": "./syntaxes/snobol4.tmLanguage.json"
       },
       {
