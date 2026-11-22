@@ -6031,6 +6031,26 @@ end.
 55
 ```
 
+## ladder__rung05_a_function_named_as_a_type_is_called_never_cast
+
+```Pascal
+{$mode objfpc}
+program p;
+var i, r: integer;
+function double(n: integer): integer;
+begin
+  double := n * 2
+end;
+begin
+  for i := 1 to 2 do begin r := double(i); write(r, ' '); writeln(double(i)) end
+end.
+```
+
+```stdout
+2 2
+4 4
+```
+
 ## ladder__rung13_ptr_record_field
 
 ```Pascal
