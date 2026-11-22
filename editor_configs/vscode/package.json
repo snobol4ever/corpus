@@ -100,6 +100,20 @@
         "language": "icon",
         "scopeName": "source.icn",
         "path": "./syntaxes/icon.tmLanguage.json"
+      },
+      {
+        "scopeName": "scrip.fences.injection",
+        "path": "./syntaxes/scrip-fences.tmLanguage.json",
+        "injectTo": ["text.html.markdown"],
+        "embeddedLanguages": {
+          "meta.embedded.block.snobol4": "snobol4",
+          "meta.embedded.block.snocone": "snocone",
+          "meta.embedded.block.rebus": "rebus",
+          "meta.embedded.block.icon": "icon",
+          "meta.embedded.block.prolog": "prolog",
+          "meta.embedded.block.pascal": "pascal",
+          "meta.embedded.block.raku": "raku"
+        }
       }
     ],
     "commands": [
