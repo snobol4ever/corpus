@@ -1,5 +1,7 @@
 const vscode = require('vscode');
 const path = require('path');
+const fs = require('fs');
+const os = require('os');
 const { activateClient, deactivateClient } = require('./lsp_client');
 
 const DEFAULT_SCRIP = '/home/install/bin/scrip';
@@ -59,6 +61,37 @@ async function runFile() {
   }
   if (editor.document.isDirty) await editor.document.save();
   await vscode.tasks.executeTask(taskFor({ type: 'scrip', file: editor.document.uri.fsPath }));
+}
+
+const SECTION_EXT = { snobol4: '.sno', snobol: '.sno', spitbol: '.sno', scrip: '.sno', snocone: '.sc', rebus: '.reb', icon: '.icn', unicon: '.icn', prolog: '.pro', pascal: '.pas', raku: '.raku' };
+const SECTION_OPEN = /^(\s*)(`{3,}|~{3,})\s*([^\s{`]+)/;
+
+function sectionOf(doc, line) {
+  const open = SECTION_OPEN.exec(doc.lineAt(line).text);
+  if (!open || !SECTION_EXT[open[3].toLowerCase()]) return undefined;
+  const run = open[2], body = [];
+  for (let i = line + 1; i < doc.lineCount; i++) {
+    const text = doc.lineAt(i).text, close = /^\s*(`{3,}|~{3,})\s*$/.exec(text);
+    if (close && close[1][0] === run[0] && close[1].length >= run.length) break;
+    body.push(text.startsWith(open[1]) ? text.slice(open[1].length) : text.trimStart());
+  }
+  return { ext: SECTION_EXT[open[3].toLowerCase()], text: body.join('\n') + '\n' };
+}
+
+async function runSection(uri, line) {
+  const doc = await vscode.workspace.openTextDocument(vscode.Uri.parse(uri)), section = sectionOf(doc, line);
+  if (!section) {
+    vscode.window.showErrorMessage('SCRIP: line ' + (line + 1) + ' of ' + path.basename(doc.uri.fsPath) + ' does not open a section scrip runs.');
+    return;
+  }
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'scrip-section-')), file = path.join(dir, path.basename(doc.uri.fsPath, path.extname(doc.uri.fsPath)) + '-' + (line + 1) + section.ext);
+  fs.writeFileSync(file, section.text);
+  await vscode.tasks.executeTask(taskFor({ type: 'scrip', file }));
+}
+
+function showReferences(uri, position, locations) {
+  const place = l => new vscode.Location(vscode.Uri.parse(l.uri), new vscode.Range(l.range.start.line, l.range.start.character, l.range.end.line, l.range.end.character));
+  return vscode.commands.executeCommand('editor.action.showReferences', vscode.Uri.parse(uri), new vscode.Position(position.line, position.character), locations.map(place));
 }
 
 
@@ -150,6 +183,8 @@ exports.activate = (context) => {
   context.subscriptions.push(
     vscode.commands.registerCommand('scrip.openPlAsProlog', openPlAsProlog),
     vscode.commands.registerCommand('scrip.runFile', runFile),
+    vscode.commands.registerCommand('scrip.runSection', runSection),
+    vscode.commands.registerCommand('scrip.showReferences', showReferences),
     vscode.tasks.registerTaskProvider('scrip', provider),
     vscode.debug.registerDebugConfigurationProvider('scrip', debugConfigs),
     vscode.debug.registerDebugAdapterDescriptorFactory('scrip', { createDebugAdapterDescriptor: () => new vscode.DebugAdapterExecutable(scripPath(), ['--dap']) })
