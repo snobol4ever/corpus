@@ -135,6 +135,7 @@
             "properties": {
               "program": { "type": "string", "description": "The SCRIP program to debug.", "default": "${file}" },
               "args": { "type": "array", "items": { "type": "string" }, "description": "The arguments the program is given.", "default": [] },
+              "runtimeArgs": { "type": "array", "items": { "type": "string" }, "description": "The arguments of the SCRIP engine itself, put after --debug and before the program, for example [\"-s64m\"].", "default": [] },
               "cwd": { "type": "string", "description": "The folder the program runs in.", "default": "${workspaceFolder}" },
               "console": { "type": "string", "enum": ["internalConsole", "integratedTerminal"], "description": "Where the program's input and output go.", "default": "internalConsole" },
               "stopOnEntry": { "type": "boolean", "description": "Stop at the program's first statement.", "default": false },
