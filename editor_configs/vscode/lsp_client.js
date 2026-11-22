@@ -4,7 +4,7 @@ const { LanguageClient } = require('vscode-languageclient/node');
 
 const DEFAULT_SCRIP = '/home/install/bin/scrip';
 const SERVER_LANGS = ['snobol4', 'snocone', 'rebus', 'icon', 'prolog', 'pascal', 'raku', 'scrip', 'scriptix', 'markdown'];
-const SELECTOR = SERVER_LANGS.map(language => ({ scheme: 'file', language }));
+const SELECTOR = SERVER_LANGS.flatMap(language => [{ scheme: 'file', language }, { scheme: 'vscode-notebook-cell', language }]);
 
 let client = null;
 let chain = Promise.resolve();
