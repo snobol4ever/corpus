@@ -1,8 +1,648 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
-# params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=4 features=7 ubiquitous=2(package writeln) distinctive=5 core=4 clusters=0 chunks=0 sizes=
+# params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
+# shape: entries=644 features=49 ubiquitous=5(package want_rc compare var assign) distinctive=44 core=48 clusters=135 chunks=6 sizes=100,100,100,100,100,96
 entry	part	cluster	shells
-case-sensitivity-of-identifiers	core	core	assign var
-compile-time-calculation	core	core	const
-hello-world-text-2	core	core	program
-terminal-control-cursor-positioning	core	core	write
+15-puzzle-game	core	core	abs array const div for for_with_array function mod nested_proc new nil procedure repeat set_literal subrange
+15-puzzle-solver	chunk:05	family:-puzzle-solver	
+99-bottles-of-beer-1	chunk:04	feat:for	for
+99-bottles-of-beer-2	chunk:03	feat:writeln	for writeln
+a_b	chunk:03	feat:writeln	writeln
+abbreviations-easy	core	core	forward read repeat set type
+abbreviations-simple	core	core	for forward read repeat set type while writeln
+abc-correlation	core	core	file function in
+abc-incremental-counts	chunk:05	feat:file	file function in
+abc-words	chunk:05	feat:pointer	file in pointer
+abstract-type-1	chunk:01	feat:type	nested_proc new procedure type
+abstract-type-2	chunk:01	feat:type	nested_proc new procedure type
+accumulator-factory	chunk:04	feat:function	function
+ackermann-function	chunk:04	feat:for	for function new
+add-a-variable-to-a-class-instance-at-runtime	chunk:06	feat:read	new procedure read type
+additive-primes	chunk:06	family:additive-primes	
+address-of-a-variable	chunk:05	feat:pointer	pointer
+amicable-pairs	chunk:02	feat:div	div function mod
+anadromes	chunk:03	feat:writeln	in writeln
+anagrams	chunk:06	family:anagrams	
+angle-difference-between-two-bearings	chunk:04	feat:trunc	function in trunc writeln
+angles-geometric-normalization-and-conversion	chunk:04	feat:trunc	array function in nested_proc trunc writeln
+anonymous-recursion-1	chunk:04	feat:for	for function new
+anonymous-recursion-2	chunk:04	feat:nested_proc	for function nested_proc new
+anti-primes	core	core	function mod nested_proc round sqr sqrt trunc while
+apply-a-callback-to-an-array	chunk:01	feat:subrange	subrange
+approximate-equality	chunk:05	feat:abs	abs function sqrt
+arbitrary-precision-integers-included-	chunk:06	family:arbitrary-precision-integers-included	
+archimedean-spiral	chunk:06	family:archimedean-spiral	
+arithmetic-complex	chunk:05	feat:abs	abs
+arithmetic-evaluation	core	core	case function in nested_proc new procedure type while
+arithmetic-geometric-mean	chunk:05	feat:abs	abs function sqrt while
+arithmetic-integer	chunk:02	feat:div	div mod
+arithmetic-numbers	core	core	div function in mod set while
+arithmetic-rational	chunk:04	feat:trunc	const div for mod sqrt trunc writeln
+array-concatenation	chunk:01	feat:subrange	subrange
+array-length-1	chunk:03	feat:array	array writeln
+array-length-2	chunk:03	feat:array	array
+arrays	chunk:05	feat:set_literal	array new set_literal subrange
+ascending-primes	chunk:04	feat:mod	for function mod
+assertions	chunk:06	family:assertions	
+associative-array-creation	chunk:02	feat:new	new
+associative-array-iteration	chunk:02	feat:new	in new
+associative-array-merging	chunk:02	feat:new	in new
+attractive-numbers	chunk:01	feat:subrange	subrange
+averages-arithmetic-mean	chunk:06	family:averages-arithmetic-mean	
+averages-mean-angle	chunk:03	feat:array	array function in
+averages-median	chunk:02	feat:div	array div function
+averages-mode	chunk:02	feat:new	function in new
+averages-pythagorean-means	chunk:01	feat:subrange	function nested_proc subrange
+averages-root-mean-square	chunk:03	feat:sqrt	array function sqrt subrange
+babbage-problem	chunk:04	feat:trunc	in mod repeat sqrt trunc with
+balanced-brackets	chunk:04	feat:nested_proc	function in nested_proc new
+bifid-cipher	chunk:01	feat:subrange	function nested_proc subrange
+binary-digits	chunk:03	feat:writeln	in writeln
+binary-search-1	chunk:03	feat:repeat	array div function nested_proc repeat
+binary-search-2	chunk:06	family:binary-search	
+bioinformatics-base-count	chunk:06	family:bioinformatics-base-count	
+bitwise-operations	chunk:06	family:bitwise-operations	
+break-oo-privacy	chunk:01	feat:type	new procedure type
+caesar-cipher	chunk:05	feat:case	case function in mod nested_proc subrange
+calculating-the-value-of-e	chunk:01	feat:const	const function while
+calendar---for-real-programmers	chunk:01	feat:write	div for in mod write
+call-an-object-method	core	core	function nested_proc new procedure subrange type with writeln
+cartesian-product-of-two-or-more-lists	chunk:02	feat:new	new
+case-sensitivity-of-identifiers	chunk:03	feat:writeln	writeln
+casting-out-nines	chunk:01	feat:subrange	function in subrange
+catalan-numbers-pascals-triangle	chunk:05	feat:set_literal	array const downto for for_with_array set_literal subrange
+catalan-numbers	chunk:02	feat:div	div for function nested_proc writeln
+catamorphism	chunk:01	feat:subrange	subrange
+centre-and-radius-of-a-circle-passing-through-3-points-in-a-plane	chunk:05	feat:record	function record sqr sqrt type
+change-e-letters-to-i-in-words	chunk:03	feat:writeln	in new writeln
+character-codes	chunk:06	feat:chr	chr
+check-input-device-is-a-terminal	chunk:06	family:check-input-device-is-a-terminal	
+check-output-device-is-a-terminal	chunk:06	family:check-output-device-is-a-terminal	
+check-that-file-exists	chunk:06	family:check-that-file-exists	
+cheryls-birthday	chunk:06	family:cheryls-birthday	
+chinese-remainder-theorem	core	core	array div for for_with_array function in mod nested_proc procedure while writeln
+chinese-zodiac	chunk:01	feat:const	array const div function in mod writeln
+cholesky-decomposition	core	core	array for for_with_array function nested_proc new procedure round sqrt write
+chowla-numbers	chunk:04	feat:for_with_array	array div for for_with_array function mod nested_proc new while writeln
+circular-primes	chunk:03	feat:sqrt	for function mod nested_proc sqrt subrange
+classes	chunk:01	feat:type	new procedure type
+closest-pair-problem	chunk:03	feat:sqrt	array function nested_proc new sqrt type
+closures-value-capture	chunk:01	feat:type	type
+code-golf-1	chunk:05	family:code-golf	
+code-golf-2	chunk:05	family:code-golf	
+collections	chunk:05	feat:set	array in new set
+color-of-a-screen-pixel	chunk:02	feat:new	new
+color-wheel	core	core	abs for function nested_proc procedure sqr sqrt trunc
+colour-bars-display	chunk:02	feat:div	div for
+colour-pinstripe-display	chunk:02	feat:div	div for mod while
+combinations-with-repetitions	chunk:01	feat:write	subrange write
+combinations	chunk:01	feat:subrange	subrange
+command-line-arguments	chunk:04	feat:for	for
+compare-a-list-of-strings	chunk:04	feat:nested_proc	function nested_proc
+compare-length-of-two-strings	chunk:06	family:compare-length-of-two-strings	
+compile-time-calculation	chunk:01	feat:const	const writeln
+composite-numbers-k-with-no-single-digit-factors-whose-factors-are-all-substrings-of-k	chunk:03	feat:sqrt	div for function in mod nested_proc new sqrt while
+compound-data-type	chunk:05	feat:record	new record type
+concurrent-computing	chunk:06	family:concurrent-computing	
+conditional-structures	chunk:05	feat:case	case in subrange
+conjugate-a-latin-verb	chunk:02	feat:procedure	procedure
+constrained-genericity	core	core	array for for_with_array function nested_proc new record type
+constrained-random-points-on-a-circle	chunk:03	feat:sqrt	sqrt while
+continued-fraction-arithmetic-construct-from-rational-number	chunk:02	feat:div	div function in mod while
+continued-fraction	chunk:04	feat:nested_proc	for function nested_proc
+convert-decimal-number-to-rational	chunk:03	feat:in	function in
+copy-a-string	chunk:06	family:copy-a-string	
+copy-stdin-to-stdout	chunk:06	family:copy-stdin-to-stdout	
+count-how-many-vowels-and-consonants-occur-in-a-string	chunk:01	feat:type	for function in subrange type
+count-in-factors	chunk:03	feat:repeat	div function new repeat subrange
+count-in-octal	chunk:04	feat:for	for
+count-occurrences-of-a-substring	chunk:04	feat:function	function
+count-the-coins-0-1	chunk:04	feat:for_with_array	array for for_with_array function in nested_proc procedure
+count-the-coins	chunk:03	feat:array	array function in subrange
+crc-32	chunk:05	feat:set_literal	array const for for_with_array function in nested_proc set_literal subrange type writeln
+create-a-file	chunk:06	family:create-a-file	
+create-a-two-dimensional-array-at-runtime	chunk:03	feat:array	array new
+create-an-object-at-a-given-address	core	core	new pointer pointer_with_new writeln
+csv-data-manipulation	chunk:06	family:csv-data-manipulation	
+cuban-primes	chunk:03	feat:sqrt	const div for in mod sqrt while write writeln
+cubic-special-primes	chunk:01	feat:write	for in new write
+cullen-and-woodall-numbers	chunk:01	feat:subrange	function nested_proc subrange
+cumulative-standard-deviation	chunk:03	feat:sqrt	function in nested_proc sqrt
+currency	chunk:04	feat:with	in with
+curzon-numbers	chunk:04	feat:with	function in mod nested_proc while with write
+cusip	core	core	div for function in mod ord
+damm-algorithm	chunk:03	feat:in	function in
+date-format	chunk:06	family:date-format	
+day-of-the-week	chunk:02	feat:const	const subrange
+deceptive-numbers	chunk:04	feat:mod	function mod new while
+deconvolution-1d	chunk:04	feat:for_with_array	array for for_with_array function
+decorate-sort-undecorate-idiom	chunk:04	feat:function	function
+decreasing-contiguous-subsequences	core	core	eof file function nested_proc read type
+define-a-primitive-data-type	core	core	div function in mod nested_proc new record subrange type
+demings-funnel	core	core	array const function in nested_proc procedure sqr sqrt writeln
+department-numbers	chunk:03	feat:writeln	for writeln
+descending-primes	chunk:05	feat:downto	downto for function mod
+detect-division-by-zero	chunk:02	feat:div	div writeln
+determine-if-a-string-has-all-the-same-characters	chunk:05	feat:ord	in ord procedure writeln
+determine-if-a-string-has-all-unique-characters	chunk:05	feat:ord	in ord writeln
+determine-if-a-string-is-collapsible	chunk:01	feat:subrange	function in new subrange writeln
+determine-if-a-string-is-numeric	chunk:04	feat:function	function
+determine-sentence-type	chunk:05	feat:case	case function in
+dice-game-probabilities	chunk:02	feat:procedure	array function in nested_proc procedure subrange
+digital-root-multiplicative-digital-root	chunk:04	feat:while	for function in new while writeln
+digital-root	chunk:04	feat:while	function in while writeln
+dijkstras-algorithm	chunk:01	feat:type	array function in new type while
+dinesmans-multiple-dwelling-problem	chunk:05	feat:abs	abs array const in repeat subrange
+disarium-numbers	chunk:04	feat:while	function in while
+distribution-of-0-digits-in-factorial-series	chunk:03	feat:writeln	for in writeln
+diversity-prediction-theorem	chunk:05	feat:sqr	array function nested_proc procedure sqr writeln
+dns-query	chunk:03	feat:in	in
+doomsday-rule	chunk:02	feat:const	array const div function in mod nested_proc writeln
+dot-product	chunk:03	feat:array	array function
+doubly-linked-list-definition	chunk:05	feat:nil	nested_proc new nil procedure type while
+doubly-linked-list-element-definition	chunk:01	feat:type	type
+doubly-linked-list-element-insertion	chunk:05	feat:nil	nested_proc new nil procedure type
+doubly-linked-list-traversal	chunk:05	feat:nil	new nil subrange while
+dragon-curve	chunk:05	feat:case	case in nested_proc procedure
+draw-a-pixel	chunk:06	family:draw-a-pixel	
+draw-a-rotating-cube	chunk:06	family:draw-a-rotating-cube	
+duffinian-numbers	chunk:01	feat:write	function mod while write writeln
+dutch-national-flag-problem	chunk:03	feat:repeat	array procedure repeat type while
+egyptian-division	chunk:05	feat:abs	abs for function while
+emirp-primes	chunk:03	feat:sqrt	const function in nested_proc new sqrt while
+empty-program	chunk:06	family:empty-program	
+empty-string	chunk:06	family:empty-string	
+engel-expansion	chunk:02	feat:div	div function in nested_proc new while
+entropy	chunk:03	feat:in	function in
+enumerations	chunk:01	feat:type	type
+environment-variables	chunk:06	family:environment-variables	
+equal-prime-and-composite-sums	chunk:03	feat:repeat	function mod repeat sqrt while writeln
+equilibrium-index	chunk:03	feat:array	array function in
+erd-s-nicolas-numbers	chunk:02	feat:const	const for writeln
+ethiopian-multiplication	chunk:05	feat:odd	div function mod nested_proc odd while
+euclid-mullin-sequence	chunk:03	feat:repeat	function mod nested_proc repeat while
+euclidean-rhythm	chunk:01	feat:subrange	for function subrange while
+euler-method	chunk:01	feat:write	for function in mod nested_proc procedure while write writeln
+eulers-constant-0.5772...	chunk:02	feat:const	const for writeln
+eulers-identity	chunk:02	feat:new	new
+eulers-sum-of-powers-conjecture	chunk:01	feat:subrange	for function in subrange writeln
+evaluate-binomial-coefficients	chunk:02	feat:div	div for function
+even-or-odd	chunk:04	feat:mod	function mod nested_proc
+events	chunk:02	feat:procedure	procedure writeln
+evolutionary-algorithm	chunk:02	feat:const	const function mod nested_proc subrange while
+exceptions-1	chunk:01	feat:type	type
+exceptions-2	chunk:02	feat:new	new
+exceptions-3	chunk:06	family:exceptions	
+exceptions-catch-an-exception-thrown-in-a-nested-call	chunk:01	feat:type	for nested_proc new procedure type writeln
+execute-a-system-command	chunk:06	family:execute-a-system-command	
+exponential-digital-sums	chunk:02	feat:procedure	for function in nested_proc new procedure while
+exponentiation-order	chunk:06	family:exponentiation-order	
+exponentiation-with-infix-operators-in-or-operating-on-the-base	chunk:03	feat:writeln	in writeln
+extend-your-language	chunk:05	feat:case	case const function
+extensible-prime-generator	chunk:03	feat:sqrt	const function in new sqrt while
+extreme-floating-point-values	chunk:03	feat:sqrt	sqrt
+factorial-primes	chunk:04	feat:trunc	for function mod nested_proc sqrt trunc while writeln
+factorial	chunk:04	feat:nested_proc	for function nested_proc
+factorions	chunk:01	feat:write	div for mod while write
+factors-of-a-mersenne-number	chunk:03	feat:sqrt	const for function mod sqrt while write
+factors-of-an-integer	chunk:04	feat:trunc	div for function in sqrt trunc
+fairshare-between-two-and-more	chunk:02	feat:div	div for function in mod new while
+farey-sequence	chunk:03	feat:writeln	for function new writeln
+fast-fourier-transform	core	core	array div for for_with_array function in mod new odd
+feigenbaum-constant-calculation	chunk:03	feat:writeln	for writeln
+fermat-numbers	chunk:01	feat:write	div for function mod nested_proc while write writeln
+fermat-pseudoprimes	chunk:04	feat:trunc	for function mod nested_proc new sqrt trunc while
+fibonacci-n-step-number-sequences-1	chunk:03	feat:array	array function nested_proc
+fibonacci-n-step-number-sequences-2	chunk:03	feat:array	array function
+fibonacci-sequence	chunk:06	family:fibonacci-sequence	
+fibonacci-word-fractal	chunk:02	feat:procedure	function in mod nested_proc procedure
+fibonacci-word	chunk:01	feat:write	function in nested_proc while write writeln
+file-input-output	chunk:06	family:file-input-output	
+file-modification-time	chunk:05	feat:file	file
+file-size	chunk:06	family:file-size	
+filter	chunk:04	feat:mod	mod subrange
+find-common-directory-path	chunk:03	feat:array	array function nested_proc
+find-if-a-point-is-within-a-triangle	chunk:01	feat:type	for function in nested_proc new type
+find-limit-of-recursion	chunk:02	feat:procedure	procedure
+find-palindromic-numbers-in-both-binary-and-ternary-bases	chunk:02	feat:div	div for function mod nested_proc new while
+find-the-intersection-of-a-line-with-a-plane	chunk:01	feat:type	function nested_proc new type
+find-the-intersection-of-two-lines	chunk:01	feat:type	function nested_proc new type
+find-the-last-sunday-of-each-month	chunk:04	feat:while	for function new while
+find-the-missing-permutation	chunk:06	family:find-the-missing-permutation	
+find-words-which-contain-all-the-vowels	chunk:05	feat:file	file in
+find-words-which-contains-more-than-3-e-vowels	chunk:05	feat:file	file function in
+find-words-whose-first-and-last-three-letters-are-equal	chunk:03	feat:writeln	in writeln
+first-class-functions-use-numbers-analogously	chunk:02	feat:new	in new
+first-class-functions	chunk:04	feat:nested_proc	for function in nested_proc
+first-perfect-square-in-base-n-with-n-unique-digits	chunk:02	feat:const	const div for function mod new while
+first-power-of-2-that-has-leading-decimal-digits-of-12	chunk:04	feat:trunc	function in trunc while
+five-weekends	chunk:02	feat:const	const in new subrange writeln
+fivenum	chunk:02	feat:const	array const div function in mod nested_proc
+fizzbuzz	chunk:04	feat:mod	for mod
+flatten-a-list	chunk:03	feat:array	array function in nested_proc new
+floyds-triangle	chunk:01	feat:write	for procedure write writeln
+forbidden-numbers	chunk:02	feat:div	div function in mod subrange while
+fork	core	core	new procedure readln writeln
+formatted-numeric-output	chunk:06	family:formatted-numeric-output	
+forward-difference	chunk:04	feat:for_with_array	array for for_with_array function new while
+fractal-tree	chunk:02	feat:procedure	procedure
+function-composition	chunk:04	feat:function	function
+function-definition	chunk:04	feat:function	function
+fusc-sequence	chunk:02	feat:const	const div for function nested_proc new subrange while
+gamma-function	chunk:04	feat:for_with_array	array const for for_with_array function sqrt writeln
+gapful-numbers	chunk:04	feat:mod	function mod nested_proc new while
+gauss-jordan-matrix-inversion	chunk:02	feat:new	new
+gaussian-elimination	chunk:02	feat:new	new
+gaussian-primes	core	core	abs function in mod nested_proc new record sqrt subrange type while with with_record write
+general-fizzbuzz	chunk:04	feat:mod	for mod
+generate-chess960-starting-position	chunk:03	feat:in	function in
+generate-lower-case-ascii-alphabet	chunk:01	feat:subrange	subrange
+generator-exponential	chunk:06	family:generator-exponential	
+generic-swap	chunk:02	feat:procedure	procedure
+get-system-command-output	chunk:02	feat:new	new
+giuga-numbers	chunk:02	feat:div	div while
+globally-replace-text-in-several-files	chunk:02	feat:new	in new
+goldbachs-comet	chunk:02	feat:const	const div for function in mod nested_proc subrange while write writeln
+golden-ratio-convergence	chunk:05	feat:abs	abs sqrt while
+gray-code	chunk:04	feat:while	for function nested_proc while writeln
+greatest-common-divisor	chunk:04	feat:mod	function mod nested_proc while
+greatest-element-of-a-list	chunk:06	family:greatest-element-of-a-list	
+greatest-subsequential-sum	chunk:04	feat:with	array for for_with_array function with
+guess-the-number	chunk:01	feat:subrange	subrange while
+hailstone-sequence	chunk:02	feat:div	div for function while
+halt-and-catch-fire	chunk:02	feat:new	new
+hamming-numbers	chunk:01	feat:subrange	for function new subrange
+handle-a-signal	chunk:04	feat:while	while
+happy-numbers	chunk:04	feat:while	function in new while
+harmonic-series	chunk:01	feat:subrange	for function subrange while
+harshad-or-niven-series	chunk:04	feat:function	function
+hash-from-two-arrays	chunk:01	feat:subrange	subrange
+haversine-formula	chunk:03	feat:sqrt	const function sqrt
+hello-world-graphical	chunk:06	family:hello-world-graphical	
+hello-world-line-printer	chunk:02	feat:new	new
+hello-world-newline-omission	chunk:01	feat:write	write
+hello-world-standard-error	chunk:06	family:hello-world-standard-error	
+hello-world-text-1	chunk:05	family:hello-world-text	
+hello-world-text-2	core	core	program writeln
+hello-world-text-3	chunk:05	family:hello-world-text	
+here-document	chunk:04	feat:with	with write
+heronian-triangles	chunk:05	feat:with	for function in nested_proc sqrt with writeln
+hex-words	chunk:05	feat:with	function in new while with writeln
+hickerson-series-of-almost-integers	chunk:03	feat:writeln	for writeln
+higher-order-functions	chunk:04	feat:nested_proc	function nested_proc
+hilbert-curve	chunk:02	feat:procedure	procedure
+hofstadter-conway-_10-000-sequence	chunk:03	feat:repeat	for function repeat writeln
+hofstadter-figure-figure-sequences	core	core	forward function in nested_proc subrange
+hofstadter-q-sequence	chunk:04	feat:for	for
+honaker-primes	chunk:03	feat:sqrt	function in mod nested_proc new sqrt while write writeln
+horizontal-sundial-calculations	chunk:03	feat:writeln	for writeln
+horners-rule-for-polynomial-evaluation	chunk:03	feat:array	array function in
+host-introspection	chunk:03	feat:in	in
+hostname	chunk:06	family:hostname	
+http	chunk:02	feat:new	new
+https-authenticated	chunk:02	feat:new	new
+https	chunk:02	feat:new	new
+humble-numbers	chunk:01	feat:write	for function in mod while write writeln
+i-before-e-except-after-c	chunk:05	feat:file	array file type
+iban	chunk:05	feat:ord	case function in mod ord subrange
+identity-matrix	chunk:03	feat:array	array
+idoneal-numbers	chunk:01	feat:write	for function in mod subrange write
+implicit-type-conversion	chunk:01	feat:type	function new type
+include-a-file-1	chunk:06	family:include-a-file	
+include-a-file-2	chunk:02	feat:procedure	procedure
+increasing-gaps-between-consecutive-niven-numbers	chunk:02	feat:div	div function mod while writeln
+increment-a-numerical-string	chunk:06	family:increment-a-numerical-string	
+infinity	chunk:01	feat:write	write
+inheritance-multiple	chunk:01	feat:type	nested_proc new procedure type writeln
+inheritance-single	chunk:01	feat:type	type
+input-loop	core	core	eof while
+integer-comparison	chunk:06	family:integer-comparison	
+integer-sequence-1	chunk:04	feat:nested_proc	function nested_proc
+integer-sequence-2	chunk:06	family:integer-sequence	
+intersecting-number-wheels	chunk:04	feat:while	function in nested_proc while writeln
+inventory-sequence	chunk:01	feat:write	for function in mod new while write writeln
+isbn13-check-digit	chunk:04	feat:mod	function in mod
+isograms-and-heterograms	chunk:05	feat:set	function in new set
+isqrt-integer-square-root-of-x	chunk:01	feat:write	for function while write writeln
+iterated-digits-squaring	core	core	div for function in mod nested_proc new repeat while
+iterators	chunk:01	feat:type	function nested_proc type
+jacobi-symbol	chunk:01	feat:write	for function in mod while write writeln
+jacobsthal-numbers	core	core	for function in mod nested_proc round sqrt while write writeln
+jensens-device	chunk:04	feat:while	function while writeln
+jewels-and-stones	chunk:06	family:jewels-and-stones	
+jortsort	chunk:01	feat:subrange	function subrange
+josephus-problem	chunk:02	feat:procedure	mod new procedure subrange while
+json	chunk:03	feat:array	array new
+juggler-sequence	chunk:02	feat:procedure	for function in mod nested_proc procedure while writeln
+julia-set	core	core	array const for for_with_array new set set_literal subrange while
+jump-anywhere	core	core	for goto label
+kaprekar-numbers	chunk:01	feat:subrange	for function subrange
+kernighans-large-earthquake-problem	chunk:03	feat:in	in
+keyboard-input-obtain-a-y-or-n-response	chunk:03	feat:repeat	in repeat
+klarner-rado-sequence	core	core	array const for for_with_array function mod round set_literal subrange type write writeln
+knapsack-problem-0-1	core	core	array case const function in new type writeln
+knuth-shuffle	chunk:05	feat:downto	array downto for for_with_array procedure subrange
+knuths-algorithm-s	chunk:05	feat:set_literal	array for for_with_array function in nested_proc new set_literal subrange writeln
+knuths-power-tree	chunk:02	feat:procedure	for function in nested_proc new procedure while writeln
+kolakoski-sequence	chunk:04	feat:for_with_array	array for for_with_array function in mod nested_proc new while writeln
+kosaraju	chunk:05	feat:set_literal	array for for_with_array function in nested_proc new procedure set_literal subrange
+kronecker-product-based-fractals	chunk:04	feat:for_with_array	array for for_with_array function in nested_proc procedure subrange type write
+kronecker-product	chunk:04	feat:for_with_array	array for for_with_array function type
+lah-numbers	chunk:02	feat:div	div for function nested_proc subrange
+langtons-ant	core	core	array case const div for for_with_array in mod set_literal subrange type while
+largest-int-from-concatenated-ints	chunk:03	feat:array	array function
+largest-number-divisible-by-its-digits	core	core	div downto for function mod nested_proc new repeat while
+largest-proper-divisor-of-n	chunk:01	feat:write	for function mod write
+last-friday-of-each-month	chunk:01	feat:subrange	in new subrange writeln
+last-letter-first-letter	chunk:02	feat:procedure	array in mod procedure subrange
+law-of-cosines---triples	chunk:05	feat:sqr	for function sqr sqrt subrange
+leap-year	chunk:04	feat:mod	function mod
+least-common-multiple	chunk:02	feat:div	div function mod nested_proc while
+left-factorials	chunk:04	feat:for	for function
+leonardo-numbers	chunk:04	feat:while	function while
+levenshtein-distance	chunk:03	feat:in	function in
+linear-congruential-generator-1	chunk:03	feat:writeln	function nested_proc writeln
+linear-congruential-generator-2	chunk:05	feat:with	function in nested_proc while with
+list-comprehensions	chunk:01	feat:subrange	subrange
+literals-floating-point	chunk:06	family:literals-floating-point	
+literals-integer	chunk:02	feat:const	const
+literals-string	chunk:05	feat:with	in with
+logistic-curve-fitting-in-epidemiology	chunk:02	feat:const	const function in nested_proc subrange while writeln
+long-literals-with-continuations	chunk:02	feat:const	const in
+long-multiplication	core	core	chr div downto for function mod ord
+long-primes	chunk:03	feat:repeat	for function in mod nested_proc repeat sqrt writeln
+long-year	chunk:01	feat:subrange	function new subrange
+longest-common-subsequence	chunk:05	feat:with	array for for_with_array function nested_proc new with
+longest-common-substring	chunk:01	feat:subrange	for function in subrange
+longest-increasing-subsequence	chunk:05	feat:downto	array downto for for_with_array function in new subrange
+look-and-say-sequence	chunk:01	feat:subrange	function in subrange while
+loop-over-multiple-arrays-simultaneously	chunk:03	feat:writeln	for in writeln
+loops-break	chunk:04	feat:while	while
+loops-continue	chunk:01	feat:write	for mod write writeln
+loops-do-while	chunk:03	feat:repeat	mod repeat
+loops-downward-for	chunk:05	feat:downto	downto for
+loops-for-with-a-specified-step	chunk:04	feat:for	for
+loops-for	chunk:01	feat:write	for write writeln
+loops-foreach	chunk:03	feat:in	in
+loops-increment-loop-index-within-loop-body	chunk:05	feat:round	function mod round sqrt subrange while
+loops-n-plus-one-half	chunk:01	feat:write	for write
+loops-nested	core	core	array for for_with_array goto label
+loops-while	chunk:02	feat:div	div while
+loops-with-multiple-ranges	chunk:05	feat:round	abs in round subrange
+loops-wrong-ranges	chunk:02	feat:procedure	in procedure
+lucas-lehmer-test	chunk:03	feat:sqrt	for function in mod nested_proc new sqrt write
+ludic-numbers	chunk:01	feat:write	div function in nested_proc new while write writeln
+luhn-test-of-credit-card-numbers	chunk:05	feat:odd	function in mod nested_proc odd writeln
+lychrel-numbers	chunk:02	feat:const	const function in nested_proc new subrange
+lyndon-word	chunk:02	feat:const	const div function in nested_proc while
+lzw-compression	core	core	chr for function in nested_proc new write writeln
+m-bius-function	chunk:01	feat:write	for function mod subrange write
+mac-vendor-lookup	chunk:02	feat:new	in new
+magic-constant	chunk:01	feat:write	div for function subrange write
+magic-numbers	chunk:04	feat:mod	function in mod new subrange while writeln
+magic-squares-of-doubly-even-order	chunk:04	feat:for_with_array	array const div for for_with_array function mod new writeln
+magnanimous-numbers	chunk:04	feat:trunc	div function mod nested_proc sqrt trunc while writeln
+man-or-boy-test	chunk:04	feat:nested_proc	function nested_proc
+map-range	chunk:03	feat:writeln	for function writeln
+matrix-exponentiation-operator	chunk:02	feat:new	function new
+matrix-multiplication	chunk:02	feat:new	new
+matrix-transposition	chunk:02	feat:new	new
+maximum-triangle-path-sum	chunk:05	feat:downto	array downto for for_with_array function
+maze-generation	chunk:02	feat:const	const in procedure subrange
+mcnuggets-problem	chunk:05	feat:set_literal	div in set_literal subrange
+md5	chunk:03	feat:in	in
+meissel-mertens-constant	chunk:03	feat:sqrt	for function in mod sqrt writeln
+memory-allocation	core	core	dispose nested_proc new nil pointer pointer_with_new procedure
+mertens-function	chunk:01	feat:write	div function in mod subrange write
+metallic-ratios	core	core	div for function in nested_proc procedure subrange type while with write writeln
+metered-concurrency	core	core	for new procedure program writeln
+mian-chowla-sequence	core	core	function goto in label set
+middle-three-digits	core	core	abs div function in mod new odd type writeln
+miller-rabin-primality-test	chunk:03	feat:repeat	div for function in mod new repeat subrange while
+minimum-multiple-of-m-where-digital-sum-equals-m	chunk:01	feat:write	function in mod nested_proc while write
+modified-random-distribution	chunk:03	feat:repeat	div function in nested_proc repeat writeln
+modular-exponentiation-1	chunk:03	feat:writeln	writeln
+modular-exponentiation-2	chunk:01	feat:type	function mod nested_proc type
+modular-inverse	chunk:02	feat:div	div function mod while
+monte-carlo-methods	chunk:05	feat:sqr	for sqr writeln
+monty-hall-problem	chunk:04	feat:for	for function in
+morse-code	chunk:02	feat:const	const in procedure subrange
+motzkin-numbers	core	core	div function in mod nested_proc repeat sqrt trunc while writeln
+mouse-position	chunk:06	family:mouse-position	
+move-to-front-algorithm	chunk:02	feat:const	const function in nested_proc new subrange
+multifactorial	chunk:01	feat:write	function in nested_proc subrange write
+multiple-regression	chunk:05	feat:sqr	function new sqr
+multiplication-tables	chunk:01	feat:write	for write writeln
+multisplit	chunk:06	family:multisplit	
+munchausen-numbers	chunk:01	feat:subrange	subrange
+musical-scale	chunk:05	feat:round	in round
+mutual-recursion	chunk:06	feat:forward	forward function nested_proc subrange
+n-queens-problem	chunk:02	feat:const	const in mod subrange write writeln
+named-parameters	chunk:02	feat:procedure	procedure
+naming-conventions	chunk:06	family:naming-conventions	
+narcissistic-decimal-number	chunk:03	feat:repeat	function in mod repeat subrange while
+nested-function	chunk:05	feat:case	case nested_proc procedure write writeln
+next-highest-int-from-digits	chunk:02	feat:div	div function in mod nested_proc new subrange while
+nim-game	chunk:04	feat:while	while writeln
+non-continuous-subsequences	chunk:05	feat:set_literal	for function nested_proc new set_literal subrange
+nonoblock	core	core	function in nested_proc new ord procedure writeln
+nth	chunk:04	feat:mod	function in mod subrange
+null-object	chunk:05	feat:nil	new nil
+numbers-which-are-not-the-sum-of-distinct-squares	chunk:05	feat:sqr	case function in new repeat sqr sqrt
+numbers-which-are-the-cube-roots-of-the-product-of-their-proper-divisors	chunk:03	feat:repeat	div function in mod nested_proc repeat write writeln
+numbers-with-equal-rises-and-falls	chunk:03	feat:in	function in
+numeric-error-propagation	chunk:05	feat:record	abs function nested_proc new record sqr sqrt type
+numerical-integration	chunk:05	feat:set_literal	array for for_with_array function set_literal subrange
+object-serialization	chunk:01	feat:type	function nested_proc new type
+odd-word-problem	chunk:01	feat:write	in nested_proc procedure subrange while write
+odd-words	chunk:02	feat:const	const for function in mod new writeln
+ohalloran-numbers	chunk:02	feat:const	const div in subrange write
+one-dimensional-cellular-automata	chunk:01	feat:subrange	subrange
+one-of-n-lines-in-a-file	chunk:04	feat:for_with_array	array for for_with_array function in nested_proc new subrange
+openwebnet-password	chunk:05	feat:case	case const function in nested_proc new procedure
+operator-precedence	chunk:02	feat:div	div in mod new subrange
+order-two-numerical-lists	chunk:03	feat:in	function in
+ordered-words	chunk:04	feat:for	for function new
+padovan-n-step-number-sequences	chunk:04	feat:while	for function while
+padovan-sequence	chunk:05	feat:round	const function in nested_proc round while writeln
+palindrome-dates	chunk:03	feat:repeat	div function in mod nested_proc repeat writeln
+palindrome-detection	chunk:04	feat:function	function
+palindromic-gapful-numbers	chunk:03	feat:repeat	for function mod nested_proc repeat writeln
+palindromic-primes-in-base-16	chunk:06	family:palindromic-primes-in-base	
+pan-base-non-primes	core	core	const div downto for function in mod nested_proc new odd subrange while writeln
+pancake-numbers	chunk:01	feat:subrange	function in new subrange writeln
+pangram-checker	chunk:02	feat:const	const function
+paraffins	core	core	const div downto for function in nested_proc procedure subrange writeln
+parallel-calculations	chunk:02	feat:const	const for in new write writeln
+parametric-polymorphism	chunk:05	feat:nil	div function nested_proc new nil procedure type
+parsing-rpn-calculator-algorithm	chunk:02	feat:new	in new
+partition-an-integer-x-into-n-primes	chunk:05	feat:with	function in new with writeln
+partition-function-p	chunk:04	feat:for_with_array	array const div for for_with_array function mod nested_proc procedure
+pascal-matrix-generation	chunk:02	feat:div	div for function subrange
+pascals-triangle-puzzle	chunk:05	feat:round	function round
+pascals-triangle	chunk:04	feat:for_with_array	array for for_with_array procedure write writeln
+pathological-floating-point-problems	chunk:02	feat:const	const for function in nested_proc
+pells-equation	chunk:03	feat:repeat	div for function in repeat sqrt writeln
+perfect-shuffle	chunk:03	feat:repeat	div function in mod nested_proc repeat writeln
+perfect-totient-numbers	chunk:03	feat:repeat	function nested_proc repeat subrange while
+permutation-test	chunk:01	feat:write	array function in write
+permutations-derangements	chunk:04	feat:for_with_array	array for for_with_array function in nested_proc writeln
+permutations	chunk:03	feat:array	array while writeln
+pick-random-element	chunk:06	family:pick-random-element	
+plot-coordinate-pairs	chunk:02	feat:new	new
+pointers-and-references	core	core	in new nil pointer pointer_with_new type
+polymorphic-copy	chunk:01	feat:type	function in nested_proc new type
+polymorphism	chunk:01	feat:type	nested_proc new procedure type
+population-count	chunk:01	feat:subrange	function subrange
+power-set	chunk:03	feat:array	array function new subrange
+primality-by-trial-division	chunk:04	feat:trunc	for function sqrt trunc
+prime-decomposition	chunk:02	feat:div	div function mod new while
+product-of-divisors	chunk:04	feat:for	for
+program-name	chunk:06	family:program-name	
+program-termination	chunk:06	family:program-termination	
+quadrat-special-primes	chunk:05	feat:round	function round sqrt while
+queue-definition	core	core	for function nested_proc new nil procedure type while
+queue-usage	chunk:04	feat:while	for new while
+quine	chunk:06	family:quine	
+quoting-constructs-1	chunk:05	family:quoting-constructs	
+quoting-constructs-2	chunk:05	family:quoting-constructs	
+quoting-constructs-3	chunk:05	family:quoting-constructs	
+quoting-constructs-4	chunk:05	family:quoting-constructs	
+radical-of-an-integer	chunk:01	feat:write	div for function in mod nested_proc new while write writeln
+ramer-douglas-peucker-line-simplification	chunk:03	feat:sqrt	for function nested_proc new sqrt type
+random-numbers	chunk:05	feat:sqr	array const function sqr sqrt
+read-a-file-character-by-character-utf8	core	core	eof while
+read-a-file-line-by-line	chunk:06	feat:eof	eof while
+read-a-specific-line-from-a-file	chunk:06	family:read-a-specific-line-from-a-file	
+read-entire-file	chunk:06	family:read-entire-file	
+real-constants-and-functions	chunk:05	feat:abs	abs sqrt with
+reflection-list-methods	chunk:06	family:reflection-list-methods	
+reflection-list-properties	chunk:01	feat:type	new type
+regular-expressions	chunk:03	feat:in	in
+remove-duplicate-elements	chunk:05	feat:set	in new set
+remove-lines-from-a-file	chunk:02	feat:procedure	in procedure subrange
+rename-a-file	chunk:05	feat:file	file
+repeat-a-string	chunk:06	family:repeat-a-string	
+repeat	chunk:02	feat:procedure	nested_proc procedure
+return-multiple-values	chunk:04	feat:function	function
+reverse-a-string	chunk:06	family:reverse-a-string	
+reverse-the-gender-of-a-string	chunk:03	feat:in	function in
+reverse-words-in-a-string	chunk:05	feat:with	in new with writeln
+roman-numerals-decode-1	chunk:05	feat:downto	downto for function in writeln
+roman-numerals-decode-2	chunk:05	feat:case	case function in writeln
+roman-numerals-encode	chunk:02	feat:div	div function in mod
+roots-of-unity	chunk:01	feat:subrange	function subrange
+rosetta-code-rank-languages-by-popularity	chunk:02	feat:new	new
+rot-13	core	core	chr function in mod new subrange
+rpg-attributes-generator	chunk:03	feat:repeat	repeat
+safe-and-sophie-germain-primes	chunk:03	feat:in	in
+sattolo-cycle	chunk:05	feat:downto	array downto for for_with_array function in new write writeln
+scope-modifiers-1	chunk:05	family:scope-modifiers	
+scope-modifiers-2	chunk:05	family:scope-modifiers	
+scope-modifiers-3	chunk:05	family:scope-modifiers	
+scope-modifiers-4	chunk:05	family:scope-modifiers	
+search-a-list-of-records	chunk:05	feat:record	array const record type
+send-an-unknown-method-call	chunk:01	feat:write	new procedure type write
+sequence-of-primes-by-trial-division	chunk:04	feat:trunc	function sqrt subrange trunc
+shape-machine	chunk:03	feat:repeat	repeat writeln
+short-circuit-evaluation	chunk:04	feat:nested_proc	function nested_proc
+sierpinski-triangle	chunk:05	feat:downto	const downto for write writeln
+sieve-of-eratosthenes	chunk:04	feat:trunc	for function new sqrt trunc type
+simple-windowed-application	chunk:06	family:simple-windowed-application	
+singly-linked-list-element-definition	chunk:01	feat:type	type
+singly-linked-list-element-insertion	chunk:05	feat:nil	nested_proc new nil procedure type while
+sleep	chunk:06	family:sleep	
+sort-an-array-of-composite-structures	chunk:01	feat:type	array new type
+sort-an-integer-array	chunk:06	family:sort-an-integer-array	
+sort-three-variables	chunk:02	feat:procedure	procedure
+sort-using-a-custom-comparator	chunk:01	feat:type	array new type
+sorting-algorithms-bubble-sort	chunk:03	feat:repeat	array for for_with_array procedure repeat writeln
+sorting-algorithms-quicksort	chunk:03	feat:repeat	array const function nested_proc procedure repeat while
+special-variables-1	chunk:04	feat:function	function
+special-variables-2	chunk:01	feat:type	type
+special-variables-3	chunk:01	feat:write	type write
+split-a-character-string-based-on-change-of-character	chunk:06	family:split-a-character-string-based-on-change-of-character	
+stack-traces	chunk:02	feat:procedure	nested_proc new procedure
+stack	chunk:04	feat:while	new while
+statistics-basic	chunk:05	feat:sqr	array for for_with_array in procedure sqr sqrt writeln
+string-append	chunk:06	family:string-append	
+string-case	chunk:06	family:string-case	
+string-concatenation	chunk:06	family:string-concatenation	
+string-interpolation-included-	chunk:06	family:string-interpolation-included	
+string-length	chunk:06	family:string-length	
+string-matching	chunk:03	feat:in	in
+string-prepend	chunk:06	family:string-prepend	
+strip-a-set-of-characters-from-a-string	chunk:03	feat:in	function in
+strip-block-comments	chunk:04	feat:nested_proc	function nested_proc
+strip-comments-from-a-string	chunk:03	feat:writeln	function writeln
+strip-control-codes-and-extended-characters-from-a-string	chunk:01	feat:subrange	function in subrange
+strip-whitespace-from-a-string-top-and-tail	chunk:03	feat:writeln	writeln
+substitution-cipher	chunk:04	feat:nested_proc	function nested_proc
+substring-top-and-tail	chunk:03	feat:writeln	writeln
+substring	chunk:02	feat:const	const writeln
+sudan-function	chunk:04	feat:function	function
+sum-and-product-of-an-array	chunk:01	feat:subrange	subrange
+sum-data-type	chunk:05	feat:record	record type
+sum-digits-of-an-integer-1	chunk:02	feat:div	div function mod while
+sum-digits-of-an-integer-2	chunk:06	family:sum-digits-of-an-integer	
+sum-multiples-of-3-and-5	chunk:01	feat:subrange	subrange
+sum-of-a-series	chunk:01	feat:subrange	subrange
+sum-of-divisors	chunk:04	feat:for	for
+sum-of-elements-below-main-diagonal-of-matrix	chunk:04	feat:for_with_array	array for for_with_array function
+sum-of-squares	chunk:06	family:sum-of-squares	
+symmetric-difference	chunk:06	family:symmetric-difference	
+system-time	chunk:06	family:system-time	
+take-notes-on-the-command-line	chunk:05	feat:file	file subrange
+tau-function	chunk:04	feat:function	function
+tau-number	chunk:04	feat:while	function new while
+teacup-rim-text-1	core	core	file function in nested_proc subrange while
+teacup-rim-text-2	chunk:03	feat:in	in
+temperature-conversion	chunk:06	family:temperature-conversion	
+terminal-control-clear-the-screen	chunk:06	family:terminal-control-clear-the-screen	
+terminal-control-coloured-text	chunk:06	family:terminal-control-coloured-text	
+terminal-control-cursor-movement	chunk:06	family:terminal-control-cursor-movement	
+terminal-control-cursor-positioning	chunk:01	feat:write	write
+terminal-control-dimensions	chunk:06	family:terminal-control-dimensions	
+terminal-control-display-an-extended-character	chunk:06	family:terminal-control-display-an-extended-character	
+terminal-control-hiding-the-cursor	chunk:06	family:terminal-control-hiding-the-cursor	
+terminal-control-ringing-the-terminal-bell	chunk:06	family:terminal-control-ringing-the-terminal-bell	
+test-a-function	chunk:02	feat:procedure	function nested_proc procedure
+time-a-function	chunk:04	feat:for	for function
+tokenize-a-string	chunk:06	family:tokenize-a-string	
+top-rank-per-group	chunk:03	feat:in	in
+totient-function	chunk:01	feat:subrange	function in nested_proc subrange writeln
+towers-of-hanoi	chunk:02	feat:procedure	procedure
+trabb-pardo-knuth-algorithm	chunk:04	feat:sqrt	function in sqrt
+transliterate-english-text-using-the-greek-alphabet	chunk:03	feat:in	in
+tree-datastructures	chunk:02	feat:div	div function in nested_proc new writeln
+tree-traversal	chunk:05	feat:nil	function nested_proc new nil procedure type while
+trigonometric-functions	chunk:06	family:trigonometric-functions	
+truncate-a-file	chunk:05	feat:file	file new procedure
+twos-complement	chunk:06	family:twos-complement	
+undefined-values	chunk:05	feat:nil	function nil
+unescape-a-string	chunk:03	feat:writeln	in writeln
+unicode-strings	chunk:06	family:unicode-strings	
+unicode-variable-names	chunk:06	family:unicode-variable-names	
+url-decoding	chunk:04	feat:function	function
+url-encoding	chunk:04	feat:function	function
+user-input-text	chunk:06	family:user-input-text	
+variables-1	chunk:05	family:variables	
+variables-2	chunk:05	family:variables	
+variables-3	chunk:05	family:variables	
+variables-4	chunk:05	family:variables	
+variables-5	chunk:02	feat:procedure	procedure
+variables-6	chunk:04	feat:for	for
+variadic-function	chunk:03	feat:procedure	array in procedure
+vector-products	chunk:03	feat:writeln	function nested_proc new writeln
+vector	chunk:01	feat:type	function nested_proc new type
+walk-a-directory-non-recursively	chunk:06	family:walk-a-directory-non-recursively	
+walk-a-directory-recursively	chunk:06	family:walk-a-directory-recursively	
+window-creation	chunk:06	family:window-creation	
+word-frequency	chunk:06	family:word-frequency	
+word-wrap	chunk:04	feat:nested_proc	function in nested_proc
+words-containing-the-substring	chunk:05	feat:file	file in writeln
+write-entire-file	chunk:06	family:write-entire-file	
+write-to-windows-event-log	chunk:06	family:write-to-windows-event-log	
+xml-dom-serialization	chunk:01	feat:type	new type
+xml-input	chunk:01	feat:type	type
+xml-output	chunk:03	feat:writeln	function new writeln
+zero-to-the-zero-power	chunk:06	family:zero-to-the-zero-power	
