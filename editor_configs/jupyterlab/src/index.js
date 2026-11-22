@@ -11,12 +11,18 @@ import snobol4 from '../grammars/snobol4.json';
 import snocone from '../grammars/snocone.json';
 import icon from '../grammars/icon.json';
 import prolog from '../grammars/prolog.json';
+import pascal from '../grammars/pascal.json';
+import raku from '../grammars/raku.json';
+import rebus from '../grammars/rebus.json';
 
 const LANGUAGES = [
   { name: 'snobol4', displayName: 'SNOBOL4', mime: 'text/x-snobol4', extensions: ['sno', 'spt', 'inc'], grammar: snobol4 },
   { name: 'snocone', displayName: 'Snocone', mime: 'text/x-snocone', extensions: ['sc'], grammar: snocone },
   { name: 'icon', displayName: 'Icon', mime: ['text/x-icon', 'text/x-unicon'], extensions: ['icn'], grammar: icon },
-  { name: 'prolog', displayName: 'Prolog', mime: 'text/x-prolog', extensions: ['pro'], grammar: prolog }
+  { name: 'prolog', displayName: 'Prolog', mime: 'text/x-prolog', extensions: ['pro'], grammar: prolog },
+  { name: 'pascal', displayName: 'Pascal', mime: 'text/x-pascal', extensions: ['pas', 'pp', 'lpr', 'dpr'], grammar: pascal },
+  { name: 'raku', displayName: 'Raku', mime: 'text/x-raku', extensions: ['raku', 'rakumod'], grammar: raku },
+  { name: 'rebus', displayName: 'Rebus', mime: 'text/x-rebus', extensions: ['reb'], grammar: rebus }
 ];
 
 // One line's next token from the tokenizer: a line is tokenized once, at its start, and handed out token by token; the stack moves at the line's end.
@@ -70,12 +76,12 @@ function scripParser(grammars) {
 
 const plugin = {
   id: 'scrip-highlight:plugin',
-  description: 'Syntax colouring for the cells of the SCRIP kernel: SNOBOL4, Snocone, Icon and Prolog, by each cell.',
+  description: 'Syntax colouring for the cells of the SCRIP kernel: SNOBOL4, Snocone, Icon, Prolog, Pascal, Raku and Rebus, by each cell.',
   autoStart: true,
   requires: [IEditorLanguageRegistry],
   activate: (app, languages) => {
     try {
-      languages.addLanguage({ name: 'scrip', displayName: 'SCRIP', mime: 'text/x-scrip', extensions: [], load: async () => new LanguageSupport(StreamLanguage.define(scripParser({ snobol4, snocone, icon, prolog }))) });
+      languages.addLanguage({ name: 'scrip', displayName: 'SCRIP', mime: 'text/x-scrip', extensions: [], load: async () => new LanguageSupport(StreamLanguage.define(scripParser({ snobol4, snocone, icon, prolog, pascal, raku, rebus }))) });
     } catch (e) {
       console.warn('scrip-highlight: scrip is not registered: ' + e);
     }

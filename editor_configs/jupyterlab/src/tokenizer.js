@@ -81,7 +81,7 @@ function tag(scope) {
 }
 // THE ONE KERNEL'S CELLS (Lon 2026-11-11: "there is only ONE kernel. Its name is SCRIP and handle all the languages."): a cell whose first line is two percent signs and a
 // language is that language's cell, as the kernel reads it; any other cell is SNOBOL4. name is the grammar's name, or null for a language with no grammar yet.
-const GRAMMAR_OF = { snobol4: 'snobol4', snobol: 'snobol4', spitbol: 'snobol4', snocone: 'snocone', icon: 'icon', unicon: 'icon', prolog: 'prolog' };
+const GRAMMAR_OF = { snobol4: 'snobol4', snobol: 'snobol4', spitbol: 'snobol4', snocone: 'snocone', icon: 'icon', unicon: 'icon', prolog: 'prolog', pascal: 'pascal', raku: 'raku', rebus: 'rebus' };
 function cellLanguage(firstLine) {
   const m = /^%%[ ]*([A-Za-z0-9_]+)/.exec(firstLine);
   return m ? { name: GRAMMAR_OF[m[1].toLowerCase()] || null, tagged: true } : { name: 'snobol4', tagged: false };

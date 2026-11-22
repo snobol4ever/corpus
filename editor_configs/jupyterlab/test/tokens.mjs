@@ -34,7 +34,7 @@ for (const [name, sample] of SAMPLES) {
   languages++;
 }
 // THE ONE KERNEL'S CELLS: the language of a cell is read from its first line, as the kernel reads it; a cell with no tag is SNOBOL4.
-const want = [[' OUTPUT = 1', 'snobol4', false], ['%%icon', 'icon', true], ['%%Prolog', 'prolog', true], ['%% unicon', 'icon', true], ['%%SPITBOL x', 'snobol4', true], ['%%snocone', 'snocone', true], ['%%pascal', null, true],
+const want = [[' OUTPUT = 1', 'snobol4', false], ['%%icon', 'icon', true], ['%%Prolog', 'prolog', true], ['%% unicon', 'icon', true], ['%%SPITBOL x', 'snobol4', true], ['%%snocone', 'snocone', true], ['%%pascal', 'pascal', true], ['%%Raku', 'raku', true], ['%%rebus', 'rebus', true], ['%%perl', null, true],
   ['* %%icon', 'snobol4', false], ['', 'snobol4', false]];
 for (const [line, name, tagged] of want) {
   const c = cellLanguage(line);

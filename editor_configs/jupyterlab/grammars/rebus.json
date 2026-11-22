@@ -1,0 +1,305 @@
+{
+ "contexts": {
+  "calls": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "(?<![A-Za-z0-9_.])[A-Za-z_][A-Za-z0-9_.]*(?=\\()",
+     "scope": "entity.name.function.call.reb"
+    }
+   ]
+  },
+  "comments": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#.*$",
+     "scope": "comment.line.number-sign.reb"
+    }
+   ]
+  },
+  "control": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "(?<![A-Za-z0-9_.])(?:[Ii][Ff]|[Tt][Hh][Ee][Nn]|[Ee][Ll][Ss][Ee]|[Uu][Nn][Ll][Ee][Ss][Ss]|[Ww][Hh][Ii][Ll][Ee]|[Uu][Nn][Tt][Ii][Ll]|[Rr][Ee][Pp][Ee][Aa][Tt]|[Dd][Oo]|[Ff][Oo][Rr]|[Ff][Rr][Oo][Mm]|[Tt][Oo]|[Bb][Yy]|[Rr][Ee][Tt][Uu][Rr][Nn]|[Ee][Xx][Ii][Tt]|[Ff][Aa][Ii][Ll]|[Ss][Tt][Oo][Pp]|[Nn][Ee][Xx][Tt]|[Cc][Aa][Ss][Ee]|[Oo][Ff]|[Dd][Ee][Ff][Aa][Uu][Ll][Tt])(?![A-Za-z0-9_.])",
+     "scope": "keyword.control.reb"
+    }
+   ]
+  },
+  "declarations": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "keyword.declaration.function.reb",
+      "2": "entity.name.function.reb"
+     },
+     "match": "(?<![A-Za-z0-9_.])([Ff][Uu][Nn][Cc][Tt][Ii][Oo][Nn]|procedure|[Pp][Rr][Oo][Cc][Ee][Dd][Uu][Rr][Ee])(?:\\s+([A-Za-z_][A-Za-z0-9_.]*))?(?![A-Za-z0-9_.])"
+    },
+    {
+     "captures": {
+      "1": "keyword.declaration.record.reb",
+      "2": "entity.name.type.record.reb"
+     },
+     "match": "(?<![A-Za-z0-9_.])([Rr][Ee][Cc][Oo][Rr][Dd])(?:\\s+([A-Za-z_][A-Za-z0-9_.]*))?(?![A-Za-z0-9_.])"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])(?:[Ll][Oo][Cc][Aa][Ll]|[Ii][Nn][Ii][Tt][Ii][Aa][Ll]|[Ee][Nn][Dd])(?![A-Za-z0-9_.])",
+     "scope": "keyword.declaration.reb"
+    }
+   ]
+  },
+  "keywords": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "&[A-Za-z_][A-Za-z0-9_]*",
+     "scope": "variable.language.keyword.reb"
+    }
+   ]
+  },
+  "main": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#.*$",
+     "scope": "comment.line.number-sign.reb"
+    },
+    {
+     "match": "\"",
+     "push": [
+      "main#1"
+     ],
+     "scope": "punctuation.definition.string.begin.reb"
+    },
+    {
+     "match": "'",
+     "push": [
+      "main#2"
+     ],
+     "scope": "punctuation.definition.string.begin.reb"
+    },
+    {
+     "captures": {
+      "1": "keyword.declaration.function.reb",
+      "2": "entity.name.function.reb"
+     },
+     "match": "(?<![A-Za-z0-9_.])([Ff][Uu][Nn][Cc][Tt][Ii][Oo][Nn]|procedure|[Pp][Rr][Oo][Cc][Ee][Dd][Uu][Rr][Ee])(?:\\s+([A-Za-z_][A-Za-z0-9_.]*))?(?![A-Za-z0-9_.])"
+    },
+    {
+     "captures": {
+      "1": "keyword.declaration.record.reb",
+      "2": "entity.name.type.record.reb"
+     },
+     "match": "(?<![A-Za-z0-9_.])([Rr][Ee][Cc][Oo][Rr][Dd])(?:\\s+([A-Za-z_][A-Za-z0-9_.]*))?(?![A-Za-z0-9_.])"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])(?:[Ll][Oo][Cc][Aa][Ll]|[Ii][Nn][Ii][Tt][Ii][Aa][Ll]|[Ee][Nn][Dd])(?![A-Za-z0-9_.])",
+     "scope": "keyword.declaration.reb"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])(?:[Ii][Ff]|[Tt][Hh][Ee][Nn]|[Ee][Ll][Ss][Ee]|[Uu][Nn][Ll][Ee][Ss][Ss]|[Ww][Hh][Ii][Ll][Ee]|[Uu][Nn][Tt][Ii][Ll]|[Rr][Ee][Pp][Ee][Aa][Tt]|[Dd][Oo]|[Ff][Oo][Rr]|[Ff][Rr][Oo][Mm]|[Tt][Oo]|[Bb][Yy]|[Rr][Ee][Tt][Uu][Rr][Nn]|[Ee][Xx][Ii][Tt]|[Ff][Aa][Ii][Ll]|[Ss][Tt][Oo][Pp]|[Nn][Ee][Xx][Tt]|[Cc][Aa][Ss][Ee]|[Oo][Ff]|[Dd][Ee][Ff][Aa][Uu][Ll][Tt])(?![A-Za-z0-9_.])",
+     "scope": "keyword.control.reb"
+    },
+    {
+     "match": "&[A-Za-z_][A-Za-z0-9_]*",
+     "scope": "variable.language.keyword.reb"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])[0-9]+\\.[0-9]+(?![A-Za-z0-9_.])",
+     "scope": "constant.numeric.float.reb"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])[0-9]+\\.[0-9]*(?:[eE][+-]?[0-9]+)?(?![A-Za-z0-9_.])",
+     "scope": "constant.numeric.float.reb"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])[0-9]+[eE][+-]?[0-9]+(?![A-Za-z0-9_.])",
+     "scope": "constant.numeric.float.reb"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])[0-9]+(?![A-Za-z0-9_.])",
+     "scope": "constant.numeric.integer.reb"
+    },
+    {
+     "match": "\\|\\|:=|\\+:=|-:=|:=:|:=",
+     "scope": "keyword.operator.assignment.reb"
+    },
+    {
+     "match": "\\?-|<-",
+     "scope": "keyword.operator.replacement.reb"
+    },
+    {
+     "match": "\\+:",
+     "scope": "keyword.operator.substring.reb"
+    },
+    {
+     "match": "~==|==|<<=|>>=|<<|>>|<=|>=|~=|<|>|=",
+     "scope": "keyword.operator.comparison.reb"
+    },
+    {
+     "match": "\\*\\*|[-+*/^%]",
+     "scope": "keyword.operator.arithmetic.reb"
+    },
+    {
+     "match": "\\|\\||[&?|.$]",
+     "scope": "keyword.operator.pattern.reb"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])[A-Za-z_][A-Za-z0-9_.]*(?=\\()",
+     "scope": "entity.name.function.call.reb"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])[A-Za-z_][A-Za-z0-9_.]*",
+     "scope": "variable.other.reb"
+    },
+    {
+     "match": ",",
+     "scope": "punctuation.separator.comma.reb"
+    },
+    {
+     "match": "[;:]",
+     "scope": "punctuation.separator.reb"
+    },
+    {
+     "match": "[()\\[\\]{}]",
+     "scope": "punctuation.section.brackets.reb"
+    }
+   ]
+  },
+  "main#1": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.double.reb",
+   "rules": [
+    {
+     "match": "\"",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.reb"
+    }
+   ]
+  },
+  "main#2": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.single.reb",
+   "rules": [
+    {
+     "match": "'",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.reb"
+    }
+   ]
+  },
+  "names": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "(?<![A-Za-z0-9_.])[A-Za-z_][A-Za-z0-9_.]*",
+     "scope": "variable.other.reb"
+    }
+   ]
+  },
+  "numbers": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "(?<![A-Za-z0-9_.])[0-9]+\\.[0-9]+(?![A-Za-z0-9_.])",
+     "scope": "constant.numeric.float.reb"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])[0-9]+\\.[0-9]*(?:[eE][+-]?[0-9]+)?(?![A-Za-z0-9_.])",
+     "scope": "constant.numeric.float.reb"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])[0-9]+[eE][+-]?[0-9]+(?![A-Za-z0-9_.])",
+     "scope": "constant.numeric.float.reb"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_.])[0-9]+(?![A-Za-z0-9_.])",
+     "scope": "constant.numeric.integer.reb"
+    }
+   ]
+  },
+  "operators": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\|\\|:=|\\+:=|-:=|:=:|:=",
+     "scope": "keyword.operator.assignment.reb"
+    },
+    {
+     "match": "\\?-|<-",
+     "scope": "keyword.operator.replacement.reb"
+    },
+    {
+     "match": "\\+:",
+     "scope": "keyword.operator.substring.reb"
+    },
+    {
+     "match": "~==|==|<<=|>>=|<<|>>|<=|>=|~=|<|>|=",
+     "scope": "keyword.operator.comparison.reb"
+    },
+    {
+     "match": "\\*\\*|[-+*/^%]",
+     "scope": "keyword.operator.arithmetic.reb"
+    },
+    {
+     "match": "\\|\\||[&?|.$]",
+     "scope": "keyword.operator.pattern.reb"
+    }
+   ]
+  },
+  "punctuation": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": ",",
+     "scope": "punctuation.separator.comma.reb"
+    },
+    {
+     "match": "[;:]",
+     "scope": "punctuation.separator.reb"
+    },
+    {
+     "match": "[()\\[\\]{}]",
+     "scope": "punctuation.section.brackets.reb"
+    }
+   ]
+  },
+  "strings": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\"",
+     "push": [
+      "main#1"
+     ],
+     "scope": "punctuation.definition.string.begin.reb"
+    },
+    {
+     "match": "'",
+     "push": [
+      "main#2"
+     ],
+     "scope": "punctuation.definition.string.begin.reb"
+    }
+   ]
+  }
+ },
+ "file_extensions": [
+  "reb"
+ ],
+ "name": "Rebus",
+ "scope": "source.reb"
+}

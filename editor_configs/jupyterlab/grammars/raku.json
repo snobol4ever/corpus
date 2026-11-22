@@ -1,0 +1,662 @@
+{
+ "contexts": {
+  "comments": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#`\\([^)]*\\)|#`\\[[^\\]]*\\]",
+     "scope": "comment.block.raku"
+    },
+    {
+     "match": "#.*$",
+     "scope": "comment.line.number-sign.raku"
+    }
+   ]
+  },
+  "declarations": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "storage.type.function.raku",
+      "3": "entity.name.function.raku"
+     },
+     "match": "\\b(sub|method|submethod)\\b(?:\\s+(?:\\*)?(!|\\^)?([A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*))?"
+    },
+    {
+     "captures": {
+      "1": "storage.type.class.raku",
+      "2": "entity.name.type.class.raku"
+     },
+     "match": "\\b(class|role|grammar|module)\\b\\s+([A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*)"
+    },
+    {
+     "captures": {
+      "1": "storage.type.enum.raku",
+      "2": "entity.name.type.enum.raku"
+     },
+     "match": "\\b(enum)\\b\\s+([A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*)"
+    },
+    {
+     "captures": {
+      "1": "storage.type.regex.raku",
+      "2": "entity.name.function.regex.raku"
+     },
+     "match": "\\b(token|rule|regex)\\b\\s+([A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*)"
+    },
+    {
+     "match": "\\b(?:my|our|state|has|constant)\\b",
+     "scope": "storage.modifier.raku"
+    },
+    {
+     "match": "\\b(?:multi|proto|only)\\b",
+     "scope": "storage.modifier.raku"
+    },
+    {
+     "match": "\\bunit\\b",
+     "scope": "storage.modifier.raku"
+    }
+   ]
+  },
+  "double_string": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.double.raku",
+   "rules": [
+    {
+     "match": "\\\\(?:[xc]\\[[^\\]]*\\]|x[0-9a-fA-F]+)",
+     "scope": "constant.character.escape.raku"
+    },
+    {
+     "match": "\\\\[ntrabef0\\\\\"{}'$@%&<>]",
+     "scope": "constant.character.escape.raku"
+    },
+    {
+     "match": "\\\\.",
+     "scope": "constant.character.escape.raku"
+    },
+    {
+     "match": "\\$[.!*?^:]?[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*|\\$[/<\\[]",
+     "scope": "variable.other.interpolated.raku"
+    },
+    {
+     "match": "@[A-Za-z_][A-Za-z0-9_]*(?:[-'][A-Za-z_][A-Za-z0-9_]*)*(?=[\\[.])",
+     "scope": "variable.other.interpolated.raku"
+    },
+    {
+     "match": "\"",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.raku"
+    }
+   ]
+  },
+  "interpolation": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\\\(?:[xc]\\[[^\\]]*\\]|x[0-9a-fA-F]+)",
+     "scope": "constant.character.escape.raku"
+    },
+    {
+     "match": "\\\\[ntrabef0\\\\\"{}'$@%&<>]",
+     "scope": "constant.character.escape.raku"
+    },
+    {
+     "match": "\\\\.",
+     "scope": "constant.character.escape.raku"
+    },
+    {
+     "match": "\\$[.!*?^:]?[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*|\\$[/<\\[]",
+     "scope": "variable.other.interpolated.raku"
+    },
+    {
+     "match": "@[A-Za-z_][A-Za-z0-9_]*(?:[-'][A-Za-z_][A-Za-z0-9_]*)*(?=[\\[.])",
+     "scope": "variable.other.interpolated.raku"
+    }
+   ]
+  },
+  "main": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "#`\\([^)]*\\)|#`\\[[^\\]]*\\]",
+     "scope": "comment.block.raku"
+    },
+    {
+     "match": "#.*$",
+     "scope": "comment.line.number-sign.raku"
+    },
+    {
+     "match": "^\\s*=begin\\b.*$",
+     "push": [
+      "pod_block"
+     ],
+     "scope": "comment.block.documentation.raku"
+    },
+    {
+     "match": "^\\s*=finish\\b.*$",
+     "push": [
+      "pod_finish"
+     ],
+     "scope": "comment.block.documentation.raku"
+    },
+    {
+     "match": "^\\s*=[A-Za-z][A-Za-z0-9_-]*\\b.*$",
+     "scope": "comment.block.documentation.raku"
+    },
+    {
+     "match": "'",
+     "push": [
+      "single_string"
+     ],
+     "scope": "punctuation.definition.string.begin.raku"
+    },
+    {
+     "match": "\"",
+     "push": [
+      "double_string"
+     ],
+     "scope": "punctuation.definition.string.begin.raku"
+    },
+    {
+     "match": "\\bqq\\[",
+     "push": [
+      "qq_string"
+     ],
+     "scope": "punctuation.definition.string.begin.raku"
+    },
+    {
+     "match": "\\b(?:q(?::w)?|Q)\\[",
+     "push": [
+      "q_string"
+     ],
+     "scope": "punctuation.definition.string.begin.raku"
+    },
+    {
+     "match": "\\b(?:m|rx)(?::[A-Za-z]+)*/(?:[^/\\\\\\n]|\\\\.)*/",
+     "scope": "string.regexp.raku"
+    },
+    {
+     "match": "\\bs(?::[A-Za-z]+)*/(?:[^/\\\\\\n]|\\\\.)*/(?:[^/\\\\\\n]|\\\\.)*/",
+     "scope": "string.regexp.raku"
+    },
+    {
+     "match": "\\b0(?:[xX][0-9a-fA-F_]+|[bB][01_]+|[oO][0-7_]+)\\b",
+     "scope": "constant.numeric.integer.raku"
+    },
+    {
+     "match": "\\b[0-9][0-9_]*\\.[0-9]+(?:[eE][+-]?[0-9]+)?\\b|\\b[0-9][0-9_]*[eE][+-]?[0-9]+\\b",
+     "scope": "constant.numeric.float.raku"
+    },
+    {
+     "match": "\\b[0-9][0-9_]*\\b",
+     "scope": "constant.numeric.integer.raku"
+    },
+    {
+     "captures": {
+      "1": "storage.type.function.raku",
+      "3": "entity.name.function.raku"
+     },
+     "match": "\\b(sub|method|submethod)\\b(?:\\s+(?:\\*)?(!|\\^)?([A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*))?"
+    },
+    {
+     "captures": {
+      "1": "storage.type.class.raku",
+      "2": "entity.name.type.class.raku"
+     },
+     "match": "\\b(class|role|grammar|module)\\b\\s+([A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*)"
+    },
+    {
+     "captures": {
+      "1": "storage.type.enum.raku",
+      "2": "entity.name.type.enum.raku"
+     },
+     "match": "\\b(enum)\\b\\s+([A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*)"
+    },
+    {
+     "captures": {
+      "1": "storage.type.regex.raku",
+      "2": "entity.name.function.regex.raku"
+     },
+     "match": "\\b(token|rule|regex)\\b\\s+([A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*)"
+    },
+    {
+     "match": "\\b(?:my|our|state|has|constant)\\b",
+     "scope": "storage.modifier.raku"
+    },
+    {
+     "match": "\\b(?:multi|proto|only)\\b",
+     "scope": "storage.modifier.raku"
+    },
+    {
+     "match": "\\bunit\\b",
+     "scope": "storage.modifier.raku"
+    },
+    {
+     "match": "\\b(?:BEGIN|END|INIT|CHECK|FIRST|LAST|NEXT|ENTER|LEAVE|KEEP|UNDO|PRE|POST|TEMP|CLOSE|CONTROL|QUIT|DOC)\\b",
+     "scope": "keyword.control.phaser.raku"
+    },
+    {
+     "match": "\\b(?:return|take|next|last)\\b",
+     "scope": "keyword.control.raku"
+    },
+    {
+     "match": "\\b(?:if|unless|while|until|for|loop|repeat|given|when|default|else|elsif|CATCH|gather|try|do|with|without|whenever)\\b",
+     "scope": "keyword.control.raku"
+    },
+    {
+     "match": "\\b(?:once|quietly|react|supply|start|lazy|eager|sink|hyper|race|await)\\b",
+     "scope": "keyword.control.raku"
+    },
+    {
+     "match": "\\b(?:fail)\\b",
+     "scope": "keyword.control.raku"
+    },
+    {
+     "match": "\\b(?:redo)\\b",
+     "scope": "keyword.control.raku"
+    },
+    {
+     "match": "\\b(?:exit)\\b",
+     "scope": "support.function.raku"
+    },
+    {
+     "match": "\\b(?:say|print|die|sort|map|grep|reverse)\\b",
+     "scope": "support.function.raku"
+    },
+    {
+     "match": "\\b(?:use|no|need|require|import)\\b",
+     "scope": "keyword.control.import.raku"
+    },
+    {
+     "match": "\\b(?:is|does|handles|returns|of|where)\\b",
+     "scope": "keyword.other.trait.raku"
+    },
+    {
+     "match": "\\b(?:not|so)\\b",
+     "scope": "keyword.operator.word.raku"
+    },
+    {
+     "match": "\\b(?:xx|x|eqv|eq|ne|lt|gt|le|ge|cmp|leg|min|max|andthen|orelse|and|or|xor|div|mod|gcd|lcm|X|Z)\\b",
+     "scope": "keyword.operator.word.raku"
+    },
+    {
+     "match": "\\b(?:True|False|Nil|Inf|NaN|Empty|Whatever)\\b",
+     "scope": "constant.language.raku"
+    },
+    {
+     "match": "\\b(?:pi|tau|self|now|time|rand)\\b",
+     "scope": "constant.language.raku"
+    },
+    {
+     "match": "\\b(?:Any|Mu|Int|Str|Num|Bool|Rat|Array|Hash|List|Order|Less|Same|More)\\b",
+     "scope": "support.type.raku"
+    },
+    {
+     "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*(?=\\()",
+     "scope": "entity.name.function.call.raku"
+    },
+    {
+     "match": "\\\\[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*",
+     "scope": "variable.other.sigilless.raku"
+    },
+    {
+     "match": "[$@%&](?:[.!*?^:]?[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*|[_/!]|[0-9]+|<[^>\\n]*>)",
+     "scope": "variable.other.raku"
+    },
+    {
+     "captures": {
+      "1": "punctuation.accessor.raku",
+      "2": "entity.name.function.method.raku"
+     },
+     "match": "(?<=[A-Za-z0-9_)\\]}>])(\\.\\^?)([A-Za-z_][A-Za-z0-9_]*(?:[-'][A-Za-z_][A-Za-z0-9_]*)*)"
+    },
+    {
+     "captures": {
+      "1": "punctuation.accessor.raku",
+      "2": "entity.name.function.method.raku"
+     },
+     "match": "(?<![A-Za-z0-9_)\\]}>.])(\\.\\^?)([A-Za-z_][A-Za-z0-9_]*(?:[-'][A-Za-z_][A-Za-z0-9_]*)*)"
+    },
+    {
+     "match": "-->|->",
+     "scope": "keyword.operator.pointy.raku"
+    },
+    {
+     "match": "\\+&|\\+<|\\+>|\\+\\||\\+\\^|~&|~\\|",
+     "scope": "keyword.operator.bitwise.raku"
+    },
+    {
+     "match": "\\.\\.\\.|\\^\\.\\.\\^|\\^\\.\\.|\\.\\.\\^|\\.\\.",
+     "scope": "keyword.operator.range.raku"
+    },
+    {
+     "match": "===|<=>|!~~|~~|==|!=|<=|>=|&&|\\|\\||//|\\^\\^",
+     "scope": "keyword.operator.comparison.raku"
+    },
+    {
+     "match": ":=|=>|\\?\\?|!!",
+     "scope": "keyword.operator.assignment.raku"
+    },
+    {
+     "match": "\\*\\*|%%|[-+*/%~&|^<>=!?]",
+     "scope": "keyword.operator.raku"
+    }
+   ]
+  },
+  "methods": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "captures": {
+      "1": "punctuation.accessor.raku",
+      "2": "entity.name.function.method.raku"
+     },
+     "match": "(?<=[A-Za-z0-9_)\\]}>])(\\.\\^?)([A-Za-z_][A-Za-z0-9_]*(?:[-'][A-Za-z_][A-Za-z0-9_]*)*)"
+    },
+    {
+     "captures": {
+      "1": "punctuation.accessor.raku",
+      "2": "entity.name.function.method.raku"
+     },
+     "match": "(?<![A-Za-z0-9_)\\]}>.])(\\.\\^?)([A-Za-z_][A-Za-z0-9_]*(?:[-'][A-Za-z_][A-Za-z0-9_]*)*)"
+    }
+   ]
+  },
+  "numbers": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\b0(?:[xX][0-9a-fA-F_]+|[bB][01_]+|[oO][0-7_]+)\\b",
+     "scope": "constant.numeric.integer.raku"
+    },
+    {
+     "match": "\\b[0-9][0-9_]*\\.[0-9]+(?:[eE][+-]?[0-9]+)?\\b|\\b[0-9][0-9_]*[eE][+-]?[0-9]+\\b",
+     "scope": "constant.numeric.float.raku"
+    },
+    {
+     "match": "\\b[0-9][0-9_]*\\b",
+     "scope": "constant.numeric.integer.raku"
+    }
+   ]
+  },
+  "operators": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "-->|->",
+     "scope": "keyword.operator.pointy.raku"
+    },
+    {
+     "match": "\\+&|\\+<|\\+>|\\+\\||\\+\\^|~&|~\\|",
+     "scope": "keyword.operator.bitwise.raku"
+    },
+    {
+     "match": "\\.\\.\\.|\\^\\.\\.\\^|\\^\\.\\.|\\.\\.\\^|\\.\\.",
+     "scope": "keyword.operator.range.raku"
+    },
+    {
+     "match": "===|<=>|!~~|~~|==|!=|<=|>=|&&|\\|\\||//|\\^\\^",
+     "scope": "keyword.operator.comparison.raku"
+    },
+    {
+     "match": ":=|=>|\\?\\?|!!",
+     "scope": "keyword.operator.assignment.raku"
+    },
+    {
+     "match": "\\*\\*|%%|[-+*/%~&|^<>=!?]",
+     "scope": "keyword.operator.raku"
+    }
+   ]
+  },
+  "phasers": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\b(?:BEGIN|END|INIT|CHECK|FIRST|LAST|NEXT|ENTER|LEAVE|KEEP|UNDO|PRE|POST|TEMP|CLOSE|CONTROL|QUIT|DOC)\\b",
+     "scope": "keyword.control.phaser.raku"
+    }
+   ]
+  },
+  "pod": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "^\\s*=begin\\b.*$",
+     "push": [
+      "pod_block"
+     ],
+     "scope": "comment.block.documentation.raku"
+    },
+    {
+     "match": "^\\s*=finish\\b.*$",
+     "push": [
+      "pod_finish"
+     ],
+     "scope": "comment.block.documentation.raku"
+    },
+    {
+     "match": "^\\s*=[A-Za-z][A-Za-z0-9_-]*\\b.*$",
+     "scope": "comment.block.documentation.raku"
+    }
+   ]
+  },
+  "pod_block": {
+   "meta_content_scope": null,
+   "meta_scope": "comment.block.documentation.raku",
+   "rules": [
+    {
+     "match": "^\\s*=end\\b.*$",
+     "pop": 1
+    }
+   ]
+  },
+  "pod_finish": {
+   "meta_content_scope": null,
+   "meta_scope": "comment.block.documentation.raku",
+   "rules": []
+  },
+  "q_string": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.single.raku",
+   "rules": [
+    {
+     "match": "\\]",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.raku"
+    }
+   ]
+  },
+  "qq_string": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.double.raku",
+   "rules": [
+    {
+     "match": "\\\\(?:[xc]\\[[^\\]]*\\]|x[0-9a-fA-F]+)",
+     "scope": "constant.character.escape.raku"
+    },
+    {
+     "match": "\\\\[ntrabef0\\\\\"{}'$@%&<>]",
+     "scope": "constant.character.escape.raku"
+    },
+    {
+     "match": "\\\\.",
+     "scope": "constant.character.escape.raku"
+    },
+    {
+     "match": "\\$[.!*?^:]?[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*|\\$[/<\\[]",
+     "scope": "variable.other.interpolated.raku"
+    },
+    {
+     "match": "@[A-Za-z_][A-Za-z0-9_]*(?:[-'][A-Za-z_][A-Za-z0-9_]*)*(?=[\\[.])",
+     "scope": "variable.other.interpolated.raku"
+    },
+    {
+     "match": "\\]",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.raku"
+    }
+   ]
+  },
+  "regexes": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\b(?:m|rx)(?::[A-Za-z]+)*/(?:[^/\\\\\\n]|\\\\.)*/",
+     "scope": "string.regexp.raku"
+    },
+    {
+     "match": "\\bs(?::[A-Za-z]+)*/(?:[^/\\\\\\n]|\\\\.)*/(?:[^/\\\\\\n]|\\\\.)*/",
+     "scope": "string.regexp.raku"
+    }
+   ]
+  },
+  "single_string": {
+   "meta_content_scope": null,
+   "meta_scope": "string.quoted.single.raku",
+   "rules": [
+    {
+     "match": "\\\\[\\\\']",
+     "scope": "constant.character.escape.raku"
+    },
+    {
+     "match": "'",
+     "pop": 1,
+     "scope": "punctuation.definition.string.end.raku"
+    }
+   ]
+  },
+  "strings": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "'",
+     "push": [
+      "single_string"
+     ],
+     "scope": "punctuation.definition.string.begin.raku"
+    },
+    {
+     "match": "\"",
+     "push": [
+      "double_string"
+     ],
+     "scope": "punctuation.definition.string.begin.raku"
+    },
+    {
+     "match": "\\bqq\\[",
+     "push": [
+      "qq_string"
+     ],
+     "scope": "punctuation.definition.string.begin.raku"
+    },
+    {
+     "match": "\\b(?:q(?::w)?|Q)\\[",
+     "push": [
+      "q_string"
+     ],
+     "scope": "punctuation.definition.string.begin.raku"
+    }
+   ]
+  },
+  "variables": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\\\[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*",
+     "scope": "variable.other.sigilless.raku"
+    },
+    {
+     "match": "[$@%&](?:[.!*?^:]?[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*|[_/!]|[0-9]+|<[^>\\n]*>)",
+     "scope": "variable.other.raku"
+    }
+   ]
+  },
+  "words": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\b(?:return|take|next|last)\\b",
+     "scope": "keyword.control.raku"
+    },
+    {
+     "match": "\\b(?:if|unless|while|until|for|loop|repeat|given|when|default|else|elsif|CATCH|gather|try|do|with|without|whenever)\\b",
+     "scope": "keyword.control.raku"
+    },
+    {
+     "match": "\\b(?:once|quietly|react|supply|start|lazy|eager|sink|hyper|race|await)\\b",
+     "scope": "keyword.control.raku"
+    },
+    {
+     "match": "\\b(?:fail)\\b",
+     "scope": "keyword.control.raku"
+    },
+    {
+     "match": "\\b(?:redo)\\b",
+     "scope": "keyword.control.raku"
+    },
+    {
+     "match": "\\b(?:exit)\\b",
+     "scope": "support.function.raku"
+    },
+    {
+     "match": "\\b(?:say|print|die|sort|map|grep|reverse)\\b",
+     "scope": "support.function.raku"
+    },
+    {
+     "match": "\\b(?:use|no|need|require|import)\\b",
+     "scope": "keyword.control.import.raku"
+    },
+    {
+     "match": "\\b(?:is|does|handles|returns|of|where)\\b",
+     "scope": "keyword.other.trait.raku"
+    },
+    {
+     "match": "\\b(?:not|so)\\b",
+     "scope": "keyword.operator.word.raku"
+    },
+    {
+     "match": "\\b(?:xx|x|eqv|eq|ne|lt|gt|le|ge|cmp|leg|min|max|andthen|orelse|and|or|xor|div|mod|gcd|lcm|X|Z)\\b",
+     "scope": "keyword.operator.word.raku"
+    },
+    {
+     "match": "\\b(?:True|False|Nil|Inf|NaN|Empty|Whatever)\\b",
+     "scope": "constant.language.raku"
+    },
+    {
+     "match": "\\b(?:pi|tau|self|now|time|rand)\\b",
+     "scope": "constant.language.raku"
+    },
+    {
+     "match": "\\b(?:Any|Mu|Int|Str|Num|Bool|Rat|Array|Hash|List|Order|Less|Same|More)\\b",
+     "scope": "support.type.raku"
+    },
+    {
+     "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*(?=\\()",
+     "scope": "entity.name.function.call.raku"
+    }
+   ]
+  }
+ },
+ "file_extensions": [
+  "raku",
+  "rakumod",
+  "rakutest",
+  "p6",
+  "pm6"
+ ],
+ "name": "Raku",
+ "scope": "source.raku"
+}
