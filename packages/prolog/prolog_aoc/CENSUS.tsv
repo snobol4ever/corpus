@@ -1,4 +1,4 @@
-# the census of /home/packages/prolog/prolog_aoc by swipl (shallow clones of each default branch, 2026-11-18 (162 repositories)), 2026-11-20: path from the root, verdict, note
+# the census of /home/packages/prolog/prolog_aoc by swipl (shallow clones of each default branch, 2026-11-18 (162 repositories)), 2026-11-22: path from the root, verdict, note
 0xmaximillian_advent_of_prolog/day1/calibrate.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same; stderr: Warning: calibrate.pl:45:
 1000xEngineer_AoC/2020/day01/code.pl	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
 1000xEngineer_AoC/2020/day02/code.pl	NO-OUTPUT	nothing on standard output, exit 2; a dead engine would earn the same; stderr: ERROR: drive.pl:6: user:drive_goals source_sink `"input.txt"' does not exist
@@ -1947,3 +1947,13 @@ z5h_aoc-2025/d08.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine 
 z5h_aoc-2025/grouping.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
 z5h_aoc-2025/template.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
 z5h_aoc-2025/util.pl	NO-OUTPUT	nothing on standard output, exit 0; a dead engine would earn the same
+hakank_hakank/advent-of-code-2022/1_swi.pl	ENTRY	
+hakank_hakank/advent-of-code-2022/2_swi.pl	ENTRY	
+hakank_hakank/advent-of-code-2022/3_swi.pl	ENTRY	
+hakank_hakank/advent-of-code-2022/4_swi.pl	ENTRY	
+hakank_hakank/advent-of-code-2022/5_swi.pl	ENTRY	
+hakank_hakank/advent-of-code-2022/6_swi.pl	ENTRY	
+hakank_hakank/advent-of-code-2023/1_swi.pl	ENTRY	stderr merged: ERROR: drive.pl:6: user:drive_goals source_sink `"1.txt"' does not exist
+hakank_hakank/advent-of-code-2023/2_swi.pl	ENTRY	stderr merged: ERROR: drive.pl:6: user:drive_goals source_sink `"2.txt"' does not exist
+hakank_hakank/advent-of-code-2023/3_swi.pl	ENTRY	stderr merged: ERROR: drive.pl:6: user:drive_goals source_sink `'3.txt'' does not exist
+hakank_hakank/advent-of-code-2023/4_swi.pl	ENTRY	stderr merged: ERROR: drive.pl:6: user:drive_goals source_sink `"4.txt"' does not exist

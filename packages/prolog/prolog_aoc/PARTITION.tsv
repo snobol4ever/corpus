@@ -1,263 +1,273 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=60 secs=/home/resources/progress/results.tsv
-# shape: entries=259 features=3 ubiquitous=1(package) distinctive=2 core=3 clusters=88 chunks=12 sizes=10,10,6,22,43,30,15,12,57,26,19,6
+# shape: entries=269 features=3 ubiquitous=1(package) distinctive=2 core=3 clusters=89 chunks=25 sizes=9,3,11,5,8,21,15,13,13,11,10,10,8,5,6,23,17,13,3,11,10,12,17,8,4
 entry	part	cluster	shells
-Annoiiyed_aoc-2025/solutions/day-01	chunk:08	dir:Annoiiyed_aoc-2025/solutions	
-Annoiiyed_aoc-2025/solutions/day-02-part-1	chunk:09	dir:Annoiiyed_aoc-2025/solutions	
-Annoiiyed_aoc-2025/solutions/day-02-part-2	chunk:09	dir:Annoiiyed_aoc-2025/solutions	
-EJSteen_AdventOfCode2022/Day1/main	chunk:09	dir:EJSteen_AdventOfCode2022/Day1	
-EJSteen_AdventOfCode2022/Day2/main	chunk:09	dir:EJSteen_AdventOfCode2022/Day2	
-Keaton-Clark_AdventOfCode2023/5-pl/5-1	chunk:09	dir:Keaton-Clark_AdventOfCode2023/5-pl	
-Keaton-Clark_AdventOfCode2023/5-pl/5-2	chunk:09	dir:Keaton-Clark_AdventOfCode2023/5-pl	
-Kim-Hammar_Advent-Of-Code16-Prolog/day1/1a	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day1	
-Kim-Hammar_Advent-Of-Code16-Prolog/day11/11ab	chunk:10	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day11	
-Kim-Hammar_Advent-Of-Code16-Prolog/day13/13a	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day13	
-Kim-Hammar_Advent-Of-Code16-Prolog/day13/13b	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day13	
-Kim-Hammar_Advent-Of-Code16-Prolog/day14/14a	chunk:10	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day14	
-Kim-Hammar_Advent-Of-Code16-Prolog/day15/15ab	chunk:10	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day15	
-Kim-Hammar_Advent-Of-Code16-Prolog/day17/17a	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day17	
-Kim-Hammar_Advent-Of-Code16-Prolog/day17/17b	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day17	
-Kim-Hammar_Advent-Of-Code16-Prolog/day2/2a	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day2	
-Kim-Hammar_Advent-Of-Code16-Prolog/day2/2b	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day2	
-Kim-Hammar_Advent-Of-Code16-Prolog/day20/20ab	chunk:10	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day20	
-Kim-Hammar_Advent-Of-Code16-Prolog/day21/21ab	chunk:10	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day21	
-Kim-Hammar_Advent-Of-Code16-Prolog/day23/23ab	chunk:10	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day23	
-Kim-Hammar_Advent-Of-Code16-Prolog/day24/24ab	chunk:10	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day24	
-Kim-Hammar_Advent-Of-Code16-Prolog/day25/25ab	chunk:10	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day25	
-Kim-Hammar_Advent-Of-Code16-Prolog/day3/3a	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day3	
-Kim-Hammar_Advent-Of-Code16-Prolog/day3/3b	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day3	
-Kim-Hammar_Advent-Of-Code16-Prolog/day4/4b	chunk:10	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day4	
-Kim-Hammar_Advent-Of-Code16-Prolog/day5/5a	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day5	
-Kim-Hammar_Advent-Of-Code16-Prolog/day5/5b	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day5	
-Kim-Hammar_Advent-Of-Code16-Prolog/day6/6a	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day6	
-Kim-Hammar_Advent-Of-Code16-Prolog/day6/6b	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day6	
-Kim-Hammar_Advent-Of-Code16-Prolog/day7/7a	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day7	
-Kim-Hammar_Advent-Of-Code16-Prolog/day7/7b	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day7	
-Kim-Hammar_Advent-Of-Code16-Prolog/day8/8ab	chunk:10	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day8	
-Kim-Hammar_Advent-Of-Code16-Prolog/day9/9a	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day9	
-Kim-Hammar_Advent-Of-Code16-Prolog/day9/9b	chunk:09	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day9	
-Meisterlala_advent-of-code-2024/src/day_04	chunk:10	dir:Meisterlala_advent-of-code-2024/src	
-Minipoloalex_AdventOfCode2025/1/part1	chunk:09	dir:Minipoloalex_AdventOfCode2025/1	
-Minipoloalex_AdventOfCode2025/1/part2	chunk:09	dir:Minipoloalex_AdventOfCode2025/1	
-Mousaka_advent-of-code-2020/4/4	chunk:09	dir:Mousaka_advent-of-code-2020/4	
-Mousaka_advent-of-code-2020/4/4b	chunk:09	dir:Mousaka_advent-of-code-2020/4	
-RottenFishbone_advent-of-code/day_1/day_1	chunk:10	dir:RottenFishbone_advent-of-code/day_1	
-RottenFishbone_advent-of-code/day_2/day_2	chunk:10	dir:RottenFishbone_advent-of-code/day_2	
-RottenFishbone_advent-of-code/day_3/day_3	chunk:10	dir:RottenFishbone_advent-of-code/day_3	
-RottenFishbone_advent-of-code/day_4/day_4	chunk:10	dir:RottenFishbone_advent-of-code/day_4	
-RottenFishbone_advent-of-code/day_5/day_5	chunk:10	dir:RottenFishbone_advent-of-code/day_5	
-RottenFishbone_advent-of-code/day_6/day_6	chunk:10	dir:RottenFishbone_advent-of-code/day_6	
-ThChatz_advent-of-code-2020/day2	chunk:09	dir:ThChatz_advent-of-code-2020	
-ThChatz_advent-of-code-2020/day4	chunk:09	dir:ThChatz_advent-of-code-2020	
+Annoiiyed_aoc-2025/solutions/day-01	chunk:16	dir:Annoiiyed_aoc-2025/solutions	
+Annoiiyed_aoc-2025/solutions/day-02-part-1	chunk:16	dir:Annoiiyed_aoc-2025/solutions	
+Annoiiyed_aoc-2025/solutions/day-02-part-2	chunk:16	dir:Annoiiyed_aoc-2025/solutions	
+EJSteen_AdventOfCode2022/Day1/main	chunk:20	dir:EJSteen_AdventOfCode2022/Day1	
+EJSteen_AdventOfCode2022/Day2/main	chunk:20	dir:EJSteen_AdventOfCode2022/Day2	
+Keaton-Clark_AdventOfCode2023/5-pl/5-1	chunk:16	dir:Keaton-Clark_AdventOfCode2023/5-pl	
+Keaton-Clark_AdventOfCode2023/5-pl/5-2	chunk:16	dir:Keaton-Clark_AdventOfCode2023/5-pl	
+Kim-Hammar_Advent-Of-Code16-Prolog/day1/1a	chunk:20	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day1	
+Kim-Hammar_Advent-Of-Code16-Prolog/day11/11ab	chunk:21	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day11	
+Kim-Hammar_Advent-Of-Code16-Prolog/day13/13a	chunk:16	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day13	
+Kim-Hammar_Advent-Of-Code16-Prolog/day13/13b	chunk:16	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day13	
+Kim-Hammar_Advent-Of-Code16-Prolog/day14/14a	chunk:21	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day14	
+Kim-Hammar_Advent-Of-Code16-Prolog/day15/15ab	chunk:21	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day15	
+Kim-Hammar_Advent-Of-Code16-Prolog/day17/17a	chunk:16	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day17	
+Kim-Hammar_Advent-Of-Code16-Prolog/day17/17b	chunk:16	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day17	
+Kim-Hammar_Advent-Of-Code16-Prolog/day2/2a	chunk:16	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day2	
+Kim-Hammar_Advent-Of-Code16-Prolog/day2/2b	chunk:16	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day2	
+Kim-Hammar_Advent-Of-Code16-Prolog/day20/20ab	chunk:21	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day20	
+Kim-Hammar_Advent-Of-Code16-Prolog/day21/21ab	chunk:21	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day21	
+Kim-Hammar_Advent-Of-Code16-Prolog/day23/23ab	chunk:21	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day23	
+Kim-Hammar_Advent-Of-Code16-Prolog/day24/24ab	chunk:21	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day24	
+Kim-Hammar_Advent-Of-Code16-Prolog/day25/25ab	chunk:21	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day25	
+Kim-Hammar_Advent-Of-Code16-Prolog/day3/3a	chunk:16	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day3	
+Kim-Hammar_Advent-Of-Code16-Prolog/day3/3b	chunk:16	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day3	
+Kim-Hammar_Advent-Of-Code16-Prolog/day4/4b	chunk:21	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day4	
+Kim-Hammar_Advent-Of-Code16-Prolog/day5/5a	chunk:16	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day5	
+Kim-Hammar_Advent-Of-Code16-Prolog/day5/5b	chunk:17	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day5	
+Kim-Hammar_Advent-Of-Code16-Prolog/day6/6a	chunk:17	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day6	
+Kim-Hammar_Advent-Of-Code16-Prolog/day6/6b	chunk:17	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day6	
+Kim-Hammar_Advent-Of-Code16-Prolog/day7/7a	chunk:17	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day7	
+Kim-Hammar_Advent-Of-Code16-Prolog/day7/7b	chunk:17	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day7	
+Kim-Hammar_Advent-Of-Code16-Prolog/day8/8ab	chunk:21	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day8	
+Kim-Hammar_Advent-Of-Code16-Prolog/day9/9a	chunk:17	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day9	
+Kim-Hammar_Advent-Of-Code16-Prolog/day9/9b	chunk:17	dir:Kim-Hammar_Advent-Of-Code16-Prolog/day9	
+Meisterlala_advent-of-code-2024/src/day_04	chunk:22	dir:Meisterlala_advent-of-code-2024/src	
+Minipoloalex_AdventOfCode2025/1/part1	chunk:17	dir:Minipoloalex_AdventOfCode2025/1	
+Minipoloalex_AdventOfCode2025/1/part2	chunk:17	dir:Minipoloalex_AdventOfCode2025/1	
+Mousaka_advent-of-code-2020/4/4	chunk:17	dir:Mousaka_advent-of-code-2020/4	
+Mousaka_advent-of-code-2020/4/4b	chunk:17	dir:Mousaka_advent-of-code-2020/4	
+RottenFishbone_advent-of-code/day_1/day_1	chunk:22	dir:RottenFishbone_advent-of-code/day_1	
+RottenFishbone_advent-of-code/day_2/day_2	chunk:22	dir:RottenFishbone_advent-of-code/day_2	
+RottenFishbone_advent-of-code/day_3/day_3	chunk:22	dir:RottenFishbone_advent-of-code/day_3	
+RottenFishbone_advent-of-code/day_4/day_4	chunk:22	dir:RottenFishbone_advent-of-code/day_4	
+RottenFishbone_advent-of-code/day_5/day_5	chunk:22	dir:RottenFishbone_advent-of-code/day_5	
+RottenFishbone_advent-of-code/day_6/day_6	chunk:22	dir:RottenFishbone_advent-of-code/day_6	
+ThChatz_advent-of-code-2020/day2	chunk:17	dir:ThChatz_advent-of-code-2020	
+ThChatz_advent-of-code-2020/day4	chunk:17	dir:ThChatz_advent-of-code-2020	
 YauHsien_advent-of-code-2015/in-prolog/day-01	chunk:01	feat:language	language
 YauHsien_advent-of-code-2021/prolog/src/day17_code	chunk:01	feat:language	language
 YauHsien_advent-of-code-2021/prolog/src/day21_code	chunk:01	feat:language	language
 YauHsien_advent-of-code-2021/prolog/src/day24_code	chunk:01	feat:language	language
-abarhub_advent_of_code/2023/day02/exemple10	chunk:09	dir:abarhub_advent_of_code/2023/day02	
-abarhub_advent_of_code/2023/day02/exemple11	chunk:09	dir:abarhub_advent_of_code/2023/day02	
-abarhub_advent_of_code_2023/day02/exemple10	chunk:09	dir:abarhub_advent_of_code_2023/day02	
-abarhub_advent_of_code_2023/day02/exemple11	chunk:09	dir:abarhub_advent_of_code_2023/day02	
-acmiyaguchi_advent-of-code/2022/11/main	chunk:10	dir:acmiyaguchi_advent-of-code/2022/11	
-acmiyaguchi_advent-of-code/2024/03/main	chunk:10	dir:acmiyaguchi_advent-of-code/2024/03	
-ananthakumaran_advent-of-code/2015/9a	chunk:09	dir:ananthakumaran_advent-of-code/2015	
-ananthakumaran_advent-of-code/2015/9b	chunk:09	dir:ananthakumaran_advent-of-code/2015	
-bmaddy_advent-of-code/2020/day02	chunk:08	dir:bmaddy_advent-of-code/2020	
-bmaddy_advent-of-code/2020/day03	chunk:08	dir:bmaddy_advent-of-code/2020	
-bmaddy_advent-of-code/2020/day04	chunk:08	dir:bmaddy_advent-of-code/2020	
-bmaddy_advent-of-code/2020/day05	chunk:08	dir:bmaddy_advent-of-code/2020	
-bmaddy_advent-of-code/2020/day06	chunk:08	dir:bmaddy_advent-of-code/2020	
-bmaddy_advent-of-code/2020/day07	chunk:08	dir:bmaddy_advent-of-code/2020	
-bmaddy_advent-of-code/2021/day03	chunk:09	dir:bmaddy_advent-of-code/2021	
-bmaddy_advent-of-code/2021/day09	chunk:09	dir:bmaddy_advent-of-code/2021	
-bnjmnalbertus_advent-of-code-2022/day_four	chunk:04	feat:want_rc	want_rc
-bnjmnalbertus_advent-of-code-2022/day_one	chunk:04	feat:want_rc	want_rc
-bnjmnalbertus_advent-of-code-2022/day_one_part_2	chunk:04	feat:want_rc	want_rc
-bnjmnalbertus_advent-of-code-2022/day_three	chunk:04	feat:want_rc	want_rc
-bnjmnalbertus_advent-of-code-2022/day_two	chunk:05	feat:want_rc	want_rc
-bnjmnalbertus_advent-of-code-2022/day_two_part_two	chunk:05	feat:want_rc	want_rc
+abarhub_advent_of_code/2023/day02/exemple10	chunk:17	dir:abarhub_advent_of_code/2023/day02	
+abarhub_advent_of_code/2023/day02/exemple11	chunk:17	dir:abarhub_advent_of_code/2023/day02	
+abarhub_advent_of_code_2023/day02/exemple10	chunk:17	dir:abarhub_advent_of_code_2023/day02	
+abarhub_advent_of_code_2023/day02/exemple11	chunk:17	dir:abarhub_advent_of_code_2023/day02	
+acmiyaguchi_advent-of-code/2022/11/main	chunk:22	dir:acmiyaguchi_advent-of-code/2022/11	
+acmiyaguchi_advent-of-code/2024/03/main	chunk:22	dir:acmiyaguchi_advent-of-code/2024/03	
+ananthakumaran_advent-of-code/2015/9a	chunk:18	dir:ananthakumaran_advent-of-code/2015	
+ananthakumaran_advent-of-code/2015/9b	chunk:18	dir:ananthakumaran_advent-of-code/2015	
+bmaddy_advent-of-code/2020/day02	chunk:15	dir:bmaddy_advent-of-code/2020	
+bmaddy_advent-of-code/2020/day03	chunk:15	dir:bmaddy_advent-of-code/2020	
+bmaddy_advent-of-code/2020/day04	chunk:15	dir:bmaddy_advent-of-code/2020	
+bmaddy_advent-of-code/2020/day05	chunk:16	dir:bmaddy_advent-of-code/2020	
+bmaddy_advent-of-code/2020/day06	chunk:16	dir:bmaddy_advent-of-code/2020	
+bmaddy_advent-of-code/2020/day07	chunk:16	dir:bmaddy_advent-of-code/2020	
+bmaddy_advent-of-code/2021/day03	chunk:18	dir:bmaddy_advent-of-code/2021	
+bmaddy_advent-of-code/2021/day09	chunk:18	dir:bmaddy_advent-of-code/2021	
+bnjmnalbertus_advent-of-code-2022/day_four	chunk:06	feat:want_rc	want_rc
+bnjmnalbertus_advent-of-code-2022/day_one	chunk:06	feat:want_rc	want_rc
+bnjmnalbertus_advent-of-code-2022/day_one_part_2	chunk:06	feat:want_rc	want_rc
+bnjmnalbertus_advent-of-code-2022/day_three	chunk:06	feat:want_rc	want_rc
+bnjmnalbertus_advent-of-code-2022/day_two	chunk:06	feat:want_rc	want_rc
+bnjmnalbertus_advent-of-code-2022/day_two_part_two	chunk:06	feat:want_rc	want_rc
 camsaul_advent-of-code-2024/day-04a-alternate	chunk:01	feat:language	language
-dustinheestand_advent-of-code/prolog/day07	chunk:10	dir:dustinheestand_advent-of-code/prolog	
-enevoldsen1oo_AdventOfCode/day1/day1_p2	chunk:10	dir:enevoldsen1oo_AdventOfCode/day1	
-enevoldsen1oo_AdventOfCode/day2/day2_p1	chunk:09	dir:enevoldsen1oo_AdventOfCode/day2	
-enevoldsen1oo_AdventOfCode/day2/day2_p2	chunk:09	dir:enevoldsen1oo_AdventOfCode/day2	
+dustinheestand_advent-of-code/prolog/day07	chunk:22	dir:dustinheestand_advent-of-code/prolog	
+enevoldsen1oo_AdventOfCode/day1/day1_p2	chunk:22	dir:enevoldsen1oo_AdventOfCode/day1	
+enevoldsen1oo_AdventOfCode/day2/day2_p1	chunk:18	dir:enevoldsen1oo_AdventOfCode/day2	
+enevoldsen1oo_AdventOfCode/day2/day2_p2	chunk:18	dir:enevoldsen1oo_AdventOfCode/day2	
 fkokosinski_advent-of-code-2023/day_01/puzzle_01	chunk:01	feat:language	language
 fkokosinski_advent-of-code-2023/day_01/puzzle_02	chunk:01	feat:language	language
 fkokosinski_advent-of-code-2023/day_02/puzzle_01	chunk:01	feat:language	language
 fkokosinski_advent-of-code-2023/day_02/puzzle_02	chunk:01	feat:language	language
-fkokosinski_advent-of-code-2023/day_03/puzzle_01	chunk:01	feat:language	language
+fkokosinski_advent-of-code-2023/day_03/puzzle_01	chunk:02	feat:language	language
 fkokosinski_advent-of-code-2023/day_03/puzzle_02	chunk:02	feat:language	language
 fkokosinski_advent-of-code-2023/day_04/puzzle_01	chunk:02	feat:language	language
-fkokosinski_advent-of-code-2023/day_04/puzzle_02	chunk:02	feat:language	language
-fkokosinski_advent-of-code-2023/day_05/puzzle_01	chunk:02	feat:language	language
-fkokosinski_advent-of-code-2023/day_05/puzzle_02	chunk:02	feat:language	language
-fkokosinski_advent-of-code-2023/day_06/puzzle_01	chunk:02	feat:language	language
-fkokosinski_advent-of-code-2023/day_06/puzzle_02	chunk:02	feat:language	language
-fkokosinski_advent-of-code-2023/day_07/puzzle_01	chunk:02	feat:language	language
-fkokosinski_advent-of-code-2023/day_07/puzzle_02	chunk:02	feat:language	language
-fkokosinski_advent-of-code-2023/day_08/puzzle_01	chunk:02	feat:language	language
+fkokosinski_advent-of-code-2023/day_04/puzzle_02	chunk:03	feat:language	language
+fkokosinski_advent-of-code-2023/day_05/puzzle_01	chunk:03	feat:language	language
+fkokosinski_advent-of-code-2023/day_05/puzzle_02	chunk:03	feat:language	language
+fkokosinski_advent-of-code-2023/day_06/puzzle_01	chunk:03	feat:language	language
+fkokosinski_advent-of-code-2023/day_06/puzzle_02	chunk:03	feat:language	language
+fkokosinski_advent-of-code-2023/day_07/puzzle_01	chunk:03	feat:language	language
+fkokosinski_advent-of-code-2023/day_07/puzzle_02	chunk:03	feat:language	language
+fkokosinski_advent-of-code-2023/day_08/puzzle_01	chunk:03	feat:language	language
 fkokosinski_advent-of-code-2023/day_08/puzzle_02	chunk:03	feat:language	language
 fkokosinski_advent-of-code-2023/day_09/puzzle_01	chunk:03	feat:language	language
 fkokosinski_advent-of-code-2023/day_09/puzzle_02	chunk:03	feat:language	language
-fkokosinski_advent-of-code-2023/day_10/puzzle_01	chunk:03	feat:language	language
-fkokosinski_advent-of-code-2023/day_11/puzzle_01	chunk:03	feat:language	language
-fkokosinski_advent-of-code-2023/day_11/puzzle_02	chunk:03	feat:language	language
+fkokosinski_advent-of-code-2023/day_10/puzzle_01	chunk:04	feat:language	language
+fkokosinski_advent-of-code-2023/day_11/puzzle_01	chunk:04	feat:language	language
+fkokosinski_advent-of-code-2023/day_11/puzzle_02	chunk:04	feat:language	language
 fkokosinski_advent-of-code-2023/day_12/puzzle_01	chunk:04	feat:language	language
 gamache_advent2019/01/01	chunk:04	feat:language	language
-gamache_advent2019/02/02	chunk:04	feat:language	language
-gamache_advent2019/04/04	chunk:04	feat:language	language
-gamache_advent2019/05/05	chunk:04	feat:language	language
-gamache_advent2019/08/08	chunk:04	feat:language	language
-gamache_advent2019/12/12	chunk:04	feat:language	language
-gorkempacaci_Aoc25/05/program	chunk:10	dir:gorkempacaci_Aoc25/05	
-gromgull_advent-of-code-2020/day1-1	chunk:05	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day1	chunk:05	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day10-2	chunk:05	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day10	chunk:05	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day2-2	chunk:05	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day2	chunk:05	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day3-2	chunk:05	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day3	chunk:05	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day4-2	chunk:06	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day4	chunk:06	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day5-2	chunk:06	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day5	chunk:06	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day6-2	chunk:06	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day6	chunk:06	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day7-2	chunk:06	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day7	chunk:06	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day8-2	chunk:06	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day8	chunk:05	feat:want_rc	want_rc
-gromgull_advent-of-code-2020/day9-2	chunk:06	dir:gromgull_advent-of-code-2020	
-gromgull_advent-of-code-2020/day9	chunk:06	dir:gromgull_advent-of-code-2020	
-jamesconstable_aoc2016/23	chunk:10	dir:jamesconstable_aoc2016	
-jasagredo_advent-of-prolog-2025/01	chunk:07	dir:jasagredo_advent-of-prolog-2025	
-jasagredo_advent-of-prolog-2025/02	chunk:07	dir:jasagredo_advent-of-prolog-2025	
-jasagredo_advent-of-prolog-2025/03	chunk:07	dir:jasagredo_advent-of-prolog-2025	
-jasagredo_advent-of-prolog-2025/04	chunk:07	dir:jasagredo_advent-of-prolog-2025	
-jasagredo_advent-of-prolog-2025/05	chunk:07	dir:jasagredo_advent-of-prolog-2025	
-jasagredo_advent-of-prolog-2025/06	chunk:08	dir:jasagredo_advent-of-prolog-2025	
-jasagredo_advent-of-prolog-2025/07	chunk:08	dir:jasagredo_advent-of-prolog-2025	
-jasagredo_advent-of-prolog-2025/08	chunk:08	dir:jasagredo_advent-of-prolog-2025	
-jasagredo_advent-of-prolog-2025/09	chunk:08	dir:jasagredo_advent-of-prolog-2025	
-jasagredo_advent-of-prolog-2025/10	chunk:08	dir:jasagredo_advent-of-prolog-2025	
-jesperes_advent-of-code-prolog/day01	chunk:05	feat:want_rc	want_rc
-jesperes_advent-of-code-prolog/day02	chunk:05	feat:want_rc	want_rc
-jesperes_advent-of-code-prolog/day03	chunk:05	feat:want_rc	want_rc
-jesperes_advent-of-code-prolog/day04	chunk:05	feat:want_rc	want_rc
-jesperes_advent-of-code-prolog/day05	chunk:05	feat:want_rc	want_rc
-jinwoo_aoc2023/main	chunk:10	dir:jinwoo_aoc2023	
-jwoudenberg_advent-of-code-2020/day1/solution	chunk:10	dir:jwoudenberg_advent-of-code-2020/day1	
-jwoudenberg_advent-of-code-2020/day10/solution	chunk:10	dir:jwoudenberg_advent-of-code-2020/day10	
-jwoudenberg_advent-of-code-2020/day11/solution-part1	chunk:11	dir:jwoudenberg_advent-of-code-2020/day11	
-jwoudenberg_advent-of-code-2020/day12/solution	chunk:11	dir:jwoudenberg_advent-of-code-2020/day12	
-jwoudenberg_advent-of-code-2020/day13/solution	chunk:11	dir:jwoudenberg_advent-of-code-2020/day13	
-jwoudenberg_advent-of-code-2020/day2/solution	chunk:11	dir:jwoudenberg_advent-of-code-2020/day2	
-jwoudenberg_advent-of-code-2020/day3/solution	chunk:11	dir:jwoudenberg_advent-of-code-2020/day3	
-jwoudenberg_advent-of-code-2020/day4/solution	chunk:11	dir:jwoudenberg_advent-of-code-2020/day4	
-jwoudenberg_advent-of-code-2020/day5/solution	chunk:11	dir:jwoudenberg_advent-of-code-2020/day5	
-jwoudenberg_advent-of-code-2020/day6/solution	chunk:11	dir:jwoudenberg_advent-of-code-2020/day6	
-jwoudenberg_advent-of-code-2020/day7/solution	chunk:11	dir:jwoudenberg_advent-of-code-2020/day7	
-jwoudenberg_advent-of-code-2020/day8/solution	chunk:11	dir:jwoudenberg_advent-of-code-2020/day8	
-jwoudenberg_advent-of-code-2020/day9/solution	chunk:11	dir:jwoudenberg_advent-of-code-2020/day9	
-k3ut0i_aoc19/src/day12	chunk:09	dir:k3ut0i_aoc19/src	
-k3ut0i_aoc19/src/day4	chunk:09	dir:k3ut0i_aoc19/src	
-kamahen_advent-of-code-2022/21	chunk:09	dir:kamahen_advent-of-code-2022	
-kamahen_advent-of-code-2022/7	chunk:09	dir:kamahen_advent-of-code-2022	
-kamahen_advent-of-code-2023/day01_trebuchet	chunk:11	dir:kamahen_advent-of-code-2023	
-kkweon_advent-of-code-2024/day1_part1	chunk:09	dir:kkweon_advent-of-code-2024	
-kkweon_advent-of-code-2024/day1_part2	chunk:09	dir:kkweon_advent-of-code-2024	
-kristianhasselknippe_advent-of-code-2019/day1/main	chunk:11	dir:kristianhasselknippe_advent-of-code-2019/day1	
-lewtds_advent-code-2019-prolog/a_01a	chunk:04	feat:language	language
-lewtds_advent-code-2019-prolog/a_01b	chunk:04	feat:language	language
-lewtds_advent-code-2019-prolog/a_02a	chunk:04	feat:language	language
-lewtds_advent-code-2019-prolog/a_02b	chunk:04	feat:language	language
-lewtds_advent-code-2019-prolog/a_04a	chunk:04	feat:language	language
-lewtds_advent-code-2019-prolog/a_05a	chunk:04	feat:language	language
-lewtds_advent-code-2019-prolog/a_05b	chunk:04	feat:language	language
-lewtds_advent-code-2019-prolog/a_06a	chunk:04	feat:language	language
-lewtds_advent-code-2019-prolog/a_06b	chunk:04	feat:language	language
-lynn_aoc-prolog/2015/day-06	chunk:04	feat:language	language
-marvinkohl_Advent-of-Code-2025/day01	chunk:09	dir:marvinkohl_Advent-of-Code-2025	
-marvinkohl_Advent-of-Code-2025/day01b	chunk:09	dir:marvinkohl_Advent-of-Code-2025	
-mathijs-tobe_AoC2021/day1	chunk:11	dir:mathijs-tobe_AoC2021	
-moussetf_AdventOfCode2025/day05	chunk:11	dir:moussetf_AdventOfCode2025	
-noeppi-noeppi_aoc/2024/day25/part2	chunk:04	feat:language	language
-oregenal_aoc/2022/01-prolog/main	chunk:11	dir:oregenal_aoc/2022/01-prolog	
-oregenal_aoc/2022/02-prolog/main	chunk:11	dir:oregenal_aoc/2022/02-prolog	
-pkoch_aoc-2020/1/1	chunk:09	dir:pkoch_aoc-2020/1	
-pkoch_aoc-2020/1/2	chunk:09	dir:pkoch_aoc-2020/1	
-pkoch_aoc-2020/2/1	chunk:09	dir:pkoch_aoc-2020/2	
-pkoch_aoc-2020/2/2	chunk:09	dir:pkoch_aoc-2020/2	
-pkoch_aoc-2020/3/1	chunk:09	dir:pkoch_aoc-2020/3	
-pkoch_aoc-2020/3/2	chunk:09	dir:pkoch_aoc-2020/3	
-pkoch_aoc-2020/4/1	chunk:09	dir:pkoch_aoc-2020/4	
-pkoch_aoc-2020/4/2	chunk:09	dir:pkoch_aoc-2020/4	
-pkoch_aoc-2020/6/1	chunk:09	dir:pkoch_aoc-2020/6	
-pkoch_aoc-2020/6/2	chunk:09	dir:pkoch_aoc-2020/6	
-pkoch_aoc-2020/7/1	chunk:11	dir:pkoch_aoc-2020/7	
-samarthkishor_Advent-of-Code-2020/Day1/day1	chunk:11	dir:samarthkishor_Advent-of-Code-2020/Day1	
-samarthkishor_Advent-of-Code-2020/Day10/day10	chunk:12	dir:samarthkishor_Advent-of-Code-2020/Day10	
-samarthkishor_Advent-of-Code-2020/Day5/day5	chunk:12	dir:samarthkishor_Advent-of-Code-2020/Day5	
-samarthkishor_Advent-of-Code-2020/Day9/day9	chunk:12	dir:samarthkishor_Advent-of-Code-2020/Day9	
-samwalrus_prolog_advent_of_code/advent_of_code/day1/day1	chunk:12	dir:samwalrus_prolog_advent_of_code/advent_of_code/day1	
-sindrekjr_AdventOfCode2015/01/solution	chunk:12	dir:sindrekjr_AdventOfCode2015/01	
-socksy_advent-of-code-2019/1	chunk:12	dir:socksy_advent-of-code-2019	
-stevemccoy_aoc2025/pl/day11/main	chunk:05	feat:want_rc	want_rc
+gamache_advent2019/02/02	chunk:05	feat:language	language
+gamache_advent2019/04/04	chunk:05	feat:language	language
+gamache_advent2019/05/05	chunk:05	feat:language	language
+gamache_advent2019/08/08	chunk:05	feat:language	language
+gamache_advent2019/12/12	chunk:05	feat:language	language
+gorkempacaci_Aoc25/05/program	chunk:22	dir:gorkempacaci_Aoc25/05	
+gromgull_advent-of-code-2020/day1-1	chunk:09	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day1	chunk:09	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day10-2	chunk:09	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day10	chunk:09	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day2-2	chunk:09	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day2	chunk:09	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day3-2	chunk:09	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day3	chunk:09	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day4-2	chunk:09	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day4	chunk:09	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day5-2	chunk:09	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day5	chunk:10	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day6-2	chunk:10	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day6	chunk:10	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day7-2	chunk:10	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day7	chunk:10	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day8-2	chunk:10	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day8	chunk:06	feat:want_rc	want_rc
+gromgull_advent-of-code-2020/day9-2	chunk:10	dir:gromgull_advent-of-code-2020	
+gromgull_advent-of-code-2020/day9	chunk:10	dir:gromgull_advent-of-code-2020	
+hakank_hakank/advent-of-code-2022/1_swi	chunk:16	dir:hakank_hakank/advent-of-code-2022	
+hakank_hakank/advent-of-code-2022/2_swi	chunk:16	dir:hakank_hakank/advent-of-code-2022	
+hakank_hakank/advent-of-code-2022/3_swi	chunk:16	dir:hakank_hakank/advent-of-code-2022	
+hakank_hakank/advent-of-code-2022/4_swi	chunk:16	dir:hakank_hakank/advent-of-code-2022	
+hakank_hakank/advent-of-code-2022/5_swi	chunk:16	dir:hakank_hakank/advent-of-code-2022	
+hakank_hakank/advent-of-code-2022/6_swi	chunk:16	dir:hakank_hakank/advent-of-code-2022	
+hakank_hakank/advent-of-code-2023/1_swi	chunk:06	feat:want_rc	want_rc
+hakank_hakank/advent-of-code-2023/2_swi	chunk:06	feat:want_rc	want_rc
+hakank_hakank/advent-of-code-2023/3_swi	chunk:06	feat:want_rc	want_rc
+hakank_hakank/advent-of-code-2023/4_swi	chunk:06	feat:want_rc	want_rc
+jamesconstable_aoc2016/23	chunk:23	dir:jamesconstable_aoc2016	
+jasagredo_advent-of-prolog-2025/01	chunk:13	dir:jasagredo_advent-of-prolog-2025	
+jasagredo_advent-of-prolog-2025/02	chunk:13	dir:jasagredo_advent-of-prolog-2025	
+jasagredo_advent-of-prolog-2025/03	chunk:14	dir:jasagredo_advent-of-prolog-2025	
+jasagredo_advent-of-prolog-2025/04	chunk:14	dir:jasagredo_advent-of-prolog-2025	
+jasagredo_advent-of-prolog-2025/05	chunk:14	dir:jasagredo_advent-of-prolog-2025	
+jasagredo_advent-of-prolog-2025/06	chunk:14	dir:jasagredo_advent-of-prolog-2025	
+jasagredo_advent-of-prolog-2025/07	chunk:14	dir:jasagredo_advent-of-prolog-2025	
+jasagredo_advent-of-prolog-2025/08	chunk:15	dir:jasagredo_advent-of-prolog-2025	
+jasagredo_advent-of-prolog-2025/09	chunk:15	dir:jasagredo_advent-of-prolog-2025	
+jasagredo_advent-of-prolog-2025/10	chunk:15	dir:jasagredo_advent-of-prolog-2025	
+jesperes_advent-of-code-prolog/day01	chunk:06	feat:want_rc	want_rc
+jesperes_advent-of-code-prolog/day02	chunk:06	feat:want_rc	want_rc
+jesperes_advent-of-code-prolog/day03	chunk:07	feat:want_rc	want_rc
+jesperes_advent-of-code-prolog/day04	chunk:07	feat:want_rc	want_rc
+jesperes_advent-of-code-prolog/day05	chunk:07	feat:want_rc	want_rc
+jinwoo_aoc2023/main	chunk:23	dir:jinwoo_aoc2023	
+jwoudenberg_advent-of-code-2020/day1/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day1	
+jwoudenberg_advent-of-code-2020/day10/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day10	
+jwoudenberg_advent-of-code-2020/day11/solution-part1	chunk:23	dir:jwoudenberg_advent-of-code-2020/day11	
+jwoudenberg_advent-of-code-2020/day12/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day12	
+jwoudenberg_advent-of-code-2020/day13/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day13	
+jwoudenberg_advent-of-code-2020/day2/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day2	
+jwoudenberg_advent-of-code-2020/day3/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day3	
+jwoudenberg_advent-of-code-2020/day4/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day4	
+jwoudenberg_advent-of-code-2020/day5/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day5	
+jwoudenberg_advent-of-code-2020/day6/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day6	
+jwoudenberg_advent-of-code-2020/day7/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day7	
+jwoudenberg_advent-of-code-2020/day8/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day8	
+jwoudenberg_advent-of-code-2020/day9/solution	chunk:23	dir:jwoudenberg_advent-of-code-2020/day9	
+k3ut0i_aoc19/src/day12	chunk:18	dir:k3ut0i_aoc19/src	
+k3ut0i_aoc19/src/day4	chunk:18	dir:k3ut0i_aoc19/src	
+kamahen_advent-of-code-2022/21	chunk:18	dir:kamahen_advent-of-code-2022	
+kamahen_advent-of-code-2022/7	chunk:18	dir:kamahen_advent-of-code-2022	
+kamahen_advent-of-code-2023/day01_trebuchet	chunk:23	dir:kamahen_advent-of-code-2023	
+kkweon_advent-of-code-2024/day1_part1	chunk:18	dir:kkweon_advent-of-code-2024	
+kkweon_advent-of-code-2024/day1_part2	chunk:18	dir:kkweon_advent-of-code-2024	
+kristianhasselknippe_advent-of-code-2019/day1/main	chunk:23	dir:kristianhasselknippe_advent-of-code-2019/day1	
+lewtds_advent-code-2019-prolog/a_01a	chunk:05	feat:language	language
+lewtds_advent-code-2019-prolog/a_01b	chunk:05	feat:language	language
+lewtds_advent-code-2019-prolog/a_02a	chunk:05	feat:language	language
+lewtds_advent-code-2019-prolog/a_02b	chunk:06	feat:language	language
+lewtds_advent-code-2019-prolog/a_04a	chunk:06	feat:language	language
+lewtds_advent-code-2019-prolog/a_05a	chunk:06	feat:language	language
+lewtds_advent-code-2019-prolog/a_05b	chunk:06	feat:language	language
+lewtds_advent-code-2019-prolog/a_06a	chunk:06	feat:language	language
+lewtds_advent-code-2019-prolog/a_06b	chunk:06	feat:language	language
+lynn_aoc-prolog/2015/day-06	chunk:06	feat:language	language
+marvinkohl_Advent-of-Code-2025/day01	chunk:18	dir:marvinkohl_Advent-of-Code-2025	
+marvinkohl_Advent-of-Code-2025/day01b	chunk:19	dir:marvinkohl_Advent-of-Code-2025	
+mathijs-tobe_AoC2021/day1	chunk:24	dir:mathijs-tobe_AoC2021	
+moussetf_AdventOfCode2025/day05	chunk:24	dir:moussetf_AdventOfCode2025	
+noeppi-noeppi_aoc/2024/day25/part2	chunk:06	feat:language	language
+oregenal_aoc/2022/01-prolog/main	chunk:24	dir:oregenal_aoc/2022/01-prolog	
+oregenal_aoc/2022/02-prolog/main	chunk:24	dir:oregenal_aoc/2022/02-prolog	
+pkoch_aoc-2020/1/1	chunk:19	dir:pkoch_aoc-2020/1	
+pkoch_aoc-2020/1/2	chunk:19	dir:pkoch_aoc-2020/1	
+pkoch_aoc-2020/2/1	chunk:20	dir:pkoch_aoc-2020/2	
+pkoch_aoc-2020/2/2	chunk:20	dir:pkoch_aoc-2020/2	
+pkoch_aoc-2020/3/1	chunk:20	dir:pkoch_aoc-2020/3	
+pkoch_aoc-2020/3/2	chunk:20	dir:pkoch_aoc-2020/3	
+pkoch_aoc-2020/4/1	chunk:20	dir:pkoch_aoc-2020/4	
+pkoch_aoc-2020/4/2	chunk:20	dir:pkoch_aoc-2020/4	
+pkoch_aoc-2020/6/1	chunk:20	dir:pkoch_aoc-2020/6	
+pkoch_aoc-2020/6/2	chunk:20	dir:pkoch_aoc-2020/6	
+pkoch_aoc-2020/7/1	chunk:24	dir:pkoch_aoc-2020/7	
+samarthkishor_Advent-of-Code-2020/Day1/day1	chunk:24	dir:samarthkishor_Advent-of-Code-2020/Day1	
+samarthkishor_Advent-of-Code-2020/Day10/day10	chunk:24	dir:samarthkishor_Advent-of-Code-2020/Day10	
+samarthkishor_Advent-of-Code-2020/Day5/day5	chunk:24	dir:samarthkishor_Advent-of-Code-2020/Day5	
+samarthkishor_Advent-of-Code-2020/Day9/day9	chunk:25	dir:samarthkishor_Advent-of-Code-2020/Day9	
+samwalrus_prolog_advent_of_code/advent_of_code/day1/day1	chunk:25	dir:samwalrus_prolog_advent_of_code/advent_of_code/day1	
+sindrekjr_AdventOfCode2015/01/solution	chunk:25	dir:sindrekjr_AdventOfCode2015/01	
+socksy_advent-of-code-2019/1	chunk:25	dir:socksy_advent-of-code-2019	
+stevemccoy_aoc2025/pl/day11/main	chunk:07	feat:want_rc	want_rc
 strguntbr_AoC2024/10	core	core	language want_rc
 strguntbr_AoC2024/11	core	core	language want_rc
 strguntbr_AoC2024/12	core	core	language want_rc
-strguntbr_AoC2024/13	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/14	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/15	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/16	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/17	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/18	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/19	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/2	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/20	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/21	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/22	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/23	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/24	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/3	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/5	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/7	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/8	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2024/lib/solve	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2025/11	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2025/2	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2025/3	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2025/4	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2025/8	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2025/9	chunk:05	feat:want_rc	language want_rc
-strguntbr_AoC2025/lib/solve	chunk:05	feat:want_rc	language want_rc
-tatut_aoc2015-prolog/day1	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day10	chunk:05	feat:want_rc	want_rc
-tatut_aoc2015-prolog/day13	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day14	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day16	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day17	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day18	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day2	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day21	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day22	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day23	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day25	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day3	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day5	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day7	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2015-prolog/day8	chunk:06	dir:tatut_aoc2015-prolog	
-tatut_aoc2023-prolog/day1	chunk:06	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day12	chunk:06	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day14	chunk:06	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day16	chunk:06	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day18	chunk:07	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day19	chunk:07	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day2	chunk:07	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day20	chunk:07	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day21	chunk:07	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day3	chunk:07	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day5	chunk:07	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day6	chunk:07	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day8	chunk:07	dir:tatut_aoc2023-prolog	
-tatut_aoc2023-prolog/day9	chunk:07	dir:tatut_aoc2023-prolog	
+strguntbr_AoC2024/13	chunk:07	feat:want_rc	language want_rc
+strguntbr_AoC2024/14	chunk:07	feat:want_rc	language want_rc
+strguntbr_AoC2024/15	chunk:07	feat:want_rc	language want_rc
+strguntbr_AoC2024/16	chunk:07	feat:want_rc	language want_rc
+strguntbr_AoC2024/17	chunk:07	feat:want_rc	language want_rc
+strguntbr_AoC2024/18	chunk:07	feat:want_rc	language want_rc
+strguntbr_AoC2024/19	chunk:07	feat:want_rc	language want_rc
+strguntbr_AoC2024/2	chunk:07	feat:want_rc	language want_rc
+strguntbr_AoC2024/20	chunk:07	feat:want_rc	language want_rc
+strguntbr_AoC2024/21	chunk:07	feat:want_rc	language want_rc
+strguntbr_AoC2024/22	chunk:07	feat:want_rc	language want_rc
+strguntbr_AoC2024/23	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2024/24	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2024/3	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2024/5	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2024/7	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2024/8	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2024/lib/solve	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2025/11	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2025/2	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2025/3	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2025/4	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2025/8	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2025/9	chunk:08	feat:want_rc	language want_rc
+strguntbr_AoC2025/lib/solve	chunk:09	feat:want_rc	language want_rc
+tatut_aoc2015-prolog/day1	chunk:10	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day10	chunk:09	feat:want_rc	want_rc
+tatut_aoc2015-prolog/day13	chunk:10	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day14	chunk:10	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day16	chunk:11	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day17	chunk:11	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day18	chunk:11	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day2	chunk:11	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day21	chunk:11	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day22	chunk:11	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day23	chunk:11	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day25	chunk:11	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day3	chunk:11	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day5	chunk:11	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day7	chunk:12	dir:tatut_aoc2015-prolog	
+tatut_aoc2015-prolog/day8	chunk:12	dir:tatut_aoc2015-prolog	
+tatut_aoc2023-prolog/day1	chunk:12	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day12	chunk:12	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day14	chunk:12	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day16	chunk:12	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day18	chunk:12	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day19	chunk:12	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day2	chunk:12	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day20	chunk:12	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day21	chunk:13	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day3	chunk:13	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day5	chunk:13	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day6	chunk:13	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day8	chunk:13	dir:tatut_aoc2023-prolog	
+tatut_aoc2023-prolog/day9	chunk:13	dir:tatut_aoc2023-prolog	
