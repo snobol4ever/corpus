@@ -102,9 +102,14 @@
         "path": "./syntaxes/icon.tmLanguage.json"
       },
       {
+        "language": "scriptix",
+        "scopeName": "text.scriptix",
+        "path": "./syntaxes/scriptix.tmLanguage.json"
+      },
+      {
         "scopeName": "scrip.fences.injection",
         "path": "./syntaxes/scrip-fences.tmLanguage.json",
-        "injectTo": ["text.html.markdown"],
+        "injectTo": ["text.html.markdown", "text.scriptix"],
         "embeddedLanguages": {
           "meta.embedded.block.snobol4": "snobol4",
           "meta.embedded.block.snocone": "snocone",
