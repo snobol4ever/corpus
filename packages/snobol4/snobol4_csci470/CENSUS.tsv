@@ -1,0 +1,16 @@
+# the census of /home/packages/snobol4/csci470_lowe by sbl (73e3f8c, fetched 2026-11-22), 2026-11-22: path from the root, verdict, note
+snobol4/array.sno	ENTRY	
+snobol4/card.sno	DOES-NOT-END	no answer inside 30 s
+snobol4/critters.sno	DOES-NOT-END	its output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) inside 30 s and the run was killed -- no answer
+snobol4/filereader.sno	ENTRY	ends with SPITBOL's error, graded: filereader.sno(1) : ERROR 116 -- inappropriate file specification for input; stderr not graded: filereader.sno(1) : ERROR 116 -- inappropriate file specification for input
+snobol4/filewriter.sno	ENTRY	ends with SPITBOL's error, graded: filewriter.sno(1) : ERROR 160 -- inappropriate file specification for output; stderr not graded: filewriter.sno(1) : ERROR 160 -- inappropriate file specification for output
+snobol4/guess.sno	ENTRY	stderr not graded: -INCLUDE "random.sno"
+snobol4/hello-loop.sno	DOES-NOT-END	its output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) inside 30 s and the run was killed -- no answer
+snobol4/hello.sno	ENTRY	
+snobol4/indirect.sno	DOES-NOT-END	its output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) inside 30 s and the run was killed -- no answer
+snobol4/phone.sno	ENTRY	ends with SPITBOL's error, graded: phone.sno(1) : ERROR 116 -- inappropriate file specification for input; stderr not graded: phone.sno(1) : ERROR 116 -- inappropriate file specification for input
+snobol4/table.sno	ENTRY	
+snobol4/count.sno	ENTRY	standard input is the package's own snobol4/count.in
+snobol4/loopstring.sno	ENTRY	standard input is the package's own snobol4/loopstring.in
+snobol4/name.sno	ENTRY	standard input is the package's own snobol4/name.in
+snobol4/replacement.sno	ENTRY	standard input is the package's own snobol4/replacement.in

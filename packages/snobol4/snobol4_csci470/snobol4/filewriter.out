@@ -1,0 +1,18 @@
+
+
+
+filewriter.sno(1) : ERROR 160 -- inappropriate file specification for output
+
+
+
+
+
+in file              filewriter.sno
+in line              1
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  11624
+memory left (bytes)  1036944
+

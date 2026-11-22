@@ -1,0 +1,6 @@
+# EXCLUDED.tsv -- snobol4_csci470: the programs this package ships and does not grade, one row a program: name<TAB>CLASS<TAB>evidence,
+# the CLASS a word lib_excluded.sh accepts and the evidence the builder's measurement (ALL.omit) and the grader's reading of the source, 2026-11-22.
+snobol4/card.sno	NO_ORACLE_ANSWER	DOES-NOT-END: no answer inside 30 s, twice; its LOOP reads INPUT and jumps back to LOOP unconditionally, so at the end of input it never ends whatever stdin holds
+snobol4/critters.sno	NO_ORACLE_ANSWER	DOES-NOT-END: output past the 256 MB bound inside 30 s; NOCRITTER jumps to LOOP unconditionally after a failed INPUT, so it never ends whatever stdin holds
+snobol4/hello-loop.sno	NO_ORACLE_ANSWER	DOES-NOT-END: output past the 256 MB bound inside 30 s; LOOP OUTPUT = "Hello, world" :(LOOP) is an endless loop by design
+snobol4/indirect.sno	NO_ORACLE_ANSWER	DOES-NOT-END: output past the 256 MB bound inside 30 s; its LOOP prompts and jumps back to LOOP unconditionally, so it never ends whatever stdin holds

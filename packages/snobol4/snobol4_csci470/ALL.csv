@@ -1,0 +1,12 @@
+rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args
+1,snobol4/array,snobol4/array.sno,pkg__snobol4/array,pkg,12,0,131072,4096,30,
+2,snobol4/count,snobol4/count.sno,pkg__snobol4/count,pkg,23,0,131072,4096,30,
+3,snobol4/filereader,snobol4/filereader.sno,pkg__snobol4/filereader,pkg,3,0,131072,4096,30,
+4,snobol4/filewriter,snobol4/filewriter.sno,pkg__snobol4/filewriter,pkg,6,0,131072,4096,30,
+5,snobol4/guess,snobol4/guess.sno,pkg__snobol4/guess,pkg,19,1,131072,4096,30,
+6,snobol4/hello,snobol4/hello.sno,pkg__snobol4/hello,pkg,2,0,131072,4096,30,
+7,snobol4/loopstring,snobol4/loopstring.sno,pkg__snobol4/loopstring,pkg,5,0,131072,4096,30,
+8,snobol4/name,snobol4/name.sno,pkg__snobol4/name,pkg,8,0,131072,4096,30,
+9,snobol4/phone,snobol4/phone.sno,pkg__snobol4/phone,pkg,28,0,131072,4096,30,
+10,snobol4/replacement,snobol4/replacement.sno,pkg__snobol4/replacement,pkg,16,0,131072,4096,30,
+11,snobol4/table,snobol4/table.sno,pkg__snobol4/table,pkg,6,0,131072,4096,30,

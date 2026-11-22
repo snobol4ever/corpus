@@ -1,0 +1,4 @@
+root	/home/packages/snobol4/csci470_lowe
+origin	github.com/utm-lowe/CSCI470-Spring-2026-Examples (Robert Lowe, University of Tennessee Martin, CSCI 470 Comparison of Programming Languages), its snobol4 folder
+version	73e3f8c, fetched 2026-11-22
+licence	MIT (LICENSE at the root, Copyright (c) 2026 Robert Lowe); read in place, only the tables and the answers stored here; upcased in place by sno_upcase_edition.py (built-in names, keywords, goto letters to upper case, angle-bracket subscripts to square brackets, the spacing kept); snobol4/UPCASE.tsv names each file

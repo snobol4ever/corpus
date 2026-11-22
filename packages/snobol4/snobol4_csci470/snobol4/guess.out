@@ -1,0 +1,18 @@
+
+
+
+macro spitbol version 4.0f
+x86-64  Sun Nov 22 10:46:41 2026
+
+
+
+                                                                                                                page 1
+
+        -INCLUDE "random.sno"
+                 !
+guess.sno(1,10) : ERROR 285 -- include file cannot be opened
+
+     1  -INCLUDE "time.sno"
+                 !
+guess.sno(2,10) : ERROR 285 -- include file cannot be opened
+

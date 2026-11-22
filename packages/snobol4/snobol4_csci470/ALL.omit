@@ -1,0 +1,4 @@
+snobol4/card.sno: DOES-NOT-END: no answer inside 30 s
+snobol4/critters.sno: DOES-NOT-END: its output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) inside 30 s and the run was killed -- no answer
+snobol4/hello-loop.sno: DOES-NOT-END: its output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) inside 30 s and the run was killed -- no answer
+snobol4/indirect.sno: DOES-NOT-END: its output passed the harness's bound (S4E_OUTPUT_CAP_MB, 268435456 bytes) inside 30 s and the run was killed -- no answer
