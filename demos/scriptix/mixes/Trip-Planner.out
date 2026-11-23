@@ -1,5 +1,5 @@
-snobol4: I cannot read "flight 9 is cancelled today"
-snobol4: 10 flights read, 1 line not understood
+snocone: I cannot read "flight 9 is cancelled today"
+snocone: 10 flights read, 1 line not understood
 prolog: 10 flights are facts
 prolog: 6 routes from Dallas to Seattle
 icon: 6 routes to choose from, out of 10 flights
