@@ -1,0 +1,26 @@
+# collatz as THREE cells (cell 0 the global memo and steps, 1 longest, 2 main), Unicon entry, developer_15 2026-11-23.
+# THE LAW OF EACH STEP, worked out from the program (the model of gen3.py: the call chain of steps(6) is 6 3 10 5 16 8 4 2 1, the frame of an even n calls steps(n / 2) at line 10, of an odd n steps(3 * n + 1) at line 12, steps(1) returns at its base line 6, a store is line 13, r is the steps to 1: 2 is 1, 4 is 2, 8 is 3, 16 is 4, 5 is 5, 10 is 6, 3 is 7, 6 is 8) and unicon 13.3's image() BEFORE any run.
+# A procedure's FIRST STOP is its first executable statement (line 5; local r is line 4 and no stop), the first stop of steps(6) comes at line 5; a step in at the call of line 10 enters steps(3) at line 5 (the recursion's frames, one steps frame a level, deepest first); the breakpoint on the base line 6 stops once in steps(6) with nine frames of steps below main and once more for steps(1) of the loop of main;
+# a step next from the base return, and a step out of a call that finishes its statement, stop at the next statement of the caller, the store of line 13, each with n and r as above; the last out leaves steps(6): main stops at the every of line 29 with steps(6) = 8 written; the last continue runs the program out, so the end check reads the whole answer. EXPECTED UNTRUE today: the step in at the call stops at the local line 4 (the row of the local declaration line).
+{"run": 0, "expect": {"stopped": false}}
+{"run": 1, "expect": {"stopped": false}}
+{"break": [0, 6]}
+{"break": [2, 4]}
+{"run": 2, "expect": {"cell": 2, "line": 4, "frames": [["main", 4]], "vars": {"n": "&null", "best": "&null"}, "output": ""}}
+{"act": "in", "expect": {"cell": 0, "line": 5, "frames": [["steps", 5], ["main", 4]], "vars": {"n": "6"}, "output": ""}}
+{"act": "next", "expect": {"cell": 0, "line": 7, "frames": [["steps", 7], ["main", 4]], "vars": {"n": "6"}, "output": ""}}
+{"act": "next", "expect": {"cell": 0, "line": 9, "frames": [["steps", 9], ["main", 4]], "vars": {"n": "6"}, "output": ""}}
+{"act": "next", "expect": {"cell": 0, "line": 10, "frames": [["steps", 10], ["main", 4]], "vars": {"n": "6"}, "output": ""}}
+{"act": "in", "expect": {"cell": 0, "line": 5, "frames": [["steps", 5], ["steps", 10], ["main", 4]], "vars": {"n": "3"}, "output": ""}}
+{"act": "continue", "expect": {"cell": 0, "line": 6, "frames": [["steps", 6], ["steps", 10], ["steps", 10], ["steps", 10], ["steps", 10], ["steps", 12], ["steps", 10], ["steps", 12], ["steps", 10], ["main", 4]], "vars": {"n": "1"}, "output": ""}}
+{"act": "next", "expect": {"cell": 0, "line": 13, "frames": [["steps", 13], ["steps", 10], ["steps", 10], ["steps", 10], ["steps", 12], ["steps", 10], ["steps", 12], ["steps", 10], ["main", 4]], "vars": {"n": "2", "r": "1"}, "output": ""}}
+{"act": "out", "expect": {"cell": 0, "line": 13, "frames": [["steps", 13], ["steps", 10], ["steps", 10], ["steps", 12], ["steps", 10], ["steps", 12], ["steps", 10], ["main", 4]], "vars": {"n": "4", "r": "2"}, "output": ""}}
+{"act": "out", "expect": {"cell": 0, "line": 13, "frames": [["steps", 13], ["steps", 10], ["steps", 12], ["steps", 10], ["steps", 12], ["steps", 10], ["main", 4]], "vars": {"n": "8", "r": "3"}, "output": ""}}
+{"act": "out", "expect": {"cell": 0, "line": 13, "frames": [["steps", 13], ["steps", 12], ["steps", 10], ["steps", 12], ["steps", 10], ["main", 4]], "vars": {"n": "16", "r": "4"}, "output": ""}}
+{"act": "out", "expect": {"cell": 0, "line": 13, "frames": [["steps", 13], ["steps", 10], ["steps", 12], ["steps", 10], ["main", 4]], "vars": {"n": "5", "r": "5"}, "output": ""}}
+{"act": "out", "expect": {"cell": 0, "line": 13, "frames": [["steps", 13], ["steps", 12], ["steps", 10], ["main", 4]], "vars": {"n": "10", "r": "6"}, "output": ""}}
+{"act": "out", "expect": {"cell": 0, "line": 13, "frames": [["steps", 13], ["steps", 10], ["main", 4]], "vars": {"n": "3", "r": "7"}, "output": ""}}
+{"act": "out", "expect": {"cell": 0, "line": 13, "frames": [["steps", 13], ["main", 4]], "vars": {"n": "6", "r": "8"}, "output": ""}}
+{"act": "out", "expect": {"cell": 2, "line": 5, "frames": [["main", 5]], "vars": {"n": "&null"}, "output": "steps(6) = 8\n"}}
+{"act": "continue", "expect": {"cell": 0, "line": 6, "frames": [["steps", 6], ["main", 5]], "vars": {"n": "1"}, "output": "steps(6) = 8\n"}}
+{"act": "continue", "expect": {"stopped": false, "output": "steps(6) = 8\n1: 0\n2: 1\n3: 7\n4: 2\n5: 5\n6: 8\nlongest under 30: 27 with 111 steps\nmemo holds 140\n"}}

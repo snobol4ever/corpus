@@ -1,0 +1,10 @@
+ann: 129
+  deposit 10
+  deposit 5
+  deposit 20
+  deposit 6
+  deposit 30
+  deposit 8
+  refused 500
+  withdraw 50
+entries: 8

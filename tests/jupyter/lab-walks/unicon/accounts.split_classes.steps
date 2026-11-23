@@ -1,0 +1,31 @@
+# accounts.split_classes as FOUR cells (cell 0 class Account, 1 class Savings : Account, 2 procedure report, 3 main), Unicon entry, developer_15 2026-11-23: THE WITNESS THAT A CLASS MAY INHERIT FROM A CLASS OF AN EARLIER CELL.
+# THE LAW OF EACH STEP, worked out from the program and unicon 13.3's own image() BEFORE any run: the object prints object Savings_1(4) (four fields: owner, balance, log, rate), an integer 10, null &null; a method's frame is named Class_method (Account_deposit, Savings_add_interest, Account_withdraw, Account_can_pay), and a method Savings inherits keeps the name of the class that declares it (the frame of deposit called from add_interest is Account_deposit);
+# the program: s.deposit(i*10) then s.add_interest() three times (balance 100, 110 +5, 135 +6, 171 +8 = 179), then withdraw(500) refused (put refused 500, fail) and withdraw(50) paid (balance 129); main's lines in its cell are 5 s.deposit, 6 s.add_interest, 8 s.withdraw(500), 9 s.withdraw(50); every stop writes nothing, report runs last, so the output is "" at every stop and the whole answer at the end.
+# A procedure's or a method's FIRST STOP is its first executable statement (a local declaration is no statement), so a step in at line 6 enters add_interest at its line 4 (local i is line 3), and a breakpoint on its line 5 brings the script back to the law whatever that step read (the walk resyncs by a continue, never by counting the acts that follow a step that read untrue); a step out of a call that completes its statement stops at the next statement of the caller (main line 6 after deposit's statement at 5);
+# a step in at can_pay inside the if of withdraw enters Account_can_pay at its return, and a step out of it stops at the first statement the if then runs, line 14. The last step runs the program out, so the walk's end check reads the whole answer. EXPECTED UNTRUE today: the step in at add_interest stops at its local line 3 (the standing cause WITH-THE-CFO).
+{"run": 0, "expect": {"stopped": false}}
+{"run": 1, "expect": {"stopped": false}}
+{"run": 2, "expect": {"stopped": false}}
+{"break": [3, 5]}
+{"break": [0, 13]}
+{"break": [1, 5]}
+{"run": 3, "expect": {"cell": 3, "line": 5, "frames": [["main", 5]], "vars": {"s": "object Savings_1(4)", "i": "1", "n": "&null"}, "output": ""}}
+{"act": "in", "expect": {"cell": 0, "line": 3, "frames": [["Account_deposit", 3], ["main", 5]], "vars": {"amt": "10"}, "output": ""}}
+{"act": "out", "expect": {"cell": 3, "line": 6, "frames": [["main", 6]], "vars": {"s": "object Savings_1(4)", "i": "1"}, "output": ""}}
+{"act": "in", "expect": {"cell": 1, "line": 4, "frames": [["Savings_add_interest", 4], ["main", 6]], "vars": {"i": "&null"}, "output": ""}}
+{"act": "continue", "expect": {"cell": 1, "line": 5, "frames": [["Savings_add_interest", 5], ["main", 6]], "vars": {"i": "5"}, "output": ""}}
+{"act": "in", "expect": {"cell": 0, "line": 3, "frames": [["Account_deposit", 3], ["Savings_add_interest", 5], ["main", 6]], "vars": {"amt": "5"}, "output": ""}}
+{"act": "out", "expect": {"cell": 1, "line": 6, "frames": [["Savings_add_interest", 6], ["main", 6]], "vars": {"i": "5"}, "output": ""}}
+{"act": "continue", "expect": {"cell": 3, "line": 5, "frames": [["main", 5]], "vars": {"s": "object Savings_1(4)", "i": "2"}, "output": ""}}
+{"act": "continue", "expect": {"cell": 1, "line": 5, "frames": [["Savings_add_interest", 5], ["main", 6]], "vars": {"i": "6"}, "output": ""}}
+{"act": "continue", "expect": {"cell": 3, "line": 5, "frames": [["main", 5]], "vars": {"s": "object Savings_1(4)", "i": "3"}, "output": ""}}
+{"act": "continue", "expect": {"cell": 1, "line": 5, "frames": [["Savings_add_interest", 5], ["main", 6]], "vars": {"i": "8"}, "output": ""}}
+{"act": "continue", "expect": {"cell": 0, "line": 13, "frames": [["Account_withdraw", 13], ["main", 8]], "vars": {"amt": "500"}, "output": ""}}
+{"act": "next", "expect": {"cell": 0, "line": 18, "frames": [["Account_withdraw", 18], ["main", 8]], "vars": {"amt": "500"}, "output": ""}}
+{"act": "next", "expect": {"cell": 0, "line": 19, "frames": [["Account_withdraw", 19], ["main", 8]], "vars": {"amt": "500"}, "output": ""}}
+{"act": "next", "expect": {"cell": 3, "line": 9, "frames": [["main", 9]], "vars": {"s": "object Savings_1(4)"}, "output": ""}}
+{"act": "continue", "expect": {"cell": 0, "line": 13, "frames": [["Account_withdraw", 13], ["main", 9]], "vars": {"amt": "50"}, "output": ""}}
+{"act": "in", "expect": {"cell": 0, "line": 9, "frames": [["Account_can_pay", 9], ["Account_withdraw", 13], ["main", 9]], "vars": {"amt": "50"}, "output": ""}}
+{"act": "out", "expect": {"cell": 0, "line": 14, "frames": [["Account_withdraw", 14], ["main", 9]], "vars": {"amt": "50"}, "output": ""}}
+{"act": "next", "expect": {"cell": 0, "line": 15, "frames": [["Account_withdraw", 15], ["main", 9]], "vars": {"amt": "50"}, "output": ""}}
+{"act": "continue", "expect": {"stopped": false, "output": "ann: 129\n  deposit 10\n  deposit 5\n  deposit 20\n  deposit 6\n  deposit 30\n  deposit 8\n  refused 500\n  withdraw 50\nentries: 8\n"}}

@@ -3,7 +3,7 @@
 A whole Unicon program: the Queue class of the corpus (rosetta queue-definition), a record, a recursive build and count of a tree, and a breadth-first walk that writes each visit.
 
 ```unicon
-record node(name, kids)
+record node(name, kids)   # a tree node
 
 procedure main()
    local t, c, s;
@@ -31,7 +31,7 @@ procedure count(n)
 end
 
 procedure walk(root)
-   local q, n, k, seen;
+   local q, n, k, seen;   # the queue, the node, a kid, the count
    q := Queue();
    q.push(root);
    seen := 0;
@@ -44,7 +44,7 @@ procedure walk(root)
    return seen;
 end
 
-class Queue (items)
+class Queue (items)   # a queue kept in a list
   method push (item)
     put (items, item);
   end
