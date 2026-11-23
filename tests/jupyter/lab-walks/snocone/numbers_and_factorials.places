@@ -1,9 +1,9 @@
-# Snocone (scrip-snocone), program 1: numbers and factorials. developer_03 2026-11-22. The form of the driver: {"at": [CELL, LINE, COL], "act": A, "expect": {...}}, CELL from 0 among the CODE cells, LINE and COL from 1. Written from the language, before any run: go to definition of a function lands on its function line (in its cell or another), of a variable on its first assignment; hover on a function of the program shows its declaration, on a builtin its name; completion of a prefix offers the program's own function.
+# Snocone (scrip-snocone), program 1: numbers and factorials. developer_03 2026-11-22. The form of the driver: {"at": [CELL, LINE, COL], "act": A, "expect": {...}}, CELL from 0 among the CODE cells, LINE and COL from 1. Written from the language, before any run: go to definition of a function lands on its function line (in its cell or another), of a variable on its first assignment; hover on a function of the program shows its arity and the line it is defined at (signature help carries the parameter names), on a builtin its name; completion of a prefix offers the program's own function.
 {"at": [0, 16, 16], "act": "definition", "expect": {"cell": 0, "line": 14}}
 {"at": [1, 5, 16], "act": "definition", "expect": {"cell": 0, "line": 14}}
 {"at": [2, 5, 9], "act": "definition", "expect": {"cell": 0, "line": 5}}
 {"at": [2, 7, 62], "act": "definition", "expect": {"cell": 0, "line": 1}}
 {"at": [2, 7, 32], "act": "definition", "expect": {"cell": 1, "line": 1}}
-{"at": [2, 7, 62], "act": "hover", "expect": {"text": "GCD(a, b, t)"}}
+{"at": [2, 7, 62], "act": "hover", "expect": {"text": "GCD: a function of 3 arguments, defined at line 1"}}
 {"at": [0, 2, 39], "act": "hover", "expect": {"text": "REMDR"}}
 {"at": [2, 5, 13], "act": "completion", "expect": {"items": ["IsPrime"]}}
