@@ -1,0 +1,11 @@
+# PLACE SCRIPT of program 3 (Tower of Hanoi), developer_14 2026-11-22: cell, line, col (1-based) of the word, the act, what the person must meet. Cells count from 0 among the code cells, lines from 1. Written from the program, to be read by the cqo.
+{"cell": 0, "line": 3, "col": 9, "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "HANOI"}
+{"cell": 0, "line": 7, "col": 9, "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "HANOI"}
+{"cell": 2, "line": 1, "col": 28, "act": "definition", "expect": {"cell": 1, "line": 3}, "word": "SOLVE"}
+{"cell": 0, "line": 5, "col": 11, "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "MOVE"}
+{"cell": 2, "line": 3, "col": 27, "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "DISC"}
+{"cell": 1, "line": 5, "col": 9, "act": "references", "expect": {"cells_lines": [[0, 2], [0, 3], [0, 7], [1, 5]]}, "word": "HANOI"}
+{"cell": 1, "line": 5, "col": 9, "act": "hover", "expect": {"text_contains": "HANOI"}, "word": "HANOI"}
+{"cell": 2, "line": 1, "col": 28, "act": "rename", "expect": {"to": "RUNIT", "cells": [1, 2]}, "word": "SOLVE"}
+{"cell": 1, "line": 5, "col": 15, "act": "signature_help", "expect": {"label": "HANOI(N,NS,ND,NI)"}, "word": "HANOI("}
+{"cell": 2, "line": 0, "col": 1, "act": "diagnostics", "expect": {"count": 0}, "word": ""}
