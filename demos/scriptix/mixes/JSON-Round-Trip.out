@@ -1,5 +1,5 @@
-snobol4: 265 characters read: 5 objects, 1 arrays, 6 strings, 5 integers, 2 reals, depth 3
-icon: the data SNOBOL4 built, written back out:
+snocone: 265 characters read: 5 objects, 1 arrays, 6 strings, 5 integers, 2 reals, depth 3
+icon: the data Snocone built, written back out:
    {
      "order": 1047,
      "customer": {
@@ -58,4 +58,4 @@ texts that are not JSON, each refused by the pattern:
    tru                   refused
    {"a": [1, {"b": ]}    refused
    [01]                  refused
-snobol4 parsed 3 texts in all
+snocone parsed 3 texts in all
