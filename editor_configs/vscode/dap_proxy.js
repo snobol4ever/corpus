@@ -45,11 +45,16 @@ class ScripDapProxy {
     this.onDidSendMessage = this.emitter.event;
     this.buffer = Buffer.alloc(0);
     this.ended = false;
+    this.terminated = false;
     this.child = spawn(command, args, { stdio: ['pipe', 'pipe', 'pipe'] });
     this.child.stdout.on('data', chunk => this.read(chunk));
     this.child.stderr.on('data', chunk => this.emit({ type: 'event', seq: 0, event: 'output', body: { category: 'stderr', output: chunk.toString('utf8') } }));
     this.child.on('error', e => this.fail('could not start ' + command + ': ' + e.message));
-    this.child.on('exit', (code, signal) => { if (!this.ended) this.fail('scrip --dap ended (' + (signal || 'exit ' + code) + ')'); });
+    this.child.on('exit', (code, signal) => {
+      if (this.ended) return;
+      if (code === 0 && !signal) { this.ended = true; if (!this.terminated) this.emit({ type: 'event', seq: 0, event: 'terminated' }); return; }
+      this.fail('scrip --dap ended (' + (signal || 'exit ' + code) + ')');
+    });
   }
   fail(text) {
     this.ended = true;
@@ -68,7 +73,7 @@ class ScripDapProxy {
       if (this.buffer.length < from + n) return;
       const body = this.buffer.slice(from, from + n).toString('utf8');
       this.buffer = this.buffer.slice(from + n);
-      try { this.emit(rewriteOut(this.notebooks(), JSON.parse(body))); } catch (e) { this.emit({ type: 'event', seq: 0, event: 'output', body: { category: 'stderr', output: 'scrip --dap sent a message this extension could not read: ' + e.message + '\n' } }); }
+      try { const m = JSON.parse(body); if (m.type === 'event' && m.event === 'terminated') this.terminated = true; this.emit(rewriteOut(this.notebooks(), m)); } catch (e) { this.emit({ type: 'event', seq: 0, event: 'output', body: { category: 'stderr', output: 'scrip --dap sent a message this extension could not read: ' + e.message + '\n' } }); }
     }
   }
   handleMessage(message) {
