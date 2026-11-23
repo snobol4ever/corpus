@@ -1,10 +1,26 @@
-# calculator.ipynb, cells 0 markdown, 1 snobol4, 2 icon, 3 raku (indices of the notebook). developer_06 2026-11-22 19:3x CST. The law of each step is the cfo's to read; EXPECTED lines are by the program: the call under break is on the line the frame waits at, a step in enters the callee at its first statement, a step out stops in the caller at the next statement.
-# Written in the format of the cao's lab-walk programs (py_call.steps). {"unbreak":[cell,line]} is my proposal, so the walk can end at the output.
-{"break": [2, 21]}
-{"run": 3, "expect": {"cell": 2, "line": 21, "frames": [["term", 21], ["sum", 30], ["calc", 47], ["main", 8]], "vars": {"op": "&null", "r": "&null", "v": "&null"}}}
-{"act": "in", "expect": {"cell": 2, "line": 14, "frames": [["factor", 14], ["term", 21], ["sum", 30], ["calc", 47], ["main", 8]]}}
-{"act": "next", "expect": {"cell": 2, "line": 15, "frames": [["factor", 15], ["term", 21], ["sum", 30], ["calc", 47], ["main", 8]]}}
-{"act": "out", "expect": {"cell": 2, "line": 22, "frames": [["term", 22], ["sum", 30], ["calc", 47], ["main", 8]], "vars": {"v": "3"}}}
-{"act": "continue", "expect": {"cell": 2, "line": 21, "frames": [["term", 21], ["sum", 32], ["calc", 47], ["main", 8]]}}
-{"unbreak": [2, 21]}
+# calculator.ipynb is code cells only (the driver's run index counts a markdown cell: reported to the cao): 0 snobol4, 1 icon, 2 raku. developer_06 2026-11-22 20:0x CST. EXPECTED lines are by the program (the cfo reads them): a frame waits at the line of its call, a step in enters the callee at its first STATEMENT (line 14: line 13 is the declaration local v), a step out stops in the caller at the next statement. The breakpoint at term's first statement is hit 18 times by the nine lines of input: the first stop, then 17 continues, then the run ends.
+{"run": 0, "expect": {"stopped": false}}
+{"run": 1, "expect": {"stopped": false}}
+{"break": [1, 21]}
+{"run": 2, "expect": {"cell": 1, "line": 21, "frames": [["term", 21], ["sum", 30], ["calc", 47], ["main", 8]], "vars": {"op": "&null", "r": "&null", "v": "&null"}}}
+{"act": "in", "expect": {"cell": 1, "line": 14, "frames": [["factor", 14], ["term", 21], ["sum", 30], ["calc", 47], ["main", 8]]}}
+{"act": "next", "expect": {"cell": 1, "line": 15, "frames": [["factor", 15], ["term", 21], ["sum", 30], ["calc", 47], ["main", 8]]}}
+{"act": "out", "expect": {"cell": 1, "line": 22, "frames": [["term", 22], ["sum", 30], ["calc", 47], ["main", 8]], "vars": {"v": "3"}}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
+{"act": "continue", "expect": {"cell": 1, "line": 21}}
 {"act": "continue", "expect": {"stopped": false, "output": "x = 3 + 4 * 2      -> x is 11\ny = (x - 1) * x    -> y is 110\ny / 4 + x          -> 38\nx = x * x - y      -> x is 11\n2 $ 3              -> ? I cannot read that\nx +                -> ? that is no expression\n(x + y) * -2       -> -242\nz                  -> ? that is no expression\n7 / (x - x)        -> ? that is no expression\n46 tokens lexed by SNOBOL4, 5 lines evaluated by Icon\n"}}
