@@ -1,0 +1,15 @@
+# PLACE SCRIPT of program 1 hanoi_moves (Raku), developer_13 2026-11-23, written from the program's own text, to be read by the cqo: at [cell, line, col] (cells from 0 among the code cells, lines and columns from 1), the act, what the person must meet; word is the text at the place. Cell 0 holds the record sub and the two structures, cell 1 the recursive hanoi, cell 2 the run and the tally.
+{"at": [2, 1, 1], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "hanoi"}
+{"at": [1, 3, 5], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "hanoi"}
+{"at": [1, 6, 5], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "hanoi"}
+{"at": [1, 4, 5], "act": "definition", "expect": {"cell": 0, "line": 3}, "word": "record"}
+{"at": [0, 4, 5], "act": "definition", "expect": {"cell": 0, "line": 1}, "word": "%moves"}
+{"at": [0, 5, 5], "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "@log"}
+{"at": [2, 2, 16], "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "@log"}
+{"at": [1, 2, 15], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "$n"}
+{"at": [2, 4, 17], "act": "definition", "expect": {"cell": 0, "line": 1}, "word": "%moves"}
+{"at": [2, 4, 10], "act": "definition", "expect": {"cell": 2, "line": 3}, "word": "$k"}
+{"at": [1, 3, 5], "act": "hover", "expect": {"text": "hanoi"}, "word": "hanoi"}
+{"at": [0, 3, 5], "act": "hover", "expect": {"text": "record"}, "word": "record"}
+{"at": [2, 1, 4], "act": "completion", "expect": {"items": ["hanoi"]}, "word": "han"}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}, "word": ""}

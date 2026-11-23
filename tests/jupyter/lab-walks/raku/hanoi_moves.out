@@ -1,0 +1,13 @@
+Move disk 1 from A to B
+Move disk 2 from A to C
+Move disk 1 from B to C
+Move disk 3 from A to B
+Move disk 1 from C to A
+Move disk 2 from C to B
+Move disk 1 from A to B
+moves: 7
+A to B: 3
+A to C: 1
+B to C: 1
+C to A: 1
+C to B: 1

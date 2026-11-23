@@ -1,0 +1,26 @@
+# Raku, program 1 hanoi_moves (rosetta-raku towers-of-hanoi, with a moves record and a tally): developer_13 2026-11-23. The expects are worked out from the program, never read off a run: frames top first as [name, line in its own cell]; a breakpoint on line 4 of hanoi (the record call) is hit by every move (seven stops); the output is the program's own, the oracle's (rakudo) for the last line. The step out at the end leaves hanoi(0) whose caller hanoi(1) has nothing after the call: it stops in the caller at the call's line (the law of skill debugger section 2, D37; MEASURED on the python3 control, which stops there).
+{"run": 0}
+{"run": 1}
+{"break": [2, 1]}
+{"break": [1, 4]}
+{"run": 2, "expect": {"cell": 2, "line": 1, "frames": [["main", 1]]}}
+{"act": "in", "expect": {"cell": 1, "line": 2, "frames": [["hanoi", 2], ["main", 1]], "vars": {"$n": "3", "$a": "\"A\"", "$b": "\"B\"", "$c": "\"C\""}}}
+{"act": "next", "expect": {"cell": 1, "line": 3, "frames": [["hanoi", 3], ["main", 1]]}}
+{"act": "in", "expect": {"cell": 1, "line": 2, "frames": [["hanoi", 2], ["hanoi", 3], ["main", 1]], "vars": {"$n": "2", "$a": "\"A\"", "$b": "\"C\"", "$c": "\"B\""}}}
+{"act": "continue", "expect": {"cell": 1, "line": 4, "frames": [["hanoi", 4], ["hanoi", 3], ["hanoi", 3], ["main", 1]], "vars": {"$n": "1", "$a": "\"A\"", "$b": "\"B\"", "$c": "\"C\""}, "output": ""}}
+{"act": "in", "expect": {"cell": 0, "line": 4, "frames": [["record", 4], ["hanoi", 4], ["hanoi", 3], ["hanoi", 3], ["main", 1]], "vars": {"$from": "\"A\"", "$to": "\"B\""}}}
+{"act": "next", "expect": {"cell": 0, "line": 5, "frames": [["record", 5], ["hanoi", 4], ["hanoi", 3], ["hanoi", 3], ["main", 1]]}}
+{"act": "out", "expect": {"cell": 1, "line": 5, "frames": [["hanoi", 5], ["hanoi", 3], ["hanoi", 3], ["main", 1]], "output": ""}}
+{"act": "evaluate", "expression": "$n + 1", "expect": {"result": "2"}}
+{"act": "next", "expect": {"cell": 1, "line": 6, "frames": [["hanoi", 6], ["hanoi", 3], ["hanoi", 3], ["main", 1]], "output": "Move disk 1 from A to B\n"}}
+{"act": "continue", "expect": {"cell": 1, "line": 4, "frames": [["hanoi", 4], ["hanoi", 3], ["main", 1]], "vars": {"$n": "2", "$a": "\"A\"", "$b": "\"C\"", "$c": "\"B\""}, "output": "Move disk 1 from A to B\n"}}
+{"act": "continue", "expect": {"cell": 1, "line": 4, "frames": [["hanoi", 4], ["hanoi", 6], ["hanoi", 3], ["main", 1]], "vars": {"$n": "1", "$a": "\"B\"", "$b": "\"C\"", "$c": "\"A\""}, "output": "Move disk 1 from A to B\nMove disk 2 from A to C\n"}}
+{"act": "continue", "expect": {"cell": 1, "line": 4, "frames": [["hanoi", 4], ["main", 1]], "vars": {"$n": "3", "$a": "\"A\"", "$b": "\"B\"", "$c": "\"C\""}, "output": "Move disk 1 from A to B\nMove disk 2 from A to C\nMove disk 1 from B to C\n"}}
+{"act": "continue", "expect": {"cell": 1, "line": 4, "frames": [["hanoi", 4], ["hanoi", 3], ["hanoi", 6], ["main", 1]], "vars": {"$n": "1", "$a": "\"C\"", "$b": "\"A\"", "$c": "\"B\""}, "output": "Move disk 1 from A to B\nMove disk 2 from A to C\nMove disk 1 from B to C\nMove disk 3 from A to B\n"}}
+{"act": "continue", "expect": {"cell": 1, "line": 4, "frames": [["hanoi", 4], ["hanoi", 6], ["main", 1]], "vars": {"$n": "2", "$a": "\"C\"", "$b": "\"B\"", "$c": "\"A\""}, "output": "Move disk 1 from A to B\nMove disk 2 from A to C\nMove disk 1 from B to C\nMove disk 3 from A to B\nMove disk 1 from C to A\n"}}
+{"act": "continue", "expect": {"cell": 1, "line": 4, "frames": [["hanoi", 4], ["hanoi", 6], ["hanoi", 6], ["main", 1]], "vars": {"$n": "1", "$a": "\"A\"", "$b": "\"B\"", "$c": "\"C\""}, "output": "Move disk 1 from A to B\nMove disk 2 from A to C\nMove disk 1 from B to C\nMove disk 3 from A to B\nMove disk 1 from C to A\nMove disk 2 from C to B\n"}}
+{"act": "next", "expect": {"cell": 1, "line": 5, "frames": [["hanoi", 5], ["hanoi", 6], ["hanoi", 6], ["main", 1]]}}
+{"act": "next", "expect": {"cell": 1, "line": 6, "frames": [["hanoi", 6], ["hanoi", 6], ["hanoi", 6], ["main", 1]], "output": "Move disk 1 from A to B\nMove disk 2 from A to C\nMove disk 1 from B to C\nMove disk 3 from A to B\nMove disk 1 from C to A\nMove disk 2 from C to B\nMove disk 1 from A to B\n"}}
+{"act": "in", "expect": {"cell": 1, "line": 2, "frames": [["hanoi", 2], ["hanoi", 6], ["hanoi", 6], ["hanoi", 6], ["main", 1]], "vars": {"$n": "0"}}}
+{"act": "out", "expect": {"cell": 1, "line": 6, "frames": [["hanoi", 6], ["hanoi", 6], ["hanoi", 6], ["main", 1]]}}
+{"act": "continue", "expect": {"stopped": false, "output": "Move disk 1 from A to B\nMove disk 2 from A to C\nMove disk 1 from B to C\nMove disk 3 from A to B\nMove disk 1 from C to A\nMove disk 2 from C to B\nMove disk 1 from A to B\nmoves: 7\nA to B: 3\nA to C: 1\nB to C: 1\nC to A: 1\nC to B: 1\n"}}
