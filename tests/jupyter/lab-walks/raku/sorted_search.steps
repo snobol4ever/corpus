@@ -1,0 +1,29 @@
+# Raku, program 2 sorted_search (rosetta-raku binary-search-2 and a recursive quicksort): developer_13 2026-11-23. Expects worked out from the program: frames top first as [name, line in its own cell]; breakpoints on cell 2 line 2 (the quicksort call), cell 2 line 6 (the binary search call in locate) and cell 0 line 3 (the loop of the binary search, hit once a turn: 4..6 and 4..4 after the stepped first turn for 7; 0..6, 0..2, 0..0 for 1; 0..6, 0..2, 2..2 for 5).
+{"run": 0}
+{"run": 1}
+{"break": [2, 2]}
+{"break": [2, 6]}
+{"break": [0, 3]}
+{"run": 2, "expect": {"cell": 2, "line": 2, "frames": [["main", 2]], "vars": {"@data": "[9, 4, 7, 1, 8, 2, 6]"}}}
+{"act": "in", "expect": {"cell": 1, "line": 2, "frames": [["quicksort", 2], ["main", 2]], "vars": {"@a": "[9, 4, 7, 1, 8, 2, 6]"}}}
+{"act": "next", "expect": {"cell": 1, "line": 3, "frames": [["quicksort", 3], ["main", 2]]}}
+{"act": "next", "expect": {"cell": 1, "line": 4, "frames": [["quicksort", 4], ["main", 2]], "vars": {"$pivot": "9"}}}
+{"act": "next", "expect": {"cell": 1, "line": 5, "frames": [["quicksort", 5], ["main", 2]], "vars": {"@less": "[4, 7, 1, 8, 2, 6]"}}}
+{"act": "next", "expect": {"cell": 1, "line": 6, "frames": [["quicksort", 6], ["main", 2]], "vars": {"@more": "[]"}}}
+{"act": "in", "expect": {"cell": 1, "line": 2, "frames": [["quicksort", 2], ["quicksort", 6], ["main", 2]], "vars": {"@a": "[4, 7, 1, 8, 2, 6]"}}}
+{"act": "out", "expect": {"cell": 1, "line": 6, "frames": [["quicksort", 6], ["main", 2]], "output": ""}}
+{"act": "continue", "expect": {"cell": 2, "line": 6, "frames": [["locate", 6], ["main", 9]], "vars": {"$target": "7"}, "output": "sorted: [1 2 4 6 7 8 9]\n"}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["binary_search", 2], ["locate", 6], ["main", 9]], "vars": {"$lo": "0", "$hi": "6"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["binary_search", 3], ["locate", 6], ["main", 9]], "vars": {"$lo": "0", "$hi": "6"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 3, "frames": [["binary_search", 3], ["locate", 6], ["main", 9]], "vars": {"$lo": "4", "$hi": "6"}, "output": "sorted: [1 2 4 6 7 8 9]\n"}}
+{"act": "evaluate", "expression": "$lo + $hi", "expect": {"result": "10"}}
+{"act": "continue", "expect": {"cell": 0, "line": 3, "frames": [["binary_search", 3], ["locate", 6], ["main", 9]], "vars": {"$lo": "4", "$hi": "4"}, "output": "sorted: [1 2 4 6 7 8 9]\n"}}
+{"act": "continue", "expect": {"cell": 2, "line": 6, "frames": [["locate", 6], ["main", 9]], "vars": {"$target": "1"}, "output": "sorted: [1 2 4 6 7 8 9]\n7 is at index 4\n"}}
+{"act": "continue", "expect": {"cell": 0, "line": 3, "frames": [["binary_search", 3], ["locate", 6], ["main", 9]], "vars": {"$lo": "0", "$hi": "6"}, "output": "sorted: [1 2 4 6 7 8 9]\n7 is at index 4\n"}}
+{"act": "continue", "expect": {"cell": 0, "line": 3, "frames": [["binary_search", 3], ["locate", 6], ["main", 9]], "vars": {"$lo": "0", "$hi": "2"}, "output": "sorted: [1 2 4 6 7 8 9]\n7 is at index 4\n"}}
+{"act": "continue", "expect": {"cell": 0, "line": 3, "frames": [["binary_search", 3], ["locate", 6], ["main", 9]], "vars": {"$lo": "0", "$hi": "0"}, "output": "sorted: [1 2 4 6 7 8 9]\n7 is at index 4\n"}}
+{"act": "continue", "expect": {"cell": 2, "line": 6, "frames": [["locate", 6], ["main", 9]], "vars": {"$target": "5"}, "output": "sorted: [1 2 4 6 7 8 9]\n7 is at index 4\n1 is at index 0\n"}}
+{"act": "continue", "expect": {"cell": 0, "line": 3, "frames": [["binary_search", 3], ["locate", 6], ["main", 9]], "vars": {"$lo": "0", "$hi": "6"}, "output": "sorted: [1 2 4 6 7 8 9]\n7 is at index 4\n1 is at index 0\n"}}
+{"act": "continue", "expect": {"cell": 0, "line": 3, "frames": [["binary_search", 3], ["locate", 6], ["main", 9]], "vars": {"$lo": "0", "$hi": "2"}, "output": "sorted: [1 2 4 6 7 8 9]\n7 is at index 4\n1 is at index 0\n"}}
+{"act": "continue", "expect": {"cell": 0, "line": 3, "frames": [["binary_search", 3], ["locate", 6], ["main", 9]], "vars": {"$lo": "2", "$hi": "2"}, "output": "sorted: [1 2 4 6 7 8 9]\n7 is at index 4\n1 is at index 0\n"}}
+{"act": "continue", "expect": {"stopped": false, "output": "sorted: [1 2 4 6 7 8 9]\n7 is at index 4\n1 is at index 0\n5 is at index nowhere\n"}}

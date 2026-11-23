@@ -1,0 +1,13 @@
+# PLACE SCRIPT of program 2 sorted_search (Raku), developer_13 2026-11-23, written from the program's own text, to be read by the cqo: at [cell, line, col] (cells from 0 among the code cells, lines and columns from 1), the act, what the person must meet; word is the text at the place. Cell 0 the binary search (rosetta-raku binary-search-2), cell 1 the recursive quicksort, cell 2 the data, locate and the run.
+{"at": [2, 2, 14], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "quicksort"}
+{"at": [1, 6, 14], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "quicksort"}
+{"at": [2, 6, 13], "act": "definition", "expect": {"cell": 0, "line": 1}, "word": "binary_search"}
+{"at": [2, 9, 1], "act": "definition", "expect": {"cell": 2, "line": 4}, "word": "locate"}
+{"at": [2, 6, 27], "act": "definition", "expect": {"cell": 2, "line": 5}, "word": "&by"}
+{"at": [0, 2, 11], "act": "definition", "expect": {"cell": 0, "line": 1}, "word": "$lo"}
+{"at": [2, 5, 28], "act": "definition", "expect": {"cell": 2, "line": 2}, "word": "@sorted"}
+{"at": [2, 5, 16], "act": "definition", "expect": {"cell": 2, "line": 4}, "word": "$target"}
+{"at": [1, 6, 14], "act": "hover", "expect": {"text": "quicksort"}, "word": "quicksort"}
+{"at": [2, 6, 13], "act": "hover", "expect": {"text": "binary_search"}, "word": "binary_search"}
+{"at": [2, 9, 4], "act": "completion", "expect": {"items": ["locate"]}, "word": "loc"}
+{"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}, "word": ""}
