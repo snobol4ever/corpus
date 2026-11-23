@@ -1,34 +1,35 @@
 # A calculator in three languages
 
-SNOBOL4 is the LEXER: one pattern cuts a line into tokens, and a line with a
+Snocone is the LEXER: one pattern cuts a line into tokens, and a line with a
 character it does not know fails to match. Icon is the PARSER: a recursive
 descent over the tokens, with a table of variables it keeps between lines.
 Raku is the FRONT: it feeds the lines, formats the answers and reads the two
 counters the other two languages keep as globals.
 
-```SNOBOL4
-        lexed = 0
-        p_tok = SPAN(' ') | (SPAN('0123456789') | SPAN(&LCASE) | ANY('+-*/()=')) $ tok *keep()
-        DEFINE('keep()')                                   :(keep_end)
-keep    ntok = ntok + 1
-        toks[ntok] = tok                                   :(RETURN)
-keep_end
-*  lex(s): the tokens of s as an array, or failure.
-        DEFINE('lex(s)i')                                  :(lex_end)
-lex     toks = TABLE()
-        ntok = 0
-        s POS(0) ARBNO(p_tok) RPOS(0)                      :F(FRETURN)
-        lex = GT(ntok, 0) ARRAY(ntok)                      :F(FRETURN)
-        lexed = lexed + ntok
-lex_1   i = LT(i, ntok) i + 1                              :F(RETURN)
-        lex[i] = toks[i]                                   :(lex_1)
-lex_end
-END
+```Snocone
+lexed = 0;
+p_tok = SPAN(' ') | (SPAN('0123456789') | SPAN(&LCASE) | ANY('+-*/()=')) $ tok *keep();
+function keep() {
+    ntok = ntok + 1;
+    toks[ntok] = tok;
+    return;
+}
+// lex(s): the tokens of s as an array, or failure.
+function lex(s) i {
+    toks = TABLE();
+    ntok = 0;
+    if (~(s ? POS(0) ARBNO(p_tok) RPOS(0))) freturn;
+    if (~GT(ntok, 0)) freturn;
+    lex = ARRAY(ntok);
+    lexed = lexed + ntok;
+    for (i = 1; LE(i, ntok); i = i + 1) { lex[i] = toks[i]; }
+    return;
+}
 ```
 
 ```Icon
 global memory, evaluated, ts, at
-global lex                   # SNOBOL4's function, declared because this section calls it
+global lex                   # Snocone's function, declared because this section calls it
 
 procedure peek()
     return ts[at];
@@ -90,5 +91,5 @@ my @lines = 'x = 3 + 4 * 2', 'y = (x - 1) * x', 'y / 4 + x', 'x = x * x - y',
 for @lines -> $line {
     say $line.fmt('%-18s'), ' -> ', calc($line);
 }
-say "$lexed tokens lexed by SNOBOL4, $evaluated lines evaluated by Icon";
+say "$lexed tokens lexed by Snocone, $evaluated lines evaluated by Icon";
 ```

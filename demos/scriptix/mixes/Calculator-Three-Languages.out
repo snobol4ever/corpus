@@ -7,4 +7,4 @@ x +                -> ? that is no expression
 (x + y) * -2       -> -242
 z                  -> ? that is no expression
 7 / (x - x)        -> ? that is no expression
-46 tokens lexed by SNOBOL4, 5 lines evaluated by Icon
+46 tokens lexed by Snocone, 5 lines evaluated by Icon
