@@ -5,7 +5,7 @@ lines, and four languages run the desk, each doing what it was made for.
 THE ANSWER HAS NO ORACLE: the reference of this mix was written by hand from the
 data of this document, every line checked against it; no program coloured it.
 
-SNOBOL4 is the READER. One pattern a shape takes each catalogue line and each
+Snocone is the READER. One pattern a shape takes each catalogue line and each
 day-book line apart, and a line it cannot read is refused with its place.
 Raku is the DESK: a class Book and a class Member hold the state, the day book is
 applied event by event, and a method refuses what cannot be (a book lent twice).
@@ -15,121 +15,112 @@ by calling Raku's functions and hands its total to Icon in a shared global.
 Icon is the REPORTS: the overdue loans, the shelf list and the next free day of
 each reserved book, generated and set out as aligned text.
 
-```SNOBOL4
-*  The catalogue: three shapes, and one line that is none of them.
-        digits = '0123456789'
-        bk_id = ''
-        bk_title = ''
-        bk_author = ''
-        bk_shelf = ''
-        ev_who = ''
-        ev_kind = ''
-        ev_book = ''
-        ev_day = 0
-        yy = ''
-        mm = ''
-        dd = ''
-        catalogue = ARRAY(8)
-        catalogue[1] = 'B01 | The Dispossessed | Ursula K. Le Guin | SF-LEG'
-        catalogue[2] = 'B02: Middlemarch by George Eliot [FIC-ELI]'
-        catalogue[3] = 'B03 "Godel, Escher, Bach" (Douglas Hofstadter) 510.HOF'
-        catalogue[4] = 'B04 | Gnomon | Nick Harkaway | FIC-HAR'
-        catalogue[5] = 'B05: The Pragmatic Programmer by Andrew Hunt [005.HUN]'
-        catalogue[6] = 'B06 "Cosmos" (Carl Sagan) 520.SAG'
-        catalogue[7] = 'Anonymous pamphlet with no shelf mark'
-        catalogue[8] = 'B07: Dune by Frank Herbert [SF-HER]'
-*  The day book: who did what to which book, and when.
-        daybook = ARRAY(21)
-        daybook[1] = '2026-03-02 ana lends B01'
-        daybook[2] = '2026-03-03 bo lends B02'
-        daybook[3] = '2026-03-05 cy lends B03'
-        daybook[4] = '2026-03-09 ana returns B01'
-        daybook[5] = '2026-03-10 di lends B01'
-        daybook[6] = '2026-03-12 bo reserves B03'
-        daybook[7] = '2026-03-20 ed lends B03'
-        daybook[8] = 'on the fifth ana took B04'
-        daybook[9] = '2026-03-25 ana lends B04'
-        daybook[10] = '2026-03-26 ana lends B05'
-        daybook[11] = '2026-04-02 ana lends B06'
-        daybook[12] = '2026-04-03 bo reserves B01'
-        daybook[13] = '2026-04-05 ed lends B07'
-        daybook[14] = '2026-04-06 ed returns B02'
-        daybook[15] = '2026-04-07 cy reserves B01'
-        daybook[16] = '2026-04-09 di reserves B05'
-        daybook[17] = '2026-13-02 di lends B02'
-        daybook[18] = '2026-04-12 cy returns B03'
-        daybook[19] = '2026-04-12 bo lends B03'
-        daybook[20] = '2026-04-17 di returns B01'
-        daybook[21] = '2026-04-18 ed reserves B99'
-*  Days of the year 2026, counted from 1 January: the days before each month.
-        before = ARRAY(12)
-        before[1] = 0
-        before[2] = 31
-        before[3] = 59
-        before[4] = 90
-        before[5] = 120
-        before[6] = 151
-        before[7] = 181
-        before[8] = 212
-        before[9] = 243
-        before[10] = 273
-        before[11] = 304
-        before[12] = 334
-        DEFINE('daynum(m,d)')                      :(daynum_end)
-daynum  daynum = before[m] + d                     :(RETURN)
-daynum_end
-        DEFINE('dtext(n)m')                        :(dtext_end)
-dtext   m = 12
-dtext_1 LT(before[m], n)                           :S(dtext_2)
-        m = m - 1                                  :(dtext_1)
-dtext_2 d = n - before[m]
-        dtext = '2026-' DUPL('0', 2 - SIZE(m)) m '-' DUPL('0', 2 - SIZE(d)) d
-        d = ''                                     :(RETURN)
-dtext_end
-        today = daynum(4, 20)
-*  One pattern a shape.
-        p_id = 'B' SPAN(digits)
-        p_a = POS(0) p_id . bk_id ' | ' ARB . bk_title ' | ' ARB . bk_author ' | ' REM . bk_shelf
-        p_b = POS(0) p_id . bk_id ': ' ARB . bk_title ' by ' ARB . bk_author ' [' BREAK(']') . bk_shelf ']' RPOS(0)
-        p_c = POS(0) p_id . bk_id ' "' BREAK('"') . bk_title '" (' BREAK(')') . bk_author ') ' REM . bk_shelf
-        p_date = SPAN(digits) . yy '-' SPAN(digits) . mm '-' SPAN(digits) . dd
-        p_ev = POS(0) p_date ' ' SPAN(&LCASE) . ev_who ' ' ('lends' | 'returns' | 'reserves') . ev_kind ' ' p_id . ev_book RPOS(0)
-*  parse_book(line): 'ok' with bk_id, bk_title, bk_author and bk_shelf set, or the refusal.
-        DEFINE('parse_book(line)')                 :(parse_book_end)
-parse_book
-        line p_a                                   :S(pb_ok)
-        line p_b                                   :S(pb_ok)
-        line p_c                                   :S(pb_ok)
-        parse_book = 'cannot read: ' line          :(RETURN)
-pb_ok   parse_book = 'ok'                          :(RETURN)
-parse_book_end
-*  parse_event(line): 'ok' with ev_who, ev_kind, ev_book and ev_day set, or the refusal.
-        DEFINE('parse_event(line)')                :(parse_event_end)
-parse_event
-        line p_ev                                  :F(pe_bad)
-        LT(mm, 1)                                  :S(pe_bad)
-        GT(mm, 12)                                 :S(pe_bad)
-        LT(dd, 1)                                  :S(pe_bad)
-        GT(dd, 31)                                 :S(pe_bad)
-        ev_day = daynum(mm, dd)
-        parse_event = 'ok'                         :(RETURN)
-pe_bad  parse_event = 'cannot read: ' line         :(RETURN)
-parse_event_end
-        DEFINE('ncatalogue()')                     :(ncatalogue_end)
-ncatalogue
-        ncatalogue = 8                             :(RETURN)
-ncatalogue_end
-        DEFINE('catline(i)')                       :(catline_end)
-catline catline = catalogue[i]                     :(RETURN)
-catline_end
-        DEFINE('ndaybook()')                       :(ndaybook_end)
-ndaybook
-        ndaybook = 21                              :(RETURN)
-ndaybook_end
-        DEFINE('dayline(i)')                       :(dayline_end)
-dayline dayline = daybook[i]                       :(RETURN)
-dayline_end
-END
+```snocone
+//  The catalogue: three shapes, and one line that is none of them.
+digits = '0123456789';
+bk_id = '';
+bk_title = '';
+bk_author = '';
+bk_shelf = '';
+ev_who = '';
+ev_kind = '';
+ev_book = '';
+ev_day = 0;
+yy = '';
+mm = '';
+dd = '';
+catalogue = ARRAY(8);
+catalogue[1] = 'B01 | The Dispossessed | Ursula K. Le Guin | SF-LEG';
+catalogue[2] = 'B02: Middlemarch by George Eliot [FIC-ELI]';
+catalogue[3] = 'B03 "Godel, Escher, Bach" (Douglas Hofstadter) 510.HOF';
+catalogue[4] = 'B04 | Gnomon | Nick Harkaway | FIC-HAR';
+catalogue[5] = 'B05: The Pragmatic Programmer by Andrew Hunt [005.HUN]';
+catalogue[6] = 'B06 "Cosmos" (Carl Sagan) 520.SAG';
+catalogue[7] = 'Anonymous pamphlet with no shelf mark';
+catalogue[8] = 'B07: Dune by Frank Herbert [SF-HER]';
+//  The day book: who did what to which book, and when.
+daybook = ARRAY(21);
+daybook[1] = '2026-03-02 ana lends B01';
+daybook[2] = '2026-03-03 bo lends B02';
+daybook[3] = '2026-03-05 cy lends B03';
+daybook[4] = '2026-03-09 ana returns B01';
+daybook[5] = '2026-03-10 di lends B01';
+daybook[6] = '2026-03-12 bo reserves B03';
+daybook[7] = '2026-03-20 ed lends B03';
+daybook[8] = 'on the fifth ana took B04';
+daybook[9] = '2026-03-25 ana lends B04';
+daybook[10] = '2026-03-26 ana lends B05';
+daybook[11] = '2026-04-02 ana lends B06';
+daybook[12] = '2026-04-03 bo reserves B01';
+daybook[13] = '2026-04-05 ed lends B07';
+daybook[14] = '2026-04-06 ed returns B02';
+daybook[15] = '2026-04-07 cy reserves B01';
+daybook[16] = '2026-04-09 di reserves B05';
+daybook[17] = '2026-13-02 di lends B02';
+daybook[18] = '2026-04-12 cy returns B03';
+daybook[19] = '2026-04-12 bo lends B03';
+daybook[20] = '2026-04-17 di returns B01';
+daybook[21] = '2026-04-18 ed reserves B99';
+//  Days of the year 2026, counted from 1 January: the days before each month.
+before = ARRAY(12);
+before[1] = 0;
+before[2] = 31;
+before[3] = 59;
+before[4] = 90;
+before[5] = 120;
+before[6] = 151;
+before[7] = 181;
+before[8] = 212;
+before[9] = 243;
+before[10] = 273;
+before[11] = 304;
+before[12] = 334;
+function daynum(m, d) {
+    daynum = before[m] + d;
+    return;
+}
+function dtext(n) m {
+    m = 12;
+    while (~LT(before[m], n)) m = m - 1;
+    d = n - before[m];
+    dtext = '2026-' DUPL('0', 2 - SIZE(m)) m '-' DUPL('0', 2 - SIZE(d)) d;
+    d = '';
+    return;
+}
+today = daynum(4, 20);
+//  One pattern a shape.
+p_id = 'B' SPAN(digits);
+p_a = POS(0) p_id . bk_id ' | ' ARB . bk_title ' | ' ARB . bk_author ' | ' REM . bk_shelf;
+p_b = POS(0) p_id . bk_id ': ' ARB . bk_title ' by ' ARB . bk_author ' [' BREAK(']') . bk_shelf ']' RPOS(0);
+p_c = POS(0) p_id . bk_id ' "' BREAK('"') . bk_title '" (' BREAK(')') . bk_author ') ' REM . bk_shelf;
+p_date = SPAN(digits) . yy '-' SPAN(digits) . mm '-' SPAN(digits) . dd;
+p_ev = POS(0) p_date ' ' SPAN(&LCASE) . ev_who ' ' ('lends' | 'returns' | 'reserves') . ev_kind ' ' p_id . ev_book RPOS(0);
+//  parse_book(line): 'ok' with bk_id, bk_title, bk_author and bk_shelf set, or the refusal.
+function parse_book(line) {
+    if (line ? p_a) { parse_book = 'ok'; return; }
+    if (line ? p_b) { parse_book = 'ok'; return; }
+    if (line ? p_c) { parse_book = 'ok'; return; }
+    parse_book = 'cannot read: ' line;
+    return;
+}
+//  parse_event(line): 'ok' with ev_who, ev_kind, ev_book and ev_day set, or the refusal.
+function parse_event(line) {
+    if (~(line ? p_ev)) goto pe_bad;
+    if (LT(mm, 1)) goto pe_bad;
+    if (GT(mm, 12)) goto pe_bad;
+    if (LT(dd, 1)) goto pe_bad;
+    if (GT(dd, 31)) goto pe_bad;
+    ev_day = daynum(mm, dd);
+    parse_event = 'ok';
+    return;
+pe_bad:
+    parse_event = 'cannot read: ' line;
+    return;
+}
+function ncatalogue() { ncatalogue = 8; return; }
+function catline(i) { catline = catalogue[i]; return; }
+function ndaybook() { ndaybook = 21; return; }
+function dayline(i) { dayline = daybook[i]; return; }
 ```
 
 ```Raku
