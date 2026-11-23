@@ -1,7 +1,7 @@
 # A log detective in three languages
 
 Each language does the kind of work it was made for. This document has no oracle: its answer,
-`a_log_detective_in_three_languages.ref`, was written by hand, never taken from a run of SCRIP. Every
+`Log-Detective.ref`, was written by hand, never taken from a run of SCRIP. Every
 event was read off the log by eye (which of the four shapes it has, its minute, its request), every rule was
 worked out on paper, and an independent program in Python, written from the log text with its own regular
 expressions and sharing no code with this document, gave the same fifty-one lines; the document and its
