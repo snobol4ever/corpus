@@ -1,0 +1,14 @@
+# PLACE SCRIP of program 1 hanoi_moves (Prolog), developer_05 2026-11-23, written from the program text (cells from 0 among the code cells, lines and columns from 1): the definition of a predicate is its first clause, a call and its definition in the same cell and in another cell; hover names the predicate with its arity; completion of a prefix lists the predicates of the notebook. To be read by the cqo.
+{"at": [1, 5, 5], "act": "definition", "expect": {"cell": 0, "line": 4}, "word": "record"}
+{"at": [2, 2, 5], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "hanoi"}
+{"at": [1, 4, 5], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "hanoi"}
+{"at": [1, 6, 5], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "hanoi"}
+{"at": [2, 3, 5], "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "moves"}
+{"at": [0, 5, 14], "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "moves"}
+{"at": [2, 6, 5], "act": "definition", "expect": {"cell": 2, "line": 1}, "word": "run"}
+{"at": [1, 5, 5], "act": "hover", "expect": {"text": "record/2"}, "word": "record"}
+{"at": [2, 2, 5], "act": "hover", "expect": {"text": "hanoi/4"}, "word": "hanoi"}
+{"at": [2, 3, 5], "act": "hover", "expect": {"text": "moves/1"}, "word": "moves"}
+{"at": [2, 6, 4], "act": "hover", "expect": {"text": "run/1"}, "word": "run"}
+{"at": [2, 2, 8], "act": "completion", "expect": {"items": ["hanoi"]}, "word": "han"}
+{"at": [1, 5, 8], "act": "completion", "expect": {"items": ["record"]}, "word": "rec"}
