@@ -1,0 +1,15 @@
+# Snocone (scrip-snocone), program 1: numbers and factorials. developer_03 2026-11-22. Cells counted from 0 among the CODE cells (the cao's rule), lines from 1 in the cell. Written from the step law of skill debugger section 2 BEFORE any run: a step in at a call enters the function; a step out and a next that leave a routine stop at the first stop in a shallower frame; a next at a line that calls a routine steps over the call; a value is in the language's image (an integer 2, a string 'x'); a frame at a call is at the line of its call.
+{"break": [0, 16]}
+{"run": 0, "expect": {"stopped": false}}
+{"run": 1, "expect": {"cell": 0, "line": 16, "frames": [["Fact", 16], ["main", 5]], "vars": {"n": "2"}}}
+{"act": "in", "expect": {"cell": 0, "line": 15, "frames": [["Fact", 15], ["Fact", 16], ["main", 5]], "vars": {"n": "1"}}}
+{"act": "out", "expect": {"cell": 0, "line": 17, "frames": [["Fact", 17], ["main", 5]], "vars": {"n": "2"}}}
+{"act": "next", "expect": {"cell": 1, "line": 6, "frames": [["main", 6]], "vars": {"i": "2"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 16, "frames": [["Fact", 16], ["main", 5]], "vars": {"n": "3"}}}
+{"act": "next", "expect": {"cell": 0, "line": 17, "frames": [["Fact", 17], ["main", 5]], "vars": {"n": "3"}}}
+{"act": "next", "expect": {"cell": 1, "line": 6, "frames": [["main", 6]], "vars": {"i": "3"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 16, "frames": [["Fact", 16], ["main", 5]], "vars": {"n": "4"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 16, "frames": [["Fact", 16], ["main", 5]], "vars": {"n": "5"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 16, "frames": [["Fact", 16], ["main", 5]], "vars": {"n": "6"}}}
+{"act": "continue", "expect": {"stopped": false, "output": "1! = 1\n2! = 2\n3! = 6\n4! = 24\n5! = 120\n6! = 720\n"}}
+{"run": 2, "expect": {"stopped": false, "output": "1! = 1\n2! = 2\n3! = 6\n4! = 24\n5! = 120\n6! = 720\n2 is prime\n3 is prime\n5 is prime\n7 is prime\n11 is prime\n13 is prime\n17 is prime\n19 is prime\n23 is prime\n29 is prime\n10 primes, gcd(120, 24) = 24\n"}}
