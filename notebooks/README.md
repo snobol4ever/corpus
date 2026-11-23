@@ -21,7 +21,7 @@ the notebook's whole output as text, in cell order, each stream's text and each 
 | `Project_XLR8R.ipynb` | `Project_XLR8R.ipynb` | 18 |
 | `WHO_went_to_WHERE_looking_for_WHAT.ipynb` | `WHO_went_to_WHERE_looking_for_WHAT.ipynb` | 23 |
 | `SNOBOL4_Green_Book.ipynb` | `SNOBOL4_Green_Book_in_Python.ipynb` | 25 |
-| `A_SNOBOL4_Tutorial.ipynb` | `A_SNOBOL4_Tutorial_in_Python.ipynb` (cut to five code cells, the first five of the original, for the public binder demo) | 5 |
+| `A_SNOBOL4_Tutorial.ipynb` | `A_SNOBOL4_Tutorial_in_Python.ipynb` | 36 |
 | `Snocone_in_SCRIP.ipynb` | master entries | 11 |
 | `Rebus_in_SCRIP.ipynb` | master entries | 12 |
 | `Icon_in_SCRIP.ipynb` | master entries | 9 |
