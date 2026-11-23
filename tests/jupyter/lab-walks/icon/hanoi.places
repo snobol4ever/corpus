@@ -1,0 +1,21 @@
+# PLACE SCRIPT of hanoi, developer_09 2026-11-22: cell, line, col (1-based) of the word, the act, what the person must meet. Cells numbered as the driver numbers them, every cell counted (0 the title, 1 globals and setup, 2 move and hanoi, 3 main). Written from the program, to be read by the cqo; the wording of a hover is the calculator's form, to be corrected by the cqo's reading.
+{"cell": 2, "line": 10, "col": 4, "act": "definition", "expect": {"cell": 2, "line": 1}, "word": "move"}
+{"cell": 2, "line": 9, "col": 4, "act": "definition", "expect": {"cell": 2, "line": 7}, "word": "hanoi"}
+{"cell": 3, "line": 4, "col": 4, "act": "definition", "expect": {"cell": 2, "line": 7}, "word": "hanoi"}
+{"cell": 3, "line": 3, "col": 4, "act": "definition", "expect": {"cell": 1, "line": 2}, "word": "setup"}
+{"cell": 2, "line": 2, "col": 4, "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "moves"}
+{"cell": 3, "line": 6, "col": 21, "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "log"}
+{"cell": 2, "line": 7, "col": 11, "act": "references", "expect": {"cell": 2, "lines": [7, 9, 11]}, "word": "hanoi"}
+{"cell": 2, "line": 1, "col": 11, "act": "references", "expect": {"cell": 2, "lines": [1, 10]}, "word": "move"}
+{"cell": 2, "line": 10, "col": 4, "act": "hover", "expect": {"text": "move: a procedure defined in Icon at line 1"}, "word": "move"}
+{"cell": 2, "line": 4, "col": 4, "act": "hover", "expect": {"text": "write: a builtin function of Icon"}, "word": "write"}
+{"cell": 2, "line": 3, "col": 4, "act": "hover", "expect": {"text": "put: a builtin function of Icon"}, "word": "put"}
+{"cell": 2, "line": 7, "col": 11, "act": "rename", "expect": {"to": "tower", "cells": [2, 3]}, "word": "hanoi"}
+{"cell": 3, "line": 4, "col": 4, "act": "signature_help", "expect": {"label": "hanoi(n, src, dst, via)"}, "word": "hanoi"}
+{"cell": 2, "line": 3, "col": 4, "act": "signature_help", "expect": {"label": "put(list, x1, x2, ...)"}, "word": "put"}
+{"cell": 3, "line": 3, "col": 4, "act": "completion", "expect": {"contains": ["setup", "hanoi", "move"]}, "word": "s"}
+{"cell": 2, "line": 9, "col": 4, "act": "highlight", "expect": {"lines": [7, 9, 11]}, "word": "hanoi"}
+{"cell": 2, "line": 2, "col": 4, "act": "highlight", "expect": {"lines": [2]}, "word": "moves"}
+{"cell": 2, "line": 10, "col": 4, "act": "squiggle", "expect": {"none": true}, "word": "move"}
+{"cell": 3, "line": 1, "col": 1, "act": "outline", "expect": {"symbols": ["main"]}, "word": "main"}
+{"cell": 2, "line": 1, "col": 1, "act": "outline", "expect": {"symbols": ["move", "hanoi"]}, "word": "move"}
