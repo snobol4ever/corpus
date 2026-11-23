@@ -1,41 +1,41 @@
-snobol4: sheet 1, a clean sheet:
-snobol4:   A1 = 10                       postfix 10                             reads nothing
-snobol4:   A2 = 20                       postfix 20                             reads nothing
-snobol4:   A3 = 30                       postfix 30                             reads nothing
-snobol4:   B1 = A1 * 2 + C3              postfix A1 2 * C3 +                    reads A1 C3
-snobol4:   B2 = (A1 + A2) / 4            postfix A1 A2 + 4 /                    reads A1 A2
-snobol4:   B3 = MAX(A1:A3) - MIN(A1:A3)  postfix {MAX A1:A3 } {MIN A1:A3 } -    reads A1 A2 A3
-snobol4:   C1 = SUM(B1:B3)               postfix {SUM B1:B3 }                   reads B1 B2 B3
-snobol4:   C2 = C1 / A2                  postfix C1 A2 /                        reads C1 A2
-snobol4:   C3 = SUM(A1:A3)               postfix {SUM A1:A3 }                   reads A1 A2 A3
-snobol4:   D1 = COUNT(A1:C3)             postfix {COUNT A1:C3 }                 reads A1 B1 C1 A2 B2 C2 A3 B3 C3
-snobol4:   10 cells read, 0 lines refused
-snobol4: sheet 2, a sheet with cycles:
-snobol4:   A1 = 5                        postfix 5                              reads nothing
-snobol4:   A2 = A1 + 1                   postfix A1 1 +                         reads A1
-snobol4:   B1 = C1 * 2                   postfix C1 2 *                         reads C1
-snobol4:   C1 = B2 + A2 + F1             postfix B2 A2 + F1 +                   reads B2 A2 F1
-snobol4:   B2 = B1 - 3                   postfix B1 3 -                         reads B1
-snobol4:   F1 = C1 + 1                   postfix C1 1 +                         reads C1
-snobol4:   D1 = B2 + 100                 postfix B2 100 +                       reads B2
-snobol4:   G1 = D1 * 2                   postfix D1 2 *                         reads D1
-snobol4:   D2 = A2 * 10                  postfix A2 10 *                        reads A2
-snobol4:   E1 = E1 + 1                   postfix E1 1 +                         reads E1
-snobol4:   10 cells read, 0 lines refused
-snobol4: sheet 3, a sheet with lines that are not formulas:
-snobol4:   A1 = 4                        postfix 4                              reads nothing
-snobol4:   line 2 refused: unexpected character '$' at column 8  [A2 = 6 $ 2]
-snobol4:   line 3 refused: ( opened at column 6 is never closed  [A3 = (A1 + 3]
-snobol4:   line 4 refused: the formula stops making sense at column 13  [B1 = A1 * 2 +]
-snobol4:   line 5 refused: ( opened at column 9 is never closed  [B2 = SUM(A1:A3]
-snobol4:   C1 = A1 + A2                  postfix A1 A2 +                        reads A1 A2
-snobol4:   C2 = B1 * 3                   postfix B1 3 *                         reads B1
-snobol4:   line 8 refused: '2B' is not a cell name, at column 1  [2B = 7]
-snobol4:   D1 = 100 / A1                 postfix 100 A1 /                       reads A1
-snobol4:   D2 = D1 / (A1 - 4)            postfix D1 A1 4 - /                    reads D1 A1
-snobol4:   line 11 refused: there is no = in this line  [E1 half of this line is missing]
-snobol4:   5 cells read, 6 lines refused
-snobol4: 25 cells in 3 sheets, 6 lines refused
+snocone: sheet 1, a clean sheet:
+snocone:   A1 = 10                       postfix 10                             reads nothing
+snocone:   A2 = 20                       postfix 20                             reads nothing
+snocone:   A3 = 30                       postfix 30                             reads nothing
+snocone:   B1 = A1 * 2 + C3              postfix A1 2 * C3 +                    reads A1 C3
+snocone:   B2 = (A1 + A2) / 4            postfix A1 A2 + 4 /                    reads A1 A2
+snocone:   B3 = MAX(A1:A3) - MIN(A1:A3)  postfix {MAX A1:A3 } {MIN A1:A3 } -    reads A1 A2 A3
+snocone:   C1 = SUM(B1:B3)               postfix {SUM B1:B3 }                   reads B1 B2 B3
+snocone:   C2 = C1 / A2                  postfix C1 A2 /                        reads C1 A2
+snocone:   C3 = SUM(A1:A3)               postfix {SUM A1:A3 }                   reads A1 A2 A3
+snocone:   D1 = COUNT(A1:C3)             postfix {COUNT A1:C3 }                 reads A1 B1 C1 A2 B2 C2 A3 B3 C3
+snocone:   10 cells read, 0 lines refused
+snocone: sheet 2, a sheet with cycles:
+snocone:   A1 = 5                        postfix 5                              reads nothing
+snocone:   A2 = A1 + 1                   postfix A1 1 +                         reads A1
+snocone:   B1 = C1 * 2                   postfix C1 2 *                         reads C1
+snocone:   C1 = B2 + A2 + F1             postfix B2 A2 + F1 +                   reads B2 A2 F1
+snocone:   B2 = B1 - 3                   postfix B1 3 -                         reads B1
+snocone:   F1 = C1 + 1                   postfix C1 1 +                         reads C1
+snocone:   D1 = B2 + 100                 postfix B2 100 +                       reads B2
+snocone:   G1 = D1 * 2                   postfix D1 2 *                         reads D1
+snocone:   D2 = A2 * 10                  postfix A2 10 *                        reads A2
+snocone:   E1 = E1 + 1                   postfix E1 1 +                         reads E1
+snocone:   10 cells read, 0 lines refused
+snocone: sheet 3, a sheet with lines that are not formulas:
+snocone:   A1 = 4                        postfix 4                              reads nothing
+snocone:   line 2 refused: unexpected character '$' at column 8  [A2 = 6 $ 2]
+snocone:   line 3 refused: ( opened at column 6 is never closed  [A3 = (A1 + 3]
+snocone:   line 4 refused: the formula stops making sense at column 13  [B1 = A1 * 2 +]
+snocone:   line 5 refused: ( opened at column 9 is never closed  [B2 = SUM(A1:A3]
+snocone:   C1 = A1 + A2                  postfix A1 A2 +                        reads A1 A2
+snocone:   C2 = B1 * 3                   postfix B1 3 *                         reads B1
+snocone:   line 8 refused: '2B' is not a cell name, at column 1  [2B = 7]
+snocone:   D1 = 100 / A1                 postfix 100 A1 /                       reads A1
+snocone:   D2 = D1 / (A1 - 4)            postfix D1 A1 4 - /                    reads D1 A1
+snocone:   line 11 refused: there is no = in this line  [E1 half of this line is missing]
+snocone:   5 cells read, 6 lines refused
+snocone: 25 cells in 3 sheets, 6 lines refused
 prolog: sheet 1, a clean sheet: evaluate in the order A1 A2 A3 B2 B3 C3 B1 C1 C2 D1
 prolog:   no cycle
 prolog:   A1 feeds B1 B2 B3 C1 C2 C3 D1
@@ -98,4 +98,4 @@ icon:   D1 25       -> #DIV/0!
 icon:   D2 #DIV/0!  -> #DIV/0!
 icon:   computed again: 3, left as they were: 1
 icon: 37 evaluations in all, with what-if
-icon: SNOBOL4 read 25 cells and refused 6 lines, and 37 evaluations were Icon's
+icon: Snocone read 25 cells and refused 6 lines, and 37 evaluations were Icon's
