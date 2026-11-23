@@ -1,0 +1,16 @@
+# fib.ipynb, Icon entry (NOT YET WALKED on Lab 4.6.6, the debug walks wait on the editor; the cfo law of the loop head, a stop before every turn of an every or a repeat, is not yet applied to these steps): code cells 0 fib (a generator), 1 main. developer_09 2026-11-23. EXPECTED by the program: the generator suspends a at line 5 with (a, b) = (0,1) then (1,1) (1,2) (2,3) (3,5) (5,8) (8,13) (13,21), the Fibonacci numbers 0 1 1 2 3 5 8 13, taken eight by every with the limit; a step over a suspend returns to the consumer (main line 4 with k = 0), and the next step over resumes the generator, which runs lines 6 and 7 and stops at the breakpoint of line 5 again with a = 1; the co-expression then asks the same generator for three more (0 1 1), the program writing them on one line at the end.
+{"break": [0, 5]}
+{"run": 0, "expect": {"stopped": false, "output": ""}}
+{"run": 1, "expect": {"cell": 0, "line": 5, "frames": [["fib", 5], ["main", 4]], "vars": {"a": "0", "b": "1"}, "output": ""}}
+{"act": "next", "expect": {"cell": 1, "line": 4, "frames": [["main", 4]], "vars": {"k": "0"}}}
+{"act": "next", "expect": {"cell": 0, "line": 5, "frames": [["fib", 5], ["main", 4]], "vars": {"a": "1", "b": "1"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 5, "vars": {"a": "1", "b": "2"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 5, "vars": {"a": "2", "b": "3"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 5, "vars": {"a": "3", "b": "5"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 5, "vars": {"a": "5", "b": "8"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 5, "vars": {"a": "8", "b": "13"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 5, "vars": {"a": "13", "b": "21"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 5, "vars": {"a": "0", "b": "1"}, "output": "0 1 1 2 3 5 8 13 \n"}}
+{"act": "continue", "expect": {"cell": 0, "line": 5, "vars": {"a": "1", "b": "1"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 5, "vars": {"a": "1", "b": "2"}}}
+{"act": "continue", "expect": {"stopped": false, "output": "0 1 1 2 3 5 8 13 \n0 1 1\n"}}

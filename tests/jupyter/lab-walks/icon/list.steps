@@ -1,0 +1,13 @@
+# list.ipynb, Icon entry: code cells 0 the record and the list procedures, 1 main. developer_09 2026-11-23. EXPECTED by the program: the list 1 2 3 is built and shown, then reversed in place: line 10 of reverse_list (head.tail := prev) runs once for each of the three nodes; the first stop has prev null; a step over goes 10 to 11 to 12, then to the while head (line 8, a stop before every turn: the cfo's law of 2026-11-23) and then to line 9 of the next iteration; a step out runs on to the breakpoint of the third iteration, and a second step out returns to main at the next statement after the call (line 6); a step in at show enters at its first executable statement (line 18, never the local line 17); a step out of the last call ends the program, since no statement follows the call in main.
+{"break": [0, 10]}
+{"run": 0, "expect": {"stopped": false, "output": ""}}
+{"run": 1, "expect": {"cell": 0, "line": 10, "frames": [["reverse_list", 10], ["main", 5]], "vars": {"prev": "&null"}, "output": "1 2 3 \n"}}
+{"act": "next", "expect": {"cell": 0, "line": 11, "frames": [["reverse_list", 11], ["main", 5]]}}
+{"act": "next", "expect": {"cell": 0, "line": 12, "frames": [["reverse_list", 12], ["main", 5]]}}
+{"act": "next", "expect": {"cell": 0, "line": 8, "frames": [["reverse_list", 8], ["main", 5]]}}
+{"act": "next", "expect": {"cell": 0, "line": 9, "frames": [["reverse_list", 9], ["main", 5]]}}
+{"act": "next", "expect": {"cell": 0, "line": 10, "frames": [["reverse_list", 10], ["main", 5]]}}
+{"act": "out", "expect": {"cell": 0, "line": 10, "frames": [["reverse_list", 10], ["main", 5]]}}
+{"act": "out", "expect": {"cell": 1, "line": 6, "frames": [["main", 6]], "output": "1 2 3 \n"}}
+{"act": "in", "expect": {"cell": 0, "line": 18, "frames": [["show", 18], ["main", 6]]}}
+{"act": "out", "expect": {"stopped": false, "output": "1 2 3 \n3 2 1 \n"}}

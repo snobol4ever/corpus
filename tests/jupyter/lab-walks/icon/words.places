@@ -1,0 +1,8 @@
+# PLACE SCRIPT of words (Icon), developer_09 2026-11-23, in the driver's at/act form: "at" is [CODE CELL from 0, line, col]; expected from the program (a definition lands on its procedure or record line); the hover text is the language server's own wording and is compared with what it answered; a completion cursor stands after the typed prefix.
+{"at": [2, 3, 10], "act": "definition", "expect": {"cell": 0, "line": 1}}
+{"at": [2, 4, 9], "act": "definition", "expect": {"cell": 1, "line": 1}}
+{"at": [1, 3, 9], "act": "hover", "expect": {"text": "table"}}
+{"at": [0, 4, 18], "act": "hover", "expect": {"text": "upto"}}
+{"at": [2, 4, 9], "act": "hover", "expect": {"text": "count"}}
+{"at": [2, 4, 12], "act": "completion", "expect": {"items": ["count"]}}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {}}

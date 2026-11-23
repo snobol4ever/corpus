@@ -1,0 +1,7 @@
+# PLACE SCRIPT of fib (Icon), developer_09 2026-11-23, in the driver's at/act form: "at" is [CODE CELL from 0, line, col]; expected from the program (a definition lands on its procedure or record line); the hover text is the language server's own wording and is compared with what it answered; a completion cursor stands after the typed prefix.
+{"at": [1, 4, 15], "act": "definition", "expect": {"cell": 0, "line": 1}}
+{"at": [1, 6, 16], "act": "definition", "expect": {"cell": 0, "line": 1}}
+{"at": [1, 4, 15], "act": "hover", "expect": {"text": "fib"}}
+{"at": [1, 5, 4], "act": "hover", "expect": {"text": "write"}}
+{"at": [1, 4, 17], "act": "completion", "expect": {"items": ["fib"]}}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {}}

@@ -1,0 +1,23 @@
+# words.ipynb, Icon entry: code cells 0 words, 1 count, 2 main. developer_09 2026-11-23. EXPECTED by the program: the sentence has eight words (the cat and the dog and the bird) so line 6 of words runs eight times, w the lower-cased word each time; the head of the while (line 4) is a stop before every turn and once more at the test that ends it (the cfo's law of 2026-11-23: the head of an every, while, until and repeat is a stop before every turn and at the test that ends it), so after the last body statement of an iteration (line 6) the next stop is the head (line 4) and then the first body statement (line 5); a step in enters at the first executable statement (words line 3, count line 3, never the local lines); a step out stops in the caller at the next statement after the call (main line 4, then line 5); the table sorted by key writes and 2, bird 1, cat 1, dog 1, the 3.
+{"break": [2, 3]}
+{"break": [0, 6]}
+{"run": 0, "expect": {"stopped": false, "output": ""}}
+{"run": 1, "expect": {"stopped": false, "output": ""}}
+{"run": 2, "expect": {"cell": 2, "line": 3, "frames": [["main", 3]], "output": ""}}
+{"act": "in", "expect": {"cell": 0, "line": 3, "frames": [["words", 3], ["main", 3]], "vars": {"s": "\"the cat and the dog and the bird\""}}}
+{"act": "next", "expect": {"cell": 0, "line": 4, "frames": [["words", 4], ["main", 3]]}}
+{"act": "next", "expect": {"cell": 0, "line": 5, "frames": [["words", 5], ["main", 3]]}}
+{"act": "next", "expect": {"cell": 0, "line": 6, "frames": [["words", 6], ["main", 3]], "vars": {"w": "\"the\""}}}
+{"act": "next", "expect": {"cell": 0, "line": 4, "frames": [["words", 4], ["main", 3]], "vars": {"w": "\"the\""}}}
+{"act": "next", "expect": {"cell": 0, "line": 5, "vars": {"w": "\"the\""}}}
+{"act": "next", "expect": {"cell": 0, "line": 6, "vars": {"w": "\"cat\""}}}
+{"act": "continue", "expect": {"cell": 0, "line": 6, "frames": [["words", 6], ["main", 3]], "vars": {"w": "\"and\""}, "output": ""}}
+{"act": "continue", "expect": {"cell": 0, "line": 6, "frames": [["words", 6], ["main", 3]], "vars": {"w": "\"the\""}, "output": ""}}
+{"act": "continue", "expect": {"cell": 0, "line": 6, "frames": [["words", 6], ["main", 3]], "vars": {"w": "\"dog\""}, "output": ""}}
+{"act": "continue", "expect": {"cell": 0, "line": 6, "frames": [["words", 6], ["main", 3]], "vars": {"w": "\"and\""}, "output": ""}}
+{"act": "continue", "expect": {"cell": 0, "line": 6, "frames": [["words", 6], ["main", 3]], "vars": {"w": "\"the\""}, "output": ""}}
+{"act": "continue", "expect": {"cell": 0, "line": 6, "frames": [["words", 6], ["main", 3]], "vars": {"w": "\"bird\""}, "output": ""}}
+{"act": "out", "expect": {"cell": 2, "line": 4, "frames": [["main", 4]], "output": ""}}
+{"act": "in", "expect": {"cell": 1, "line": 3, "frames": [["count", 3], ["main", 4]]}}
+{"act": "out", "expect": {"cell": 2, "line": 5, "frames": [["main", 5]], "output": ""}}
+{"act": "continue", "expect": {"stopped": false, "output": "and 2\nbird 1\ncat 1\ndog 1\nthe 3\n"}}
