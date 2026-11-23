@@ -105,7 +105,8 @@ def build(name, fence):
     A = []
     note = lambda s: A.append('# ' + s)
     def refs(c, l, w, o=1, **kw):
-        A.append({'at': p.at(c, l, w, o), 'act': 'references', 'expect': {'places': p.occs(w, **kw)}})
+        oc = p.occs(w, **kw)
+        A.append({'at': p.at(c, l, w, o), 'act': 'references', 'expect': {'places': oc[1:], 'declaration': oc[0]}})
     def ren(c, l, w, new, o=1, refused=False):
         if refused:
             A.append({'at': p.at(c, l, w, o), 'act': 'rename', 'new': new, 'expect': {'refused': True}})

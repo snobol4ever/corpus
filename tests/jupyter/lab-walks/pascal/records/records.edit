@@ -7,7 +7,7 @@
 {"at": [0, 28, 3], "act": "definition", "expect": {"cell": 0, "line": 9}}
 {"at": [0, 33, 17], "act": "definition", "expect": {"cell": 0, "line": 10}}
 {"at": [0, 28, 34], "act": "definition", "expect": {"cell": 0, "line": 26}}
-{"at": [1, 6, 3], "act": "hover", "expect": {"text": "restock: a function of 2 arguments, defined at line 26"}}
+{"at": [1, 6, 3], "act": "hover", "expect": {"text": "restock: a procedure of 2 arguments, defined at line 26"}}
 {"at": [1, 9, 21], "act": "hover", "expect": {"text": "total: a function of 1 argument, defined at line 36"}}
 {"at": [0, 33, 7], "act": "hover", "expect": {"text": "k: integer"}}
 {"at": [1, 9, 26], "act": "completion", "expect": {"items": ["total"]}}

@@ -6,8 +6,8 @@
 {"at": [0, 22, 8], "act": "definition", "expect": {"cell": 0, "line": 4}}
 {"at": [1, 10, 3], "act": "definition", "expect": {"cell": 0, "line": 8}}
 {"at": [1, 11, 22], "act": "definition", "expect": {"cell": 0, "line": 4}}
-{"at": [0, 26, 21], "act": "hover", "expect": {"text": "place: a function of 1 argument, defined at line 18"}}
-{"at": [0, 26, 37], "act": "hover", "expect": {"text": "print: a function of 0 arguments, defined at line 9"}}
+{"at": [0, 26, 21], "act": "hover", "expect": {"text": "place: a procedure of 1 argument, defined at line 18"}}
+{"at": [0, 26, 37], "act": "hover", "expect": {"text": "print: a procedure of 0 arguments, defined at line 9"}}
 {"at": [0, 19, 5], "act": "hover", "expect": {"text": "j: integer"}}
 {"at": [1, 15, 26], "act": "completion", "expect": {"items": ["found"]}}
 {"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}}

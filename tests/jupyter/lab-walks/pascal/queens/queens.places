@@ -9,8 +9,8 @@
 {"cell": 0, "line": 26, "col": 21, "act": "references", "expect": {"places": [[0, 18], [0, 26], [1, 14]]}, "word": "place"}
 {"cell": 0, "line": 12, "col": 3, "act": "references", "expect": {"places": [[0, 8], [0, 12], [0, 13], [1, 10], [1, 15]]}, "word": "found"}
 {"cell": 0, "line": 12, "col": 3, "act": "highlight", "expect": {"cell": 0, "lines": [8, 12, 13]}, "word": "found"}
-{"cell": 0, "line": 26, "col": 21, "act": "hover", "expect": {"text": "place: a function of 1 argument, defined at line 18"}, "word": "place"}
-{"cell": 0, "line": 26, "col": 37, "act": "hover", "expect": {"text": "print: a function of 0 arguments, defined at line 9"}, "word": "print"}
+{"cell": 0, "line": 26, "col": 21, "act": "hover", "expect": {"text": "place: a procedure of 1 argument, defined at line 18"}, "word": "place"}
+{"cell": 0, "line": 26, "col": 37, "act": "hover", "expect": {"text": "print: a procedure of 0 arguments, defined at line 9"}, "word": "print"}
 {"cell": 0, "line": 19, "col": 5, "act": "hover", "expect": {"text": "j: integer"}, "word": "j"}
 {"cell": 1, "line": 14, "col": 9, "act": "signature_help", "expect": {"label": "place(i: integer)"}, "word": "place"}
 {"cell": 1, "line": 15, "col": 26, "act": "completion", "expect": {"has": ["found"]}, "word": "found"}

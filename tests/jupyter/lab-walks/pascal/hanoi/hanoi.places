@@ -6,8 +6,8 @@
 {"cell": 0, "line": 20, "col": 5, "act": "definition", "expect": {"cell": 0, "line": 4}, "word": ""}
 {"cell": 1, "line": 11, "col": 5, "act": "definition", "expect": {"cell": 0, "line": 4}, "word": ""}
 {"cell": 1, "line": 8, "col": 3, "act": "definition", "expect": {"cell": 0, "line": 5}, "word": ""}
-{"cell": 0, "line": 22, "col": 5, "act": "hover", "expect": {"text": "report: a function of 3 arguments, defined at line 10"}, "word": ""}
-{"cell": 0, "line": 19, "col": 5, "act": "hover", "expect": {"text": "hanoi: a function of 4 arguments, defined at line 15"}, "word": ""}
+{"cell": 0, "line": 22, "col": 5, "act": "hover", "expect": {"text": "report: a procedure of 3 arguments, defined at line 10"}, "word": ""}
+{"cell": 0, "line": 19, "col": 5, "act": "hover", "expect": {"text": "hanoi: a procedure of 4 arguments, defined at line 15"}, "word": ""}
 {"cell": 0, "line": 13, "col": 49, "act": "hover", "expect": {"text": "pegname: a function of 1 argument, defined at line 6"}, "word": ""}
 {"cell": 0, "line": 17, "col": 6, "act": "hover", "expect": {"text": "n: integer"}, "word": ""}
 {"cell": 1, "line": 15, "col": 26, "act": "completion", "expect": {"items": ["moves"]}, "word": ""}
