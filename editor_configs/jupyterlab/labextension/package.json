@@ -17,10 +17,12 @@
     "@jupyterlab/codemirror": "^4.0.0",
     "@jupyterlab/fileeditor": "^4.0.0",
     "@jupyterlab/launcher": "^4.0.0",
-    "@jupyterlab/ui-components": "^4.0.0"
+    "@jupyterlab/notebook": "^4.0.0",
+    "@jupyterlab/ui-components": "^4.0.0",
+    "@codemirror/view": "^6.0.0"
   },
   "devDependencies": {
-    "@jupyterlab/builder": "^4.5.2"
+    "@jupyterlab/builder": "4.5.11"
   },
   "jupyterlab": {
     "extension": true,
@@ -38,6 +40,10 @@
         "bundled": false,
         "singleton": true
       },
+      "@jupyterlab/notebook": {
+        "bundled": false,
+        "singleton": true
+      },
       "@jupyterlab/ui-components": {
         "bundled": false,
         "singleton": true
@@ -45,10 +51,14 @@
       "@codemirror/language": {
         "bundled": false,
         "singleton": true
+      },
+      "@codemirror/view": {
+        "bundled": false,
+        "singleton": true
       }
     },
     "_build": {
-      "load": "static/remoteEntry.d2c5c4ead2182264c199.js",
+      "load": "static/remoteEntry.af1f9c1e5c85ba4bcbdb.js",
       "extension": "./extension"
     }
   }

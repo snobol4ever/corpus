@@ -4,7 +4,10 @@
   "description": "Syntax colouring in JupyterLab and Notebook for the languages of the SCRIP kernel: SNOBOL4, Snocone, Icon, Prolog; a launcher card and an icon for a SNOBOL4, Snocone, Icon, Prolog and Pascal file",
   "license": "MIT",
   "main": "src/index.js",
-  "files": ["src/*.js", "grammars/*.json"],
+  "files": [
+    "src/*.js",
+    "grammars/*.json"
+  ],
   "scripts": {
     "build": "jupyter labextension build .",
     "test": "node test/tokens.mjs"
@@ -14,20 +17,45 @@
     "@jupyterlab/codemirror": "^4.0.0",
     "@jupyterlab/fileeditor": "^4.0.0",
     "@jupyterlab/launcher": "^4.0.0",
-    "@jupyterlab/ui-components": "^4.0.0"
+    "@jupyterlab/notebook": "^4.0.0",
+    "@jupyterlab/ui-components": "^4.0.0",
+    "@codemirror/view": "^6.0.0"
   },
   "devDependencies": {
-    "@jupyterlab/builder": "^4.5.2"
+    "@jupyterlab/builder": "4.5.11"
   },
   "jupyterlab": {
     "extension": true,
     "outputDir": "labextension",
     "sharedPackages": {
-      "@jupyterlab/codemirror": { "bundled": false, "singleton": true },
-      "@jupyterlab/fileeditor": { "bundled": false, "singleton": true },
-      "@jupyterlab/launcher": { "bundled": false, "singleton": true },
-      "@jupyterlab/ui-components": { "bundled": false, "singleton": true },
-      "@codemirror/language": { "bundled": false, "singleton": true }
+      "@jupyterlab/codemirror": {
+        "bundled": false,
+        "singleton": true
+      },
+      "@jupyterlab/fileeditor": {
+        "bundled": false,
+        "singleton": true
+      },
+      "@jupyterlab/launcher": {
+        "bundled": false,
+        "singleton": true
+      },
+      "@jupyterlab/notebook": {
+        "bundled": false,
+        "singleton": true
+      },
+      "@jupyterlab/ui-components": {
+        "bundled": false,
+        "singleton": true
+      },
+      "@codemirror/language": {
+        "bundled": false,
+        "singleton": true
+      },
+      "@codemirror/view": {
+        "bundled": false,
+        "singleton": true
+      }
     }
   }
 }

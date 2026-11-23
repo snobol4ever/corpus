@@ -1,9 +1,11 @@
 // index.js -- ONE JUPYTERLAB EXTENSION REGISTERS OUR LANGUAGES AND COLOURS THEM WITH ONE GENERIC TOKENIZER OVER THE CONVERTED SUBLIME GRAMMARS (CIO-81, CTO-597).
 // THE ONE KERNEL, SCRIP, names its language scrip: each of its cells is coloured by the cell's own language (its first line, two percent signs and a name; else SNOBOL4).
 // The four languages are registered by themselves too, for a file in the text editor (by its extension) and for a kernel a user starts with one default language.
-import { IEditorLanguageRegistry } from '@jupyterlab/codemirror';
+import { EditorExtensionRegistry, IEditorExtensionRegistry, IEditorLanguageRegistry } from '@jupyterlab/codemirror';
+import { EditorView } from '@codemirror/view';
 import { LanguageSupport, StreamLanguage } from '@codemirror/language';
 import { IEditorTracker } from '@jupyterlab/fileeditor';
+import { INotebookTracker } from '@jupyterlab/notebook';
 import { ILauncher } from '@jupyterlab/launcher';
 import { LabIcon } from '@jupyterlab/ui-components';
 import { tokenize, tag, cellLanguage } from './tokenizer.js';
@@ -151,4 +153,44 @@ const files = {
   }
 };
 
-export default [plugin, files];
+// A JUMP SCROLLS TO ITS TARGET (Lon 2026-11-22: go to definition "did high light but did not scroll to location"; MEASURED on Lab 4.5.2 and 4.6.6, all four windowing modes, the python3 entry too):
+// jupyterlab-lsp selects the target and activates its cell, and the Lab reveals the cell, never the cursor's line, so a target in a cell taller than the view stays out of it.
+// A selection set with no document change and no user event (a jump is programmatic; a click or a key is the user's and CodeMirror shows it) brings the cursor's line to the
+// middle of the notebook's view when it stands outside it, again at 120 and 500 ms since the Lab's own scroll may come last.
+// ONLY A NOTEBOOK OF A SCRIP KERNEL ENTRY (the cqo's and the cao's ruling 2026-11-23): the python3 entry is the control that tells our fault from the Lab's, and it stays as the Lab has it.
+const USER = ['select', 'input', 'delete', 'move', 'undo', 'redo'];
+function ours(panel) {
+  const md = panel.model && panel.model.getMetadata ? panel.model.getMetadata('kernelspec') : null;
+  const kernel = panel.sessionContext && panel.sessionContext.session ? panel.sessionContext.session.kernel : null;
+  const name = (kernel && kernel.name) || (md && md.name) || '';
+  return /^scrip($|-)/.test(name);
+}
+function reveal(view, panel) {
+  if (!view.dom.isConnected || !panel.content.isVisible || !ours(panel)) return;
+  const outer = panel.content.node.querySelector('.jp-WindowedPanel-outer') || panel.content.node;
+  const block = view.lineBlockAt(view.state.selection.main.head);
+  const top = view.documentTop + block.top;
+  const box = outer.getBoundingClientRect();
+  if (top >= box.top && top + block.height <= box.bottom) return;
+  outer.scrollTop += top + block.height / 2 - (box.top + box.height / 2);
+}
+
+const jump = {
+  id: 'scrip-highlight:reveal',
+  description: 'After a jump (go to definition and the like) of a SCRIP notebook the cursor line is brought into the notebook view.',
+  autoStart: true,
+  requires: [INotebookTracker, IEditorExtensionRegistry],
+  activate: (app, notebooks, extensions) => {
+    extensions.addExtension({
+      name: 'scrip-highlight:reveal',
+      factory: () => EditorExtensionRegistry.createImmutableExtension(EditorView.updateListener.of(update => {
+        if (!update.selectionSet || update.docChanged || update.transactions.some(t => USER.some(u => t.isUserEvent(u)))) return;
+        const panel = notebooks.find(p => p.node.contains(update.view.dom));
+        if (!panel) return;
+        [0, 120, 500].forEach(ms => setTimeout(() => { try { reveal(update.view, panel); } catch (e) { console.warn('scrip-highlight: reveal: ' + e); } }, ms));
+      }))
+    });
+  }
+};
+
+export default [plugin, files, jump];
