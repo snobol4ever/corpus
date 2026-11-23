@@ -1,0 +1,11 @@
+# PLACE SCRIPT of the calculator, developer_06 2026-11-22 19:3x CST: cell, line, col (1-based) of the word, the act, what the person must meet. Written from the program, to be read by the cqo.
+{"cell": 2, "line": 14, "col": 30, "act": "definition", "expect": {"cell": 2, "line": 28}, "word": "sum"}
+{"cell": 2, "line": 14, "col": 8, "act": "definition", "expect": {"cell": 2, "line": 8}, "word": "take"}
+{"cell": 3, "line": 2, "col": 5, "act": "definition", "expect": {"cell": 2, "line": 38}, "word": "calc"}
+{"cell": 2, "line": 30, "col": 10, "act": "definition", "expect": {"cell": 2, "line": 19}, "word": "term"}
+{"cell": 2, "line": 43, "col": 20, "act": "definition", "expect": {"cell": 1, "line": 10}, "word": "lex"}
+{"cell": 2, "line": 45, "col": 5, "act": "references", "expect": {"cell": 2, "lines": [6, 9, 45, 46, 47, 2]}, "word": "at"}
+{"cell": 2, "line": 14, "col": 8, "act": "hover", "expect": {"text": "take: a procedure defined in Icon at line 8"}, "word": "take"}
+{"cell": 2, "line": 16, "col": 13, "act": "hover", "expect": {"text": "integer: a builtin function of Icon"}, "word": "integer"}
+{"cell": 2, "line": 17, "col": 43, "act": "rename", "expect": {"to": "memo", "cells": [2]}, "word": "memory"}
+{"cell": 3, "line": 2, "col": 5, "act": "signature_help", "expect": {"label": "calc(line)"}, "word": "calc"}

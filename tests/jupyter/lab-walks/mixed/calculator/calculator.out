@@ -1,0 +1,10 @@
+x = 3 + 4 * 2      -> x is 11
+y = (x - 1) * x    -> y is 110
+y / 4 + x          -> 38
+x = x * x - y      -> x is 11
+2 $ 3              -> ? I cannot read that
+x +                -> ? that is no expression
+(x + y) * -2       -> -242
+z                  -> ? that is no expression
+7 / (x - x)        -> ? that is no expression
+46 tokens lexed by SNOBOL4, 5 lines evaluated by Icon
