@@ -1,7 +1,7 @@
 {
 //  Snocone build — invokes scrip on the current .sc file.  scrip is
-//  the multi-frontend driver from snobol4ever/SCRIP; build it with
-//  scripts/build_scrip.sh and put it on PATH (or set "path" below).
+//  the multi-frontend driver from snobol4ever/SCRIP; build it from
+//  SCRIP's source and put it on PATH (or set "path" below).
 //
 //  Lon's Windows-flavoured SNOBOL4.sublime-build was a useful
 //  reference for the env / file_regex / cancel keys.  This Snocone

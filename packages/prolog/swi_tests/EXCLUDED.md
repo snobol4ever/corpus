@@ -1,7 +1,7 @@
 # EXCLUDED -- nothing is excluded (Lon 2026-09-12, in-chat to cto: "Get all SWI tests graded.")
 
 Every `.pl` under this package that declares a plunit unit (`:- begin_tests(...)`) is graded PER CASE by
-`SCRIP/scripts/test_prolog_swi_suite.sh` against the `.ref` beside it, cut by `SCRIP/scripts/util_swi_cut_refs.sh`
+the project's suite runner against the `.ref` beside it, cut by the project's ref cutter
 from real swipl 9.0.4 running its own `library(plunit)`. A case the oracle could not grade (BLOCKED, an EMPTY unit,
 an UNGRADABLE unit where swipl itself crashed or timed out) is named in the ref with the ORACLE's reason and counted
 UNGRADED on the board -- never dropped, never a pass. The `.pl` files that declare no unit (drivers, helpers, data,

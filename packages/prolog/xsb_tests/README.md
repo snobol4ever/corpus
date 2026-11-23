@@ -2,7 +2,7 @@
 
 XSB's regression test programs, vendored on Lon's word (2026-10-10, in-chat to the ceo, verbatim: "Let's begin making entries for
 demos and test suites."; row prolog-suite-the-xsb-test-programs-vendored-as-a-package-with-swipl-refs-and-graded-as-a-suite-row,
-CEO-1595). One FLAT package, one container (ALL.pl / ALL.ref / ALL.csv, built by SCRIP/scripts/util_build_package_suite.py
+CEO-1595). One FLAT package, one container (ALL.pl / ALL.ref / ALL.csv, built by the project's package builder
 `--lang prolog --twice`), every ref CUT FROM THE ORACLE. Since 2026-10-23 the oracle is XSB 5.0.0 itself (§ THE ORACLE IS XSB, below);
 until then it was swipl -q, and the paragraphs on drivers and the dialect marker below date from then.
 
@@ -18,7 +18,7 @@ temp, its non-empty lines sorted -- the same shape the vendored driver xsb_sorte
 against it ignoring white space within a line, as gentest.sh's `diff -w` does (ALL.csv's compare column). ALL.xsbold names, per entry,
 XSB's answer against the NAME_old XSB ships; the ref is XSB's answer either way (CEO-1927 (1)). Rebuild:
 
-    TIMEOUT=120 python3 ../harness/scripts/util_build_package_suite.py ../corpus/packages/prolog/xsb_tests --lang prolog --twice
+    # rebuilt by the project's own tooling (not carried in this repository): TIMEOUT=120, every ref cut from the oracle, twice
 
 ALL.prelude still selects SCRIP's SWI dialect (CEO-1712, chosen when swipl cut the refs); how SCRIP reads XSB's programs is SCRIP's lane.
 

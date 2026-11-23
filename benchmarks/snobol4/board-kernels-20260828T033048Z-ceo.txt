@@ -26,5 +26,5 @@ var_access             30000000        15.6M        56.1M        60.9M      3.59
 CHECK RESULT: ok=18 bad=0
 ⛔ 10 row(s) have nivcsw > 20 -- winning rep still scheduler-contaminated; re-measure quieter.
 ⛔ UNSCALED (no row in /home/claude/corpus/benchmarks/snobol4/SCALE.tsv, not measured): name_indirection test_icon
-   Every benchmark needs a committed N in SCALE.tsv -- run scripts/calibrate_bench_scale.sh to add it.
+   Every benchmark needs a committed N in SCALE.tsv -- run the project's benchmark tooling to add it.
 gc: 0 rows collected inside the window at HEAP=4096MB -- every rate above is stall-free.

@@ -5,7 +5,7 @@ COPYING), read IN PLACE from `/home/packages/icon/unicon/uni` (`ALL.source`); no
 (`ALL.csv`, the `path` cell is the path from the tree's root, the dialect cell unicon), each entry's answer `NAME.out` cut from the Unicon
 translator (`unicon_bin`, each program translated inside a scratch copy of its own folder so the ucode the built tree ships beside it links), and
 `ALL.omit`, which names every file that is no entry with its verdict. Built by
-`harness/scripts/util_build_package_suite.py corpus/packages/icon/unicon_uni --lang icon --mine CENSUS.tsv` (2026-11-11, COO-516); the census is
+the project's package builder (2026-11-11, COO-516); the census is
 `/home/resources/progress/MINING-UNICON-UNI-CENSUS.tsv`: 710 files, 15 ENTRY, 566 LIBRARY (no procedure main: classes and library modules),
 54 NO-OUTPUT, 43 NEEDS-DISPLAY, 19 ORACLE-REFUSES, 6 NEEDS-NETWORK, 4 NEEDS-INPUT, 2 DIFFERS-BETWEEN-RUNS, 1 READS-THE-ENVIRONMENT.
 

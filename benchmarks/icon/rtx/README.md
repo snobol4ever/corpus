@@ -1,6 +1,6 @@
 # corpus/benchmarks/icon/rtx — RTX-ladder workloads, PRISTINE KERNELS since 2026-09-23
 
-⛔ **THE SELF-TIMING DESCRIBED BELOW IS HISTORY (hq_icon 2026-09-23, CEO-567 THE KERNEL CONVENTION, CEO-1221).** Each program here now computes and prints its result signature (`chk:` / `acc:`) and nothing else; its `.ref` is cut from Arizona iconx and pins that value, and SCRIP matches it byte for byte in both modes. There is no `&time` window and no `ms:` line in any source: the timing (fixed iterations, fixed time, process wrapper) is GENERATED around the kernel by the Icon three-angle harness, which is also what keeps the compile phase out of the number -- the reason the window used to live in the source. `scripts/bench_rtx_3arm.sh` read the old `ms:` line and is superseded by that harness. The original text follows, kept for its measurements.
+⛔ **THE SELF-TIMING DESCRIBED BELOW IS HISTORY (hq_icon 2026-09-23, CEO-567 THE KERNEL CONVENTION, CEO-1221).** Each program here now computes and prints its result signature (`chk:` / `acc:`) and nothing else; its `.ref` is cut from Arizona iconx and pins that value, and SCRIP matches it byte for byte in both modes. There is no `&time` window and no `ms:` line in any source: the timing (fixed iterations, fixed time, process wrapper) is GENERATED around the kernel by the Icon three-angle harness, which is also what keeps the compile phase out of the number -- the reason the window used to live in the source. the project's own three-arm script read the old `ms:` line and is superseded by that harness. The original text follows, kept for its measurements.
 
 ---
 
@@ -14,7 +14,7 @@ compile-phase dominated roughly 20:1.
 **THE FIX IS NOT A BIGGER N — IT IS `&time`.** A self-timed window measured INSIDE the Icon program
 excludes the compile phase by construction, so the confound s210 had to cancel arithmetically
 (`count(4N) − count(N)`) simply does not enter. Every program here prints `ms: <n>`, which is also
-exactly the contract `scripts/bench_rtx_3arm.sh` requires.
+exactly the contract the project's benchmark tooling requires.
 
 ⚠ **THIS DOES NOT CLOSE RTX-0b.** Its second half stands: `scrip --run prog.icn -n8` still fails with
 `cannot open '-n8'` — **mode 3 does not forward argv** — so N is edited into the source rather than

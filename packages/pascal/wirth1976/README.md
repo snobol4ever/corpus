@@ -8,7 +8,7 @@ unit, `TypeUtils.pas`, which is a library and no row (`EXCLUDED.tsv`).
 
 This folder holds our index (`ALL.csv`: `path` is the path from the collection's root, `dialect` the fpc mode that cut the answer),
 each entry's answer `NAME.out` cut from fpc 3.2.2 twice with identical results, and `ALL.omit`. Built by
-`harness/scripts/util_build_package_suite.py corpus/packages/pascal/wirth1976 --lang pascal --mine CENSUS.tsv --twice` (the grader
+the project's package builder (the grader
 2026-11-14; the census is `/home/resources/progress/handoffs/grader-2026-11-14/census_wirth1976.tsv`).
 
 THE FIRST SCRIP READING (mode 3, SCRIP c5622f4448): 0 of 4, ONE CAUSE: `TypeUtils.pas` says `uses typinfo` (Free Pascal's run-time

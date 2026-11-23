@@ -2,11 +2,11 @@
 
 ⭐ **CONVERTED TO SUITE FORMAT 2026-08-28** (probe-consolidate-bb, LON-20260828 total conversion): the
 166 probes described below now live as one suite pair, `corpus/tests/snobol4/probe/bb_probes.sno`/`.ref`
-(harness `SCRIP/scripts/corpus_suite_harness.py`), byte-equal-or-no-delete proven both directions, both
+(harness the project's suite harness), byte-equal-or-no-delete proven both directions, both
 modes, against every one of the 166 loose files this doc used to describe. `gen_probes.py`,
 `gen_probes_fence.py`, `run_suite.sh`, `mkrefs.sh`, `XFAIL.run`, `XFAIL.compile` retired with their
 subject (the loose `probes/` directory); grade the suite with the harness directly:
-`python3 SCRIP/scripts/corpus_suite_harness.py run corpus/tests/snobol4/probe/bb_probes.sno corpus/tests/snobol4/probe/bb_probes.ref`.
+the project's own suite harness, which this repository does not carry.
 `bb_witness_ladder.sh` is unaffected (self-contained, no probes/ dependency) and still lives beside this
 file. The rest of this document (contrast pairs, hardening rules, per-probe analysis) describes what each
 probe TESTS and is unchanged by the move — only the "Run it" / "Baseline" sections below are retired.
@@ -15,7 +15,7 @@ probe TESTS and is unchanged by the move — only the "Run it" / "Baseline" sect
 today's HEAD, all 166 entries **PASS** in both m3 and m4 — 0 xfail, 0 regression. The FENCE1/ARBNO-crash
 defects this document was written around (H01, the 31 correct-output-then-crash class, etc.) have since
 been fixed; `XFAIL.run`/`XFAIL.compile` were already empty on disk before this conversion, which is what
-prompted the re-check (`.github/FINDING-2026-08-27-seat05-probe-bb-is-not-consolidation-material-...md`
+prompted the re-check (a finding of the project's private notes
 flagged the "46 xfail" prose as stale-and-unconfirmed; this conversion is the confirmation). The rest of
 this document's per-probe analysis (H01's FENCE1-as-FENCE0 routing, the three failure classes, etc.) is
 kept as historical record of what was found and fixed, not as a current-defect list.

@@ -44,7 +44,7 @@ arm overflowing the stack (hq_snobol4), `'abc' ? -ARB ABORT` crashing (cfo, rank
 reads no longer failing at end of file so the run spins (a row). Mode 4 dies at its first C call from the Icon side on a stack at 8 mod 16
 (hq_icon). SPITBOL's `!command` file I/O landed in SCRIP for this program (SCRIP 54fc36a3d), and the oracle's own pipes, broken by an
 off-by-one in osint `getshell.c` that upstream 4.0f shares, are cured in the build staged for Lon with ORD
-(`.github/scripts/install_ord_and_pipes_into_the_spitbol_oracle_ceo_1424.sh`).
+(the project's tooling).
 
 ## What it found (2026-10-02, SCRIP 7b35f95f2)
 

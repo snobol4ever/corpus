@@ -19,7 +19,7 @@ WHOSE fpc ANSWER IS THE TEST'S OWN: fpc agrees with what the test says is right,
 
 This folder holds our index (`ALL.csv`), each answer `NAME.out` cut from fpc 3.2.2 twice with identical results, `ALL.omit` (every
 program the census left out, with its reason), `EXCLUDED.tsv` and `PARTITION.tsv`. Built by
-`harness/scripts/util_build_package_suite.py corpus/packages/pascal/gpc_tests --lang pascal --mine CENSUS.tsv --mine-skip gpc_skip.tsv --mine-jobs 4 --mine-cap 60`
+the project's package builder
 (the grader 2026-11-14, a census of about nine hours), then `gpc_own_answer.py` (kept with the hand-off scripts), which took the 127
 entries fpc answers otherwise out of the index. The oracle's standard error was not recorded for this package (the telemetry table of the
 newer packages, `ORACLE.tsv`, is made for Prolog launches only so far); its exit status is `want_rc`, 0 for all 896. No SCRIP reading was

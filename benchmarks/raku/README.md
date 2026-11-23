@@ -30,8 +30,8 @@ Rosetta Code one — see `point_class_add_README` note below).
 ## The kernels (17 imported)
 
 All are self-contained (no CLI args, no external files) and deterministic (verified by running each
-twice under Rakudo 2026.05 — `/home/resources/rakudo-local/bin/raku`, `rakudo_bin()` accessor in
-`SCRIP/scripts/lib_oracle_flags.sh` — and diffing byte-for-byte). `.ref` is that verified stdout.
+twice under Rakudo 2026.05, the oracle's `raku`, a build of that version
+and diffing byte-for-byte). `.ref` is that verified stdout.
 
 | Kernel | License | Modified from upstream? |
 |---|---|---|
@@ -73,14 +73,14 @@ reported on purpose: `work_us` is the measurement, `work_ms` is the cross-check 
 never divided by a ms denominator unnoticed.
 
 **Where the hooks come from.** `wall_us()`/`wall_ms()` are SCRIP builtins (beside the Prolog
-`wall_us/1`/`wall_ms/1` in `src/runtime/by_name_dispatch.c`, deliberately adjacent so the two cannot
+`wall_us/1`/`wall_ms/1` in the runtime's by-name dispatch, deliberately adjacent so the two cannot
 drift). The Rakudo arm gets the same subs from **`prelude_rakudo.rakumod`** in this directory, loaded
 with `-M` so the kernel source is **byte-identical on every engine**. Precision floors: SCRIP reads
 `CLOCK_MONOTONIC` (~20 ns floor), Rakudo reads `now` (sub-µs `Instant`) — both arms are genuinely
 microsecond-precise, unlike gprolog's 1 ms `real_time/1` that refused the gplc column on the Prolog grid.
 
 ⛔ **Never `raku -I. -M…` from this directory.** Rakudo precompiles a `-M` module into a `.precomp/`
-beside it and wrote one **into the corpus** on the first hand run. `SCRIP/scripts/bench_triangulate_raku.sh`
+beside it and wrote one **into the corpus** on the first hand run. The project's own triangulation script
 stages the prelude in a `mktemp` dir and passes `-I<that dir>`; do the same by hand. The corpus is not a
 Rakudo output directory.
 
@@ -92,7 +92,7 @@ carries the bracket **and** still byte-matches its `.ref` on m3, m4 and Rakudo.
 (angle 1: fixed CPU-time budget, live doubling search) and `bench_raku_fixed_iter.sh` (angle 2: fixed
 iterations, N read from the committed `fixed-iter-n.tsv` below) mirror the Prolog pair of the same name.
 Neither can rename a predicate head the way Prolog's `mkwrap()` does — Raku kernels are top-level scripts —
-so both build their N-times-looped derived twin via `SCRIP/scripts/lib_raku_bench_wrap.sh`, which loops
+so both build their N-times-looped derived twin via the benchmark wrapper, which loops
 exactly the region the kernel's own `wall_us()`/`wall_ms()` bracket delimits (its header documents a real
 scoping subtlety: a bracket-local `my $x` the kernel reads *after* the loop must be hoisted above it, or
 Rakudo refuses to compile the naive wrap). `bench_triangulate_raku.sh` runs both fresh every invocation and
@@ -101,7 +101,7 @@ requires their rates to AGREE (flat 10%, UNBAKED) before a kernel counts MEASURE
 ⛔ **`NMAX`/`CAL_NMAX` cap at 32768, not higher** — a real SCRIP runtime ceiling, not a harness choice: an
 N-times-looped `string-escape` aborts both m3 and m4 past ~49152 iterations with `[WSI] workspace island
 exhausted (1024 MB, ... blocks)`. See `FINDING-2026-09-02-seat01-raku-loop-exhausts-1gb-workspace-island.md`
-in `.github/` — filed for the runtime/RTCC lane, not fixed here; it caps how large a looped Raku benchmark
+in the project's private findings, not carried in this repository -- filed for the runtime/RTCC lane, not fixed here; it caps how large a looped Raku benchmark
 this harness can ever measure, independent of benchmarking.
 
 **`fixed-iter-n.tsv`** — the committed calibration table angle 2 reads (`kernel<TAB>N`), the lighter-weight
@@ -138,7 +138,7 @@ the SNOBOL4 triangulator's `NOISE-FLOOR.tsv`) or angles 1/2 gain their own repet
 ## Regenerating `.ref`
 
 ```bash
-raku="$(bash SCRIP/scripts/lib_oracle_flags.sh; rakudo_bin)"    # or: /home/resources/rakudo-local/bin/raku
+raku=raku    # your own rakudo (the oracle was 2026.05)
 for f in corpus/benchmarks/raku/*.raku; do
     "$raku" "$f" > "${f%.raku}.ref"
 done
@@ -146,7 +146,7 @@ done
 
 Every kernel here takes zero arguments by construction (see above), so this is the entire recipe — no
 per-kernel argument table to keep in sync. Label any grid quoting a Rakudo arm with its version
-(`rakudo-local` 2026.05, per the FACT RULE in `.github/RULES.md`).
+(`rakudo-local` 2026.05, per the project's FACT RULE).
 
 ## PITFALL for the next seat touching `divide-and-conquer.raku`
 

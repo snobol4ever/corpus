@@ -2,7 +2,7 @@
 
 Trealla Prolog's test programs, vendored on Lon's word (2026-10-10, in-chat to the ceo, verbatim: "Let's begin making entries for
 demos and test suites."; row prolog-suite-the-trealla-test-programs-vendored-as-a-package-with-swipl-refs-and-graded-as-a-suite-row,
-CEO-1595). One FLAT package, one container (ALL.pl / ALL.ref / ALL.csv, built by SCRIP/scripts/util_build_package_suite.py), every
+CEO-1595). One FLAT package, one container (ALL.pl / ALL.ref / ALL.csv, built by the project's package builder), every
 ref CUT FROM THE ORACLE, swipl -q 9.0.4 -- never from Trealla's own `.expected` files, which are not vendored (ONE ORACLE).
 
 ## Source and license
@@ -40,6 +40,6 @@ answer, as every package here takes it (the builder reads stdout); the names are
 
 ## Rebuild
 
-    TIMEOUT=20 python3 SCRIP/scripts/util_build_package_suite.py corpus/packages/prolog/trealla_tests --lang prolog --twice
+    # rebuilt by the project's own tooling (not carried in this repository): TIMEOUT=20, every ref cut from the oracle, twice
 
 The suite row is the coo's instrument (CEO-1342): `container_package_run prolog pl trealla_tests <dir> <gate>`.

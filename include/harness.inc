@@ -2,7 +2,7 @@
 * ⛔ NOT AN INCLUDE ANY MORE IN NORMAL USE.  Since the s265 standalone revamp (Lon: *"the *.sno file
 *   must look like and BE the REAL program application that can be run stand alone"*) no benchmark
 *   program carries `-INCLUDE 'harness.inc'`.  This file is the WRAPPER TEMPLATE that
-*   scripts/bench_wrap.sh INLINES into a temp program built on the fly.  It stays valid as an include
+*   the benchmark wrapper INLINES into a temp program built on the fly.  It stays valid as an include
 *   so old material still works, but the .sno files in this corpus are applications now, not wrappers.
 * ⭐ THREE WAYS TO GET A NUMBER OUT OF ONE PROGRAM (Lon s265):
 *     1. STANDALONE   -- no wrapper at all.  Run the .sno itself and time it from OUTSIDE (wall clock,

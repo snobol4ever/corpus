@@ -5,7 +5,7 @@
 % The 1 DEC-10 :- mode/1 declaration(s) of the source are dropped: no engine here gives them meaning and swipl has no mode/1.
 % *BENCH kernel=eval -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
 % The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
-% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% this source by the benchmark wrapper and never live in it.  main/0 makes the file a
 % real standalone program whose stdout is graded byte-for-byte against eval.ref (oracle-cut, swipl: eval.oracle).
 :- initialization(main).
 bench_work(Res) :-

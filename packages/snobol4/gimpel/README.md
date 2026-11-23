@@ -11,7 +11,7 @@ SNOBOL4 (SNOBOL4+) form and as a SPITBOL form. **This package is the SPITBOL for
 lower-cased** (`NAME.INC` → `name.inc`, `ASM.SPT` → `asm.spt`, `PHRASES.IN` → `phrases.in`): 135 libraries, 10 programs and 5 data
 files. The form spells all its `-INCLUDE` targets and `INPUT` file names in lower case, so lower-cased names make it run unedited
 on a case-sensitive file system. Each file is the form's bytes with CR and ^Z dropped, and differs from it only where
-`EDITS.tsv` declares, in one of three classes checked mechanically by `SCRIP/scripts/util_gimpel_is_the_catspaw_spitbol_form.py`:
+`EDITS.tsv` declares, in one of three classes checked mechanically by a mechanical check kept with the project's tooling:
 
 | class | file | lines | why |
 |---|---|---|---|
@@ -43,7 +43,7 @@ Every library has a driver since 2026-10-02 (`balx_driver.sno` and `floorcei_dri
 
 ## ⛔ THE NAME IS THE ENUMERATION — `_driver.sno` OR IT IS NEVER SCORED
 
-`SCRIP/scripts/scorecard_snobol4.sh` selects this suite's rows with `-name *_driver.sno`. A test named anything else is silently
+the project's suite runner selects this suite's rows with `-name *_driver.sno`. A test named anything else is silently
 invisible to the board. **If you add a test here, its filename must end in `_driver.sno`.**
 
 ## What the re-vendor changed in what runs (measured 2026-09-27, coo, sbl -bf and SCRIP mode 3, before and after)

@@ -11,7 +11,7 @@ the collection's own Scheme (factorial, Fibonacci, map, fold, reverse, append, l
 define-macro swap, equal?), written into the collection for this suite: `ALL.stdin` names it (the entry, a tab, the file's path from the
 collection's root), `scrip --run-files` opens it where it stands, and the builder feeds the oracle the same file on both runs of the census.
 `lispi.out` is fpc 3.2.2 -Mdelphi's answer, cut twice byte-equal in a scrubbed environment. Built by
-`harness/scripts/util_build_package_suite.py corpus/packages/pascal/pascal-lisp --lang pascal --mine CENSUS.tsv` with `ALL.source` and
+the project's package builder with `ALL.source` and
 `ALL.stdin` written first (COO-508, COO-513, COO-514 (3); DESIGN-PLAN run-switches step 19).
 
 THE CENSUS: 8 programs; 1 entry; 2 are units; 5 are parts of the unit `Lisp` that fpc does not compile alone. The entry is graded on

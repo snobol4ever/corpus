@@ -35,6 +35,6 @@ row (exit status, standard output, standard error), NOT graded.
 This folder holds our index (`ALL.csv`, dialect `swi`), each answer `NAME.out` cut from swipl 9.0.4 twice with identical results,
 `NAME.in`, `OUR-QUERIES.tsv`, `QUERIES.tsv`, `ALL.omit`, `PARTITION.tsv` and `ORACLE.tsv`. Built by `sl_cut.py --form table` (kept
 with the grader's hand-off scripts) and
-`harness/scripts/util_build_package_suite.py corpus/packages/prolog/art_of_prolog --lang prolog --mine CENSUS.tsv --twice`. No SCRIP
+the project's package builder. No SCRIP
 reading was taken at the cut (Lon 2026-11-14: host the container with the oracle's answers now, the grading comes later); the cycle
 grades it.

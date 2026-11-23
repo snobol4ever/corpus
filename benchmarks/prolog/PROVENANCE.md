@@ -113,7 +113,7 @@ brief: not chasing a download to populate `swipl-devel-master/bench` as part of 
 > derived content (21 twins, 0 not-twins, diffed against the pre-conversion `bench/` sources) and deleted.
 > Its two durable pieces both survive: the 21 **names** and their 21 **N values** are now
 > `benchmarks/prolog/fixed-iter-n.tsv`, lifted verbatim by execution so nothing was re-calibrated, and the
-> wrapped form itself is GENERATED on demand by `SCRIP/scripts/bench_prolog_wrap.sh --mode=iter --n=<N>`.
+> wrapped form itself is GENERATED on demand by the benchmark wrapper.
 > The `src/swi-vanroy/` upstream reference copy this section compares against is untouched and still here.
 
 Every filename present in both a `src/*` reference tree and its corresponding graded

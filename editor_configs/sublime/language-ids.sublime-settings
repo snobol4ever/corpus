@@ -1,4 +1,4 @@
-// The language ids scrip --lsp knows (src/driver/lsp_diagnostics.c), by the base scope of each Sublime syntax. Without this the LSP package would
+// The language ids scrip --lsp knows (SCRIP's language server), by the base scope of each Sublime syntax. Without this the LSP package would
 // send the scope's second word (sno, icn, pl, sc), which the server does not know, and no diagnostic would come back.
 {
 	"source.sno": "snobol4",

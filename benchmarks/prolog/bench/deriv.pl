@@ -3,7 +3,7 @@
 % Source: SWI-Prolog/bench (deriv). Prints the derivative of (x+1)*((^(x,2)+2)*(^(x,3)+3)).
 % *BENCH kernel=deriv -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
 % The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
-% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% this source by the benchmark wrapper and never live in it.  main/0 makes the file a
 % real standalone program whose stdout is graded byte-for-byte against deriv.expected (oracle-cut).
 :- initialization(main).
 bench_work(D) :-

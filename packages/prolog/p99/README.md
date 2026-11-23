@@ -20,6 +20,6 @@ This folder holds our index (`ALL.csv`, dialect `swi`: swipl cut the answers), e
 identical results, `ALL.omit`, `EXCLUDED.tsv`, `PARTITION.tsv`, and `ORACLE.tsv`: what the oracle answered on all three streams for each
 row (exit status, standard output, standard error), a record that is NOT graded (55 rows end 0; two say something on standard error, a
 warning of p83 loaded by p92 and a load error of p99). Built by
-`harness/scripts/util_build_package_suite.py corpus/packages/prolog/p99 --lang prolog --mine CENSUS.tsv --twice` (the grader 2026-11-14).
+the project's package builder (the grader 2026-11-14).
 No SCRIP reading was taken at the cut (Lon 2026-11-14: host the container with the oracle's answers now, the grading comes later); the
 cycle grades it.

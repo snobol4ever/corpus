@@ -8,7 +8,7 @@
 # EVERY RULE AND EVERY VARIABLE BELOW CITES THE LINE OF SCRIP's bootstrap/parser_icon.sc THAT READS ITS WORDS (plan scrip_ide D3b; Lon 2026-11-21 13:4x CST,
 # verbatim: "Best grammar definitions are parser.sc programs."): a cite is the word parser_icon.sc, a colon and the line, in the comment lines right above the
 # rule or variable or on its own line.  The eight words Unicon adds are NOT in the parser.sc (MEASURED 2026-11-21 14:0x CST: none of the eight); by the
-# chairman's ruling (B) they cite the C lexer instead, each rule marked C-LEXER icon_lex.c:N (the lines of C_LEXER_CITES.tsv, src/parsers/icon/icon_lex.c
+# chairman's ruling (B) they cite the C lexer instead, each rule marked C-LEXER icon_lex.c:N (the lines of C_LEXER_CITES.tsv, the Icon front end's lexer
 # lines 109 to 116).  No parser.sc is given a word (Lon 14:1x CST: parser.sc accuracy comes later).
 #
 # WHAT THIS FILE COLOURS, AND WHAT IT LEAVES PLAIN (a TextMate or Sublime grammar is regular expressions over lines; it colours and does not parse):

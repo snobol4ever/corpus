@@ -16,7 +16,7 @@ treebank    =   POS(0) ARBNO(ARBNO(*group FENCE) delim FENCE) RPOS(0);
 //------------------------------------------------------------------------------
 // TREEBANK_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
 // number of bytes it matched.  N=1 is what the standalone driver below asks for;
-// the timed twin built by scripts/bench_wrap.sh asks for many.
+// the timed twin built by the benchmark wrapper asks for many.
 //------------------------------------------------------------------------------
 function TREEBANK_MATCH_FENCE(N) {
     ZI      =   1;

@@ -3,7 +3,7 @@
 # GAS-x86.sublime-syntax — GNU `as` (GAS) Intel-syntax x86_64 assembly.
 #
 # Authored from scratch for the snobol4ever / SCRIP project per
-# .github/GOAL-MODE4-EMIT.md rung EM-FORMAT-SUBLIME-GAS-INTEL.  This is
+# the project's private design notes rung EM-FORMAT-SUBLIME-GAS-INTEL.  This is
 # a stand-alone GAS highlighter — NOT built on a Nasm base.  Owns scope
 # `source.asm.gas`.
 #

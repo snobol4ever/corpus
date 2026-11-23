@@ -5,7 +5,7 @@
 The shared program universe for the [snobol4ever](https://github.com/snobol4ever) organization: the
 `-INCLUDE`/import library every implementation draws on, the oracle-graded test corpus that keeps them
 honest, and a home for interesting SNOBOL4, Snocone, Icon, Prolog, Rebus, Raku, and Pascal programs.
-Consumed primarily by [SCRIP](https://github.com/snobol4ever/SCRIP)'s build and test scripts, which
+Consumed primarily by SCRIP's build and test scripts, which
 expect this repository checked out as a sibling directory. Dedicated to the public domain — see
 [License](#license) below.
 
@@ -51,7 +51,7 @@ the `seq name` pair right-justified at the line's end — so the right edge of t
 aligned index. Expected output sits verbatim between banners, no escaping. Board identity is
 `family#seq+name`; sequence numbers are stable, append-only addresses, never renumbered in place.
 
-The harness resolves oracles through `SCRIP/scripts/lib_oracle_flags.sh` (the one authority for that —
+The harness resolves oracles through the project's oracle-flags library (the one authority for that —
 see the workspace root `CLAUDE.md`), keeps a five-way verdict distinct (PASS / FAIL / CRASH / HANG /
 UNPROVEN — CRASH is never collapsed into a generic diverge), and refuses loudly instead of printing a
 plausible all-FAIL table when a binary is missing. Conversion is mechanical, never hand-transcribed,
@@ -144,6 +144,6 @@ CC0 1.0 Universal — public domain. See [LICENSE](LICENSE).
 ---
 
 Part of the [snobol4ever](https://github.com/snobol4ever) organization —
-[SCRIP](https://github.com/snobol4ever/SCRIP) ·
+SCRIP ·
 [snobol4dotnet](https://github.com/snobol4ever/snobol4dotnet) ·
 [snobol4jvm](https://github.com/snobol4ever/snobol4jvm)

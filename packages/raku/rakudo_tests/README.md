@@ -6,7 +6,7 @@ release's `t` (less `t/spec`), `lib`, `LICENSE` and `VERSION`, made on 2026-11-1
 (the tests name `t/packages/Test-Helpers`, `t/04-nativecall` and `lib` from the top, so `copy root` and `cwd root`). No program of it is stored
 here (CIO-92, CIO-96). This folder holds our index (`ALL.csv`, the `path` cell is the path from that top), each entry's answer `NAME.out` cut from
 rakudo 2026.05, and `ALL.omit`, which names every test that is no entry with its verdict. Built by
-`harness/scripts/util_build_package_suite.py corpus/packages/raku/rakudo_tests --lang raku --mine CENSUS.tsv` (2026-11-11, COO-516); the census is
+the project's package builder (2026-11-11, COO-516); the census is
 `/home/resources/progress/MINING-RAKUDO-TESTS-CENSUS.tsv`: 175 tests, 120 ENTRY, 42 NEEDS-DISPLAY (the builder's word for a source that names
 NativeCall or a terminal library), 5 DIFFERS-BETWEEN-RUNS, 3 NEEDS-NETWORK, 3 LIBRARY, 1 ORACLE-REFUSES, 1 DOES-NOT-END.
 

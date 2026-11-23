@@ -335,7 +335,7 @@ function stemmer(token) {
 
 // ---------------------------------------------------------------------------------------------------------
 // PORTER(N) re-stems the whole word list N times and returns the total stem length;
-// it is what scripts/bench_wrap.sh times.  The standalone driver below IS the stemmer.
+// it is what the benchmark wrapper times.  The standalone driver below IS the stemmer.
 // (The definition sits ahead of the slurp rather than after it, as the .sno's DEFINE does,
 // so that no goto crosses a function body; the call order is unchanged.)
 // ---------------------------------------------------------------------------------------------------------

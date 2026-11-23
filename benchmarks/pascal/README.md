@@ -81,7 +81,7 @@ independently confirms 15505, so the ref is right and SCRIP is wrong. Row
 sieve — SIGSEGV rc=139): the Pascal `for` lowering leaks 64 bytes of ζ-SPINE per
 iteration. Non-deterministic under ASLR, so a single green run means nothing. Row
 `pascal-m4-for-spine-leak-64b-per-iter`. See
-`.github/FINDING-2026-08-27-hq_C-pascal-bench-devnull-trap-voids-the-7-of-7-grid-and-masks-a-64-byte-per-iteration-m4-spine-leak.md`.
+a finding of the project's private notes.
 
 ⛔⛔ **NEVER run these kernels with `</dev/null`.** Seven of the nine open with
 `readln(reps)`; with no stdin `reps=0`, every loop body is skipped, and the kernel

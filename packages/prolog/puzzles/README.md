@@ -2,7 +2,7 @@
 
 Every Prolog puzzle program set found with a stated license, vendored on Lon's word (2026-10-09, in-chat to the ceo, verbatim:
 "We want every Prolog puzzle program sets we can find."; row prolog-puzzles-..., CEO-1583, rulings CEO-1593). One FLAT package, one
-container (ALL.pl / ALL.ref / ALL.csv, built by SCRIP/scripts/util_build_package_suite.py), every ref CUT FROM THE ORACLE, swipl -q.
+container (ALL.pl / ALL.ref / ALL.csv, built by the project's package builder), every ref CUT FROM THE ORACLE, swipl -q.
 
 ## Sources and licenses
 
@@ -52,7 +52,7 @@ nothing under swipl -q; the 257 programs DRIVERS.tsv names carry one appended li
 
 ## Rebuild
 
-    TIMEOUT=120 python3 ../harness/scripts/util_build_package_suite.py ../corpus/packages/prolog/puzzles --lang prolog --twice   # from SCRIP/
+    # rebuilt by the project's own tooling (not carried in this repository): TIMEOUT=120, every ref cut from the oracle, twice
 
 TIMEOUT=120 since 2026-10-23 (the coo, CEO-1926): hakank_swi_shifted_division answers in 55.2 s under swipl 9.0.4 at load 8 -- inside the
 old 60 s by a margin the box's load erases (it read TIMEOUT on 10-10) -- and is absorbed at 120 s, its 138606-byte answer the same on

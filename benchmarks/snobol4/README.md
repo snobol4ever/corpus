@@ -37,8 +37,8 @@ relies on for the CHECK phase). Full detail and the callgrind numbers for all 15
 both modes: `FINDING-2026-08-22-bench-harness-unmeasurable.md`.
 
 ```bash
-bash SCRIP/scripts/test_bench_snobol4_timed.sh         # sbl / m3 / m4 throughput table + check gate
-bash SCRIP/scripts/bake_noise_floor_snobol4_timed.sh   # re-bake NOISE-FLOOR.tsv (TIME-mode rows)
+scrip <program>.sno < /dev/null | diff - <program>.ref   # the CHECK phase by hand
+# the timed table and NOISE-FLOOR.tsv are made by the project's own tooling (not carried in this repository)
 ```
 
 The `.spt` files are SPITBOL-dialect programs (`-TITLE`, `./*` directives) from the original
@@ -50,7 +50,7 @@ SPITBOL test suite — data for the diagnostics runners, not part of this family
 state") IS STALE.** Commit `cbc2df66e` ("s265-bench-standalone-revamp", 2026-08-23 12:55:48)
 migrated every kernel below to the standalone `*BENCH kernel=... check=... bud=... flr=...`
 marker shape (`bench_wrap.sh` builds the timed twin on the fly; see that script's header for the
-contract) without updating this file's prose. `bash SCRIP/scripts/test_bench_snobol4_timed.sh`
+contract) without updating this file's prose. The project's own timed runner
 currently reports `CHECK RESULT: ok=18 bad=0`, `ungraded: none` — the runner and corpus agree,
 only the description above them does not. Needs a real rewrite (out of scope for a measurement
 task); flagged, not fixed, by task `bench-rebaseline-15-kernels-clean-oracle`.
@@ -80,7 +80,7 @@ task); flagged, not fixed, by task `bench-rebaseline-15-kernels-clean-oracle`.
 `pattern_bt_deep`, `table_churn` — each a redundant variant of a surviving row, all nine
 legacy-shaped (fixed count, printed a raw ms delta, and so could never match a `.ref`).
 Their text is in corpus git history. ⛔ `arith_mixed` was the only program reaching
-`rt_num_arith` and `table_churn` the densest `rt_agg_alloc` row — `scripts/bench_sno_rtx.sh`'s
+`rt_num_arith` and `table_churn` the densest `rt_agg_alloc` row — the project's benchmark tooling's
 ARITH/ALLOC family sets were repointed and the loss is named there, not silently absorbed.
 
 ---

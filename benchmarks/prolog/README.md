@@ -57,11 +57,11 @@ The `.s` is never a pinned golden and `.s` byte-identity is never a gate
 ## Running
 
 ```bash
-# SCRIP three-mode benchmark runner (m3 --run, m4 --compile x86, + oracle cross-check)
-bash SCRIP/scripts/test_bench_prolog_modes.sh
+# run a benchmark with scrip and compare its output with the .ref beside it (no timing)
+scrip bench/<name>.pl < /dev/null | diff - bench/<name>.ref
 
-# regenerate the side-by-side .s / .s.FENCED artifacts after any codegen change
-bash SCRIP/scripts/util_regen_prolog_bench_s_artifacts.sh "<rung>"
+# the side-by-side .s / .s.FENCED artifacts are emitted by the project's own tooling (not carried in this repository)
+# (scrip --compile --out=<name>.s bench/<name>.pl emits one of the same kind with a reader's own build)
 ```
 
 `test_bench_prolog_modes.sh` reports, per benchmark: `m3` (PASS/FENCE/FAIL),
@@ -106,7 +106,7 @@ perfect prover simple_analyzer flatten mu fast_mu`.
    plus `main :- <run-once>, write(Result), nl.` (no timing).
 3. Generate the oracle: strip the gprolog chrome —
    `gprolog --consult-file <name>.pl --query-goal halt | grep -vE '^GNU Prolog|…' > <name>.expected`.
-4. `bash SCRIP/scripts/util_regen_prolog_bench_s_artifacts.sh "<rung>"` to
+4. Emit the artifact with the project's own tooling (not carried in this repository) to
    emit `<name>.s` (or `<name>.s.FENCED`).
 5. Update this table; add the program under the PB-BENCH rung in
-   `.github/GOAL-PROLOG-BB.md`.
+   the project's design notes (not carried in this repository).

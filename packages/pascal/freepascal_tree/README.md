@@ -4,7 +4,7 @@ Free Pascal's own test tree (https://github.com/fpc/FPCSource, folder `tests`, G
 `/home/packages/pascal/FPCSource/tests` (`ALL.source`); no program of it is stored here (CIO-92, CIO-96). This folder holds our index (`ALL.csv`, the
 `path` cell is the path from the collection's root, the `dialect` cell the fpc mode that cut the answer), each entry's answer `NAME.out` cut from
 fpc 3.2.2, and `ALL.omit`, which names every program that is no entry with its verdict. Built by
-`harness/scripts/util_build_package_suite.py corpus/packages/pascal/freepascal_tree --lang pascal --mine CENSUS.tsv --mine-under tbs --mine-dialects fpc`
+the project's package builder
 (2026-11-11, COO-508); the census is `/home/resources/progress/MINING-FREEPASCAL-TESTS-CENSUS.tsv`.
 
 THE FIRST FOLDER IS `tbs` (784 programs): 205 entries; 431 print nothing on standard output and are no entry (a silent engine would earn the

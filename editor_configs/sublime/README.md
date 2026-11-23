@@ -158,7 +158,7 @@ the configured build.
 * **Snocone** — `Snocone.sublime-build` invokes `scrip --run` on
   the active `.sc` file, capturing stdout/stderr to a matching
   `.out` file alongside.  Build `scrip` from
-  `snobol4ever/SCRIP/scripts/build_scrip.sh` and put it on PATH
+  SCRIP's source and put it on PATH
   (or set the build's `path` setting).  Cross-platform; no path
   edits needed if `scrip` is on PATH.
 
@@ -342,5 +342,5 @@ that gets several GAS semantics wrong.  The current arrangement —
 `GAS-x86.sublime-syntax` authored from scratch as a proper GAS
 Intel-syntax base, with `SCRIP-x86.sublime-syntax` as a thin overlay —
 landed session 2026-05-10 (later) under
-`.github/GOAL-MODE4-EMIT.md` rung `EM-FORMAT-SUBLIME-GAS-INTEL`,
+the project's private design notes rung `EM-FORMAT-SUBLIME-GAS-INTEL`,
 also with Claude (Opus 4.7).

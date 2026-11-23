@@ -1,7 +1,7 @@
 # Raku demos (RakDemo)
 
 Whole Raku programs run on a sample input, each graded against the oracle (rakudo, through `rakudo_bin` in
-`SCRIP/scripts/lib_oracle_flags.sh`) in both SCRIP modes. A demo is a directory `<name>/` holding the program `<name>.raku`,
+the project's oracle-flags library) in both SCRIP modes. A demo is a directory `<name>/` holding the program `<name>.raku`,
 its standard input `<name>.in`, the oracle's output on that input `<name>.ref`, its declared heap and stack (`<name>.heap`,
 `<name>.stack`, kilobytes, name<TAB>kb) and, where the demo is also a benchmark, its workhorse input `<name>.workhorse`.
 A DEMO IS A TEST AND A BENCHMARK (CEO-1221): the sample input is the test, the workhorse input the benchmark.

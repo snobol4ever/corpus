@@ -69,7 +69,7 @@ INPUT(.INPUT, 9, '[-f0 -r4194304]');
 src         =   INPUT;
 // *BENCH kernel=CALCULATOR_1 check=1 bud=1000 flr=20
 // Pristine (RULES.md THE KERNEL CONVENTION): nothing here times itself; the timing is generated
-// around this source by scripts/bench_wrap_snocone.py and scripts/test_snocone_bench_suite.sh.
+// around this source by the benchmark wrapper and the project's suite runner.
 if (~(src ? C)) goto bad;
 goto fin;
 bad:

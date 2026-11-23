@@ -651,7 +651,7 @@ function TreeDumpAt(x, level, outNm, i, line, kids) {
 /* ==================================================================================================================== */
 /* PARSER_TREE_HASH=1 (Lon 2026-09-29 18:5x CDT: "hashing the output tree is what I meant. In memory. Then output the one number   */
 /* per-test for comparison."): each line TreeDumpAt would print, and its newline, is folded into TreeHashH instead, byte by byte, */
-/* h = (h * 256 + byte) mod (2^55 - 55) -- the same fold, over the same bytes, as out/parser_<lang> (src/parsers/parser_main.c).   */
+/* h = (h * 256 + byte) mod (2^55 - 55) -- the same fold, over the same bytes, as out/parser_<lang>.   */
 /* TreeDumpEnd prints the one number for the file and resets it; unset, TreeDumpPut prints the line and TreeDumpEnd does nothing. */
 function TreeDumpPut(s, outNm, i, n) {
     if (~IDENT(TreeHashOn, '1')) { $outNm = s; return; }
@@ -984,7 +984,7 @@ function T8Pos(t8Ofs, t8Map, i) {
    parse their language's corpus into a proper tree_t with proper TT_* types).
    THE TREE IS THE PRUNED PARSE TREE (RULES.md § FACT RULE, Lon 2026-10-03): source order, one node per rule that
    fires, built with Shift/Reduce and the Counter stack only, no desugaring.  The shapes are the C frontend's
-   own (src/parsers/pascal/pascal.y since hq_pascal's pruned-tree landing, SCRIP 1889d257e): TT_VAR <program>,
+   own (the C parser since hq_pascal's pruned-tree landing, SCRIP 1889d257e): TT_VAR <program>,
    [TT_VLIST of the program parameters], TT_BLOCK of TT_PART <label|const|type|var> rows of TT_DECL, TT_PROCEDURE
    and TT_FUNCTION (name, TT_PARAMS, result type, TT_BLOCK or TT_KEYWORD forward), a body as TT_SEQ_EXPR; types as
    TT_ENUM_TYPE, TT_SUBRANGE, TT_ARRAY_TYPE, TT_RECORD(TT_FIELDS), TT_SET_TYPE, TT_FILE_TYPE, TT_PTR_TYPE; a for

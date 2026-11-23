@@ -9,7 +9,7 @@ llist`; the Makefile also builds `skdebug.icn`, which `skeem.icn` leaves out of 
 the oracle's answer is the same built with it and without it, MEASURED); the one row's answer `test.out`; `ALL.csv`; and `ALL.launch`: the row's file is handed as the argument to the pack's program (`scrip driver skeem.icn`,
 CIO-83): the test is `skeem test.scm`, run in a scratch copy of the collection's folder.
 
-THE SEMICOLONS (CIO-100). On 2026-11-11 the grader wrote the tab characters of a scratch copy as spaces and ran `harness/scripts/util_icon_semicolons.py` over all its files
+THE SEMICOLONS (CIO-100). On 2026-11-11 the grader wrote the tab characters of a scratch copy as spaces and ran the project's semicolon converter over all its files
 until nothing changed. ONE semicolon was written by hand, where the converter cannot find it: `skcontrl.icn` line 102, after `promise.ready := "true"`, whose next line
 begins with the dereference `.(` (SCRIP reads the two lines as a field reference and says expected field name). No other byte is changed. PROVED: the fifteen files parse in
 SCRIP; the pack built from the converted text by the fleet's `icont` and the pack built from the original by the distribution's own translator give the same 26,002 bytes on

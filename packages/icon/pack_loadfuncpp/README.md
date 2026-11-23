@@ -8,7 +8,7 @@ Icon that loads nothing; each is a row with its answer `NAME.out`. The other pro
 built here, so the oracle answers none of them (the census, `/home/resources/progress/MINING-ICON-LIBRARY-PACKS-CENSUS.tsv`: 26 ORACLE-REFUSES, 1 NEEDS-INPUT, 1
 NO-OUTPUT, 1 LIBRARY).
 
-THE SEMICOLONS (CIO-100): the tab characters of a scratch copy written as spaces, then `harness/scripts/util_icon_semicolons.py` over the files until nothing changed (six
+THE SEMICOLONS (CIO-100): the tab characters of a scratch copy written as spaces, then the project's semicolon converter over the files until nothing changed (six
 of the eight changed; two already carried theirs). No other byte is changed. PROVED for each of the eight: the converted text by the fleet's `icont` and the original by
 the distribution's own translator give the same answer, twice; SCRIP parses it.
 

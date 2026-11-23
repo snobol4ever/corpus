@@ -1,7 +1,7 @@
 {
     "dap": {
         "scrip": {
-            "url": "https://github.com/snobol4ever/SCRIP",
+            "url": "https://github.com/snobol4ever/corpus",
             "run": {
                 "command": [
                     "/home/install/bin/scrip",

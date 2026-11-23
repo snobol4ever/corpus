@@ -4,7 +4,7 @@ Toczak/DSA, data structures and algorithms in Pascal (https://github.com/toczak/
 here (CIO-92, CIO-96). One of the six collections that were the banner row PasSets until 2026-11-11 (Lon: "So since they are six things, make
 them six items on the banner."). This folder holds our index (`ALL.csv`: `path` is the path from the collection's root, `dialect` the fpc mode
 that cut the answer), each entry's answer `NAME.out` cut from fpc 3.2.2 in a scrubbed environment, and `ALL.omit`, which names every program
-that is no entry with its verdict. Built by `harness/scripts/util_build_package_suite.py corpus/packages/pascal/dsa --lang pascal --mine CENSUS.tsv --mine-dialects fpc,objfpc,delphi,tp --twice`
+that is no entry with its verdict. Built by the project's package builder
 (COO-508, COO-513; the ladder starts at fpc's own mode because these are Lazarus programs, not ISO ones: `fpc -Miso` accepts their var part after their
 routines, which ISO 7185 6.2.1 refuses and SCRIP refuses with it, and pads integers to width 10 where fpc's own mode does not; officer_04 2026-11-12).
 

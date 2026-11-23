@@ -45069,7 +45069,7 @@ matched bytes=32512
 * present here and the crash still reproduces), whose real invocation is pumped at
 * match-END (rt_dcap_pump, not during the match traversal), reaching a disjunction
 * box (the LT(place,0) n(x)+place idiom in ListValue/ListInsert) several calls deep.
-* See .github/FINDING-2026-08-24-seat03-vlist-v05-m4-sigsegv-is-not-the-disjunction-its-eval-indirect-call-memory-corruption.md
+* See a finding of the project's private notes
 * addendum for the confirmed mechanism (gdb software-watchpoint catches the exact
 * write: n157_disjunction_α's `mov DWORD PTR [rsp+0x6f0],0x0` lands on environ[]).
 *------------------------------------------------------------------------------
@@ -59129,7 +59129,7 @@ matched bytes=1077
 *------------------------------------------------------------------------------
 * CALCULATOR_1_MATCH(N) -- run the recognizer N times over the slurped source and report the
 * number of bytes it matched.  N=1 is what the standalone driver below asks for;
-* the timed twin built by scripts/bench_wrap.sh asks for many.
+* the timed twin built by the benchmark wrapper asks for many.
 *------------------------------------------------------------------------------
         DEFINE('CALCULATOR_1_MATCH(N)')  :(CALCULATOR_1_MATCH_END)
 CALCULATOR_1_MATCH  ZI = 1
@@ -59245,7 +59245,7 @@ matched bytes=86
 *------------------------------------------------------------------------------
 * CALCULATOR_2_MATCH(N) -- run the recognizer N times over the slurped source and report the
 * number of bytes it matched.  N=1 is what the standalone driver below asks for;
-* the timed twin built by scripts/bench_wrap.sh asks for many.
+* the timed twin built by the benchmark wrapper asks for many.
 *------------------------------------------------------------------------------
         DEFINE('CALCULATOR_2_MATCH(N)')  :(CALCULATOR_2_MATCH_END)
 CALCULATOR_2_MATCH  ZI = 1
@@ -59281,7 +59281,7 @@ matched bytes=0
 *------------------------------------------------------------------------------
 * TREEBANK_MATCH(N) -- run the recognizer N times over the slurped source and report the
 * number of bytes it matched.  N=1 is what the standalone driver below asks for;
-* the timed twin built by scripts/bench_wrap.sh asks for many.
+* the timed twin built by the benchmark wrapper asks for many.
 *------------------------------------------------------------------------------
         DEFINE('TREEBANK_MATCH(N)')  :(TREEBANK_MATCH_END)
 TREEBANK_MATCH  ZI = 1
@@ -59573,7 +59573,7 @@ match
 *------------------------------------------------------------------------------
 * JSON_MATCH(N) -- run the recognizer N times over the slurped source and report the
 * number of bytes it matched.  N=1 is what the standalone driver below asks for;
-* the timed twin built by scripts/bench_wrap.sh asks for many.
+* the timed twin built by the benchmark wrapper asks for many.
 *------------------------------------------------------------------------------
         DEFINE('JSON_MATCH(N)')  :(JSON_MATCH_END)
 JSON_MATCH  ZI = 1
@@ -109462,7 +109462,7 @@ zwagger
 *------------------------------------------------------------------------------
 * CALCULATOR_1_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
 * number of bytes it matched.  N=1 is what the standalone driver below asks for;
-* the timed twin built by scripts/bench_wrap.sh asks for many.
+* the timed twin built by the benchmark wrapper asks for many.
 *------------------------------------------------------------------------------
         DEFINE('CALCULATOR_1_MATCH_FENCE(N)')  :(CALCULATOR_1_MATCH_FENCE_END)
 CALCULATOR_1_MATCH_FENCE  ZI = 1
@@ -109498,7 +109498,7 @@ matched bytes=0
 *------------------------------------------------------------------------------
 * CALCULATOR_2_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
 * number of bytes it matched.  N=1 is what the standalone driver below asks for;
-* the timed twin built by scripts/bench_wrap.sh asks for many.
+* the timed twin built by the benchmark wrapper asks for many.
 *------------------------------------------------------------------------------
         DEFINE('CALCULATOR_2_MATCH_FENCE(N)')  :(CALCULATOR_2_MATCH_FENCE_END)
 CALCULATOR_2_MATCH_FENCE  ZI = 1
@@ -109536,7 +109536,7 @@ matched bytes=0
 *------------------------------------------------------------------------------
 * CLAWS5_MATCH(N) -- run the recognizer N times over the slurped source and report the
 * number of bytes it matched.  N=1 is what the standalone driver below asks for;
-* the timed twin built by scripts/bench_wrap.sh asks for many.
+* the timed twin built by the benchmark wrapper asks for many.
 *------------------------------------------------------------------------------
         DEFINE('CLAWS5_MATCH(N)')  :(CLAWS5_MATCH_END)
 CLAWS5_MATCH  ZI = 1
@@ -118971,7 +118971,7 @@ stm_end
 *// ---------------------------------------------------------------------------------------------------------
 *// Driver: slurp every input word, then write each word's stem to OUTPUT.
 *// PORTER(N) re-stems the whole word list N times and returns the total stem length;
-*// it is what scripts/bench_wrap.sh times.  The standalone driver below IS the stemmer.
+*// it is what the benchmark wrapper times.  The standalone driver below IS the stemmer.
 *// ---------------------------------------------------------------------------------------------------------
                WORDS          =  ARRAY(32768)
                NW             =  0
@@ -119416,7 +119416,7 @@ acquir
 *------------------------------------------------------------------------------
 * TREEBANK_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
 * number of bytes it matched.  N=1 is what the standalone driver below asks for;
-* the timed twin built by scripts/bench_wrap.sh asks for many.
+* the timed twin built by the benchmark wrapper asks for many.
 *------------------------------------------------------------------------------
         DEFINE('TREEBANK_MATCH_FENCE(N)')  :(TREEBANK_MATCH_FENCE_END)
 TREEBANK_MATCH_FENCE  ZI = 1
@@ -119479,7 +119479,7 @@ matched bytes=0
 *------------------------------------------------------------------------------
 * JSON_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
 * number of bytes it matched.  N=1 is what the standalone driver below asks for;
-* the timed twin built by scripts/bench_wrap.sh asks for many.
+* the timed twin built by the benchmark wrapper asks for many.
 *------------------------------------------------------------------------------
         DEFINE('JSON_MATCH_FENCE(N)')  :(JSON_MATCH_FENCE_END)
 JSON_MATCH_FENCE  ZI = 1
@@ -119518,7 +119518,7 @@ Pattern match failed
 *------------------------------------------------------------------------------
 * CLAWS5_MATCH_FENCE(N) -- run the recognizer N times over the slurped source and report the
 * number of bytes it matched.  N=1 is what the standalone driver below asks for;
-* the timed twin built by scripts/bench_wrap.sh asks for many.
+* the timed twin built by the benchmark wrapper asks for many.
 *------------------------------------------------------------------------------
         DEFINE('CLAWS5_MATCH_FENCE(N)')  :(CLAWS5_MATCH_FENCE_END)
 CLAWS5_MATCH_FENCE  ZI = 1

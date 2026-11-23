@@ -7,7 +7,7 @@
 # EVERY RULE AND EVERY VARIABLE BELOW CITES THE LINE OF SCRIP's bootstrap/parser_rebus.sc THAT READS ITS WORDS (plan scrip_ide D3b; Lon 2026-11-21
 # 13:4x CST, verbatim: "Best grammar definitions are parser.sc programs."): a cite is the word parser_rebus.sc, a colon and the line, in the comment
 # lines right above the rule or variable or on its own line.  The one word the parser.sc lacks and the C front end reads, procedure, cites the C lexer
-# (src/parsers/rebus/rebus.l:45, a line of C_LEXER_CITES.tsv).  No parser.sc is given a word (Lon 14:1x CST: parser.sc accuracy comes later).
+# (the Rebus lexer at line 45, a line of C_LEXER_CITES.tsv).  No parser.sc is given a word (Lon 14:1x CST: parser.sc accuracy comes later).
 #
 # WHAT THE TWO READERS SAY, MEASURED 2026-11-21 on SCRIP 6419bb959:
 #   * COMMENTS: a hash to the end of the line (parser_rebus.sc:4, rebus.l).  The parser.sc also reads a double slash (:5) and a slash-star block (:6); the

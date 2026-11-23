@@ -21,7 +21,7 @@ not a program with a correct output to pin.
   (sentinel-gated, currently at `PATCHED:v3` in the script; the file itself already carries a
   hand-applied `PATCHED:v4`/`SWI-5` sentinel, i.e. patched by more than this one script over its
   life — see git log below).
-- `SCRIP/scripts/util_diagnose_prolog_swi.sh` — same path, diagnosis tooling.
+- the project's diagnosis tooling — same path, diagnosis tooling.
 
 **17 commits of real development history** (`git log --follow -- tests/prolog/plunit.pl`), from
 initial creation (`28d6c132a PL-12: add plunit.pl shim`) through iterative correctness fixes,

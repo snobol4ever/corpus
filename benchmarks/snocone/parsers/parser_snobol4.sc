@@ -651,7 +651,7 @@ function TreeDumpAt(x, level, outNm, i, line, kids) {
 /* ==================================================================================================================== */
 /* PARSER_TREE_HASH=1 (Lon 2026-09-29 18:5x CDT: "hashing the output tree is what I meant. In memory. Then output the one number   */
 /* per-test for comparison."): each line TreeDumpAt would print, and its newline, is folded into TreeHashH instead, byte by byte, */
-/* h = (h * 256 + byte) mod (2^55 - 55) -- the same fold, over the same bytes, as out/parser_<lang> (src/parsers/parser_main.c).   */
+/* h = (h * 256 + byte) mod (2^55 - 55) -- the same fold, over the same bytes, as out/parser_<lang>.   */
 /* TreeDumpEnd prints the one number for the file and resets it; unset, TreeDumpPut prints the line and TreeDumpEnd does nothing. */
 function TreeDumpPut(s, outNm, i, n) {
     if (~IDENT(TreeHashOn, '1')) { $outNm = s; return; }
@@ -1091,7 +1091,7 @@ $'['        =  '[' *$' ';
 $')'        =  *$' ' ')';
 $']'        =  *$' ' ']';
 /* ==================================================================================================================== */
-/* THE EXPRESSION, as src/parsers/snobol4/snobol4.y builds it (Lon 2026-09-30: the C tree is canonical, and "the tree is */
+/* THE EXPRESSION, as the C parser builds it (Lon 2026-09-30: the C tree is canonical, and "the tree is */
 /* built from tokens in the same order as they are recognized by the PATTERN ... directly and once only"): every left-     */
 /* associative level is a tail loop that reduces as each right operand is recognised; =, ^, @ and ~ are right-recursive.  */
 ArgTail     =  *$',' FENCE(*Expr | epsilon . *Reduce('TT_NUL', 0)) . *IncCounter() FENCE(*ArgTail | epsilon);

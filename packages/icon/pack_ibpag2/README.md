@@ -12,7 +12,7 @@ OUR MODIFICATIONS. (1) ONE LINE IS ADDED to `ibpag2.icn`, after its `link option
 ibutil, iohno, ibreader, ibwriter, shrnktbl, version`. The pack's Makefile hands those fourteen files to the translator on one command line and the program's text links
 none of them; SCRIP loads what a program links, so the launch needs the line. MEASURED: the oracle's answer on all three grammars is the same built the Makefile's way
 and built from the main file with that line. (2) THE SEMICOLONS (CIO-100): the tab characters of a scratch copy written as spaces, then
-`harness/scripts/util_icon_semicolons.py` over all its files until nothing changed. No other byte is changed. PROVED: the fifteen files parse in SCRIP; the converted
+the project's semicolon converter over all its files until nothing changed. No other byte is changed. PROVED: the fifteen files parse in SCRIP; the converted
 text built by the fleet's `icont` and the original built by the distribution's own translator give the same answer on all three grammars.
 
 THE ANSWERS are cut from the oracle: the fleet's `icont` on the converted text, then `./ibpag2 NAME.ibp -f NAME.ibp` with standard input closed in a fresh copy of the

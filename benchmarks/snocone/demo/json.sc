@@ -269,7 +269,7 @@ json        =   POS(0) jelement RPOS(0);
 // Every counter and both stacks are reset per pass, so each pass does the same
 // work and the census is the census of ONE parse, not of N accumulated ones.
 // N=1 is what the standalone driver below leaves unused; the timed twin built by
-// scripts/bench_wrap.sh asks for many.
+// the benchmark wrapper asks for many.
 //------------------------------------------------------------------------------
 function JSON(N) {
     ZI      =   1;
@@ -300,7 +300,7 @@ src         =   INPUT;
 OUTPUT      =   'input bytes=' SIZE(src);
 //------------------------------------------------------------------------------
 //  THE ONE BIG PATTERN MATCH. Pristine (RULES.md THE KERNEL CONVENTION): nothing here
-//  times itself; the timing is generated around this source by scripts/bench_wrap_snocone.py.
+//  times itself; the timing is generated around this source by the benchmark wrapper.
 //------------------------------------------------------------------------------
 if (~(src ? json)) goto fail;
 root        =   vs[1];

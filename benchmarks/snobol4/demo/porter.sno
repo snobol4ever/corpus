@@ -413,7 +413,7 @@ stm_end
 *// ---------------------------------------------------------------------------------------------------------
 *// Driver: slurp every input word, then write each word's stem to OUTPUT.
 *// PORTER(N) re-stems the whole word list N times and returns the total stem length;
-*// it is what scripts/bench_wrap.sh times.  The standalone driver below IS the stemmer.
+*// it is what the benchmark wrapper times.  The standalone driver below IS the stemmer.
 *// ---------------------------------------------------------------------------------------------------------
                WORDS          =  ARRAY(32768)
                NW             =  0

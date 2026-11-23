@@ -10,7 +10,7 @@
 # VARIABLE BELOW CITES THE LINE OF parser_raku.sc THAT STATES IT, in the form parser_raku.sc:N, on its own line or in the comment lines directly above
 # it (read by tools/cites_parser_sc.py of the cqo's evidence folder). WHERE THE parser.sc LACKS A WORD THE C FRONT END READS, THE RULE CITES THE C LEXER,
 # marked C-LEXER FILE:N, and the word is a line of C_LEXER_CITES.tsv (the chairman's ruling of 2026-11-21 14:0x CST): three words, fail, exit and redo,
-# read by src/parsers/raku/rk_tree/rkt_01_sh.c and quoted by no line of the parser.sc. No parser.sc was given a word for this file (Lon: "Don't worry
+# read by SCRIP's Raku front end and quoted by no line of the parser.sc. No parser.sc was given a word for this file (Lon: "Don't worry
 # about parser.sc accuracy currently, that comes later when they become the actual parsers.").
 #
 # WHAT A LINE CANNOT DECIDE IS COLOURED LESS, ON PURPOSE (a Sublime syntax is regular expressions over a line, never a parse):

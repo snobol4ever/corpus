@@ -56,7 +56,7 @@ JCON's four separate `procedure main`s into one program. The demo entries in
 ## Status
 
 All modules parse cleanly under SCRIP. Graded state, measured 2026-09-03 by
-`scripts/test_demo_icon_jcon.sh` against an `icont` oracle built from these same
+the project's suite runner against an `icont` oracle built from these same
 sources (see `corpus/demos/icon/jcon/` for the demo entries):
 
 | program | m3 | m4 | vs oracle |
@@ -81,5 +81,5 @@ string-scan environment (`preprocessor.icn` `case move(1) of { "\"" | "'": ... }
 entering such a selector fresh is required for correctness but currently
 disturbs the scan registers, so non-trivial programs that exercise that path
 still crash. Root-caused to the emitter's chain walk (not the lowerer); tracked
-in `.github/GOAL-ICON-BB.md` (LIVE CURSOR: ICN-CASE-ALT-SELECTOR) and
-`.github/GOAL-JCON-IN-SCRIP.md`.
+in the project's private design notes (LIVE CURSOR: ICN-CASE-ALT-SELECTOR) and
+the project's private design notes.

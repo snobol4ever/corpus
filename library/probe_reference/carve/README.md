@@ -3,7 +3,7 @@
 Built for the `spine-carve-coalescing` rung (seat1, 2026-08-21) to reproduce that row's two
 first-step numbers BEFORE writing any emitter code.  Both came in materially different; this
 directory is the receipt.  See
-`.github/FINDING-2026-08-21-seat1-the-spine-carve-is-free-in-the-shape-that-actually-occurs.md`.
+a finding of the project's private notes.
 
 - `carve_pair.c`     — the row's own shape: 8x (`sub rsp,16` + 2 stores) vs 1x `sub rsp,128` + the
                        same 8 store pairs at re-based offsets.  2 stores = one 16-byte DESCR, which

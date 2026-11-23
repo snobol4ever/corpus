@@ -7,7 +7,7 @@ oracle = `/home/claude/x64/bin/sbl -b`. A case is GREEN only when C output == SP
 bare filename below was a standalone `corpus/probe/bb/<name>.sno`; all are now entries (by the same name)
 in `corpus/tests/snobol4/probe/bb.sno`/`.ref`, addressed `bb.sno#<name>` (family#name, the suite board
 identity convention). All still oracle-verified GREEN, re-checked live during the move. Extract one
-standalone for inspection: `python3 SCRIP/scripts/corpus_suite_harness.py extract corpus/tests/snobol4/probe/bb.sno corpus/tests/snobol4/probe/bb.ref <name> /tmp/<name>.sno`.
+standalone for inspection with the project's own suite harness (not carried in this repository).
 
 | # | pattern | challenge isolated | C | oracle (now `bb.sno#…`) | state |
 |---|---|---|---|---|---|
@@ -66,7 +66,7 @@ editing: do not patch on this paragraph alone.
 
 ## Findings so far
 
-⚠ **CASE 1 GREEN WAS RE-PROVED 2026-08-04 (later session) AND WAS FALSE AT THAT COMMIT — FOURTH BUG.** `ARBNO_γ` called `write_str(out, ARBNO)` *and* `write_nl(out)`, but `write_str` already terminates its line (`printf("%.*s\n", …)`), so every `$ OUTPUT` line was double-spaced: 24 lines emitted where the oracle emits 13. The derive-don't-accumulate rewrite (bugs 1–3) was correct and is retained; the harness call was not. Two lineages had each half the answer — `SCRIP/seed/` had the correct `ARBNO_γ` but still accumulated, `corpus/probe/bb/` derived but double-spaced — and neither was ever diffed against the other. **All four copies (`corpus/probe/bb/`, `SCRIP/seed/`, `SCRIP/bench/`, `.github/`) are now one byte-identical file, each independently verified against `sbl -b`.** ⛔ LESSON: "GREEN" recorded in prose is the same structurally-unverifiable claim as a PUSH-PENDING banner (RULES.md stale-orientation rule) — **re-run the oracle diff, do not read the state off the table.**
+⚠ **CASE 1 GREEN WAS RE-PROVED 2026-08-04 (later session) AND WAS FALSE AT THAT COMMIT — FOURTH BUG.** `ARBNO_γ` called `write_str(out, ARBNO)` *and* `write_nl(out)`, but `write_str` already terminates its line (`printf("%.*s\n", …)`), so every `$ OUTPUT` line was double-spaced: 24 lines emitted where the oracle emits 13. The derive-don't-accumulate rewrite (bugs 1–3) was correct and is retained; the harness call was not. Two lineages had each half the answer — `SCRIP/seed/` had the correct `ARBNO_γ` but still accumulated, `corpus/probe/bb/` derived but double-spaced — and neither was ever diffed against the other. **All four copies (`corpus/probe/bb/`, `SCRIP/seed/`, `SCRIP/bench/`, the project's private notes) are now one byte-identical file, each independently verified against `sbl -b`.** ⛔ LESSON: "GREEN" recorded in prose is the same structurally-unverifiable claim as a PUSH-PENDING banner (RULES.md stale-orientation rule) — **re-run the oracle diff, do not read the state off the table.**
 
 **Case 1 — three bugs in the hand-written reference, all fixed, now oracle-exact:**
 1. Missing shy-null: `ARBNO_α` went straight to the child. α must YIELD null; **β** launches the first instance.

@@ -8,7 +8,7 @@ Kate 23.08 or newer, set up for every language of SCRIP. Four files and a folder
 - **The file types Kate gets wrong** (`katemoderc`): `.pl` is Perl's and `.pro` QMake's in Kate; the Prolog mode takes them, with its `Highlighting Version`, which Kate needs to accept the section.
 - **Four highlighting modes** (`syntax/*.xml`): SNOBOL4, Snocone, Rebus and Icon are not in Kate. The four definitions give a file its mode and nothing else, so that the server attaches; they colour nothing. The colouring of the SCRIP family is the Sublime syntax of `editor_configs/sublime`, and a Kate definition converted from it replaces each file under the same mode name.
 
-The `scrip` that runs is `/home/install/bin/scrip`, the build installed by `python3 /home/harness/scripts/util_scrip_install.py install`: Kate starts a server only on a command line `katerc` allows, so the path is absolute in `settings.json`, `dap.json` and `katerc` alike.
+The `scrip` that runs is `/home/install/bin/scrip`, an absolute path, because Kate starts a server only on a command line `katerc` allows: the path is the same in `lspclient/settings.json`, `debugger/dap.json` and `katerc`. If your `scrip` is installed elsewhere, put its absolute path in all three, before or after `install.sh`.
 
 ## Install (for one user)
 

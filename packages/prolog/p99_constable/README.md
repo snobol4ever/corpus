@@ -23,6 +23,6 @@ This folder holds our index (`ALL.csv`, dialect `swi`), each answer `NAME.out` c
 queries `NAME.in` cut by `sl_cut.py --form comment` (kept with the grader's hand-off scripts), `QUERIES.tsv`, `ALL.omit`, `EXCLUDED.tsv`,
 `PARTITION.tsv`, and `ORACLE.tsv`: the oracle's exit status, standard output and standard error for each row, NOT graded (six rows end 0
 and say nothing on standard error). Built by
-`harness/scripts/util_build_package_suite.py corpus/packages/prolog/p99_constable --lang prolog --mine CENSUS.tsv --twice` (the grader
+the project's package builder (the grader
 2026-11-14). No SCRIP reading was taken at the cut (Lon 2026-11-14: host the container with the oracle's answers now, the grading comes
 later); the cycle grades it.

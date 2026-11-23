@@ -10,7 +10,7 @@ escape ebcdic`); `tcll1.ll1`, the table the program reads when it starts; the pa
 step 14): a test is `tcll1 NAME.grm`, run in a copy of this folder.
 
 THE SEMICOLONS (CIO-100: put there once, proved, and said). The pack's text ends a statement at a newline; SCRIP's Icon and the fleet's `icont` want a semicolon. On
-2026-11-11 the grader ran `harness/scripts/util_icon_semicolons.py` over a scratch copy of the pack, after writing its tab characters as spaces (MEASURED: with its tabs
+2026-11-11 the grader ran the project's semicolon converter over a scratch copy of the pack, after writing its tab characters as spaces (MEASURED: with its tabs
 `gramanal.icn` is never finished by the converter, with spaces it is; why is not read: SCRIP's parser counts a tab as one column, as the converter does), and ran it three times over all the files (a file that links another is
 refused until the other is converted). PROVED: (1) the eleven files parse in SCRIP; (2) the pack built from the CONVERTED text by the fleet's `icont` (the pack's own
 Makefile recipe) and the pack built from the ORIGINAL text by the distribution's own translator give the same standard output and exit status on all fourteen grammars;

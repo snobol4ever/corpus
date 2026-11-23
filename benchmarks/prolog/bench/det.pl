@@ -5,7 +5,7 @@
 % top/0's forall(between(1, 10, _), slist(...)) repeats the work ten times; it runs once here: the harness owns the loop.
 % *BENCH kernel=det -- PRISTINE KERNEL (CEO-567): the computation and nothing else.
 % The work is bench_work/1; the timing bracket and the iteration loop are GENERATED around
-% this source by scripts/bench_prolog_wrap.sh and never live in it.  main/0 makes the file a
+% this source by the benchmark wrapper and never live in it.  main/0 makes the file a
 % real standalone program whose stdout is graded byte-for-byte against det.ref (oracle-cut, swipl: det.oracle).
 :- initialization(main).
 bench_work(Res) :-

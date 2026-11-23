@@ -5,7 +5,7 @@ directory up: **fix the TIME, count the ITERATIONS**. Same `harness.inc`, same
 `check:`/`iters:`/`ms:` contract, same runner.
 
 ```bash
-BENCH_DIR=corpus/benchmarks/snobol4/demo bash SCRIP/scripts/test_bench_snobol4_timed.sh
+scrip <name>.sno < /dev/null | diff - <name>.ref   # the CHECK phase by hand (a program with a <name>.input reads it on standard input)
 ```
 
 ## Why these programs

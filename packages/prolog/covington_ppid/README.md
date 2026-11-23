@@ -30,7 +30,7 @@ the oracle said on all three streams for each row (exit status, standard output,
 This folder holds our index (`ALL.csv`, dialect `swi`), each answer `NAME.out` cut from swipl 9.0.4 twice with identical results,
 `NAME.in`, `OUR-QUERIES.tsv`, `QUERIES.tsv`, `ALL.omit`, `EXCLUDED.tsv`, `PARTITION.tsv` and `ORACLE.tsv`. Built by
 `sl_cut.py --form table` (kept with the grader's hand-off scripts) and
-`harness/scripts/util_build_package_suite.py corpus/packages/prolog/covington_ppid --lang prolog --mine CENSUS.tsv --twice` (the grader
+the project's package builder (the grader
 2026-11-14). No SCRIP reading was taken at the cut (Lon 2026-11-14: host the container with the oracle's answers now, the grading comes
 later); the cycle grades it.
 

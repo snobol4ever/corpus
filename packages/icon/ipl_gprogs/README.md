@@ -14,7 +14,7 @@ of those the same picture twice, 18 animate or draw at random, 90 end by themsel
 
 THE ANSWER of a row is one line, `screen 1024x768 md5 <md5 of the pixel bytes>`: the whole virtual screen (1024 by 768, 24 bits) once
 it has held still for three seconds, read by `xwd`. The row's `out_files` cell names `screen.dump`, which tells the harness to run the
-program under `/home/harness/scripts/util_screen_run.py` on an Xvfb of its own; that script ends the waiting program at its still
+program under the project's own screen runner (not carried in this repository) on an Xvfb of its own; that runner ends the waiting program at its still
 screen and writes the line. What the program printed before it was ended is withheld (how much had left its buffer is an accident of
 the run), so the screen is the whole answer. `screens/NAME.png` is the oracle's screen for the reader; it is never compared. To see
 the picture an engine drew, run the road by hand with `--keep DUMP.xwd`

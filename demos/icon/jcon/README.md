@@ -12,7 +12,7 @@ semicolon conversion). Nothing is duplicated here.
 ## The entries are link manifests, not programs
 
 Each `*.icn` here is a thin file of `link "<relpath>"` lines and nothing else. SCRIP's
-own `icn_resolve_links` (`src/parsers/icon/icon_driver.c:26`, 64-file ceiling) splices
+own `icn_resolve_links` (64-file ceiling) splices
 the named modules in. Each entry names **exactly** the modules JCON's `tran/Makefile`
 builds that program from.
 
@@ -35,8 +35,8 @@ JCON's **four** separate `procedure main`s (`jtran_main`, `linker`, `oplexgen`,
 ## Grading
 
 ```bash
-bash SCRIP/scripts/test_demo_icon_jcon.sh          # the gate
-bash SCRIP/scripts/bench_triangulate_demos_icon.sh # the three-angle numbers
+scrip <name>.icn < /dev/null | diff - <name>.out   # one demo, run by hand (<name>.args holds a program's command line)
+# the gate and the three-angle numbers are made by the project's own tooling (not carried in this repository)
 ```
 
 The gate builds its own `icont` oracle from the same package sources on every run, so

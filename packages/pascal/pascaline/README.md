@@ -16,7 +16,7 @@ a formatter at work: Pascal-S lists, compiles and runs the sieve; PL/0 lists the
 
 This folder holds our index (`ALL.csv`: `dialect` is the fpc mode that cut the answer, iso for all three), each answer `NAME.out`
 cut from fpc 3.2.2 twice with identical results, `ALL.omit` and `EXCLUDED.tsv`. Built by
-`harness/scripts/util_build_package_suite.py corpus/packages/pascal/pascaline --lang pascal --mine CENSUS.tsv --twice` (the grader
+the project's package builder (the grader
 2026-11-14). NOT ROWS: `Chess05.pas` (fpc compiles it in no mode: a double quote where Pascal wants an apostrophe), `basics.pas` (a
 BASIC interpreter) and `startrek.pas`, which wait at a prompt for ever with no input; each of those two enters when it has a scripted
 session of ours.

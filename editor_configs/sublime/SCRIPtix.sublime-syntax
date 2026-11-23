@@ -8,7 +8,7 @@
 # It EXTENDS Sublime's own Markdown syntax, so prose, headings and lists render as Markdown, and prepends one fence context per
 # SCRIP language to Markdown's fenced-syntaxes list: the opening fence's NAME picks the language, `embed: scope:...` hands the
 # body to that language's own syntax file, and the closing fence hands control back. The names are the ones SCRIP's polyglot
-# splitter reads (src/driver/polyglot.c, case-sensitive): SNOBOL4 (and SCRIP / Scrip, which it reads as SNOBOL4), Icon, Prolog,
+# splitter reads (SCRIP's polyglot reader, case-sensitive): SNOBOL4 (and SCRIP / Scrip, which it reads as SNOBOL4), Icon, Prolog,
 # Raku, Rebus; Snocone and Pascal are highlighted ahead of the compiler. Raku and Rebus have no Sublime syntax yet, so their
 # fences stay Markdown's plain raw blocks. Captures follow Markdown's own fenced-python context (Sublime build 4200).
 # Each fence embeds a scriptix-<lang>-lines context, not the language's main directly: SNOBOL4.sublime-syntax ends a comment line

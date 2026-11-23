@@ -8,7 +8,7 @@
 # EVERY RULE AND EVERY VARIABLE BELOW CITES THE LINE OF SCRIP's bootstrap/parser_pascal.sc THAT READS ITS WORDS (plan scrip_ide D3b; Lon 2026-11-21 13:4x CST,
 # verbatim: "Best grammar definitions are parser.sc programs."): a cite is the word parser_pascal.sc, a colon and the line, in the comment lines right above the
 # rule or variable. The five words the parser.sc lacks and the C front end reads (bitpacked, resourcestring, specialize, generic, external) cite the C lexer
-# instead, src/parsers/pascal/pascal.l, a line of C_LEXER_CITES.tsv, marked C-LEXER on the rule's own line. No parser.sc is given a word (Lon 14:1x CST:
+# instead, the Pascal lexer, a line of C_LEXER_CITES.tsv, marked C-LEXER on the rule's own line. No parser.sc is given a word (Lon 14:1x CST:
 # parser.sc accuracy comes later).
 #
 # WHAT THE PARSER READS, and so what this file colours (each MEASURED by reading parser_pascal.sc at SCRIP 40da04e84):

@@ -1,7 +1,7 @@
 # unicon_tests/upstream -- the distribution's own files that grade nothing here
 
 Source: `/home/packages/icon/unicon/tests` (the Unicon git drop d784f58, 2026-09-06; Unicon 13.3), vendored by
-`harness/scripts/util_vendor_unicon_tests.sh`. See `../README.md` for the package.
+the project's vendoring script. See `../README.md` for the package.
 
 Moved here on 2026-11-10 by the coo (COO-502 (g), CIO-115), each file at the path it had in the package, when the
 package took the files form (a path column in `ALL.csv`, `NAME.in` and `NAME.out` beside each program):

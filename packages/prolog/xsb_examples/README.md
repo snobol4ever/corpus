@@ -3,7 +3,7 @@
 XSB's own examples (https://git.code.sf.net/p/xsb/code, LGPL 2 or later), read IN PLACE from `/home/packages/prolog/xsb/XSB/examples` (`ALL.source`); no file of it is
 stored here (CIO-92, CIO-96). This folder holds our index (`ALL.csv`), each entry's answer `NAME.out` cut from xsb 5.0.0, `ALL.omit`, which names every program that
 is no entry with its verdict, and OUR OWN driver `drive.P` with the launch line that names it (`ALL.launch`, CIO-83). Built by
-`harness/scripts/util_build_package_suite.py corpus/packages/prolog/xsb_examples --lang prolog --mine CENSUS.tsv --mine-dialects xsb` (COO-508, COO-513).
+the project's package builder (COO-508, COO-513).
 
 THE DRIVER (Lon 2026-11-11: "Make drivers for library ones, and run the others. Let's get these GRADED."). An example defines predicates and names in a comment the goal
 to type, so nothing runs when it is loaded: consulted alone, 82 of the 90 print nothing. `ALL.launch` says `oracle around - drive.P` and `scrip around - drive.P`: each

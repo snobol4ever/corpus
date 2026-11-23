@@ -3,7 +3,7 @@
 # SCRIP-x86.sublime-syntax — SCRIP / SNOBOL4-flavoured GAS Intel-syntax.
 #
 # Thin overlay on the GAS-x86 base syntax (`Packages/User/GAS-x86.sublime-syntax`).
-# Authored from scratch sess 2026-05-10 per .github/GOAL-MODE4-EMIT.md
+# Authored from scratch sess 2026-05-10 per the project's private design notes
 # rung EM-FORMAT-SUBLIME-GAS-INTEL.  Replaces the previous 1,779-line
 # Nasm-base-plus-overlay arrangement, which got several GAS semantics
 # wrong (notably `;` painted as a comment delimiter).

@@ -23,7 +23,7 @@ text. The port below is distributed under the same licence.
 ## Oracle and port (the ceo's ruling (b), 2026-10-09)
 
 `leancop.ref` is GNU Prolog 1.6.0's output for this file
-(`scripts/oracle_gplc.sh --no-top-level leancop.pl -o lc && ./lc < leancop.in`),
+(the project's tooling),
 and SCRIP runs the same file. The port from the SWI version to ISO / GNU Prolog is
 listed in the file's header, every change: operand brackets around the prefix
 operators `ex`/`all` and around `=`; one `dynamic/1` directive per predicate (as

@@ -26,7 +26,7 @@
 #     error, as swipl); the radix rules below colour them as numbers. (4) the directive words of parser_prolog.sc:392-395 include thread_local, volatile,
 #     thread_initialization, public, table and record, which the directive rule lacks.
 #
-# Builtin predicates colored support.function are the names the lowerers wire (src/lower/lower_prolog.c); parser_prolog.sc holds no list of them, so the
+# Builtin predicates colored support.function are the names the lowerers wire (the Prolog lowerer); parser_prolog.sc holds no list of them, so the
 # list cites the Atom token it is made of. A predicate SCRIP does not implement reads as a plain atom, which is the truth.
 #
 # Scope vocabulary kept consistent with the other files of the family so one color scheme renders every dialect alike.
@@ -191,7 +191,7 @@ contexts:
     # parser_prolog.sc:12, Atom: true, fail and false are atoms to the reader.
     - match: '\b(?:true|fail|false)\b'
       scope: constant.language.pl
-    # parser_prolog.sc:12, Atom: the names are the lowerers' wired set (src/lower/lower_prolog.c); head position wins above, so foo :- ... colours foo as a
+    # parser_prolog.sc:12, Atom: the names are the lowerers' wired set (the Prolog lowerer); head position wins above, so foo :- ... colours foo as a
     # definition even when the name collides with a builtin.
     - match: |-
         (?x)\b(?:

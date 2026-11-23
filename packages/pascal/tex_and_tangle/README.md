@@ -3,7 +3,7 @@
 Knuth's TANGLE 4.6 and TeX 3.141592653 as the Pascal programs `tangle.p` and `tex.p` (with `tex.pool`, and the sources `tangle.web` and `tex.web` beside them), read IN
 PLACE from `/home/packages/pascal/tex_and_tangle` (`ALL.source`); no file of it is stored here (CIO-92, CIO-96; copyright D. E. Knuth, a changed copy may not be called TeX).
 This folder holds our index (`ALL.csv`) and `ALL.omit`, which names every program that is no entry with its verdict. Built by
-`harness/scripts/util_build_package_suite.py corpus/packages/pascal/tex_and_tangle --lang pascal --mine CENSUS.tsv` (COO-508, COO-513).
+the project's package builder (COO-508, COO-513).
 
 THE CENSUS (fpc 3.2.2, 2026-11-11): 2 programs; 0 entries; fpc compiles neither in any of its five modes (iso, fpc, objfpc, delphi, tp). Both are the WEB sources tangled
 with NO change file, so they are written in the Pascal of Knuth's own compiler: a text file is a `packed file of char` written with `writeln`, a terminal is opened by
