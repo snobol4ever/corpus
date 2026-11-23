@@ -1,0 +1,25 @@
+[color-yellow,smoke-Dunhill,nation-norwegian,owns-cats,drink-water]
+[nation-dane,drink-tea,smoke-Blend,owns-horse,color-blue]
+[nation-englishman,color-red,smoke-Pall Mall,owns-birds,drink-milk]
+[drink-coffee,color-green,nation-german,smoke-Prince,owns-zebra]
+[nation-swede,owns-dog,drink-beer,smoke-Blue Master,color-white]
+german owns the zebra
+SEND = 9567
+MORE = 1085
+MONEY = 10652
+[9,8,7,6,5,4,3,2,1]
+[2,4,6,1,7,3,9,8,5]
+[3,5,1,9,2,8,7,4,6]
+[1,2,8,5,3,7,6,9,4]
+[6,3,4,8,9,2,1,5,7]
+[7,9,5,4,6,1,8,3,2]
+[5,1,9,2,8,6,4,7,3]
+[4,7,2,3,1,9,5,6,8]
+[8,6,3,7,4,5,2,1,9]
+[move,a,disk,from,the,left,pole,to,center,pole]
+[move,a,disk,from,the,left,pole,to,right,pole]
+[move,a,disk,from,the,center,pole,to,right,pole]
+[move,a,disk,from,the,left,pole,to,center,pole]
+[move,a,disk,from,the,right,pole,to,left,pole]
+[move,a,disk,from,the,right,pole,to,center,pole]
+[move,a,disk,from,the,left,pole,to,center,pole]
