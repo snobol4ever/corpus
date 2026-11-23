@@ -1,0 +1,40 @@
+# Rebus (scrip-rebus): Words: reverse, palindromes and vowels, THE EDITING WALK, the law of a place (the cqo's LAW-OF-A-PLACE.md); developer_08 2026-11-23, Lab 4.6.6. The last cell is a fence (%%rebus first). CELL from 0, LINE and COL from 1, the cursor on the word's first character; expectations written from the program.
+{"at": [1, 2, 11], "act": "definition", "expect": {"cell": 0, "line": 2}}
+{"at": [2, 3, 13], "act": "definition", "expect": {"cell": 0, "line": 2}}
+{"at": [2, 5, 6], "act": "definition", "expect": {"cell": 1, "line": 1}}
+{"at": [2, 6, 6], "act": "definition", "expect": {"cell": 1, "line": 1}}
+{"at": [1, 21, 8], "act": "definition", "expect": {"cell": 1, "line": 6}}
+{"at": [2, 4, 13], "act": "definition", "expect": {"cell": 1, "line": 15}}
+{"at": [1, 21, 29], "act": "definition", "expect": {"cell": 1, "line": 16}}
+{"at": [0, 7, 10], "act": "definition", "expect": {"cell": 0, "line": 3}}
+{"at": [1, 2, 11], "act": "hover", "expect": {"text": "rev"}}
+{"at": [2, 4, 13], "act": "hover", "expect": {"text": "vowels"}}
+{"at": [1, 2, 13], "act": "completion", "expect": {"items": ["rev"]}}
+{"at": [1, 21, 11], "act": "completion", "expect": {"items": ["isvowel"]}}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [2, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [2, 3, 13], "act": "references", "expect": {"places": [[0, 2, 10], [1, 2, 11], [2, 3, 13]]}}
+{"at": [2, 3, 13], "act": "highlight", "expect": {"places": [[0, 2, 10, "write"], [1, 2, 11, "read"], [2, 3, 13, "read"]]}}
+{"at": [2, 6, 6], "act": "references", "expect": {"places": [[1, 1, 10], [2, 5, 6], [2, 6, 6]]}}
+{"at": [2, 6, 6], "act": "highlight", "expect": {"places": [[1, 1, 10, "write"], [2, 5, 6, "read"], [2, 6, 6, "read"]]}}
+{"at": [1, 22, 10], "act": "references", "expect": {"places": [[1, 16, 9], [1, 18, 3], [1, 19, 9], [1, 20, 20], [1, 22, 5], [1, 22, 10]]}}
+{"at": [1, 22, 10], "act": "highlight", "expect": {"places": [[1, 16, 9, "write"], [1, 18, 3, "write"], [1, 19, 9, "read"], [1, 20, 20, "read"], [1, 22, 5, "write"], [1, 22, 10, "read"]]}}
+{"at": [1, 2, 15], "act": "signature", "expect": {"label": "rev(s)", "active": 0}}
+{"at": [2, 5, 12], "act": "signature", "expect": {"label": "ispal(s)", "active": 0}}
+{"at": [0, 2, 10], "act": "rename", "new": "rev2", "expect": {"cells": ["# Words: reverse, palindromes and vowels\nfunction rev2(s)\n  local i, r\n  r := \"\"\n  i := size(s)\n  while i >= 1 do {\n    r := r || SUBSTR(s, i, 1)\n    i := i - 1\n  }\n  return r\nend", "function ispal(s)\n  if s == rev2(s) then return s\n  fail\nend\n\nfunction isvowel(c)\n  if c == \"a\" then return 1\n  if c == \"e\" then return 1\n  if c == \"i\" then return 1\n  if c == \"o\" then return 1\n  if c == \"u\" then return 1\n  fail\nend\n\nfunction vowels(s)\n  local i, n, c\n  n := 0\n  i := 1\n  while i <= size(s) do {\n    c := SUBSTR(s, i, 1)\n    if isvowel(c) then n := n + 1\n    i := i + 1\n  }\n  return n\nend", "%%rebus\nfunction main()\n  OUTPUT := rev2(\"stressed\")\n  OUTPUT := vowels(\"encyclopedia\")\n  if ispal(\"level\") then OUTPUT := \"level yes\"\n  if ispal(\"scrip\") then OUTPUT := \"scrip yes\" else OUTPUT := \"scrip no\"\nend"]}}
+{"at": [1, 16, 9], "act": "rename", "new": "i2", "expect": {"cells": ["# Words: reverse, palindromes and vowels\nfunction rev(s)\n  local i, r\n  r := \"\"\n  i := size(s)\n  while i >= 1 do {\n    r := r || SUBSTR(s, i, 1)\n    i := i - 1\n  }\n  return r\nend", "function ispal(s)\n  if s == rev(s) then return s\n  fail\nend\n\nfunction isvowel(c)\n  if c == \"a\" then return 1\n  if c == \"e\" then return 1\n  if c == \"i\" then return 1\n  if c == \"o\" then return 1\n  if c == \"u\" then return 1\n  fail\nend\n\nfunction vowels(s)\n  local i2, n, c\n  n := 0\n  i2 := 1\n  while i2 <= size(s) do {\n    c := SUBSTR(s, i2, 1)\n    if isvowel(c) then n := n + 1\n    i2 := i2 + 1\n  }\n  return n\nend", "%%rebus\nfunction main()\n  OUTPUT := rev(\"stressed\")\n  OUTPUT := vowels(\"encyclopedia\")\n  if ispal(\"level\") then OUTPUT := \"level yes\"\n  if ispal(\"scrip\") then OUTPUT := \"scrip yes\" else OUTPUT := \"scrip no\"\nend"]}}
+{"at": [0, 10, 3], "act": "rename", "new": "give", "expect": {"refused": true}}
+{"act": "outline", "expect": {"symbols": [["rev", "Function", 0, 2, null], ["ispal", "Function", 1, 1, null], ["isvowel", "Function", 1, 6, null], ["vowels", "Function", 1, 15, null], ["main", "Function", 2, 2, null]]}}
+{"at": [0, 2, 1], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [0, 10, 3], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [0, 4, 8], "act": "colouring", "expect": {"class": "string"}}
+{"at": [0, 1, 1], "act": "colouring", "expect": {"class": "comment"}}
+{"at": [0, 6, 14], "act": "colouring", "expect": {"class": "number"}}
+{"at": [0, 2, 10], "act": "colouring", "expect": {"class": "function"}}
+{"at": [0, 3, 9], "act": "colouring", "expect": {"class": "variable"}}
+{"at": [0, 4, 5], "act": "colouring", "expect": {"class": "operator"}}
+{"at": [2, 1, 1], "act": "colouring", "expect": {"class": "tag"}}
+{"act": "colouring", "none": "label: Rebus has no label"}
+{"act": "colouring", "none": "constant: this program writes no ampersand keyword, the one scope the Rebus grammar holds for a constant"}
+{"act": "colouring", "none": "type: this program declares no record, the one place the Rebus grammar scopes a type"}

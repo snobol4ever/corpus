@@ -1,0 +1,39 @@
+# Rebus (scrip-rebus): Collatz and Hanoi: loops and recursion, THE EDITING WALK, the law of a place (the cqo's LAW-OF-A-PLACE.md); developer_08 2026-11-23, Lab 4.6.6. The last cell is a fence (%%rebus first). CELL from 0, LINE and COL from 1, the cursor on the word's first character; expectations written from the program.
+{"at": [1, 7, 10], "act": "definition", "expect": {"cell": 0, "line": 2}}
+{"at": [2, 8, 30], "act": "definition", "expect": {"cell": 0, "line": 2}}
+{"at": [2, 9, 36], "act": "definition", "expect": {"cell": 1, "line": 1}}
+{"at": [2, 4, 10], "act": "definition", "expect": {"cell": 2, "line": 2}}
+{"at": [2, 4, 44], "act": "definition", "expect": {"cell": 2, "line": 2}}
+{"at": [1, 10, 7], "act": "definition", "expect": {"cell": 1, "line": 2}}
+{"at": [0, 7, 14], "act": "definition", "expect": {"cell": 0, "line": 3}}
+{"at": [1, 7, 10], "act": "hover", "expect": {"text": "collatz"}}
+{"at": [2, 4, 10], "act": "hover", "expect": {"text": "hanoi"}}
+{"at": [2, 9, 40], "act": "completion", "expect": {"items": ["longest"]}}
+{"at": [2, 4, 13], "act": "completion", "expect": {"items": ["hanoi"]}}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [2, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [2, 8, 30], "act": "references", "expect": {"places": [[0, 2, 10], [1, 7, 10], [2, 8, 30]]}}
+{"at": [2, 8, 30], "act": "highlight", "expect": {"places": [[0, 2, 10, "write"], [1, 7, 10, "read"], [2, 8, 30, "read"]]}}
+{"at": [2, 9, 36], "act": "references", "expect": {"places": [[1, 1, 10], [2, 9, 36]]}}
+{"at": [2, 9, 36], "act": "highlight", "expect": {"places": [[1, 1, 10, "write"], [2, 9, 36, "read"]]}}
+{"at": [1, 12, 10], "act": "references", "expect": {"places": [[1, 2, 9], [1, 5, 3], [1, 6, 9], [1, 7, 18], [1, 10, 13], [1, 12, 5], [1, 12, 10]]}}
+{"at": [1, 12, 10], "act": "highlight", "expect": {"places": [[1, 2, 9, "write"], [1, 5, 3, "write"], [1, 6, 9, "read"], [1, 7, 18, "read"], [1, 10, 13, "read"], [1, 12, 5, "write"], [1, 12, 10, "read"]]}}
+{"at": [1, 7, 18], "act": "signature", "expect": {"label": "collatz(n)", "active": 0}}
+{"at": [2, 9, 44], "act": "signature", "expect": {"label": "longest(limit)", "active": 0}}
+{"at": [0, 2, 10], "act": "rename", "new": "collatz2", "expect": {"cells": ["# Collatz and Hanoi: loops and recursion\nfunction collatz2(n)\n  local steps\n  steps := 0\n  while n ~= 1 do {\n    if n % 2 = 0 then n := n / 2 else n := 3 * n + 1\n    steps := steps + 1\n  }\n  return steps\nend", "function longest(limit)\n  local i, best, bi, c\n  best := 0\n  bi := 1\n  i := 1\n  while i <= limit do {\n    c := collatz2(i)\n    if c > best then {\n      best := c\n      bi := i\n    }\n    i := i + 1\n  }\n  return bi\nend", "%%rebus\nfunction hanoi(n, src, dst, via)\n  if n = 0 then return 0\n  return hanoi(n - 1, src, via, dst) + 1 + hanoi(n - 1, via, dst, src)\nend\n\nfunction main()\n  OUTPUT := \"collatz 27 \" || collatz2(27)\n  OUTPUT := \"longest under 30 \" || longest(30)\n  OUTPUT := \"hanoi 5 \" || hanoi(5, \"a\", \"c\", \"b\")\nend"]}}
+{"at": [1, 2, 9], "act": "rename", "new": "i2", "expect": {"cells": ["# Collatz and Hanoi: loops and recursion\nfunction collatz(n)\n  local steps\n  steps := 0\n  while n ~= 1 do {\n    if n % 2 = 0 then n := n / 2 else n := 3 * n + 1\n    steps := steps + 1\n  }\n  return steps\nend", "function longest(limit)\n  local i2, best, bi, c\n  best := 0\n  bi := 1\n  i2 := 1\n  while i2 <= limit do {\n    c := collatz(i2)\n    if c > best then {\n      best := c\n      bi := i2\n    }\n    i2 := i2 + 1\n  }\n  return bi\nend", "%%rebus\nfunction hanoi(n, src, dst, via)\n  if n = 0 then return 0\n  return hanoi(n - 1, src, via, dst) + 1 + hanoi(n - 1, via, dst, src)\nend\n\nfunction main()\n  OUTPUT := \"collatz 27 \" || collatz(27)\n  OUTPUT := \"longest under 30 \" || longest(30)\n  OUTPUT := \"hanoi 5 \" || hanoi(5, \"a\", \"c\", \"b\")\nend"]}}
+{"at": [0, 9, 3], "act": "rename", "new": "give", "expect": {"refused": true}}
+{"act": "outline", "expect": {"symbols": [["collatz", "Function", 0, 2, null], ["longest", "Function", 1, 1, null], ["hanoi", "Function", 2, 2, null], ["main", "Function", 2, 7, null]]}}
+{"at": [0, 2, 1], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [0, 9, 3], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [2, 8, 13], "act": "colouring", "expect": {"class": "string"}}
+{"at": [0, 1, 1], "act": "colouring", "expect": {"class": "comment"}}
+{"at": [0, 4, 12], "act": "colouring", "expect": {"class": "number"}}
+{"at": [0, 2, 10], "act": "colouring", "expect": {"class": "function"}}
+{"at": [1, 2, 9], "act": "colouring", "expect": {"class": "variable"}}
+{"at": [0, 4, 9], "act": "colouring", "expect": {"class": "operator"}}
+{"at": [2, 1, 1], "act": "colouring", "expect": {"class": "tag"}}
+{"act": "colouring", "none": "label: Rebus has no label"}
+{"act": "colouring", "none": "constant: this program writes no ampersand keyword, the one scope the Rebus grammar holds for a constant"}
+{"act": "colouring", "none": "type: this program declares no record, the one place the Rebus grammar scopes a type"}
