@@ -2,9 +2,9 @@
 
 A sheet of derivatives, worked by three languages, each doing one stage.
 
-* **SNOBOL4 parses: text to tree.** One pattern grammar with precedence, unary
+* **Snocone parses: text to tree.** One pattern grammar with precedence, unary
   minus, powers, brackets and the functions sin cos tan exp ln sqrt. Its shape
-  is the corpus calculator of `demos/snobol4/calculator` (Lon, 2026-07-24): the
+  is the corpus calculator of `demos/snocone/calculator` (Lon, 2026-07-24): the
   pattern matches, then its actions run in order and build the tree on a stack.
   A line it cannot read is refused, with the column.
 * **Prolog differentiates: tree to tree.** The rules of the textbook, one
@@ -14,132 +14,137 @@ A sheet of derivatives, worked by three languages, each doing one stage.
   and a check no textbook gives: it works the function out near three points
   and the derivative at them, and says whether the slope agrees.
 
-ONE TREE, DECLARED BY THE SAME NAMES. SNOBOL4 says `DATA('tree(t,v,n,c)')` and
+ONE TREE, DECLARED BY THE SAME NAMES. Snocone says `DATA('tree(t,v,n,c)')` and
 Icon says `record tree(t, v, n, c)`: a type `t`, a value `v`, the number of
 children `n` and the children `c`. They are one type. Icon reads the fields of
-a tree SNOBOL4 built, and SNOBOL4's array of children is a list to Icon.
+a tree Snocone built, and Snocone's array of children is a list to Icon.
 
-Prolog runs the sheet: for each line it calls SNOBOL4's `parse`, proves the
+Prolog runs the sheet: for each line it calls Snocone's `parse`, proves the
 derivative, and calls Icon's `answer`. THE TREE GOES IN TO PROLOG AS A TREE:
 `parse` returns the record, and Prolog looks inside it by unifying it with
 `tree(T, V, N, C)`, the children a Prolog list. On the way out, a Prolog term
 does not yet cross a call (it is being built), so the derivative travels to
-Icon written out as a term, `times(x,sin(x))`, which SNOBOL4 reads back into a
+Icon written out as a term, `times(x,sin(x))`, which Snocone reads back into a
 tree with a second small pattern; the function itself reaches Icon as a tree in
 the shared global `problem`. When a Prolog term crosses, that text goes too.
 
-```SNOBOL4
-        DATA('tree(t,v,n,c)')
-        S = ARRAY(200)
-        M = ARRAY(50)
-*  The actions: each runs after the match, in order, on the stack of trees.
-        DEFINE('PSH()')
-        DEFINE('NUM()')
-        DEFINE('VAR()')
-        DEFINE('BIN(ty)a')
-        DEFINE('ADD()')
-        DEFINE('SUB()')
-        DEFINE('MUL()')
-        DEFINE('DIV()')
-        DEFINE('POW()')
-        DEFINE('NEG()a')
-        DEFINE('CALL()a')
-        DEFINE('MARK()')
-        DEFINE('BUILD()a,k,i')
-        DEFINE('far()')                                    :(actions_end)
-PSH     PSH = .S[sp = sp + 1]                              :(NRETURN)
-NUM     S[sp] = tree('num', S[sp], 0)
-        NUM = .dm                                          :(NRETURN)
-VAR     S[sp] = tree('var', S[sp], 0)
-        VAR = .dm                                          :(NRETURN)
-BIN     a = ARRAY(2)
-        a[1] = S[sp - 1] ; a[2] = S[sp]
-        S[sp = sp - 1] = tree(ty, , 2, a)                  :(RETURN)
-ADD     BIN('plus')
-        ADD = .dm                                          :(NRETURN)
-SUB     BIN('minus')
-        SUB = .dm                                          :(NRETURN)
-MUL     BIN('times')
-        MUL = .dm                                          :(NRETURN)
-DIV     BIN('over')
-        DIV = .dm                                          :(NRETURN)
-POW     BIN('power')
-        POW = .dm                                          :(NRETURN)
-NEG     a = ARRAY(1)
-        a[1] = S[sp]
-        S[sp] = tree('neg', , 1, a)
-        NEG = .dm                                          :(NRETURN)
-CALL    a = ARRAY(1)
-        a[1] = S[sp]
-        S[sp = sp - 1] = tree(S[sp], , 1, a)
-        CALL = .dm                                         :(NRETURN)
-*  MARK and BUILD serve the term reader: a name, then however many trees follow it.
-MARK    M[mp = mp + 1] = sp
-        MARK = .dm                                         :(NRETURN)
-BUILD   k = sp - M[mp]
-        a = ARRAY(k)
-BUILD_1 i = LT(i, k) i + 1                                 :F(BUILD_2)
-        a[i] = S[M[mp] + i]                                :(BUILD_1)
-BUILD_2 sp = M[mp]
-        mp = mp - 1
-        S[sp] = tree(S[sp], , k, a)
-        BUILD = .dm                                        :(NRETURN)
-far     most = GT(c0, most) c0                             :(RETURN)
-actions_end
-*  THE GRAMMAR OF A FORMULA. g_num a number, g_var a letter, g_fn a function of
-*  one argument, g_atom, g_pow a power (right to left), g_fac a signed factor,
-*  g_term a product, g_sum a sum. HERE notes how far any token was read.
-        digits = '0123456789'
-        here   = @c0 *far()
-        g_num  = (SPAN(digits) ('.' SPAN(digits) | '')) . *PSH() . *NUM() here
-        g_var  = ANY(&LCASE) . *PSH() . *VAR() here
-        g_fn   = ('sin' | 'cos' | 'tan' | 'exp' | 'ln' | 'sqrt') . *PSH() '(' here *g_sum ')' . *CALL() here
-        g_atom = FENCE(g_fn | g_num | g_var | '(' here *g_sum ')' here)
-        g_pow  = g_atom ('^' here *g_fac . *POW() | '')
-        g_fac  = FENCE(g_pow | '-' here *g_fac . *NEG() | '+' here *g_fac)
-        g_term = g_fac ARBNO('*' here g_fac . *MUL() | '/' here g_fac . *DIV())
-        g_sum  = g_term ARBNO('+' here g_term . *ADD() | '-' here g_term . *SUB())
-*  THE GRAMMAR OF A TERM, the written form Prolog hands back: name(term, ...), a name, a number.
-        t_num  = (('-' | '') SPAN(digits) ('.' SPAN(digits) | '')) . *PSH() . *NUM()
-        t_name = SPAN(&LCASE)
-        t_term = t_name . *PSH() . *MARK() '(' *t_term ARBNO(',' *t_term) ')' . *BUILD()
-+              | t_num | t_name . *PSH() . *VAR()
-*  tree_of(text): the tree of a term. Icon calls this with Prolog's answer.
-        DEFINE('tree_of(text)')                            :(tree_of_end)
-tree_of sp = 0 ; mp = 0
-        text POS(0) t_term RPOS(0)                         :F(FRETURN)
-        tree_of = S[1]                                     :(RETURN)
-tree_of_end
-*  parse(line): 'd/dx FORMULA' as the tree d of the variable x over the formula's
-*  tree, which is also left in PROBLEM; or the tree error of the COLUMN.
-        DEFINE('parse(line)')                              :(parse_end)
-parse   parsed = parsed + 1
-        line POS(0) 'd/d' ANY(&LCASE) . wrt SPAN(' ') REM . body   :S(parse_1)
-        parse = tree('error', 1, 0)                        :(RETURN)
-parse_1 text = body
-parse_2 text ' ' =                                         :S(parse_2)
-        sp = 0 ; most = 0
-        text POS(0) g_sum RPOS(0)                          :F(parse_3)
-        problem = S[1]
-        whole = ARRAY(1)
-        whole[1] = problem
-        parse = tree('d', wrt, 1, whole)                   :(RETURN)
-*  Refused. MOST is how many characters, blanks apart, were read; the column
-*  is that of the next one in the line as it was written.
-parse_3 i = 0 ; k = 0
-parse_4 i = i + 1
-        GT(i, SIZE(body))                                  :S(parse_5)
-        IDENT(SUBSTR(body, i, 1), ' ')                     :S(parse_4)
-        k = k + 1
-        EQ(k, most + 1)                                    :F(parse_4)
-parse_5 parse = tree('error', SIZE(line) - SIZE(body) + i, 0)    :(RETURN)
-parse_end
-END
+```Snocone
+DATA('tree(t,v,n,c)');
+S = ARRAY(200);
+M = ARRAY(50);
+// The actions: each runs after the match, in order, on the stack of trees.
+function PSH() { PSH = .S[sp = sp + 1]; nreturn; }
+function NUM() { S[sp] = tree('num', S[sp], 0); NUM = .dm; nreturn; }
+function VAR() { S[sp] = tree('var', S[sp], 0); VAR = .dm; nreturn; }
+function BIN(ty) a {
+    a = ARRAY(2);
+    a[1] = S[sp - 1];
+    a[2] = S[sp];
+    S[sp = sp - 1] = tree(ty, '', 2, a);
+    return;
+}
+function ADD() { BIN('plus');  ADD = .dm; nreturn; }
+function SUB() { BIN('minus'); SUB = .dm; nreturn; }
+function MUL() { BIN('times'); MUL = .dm; nreturn; }
+function DIV() { BIN('over');  DIV = .dm; nreturn; }
+function POW() { BIN('power'); POW = .dm; nreturn; }
+function NEG() a {
+    a = ARRAY(1);
+    a[1] = S[sp];
+    S[sp] = tree('neg', '', 1, a);
+    NEG = .dm;
+    nreturn;
+}
+function CALL() a {
+    a = ARRAY(1);
+    a[1] = S[sp];
+    S[sp = sp - 1] = tree(S[sp], '', 1, a);
+    CALL = .dm;
+    nreturn;
+}
+// MARK and BUILD serve the term reader: a name, then however many trees follow it.
+function MARK() { M[mp = mp + 1] = sp; MARK = .dm; nreturn; }
+function BUILD() a, k, i {
+    k = sp - M[mp];
+    a = ARRAY(k);
+    i = 0;
+BUILD_1:
+    if (~(i = LT(i, k) i + 1)) goto BUILD_2;
+    a[i] = S[M[mp] + i];
+    goto BUILD_1;
+BUILD_2:
+    sp = M[mp];
+    mp = mp - 1;
+    S[sp] = tree(S[sp], '', k, a);
+    BUILD = .dm;
+    nreturn;
+}
+function far() { most = GT(c0, most) c0; return; }
+// THE GRAMMAR OF A FORMULA. g_num a number, g_var a letter, g_fn a function of
+// one argument, g_atom, g_pow a power (right to left), g_fac a signed factor,
+// g_term a product, g_sum a sum. HERE notes how far any token was read.
+digits = '0123456789';
+here   = @c0 *far();
+g_num  = (SPAN(digits) ('.' SPAN(digits) | '')) . *PSH() . *NUM() here;
+g_var  = ANY(&LCASE) . *PSH() . *VAR() here;
+g_fn   = ('sin' | 'cos' | 'tan' | 'exp' | 'ln' | 'sqrt') . *PSH() '(' here *g_sum ')' . *CALL() here;
+g_atom = FENCE(g_fn | g_num | g_var | '(' here *g_sum ')' here);
+g_pow  = g_atom ('^' here *g_fac . *POW() | '');
+g_fac  = FENCE(g_pow | '-' here *g_fac . *NEG() | '+' here *g_fac);
+g_term = g_fac ARBNO('*' here g_fac . *MUL() | '/' here g_fac . *DIV());
+g_sum  = g_term ARBNO('+' here g_term . *ADD() | '-' here g_term . *SUB());
+// THE GRAMMAR OF A TERM, the written form Prolog hands back: name(term, ...), a name, a number.
+t_num  = (('-' | '') SPAN(digits) ('.' SPAN(digits) | '')) . *PSH() . *NUM();
+t_name = SPAN(&LCASE);
+t_term = t_name . *PSH() . *MARK() '(' *t_term ARBNO(',' *t_term) ')' . *BUILD()
+       | t_num | t_name . *PSH() . *VAR();
+// tree_of(text): the tree of a term. Icon calls this with Prolog's answer.
+function tree_of(text) {
+    sp = 0;
+    mp = 0;
+    if (~(text ? POS(0) t_term RPOS(0))) freturn;
+    tree_of = S[1];
+    return;
+}
+// parse(line): 'd/dx FORMULA' as the tree d of the variable x over the formula's
+// tree, which is also left in PROBLEM; or the tree error of the COLUMN.
+function parse(line) {
+    parsed = parsed + 1;
+    if (~(line ? POS(0) 'd/d' ANY(&LCASE) . wrt SPAN(' ') REM . body)) {
+        parse = tree('error', 1, 0);
+        return;
+    }
+    text = body;
+parse_2:
+    if (text ? ' ' = '') goto parse_2;
+    sp = 0;
+    most = 0;
+    if (~(text ? POS(0) g_sum RPOS(0))) goto parse_3;
+    problem = S[1];
+    whole = ARRAY(1);
+    whole[1] = problem;
+    parse = tree('d', wrt, 1, whole);
+    return;
+// Refused. MOST is how many characters, blanks apart, were read; the column
+// is that of the next one in the line as it was written.
+parse_3:
+    i = 0;
+    k = 0;
+parse_4:
+    i = i + 1;
+    if (GT(i, SIZE(body))) goto parse_5;
+    if (IDENT(SUBSTR(body, i, 1), ' ')) goto parse_4;
+    k = k + 1;
+    if (~EQ(k, most + 1)) goto parse_4;
+parse_5:
+    parse = tree('error', SIZE(line) - SIZE(body) + i, 0);
+    return;
+}
 ```
 
 ```Icon
 global parsed, worked, agreed, problem
-global tree_of               # SNOBOL4's function, declared because this section calls it
+global tree_of               # Snocone's function, declared because this section calls it
 record tree(t, v, n, c)
 
 # prec(x): how tightly the top of the tree x binds.
@@ -191,7 +196,7 @@ procedure slope_agrees(f, d, name)
 end
 
 # answer(line, name, dtext): Prolog hands over the problem, its variable and the derivative as a term.
-# The function is the tree SNOBOL4 left in the global problem; SNOBOL4 reads the term into a tree too.
+# The function is the tree Snocone left in the global problem; Snocone reads the term into a tree too.
 procedure answer(line, name, dtext)
     local d, ok;
     /worked := 0; /agreed := 0;
@@ -202,14 +207,14 @@ procedure answer(line, name, dtext)
     write("     = ", left(show(d), 44), ok);
     return ok;
 end
-# refused(line, column): SNOBOL4 could not read the line.
+# refused(line, column): Snocone could not read the line.
 procedure refused(line, column)
     write(line);
     write(repl(" ", column - 1), "^ not a formula from column ", column);
     return column;
 end
 procedure report(n)
-    write(parsed, " lines read by SNOBOL4, ", worked, " derivatives proved by Prolog, ", agreed, " checked by Icon and found to agree");
+    write(parsed, " lines read by Snocone, ", worked, " derivatives proved by Prolog, ", agreed, " checked by Icon and found to agree");
     return agreed;
 end
 procedure main()
@@ -275,13 +280,13 @@ r(times(power(A, N), A), power(A, M)) :- number(N), M is N + 1.
 r(plus(A, A), times(2, A)).
 r(plus(times(N, A), times(M, A)), times(K, A)) :- number(N), number(M), K is N + M.
 
-% term_of(Tree, Term): the tree SNOBOL4 built, looked into as tree(T, V, N, C), as Prolog's own term.
+% term_of(Tree, Term): the tree Snocone built, looked into as tree(T, V, N, C), as Prolog's own term.
 term_of(tree(T0, V0, _, C), Term) :- atom_string(T, T0), term_of(T, V0, C, Term).
 term_of(num, V0, _, Number) :- !, number_string(Number, V0).
 term_of(var, V0, _, Name) :- !, atom_string(Name, V0).
 term_of(T, _, C, Term) :- maplist(term_of, C, Args), Term =.. [T|Args].
 
-% homework(Line): SNOBOL4 parses, Prolog differentiates and simplifies, Icon prints and checks.
+% homework(Line): Snocone parses, Prolog differentiates and simplifies, Icon prints and checks.
 homework(Line) :- parse(Line, tree(T0, V, _, C)), atom_string(T, T0), work(T, Line, V, C).
 work(error, Line, Column, _) :- refused(Line, Column, _).
 work(d, Line, V0, [Tree]) :- atom_string(X, V0), term_of(Tree, F), d(F, X, D0), simp(D0, D), term_to_atom(D, DT), answer(Line, X, DT, _).

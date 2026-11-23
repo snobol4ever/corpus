@@ -34,4 +34,4 @@ d/dx sin(x
           ^ not a formula from column 11
 d/dx sin(x)^2 + cos(x)^2
      = 0                                           the slope agrees at three points
-18 lines read by SNOBOL4, 16 derivatives proved by Prolog, 16 checked by Icon and found to agree
+18 lines read by Snocone, 16 derivatives proved by Prolog, 16 checked by Icon and found to agree
