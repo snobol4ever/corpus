@@ -1,0 +1,25 @@
+# Rebus (scrip-rebus): program 1 numbers (helpers in cells 0 and 1, main in cell 2; cell 0: fact 1-4, fib 6-9; cell 1: isprime 1-10, gcd 12-15; cell 2: main 1-20). THE LAW of each step is skill debugger section 2 and the cfo's step law (design section 5): a step in at a call enters the function; a step over stops at the next statement stop of the same frame or a shallower one; a step out stops at the first statement stop whose frame is the caller's or shallower; a value in the language's image as the kernel answers it (an integer its digits, a string quoted, an array its type name).
+{"run": 0, "expect": {"stopped": false}}
+{"run": 1, "expect": {"stopped": false}}
+{"break": [2, 7]}
+{"run": 2, "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "1", "found": "0"}}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["fact", 2], ["main", 7]], "vars": {"n": "1"}}}
+{"act": "out", "expect": {"cell": 2, "line": 8, "frames": [["main", 8]], "vars": {"i": "1"}}}
+{"act": "next", "expect": {"cell": 2, "line": 6, "frames": [["main", 6]], "vars": {"i": "2"}}}
+{"act": "next", "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "2"}}}
+{"act": "continue", "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "3"}}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["fact", 2], ["main", 7]], "vars": {"n": "3"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["fact", 3], ["main", 7]], "vars": {"n": "3"}}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["fact", 2], ["fact", 3], ["main", 7]], "vars": {"n": "2"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["fact", 3], ["fact", 3], ["main", 7]], "vars": {"n": "2"}}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["fact", 2], ["fact", 3], ["fact", 3], ["main", 7]], "vars": {"n": "1"}}}
+{"act": "next", "expect": {"cell": 0, "line": 7, "frames": [["fib", 7], ["main", 7]], "vars": {"n": "3"}}}
+{"act": "next", "expect": {"cell": 0, "line": 8, "frames": [["fib", 8], ["main", 7]], "vars": {"n": "3"}}}
+{"act": "in", "expect": {"cell": 0, "line": 7, "frames": [["fib", 7], ["fib", 8], ["main", 7]], "vars": {"n": "2"}}}
+{"act": "out", "expect": {"cell": 2, "line": 8, "frames": [["main", 8]], "vars": {"i": "3"}}}
+{"act": "continue", "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "4"}}}
+{"act": "continue", "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "5"}}}
+{"act": "continue", "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "6"}}}
+{"act": "continue", "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "7"}}}
+{"act": "continue", "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "8"}}}
+{"act": "continue", "expect": {"stopped": false, "output": "1 1 1\n2 2 1\n3 6 2\n4 24 3\n5 120 5\n6 720 8\n7 5040 13\n8 40320 21\ntenth prime 29\ngcd 12\n"}}

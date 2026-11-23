@@ -1,0 +1,16 @@
+# Rebus (scrip-rebus): program 1 numbers, THE EDITING WALK ; a local variable's definition is its `local` declaration, line 2 of main: where each name goes (go to definition, in the same cell and in another, and the scroll), the hover of a function the notebook declares, completion at a typed prefix, and no squiggle on a clean program. The expected target of each place is the program's own (read from numbers.ipynb: fact 1-4 and fib 6-9 of cell 0, isprime 1-10 and gcd 12-15 of cell 1, main of cell 2); CELL from 0 among the code cells, LINE and COL from 1.
+{"at": [2, 7, 28], "act": "definition", "expect": {"cell": 0, "line": 1}}
+{"at": [2, 7, 46], "act": "definition", "expect": {"cell": 0, "line": 6}}
+{"at": [2, 12, 9], "act": "definition", "expect": {"cell": 1, "line": 1}}
+{"at": [2, 19, 24], "act": "definition", "expect": {"cell": 1, "line": 12}}
+{"at": [0, 3, 15], "act": "definition", "expect": {"cell": 0, "line": 1}}
+{"at": [1, 14, 11], "act": "definition", "expect": {"cell": 1, "line": 12}}
+{"at": [2, 14, 8], "act": "definition", "expect": {"cell": 2, "line": 2}}
+{"at": [2, 13, 17], "act": "definition", "expect": {"cell": 2, "line": 2}}
+{"at": [2, 7, 28], "act": "hover", "expect": {"text": "fact"}}
+{"at": [2, 12, 9], "act": "hover", "expect": {"text": "isprime"}}
+{"at": [2, 7, 47], "act": "completion", "expect": {"items": ["fib"]}}
+{"at": [2, 19, 25], "act": "completion", "expect": {"items": ["gcd"]}}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [2, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
