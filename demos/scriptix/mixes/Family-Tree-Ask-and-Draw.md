@@ -2,95 +2,86 @@
 
 Three languages in one notebook, each doing what it was made for.
 
-* **SNOBOL4 reads.** It reads the family from a table of text, and it reads your question: one pattern for each way of asking, with the little words (`the`, `a`, `of`, `does`), the plurals and the nicknames taken in its stride.
+* **Snocone reads.** It reads the family from a table of text, and it reads your question: one pattern for each way of asking, with the little words (`the`, `a`, `of`, `does`), the plurals and the nicknames taken in its stride.
 * **Prolog knows.** The family is facts, the relations are rules, and a question is a goal. Nobody tells it how to find a cousin.
 * **Icon shows.** It lays the tree out and draws it as SVG, the people in the answer in gold.
 
 The family and the rules are those of the corpus demo `family_net`.
 
-## SNOBOL4 reads the family, and reads English
+## Snocone reads the family, and reads English
 
-```SNOBOL4
-*  The family, as text: name, id, year of birth, gender, a parent's id.
-        csv = 'Eleanor,U001,1921,F,;George,U002,1923,M,;Margaret,U003,1948,F,U001;'
-+             'Thomas,U004,1950,M,U002;Alice,U005,1975,F,U003;Robert,U006,1977,M,U003;'
-+             'Diana,U007,1978,F,U004;James,U008,2001,M,U005;Sophie,U009,2003,F,U006;'
-*  The row pattern of family_snobol4.sno.
-        PAT_NAME   = SPAN(&UCASE &LCASE)
-        PAT_UID    = SPAN(&UCASE &LCASE '0123456789')
-        PAT_YEAR   = SPAN('0123456789')
-        PAT_GENDER = ANY('MF')
-        PAT_ROW    = POS(0) PAT_NAME . F_NAME ',' PAT_UID . F_UID ',' PAT_YEAR . F_YEAR ','
-+                    PAT_GENDER . F_GENDER ',' (PAT_UID | '') . F_PARENT RPOS(0)
-        cell = TABLE()
-        people = 0
-row     csv BREAK(';') . line ';' =                        :F(rows)
-        line PAT_ROW                                       :F(row)
-        people = people + 1
-        cell['name' people] = F_NAME ; cell['uid' people] = F_UID ; cell['year' people] = +F_YEAR
-        cell['gender' people] = F_GENDER ; cell['parent' people] = F_PARENT   :(row)
-rows    OUTPUT = 'snobol4: ' people ' people read'
-*  What Prolog asks of the table: how many rows, and one cell.
-        DEFINE('rows_of(what)')                            :(rows_of_end)
-rows_of rows_of = people                                   :(RETURN)
-rows_of_end
-        DEFINE('cell_of(i,column)')                        :(cell_of_end)
-cell_of cell_of = cell[column i]                           :(RETURN)
-cell_of_end
+```Snocone
+//  The family, as text: name, id, year of birth, gender, a parent's id.
+csv = 'Eleanor,U001,1921,F,;George,U002,1923,M,;Margaret,U003,1948,F,U001;'
+      'Thomas,U004,1950,M,U002;Alice,U005,1975,F,U003;Robert,U006,1977,M,U003;'
+      'Diana,U007,1978,F,U004;James,U008,2001,M,U005;Sophie,U009,2003,F,U006;';
+//  The row pattern of the corpus demo family_net.
+PAT_NAME   = SPAN(&UCASE &LCASE);
+PAT_UID    = SPAN(&UCASE &LCASE '0123456789');
+PAT_YEAR   = SPAN('0123456789');
+PAT_GENDER = ANY('MF');
+PAT_ROW    = POS(0) PAT_NAME . F_NAME ',' PAT_UID . F_UID ',' PAT_YEAR . F_YEAR ','
+             PAT_GENDER . F_GENDER ',' (PAT_UID | '') . F_PARENT RPOS(0);
+cell = TABLE();
+people = 0;
+while (csv ? BREAK(';') . line ';' = '') {
+    if (line ? PAT_ROW) {
+        people = people + 1;
+        cell['name' people] = F_NAME; cell['uid' people] = F_UID; cell['year' people] = +F_YEAR;
+        cell['gender' people] = F_GENDER; cell['parent' people] = F_PARENT;
+    }
+}
+OUTPUT = 'snocone: ' people ' people read';
+//  What Prolog asks of the table: how many rows, and one cell.
+function rows_of(what) { rows_of = people; return; }
+function cell_of(i, column) { cell_of = cell[column i]; return; }
 
-*  ENGLISH. A relation word is brought to the one word Prolog knows it by.
-        word = TABLE()
-        word['mom'] = 'mother' ; word['mum'] = 'mother' ; word['dad'] = 'father'
-        word['kid'] = 'child' ; word['children'] = 'child' ; word['grandchildren'] = 'grandchild'
-        word['grandma'] = 'grandmother' ; word['grandpa'] = 'grandfather' ; word['forebear'] = 'ancestor'
-        word['brother'] = 'sibling' ; word['sister'] = 'sibling'
-        DEFINE('relation(w)')                              :(relation_end)
-relation w = REPLACE(w, &UCASE, &LCASE)
-        relation = DIFFER(word[w]) word[w]                 :S(RETURN)
-        w RTAB(1) . relation 's' RPOS(0)                   :F(relation_1)
-        relation = DIFFER(word[relation]) word[relation]   :(RETURN)
-relation_1 relation = w                                    :(RETURN)
-relation_end
-        letters = &UCASE &LCASE
-        sp      = SPAN(' ')
-        little  = ('the' | 'an' | 'a' | 'all' | 'any') sp | ''
-        p_rel   = SPAN(letters) . q_rel
-        p_name  = (ANY(&UCASE) SPAN(&LCASE)) . q_a
-        p_name2 = (ANY(&UCASE) SPAN(&LCASE)) . q_b
-        p_end   = (ANY('?.!') | '') RPOS(0)
-*  The ways of asking.
-        p_who   = POS(0) ('Who' | 'who' | 'Name' | 'List') sp (('is' | 'are' | 'was' | 'were') sp | '')
-+                 little p_rel sp ('of' | 'to') sp p_name p_end
-        p_whose = POS(0) p_name "'s" sp p_rel p_end
-        p_is    = POS(0) ('Is' | 'is' | 'Was' | 'was') sp p_name sp little p_rel sp ('of' | 'to') sp p_name2 p_end
-        p_count = POS(0) ('How' | 'how') sp 'many' sp p_rel sp ('does' | 'did') sp p_name sp 'have' p_end
-        p_born  = POS(0) ('Who' | 'who') sp ('was' | 'were') sp 'born' sp ('before' | 'after') . q_rel sp
-+                 SPAN('0123456789') . q_a p_end
-        p_older = POS(0) ('Who' | 'who') sp 'is' sp ('older' | 'younger') . q_rel sp 'than' sp p_name p_end
-*  understand(q): the form of the question q, its parts left in q_rel, q_a and q_b.
-        DEFINE('understand(q)')                            :(understand_end)
-understand q_rel = ; q_a = ; q_b =
-        understood = understood + 1
-        q (p_who | p_whose)                                :F(understand_1)
-        q_rel = relation(q_rel)
-        understand = 'who'                                 :(RETURN)
-understand_1 q p_is                                        :F(understand_2)
-        q_rel = relation(q_rel)
-        understand = 'is'                                  :(RETURN)
-understand_2 q p_count                                     :F(understand_3)
-        q_rel = relation(q_rel)
-        understand = 'count'                               :(RETURN)
-understand_3 q p_born                                      :F(understand_4)
-        understand = 'born'                                :(RETURN)
-understand_4 q p_older                                     :F(understand_5)
-        understand = 'age'                                 :(RETURN)
-understand_5 understood = understood - 1
-        understand = 'lost'                                :(RETURN)
-understand_end
-        DEFINE('part(which)')                              :(part_end)
-part    part = $('q_' which)                               :(RETURN)
-part_end
-END
+//  ENGLISH. A relation word is brought to the one word Prolog knows it by.
+word = TABLE();
+word['mom'] = 'mother'; word['mum'] = 'mother'; word['dad'] = 'father';
+word['kid'] = 'child'; word['children'] = 'child'; word['grandchildren'] = 'grandchild';
+word['grandma'] = 'grandmother'; word['grandpa'] = 'grandfather'; word['forebear'] = 'ancestor';
+word['brother'] = 'sibling'; word['sister'] = 'sibling';
+function relation(w) {
+    w = REPLACE(w, &UCASE, &LCASE);
+    if (DIFFER(word[w])) { relation = word[w]; return; }
+    if (w ? RTAB(1) . relation 's' RPOS(0)) {
+        if (DIFFER(word[relation])) relation = word[relation];
+        return;
+    }
+    relation = w;
+    return;
+}
+letters = &UCASE &LCASE;
+sp      = SPAN(' ');
+little  = ('the' | 'an' | 'a' | 'all' | 'any') sp | '';
+p_rel   = SPAN(letters) . q_rel;
+p_name  = (ANY(&UCASE) SPAN(&LCASE)) . q_a;
+p_name2 = (ANY(&UCASE) SPAN(&LCASE)) . q_b;
+p_end   = (ANY('?.!') | '') RPOS(0);
+//  The ways of asking.
+p_who   = POS(0) ('Who' | 'who' | 'Name' | 'List') sp (('is' | 'are' | 'was' | 'were') sp | '')
+          little p_rel sp ('of' | 'to') sp p_name p_end;
+p_whose = POS(0) p_name "'s" sp p_rel p_end;
+p_is    = POS(0) ('Is' | 'is' | 'Was' | 'was') sp p_name sp little p_rel sp ('of' | 'to') sp p_name2 p_end;
+p_count = POS(0) ('How' | 'how') sp 'many' sp p_rel sp ('does' | 'did') sp p_name sp 'have' p_end;
+p_born  = POS(0) ('Who' | 'who') sp ('was' | 'were') sp 'born' sp ('before' | 'after') . q_rel sp
+          SPAN('0123456789') . q_a p_end;
+p_older = POS(0) ('Who' | 'who') sp 'is' sp ('older' | 'younger') . q_rel sp 'than' sp p_name p_end;
+//  understand(q): the form of the question q, its parts left in q_rel, q_a and q_b.
+function understand(q) {
+    q_rel = ''; q_a = ''; q_b = '';
+    understood = understood + 1;
+    if (q ? (p_who | p_whose)) { q_rel = relation(q_rel); understand = 'who'; return; }
+    if (q ? p_is) { q_rel = relation(q_rel); understand = 'is'; return; }
+    if (q ? p_count) { q_rel = relation(q_rel); understand = 'count'; return; }
+    if (q ? p_born) { understand = 'born'; return; }
+    if (q ? p_older) { understand = 'age'; return; }
+    understood = understood - 1;
+    understand = 'lost';
+    return;
+}
+function part(which) { part = $('q_' which); return; }
 ```
 
 ## Icon draws
@@ -151,11 +142,11 @@ end
 
 ## Prolog knows
 
-It asks SNOBOL4 for the facts a cell at a time, tells Icon who stands where, and `ask/1` is the whole conversation: SNOBOL4 understands, Prolog proves, Icon draws.
+It asks Snocone for the facts a cell at a time, tells Icon who stands where, and `ask/1` is the whole conversation: Snocone understands, Prolog proves, Icon draws.
 
 ```Prolog
 :- dynamic person/4, parent/2.
-% The facts, asked of SNOBOL4 a cell at a time.
+% The facts, asked of Snocone a cell at a time.
 cell(I, Column, Atom) :- cell_of(I, Column, V), atom_string(Atom, V).
 load(I) :- cell(I, name, Name), cell(I, uid, Uid), cell(I, year, Y), atom_number(Y, Year), cell(I, gender, G), cell(I, parent, P),
            assertz(person(Name, Uid, Year, G)), ( P == '' -> true ; assertz(parent(Uid, P)) ).
@@ -195,7 +186,7 @@ named(Name, Uid) :- person(Name, Uid, _, _).
 names(Uids, Text) :- findall(N, (member(U, Uids), named(N, U)), Ns), ( Ns == [] -> Text = nobody ; atomic_list_concat(Ns, ', ', Text) ).
 text(Parts, Text) :- atomic_list_concat(Parts, Text).
 
-% One clause for each form of question SNOBOL4 can understand.
+% One clause for each form of question Snocone can understand.
 reply(lost, 'I do not understand the question').
 reply(Form, T) :- member(Form, [who, is, count]), piece(rel, R), \+ known(R), !, text(['I know no relation called ', R], T).
 reply(who, T) :- piece(rel, R), piece(a, A), named(A, Y), setof(X, is_a(R, X, Y), Xs), !, names(Xs, T).
@@ -209,7 +200,7 @@ reply(age, T) :- piece(rel, How), piece(a, A), person(A, _, Year, _),
                  findall(U, (person(_, U, Y, _), ( How == older -> Y < Year ; Y > Year )), Us), names(Us, T).
 piece(Which, Atom) :- part(Which, V), atom_string(Atom, V).
 
-% ask(Question): SNOBOL4 understands it, Prolog proves the answer, Icon draws both.
+% ask(Question): Snocone understands it, Prolog proves the answer, Icon draws both.
 ask(Q) :- understand(Q, F0), atom_string(Form, F0), ( reply(Form, T) -> true ; T = 'I cannot answer that' ), show(Q, T, _).
 
 % Icon is told the tree, a person at a time.
