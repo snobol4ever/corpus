@@ -1,0 +1,9 @@
+# queue_and_tree as FOUR cells (cell 0 class Queue, 1 record node, build, count, 2 walk, 3 main), the editing walk, Unicon entry, developer_15 2026-11-22. THE LAW: go to definition across cells lands on the declaration in the OTHER cell, the page scrolls it into view; the program is clean, no squiggle.
+{"at": [3, 3, 9], "act": "definition", "expect": {"cell": 1, "line": 3}}
+{"at": [3, 4, 9], "act": "definition", "expect": {"cell": 1, "line": 12}}
+{"at": [3, 6, 9], "act": "definition", "expect": {"cell": 2, "line": 1}}
+{"at": [2, 3, 9], "act": "definition", "expect": {"cell": 0, "line": 1}}
+{"at": [2, 4, 6], "act": "definition", "expect": {"cell": 0, "line": 2}}
+{"at": [1, 5, 9], "act": "definition", "expect": {"cell": 1, "line": 1}}
+{"at": [2, 4, 5], "act": "completion", "expect": {"items": ["is_empty", "push", "take"]}}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}}

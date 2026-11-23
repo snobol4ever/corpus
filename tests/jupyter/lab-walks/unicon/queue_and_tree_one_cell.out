@@ -1,0 +1,9 @@
+nodes: 7
+visit n
+visit n1
+visit n2
+visit n11
+visit n12
+visit n21
+visit n22
+walked: 7

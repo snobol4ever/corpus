@@ -1,0 +1,15 @@
+# queue_and_tree (one cell, main first), the editing walk, Unicon entry. Developer_15 2026-11-22. THE LAW OF EACH PLACE, from the language and the text BEFORE any run:
+# go to definition of a procedure or a class lands on its declaration line, in the same cell, and the page scrolls it into view; the program is clean, so the squiggles are none.
+# A name's own hover text is the cqo's to read; the first reading of each is kept in the TSV as what the page showed.
+# hover texts were read once, then checked against the program (build has two parameters and is declared at line 12; write is Unicon's builtin of any number of arguments) and are pinned here; the completion after q. is the three methods of class Queue (Unicon members: push, take, is_empty).
+{"at": [0, 5, 9], "act": "definition", "expect": {"cell": 0, "line": 12}}
+{"at": [0, 6, 9], "act": "definition", "expect": {"cell": 0, "line": 21}}
+{"at": [0, 8, 9], "act": "definition", "expect": {"cell": 0, "line": 28}}
+{"at": [0, 30, 9], "act": "definition", "expect": {"cell": 0, "line": 42}}
+{"at": [0, 24, 32], "act": "definition", "expect": {"cell": 0, "line": 21}}
+{"at": [0, 14, 9], "act": "definition", "expect": {"cell": 0, "line": 1}}
+{"at": [0, 31, 6], "act": "definition", "expect": {"cell": 0, "line": 43}}
+{"at": [0, 5, 9], "act": "hover", "expect": {"text": "build: a function of 2 arguments shared by name, defined in Unicon at line 12"}}
+{"at": [0, 9, 4], "act": "hover", "expect": {"text": "write: a builtin function of Unicon, any number of arguments"}}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [0, 31, 5], "act": "completion", "expect": {"items": ["is_empty", "push", "take"]}}
