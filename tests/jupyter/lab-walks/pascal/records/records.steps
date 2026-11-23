@@ -1,0 +1,13 @@
+# records: a stock of four records, a procedure that restocks one by its index, a recursive total over the array, output along the way; breakpoints at the update of restock (line 28 of cell 0) and at the recursive step of total (line 41), stops read from a model of the program (mk_records.py). THE LAW as in queens.steps.
+{"break": [0, 28]}
+{"break": [0, 41]}
+{"run": 0, "expect": {"stopped": false}}
+{"run": 1, "expect": {"cell": 0, "line": 28, "frames": [["restock", 28], ["main", 6]], "vars": {"k": "3", "n": "5"}, "output": "  bolt  10   3\n   nut  20   1\n  gear   5  12\n   cog   8   7\n"}}
+{"act": "next", "expect": {"cell": 0, "line": 29, "frames": [["restock", 29], ["main", 6]]}}
+{"act": "continue", "expect": {"cell": 0, "line": 28, "frames": [["restock", 28], ["main", 7]], "vars": {"k": "4", "n": "2"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 41, "frames": [["total", 41], ["main", 9]], "vars": {"k": "1"}, "output": "  bolt  10   3\n   nut  20   1\n  gear   5  12\n   cog   8   7\n  bolt  10   3\n   nut  20   1\n  gear  10  12\n   cog  10   7\n"}}
+{"act": "continue", "expect": {"cell": 0, "line": 41, "frames": [["total", 41], ["total", 41], ["main", 9]], "vars": {"k": "2"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 41, "frames": [["total", 41], ["total", 41], ["total", 41], ["main", 9]], "vars": {"k": "3"}}}
+{"act": "evaluate", "expression": "k * 10", "expect": {"result": "30"}}
+{"act": "continue", "expect": {"cell": 0, "line": 41, "frames": [["total", 41], ["total", 41], ["total", 41], ["total", 41], ["main", 9]], "vars": {"k": "4"}}}
+{"act": "continue", "expect": {"stopped": false, "output": "  bolt  10   3\n   nut  20   1\n  gear   5  12\n   cog   8   7\n  bolt  10   3\n   nut  20   1\n  gear  10  12\n   cog  10   7\ntotal 240\n"}}

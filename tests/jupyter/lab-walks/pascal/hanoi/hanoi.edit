@@ -1,0 +1,15 @@
+# PLACE SCRIPT of hanoi in the form of the edit walk (developer_04): definition, hover, completion and diagnostics; references, highlight, signature help, rename and the outline stay in hanoi.places
+{"at": [1, 12, 5], "act": "definition", "expect": {"cell": 0, "line": 15}}
+{"at": [0, 19, 5], "act": "definition", "expect": {"cell": 0, "line": 15}}
+{"at": [0, 22, 5], "act": "definition", "expect": {"cell": 0, "line": 10}}
+{"at": [0, 13, 49], "act": "definition", "expect": {"cell": 0, "line": 6}}
+{"at": [0, 20, 5], "act": "definition", "expect": {"cell": 0, "line": 4}}
+{"at": [1, 11, 5], "act": "definition", "expect": {"cell": 0, "line": 4}}
+{"at": [1, 8, 3], "act": "definition", "expect": {"cell": 0, "line": 5}}
+{"at": [0, 22, 5], "act": "hover", "expect": {"text": "report: a function of 3 arguments, defined at line 10"}}
+{"at": [0, 19, 5], "act": "hover", "expect": {"text": "hanoi: a function of 4 arguments, defined at line 15"}}
+{"at": [0, 13, 49], "act": "hover", "expect": {"text": "pegname: a function of 1 argument, defined at line 6"}}
+{"at": [0, 17, 6], "act": "hover", "expect": {"text": "n: integer"}}
+{"at": [1, 15, 26], "act": "completion", "expect": {"items": ["moves"]}}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
