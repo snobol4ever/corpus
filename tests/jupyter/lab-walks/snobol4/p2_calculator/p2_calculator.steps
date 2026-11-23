@@ -1,0 +1,11 @@
+# SNOBOL4 (scrip-snobol4) program 2, the corpus demo calculator-2 (demos/snobol4/calculator) in three cells: a precedence calculator whose pattern grammar calls the routines PSH, ADD, MUL, SUB, DIV, SGN, DRF and EMIT AT MATCH TIME (deferred patterns, conditional assignment to a called name), recursive in the pattern (the parenthesised expression), a TABLE of variables and an ARRAY stack; the cell text is the demo's with the input fixed to two lines. developer_14 2026-11-22. EXPECTED = skill debugger section 2: a step in at a call enters the function; a step out stops at the first stop in a shallower frame; next stops at the next stop at the same depth or shallower.
+{"break": [0, 16]}
+{"run": 0}
+{"run": 1}
+{"run": 2, "expect": {"cell": 0, "line": 16, "frames": [["ADD", 16], ["main", 2]]}}
+{"act": "in", "expect": {"cell": 0, "line": 13, "frames": [["DRF", 13], ["ADD", 16], ["main", 2]]}}
+{"act": "out", "expect": {"cell": 0, "line": 17, "frames": [["ADD", 17], ["main", 2]]}}
+{"act": "next", "expect": {"cell": 0, "line": 20, "frames": [["MUL", 20], ["main", 2]]}}
+{"act": "next", "expect": {"cell": 0, "line": 21, "frames": [["MUL", 21], ["main", 2]]}}
+{"act": "continue", "expect": {"cell": 0, "line": 16, "frames": [["ADD", 16], ["main", 2]], "output": "9\n"}}
+{"act": "continue", "expect": {"stopped": false, "output": "9\n7\nmatched\n"}}

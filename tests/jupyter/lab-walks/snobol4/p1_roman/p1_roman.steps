@@ -1,0 +1,19 @@
+# SNOBOL4 (scrip-snobol4) program 1, the corpus demo roman (demos/snobol4/roman) in three cells: ROMAN recurses per digit, TEST loops and calls it, a DATA record NUM is made and read. developer_14 2026-11-22. EXPECTED = what a person expects of SNOBOL4 and the step law of skill debugger section 2: a step in at a call enters the function; next goes to the next statement of the same routine and, at its end, back to the caller; a step out stops in the caller; values in SNOBOL4's image (strings quoted, integers bare, the unset a null string).
+{"break": [1, 2]}
+{"run": 0}
+{"run": 1}
+{"run": 2, "expect": {"cell": 1, "line": 2, "frames": [["TEST", 2], ["main", 1]], "vars": {"I": "1", "J": "3"}}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["ROMAN", 2], ["TEST", 2], ["main", 1]], "vars": {"N": "1"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["ROMAN", 3], ["TEST", 2], ["main", 1]], "vars": {"N": "''", "UNITS": "'1'"}}}
+{"act": "next", "expect": {"cell": 0, "line": 4, "frames": [["ROMAN", 4], ["TEST", 2], ["main", 1]], "vars": {"UNITS": "'I'"}}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["ROMAN", 2], ["ROMAN", 4], ["TEST", 2], ["main", 1]], "vars": {"N": "''"}}}
+{"act": "next", "expect": {"cell": 0, "line": 4, "frames": [["ROMAN", 4], ["TEST", 2], ["main", 1]]}}
+{"act": "continue", "expect": {"cell": 1, "line": 2, "frames": [["TEST", 2], ["main", 1]], "vars": {"I": "2", "J": "3"}, "output": "1 -> I\n"}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["ROMAN", 2], ["TEST", 2], ["main", 1]], "vars": {"N": "2"}}}
+{"act": "out", "expect": {"cell": 1, "line": 3, "frames": [["TEST", 3], ["main", 1]], "output": "1 -> I\n2 -> II\n"}}
+{"act": "continue", "expect": {"cell": 1, "line": 2, "frames": [["TEST", 2], ["main", 1]], "vars": {"I": "3", "J": "3"}, "output": "1 -> I\n2 -> II\n"}}
+{"act": "next", "expect": {"cell": 1, "line": 3, "frames": [["TEST", 3], ["main", 1]], "output": "1 -> I\n2 -> II\n3 -> III\n"}}
+{"act": "next", "expect": {"cell": 2, "line": 2, "frames": [["main", 2]], "output": "1 -> I\n2 -> II\n3 -> III\n"}}
+{"act": "continue", "expect": {"cell": 1, "line": 2, "frames": [["TEST", 2], ["main", 2]], "vars": {"I": "14", "J": "15"}, "output": "1 -> I\n2 -> II\n3 -> III\n"}}
+{"act": "continue", "expect": {"cell": 1, "line": 2, "frames": [["TEST", 2], ["main", 2]], "vars": {"I": "15", "J": "15"}, "output": "1 -> I\n2 -> II\n3 -> III\n14 -> XIV\n"}}
+{"act": "continue", "expect": {"stopped": false, "output": "1 -> I\n2 -> II\n3 -> III\n14 -> XIV\n15 -> XV\n49 is XLIX\n"}}
