@@ -229,7 +229,7 @@
         "source": "scrip",
         "severity": "error",
         "fileLocation": "absolute",
-        "pattern": { "regexp": "^icon: parse error in (.+): line (\\d+): (.*)$", "file": 1, "line": 2, "message": 3 }
+        "pattern": { "regexp": "^(?:icon|unicon): parse error in (.+): line (\\d+): (.*)$", "file": 1, "line": 2, "message": 3 }
       },
       {
         "name": "scrip-prolog",
