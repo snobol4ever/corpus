@@ -1,0 +1,20 @@
+# PLACE SCRIPT of queens (developer_02, 2026-11-22): cell, line, col (1-based) of the word, the act, what the person must meet. Cells count from 0 among the code cells (cell 0 the board, cell 1 the run). Written from the program, to be read by the cqo; the form is developer_06's of the calculator until developer_04 names the walk's.
+{"cell": 1, "line": 14, "col": 3, "act": "definition", "expect": {"cell": 0, "line": 18}, "word": "place"}
+{"cell": 0, "line": 26, "col": 21, "act": "definition", "expect": {"cell": 0, "line": 18}, "word": "place"}
+{"cell": 0, "line": 26, "col": 37, "act": "definition", "expect": {"cell": 0, "line": 9}, "word": "print"}
+{"cell": 0, "line": 24, "col": 7, "act": "definition", "expect": {"cell": 0, "line": 7}, "word": "x"}
+{"cell": 0, "line": 22, "col": 8, "act": "definition", "expect": {"cell": 0, "line": 4}, "word": "a"}
+{"cell": 1, "line": 10, "col": 3, "act": "definition", "expect": {"cell": 0, "line": 8}, "word": "found"}
+{"cell": 1, "line": 11, "col": 22, "act": "definition", "expect": {"cell": 0, "line": 4}, "word": "a"}
+{"cell": 0, "line": 26, "col": 21, "act": "references", "expect": {"places": [[0, 18], [0, 26], [1, 14]]}, "word": "place"}
+{"cell": 0, "line": 12, "col": 3, "act": "references", "expect": {"places": [[0, 8], [0, 12], [0, 13], [1, 10], [1, 15]]}, "word": "found"}
+{"cell": 0, "line": 12, "col": 3, "act": "highlight", "expect": {"cell": 0, "lines": [8, 12, 13]}, "word": "found"}
+{"cell": 0, "line": 26, "col": 21, "act": "hover", "expect": {"text": "procedure place(i: integer)"}, "word": "place"}
+{"cell": 0, "line": 26, "col": 37, "act": "hover", "expect": {"text": "procedure print"}, "word": "print"}
+{"cell": 0, "line": 19, "col": 5, "act": "hover", "expect": {"text": "j: integer"}, "word": "j"}
+{"cell": 1, "line": 14, "col": 9, "act": "signature_help", "expect": {"label": "place(i: integer)"}, "word": "place"}
+{"cell": 1, "line": 15, "col": 26, "act": "completion", "expect": {"has": ["found", "place", "print"]}, "word": "found"}
+{"cell": 1, "line": 10, "col": 3, "act": "rename", "expect": {"to": "count", "cells": [0, 1]}, "word": "found"}
+{"cell": 0, "line": 1, "col": 1, "act": "outline", "expect": {"names": ["a", "b", "c", "x", "found", "print", "place"]}, "word": ""}
+{"cell": 0, "line": 1, "col": 1, "act": "diagnostics", "expect": {"squiggles": []}, "word": ""}
+{"cell": 1, "line": 1, "col": 1, "act": "diagnostics", "expect": {"squiggles": []}, "word": ""}
