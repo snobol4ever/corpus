@@ -1,7 +1,7 @@
 # queue_and_tree as FOUR cells (cell 0 class Queue, 1 record node, build, count, 2 walk, 3 main), Unicon entry, developer_15 2026-11-22. THE STEP SCRIPT RUNS EVERY EARLIER CELL FIRST (cells 0, 1, 2, no stop), then the breaks and cell 3.
 # THE LAW OF EACH STEP, worked out from the program and unicon 13.3's image() before any run: main's lines in cell 3 are 3 t := build, 4 c := count(t), 5 write nodes, 6 s := walk(t); walk's in cell 2: 3 q := Queue(), 4 q.push(root); a procedure's FIRST STOP is its first executable statement (a local declaration is no statement), so a step in at line 6 enters walk at line 3;
 # the break at cell 2 line 4 stops there with q the object Queue_1(1); a step in at q.push(root) enters Queue_push, which lives in CELL 0 at line 3 (put (items, item)), frames Queue_push, walk, main, item the root record node_1(2).
-# EXPECTED UNTRUE today in two places, each named in field ten of the table: the step in at line 6 stops at walk's local line 2 (not the first statement), and the step in at q.push(root) ends the cell on error 207 invalid field name (row jupyter-a-unicon-class-of-an-earlier-cell-is-used-by-a-later-cell).
+# EXPECTED UNTRUE today in one place, named in field ten of the table: the step in at line 6 stops at walk's local line 2 (not the first statement). The step in at q.push(root) reads TRUE since the class of an earlier cell landed (d41b2ae17). The last step runs the program out, so the walk's end check reads the whole answer.
 {"run": 0, "expect": {"stopped": false}}
 {"run": 1, "expect": {"stopped": false}}
 {"run": 2, "expect": {"stopped": false}}
@@ -13,3 +13,4 @@
 {"act": "in", "expect": {"cell": 2, "line": 3, "frames": [["walk", 3], ["main", 6]], "vars": {"root": "record node_1(2)", "q": "&null", "seen": "&null"}, "output": "nodes: 7\n"}}
 {"act": "continue", "expect": {"cell": 2, "line": 4, "frames": [["walk", 4], ["main", 6]], "vars": {"q": "object Queue_1(1)", "root": "record node_1(2)"}, "output": "nodes: 7\n"}}
 {"act": "in", "expect": {"cell": 0, "line": 3, "frames": [["Queue_push", 3], ["walk", 4], ["main", 6]], "vars": {"item": "record node_1(2)"}, "output": "nodes: 7\n"}}
+{"act": "continue", "expect": {"stopped": false, "output": "nodes: 7\nvisit n\nvisit n1\nvisit n2\nvisit n11\nvisit n12\nvisit n21\nvisit n22\nwalked: 7\n"}}
