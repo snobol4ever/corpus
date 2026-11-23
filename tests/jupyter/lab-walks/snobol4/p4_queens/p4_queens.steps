@@ -1,0 +1,19 @@
+# SNOBOL4 (scrip-snobol4) program 4, the Rosetta N-queens program of rosetta-snobol4 (N = 5) in three cells: pattern TEST decides whether the first queen attacks another, SOLVE recurses one row at a time with a loop over the columns and prints every solution board, a counter keeps the number of solutions. developer_14 2026-11-22. EXPECTED = skill debugger section 2 and a person's reading of the program: a step in at the call SOLVE(B) enters SOLVE at its first statement; next goes to the next statement the control reaches in the same routine (goto and failure branches followed); a step out returns to the caller.
+{"break": [1, 6]}
+{"run": 0}
+{"run": 1}
+{"run": 2, "expect": {"cell": 1, "line": 6, "frames": [["SOLVE", 6], ["main", 1]], "vars": {"I": "1"}}}
+{"act": "in", "expect": {"cell": 1, "line": 2, "frames": [["SOLVE", 2], ["SOLVE", 6], ["main", 1]]}}
+{"act": "next", "expect": {"cell": 1, "line": 3, "frames": [["SOLVE", 3], ["SOLVE", 6], ["main", 1]]}}
+{"act": "next", "expect": {"cell": 1, "line": 4, "frames": [["SOLVE", 4], ["SOLVE", 6], ["main", 1]]}}
+{"act": "next", "expect": {"cell": 1, "line": 5, "frames": [["SOLVE", 5], ["SOLVE", 6], ["main", 1]], "vars": {"I": "1"}}}
+{"act": "next", "expect": {"cell": 1, "line": 7, "frames": [["SOLVE", 7], ["SOLVE", 6], ["main", 1]]}}
+{"act": "next", "expect": {"cell": 1, "line": 4, "frames": [["SOLVE", 4], ["SOLVE", 6], ["main", 1]]}}
+{"act": "next", "expect": {"cell": 1, "line": 5, "frames": [["SOLVE", 5], ["SOLVE", 6], ["main", 1]], "vars": {"I": "2"}}}
+{"act": "next", "expect": {"cell": 1, "line": 7, "frames": [["SOLVE", 7], ["SOLVE", 6], ["main", 1]]}}
+{"act": "next", "expect": {"cell": 1, "line": 4, "frames": [["SOLVE", 4], ["SOLVE", 6], ["main", 1]]}}
+{"act": "next", "expect": {"cell": 1, "line": 5, "frames": [["SOLVE", 5], ["SOLVE", 6], ["main", 1]], "vars": {"I": "3"}}}
+{"act": "next", "expect": {"cell": 1, "line": 6, "frames": [["SOLVE", 6], ["SOLVE", 6], ["main", 1]], "vars": {"I": "3"}}}
+{"act": "in", "expect": {"cell": 1, "line": 2, "frames": [["SOLVE", 2], ["SOLVE", 6], ["SOLVE", 6], ["main", 1]]}}
+{"break": [1, 6]}
+{"act": "continue", "expect": {"stopped": false}}

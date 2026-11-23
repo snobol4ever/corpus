@@ -1,0 +1,14 @@
+# SNOBOL4 (scrip-snobol4) program 5, the Rosetta anagrams program of rosetta-snobol4 with a fixed word list in three cells and a recursive reverse REV added: sortw sorts the letters of a word (ARRAY and SORT), countw counts the words of a group, a TABLE groups the words by their sorted letters, a DATA record GROUP carries one group, and the output is the largest group with its key reversed by REV, which recurses once per letter. developer_14 2026-11-22. EXPECTED = skill debugger section 2: a step in at a call enters the routine; a step out stops back in the caller where the call is (the person's reading).
+# NOTE on the step out: the breakpoint on line 11 is still set, so a step out from the third level stops at that breakpoint, line 11 of the same frame, before it leaves (a breakpoint stops whatever the step).
+{"break": [0, 11]}
+{"run": 0}
+{"run": 1}
+{"run": 2, "expect": {"cell": 0, "line": 11, "frames": [["REV", 11], ["main", 3]], "vars": {"C": "'e'", "R": "'ilnst'"}, "output": ""}}
+{"act": "in", "expect": {"cell": 0, "line": 10, "frames": [["REV", 10], ["REV", 11], ["main", 3]], "vars": {"S": "'ilnst'"}}}
+{"act": "next", "expect": {"cell": 0, "line": 11, "frames": [["REV", 11], ["REV", 11], ["main", 3]], "vars": {"C": "'i'", "R": "'lnst'"}}}
+{"act": "in", "expect": {"cell": 0, "line": 10, "frames": [["REV", 10], ["REV", 11], ["REV", 11], ["main", 3]], "vars": {"S": "'lnst'"}}}
+{"act": "out", "expect": {"cell": 0, "line": 11, "frames": [["REV", 11], ["REV", 11], ["REV", 11], ["main", 3]]}}
+{"act": "continue", "expect": {"cell": 0, "line": 11, "frames": [["REV", 11], ["REV", 11], ["REV", 11], ["REV", 11], ["main", 3]], "vars": {"S": "'nst'", "C": "'n'", "R": "'st'"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 11, "frames": [["REV", 11], ["REV", 11], ["REV", 11], ["REV", 11], ["REV", 11], ["main", 3]], "vars": {"S": "'st'", "C": "'s'", "R": "'t'"}}}
+{"act": "continue", "expect": {"cell": 0, "line": 11, "frames": [["REV", 11], ["REV", 11], ["REV", 11], ["REV", 11], ["REV", 11], ["REV", 11], ["main", 3]], "vars": {"S": "'t'", "C": "'t'", "R": "''"}}}
+{"act": "continue", "expect": {"stopped": false, "output": "tsnlie: listen silent enlist inlets \nlargest group: 4 words\n"}}
