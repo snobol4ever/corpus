@@ -4272,6 +4272,21 @@ my $x = 1;
 sink $x;
 ```
 
+## raku_stdin__stdin_prompt_words
+
+```Raku
+my $n = prompt("name? ");
+say "hello $n";
+```
+
+```stdin
+world
+```
+
+```stdout
+name? hello world
+```
+
 ## say_29
 
 ```Raku
@@ -5305,6 +5320,44 @@ say $p.exitcode;
 ```stdout
 1
 0
+```
+
+## raku_stdin__stdin_bare_slurp
+
+```Raku
+my $t = slurp();
+say $t.chars;
+print $t;
+```
+
+```stdin
+one
+two
+three
+```
+
+```stdout
+14
+one
+two
+three
+```
+
+## raku_stdin__stdin_get_twice
+
+```Raku
+my $a = get();
+my $b = get();
+say "got: $a $b";
+```
+
+```stdin
+alpha
+beta
+```
+
+```stdout
+got: alpha beta
 ```
 
 ## roast_hang__flat_of_a_lazy_list
@@ -7191,6 +7244,24 @@ loop (my $i = 3; $i > 0; $i--) { say $i; }
 3
 2
 1
+```
+
+## raku_stdin__stdin_bare_lines
+
+```Raku
+for lines() -> $l { say "line: $l" }
+```
+
+```stdin
+one
+two
+three
+```
+
+```stdout
+line: one
+line: two
+line: three
 ```
 
 ## say_26
@@ -12225,6 +12296,28 @@ say f("a");
 ```stdout
 i
 s
+```
+
+## raku_stdin__stdin_get_then_lines
+
+```Raku
+my $f = get();
+say "first: $f";
+my @r = lines();
+say @r.elems;
+say @r.join("|");
+```
+
+```stdin
+one
+two
+three
+```
+
+```stdout
+first: one
+2
+two|three
 ```
 
 ## role__a_parametric_role_gives_each_composer_its_own_lexicals
