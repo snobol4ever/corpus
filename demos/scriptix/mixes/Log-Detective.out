@@ -1,8 +1,8 @@
-snobol4: I cannot read "-- log opened by logd 2.1 --"
-snobol4: I cannot read "#### clock stepped by ntp ####"
-snobol4: I cannot read "lost 3 lines, buffer full"
-snobol4: I cannot read "-- end of log --"
-snobol4: 38 events read, 4 lines are no event
+snocone: I cannot read "-- log opened by logd 2.1 --"
+snocone: I cannot read "#### clock stepped by ntp ####"
+snocone: I cannot read "lost 3 lines, buffer full"
+snocone: I cannot read "-- end of log --"
+snocone: 38 events read, 4 lines are no event
 prolog: 38 events are facts
 prolog: r5 started and never finished
 prolog: r11 started and never finished

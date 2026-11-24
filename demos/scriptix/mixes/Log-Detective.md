@@ -7,7 +7,7 @@ worked out on paper, and an independent program in Python, written from the log 
 expressions and sharing no code with this document, gave the same fifty-one lines; the document and its
 notebook are graded against that one file.
 
-* **SNOBOL4, pattern matching.** The log is about forty lines typed by four different hands: the time
+* **Snocone, pattern matching.** The log is about forty lines typed by four different hands: the time
   first or last, the level in brackets or not, the request id in the middle, at the end in
   parentheses, or after `req=`. One pattern a shape pulls out the time, level, service, request and
   message of each event. A line that fits no shape is counted and shown, never guessed at.
@@ -19,88 +19,90 @@ notebook are graded against that one file.
   minute, the longest request, every request slower than the median, a text timeline with a line a
   minute and a mark an event, and the three questions answered in plain lines.
 
-Prolog calls SNOBOL4 for the events and hands each answer it proves to Icon; Icon calls SNOBOL4 for the
-events and for the clock, and reads SNOBOL4's counts as globals.
+Prolog calls Snocone for the events and hands each answer it proves to Icon; Icon calls Snocone for the
+events and for the clock, and reads Snocone's counts as globals.
 
-```SNOBOL4
-        ev_log = '-- log opened by logd 2.1 --;'
-+                '10:00:01 [INFO] gateway req=r1 start GET /cart;'
-+                '10:00:01 [INFO] auth req=r1 token ok;'
-+                '10:00:02 [INFO] orders req=r1 cart loaded;'
-+                '10:00:02 INFO gateway: finish 200 (r1);'
-+                '10:00:40 [INFO] gateway req=r2 start POST /order;'
-+                '10:00:41 INFO orders: checkout begins (r2);'
-+                'payments INFO 10:00:42 r2 charge accepted;'
-+                '[INFO] gateway r2 finish 200 @ 10:00:43;'
-+                '10:01:15 [INFO] gateway req=r3 start GET /cart;'
-+                '10:01:15 [WARN] auth req=r3 slow token lookup;'
-+                '10:01:16 INFO gateway: finish 200 (r3);'
-+                '#### clock stepped by ntp ####;'
-+                '10:02:05 [ERROR] cache req=- node cache-2 unreachable;'
-+                '10:02:20 [INFO] gateway req=r4 start GET /cart;'
-+                'auth ERROR 10:02:21 r4 token lookup failed;'
-+                '10:02:22 ERROR gateway: finish 503 (r4);'
-+                '10:02:30 [INFO] gateway req=r5 start GET /cart;'
-+                '[ERROR] auth r5 token lookup failed @ 10:02:31;'
-+                '10:03:10 [INFO] gateway req=r6 start POST /order;'
-+                '10:03:11 INFO orders: reserve stock (r6);'
-+                '10:03:12 [WARN] db req=r6 slow query 1800ms;'
-+                '10:03:20 WARN orders: retry 1 reserve stock (r6);'
-+                '[ERROR] db r6 connection refused @ 10:03:25;'
-+                'payments ERROR 10:03:26 r6 db unreachable;'
-+                '10:03:27 ERROR orders: payment failed (r6);'
-+                '10:03:28 ERROR gateway: finish 502 (r6);'
-+                '10:04:00 [INFO] gateway req=r7 start GET /cart;'
-+                '10:04:01 INFO gateway: finish 200 (r7);'
-+                '10:04:30 [WARN] db req=- disk 91 percent full;'
-+                '10:05:02 [INFO] gateway req=r8 start POST /order;'
-+                'orders WARN 10:05:03 r8 retry 1 payments timeout;'
-+                'payments WARN 10:05:05 r8 retry 2 db timeout;'
-+                '[ERROR] orders r8 gave up on payments @ 10:05:09;'
-+                '10:05:10 ERROR gateway: finish 504 (r8);'
-+                'lost 3 lines, buffer full;'
-+                '10:06:00 [INFO] gateway req=r9 start GET /cart;'
-+                '10:06:02 [INFO] gateway req=r9 finish 200;'
-+                '10:07:00 INFO gateway: start GET /cart (r10);'
-+                '10:07:01 INFO gateway: finish 200 (r10);'
-+                '10:07:30 [INFO] gateway req=r11 start POST /order;'
-+                '-- end of log --;'
-        digits = '0123456789'
-        p_time = SPAN(digits) . ev_hh ':' SPAN(digits) . ev_mm ':' SPAN(digits) . ev_ss
-        p_lvl  = 'INFO' . ev_lvl | 'WARN' . ev_lvl | 'ERROR' . ev_lvl
-        p_svc  = SPAN(&LCASE) . ev_svc
-        p_id   = 'r' SPAN(digits) | '-'
-        p_shape1 = p_time ' [' p_lvl '] ' p_svc ' req=' p_id . ev_req ' ' REM . ev_msg
-        p_shape2 = p_time ' ' p_lvl ' ' p_svc ': ' ARB . ev_msg ' (' p_id . ev_req ')'
-        p_shape3 = p_svc ' ' p_lvl ' ' p_time ' ' p_id . ev_req ' ' REM . ev_msg
-        p_shape4 = '[' p_lvl '] ' p_svc ' ' p_id . ev_req ' ' ARB . ev_msg ' @ ' p_time
-        p_event  = POS(0) (p_shape1 | p_shape2 | p_shape3 | p_shape4) RPOS(0)
-        ev_tab = TABLE()
-        ev_n = 0
-        ev_bad = 0
-ev_next ev_log BREAK(';') . ev_line ';' =                  :F(ev_done)
-        ev_line p_event                                    :F(ev_unread)
-        ev_n = ev_n + 1
-        ev_req = IDENT(ev_req, '-') 'none'
-        ev_tab['time' ev_n] = ev_hh * 3600 + ev_mm * 60 + ev_ss
-        ev_tab['level' ev_n] = ev_lvl ; ev_tab['svc' ev_n] = ev_svc
-        ev_tab['req' ev_n] = ev_req ; ev_tab['msg' ev_n] = ev_msg    :(ev_next)
-ev_unread ev_bad = ev_bad + 1
-        OUTPUT = 'snobol4: I cannot read "' ev_line '"'    :(ev_next)
-ev_done OUTPUT = 'snobol4: ' ev_n ' events read, ' ev_bad ' lines are no event'
-*  What Prolog asks for: the count of events of a kind, and one field of one event.
-        DEFINE('event_count(ev_kind)')                      :(ec_end)
-event_count event_count = IDENT(ev_kind, 'read') ev_n       :S(RETURN)
-        event_count = ev_bad                                :(RETURN)
-ec_end
-        DEFINE('event_field(ev_i,ev_name)')                 :(ef_end)
-event_field event_field = ev_tab[ev_name ev_i]              :(RETURN)
-ef_end
-*  What Icon asks for: seconds after midnight as a clock time.
-        DEFINE('hms(ev_s)')                                 :(hms_end)
-hms     hms = LPAD(ev_s / 3600, 2, '0') ':' LPAD(REMDR(ev_s, 3600) / 60, 2, '0') ':' LPAD(REMDR(ev_s, 60), 2, '0')   :(RETURN)
-hms_end
-END
+```Snocone
+ev_log = '-- log opened by logd 2.1 --;'
+         '10:00:01 [INFO] gateway req=r1 start GET /cart;'
+         '10:00:01 [INFO] auth req=r1 token ok;'
+         '10:00:02 [INFO] orders req=r1 cart loaded;'
+         '10:00:02 INFO gateway: finish 200 (r1);'
+         '10:00:40 [INFO] gateway req=r2 start POST /order;'
+         '10:00:41 INFO orders: checkout begins (r2);'
+         'payments INFO 10:00:42 r2 charge accepted;'
+         '[INFO] gateway r2 finish 200 @ 10:00:43;'
+         '10:01:15 [INFO] gateway req=r3 start GET /cart;'
+         '10:01:15 [WARN] auth req=r3 slow token lookup;'
+         '10:01:16 INFO gateway: finish 200 (r3);'
+         '#### clock stepped by ntp ####;'
+         '10:02:05 [ERROR] cache req=- node cache-2 unreachable;'
+         '10:02:20 [INFO] gateway req=r4 start GET /cart;'
+         'auth ERROR 10:02:21 r4 token lookup failed;'
+         '10:02:22 ERROR gateway: finish 503 (r4);'
+         '10:02:30 [INFO] gateway req=r5 start GET /cart;'
+         '[ERROR] auth r5 token lookup failed @ 10:02:31;'
+         '10:03:10 [INFO] gateway req=r6 start POST /order;'
+         '10:03:11 INFO orders: reserve stock (r6);'
+         '10:03:12 [WARN] db req=r6 slow query 1800ms;'
+         '10:03:20 WARN orders: retry 1 reserve stock (r6);'
+         '[ERROR] db r6 connection refused @ 10:03:25;'
+         'payments ERROR 10:03:26 r6 db unreachable;'
+         '10:03:27 ERROR orders: payment failed (r6);'
+         '10:03:28 ERROR gateway: finish 502 (r6);'
+         '10:04:00 [INFO] gateway req=r7 start GET /cart;'
+         '10:04:01 INFO gateway: finish 200 (r7);'
+         '10:04:30 [WARN] db req=- disk 91 percent full;'
+         '10:05:02 [INFO] gateway req=r8 start POST /order;'
+         'orders WARN 10:05:03 r8 retry 1 payments timeout;'
+         'payments WARN 10:05:05 r8 retry 2 db timeout;'
+         '[ERROR] orders r8 gave up on payments @ 10:05:09;'
+         '10:05:10 ERROR gateway: finish 504 (r8);'
+         'lost 3 lines, buffer full;'
+         '10:06:00 [INFO] gateway req=r9 start GET /cart;'
+         '10:06:02 [INFO] gateway req=r9 finish 200;'
+         '10:07:00 INFO gateway: start GET /cart (r10);'
+         '10:07:01 INFO gateway: finish 200 (r10);'
+         '10:07:30 [INFO] gateway req=r11 start POST /order;'
+         '-- end of log --;';
+digits = '0123456789';
+p_time = SPAN(digits) . ev_hh ':' SPAN(digits) . ev_mm ':' SPAN(digits) . ev_ss;
+p_lvl  = 'INFO' . ev_lvl | 'WARN' . ev_lvl | 'ERROR' . ev_lvl;
+p_svc  = SPAN(&LCASE) . ev_svc;
+p_id   = 'r' SPAN(digits) | '-';
+p_shape1 = p_time ' [' p_lvl '] ' p_svc ' req=' p_id . ev_req ' ' REM . ev_msg;
+p_shape2 = p_time ' ' p_lvl ' ' p_svc ': ' ARB . ev_msg ' (' p_id . ev_req ')';
+p_shape3 = p_svc ' ' p_lvl ' ' p_time ' ' p_id . ev_req ' ' REM . ev_msg;
+p_shape4 = '[' p_lvl '] ' p_svc ' ' p_id . ev_req ' ' ARB . ev_msg ' @ ' p_time;
+p_event  = POS(0) (p_shape1 | p_shape2 | p_shape3 | p_shape4) RPOS(0);
+ev_tab = TABLE();
+ev_n = 0;
+ev_bad = 0;
+while (ev_log ? BREAK(';') . ev_line ';' = '') {
+    if (~(ev_line ? p_event)) {
+        ev_bad = ev_bad + 1;
+        OUTPUT = 'snocone: I cannot read "' ev_line '"';
+    } else {
+        ev_n = ev_n + 1;
+        if (IDENT(ev_req, '-')) ev_req = 'none';
+        ev_tab['time' ev_n] = ev_hh * 3600 + ev_mm * 60 + ev_ss;
+        ev_tab['level' ev_n] = ev_lvl; ev_tab['svc' ev_n] = ev_svc;
+        ev_tab['req' ev_n] = ev_req; ev_tab['msg' ev_n] = ev_msg;
+    }
+}
+OUTPUT = 'snocone: ' ev_n ' events read, ' ev_bad ' lines are no event';
+//  What Prolog asks for: the count of events of a kind, and one field of one event.
+function event_count(ev_kind) {
+    if (IDENT(ev_kind, 'read')) { event_count = ev_n; return; }
+    event_count = ev_bad;
+    return;
+}
+function event_field(ev_i, ev_name) { event_field = ev_tab[ev_name ev_i]; return; }
+//  What Icon asks for: seconds after midnight as a clock time.
+function hms(ev_s) {
+    hms = LPAD(ev_s / 3600, 2, '0') ':' LPAD(REMDR(ev_s, 3600) / 60, 2, '0') ':' LPAD(REMDR(ev_s, 60), 2, '0');
+    return;
+}
 ```
 
 ```Icon
@@ -138,7 +140,7 @@ end
 ```
 
 ```Prolog
-% The events, asked of SNOBOL4 one field at a time; words become atoms so a rule can name them.
+% The events, asked of Snocone one field at a time; words become atoms so a rule can name them.
 :- dynamic ev/6.
 load :- event_count(read, N), forall(between(1, N, I), load(I)).
 load(I) :- event_field(I, time, T), event_field(I, level, L0), event_field(I, svc, S0),
@@ -199,8 +201,8 @@ root_cause(R, Svc, T, Root, Proof) :-
 
 ```Icon
 global proved_open, proved_span, proved_root, proved_retry, proved_cascade
-global ev_n                  # SNOBOL4's count of events, read as a global
-global event_field, hms      # SNOBOL4's functions, declared because this section calls them
+global ev_n                  # Snocone's count of events, read as a global
+global event_field, hms      # Snocone's functions, declared because this section calls them
 record root_of(req, svc, secs, event, proof)
 
 # every event of a level, one after another
