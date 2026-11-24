@@ -14,13 +14,13 @@ demo09/rpn	chunk:01	dir:demo09
 demo10/anagram	chunk:01	dir:demo10	
 infinite_snobol4/inf_eval	chunk:01	dir:infinite_snobol4	
 infinite_snobol4/infinite_snobol4	core	core	fixtures
-mixes/Trip-Planner	chunk:01	dir:mixes	
-mixes/Sentence-Maker-and-Reader	chunk:01	dir:mixes	
-mixes/JSON-Round-Trip	chunk:01	dir:mixes	
-mixes/Family-Tree-Ask-in-English	chunk:01	dir:mixes	
-mixes/Family-Tree-Ask-and-Draw	chunk:01	dir:mixes	
-mixes/Calculus-Homework	chunk:01	dir:mixes	
-mixes/Calculator-Three-Languages	chunk:01	dir:mixes	
-mixes/Spreadsheet	chunk:01	dir:mixes	
-mixes/Log-Detective	chunk:01	dir:mixes	
-mixes/Library-Desk	chunk:01	dir:mixes	
+mixes/a_trip_planner_in_three_languages	chunk:01	dir:mixes	
+mixes/icon_writes_the_sentences_snobol4_reads_them	chunk:01	dir:mixes	
+mixes/json_in_and_out_snobol4_reads_it_icon_writes_it	chunk:01	dir:mixes	
+mixes/a_family_tree_you_can_ask_in_plain_english	chunk:01	dir:mixes	
+mixes/a_family_tree_you_can_ask_in_plain_english_drawn_as_svg	chunk:01	dir:mixes	
+mixes/calculus_homework_in_three_languages	chunk:01	dir:mixes	
+mixes/a_calculator_in_three_languages	chunk:01	dir:mixes	
+mixes/a_spreadsheet_in_three_languages	chunk:01	dir:mixes	
+mixes/a_log_detective_in_three_languages	chunk:01	dir:mixes	
+mixes/a_library_desk_in_four_languages	chunk:01	dir:mixes	

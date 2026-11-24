@@ -21,7 +21,7 @@ at a time. Prolog hands Icon its answers by calling Icon's procedures, `place` f
 in its order and `affects` for each pair of a cell and a cell that depends on it. Icon calls
 Snocone for each cell's postfix string, and reads Snocone's two counters as globals.
 
-THE ANSWER has no oracle. `Spreadsheet.ref` was written by hand from
+THE ANSWER has no oracle. `a_spreadsheet_in_three_languages.ref` was written by hand from
 the three sheets, each value worked out from its formula by arithmetic and each cycle read
 off the cell graph, and the program was then checked to print exactly that.
 
