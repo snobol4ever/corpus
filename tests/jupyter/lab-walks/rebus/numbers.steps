@@ -13,11 +13,21 @@
 {"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["fact", 2], ["fact", 3], ["main", 7]], "vars": {"n": "2"}}}
 {"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["fact", 3], ["fact", 3], ["main", 7]], "vars": {"n": "2"}}}
 {"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["fact", 2], ["fact", 3], ["fact", 3], ["main", 7]], "vars": {"n": "1"}}}
-{"act": "next", "expect": {"cell": 0, "line": 7, "frames": [["fib", 7], ["main", 7]], "vars": {"n": "3"}}}
-{"act": "next", "expect": {"cell": 0, "line": 8, "frames": [["fib", 8], ["main", 7]], "vars": {"n": "3"}}}
-{"act": "in", "expect": {"cell": 0, "line": 7, "frames": [["fib", 7], ["fib", 8], ["main", 7]], "vars": {"n": "2"}}}
-{"act": "out", "expect": {"cell": 2, "line": 8, "frames": [["main", 8]], "vars": {"i": "3"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["fact", 3], ["fact", 3], ["main", 7]], "vars": {"n": "2"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["fact", 3], ["main", 7]], "vars": {"n": "3"}}}
+{"act": "next", "expect": {"cell": 2, "line": 8, "frames": [["main", 8]], "vars": {"i": "3"}}}
 {"act": "continue", "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "4"}}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["fact", 2], ["main", 7]], "vars": {"n": "4"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["fact", 3], ["main", 7]], "vars": {"n": "4"}}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["fact", 2], ["fact", 3], ["main", 7]], "vars": {"n": "3"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["fact", 3], ["fact", 3], ["main", 7]], "vars": {"n": "3"}}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["fact", 2], ["fact", 3], ["fact", 3], ["main", 7]], "vars": {"n": "2"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["fact", 3], ["fact", 3], ["fact", 3], ["main", 7]], "vars": {"n": "2"}}}
+{"act": "in", "expect": {"cell": 0, "line": 2, "frames": [["fact", 2], ["fact", 3], ["fact", 3], ["fact", 3], ["main", 7]], "vars": {"n": "1"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["fact", 3], ["fact", 3], ["fact", 3], ["main", 7]], "vars": {"n": "2"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["fact", 3], ["fact", 3], ["main", 7]], "vars": {"n": "3"}}}
+{"act": "next", "expect": {"cell": 0, "line": 3, "frames": [["fact", 3], ["main", 7]], "vars": {"n": "4"}}}
+{"act": "next", "expect": {"cell": 2, "line": 8, "frames": [["main", 8]], "vars": {"i": "4"}}}
 {"act": "continue", "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "5"}}}
 {"act": "continue", "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "6"}}}
 {"act": "continue", "expect": {"cell": 2, "line": 7, "frames": [["main", 7]], "vars": {"i": "7"}}}
