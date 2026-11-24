@@ -2,8 +2,8 @@
 {"break": [0, 13]}
 {"run": 0, "expect": {"stopped": false}}
 {"run": 1, "expect": {"cell": 0, "line": 13, "frames": [["report", 13], ["hanoi", 22], ["hanoi", 19], ["main", 12]], "vars": {"disk": "1", "src": "1", "dst": "2"}, "output": ""}}
-{"act": "next", "expect": {"cell": 0, "line": 14, "frames": [["report", 14], ["hanoi", 22], ["hanoi", 19], ["main", 12]]}}
-{"act": "out", "expect": {"cell": 0, "line": 23, "frames": [["hanoi", 23], ["hanoi", 19], ["main", 12]], "output": "move 1: disk 1 A to C\n"}}
+{"act": "next", "expect": {"cell": 0, "line": 23, "frames": [["hanoi", 23], ["hanoi", 19], ["main", 12]]}}
+{"act": "out", "expect": {"cell": 0, "line": 20, "frames": [["hanoi", 20], ["main", 12]], "output": "move 1: disk 1 A to B\n"}}
 {"act": "continue", "expect": {"cell": 0, "line": 13, "frames": [["report", 13], ["hanoi", 22], ["main", 12]], "vars": {"disk": "2", "src": "1", "dst": "3"}, "output": "move 1: disk 1 A to B\n"}}
 {"act": "continue", "expect": {"cell": 0, "line": 13, "frames": [["report", 13], ["hanoi", 22], ["hanoi", 23], ["main", 12]], "vars": {"disk": "1", "src": "2", "dst": "3"}, "output": "move 1: disk 1 A to B\nmove 2: disk 2 A to C\n"}}
 {"act": "continue", "expect": {"cell": 0, "line": 13, "frames": [["report", 13], ["hanoi", 22], ["hanoi", 19], ["hanoi", 19], ["main", 12]], "vars": {"disk": "1", "src": "1", "dst": "3"}, "output": "move 1: disk 1 A to B\nmove 2: disk 2 A to C\nmove 3: disk 1 B to C\npegs 0 0 2\n"}}

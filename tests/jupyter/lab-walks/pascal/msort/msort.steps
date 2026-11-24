@@ -2,8 +2,8 @@
 {"break": [0, 41]}
 {"run": 0, "expect": {"stopped": false}}
 {"run": 1, "expect": {"cell": 0, "line": 41, "frames": [["merge", 41], ["msort", 51], ["msort", 49], ["msort", 49], ["msort", 49], ["main", 13]], "vars": {"lo": "1", "mid": "1", "hi": "2", "i": "2", "j": "3"}, "output": "before:   7   1   8   2   9   3  10   4  11   5  12   6\n"}}
-{"act": "next", "expect": {"cell": 0, "line": 42, "frames": [["merge", 42], ["msort", 51], ["msort", 49], ["msort", 49], ["msort", 49], ["main", 13]]}}
-{"act": "next", "expect": {"cell": 0, "line": 52, "frames": [["msort", 52], ["msort", 49], ["msort", 49], ["msort", 49], ["main", 13]]}}
+{"act": "next", "expect": {"cell": 0, "line": 50, "frames": [["msort", 50], ["msort", 49], ["msort", 49], ["main", 13]]}}
+{"act": "next", "expect": {"cell": 0, "line": 51, "frames": [["msort", 51], ["msort", 49], ["msort", 49], ["main", 13]]}}
 {"act": "continue", "expect": {"cell": 0, "line": 41, "frames": [["merge", 41], ["msort", 51], ["msort", 49], ["msort", 49], ["main", 13]], "vars": {"lo": "1", "mid": "2", "hi": "3", "i": "3", "j": "4"}}}
 {"act": "continue", "expect": {"cell": 0, "line": 41, "frames": [["merge", 41], ["msort", 51], ["msort", 49], ["msort", 50], ["msort", 49], ["main", 13]], "vars": {"lo": "4", "mid": "4", "hi": "5", "i": "5", "j": "6"}}}
 {"act": "continue", "expect": {"cell": 0, "line": 41, "frames": [["merge", 41], ["msort", 51], ["msort", 50], ["msort", 49], ["main", 13]], "vars": {"lo": "4", "mid": "5", "hi": "6", "i": "6", "j": "7"}}}
