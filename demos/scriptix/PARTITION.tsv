@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=32 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=13 chunks=1 sizes=31
+# shape: entries=22 features=2 ubiquitous=1(package) distinctive=1 core=1 clusters=12 chunks=1 sizes=21
 entry	part	cluster	shells
 demo01/hello	chunk:01	dir:demo01	
 demo02/wordcount	chunk:01	dir:demo02	
@@ -15,22 +15,12 @@ demo10/anagram	chunk:01	dir:demo10
 infinite_snobol4/inf_eval	chunk:01	dir:infinite_snobol4	
 infinite_snobol4/infinite_snobol4	core	core	fixtures
 mixes/Trip-Planner	chunk:01	dir:mixes	
-mixes/notebooks/Trip-Planner	chunk:01	dir:mixes/notebooks	
 mixes/Sentence-Maker-and-Reader	chunk:01	dir:mixes	
-mixes/notebooks/Sentence-Maker-and-Reader	chunk:01	dir:mixes/notebooks	
 mixes/JSON-Round-Trip	chunk:01	dir:mixes	
-mixes/notebooks/JSON-Round-Trip	chunk:01	dir:mixes/notebooks	
 mixes/Family-Tree-Ask-in-English	chunk:01	dir:mixes	
-mixes/notebooks/Family-Tree-Ask-in-English	chunk:01	dir:mixes/notebooks	
 mixes/Family-Tree-Ask-and-Draw	chunk:01	dir:mixes	
-mixes/notebooks/Family-Tree-Ask-and-Draw	chunk:01	dir:mixes/notebooks	
 mixes/Calculus-Homework	chunk:01	dir:mixes	
-mixes/notebooks/Calculus-Homework	chunk:01	dir:mixes/notebooks	
 mixes/Calculator-Three-Languages	chunk:01	dir:mixes	
-mixes/notebooks/Calculator-Three-Languages	chunk:01	dir:mixes/notebooks	
 mixes/Spreadsheet	chunk:01	dir:mixes	
-mixes/notebooks/Spreadsheet	chunk:01	dir:mixes/notebooks	
 mixes/Log-Detective	chunk:01	dir:mixes	
-mixes/notebooks/Log-Detective	chunk:01	dir:mixes/notebooks	
 mixes/Library-Desk	chunk:01	dir:mixes	
-mixes/notebooks/Library-Desk	chunk:01	dir:mixes/notebooks	

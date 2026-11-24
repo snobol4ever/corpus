@@ -1,3 +1,0 @@
-stdin	-
-scale	1
-why	the workhorse run: this polyglot mix reads no stdin (run with stdin from /dev/null it gives its answer, MEASURED by developer_16 2026-11-21 against the president's .ref) and no larger input exists, so the workhorse run is the document itself once at wall clock
