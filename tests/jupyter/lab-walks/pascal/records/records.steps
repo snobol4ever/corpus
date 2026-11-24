@@ -3,7 +3,7 @@
 {"break": [0, 41]}
 {"run": 0, "expect": {"stopped": false}}
 {"run": 1, "expect": {"cell": 0, "line": 28, "frames": [["restock", 28], ["main", 6]], "vars": {"k": "3", "n": "5"}, "output": "  bolt  10   3\n   nut  20   1\n  gear   5  12\n   cog   8   7\n"}}
-{"act": "next", "expect": {"cell": 0, "line": 29, "frames": [["restock", 29], ["main", 6]]}}
+{"act": "next", "expect": {"cell": 1, "line": 7, "frames": [["main", 7]]}}
 {"act": "continue", "expect": {"cell": 0, "line": 28, "frames": [["restock", 28], ["main", 7]], "vars": {"k": "4", "n": "2"}}}
 {"act": "continue", "expect": {"cell": 0, "line": 41, "frames": [["total", 41], ["main", 9]], "vars": {"k": "1"}, "output": "  bolt  10   3\n   nut  20   1\n  gear   5  12\n   cog   8   7\n  bolt  10   3\n   nut  20   1\n  gear  10  12\n   cog  10   7\n"}}
 {"act": "continue", "expect": {"cell": 0, "line": 41, "frames": [["total", 41], ["total", 41], ["main", 9]], "vars": {"k": "2"}}}
