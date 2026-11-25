@@ -18,7 +18,7 @@
 {"at": [0, 12, 13], "act": "highlight", "expect": {"places": [[0, 12, 13, "write"], [0, 13, 4, "write"], [0, 15, 16, "read"], [0, 15, 26, "write"], [0, 16, 11, "read"]]}}
 {"at": [0, 20, 10], "act": "highlight", "expect": {"places": [[0, 20, 10, "write"], [0, 21, 4, "write"], [0, 23, 22, "read"], [0, 27, 33, "read"], [0, 28, 4, "read"]]}}
 {"at": [0, 1, 18], "act": "highlight", "expect": {"places": [[0, 1, 18, "write"], [0, 3, 4, "read"]]}}
-{"act": "outline", "expect": {"symbols": [["words", "Function", 0, 1, null], ["longest", "Function", 0, 11, null], ["main", "Function", 0, 19, null]]}}
+{"act": "outline", "expect": {"symbols": [["words", "Function", 0, 1, null], ["s", "Variable", 0, 1, "words"], ["w", "Variable", 0, 2, "words"], ["longest", "Function", 0, 11, null], ["s", "Variable", 0, 11, "longest"], ["w", "Variable", 0, 12, "longest"], ["best", "Variable", 0, 12, "longest"], ["main", "Function", 0, 19, null], ["text", "Variable", 0, 20, "main"], ["w", "Variable", 0, 20, "main"], ["n", "Variable", 0, 20, "main"]]}}
 {"at": [0, 1, 1], "act": "colouring", "expect": {"class": "keyword", "token": "procedure"}}
 {"at": [0, 1, 11], "act": "colouring", "expect": {"class": "function", "token": "words"}}
 {"at": [0, 2, 4], "act": "colouring", "expect": {"class": "keyword", "token": "local"}}

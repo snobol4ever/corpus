@@ -29,7 +29,7 @@
 {"at": [0, 18, 11], "act": "highlight", "expect": {"places": [[0, 18, 11, "write"], [0, 35, 9, "read"]]}}
 {"at": [0, 3, 15], "act": "highlight", "expect": {"places": [[0, 3, 15, "write"], [0, 4, 14, "read"], [0, 5, 7, "read"], [0, 7, 7, "read"], [0, 8, 11, "read"]]}}
 {"at": [0, 12, 10], "act": "highlight", "expect": {"places": [[0, 12, 10, "write"], [0, 13, 4, "write"], [0, 14, 29, "write"], [0, 15, 11, "read"]]}}
-{"act": "outline", "expect": {"symbols": [["item", "Struct", 0, 1, null], ["add", "Function", 0, 3, null], ["value", "Function", 0, 11, null], ["report", "Function", 0, 18, null], ["main", "Function", 0, 28, null]]}}
+{"act": "outline", "expect": {"symbols": [["item", "Struct", 0, 1, null], ["name", "Field", 0, 1, "item"], ["qty", "Field", 0, 1, "item"], ["price", "Field", 0, 1, "item"], ["add", "Function", 0, 3, null], ["stock", "Variable", 0, 3, "add"], ["name", "Variable", 0, 3, "add"], ["qty", "Variable", 0, 3, "add"], ["price", "Variable", 0, 3, "add"], ["value", "Function", 0, 11, null], ["stock", "Variable", 0, 11, "value"], ["total", "Variable", 0, 12, "value"], ["k", "Variable", 0, 12, "value"], ["report", "Function", 0, 18, null], ["stock", "Variable", 0, 18, "report"], ["pairs", "Variable", 0, 19, "report"], ["p", "Variable", 0, 19, "report"], ["it", "Variable", 0, 19, "report"], ["main", "Function", 0, 28, null], ["stock", "Variable", 0, 29, "main"], ["n", "Variable", 0, 29, "main"]]}}
 {"at": [0, 1, 1], "act": "colouring", "expect": {"class": "keyword", "token": "record"}}
 {"at": [0, 1, 33], "act": "colouring", "expect": {"class": "comment", "token": "# one stock line"}}
 {"at": [0, 1, 8], "act": "colouring", "expect": {"class": "type", "token": "item"}}
