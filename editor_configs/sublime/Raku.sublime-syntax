@@ -258,6 +258,15 @@ contexts:
     # parser_raku.sc:259 a word followed by an open bracket is a call
     - match: '\b{{name}}(?=\()'
       scope: entity.name.function.call.raku
+    # parser_raku.sc:299 a class name at a constructor call (Stack.new, Stack.^new): the name is a type, the method after it is the method call
+    - match: '\b[A-Z][A-Za-z0-9_]*(?:::[A-Za-z_][A-Za-z0-9_]*)*(?=\.\^?new\b)'
+      scope: entity.name.type.class.raku
+    # parser_raku.sc:213 a capitalised type named before a variable (my Stack $s, a parameter's type): the type_opt of a declaration
+    - match: '\b[A-Z][A-Za-z0-9_]*(?:::[A-Za-z_][A-Za-z0-9_]*)*(?=\s+[$@%&][A-Za-z_!*.^])'
+      scope: entity.name.type.class.raku
+    # parser_raku.sc:259 a bareword followed by an argument is a call (word_call's la_args): a callable parameter used as a call (given p $mid) is such a call
+    - match: '(?<![A-Za-z0-9_-])[a-z_][A-Za-z0-9_]*(?=\s+[$@%&][A-Za-z_!*.^])'
+      scope: entity.name.function.call.raku
 
   variables:
     # parser_raku.sc:72 a sigilless declaration \name

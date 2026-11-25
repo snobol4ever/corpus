@@ -306,6 +306,18 @@
      "name": "entity.name.function.call.raku"
     },
     {
+     "match": "\\b[A-Z][A-Za-z0-9_]*(?:::[A-Za-z_][A-Za-z0-9_]*)*(?=\\.\\^?new\\b)",
+     "name": "entity.name.type.class.raku"
+    },
+    {
+     "match": "\\b[A-Z][A-Za-z0-9_]*(?:::[A-Za-z_][A-Za-z0-9_]*)*(?=\\s+[$@%&][A-Za-z_!*.^])",
+     "name": "entity.name.type.class.raku"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_-])[a-z_][A-Za-z0-9_]*(?=\\s+[$@%&][A-Za-z_!*.^])",
+     "name": "entity.name.function.call.raku"
+    },
+    {
      "match": "\\\\[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*",
      "name": "variable.other.sigilless.raku"
     },

@@ -300,6 +300,18 @@
      "scope": "entity.name.function.call.raku"
     },
     {
+     "match": "\\b[A-Z][A-Za-z0-9_]*(?:::[A-Za-z_][A-Za-z0-9_]*)*(?=\\.\\^?new\\b)",
+     "scope": "entity.name.type.class.raku"
+    },
+    {
+     "match": "\\b[A-Z][A-Za-z0-9_]*(?:::[A-Za-z_][A-Za-z0-9_]*)*(?=\\s+[$@%&][A-Za-z_!*.^])",
+     "scope": "entity.name.type.class.raku"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_-])[a-z_][A-Za-z0-9_]*(?=\\s+[$@%&][A-Za-z_!*.^])",
+     "scope": "entity.name.function.call.raku"
+    },
+    {
      "match": "\\\\[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*",
      "scope": "variable.other.sigilless.raku"
     },
@@ -645,6 +657,18 @@
     },
     {
      "match": "\\b[A-Za-z_][A-Za-z0-9_]*(?:(?:[-'][A-Za-z_][A-Za-z0-9_]*)|(?:::[A-Za-z_][A-Za-z0-9_]*))*(?=\\()",
+     "scope": "entity.name.function.call.raku"
+    },
+    {
+     "match": "\\b[A-Z][A-Za-z0-9_]*(?:::[A-Za-z_][A-Za-z0-9_]*)*(?=\\.\\^?new\\b)",
+     "scope": "entity.name.type.class.raku"
+    },
+    {
+     "match": "\\b[A-Z][A-Za-z0-9_]*(?:::[A-Za-z_][A-Za-z0-9_]*)*(?=\\s+[$@%&][A-Za-z_!*.^])",
+     "scope": "entity.name.type.class.raku"
+    },
+    {
+     "match": "(?<![A-Za-z0-9_-])[a-z_][A-Za-z0-9_]*(?=\\s+[$@%&][A-Za-z_!*.^])",
      "scope": "entity.name.function.call.raku"
     }
    ]
