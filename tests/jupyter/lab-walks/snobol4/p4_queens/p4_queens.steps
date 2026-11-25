@@ -15,5 +15,5 @@
 {"act": "next", "expect": {"cell": 1, "line": 5, "frames": [["SOLVE", 5], ["SOLVE", 6], ["main", 1]], "vars": {"I": "3"}}}
 {"act": "next", "expect": {"cell": 1, "line": 6, "frames": [["SOLVE", 6], ["SOLVE", 6], ["main", 1]], "vars": {"I": "3"}}}
 {"act": "in", "expect": {"cell": 1, "line": 2, "frames": [["SOLVE", 2], ["SOLVE", 6], ["SOLVE", 6], ["main", 1]]}}
-{"break": [1, 6]}
+{"break": [1, 6], "remove": true}
 {"act": "continue", "expect": {"stopped": false}}
