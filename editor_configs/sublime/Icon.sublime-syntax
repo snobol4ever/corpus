@@ -193,17 +193,17 @@ contexts:
 
     # ---- calls & atoms ------------------------------------------------------
     # parser_icon.sc:223 parser_icon.sc:226 -- a call is an Id and its arguments; a builtin name is coloured support.function.
-    - match: \b({{builtin_function}})(\()
+    - match: \b({{builtin_function}})([ \t]*)(\()
       captures:
         1: support.function.icn
-        2: punctuation.section.group.begin.icn
+        3: punctuation.section.group.begin.icn
       push: brackets
 
     # parser_icon.sc:224 parser_icon.sc:226 -- any other Id before a parenthesis.
-    - match: \b({{ident}})(\()
+    - match: \b({{ident}})([ \t]*)(\()
       captures:
-        1: entity.name.class.forward-decl.icn
-        2: punctuation.section.group.begin.icn
+        1: entity.name.function.icn
+        3: punctuation.section.group.begin.icn
       push: brackets
 
     # parser_icon.sc:13 -- a plain name.
@@ -457,16 +457,16 @@ contexts:
         1: punctuation.definition.variable.begin.icn
         2: constant.other.icn
     # parser_icon.sc:223 parser_icon.sc:226 -- a builtin call.
-    - match: \b({{builtin_function}})(\()
+    - match: \b({{builtin_function}})([ \t]*)(\()
       captures:
         1: support.function.icn
-        2: punctuation.section.group.begin.icn
+        3: punctuation.section.group.begin.icn
       push: brackets
     # parser_icon.sc:224 parser_icon.sc:226 -- any other call.
-    - match: \b({{ident}})(\()
+    - match: \b({{ident}})([ \t]*)(\()
       captures:
-        1: entity.name.class.forward-decl.icn
-        2: punctuation.section.group.begin.icn
+        1: entity.name.function.icn
+        3: punctuation.section.group.begin.icn
       push: brackets
     # parser_icon.sc:13 -- a plain name.
     - match: \b{{ident}}\b
