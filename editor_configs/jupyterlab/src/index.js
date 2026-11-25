@@ -223,11 +223,13 @@ const pascalCells = {
   id: 'scrip-highlight:pascal-cells',
   description: 'The Pascal cells of a SCRIP notebook are coloured by our Pascal grammar, not the Lab built-in Pascal mode.',
   autoStart: true,
-  requires: [INotebookTracker],
-  activate: (app, notebooks) => {
-    const fix = panel => {
+  requires: [INotebookTracker, IEditorLanguageRegistry],
+  activate: (app, notebooks, languages) => {
+    // THE LEGACY LOAD FIRST (the cao's cure of 2026-11-25 17:0x, on the Lab's CodeMirrorEditor._onMimeTypeChanged, which reconfigures on every mime change with no check that the mime is still the one it loaded): the Lab's own Pascal mode is loaded when a notebook first sets text/x-pascal, and its reconfigure can land after ours. Awaiting that same load first lets the Lab's reconfigure run before ours is asked for, so ours lands last.
+    const fix = async panel => {
       try {
         if (!ours(panel)) return;
+        await languages.getLanguage('text/x-pascal');
         panel.content.widgets.forEach(cell => {
           const ed = cell.editor;
           if (cell.model.type === 'code' && ed && ed.model && ed.model.mimeType === 'text/x-pascal') ed.model.mimeType = SCRIP_PASCAL;
