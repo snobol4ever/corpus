@@ -1,12 +1,12 @@
 # queue_and_tree, the whole program in ONE cell, Unicon entry, developer_15 2026-11-22. THE LAW OF EACH STEP, worked out from the program and unicon 13.3's own image() BEFORE any run:
 # records print record node_1(2), the object object Queue_1(1), an integer 7, null &null; build creates a node BEFORE it recurses, so the root is node_1, n1 node_2, n11 node_3, n12 node_4, n2 node_5, n21 node_6, n22 node_7;
 # the breadth-first visits are n, n1, n2, n11, n12, n21, n22, the nodes 1, 2, 5, 3, 4, 6, 7, and seen counts 1 to 7. The breakpoint is the visit's write (line 36), inside the loop of walk: a break near the top of a long cell is lost by the driver (said to the cao).
-# A step in at the every of line 37 enters Queue_push, the frame Unicon names it, with the item the first kid; a step out of it leaves the every's other pushes behind it (they are the same depth, never a stop) and stops at the next statement of walk, n := q.take() at line 34 (the while's condition is part of the while statement, not a statement of its own; my first expectation, line 33, was the walker's error and is struck).
+# A step in at the every of line 37 enters Queue_push, the frame Unicon names it, with the item the first kid; a step out of it leaves the every's other pushes behind it (they are the same depth, never a stop) and stops at the while head, line 33, the turn of the back edge after the every ends (the cto's ruling 2026-11-25: a loop of n turns stops at its head n+1 times, so the head is a stop here).
 {"break": [0, 36]}
 {"run": 0, "expect": {"cell": 0, "line": 36, "frames": [["walk", 36], ["main", 8]], "vars": {"root": "record node_1(2)", "q": "object Queue_1(1)", "n": "record node_1(2)", "seen": "1", "k": "&null"}, "output": "nodes: 7\n"}}
 {"act": "next", "expect": {"cell": 0, "line": 37, "frames": [["walk", 37], ["main", 8]], "vars": {"seen": "1"}, "output": "nodes: 7\nvisit n\n"}}
 {"act": "in", "expect": {"cell": 0, "line": 44, "frames": [["Queue_push", 44], ["walk", 37], ["main", 8]], "vars": {"item": "record node_2(2)"}, "output": "nodes: 7\nvisit n\n"}}
-{"act": "out", "expect": {"cell": 0, "line": 34, "frames": [["walk", 34], ["main", 8]], "vars": {"seen": "1"}, "output": "nodes: 7\nvisit n\n"}}
+{"act": "out", "expect": {"cell": 0, "line": 33, "frames": [["walk", 33], ["main", 8]], "vars": {"seen": "1"}, "output": "nodes: 7\nvisit n\n"}}
 {"act": "continue", "expect": {"cell": 0, "line": 36, "frames": [["walk", 36], ["main", 8]], "vars": {"n": "record node_2(2)", "seen": "2"}, "output": "nodes: 7\nvisit n\n"}}
 {"act": "continue", "expect": {"cell": 0, "line": 36, "frames": [["walk", 36], ["main", 8]], "vars": {"n": "record node_5(2)", "seen": "3"}, "output": "nodes: 7\nvisit n\nvisit n1\n"}}
 {"act": "continue", "expect": {"cell": 0, "line": 36, "frames": [["walk", 36], ["main", 8]], "vars": {"n": "record node_3(2)", "seen": "4"}, "output": "nodes: 7\nvisit n\nvisit n1\nvisit n2\n"}}
