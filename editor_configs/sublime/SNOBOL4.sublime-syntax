@@ -280,10 +280,10 @@ contexts:
 ################################################################################
   data_proto_string:
     - match: \"  # parser_snobol4.sc:68 parser_snobol4.sc:176
-      scope: punctuation.definition.annotation.begin.sno
+      scope: string.quoted.double.sno
       push: data_proto_double_quoted_string
     - match: \'  # parser_snobol4.sc:69 parser_snobol4.sc:176
-      scope: punctuation.definition.annotation.begin.sno
+      scope: string.quoted.single.sno
       push: data_proto_single_quoted_string
 
   data_proto_double_quoted_string:
@@ -294,7 +294,7 @@ contexts:
       scope: entity.name.function.sno
     - include: term
     - match: \"  # parser_snobol4.sc:68
-      scope: punctuation.definition.annotation.end.sno
+      scope: string.quoted.double.sno
       pop: true
 #   - match: $
 #     pop: true
@@ -307,7 +307,7 @@ contexts:
       scope: entity.name.function.sno
     - include: term
     - match: \'  # parser_snobol4.sc:69
-      scope: punctuation.definition.annotation.end.sno
+      scope: string.quoted.single.sno
       pop: true
 #   - match: $
 #     pop: true
@@ -315,10 +315,10 @@ contexts:
 ################################################################################
   function_proto_string:
     - match: \"  # parser_snobol4.sc:68 parser_snobol4.sc:176
-      scope: punctuation.definition.annotation.begin.sno
+      scope: string.quoted.double.sno
       push: function_proto_double_quoted_string
     - match: \'  # parser_snobol4.sc:69 parser_snobol4.sc:176
-      scope: punctuation.definition.annotation.begin.sno
+      scope: string.quoted.single.sno
       push: function_proto_single_quoted_string
 
   function_proto_double_quoted_string:
@@ -329,7 +329,7 @@ contexts:
       scope: variable.other.sno
     - include: term
     - match: \"  # parser_snobol4.sc:68
-      scope: punctuation.definition.annotation.end.sno
+      scope: string.quoted.double.sno
       pop: true
 #   - match: $
 #     pop: true
@@ -342,7 +342,7 @@ contexts:
       scope: variable.other.sno
     - include: term
     - match: \'  # parser_snobol4.sc:69
-      scope: punctuation.definition.annotation.end.sno
+      scope: string.quoted.single.sno
       pop: true
 #   - match: $
 #     pop: true

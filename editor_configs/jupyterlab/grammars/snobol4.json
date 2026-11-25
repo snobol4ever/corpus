@@ -382,7 +382,7 @@
     {
      "match": "\\\"",
      "pop": 1,
-     "scope": "punctuation.definition.annotation.end.sno"
+     "scope": "string.quoted.double.sno"
     }
    ]
   },
@@ -497,7 +497,7 @@
     {
      "match": "\\'",
      "pop": 1,
-     "scope": "punctuation.definition.annotation.end.sno"
+     "scope": "string.quoted.single.sno"
     }
    ]
   },
@@ -510,14 +510,14 @@
      "push": [
       "data_proto_double_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.double.sno"
     },
     {
      "match": "\\'",
      "push": [
       "data_proto_single_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.single.sno"
     }
    ]
   },
@@ -534,14 +534,14 @@
      "push": [
       "data_proto_double_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.double.sno"
     },
     {
      "match": "\\'",
      "push": [
       "data_proto_single_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.single.sno"
     },
     {
      "captures": {
@@ -767,7 +767,7 @@
     {
      "match": "\\\"",
      "pop": 1,
-     "scope": "punctuation.definition.annotation.end.sno"
+     "scope": "string.quoted.double.sno"
     }
    ]
   },
@@ -882,7 +882,7 @@
     {
      "match": "\\'",
      "pop": 1,
-     "scope": "punctuation.definition.annotation.end.sno"
+     "scope": "string.quoted.single.sno"
     }
    ]
   },
@@ -895,14 +895,14 @@
      "push": [
       "function_proto_double_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.double.sno"
     },
     {
      "match": "\\'",
      "push": [
       "function_proto_single_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.single.sno"
     }
    ]
   },
@@ -919,14 +919,14 @@
      "push": [
       "function_proto_double_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.double.sno"
     },
     {
      "match": "\\'",
      "push": [
       "function_proto_single_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.single.sno"
     },
     {
      "captures": {
@@ -1488,14 +1488,14 @@
      "push": [
       "data_proto_double_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.double.sno"
     },
     {
      "match": "\\'",
      "push": [
       "data_proto_single_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.single.sno"
     },
     {
      "captures": {
@@ -1621,14 +1621,14 @@
      "push": [
       "function_proto_double_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.double.sno"
     },
     {
      "match": "\\'",
      "push": [
       "function_proto_single_quoted_string"
      ],
-     "scope": "punctuation.definition.annotation.begin.sno"
+     "scope": "string.quoted.single.sno"
     },
     {
      "captures": {
