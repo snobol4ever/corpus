@@ -1,20 +1,20 @@
 # PLACE SCRIPT of records (developer_02, 2026-11-23): cell, line, col (1-based) of the word, the act, what the person must meet. Cells count from 0 among the code cells. Written from the program, to be read by the cqo.
-{"cell": 1, "line": 6, "col": 3, "act": "definition", "expect": {"cell": 0, "line": 26}, "word": ""}
-{"cell": 1, "line": 9, "col": 21, "act": "definition", "expect": {"cell": 0, "line": 36}, "word": ""}
-{"cell": 1, "line": 4, "col": 3, "act": "definition", "expect": {"cell": 0, "line": 18}, "word": ""}
-{"cell": 0, "line": 41, "col": 46, "act": "definition", "expect": {"cell": 0, "line": 36}, "word": ""}
-{"cell": 0, "line": 21, "col": 3, "act": "definition", "expect": {"cell": 0, "line": 11}, "word": ""}
-{"cell": 0, "line": 28, "col": 3, "act": "definition", "expect": {"cell": 0, "line": 9}, "word": ""}
-{"cell": 0, "line": 33, "col": 17, "act": "definition", "expect": {"cell": 0, "line": 10}, "word": ""}
-{"cell": 0, "line": 28, "col": 34, "act": "definition", "expect": {"cell": 0, "line": 26}, "word": ""}
-{"cell": 1, "line": 6, "col": 3, "act": "hover", "expect": {"text": "restock: a procedure of 2 arguments, defined at line 26"}, "word": ""}
-{"cell": 1, "line": 9, "col": 21, "act": "hover", "expect": {"text": "total: a function of 1 argument, defined at line 36"}, "word": ""}
-{"cell": 0, "line": 33, "col": 7, "act": "hover", "expect": {"text": "k: integer"}, "word": ""}
-{"cell": 1, "line": 9, "col": 26, "act": "completion", "expect": {"items": ["total"]}, "word": ""}
-{"cell": 0, "line": 1, "col": 1, "act": "diagnostics", "expect": {"messages": []}, "word": ""}
-{"cell": 1, "line": 1, "col": 1, "act": "diagnostics", "expect": {"messages": []}, "word": ""}
-{"cell": 1, "line": 9, "col": 21, "act": "references", "expect": {"places": [[0, 36], [0, 41], [1, 9]]}, "word": "total"}
-{"cell": 0, "line": 33, "col": 17, "act": "highlight", "expect": {"cell": 0, "lines": [10, 16, 20, 33, 38]}, "word": "count"}
-{"cell": 1, "line": 6, "col": 3, "act": "signature_help", "expect": {"label": "restock(k, n: integer)"}, "word": "restock"}
-{"cell": 1, "line": 6, "col": 3, "act": "rename", "expect": {"to": "refill", "cells": [0, 1]}, "word": "restock"}
-{"cell": 0, "line": 1, "col": 1, "act": "outline", "expect": {"names": ["Item", "items", "count", "put", "setup", "restock", "show", "total"]}, "word": ""}
+{"at": [1, 6, 3], "act": "definition", "expect": {"cell": 0, "line": 26}, "word": ""}
+{"at": [1, 9, 21], "act": "definition", "expect": {"cell": 0, "line": 36}, "word": ""}
+{"at": [1, 4, 3], "act": "definition", "expect": {"cell": 0, "line": 18}, "word": ""}
+{"at": [0, 41, 46], "act": "definition", "expect": {"cell": 0, "line": 36}, "word": ""}
+{"at": [0, 21, 3], "act": "definition", "expect": {"cell": 0, "line": 11}, "word": ""}
+{"at": [0, 28, 3], "act": "definition", "expect": {"cell": 0, "line": 9}, "word": ""}
+{"at": [0, 33, 17], "act": "definition", "expect": {"cell": 0, "line": 10}, "word": ""}
+{"at": [0, 28, 34], "act": "definition", "expect": {"cell": 0, "line": 26}, "word": ""}
+{"at": [1, 6, 3], "act": "hover", "expect": {"text": "restock: a procedure of 2 arguments, defined at line 26"}, "word": ""}
+{"at": [1, 9, 21], "act": "hover", "expect": {"text": "total: a function of 1 argument, defined at line 36"}, "word": ""}
+{"at": [0, 33, 7], "act": "hover", "expect": {"text": "k: integer"}, "word": ""}
+{"at": [1, 9, 26], "act": "completion", "expect": {"items": ["total"]}, "word": ""}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}, "word": ""}
+{"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}, "word": ""}
+{"at": [1, 9, 21], "act": "references", "expect": {"places": [[0, 36], [0, 41], [1, 9]]}, "word": "total"}
+{"at": [0, 33, 17], "act": "highlight", "expect": {"cell": 0, "lines": [10, 16, 20, 33, 38]}, "word": "count"}
+{"at": [1, 6, 3], "act": "signature_help", "expect": {"label": "restock(k, n: integer)"}, "word": "restock"}
+{"at": [1, 6, 3], "act": "rename", "expect": {"to": "refill", "cells": [0, 1]}, "word": "restock"}
+{"at": [0, 1, 1], "act": "outline", "expect": {"names": ["Item", "items", "count", "put", "setup", "restock", "show", "total"]}, "word": ""}

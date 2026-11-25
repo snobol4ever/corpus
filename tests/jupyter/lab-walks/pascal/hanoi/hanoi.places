@@ -1,20 +1,20 @@
 # PLACE SCRIPT of hanoi (developer_02, 2026-11-23): cell, line, col (1-based) of the word, the act, what the person must meet. Cells count from 0 among the code cells. Written from the program, to be read by the cqo.
-{"cell": 1, "line": 12, "col": 5, "act": "definition", "expect": {"cell": 0, "line": 15}, "word": ""}
-{"cell": 0, "line": 19, "col": 5, "act": "definition", "expect": {"cell": 0, "line": 15}, "word": ""}
-{"cell": 0, "line": 22, "col": 5, "act": "definition", "expect": {"cell": 0, "line": 10}, "word": ""}
-{"cell": 0, "line": 13, "col": 49, "act": "definition", "expect": {"cell": 0, "line": 6}, "word": ""}
-{"cell": 0, "line": 20, "col": 5, "act": "definition", "expect": {"cell": 0, "line": 4}, "word": ""}
-{"cell": 1, "line": 11, "col": 5, "act": "definition", "expect": {"cell": 0, "line": 4}, "word": ""}
-{"cell": 1, "line": 8, "col": 3, "act": "definition", "expect": {"cell": 0, "line": 5}, "word": ""}
-{"cell": 0, "line": 22, "col": 5, "act": "hover", "expect": {"text": "report: a procedure of 3 arguments, defined at line 10"}, "word": ""}
-{"cell": 0, "line": 19, "col": 5, "act": "hover", "expect": {"text": "hanoi: a procedure of 4 arguments, defined at line 15"}, "word": ""}
-{"cell": 0, "line": 13, "col": 49, "act": "hover", "expect": {"text": "pegname: a function of 1 argument, defined at line 6"}, "word": ""}
-{"cell": 0, "line": 17, "col": 6, "act": "hover", "expect": {"text": "n: integer"}, "word": ""}
-{"cell": 1, "line": 15, "col": 26, "act": "completion", "expect": {"items": ["moves"]}, "word": ""}
-{"cell": 0, "line": 1, "col": 1, "act": "diagnostics", "expect": {"messages": []}, "word": ""}
-{"cell": 1, "line": 1, "col": 1, "act": "diagnostics", "expect": {"messages": []}, "word": ""}
-{"cell": 0, "line": 19, "col": 5, "act": "references", "expect": {"places": [[0, 15], [0, 19], [0, 23], [1, 12]]}, "word": "hanoi"}
-{"cell": 0, "line": 12, "col": 3, "act": "highlight", "expect": {"cell": 0, "lines": [5, 12, 13]}, "word": "moves"}
-{"cell": 1, "line": 12, "col": 5, "act": "signature_help", "expect": {"label": "hanoi(n, src, dst, via: integer)"}, "word": "hanoi"}
-{"cell": 1, "line": 8, "col": 3, "act": "rename", "expect": {"to": "total", "cells": [0, 1]}, "word": "moves"}
-{"cell": 0, "line": 1, "col": 1, "act": "outline", "expect": {"names": ["peg", "moves", "pegname", "report", "hanoi"]}, "word": ""}
+{"at": [1, 12, 5], "act": "definition", "expect": {"cell": 0, "line": 15}, "word": ""}
+{"at": [0, 19, 5], "act": "definition", "expect": {"cell": 0, "line": 15}, "word": ""}
+{"at": [0, 22, 5], "act": "definition", "expect": {"cell": 0, "line": 10}, "word": ""}
+{"at": [0, 13, 49], "act": "definition", "expect": {"cell": 0, "line": 6}, "word": ""}
+{"at": [0, 20, 5], "act": "definition", "expect": {"cell": 0, "line": 4}, "word": ""}
+{"at": [1, 11, 5], "act": "definition", "expect": {"cell": 0, "line": 4}, "word": ""}
+{"at": [1, 8, 3], "act": "definition", "expect": {"cell": 0, "line": 5}, "word": ""}
+{"at": [0, 22, 5], "act": "hover", "expect": {"text": "report: a procedure of 3 arguments, defined at line 10"}, "word": ""}
+{"at": [0, 19, 5], "act": "hover", "expect": {"text": "hanoi: a procedure of 4 arguments, defined at line 15"}, "word": ""}
+{"at": [0, 13, 49], "act": "hover", "expect": {"text": "pegname: a function of 1 argument, defined at line 6"}, "word": ""}
+{"at": [0, 17, 6], "act": "hover", "expect": {"text": "n: integer"}, "word": ""}
+{"at": [1, 15, 26], "act": "completion", "expect": {"items": ["moves"]}, "word": ""}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}, "word": ""}
+{"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}, "word": ""}
+{"at": [0, 19, 5], "act": "references", "expect": {"places": [[0, 15], [0, 19], [0, 23], [1, 12]]}, "word": "hanoi"}
+{"at": [0, 12, 3], "act": "highlight", "expect": {"cell": 0, "lines": [5, 12, 13]}, "word": "moves"}
+{"at": [1, 12, 5], "act": "signature_help", "expect": {"label": "hanoi(n, src, dst, via: integer)"}, "word": "hanoi"}
+{"at": [1, 8, 3], "act": "rename", "expect": {"to": "total", "cells": [0, 1]}, "word": "moves"}
+{"at": [0, 1, 1], "act": "outline", "expect": {"names": ["peg", "moves", "pegname", "report", "hanoi"]}, "word": ""}
