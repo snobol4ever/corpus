@@ -198,6 +198,14 @@ contexts:
       captures:
         2: keyword.operator.logical.sc
 
+    # parser_snocone.sc:63 to :66 and :147 -- the binary + - * / of Expr6t, Expr8t and Expr9t, spaced or not.
+    - match: '[+\-*/]'
+      scope: keyword.operator.arithmetic.sc
+
+    # parser_snocone.sc:155 -- the binary scan operator ?, spaced or not.
+    - match: '\?'
+      scope: keyword.operator.logical.sc
+
 ################################################################################
 # Indirect-variable references: $'name' and $"name" — same as SNOBOL4.
 ################################################################################

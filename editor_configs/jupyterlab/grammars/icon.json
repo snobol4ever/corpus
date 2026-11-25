@@ -67,7 +67,7 @@
     },
     {
      "captures": {
-      "1": "punctuation.definition.keyword.begin.icn",
+      "1": "constant.language.icn",
       "2": "constant.language.icn"
      },
      "match": "(&)((?:allocated|ascii|clock|collections|col|control|cset|current|dateline|date|digits|dump|errornumber|errortext|errorvalue|errout|error|events|e|fail|features|file|host|input|interval|lcase|ldrag|letters|level|line|lpress|lrelease|main|mdrag|meta|mpress|mrelease|null|output|phi|pi|pos|progname|random|rdrag|regions|resize|row|rpress|rrelease|scrip|shift|source|storage|subject|time|trace|ucase|version|window|x|y))\\b"
@@ -450,7 +450,7 @@
     },
     {
      "captures": {
-      "1": "punctuation.definition.keyword.begin.icn",
+      "1": "constant.language.icn",
       "2": "constant.language.icn"
      },
      "match": "(&)((?:allocated|ascii|clock|collections|col|control|cset|current|dateline|date|digits|dump|errornumber|errortext|errorvalue|errout|error|events|e|fail|features|file|host|input|interval|lcase|ldrag|letters|level|line|lpress|lrelease|main|mdrag|meta|mpress|mrelease|null|output|phi|pi|pos|progname|random|rdrag|regions|resize|row|rpress|rrelease|scrip|shift|source|storage|subject|time|trace|ucase|version|window|x|y))\\b"

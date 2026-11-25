@@ -159,6 +159,14 @@
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
     },
     {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
+    },
+    {
      "match": "\\$\\'([^\\']*)\\'",
      "scope": "string.quoted.single.sc"
     },
@@ -307,6 +315,14 @@
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
     },
     {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
+    },
+    {
      "match": "\\\"",
      "pop": 1,
      "scope": "punctuation.definition.annotation.end.sc"
@@ -424,6 +440,14 @@
       "2": "keyword.operator.logical.sc"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
     },
     {
      "match": "\\'",
@@ -587,6 +611,14 @@
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
     },
     {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
+    },
+    {
      "match": "\\(",
      "push": [
       "data_prototype_brackets"
@@ -722,6 +754,14 @@
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
     },
     {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
+    },
+    {
      "match": "\\\"",
      "pop": 1,
      "scope": "punctuation.definition.annotation.end.sc"
@@ -839,6 +879,14 @@
       "2": "keyword.operator.logical.sc"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
     },
     {
      "match": "\\'",
@@ -1000,6 +1048,14 @@
       "2": "keyword.operator.logical.sc"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
     },
     {
      "match": "\\(",
@@ -1265,6 +1321,14 @@
       "2": "keyword.operator.logical.sc"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
     }
    ]
   },
@@ -1402,6 +1466,14 @@
       "2": "keyword.operator.logical.sc"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
     },
     {
      "match": "\\$\\'([^\\']*)\\'",
@@ -1555,6 +1627,14 @@
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
     },
     {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
+    },
+    {
      "match": "\\$\\'([^\\']*)\\'",
      "scope": "string.quoted.single.sc"
     },
@@ -1706,6 +1786,14 @@
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
     },
     {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
+    },
+    {
      "match": "\\$\\'([^\\']*)\\'",
      "scope": "string.quoted.single.sc"
     },
@@ -1822,6 +1910,14 @@
       "2": "keyword.operator.logical.sc"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
     },
     {
      "match": "\\$\\'([^\\']*)\\'",
@@ -1978,6 +2074,14 @@
       "2": "keyword.operator.logical.sc"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
     },
     {
      "match": "\\$\\\"([^\\\"]*)\\\"",
@@ -2150,6 +2254,14 @@
       "2": "keyword.operator.logical.sc"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
     },
     {
      "match": "\\(",
@@ -2407,6 +2519,14 @@
       "2": "keyword.operator.logical.sc"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "scope": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "scope": "keyword.operator.logical.sc"
     }
    ]
   }

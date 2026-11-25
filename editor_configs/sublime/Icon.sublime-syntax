@@ -174,10 +174,10 @@ contexts:
       scope: storage.type.icn
 
     # ---- &keywords ----------------------------------------------------------
-    # parser_icon.sc:317 -- a known keyword name, then any other & Id.
+    # parser_icon.sc:317 -- a known keyword name, then any other & Id. The whole &name is one constant (&null, &features): the ampersand takes its colour.
     - match: '(&)({{amp_known}})\b'
       captures:
-        1: punctuation.definition.keyword.begin.icn
+        1: constant.language.icn
         2: constant.language.icn
 
     # parser_icon.sc:317
@@ -446,10 +446,10 @@ contexts:
     # parser_icon.sc:14 -- the control words.
     - match: '{{kw_control}}'
       scope: keyword.control.icn
-    # parser_icon.sc:317 -- a known keyword name.
+    # parser_icon.sc:317 -- a known keyword name. The whole &name is one constant, as in the rule above.
     - match: '(&)({{amp_known}})\b'
       captures:
-        1: punctuation.definition.keyword.begin.icn
+        1: constant.language.icn
         2: constant.language.icn
     # parser_icon.sc:317 -- any other & Id.
     - match: '(&)({{ident}})\b'

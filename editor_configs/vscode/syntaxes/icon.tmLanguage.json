@@ -110,7 +110,7 @@
     {
      "captures": {
       "1": {
-       "name": "punctuation.definition.keyword.begin.icn"
+       "name": "constant.language.icn"
       },
       "2": {
        "name": "constant.language.icn"
@@ -565,7 +565,7 @@
     {
      "captures": {
       "1": {
-       "name": "punctuation.definition.keyword.begin.icn"
+       "name": "constant.language.icn"
       },
       "2": {
        "name": "constant.language.icn"

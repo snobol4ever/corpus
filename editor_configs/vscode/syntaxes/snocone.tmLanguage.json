@@ -219,6 +219,14 @@
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
     },
     {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
+    },
+    {
      "match": "\\$\\'([^\\']*)\\'",
      "name": "string.quoted.single.sc"
     },
@@ -376,6 +384,14 @@
       }
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
     }
    ]
   },
@@ -518,6 +534,14 @@
       }
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
     }
    ]
   },
@@ -725,6 +749,14 @@
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
     },
     {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
+    },
+    {
      "begin": "\\(",
      "end": "\\)",
      "patterns": [
@@ -882,6 +914,14 @@
       }
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
     }
    ]
   },
@@ -1024,6 +1064,14 @@
       }
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
     }
    ]
   },
@@ -1229,6 +1277,14 @@
       }
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
     },
     {
      "begin": "\\(",
@@ -1592,6 +1648,14 @@
       }
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
     }
    ]
   },
@@ -1799,6 +1863,14 @@
       }
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
     },
     {
      "match": "\\$\\'([^\\']*)\\'",
@@ -2023,6 +2095,14 @@
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
     },
     {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
+    },
+    {
      "match": "\\$\\'([^\\']*)\\'",
      "name": "string.quoted.single.sc"
     },
@@ -2245,6 +2325,14 @@
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
     },
     {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
+    },
+    {
      "match": "\\$\\'([^\\']*)\\'",
      "name": "string.quoted.single.sc"
     },
@@ -2390,6 +2478,14 @@
       }
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
     },
     {
      "match": "\\$\\'([^\\']*)\\'",
@@ -2545,6 +2641,14 @@
       }
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
     },
     {
      "match": "\\$\\\"([^\\\"]*)\\\"",
@@ -2771,6 +2875,14 @@
       }
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "[+\\-*/]",
+     "name": "keyword.operator.arithmetic.sc"
+    },
+    {
+     "match": "\\?",
+     "name": "keyword.operator.logical.sc"
     },
     {
      "begin": "\\(",
