@@ -21,4 +21,5 @@
 {"act": "out", "expect": {"cell": 0, "line": 13, "frames": [["steps", 13], ["main", 28]], "vars": {"n": "6", "r": "8"}, "output": ""}}
 {"act": "out", "expect": {"cell": 0, "line": 29, "frames": [["main", 29]], "vars": {"n": "&null"}, "output": "steps(6) = 8\n"}}
 {"act": "continue", "expect": {"cell": 0, "line": 6, "frames": [["steps", 6], ["main", 29]], "vars": {"n": "1"}, "output": "steps(6) = 8\n"}}
+{"act": "continue", "expect": {"cell": 0, "line": 6, "frames": [["steps", 6], ["longest", 21], ["main", 30]], "vars": {"n": "1"}, "output": "steps(6) = 8\n1: 0\n2: 1\n3: 7\n4: 2\n5: 5\n6: 8\n"}}
 {"act": "continue", "expect": {"stopped": false, "output": "steps(6) = 8\n1: 0\n2: 1\n3: 7\n4: 2\n5: 5\n6: 8\nlongest under 30: 27 with 111 steps\nmemo holds 140\n"}}
