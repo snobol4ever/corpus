@@ -259,9 +259,9 @@ contexts:
       pop: true
 
   field_body:
-    # parser_icon.sc:493 parser_icon.sc:497 -- a field name.
+    # parser_icon.sc:493 parser_icon.sc:497 -- a field name: a member of the record or class, a variable of its own scope (the cqo's cause, 2026-11-25; the map's variable class).
     - match: \b{{ident}}\b
-      scope: entity.name.function.icn
+      scope: variable.other.member.icn
     # parser_icon.sc:493 -- a comma.
     - match: ','
       scope: punctuation.separator.icn

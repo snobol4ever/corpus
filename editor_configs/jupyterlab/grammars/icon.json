@@ -317,7 +317,7 @@
     },
     {
      "match": "\\b[A-Za-z_][0-9A-Za-z_]*\\b",
-     "scope": "entity.name.function.icn"
+     "scope": "variable.other.member.icn"
     },
     {
      "match": ",",
