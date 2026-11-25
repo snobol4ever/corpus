@@ -132,13 +132,9 @@ contexts:
   term:
     - match: '(\&){{keyword_protected}}\b'  # parser_snocone.sc:33
       scope: constant.language.sc
-      captures:
-        1: punctuation.definition.keyword.begin.sc
 
     - match: '(\&){{keyword_unprotected}}\b'  # parser_snocone.sc:33
       scope: constant.other.sc
-      captures:
-        1: punctuation.definition.variable.begin.sc
 
     - match: \b({{pattern_function}})\(  # parser_snocone.sc:87
       captures:

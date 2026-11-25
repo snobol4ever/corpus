@@ -23,16 +23,10 @@
      "scope": "punctuation.definition.string.begin.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -176,16 +170,10 @@
      "scope": "invalid.illegal.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -286,16 +274,10 @@
      "scope": "entity.name.function.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -401,16 +383,10 @@
      "scope": "entity.name.function.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -544,16 +520,10 @@
      "scope": "string.quoted.single.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -671,16 +641,10 @@
      "scope": "variable.other.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -786,16 +750,10 @@
      "scope": "variable.other.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -929,16 +887,10 @@
      "scope": "string.quoted.single.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -1238,16 +1190,10 @@
      ]
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -1365,16 +1311,10 @@
      "scope": "punctuation.definition.annotation.begin.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -1498,16 +1438,10 @@
      "scope": "string.quoted.single.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -1631,16 +1565,10 @@
      "scope": "string.quoted.single.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -1745,16 +1673,10 @@
    "meta_scope": "string.interpolated.sno",
    "rules": [
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -1897,16 +1819,10 @@
    "meta_scope": "string.interpolated.sno",
    "rules": [
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -2051,16 +1967,10 @@
      "scope": "punctuation.definition.annotation.begin.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },
@@ -2198,16 +2108,10 @@
    "meta_scope": null,
    "rules": [
     {
-     "captures": {
-      "1": "punctuation.definition.keyword.begin.sno"
-     },
      "match": "(\\&)\\b(ABORT|ALPHABET|ARB|BAL|FAIL|FENCE|FILE|FNCLEVEL|LASTFILE|LASTLINE|LASTNO|LCASE|LINE|REM|RTNTYPE|STCOUNT|STNO|SUCCEED|UCASE)\\b\\b",
      "scope": "constant.language.sno"
     },
     {
-     "captures": {
-      "1": "punctuation.definition.variable.begin.sno"
-     },
      "match": "(\\&)\\b(ABEND|ANCHOR|CASE|CODE|COMPARE|DUMP|ERRLIMIT|ERRTEXT|ERRTYPE|FTRACE|INPUT|MAXLNGTH|OUTPUT|PROFILE|STLIMIT|TRACE|TRIM|FULLSCAN)\\b\\b",
      "scope": "constant.other.sno"
     },

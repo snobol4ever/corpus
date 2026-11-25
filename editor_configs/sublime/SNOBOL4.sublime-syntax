@@ -125,13 +125,9 @@ contexts:
   term:
     - match: '(\&){{keyword_protected}}\b'  # parser_snobol4.sc:145 parser_snobol4.sc:22
       scope: constant.language.sno
-      captures:
-        1: punctuation.definition.keyword.begin.sno
 
     - match: '(\&){{keyword_unprotected}}\b'  # parser_snobol4.sc:145 parser_snobol4.sc:19
       scope: constant.other.sno # variable.language.sno (orange slanted) #
-      captures:
-        1: punctuation.definition.variable.begin.sno
 
     - match: \b({{pattern_function}})\(  # parser_snobol4.sc:176 parser_snobol4.sc:166
       captures:
