@@ -45,13 +45,20 @@ function step(grammar, stream, state) {
   return style;
 }
 
-// A stream parser of one language: its state is the tokenizer's stack.
+// A stream parser of one language: its state is the tokenizer's stack. A TAG LINE IS A TAG IN EVERY ENTRY (developer_14 2026-11-25, the cqo's G row): the first line
+// of a cell that names a language is a keyword whatever the entry's grammar, and the grammar starts at the second line, as the mixed entry's scripParser does.
 function streamParser(grammar) {
   return {
-    startState: () => ({ stack: ['main'], next: ['main'], tokens: [], at: 0 }),
-    copyState: s => ({ stack: s.stack.slice(), next: s.next.slice(), tokens: s.tokens, at: s.at }),
-    token: (stream, state) => step(grammar, stream, state),
-    blankLine(state) { state.stack = tokenize(grammar, '', state.stack).stack; }
+    startState: () => ({ first: true, stack: ['main'], next: ['main'], tokens: [], at: 0 }),
+    copyState: s => ({ first: s.first, stack: s.stack.slice(), next: s.next.slice(), tokens: s.tokens, at: s.at }),
+    token(stream, state) {
+      if (state.first && stream.sol()) {
+        state.first = false;
+        if (cellLanguage(stream.string).tagged) { stream.skipToEnd(); return 'keyword'; }
+      }
+      return step(grammar, stream, state);
+    },
+    blankLine(state) { state.first = false; state.stack = tokenize(grammar, '', state.stack).stack; }
   };
 }
 
