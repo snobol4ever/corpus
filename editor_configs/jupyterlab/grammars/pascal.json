@@ -81,6 +81,16 @@
     }
    ]
   },
+  "identifiers": {
+   "meta_content_scope": null,
+   "meta_scope": null,
+   "rules": [
+    {
+     "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b",
+     "scope": "variable.other.pascal"
+    }
+   ]
+  },
   "main": {
    "meta_content_scope": null,
    "meta_scope": null,
@@ -242,6 +252,10 @@
     {
      "match": "\\.",
      "scope": "punctuation.accessor.pascal"
+    },
+    {
+     "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b",
+     "scope": "variable.other.pascal"
     }
    ]
   },

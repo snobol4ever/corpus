@@ -47,6 +47,7 @@ contexts:
     - include: words
     - include: operators
     - include: punctuation
+    - include: identifiers
 
   comments:
     # parser_pascal.sc:27, a {$ compiler directive, to the first }.
@@ -202,6 +203,12 @@ contexts:
           |[Rr][Ee][Aa][Dd][Ll][Nn]|[Rr][Ee][Ss][Ee][Tt]|[Rr][Ee][Ww][Rr][Ii][Tt][Ee]|[Uu][Nn][Pp][Aa][Cc][Kk]|[Ww][Rr][Ii][Tt][Ee]|[Ww][Rr][Ii][Tt][Ee][Ll][Nn]
         )\b
       scope: support.function.pascal
+
+  identifiers:
+    # parser_pascal.sc:36, Id: a name the keyword and word rules above did not take is a variable, a routine or a field; the reader makes no difference between them (an identifier is one
+    # token), so the file makes none either. An unscoped name has no token in the Lab's editor, so the editor read no word under the pointer and disabled Rename symbol there.
+    - match: '\b{{id}}\b'
+      scope: variable.other.pascal
 
   operators:
     # parser_pascal.sc:448 and parser_pascal.sc:459-461, 463, the assignment := and += -= *= /=.
