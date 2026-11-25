@@ -1,0 +1,19 @@
+# Rebus (scrip-rebus): Accounts: records that change and a transfer that can fail, THE EDITING WALK (developer_08, 2026-11-23, Lab 4.6.6). Acts 2 to 5 below; CELL from 0 among the code cells, LINE and COL from 1. Targets are the program's own declarations, read from the notebook.
+{"at": [2, 11, 10], "act": "definition", "expect": {"cell": 0, "line": 1}}
+{"at": [2, 12, 10], "act": "definition", "expect": {"cell": 0, "line": 1}}
+{"at": [2, 3, 5], "act": "definition", "expect": {"cell": 0, "line": 3}}
+{"at": [2, 2, 6], "act": "definition", "expect": {"cell": 1, "line": 1}}
+{"at": [2, 13, 3], "act": "definition", "expect": {"cell": 1, "line": 7}}
+{"at": [2, 14, 3], "act": "definition", "expect": {"cell": 1, "line": 7}}
+{"at": [2, 15, 6], "act": "definition", "expect": {"cell": 2, "line": 1}}
+{"at": [2, 16, 6], "act": "definition", "expect": {"cell": 2, "line": 1}}
+{"at": [2, 15, 15], "act": "definition", "expect": {"cell": 2, "line": 10}}
+{"at": [2, 15, 20], "act": "definition", "expect": {"cell": 2, "line": 10}}
+{"at": [2, 2, 6], "act": "hover", "expect": {"text": "withdraw"}}
+{"at": [2, 13, 3], "act": "hover", "expect": {"text": "report"}}
+{"at": [2, 15, 11], "act": "completion", "expect": {"items": ["transfer"]}}
+{"at": [2, 3, 9], "act": "completion", "expect": {"items": ["deposit"]}}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [2, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"act": "outline", "expect": {"items": [["account", 0], ["owner", 1], ["balance", 1], ["deposit", 0], ["a", 1], ["amt", 1], ["withdraw", 0], ["a", 1], ["amt", 1], ["report", 0], ["a", 1], ["transfer", 0], ["src", 1], ["dst", 1], ["amt", 1], ["main", 0], ["ann", 1], ["bob", 1]]}}

@@ -1,0 +1,15 @@
+# Rebus (scrip-rebus): Points: records, an array of records and a bubble sort, THE EDITING WALK (developer_08, 2026-11-23, Lab 4.6.6). Acts 2 to 5 below; CELL from 0 among the code cells, LINE and COL from 1. Targets are the program's own declarations, read from the notebook.
+{"at": [2, 4, 13], "act": "definition", "expect": {"cell": 0, "line": 1}}
+{"at": [2, 5, 13], "act": "definition", "expect": {"cell": 0, "line": 1}}
+{"at": [2, 12, 55], "act": "definition", "expect": {"cell": 0, "line": 3}}
+{"at": [2, 9, 10], "act": "definition", "expect": {"cell": 1, "line": 1}}
+{"at": [0, 7, 10], "act": "definition", "expect": {"cell": 0, "line": 4}}
+{"at": [1, 10, 21], "act": "definition", "expect": {"cell": 1, "line": 2}}
+{"at": [2, 12, 55], "act": "hover", "expect": {"text": "sqdist"}}
+{"at": [2, 9, 10], "act": "hover", "expect": {"text": "sortpoints"}}
+{"at": [2, 9, 15], "act": "completion", "expect": {"items": ["sortpoints"]}}
+{"at": [2, 12, 58], "act": "completion", "expect": {"items": ["sqdist"]}}
+{"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"at": [2, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
+{"act": "outline", "expect": {"items": [["point", 0], ["x", 1], ["y", 1], ["sqdist", 0], ["p", 1], ["q", 1], ["dx", 1], ["dy", 1], ["sortpoints", 0], ["a", 1], ["n", 1], ["i", 1], ["j", 1], ["t", 1], ["main", 0], ["pts", 1], ["k", 1], ["o", 1]]}}

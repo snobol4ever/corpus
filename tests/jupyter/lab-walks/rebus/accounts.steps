@@ -1,0 +1,12 @@
+# Rebus (scrip-rebus): program accounts (records read and changed across the cells: record account in cell 0, withdraw and report in cell 1, transfer and main in cell 2; cell 0: deposit 3-6; cell 1: withdraw 1-5, report 7-10; cell 2: transfer 1-7, main 9-19). THE LAW of each step is skill debugger section 2 and the cfo's step law (design section 5): a step in at a call enters the function; a step over stops at the next statement stop of the same frame or a shallower one; a step out stops at the first statement stop whose frame is the caller's or shallower.
+{"run": 0, "expect": {"stopped": false}}
+{"run": 1, "expect": {"stopped": false}}
+{"break": [2, 13]}
+{"run": 2, "expect": {"cell": 2, "line": 13, "frames": [["main", 13]]}}
+{"act": "in", "expect": {"cell": 1, "line": 8, "frames": [["report", 8], ["main", 13]]}}
+{"act": "out", "expect": {"cell": 2, "line": 14, "frames": [["main", 14]]}}
+{"act": "next", "expect": {"cell": 2, "line": 15, "frames": [["main", 15]]}}
+{"act": "in", "expect": {"cell": 2, "line": 2, "frames": [["transfer", 2], ["main", 15]], "vars": {"amt": "70"}}}
+{"act": "in", "expect": {"cell": 1, "line": 2, "frames": [["withdraw", 2], ["transfer", 2], ["main", 15]], "vars": {"amt": "70"}}}
+{"act": "out", "expect": {"cell": 2, "line": 3, "frames": [["transfer", 3], ["main", 15]]}}
+{"act": "continue", "expect": {"stopped": false, "output": "ann 100\nbob 20\nmoved 70\nrefused\nann 30\nbob 90\n"}}

@@ -1,0 +1,10 @@
+# Rebus (scrip-rebus): program points (records of point read in every cell: record point in cell 0, sqdist in cell 0, sortpoints in cell 1, main in cell 2; cell 0: sqdist 3-8; cell 1: sortpoints 1-17; cell 2: main 1-15). THE LAW of each step is skill debugger section 2 and the cfo's step law (design section 5): a step in at a call enters the function; a step over stops at the next statement stop of the same frame or a shallower one; a step out stops at the first statement stop whose frame is the caller's or shallower.
+{"run": 0, "expect": {"stopped": false}}
+{"run": 1, "expect": {"stopped": false}}
+{"break": [2, 9]}
+{"run": 2, "expect": {"cell": 2, "line": 9, "frames": [["main", 9]]}}
+{"act": "in", "expect": {"cell": 1, "line": 3, "frames": [["sortpoints", 3], ["main", 9]]}}
+{"act": "next", "expect": {"cell": 1, "line": 4, "frames": [["sortpoints", 4], ["main", 9]]}}
+{"act": "next", "expect": {"cell": 1, "line": 5, "frames": [["sortpoints", 5], ["main", 9]]}}
+{"act": "next", "expect": {"cell": 1, "line": 6, "frames": [["sortpoints", 6], ["main", 9]]}}
+{"act": "continue", "expect": {"stopped": false, "output": "1,1 2\n2,7 53\n5,1 26\n9,3 90\n"}}
