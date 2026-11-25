@@ -1,12 +1,12 @@
 # PLACE SCRIPT of program 1 (roman), developer_14 2026-11-22: cell, line, col (1-based) of the word, the act, what the person must meet. Cells count from 0 among the code cells, lines from 1. Written from the program, to be read by the cqo.
-{"cell": 1, "line": 2, "col": 27, "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "ROMAN"}
-{"cell": 0, "line": 4, "col": 25, "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "ROMAN"}
-{"cell": 2, "line": 1, "col": 9, "act": "definition", "expect": {"cell": 1, "line": 2}, "word": "TEST"}
-{"cell": 2, "line": 3, "col": 13, "act": "definition", "expect": {"cell": 1, "line": 6}, "word": "NUM"}
-{"cell": 2, "line": 4, "col": 18, "act": "definition", "expect": {"cell": 1, "line": 6}, "word": "VAL"}
-{"cell": 1, "line": 2, "col": 27, "act": "references", "expect": {"cells_lines": [[0, 2], [0, 4], [1, 2], [2, 3]]}, "word": "ROMAN"}
-{"cell": 1, "line": 2, "col": 27, "act": "hover", "expect": {"text_contains": "ROMAN"}, "word": "ROMAN"}
-{"cell": 2, "line": 1, "col": 9, "act": "rename", "expect": {"to": "RUNIT", "cells": [1, 2]}, "word": "TEST"}
-{"cell": 2, "line": 1, "col": 14, "act": "signature_help", "expect": {"label": "TEST(I,J)"}, "word": "TEST("}
-{"cell": 0, "line": 4, "col": 17, "act": "hover", "expect": {"text_contains": "REPLACE"}, "word": "REPLACE"}
-{"cell": 2, "line": 0, "col": 1, "act": "diagnostics", "expect": {"count": 0}, "word": ""}
+{"at": [1, 2, 27], "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "ROMAN"}
+{"at": [0, 4, 25], "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "ROMAN"}
+{"at": [2, 1, 9], "act": "definition", "expect": {"cell": 1, "line": 2}, "word": "TEST"}
+{"at": [2, 3, 13], "act": "definition", "expect": {"cell": 1, "line": 6}, "word": "NUM"}
+{"at": [2, 4, 18], "act": "definition", "expect": {"cell": 1, "line": 6}, "word": "VAL"}
+{"at": [1, 2, 27], "act": "references", "expect": {"places": [[0, 4, 9], [0, 4, 25], [1, 2, 27], [2, 3, 21]], "declaration": [0, 2, 1]}, "word": "ROMAN"}
+{"at": [1, 2, 27], "act": "hover", "expect": {"text_contains": "ROMAN"}, "word": "ROMAN"}
+{"at": [2, 1, 9], "act": "rename", "expect": {"to": "RUNIT", "cells": [1, 2]}, "word": "TEST"}
+{"at": [2, 1, 14], "act": "signature_help", "expect": {"label": "TEST(I,J)"}, "word": "TEST("}
+{"at": [0, 4, 17], "act": "hover", "expect": {"text_contains": "REPLACE"}, "word": "REPLACE"}
+{"at": [2, 0, 1], "act": "diagnostics", "expect": {"count": 0}, "word": ""}

@@ -1,11 +1,11 @@
 # PLACE SCRIPT of program 2 (calculator), developer_14 2026-11-22: cell, line, col (1-based) of the word, the act, what the person must meet. Cells count from 0 among the code cells, lines from 1. Written from the program, to be read by the cqo.
-{"cell": 1, "line": 3, "col": 35, "act": "definition", "expect": {"cell": 0, "line": 12}, "word": "PSH"}
-{"cell": 1, "line": 6, "col": 30, "act": "definition", "expect": {"cell": 0, "line": 20}, "word": "MUL"}
-{"cell": 0, "line": 16, "col": 26, "act": "definition", "expect": {"cell": 0, "line": 13}, "word": "DRF"}
-{"cell": 1, "line": 9, "col": 44, "act": "definition", "expect": {"cell": 0, "line": 9}, "word": "EMIT"}
-{"cell": 2, "line": 2, "col": 13, "act": "definition", "expect": {"cell": 1, "line": 9}, "word": "C"}
-{"cell": 0, "line": 16, "col": 26, "act": "references", "expect": {"cells_lines": [[0, 13], [0, 16], [0, 18], [0, 20], [0, 22], [0, 24], [0, 25]]}, "word": "DRF"}
-{"cell": 1, "line": 6, "col": 30, "act": "hover", "expect": {"text_contains": "MUL"}, "word": "MUL"}
-{"cell": 0, "line": 1, "col": 17, "act": "hover", "expect": {"text_contains": "EMIT"}, "word": "EMIT"}
-{"cell": 1, "line": 5, "col": 9, "act": "definition", "expect": {"cell": 1, "line": 5}, "word": "F"}
-{"cell": 2, "line": 0, "col": 1, "act": "diagnostics", "expect": {"count": 0}, "word": ""}
+{"at": [1, 3, 35], "act": "definition", "expect": {"cell": 0, "line": 12}, "word": "PSH"}
+{"at": [1, 6, 30], "act": "definition", "expect": {"cell": 0, "line": 20}, "word": "MUL"}
+{"at": [0, 16, 26], "act": "definition", "expect": {"cell": 0, "line": 13}, "word": "DRF"}
+{"at": [1, 9, 44], "act": "definition", "expect": {"cell": 0, "line": 9}, "word": "EMIT"}
+{"at": [2, 2, 13], "act": "definition", "expect": {"cell": 1, "line": 9}, "word": "C"}
+{"at": [0, 16, 26], "act": "references", "expect": {"places": [[0, 9, 18], [0, 13, 9], [0, 15, 9], [0, 16, 26], [0, 16, 39], [0, 18, 26], [0, 18, 39], [0, 20, 26], [0, 20, 39], [0, 22, 26], [0, 22, 39], [0, 24, 14]], "declaration": [0, 13, 1]}, "word": "DRF"}
+{"at": [1, 6, 30], "act": "hover", "expect": {"text_contains": "MUL"}, "word": "MUL"}
+{"at": [0, 1, 17], "act": "hover", "expect": {"text_contains": "EMIT"}, "word": "EMIT"}
+{"at": [1, 5, 9], "act": "definition", "expect": {"cell": 1, "line": 5}, "word": "F"}
+{"at": [2, 0, 1], "act": "diagnostics", "expect": {"count": 0}, "word": ""}
