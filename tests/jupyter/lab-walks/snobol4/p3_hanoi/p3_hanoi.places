@@ -4,7 +4,7 @@
 {"at": [2, 1, 28], "act": "definition", "expect": {"cell": 1, "line": 3}, "word": "SOLVE"}
 {"at": [0, 5, 11], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "MOVE"}
 {"at": [2, 3, 27], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "DISC"}
-{"at": [1, 5, 9], "act": "references", "expect": {"places": [[0, 3, 9], [0, 7, 9], [1, 5, 9]], "declaration": [0, 2, 1]}, "word": "HANOI"}
+{"at": [1, 5, 9], "act": "references", "expect": {"places": [[0, 3, 9], [0, 7, 9], [1, 5, 9]], "declaration": [[0, 1, 17], [0, 2, 1]]}, "word": "HANOI"}
 {"at": [1, 5, 9], "act": "hover", "expect": {"text_contains": "HANOI"}, "word": "HANOI"}
 {"at": [2, 1, 28], "act": "rename", "expect": {"to": "RUNIT", "cells": [1, 2]}, "word": "SOLVE"}
 {"at": [1, 5, 15], "act": "signature_help", "expect": {"label": "HANOI(N,NS,ND,NI)"}, "word": "HANOI("}

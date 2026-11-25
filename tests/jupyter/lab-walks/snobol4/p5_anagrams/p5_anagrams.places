@@ -5,7 +5,7 @@
 {"at": [0, 11, 15], "act": "definition", "expect": {"cell": 0, "line": 10}, "word": "REV"}
 {"at": [2, 2, 13], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "GROUP"}
 {"at": [2, 3, 47], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "KEY"}
-{"at": [1, 6, 14], "act": "references", "expect": {"places": [[0, 9, 9], [0, 9, 18], [0, 9, 31], [1, 6, 14], [2, 3, 21]], "declaration": [0, 8, 1]}, "word": "countw"}
+{"at": [1, 6, 14], "act": "references", "expect": {"places": [[0, 9, 9], [0, 9, 18], [0, 9, 31], [1, 6, 14], [2, 3, 21]], "declaration": [[0, 2, 17], [0, 8, 1]]}, "word": "countw"}
 {"at": [2, 3, 43], "act": "hover", "expect": {"text_contains": "REV"}, "word": "REV"}
 {"at": [1, 5, 14], "act": "rename", "expect": {"to": "sortletters", "cells": [0, 1]}, "word": "sortw"}
 {"at": [2, 0, 1], "act": "diagnostics", "expect": {"count": 0}, "word": ""}

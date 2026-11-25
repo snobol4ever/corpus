@@ -4,7 +4,7 @@
 {"at": [0, 16, 26], "act": "definition", "expect": {"cell": 0, "line": 13}, "word": "DRF"}
 {"at": [1, 9, 44], "act": "definition", "expect": {"cell": 0, "line": 9}, "word": "EMIT"}
 {"at": [2, 2, 13], "act": "definition", "expect": {"cell": 1, "line": 9}, "word": "C"}
-{"at": [0, 16, 26], "act": "references", "expect": {"places": [[0, 9, 18], [0, 13, 9], [0, 15, 9], [0, 16, 26], [0, 16, 39], [0, 18, 26], [0, 18, 39], [0, 20, 26], [0, 20, 39], [0, 22, 26], [0, 22, 39], [0, 24, 14]], "declaration": [0, 13, 1]}, "word": "DRF"}
+{"at": [0, 16, 26], "act": "references", "expect": {"places": [[0, 9, 18], [0, 13, 9], [0, 15, 9], [0, 16, 26], [0, 16, 39], [0, 18, 26], [0, 18, 39], [0, 20, 26], [0, 20, 39], [0, 22, 26], [0, 22, 39], [0, 24, 14]], "declaration": [[0, 3, 17], [0, 13, 1]]}, "word": "DRF"}
 {"at": [1, 6, 30], "act": "hover", "expect": {"text_contains": "MUL"}, "word": "MUL"}
 {"at": [0, 1, 17], "act": "hover", "expect": {"text_contains": "EMIT"}, "word": "EMIT"}
 {"at": [1, 5, 9], "act": "definition", "expect": {"cell": 1, "line": 5}, "word": "F"}

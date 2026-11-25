@@ -4,7 +4,7 @@
 {"at": [1, 5, 4], "act": "definition", "expect": {"cell": 0, "line": 3}, "word": "TEST"}
 {"at": [1, 7, 8], "act": "definition", "expect": {"cell": 0, "line": 6}, "word": "P"}
 {"at": [1, 2, 18], "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "NSZ"}
-{"at": [1, 6, 2], "act": "references", "expect": {"places": [[1, 6, 2], [2, 1, 2]], "declaration": [1, 2, 1]}, "word": "SOLVE"}
+{"at": [1, 6, 2], "act": "references", "expect": {"places": [[1, 6, 2], [2, 1, 2]], "declaration": [[1, 1, 10], [1, 2, 1]]}, "word": "SOLVE"}
 {"at": [1, 5, 4], "act": "hover", "expect": {"text_contains": "TEST"}, "word": "TEST"}
 {"at": [2, 1, 2], "act": "rename", "expect": {"to": "PLACE", "cells": [1, 2]}, "word": "SOLVE"}
 {"at": [1, 10, 11], "act": "hover", "expect": {"text_contains": "LEN"}, "word": "LEN"}
