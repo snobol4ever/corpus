@@ -159,6 +159,19 @@ const files = {
 // middle of the notebook's view when it stands outside it, again at 120 and 500 ms since the Lab's own scroll may come last.
 // ONLY A NOTEBOOK OF A SCRIP KERNEL ENTRY (the cqo's and the cao's ruling 2026-11-23): the python3 entry is the control that tells our fault from the Lab's, and it stays as the Lab has it.
 const USER = ['select', 'input', 'delete', 'move', 'undo', 'redo'];
+// THE DEBUGGER'S OWN HIGHLIGHT (developer_14 2026-11-24, the cao's ruling): a stop's line is brought in by the Lab's own reveal; ours is left out for it (the walk of a deep stop in a non-first cell is the proof).
+const DEBUG_HL = '.jp-DebuggerEditor-highlight';
+const DEBUG_PAUSED = '.jp-DebuggerPausedOverlay';
+// true when the cursor sits on the line the debugger highlights: the Lab's own reveal has just brought a stop's line in, so ours is left out; a jump that moves the cursor elsewhere (go to definition) is revealed as before
+function stopLine(view, panel) {
+  if (!panel.node.querySelector(DEBUG_PAUSED)) return false;
+  const hl = view.dom.querySelector(DEBUG_HL);
+  if (!hl) return true;
+  const d = view.state.doc;
+  return d.lineAt(view.posAtDOM(hl)).number === d.lineAt(view.state.selection.main.head).number;
+}
+
+
 function ours(panel) {
   const md = panel.model && panel.model.getMetadata ? panel.model.getMetadata('kernelspec') : null;
   const kernel = panel.sessionContext && panel.sessionContext.session ? panel.sessionContext.session.kernel : null;
@@ -187,7 +200,7 @@ const jump = {
         if (!update.selectionSet || update.docChanged || update.transactions.some(t => USER.some(u => t.isUserEvent(u)))) return;
         const panel = notebooks.find(p => p.node.contains(update.view.dom));
         if (!panel) return;
-        [0, 120, 500].forEach(ms => setTimeout(() => { try { reveal(update.view, panel); } catch (e) { console.warn('scrip-highlight: reveal: ' + e); } }, ms));
+        [0, 120, 500].forEach(ms => setTimeout(() => { try { if (stopLine(update.view, panel)) return; reveal(update.view, panel); } catch (e) { console.warn('scrip-highlight: reveal: ' + e); } }, ms));
       }))
     });
   }

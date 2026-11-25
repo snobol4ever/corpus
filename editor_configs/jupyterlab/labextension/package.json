@@ -58,7 +58,7 @@
       }
     },
     "_build": {
-      "load": "static/remoteEntry.af1f9c1e5c85ba4bcbdb.js",
+      "load": "static/remoteEntry.07db60dd65256fcdcd0a.js",
       "extension": "./extension"
     }
   }
