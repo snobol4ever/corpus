@@ -8,7 +8,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 7,divide10,divide10.pl,swi_bench__divide10,swi_bench,39,0,131072,4096,120,,swi
 8,eval,eval.pl,swi_bench__eval,swi_bench,33,0,131072,4096,120,,swi
 9,fast_mu,fast_mu.pl,swi_bench__fast_mu,swi_bench,108,0,131072,4096,120,,swi
-10,fib,fib.pl,swi_bench__fib,swi_bench,27,0,131072,4096,120,,swi
+10,fib,fib.pl,swi_bench__fib,swi_bench,27,0,131072,16384,120,,swi
 11,flatten,flatten.pl,swi_bench__flatten,swi_bench,183,0,131072,4096,120,,swi
 12,log10,log10.pl,swi_bench__log10,swi_bench,40,0,131072,4096,120,,swi
 13,meta_qsort,meta_qsort.pl,swi_bench__meta_qsort,swi_bench,104,0,131072,4096,120,,swi
