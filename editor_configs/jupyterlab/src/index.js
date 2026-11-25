@@ -22,7 +22,7 @@ const LANGUAGES = [
   { name: 'snocone', displayName: 'Snocone', mime: 'text/x-snocone', extensions: ['sc'], grammar: snocone },
   { name: 'icon', displayName: 'Icon', mime: ['text/x-icon', 'text/x-unicon'], extensions: ['icn'], grammar: icon },
   { name: 'prolog', displayName: 'Prolog', mime: 'text/x-prolog', extensions: ['pro'], grammar: prolog },
-  { name: 'pascal', displayName: 'Pascal', mime: 'text/x-pascal', extensions: ['pas', 'pp', 'lpr', 'dpr'], grammar: pascal },
+  { name: 'scrip-pascal', displayName: 'Pascal (SCRIP)', mime: 'text/x-scrip-pascal', extensions: [], grammar: pascal },
   { name: 'raku', displayName: 'Raku', mime: 'text/x-raku', extensions: ['raku', 'rakumod'], grammar: raku },
   { name: 'rebus', displayName: 'Rebus', mime: 'text/x-rebus', extensions: ['reb'], grammar: rebus }
 ];
@@ -206,4 +206,37 @@ const jump = {
   }
 };
 
-export default [plugin, files, jump];
+// THE PASCAL CELLS OF A SCRIP NOTEBOOK (the cao's ruling 2026-11-25 on the Lab's Pascal colouring, option b): the Lab's built-in Pascal mode owns text/x-pascal, so our entry above
+// carries its own mime and its extensions stay with the file types. A cell of a SCRIP notebook whose editor is text/x-pascal is set to our mime; python3 and a plain .pas file keep the Lab's mode.
+const SCRIP_PASCAL = 'text/x-scrip-pascal';
+const pascalCells = {
+  id: 'scrip-highlight:pascal-cells',
+  description: 'The Pascal cells of a SCRIP notebook are coloured by our Pascal grammar, not the Lab built-in Pascal mode.',
+  autoStart: true,
+  requires: [INotebookTracker],
+  activate: (app, notebooks) => {
+    const fix = panel => {
+      try {
+        if (!ours(panel)) return;
+        panel.content.widgets.forEach(cell => {
+          const ed = cell.editor;
+          if (cell.model.type === 'code' && ed && ed.model && ed.model.mimeType === 'text/x-pascal') ed.model.mimeType = SCRIP_PASCAL;
+        });
+      } catch (e) {
+        console.warn('scrip-highlight: pascal cells: ' + e);
+      }
+    };
+    // the cells are made after the kernel is ready and the editors after the cells: one sweep is too early, so the sweep runs again at a few delays (measured in the page 2026-11-25)
+    const sweep = panel => { fix(panel); [100, 400, 1200].forEach(ms => setTimeout(() => fix(panel), ms)); };
+    notebooks.widgetAdded.connect((_, panel) => {
+      sweep(panel);
+      panel.revealed.then(() => sweep(panel));
+      panel.sessionContext.ready.then(() => sweep(panel));
+      panel.sessionContext.kernelChanged.connect(() => sweep(panel));
+      panel.content.widgetAdded.connect(() => sweep(panel));
+      panel.content.model.cells.changed.connect(() => sweep(panel));
+    });
+  }
+};
+
+export default [plugin, files, jump, pascalCells];
