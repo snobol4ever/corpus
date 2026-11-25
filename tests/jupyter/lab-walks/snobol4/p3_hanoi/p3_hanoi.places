@@ -2,10 +2,10 @@
 {"at": [0, 3, 9], "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "HANOI"}
 {"at": [0, 7, 9], "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "HANOI"}
 {"at": [2, 1, 28], "act": "definition", "expect": {"cell": 1, "line": 3}, "word": "SOLVE"}
-{"at": [0, 5, 11], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "MOVE"}
+{"at": [0, 5, 20], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "MOVE"}
 {"at": [2, 3, 27], "act": "definition", "expect": {"cell": 1, "line": 1}, "word": "DISC"}
 {"at": [1, 5, 9], "act": "references", "expect": {"places": [[0, 3, 9], [0, 7, 9], [1, 5, 9]], "declaration": [[0, 1, 17], [0, 2, 1]]}, "word": "HANOI"}
 {"at": [1, 5, 9], "act": "hover", "expect": {"text_contains": "HANOI"}, "word": "HANOI"}
 {"at": [2, 1, 28], "act": "rename", "new": "RUNIT", "expect": {"cells": ["        DEFINE('HANOI(N,NS,ND,NI)')                :(HANOI_END)\nHANOI   EQ(N, 0)                                   :S(RETURN)\n        HANOI(N - 1, NS, NI, ND)\n        MOVES = MOVES + 1\n        T[MOVES] = MOVE(N, NS, ND)\n        OUTPUT = 'MOVE DISC ' N ' FROM ' NS ' TO ' ND\n        HANOI(N - 1, NI, ND, NS)                   :(RETURN)\nHANOI_END\n", "        DATA('MOVE(DISC,FROM,TO)')\n        DEFINE('RUNIT(K)')                         :(SOLVE_END)\nRUNIT   MOVES = 0\n        T = TABLE()\n        HANOI(K, 'A', 'C', 'B')\n        RUNIT = MOVES                              :(RETURN)\nSOLVE_END\n", "        OUTPUT = 'moves: ' RUNIT(2)\n        OUTPUT = 'moves: ' RUNIT(3)\n        OUTPUT = 'last: ' DISC(T[MOVES]) ' ' FROM(T[MOVES]) ' -> ' TO(T[MOVES])\n"]}, "word": "SOLVE"}
-{"at": [1, 5, 15], "act": "signature_help", "expect": {"label": "HANOI(N,NS,ND,NI)"}, "word": "HANOI("}
+{"at": [1, 5, 15], "act": "signature", "expect": {"label": "HANOI(N, NS, ND, NI)", "active": 0}, "word": "HANOI("}
 {"at": [2, 0, 1], "act": "diagnostics", "expect": {"count": 0}, "word": ""}
