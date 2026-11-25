@@ -1,4 +1,4 @@
 root	/home/packages/icon/icon_bottles99
-origin	99 Bottles of Beer (99-bottles-of-beer.net, Oliver Schade), its Icon and Unicon programs and their alternative versions, read from the Web Archive's copies (the live site no longer resolves, 2026-11-20); FETCH.*.tsv beside them
+origin	99 Bottles of Beer (99-bottles-of-beer.net, Oliver Schade), its Icon and Unicon programs and their alternative versions, read from the Web Archive's copies (the live site no longer resolves, 2026-11-20); FETCH.*.tsv beside them; icon-1051.icn converted IN PLACE 2026-11-25 by util_icon_semicolons.py and two hand semicolons between case arms, proved same-code by the stock translator (CONVERSION-PROOF.tsv)
 version	the archived pages, fetched 2026-11-20 (/tmp/s4e/grader/fetch/tool/bottles_fetch.py)
 licence	none stated by the site; read in place, only the tables and the answers stored here

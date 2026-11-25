@@ -1,0 +1,3 @@
+# CONVERSION-PROOF.tsv -- icon_bottles99: each Icon file and what the stock Arizona translator (icont 9.5.25a with newline insertion) says of the original against the converted text: the .u1 and .u2 of icont -s -c compared byte for byte (designer_05 2026-11-25)
+file	verdict	semicolons_added
+icon-1051.icn	same-code	14
