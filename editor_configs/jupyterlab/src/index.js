@@ -9,6 +9,7 @@ import { INotebookTracker } from '@jupyterlab/notebook';
 import { ILauncher } from '@jupyterlab/launcher';
 import { ITableOfContentsRegistry } from '@jupyterlab/toc';
 import { ILSPDocumentConnectionManager } from '@jupyterlab/lsp';
+import { IRenderMimeRegistry } from '@jupyterlab/rendermime';
 import { LabIcon } from '@jupyterlab/ui-components';
 import { tokenize, tag, cellLanguage } from './tokenizer.js';
 import snobol4 from '../grammars/snobol4.json';
@@ -374,4 +375,35 @@ const outline = {
 };
 
 
-export default [plugin, files, jump, pascalCells, outline];
+// The signature tooltip of a Raku label is markdown to the Lab: a pair of dollar signs in it is inline math, so the highlighted parameter's mark is cut
+// by a math span and a closing tag shows as text (MEASURED 2026-11-25 by developer_12 in the page). The dollars are written as the entity &#36; inside the
+// language-raku pre block of the signature's markdown, after the plugin serialises it and before the Lab renders it; no other markdown string changes, math
+// included. The class is ours alone, a Raku cell's highlight, so no kernel is checked. The wrap is on the Lab's one render registry, the instance the
+// language server's tooltip is given.
+const SIG_BLOCK = /<pre><code[^>]*>[\s\S]*?<\/code><\/pre>/g;
+function signatureFix(md) { return md.replace(SIG_BLOCK, block => block.indexOf('<mark>') < 0 ? block : block.replace(/\$/g, '&#36;')); }
+const signature = {
+  id: 'scrip-highlight:signature',
+  description: 'The signature tooltip of a Raku label writes its dollar signs as entities, so the Lab does not read a pair of them as math.',
+  autoStart: true,
+  requires: [IRenderMimeRegistry],
+  activate: (app, rendermime) => {
+    const create = rendermime.createRenderer.bind(rendermime);
+    let logged = false;
+    rendermime.createRenderer = mime => {
+      const r = create(mime);
+      if (mime !== 'text/markdown' || r.scripSignature) return r;
+      r.scripSignature = true;
+      const render = r.renderModel.bind(r);
+      r.renderModel = model => {
+        const md = model.data['text/markdown'];
+        if (typeof md !== 'string' || md.indexOf('<mark>') < 0) return render(model);
+        if (!logged) { logged = true; console.log('scrip-highlight: signature: a marked signature is rendered with its dollars as entities'); }
+        return render(rendermime.createModel({ data: { ...model.data, 'text/markdown': signatureFix(md) }, metadata: model.metadata, trusted: model.trusted }));
+      };
+      return r;
+    };
+  }
+};
+
+export default [plugin, files, jump, pascalCells, outline, signature];

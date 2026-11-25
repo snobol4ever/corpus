@@ -21,7 +21,8 @@
     "@jupyterlab/ui-components": "^4.0.0",
     "@codemirror/view": "^6.0.0",
     "@jupyterlab/lsp": "^4.6.6",
-    "@jupyterlab/toc": "^6.6.6"
+    "@jupyterlab/toc": "^6.6.6",
+    "@jupyterlab/rendermime": "^4.6.6"
   },
   "devDependencies": {
     "@jupyterlab/builder": "4.5.11"
@@ -63,6 +64,10 @@
         "singleton": true
       },
       "@jupyterlab/toc": {
+        "bundled": false,
+        "singleton": true
+      },
+      "@jupyterlab/rendermime": {
         "bundled": false,
         "singleton": true
       }
