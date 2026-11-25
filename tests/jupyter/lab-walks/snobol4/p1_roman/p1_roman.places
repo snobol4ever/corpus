@@ -6,7 +6,7 @@
 {"at": [2, 4, 18], "act": "definition", "expect": {"cell": 1, "line": 6}, "word": "VAL"}
 {"at": [1, 2, 27], "act": "references", "expect": {"places": [[0, 4, 9], [0, 4, 25], [1, 2, 27], [2, 3, 21]], "declaration": [[0, 1, 17], [0, 2, 1]]}, "word": "ROMAN"}
 {"at": [1, 2, 27], "act": "hover", "expect": {"text_contains": "ROMAN"}, "word": "ROMAN"}
-{"at": [2, 1, 9], "act": "rename", "expect": {"to": "RUNIT", "cells": [1, 2]}, "word": "TEST"}
+{"at": [2, 1, 9], "act": "rename", "new": "RUNIT", "expect": {"cells": ["        DEFINE('ROMAN(N)UNITS')                   :(ROMAN_END)\nROMAN   N RPOS(1) LEN(1) . UNITS =                :F(RETURN)\n        '0,1I,2II,3III,4IV,5V,6VI,7VII,8VIII,9IX,' UNITS BREAK(',') . UNITS  :F(FRETURN)\n        ROMAN = REPLACE(ROMAN(N),'IVXLCDM','XLCDM**') UNITS  :S(RETURN)F(FRETURN)\nROMAN_END\n", "        DEFINE('RUNIT(I,J)')                       :(TEST_END)\nRUNIT    OUTPUT = I ' -> ' ROMAN(I)\n        EQ(I,J)                                   :S(RETURN)\n        I = I + 1                                 :(RUNIT)\nTEST_END\n        DATA('NUM(VAL,ROM)')\n", "        RUNIT(1,3)\n        RUNIT(14,15)\n        R = NUM(49, ROMAN(49))\n        OUTPUT = VAL(R) ' is ' ROM(R)\n"]}, "word": "TEST"}
 {"at": [2, 1, 14], "act": "signature_help", "expect": {"label": "TEST(I,J)"}, "word": "TEST("}
 {"at": [0, 4, 17], "act": "hover", "expect": {"text_contains": "REPLACE"}, "word": "REPLACE"}
 {"at": [2, 0, 1], "act": "diagnostics", "expect": {"count": 0}, "word": ""}

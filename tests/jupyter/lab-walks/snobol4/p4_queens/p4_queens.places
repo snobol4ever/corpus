@@ -6,6 +6,6 @@
 {"at": [1, 2, 18], "act": "definition", "expect": {"cell": 0, "line": 2}, "word": "NSZ"}
 {"at": [1, 6, 2], "act": "references", "expect": {"places": [[1, 6, 2], [2, 1, 2]], "declaration": [[1, 1, 10], [1, 2, 1]]}, "word": "SOLVE"}
 {"at": [1, 5, 4], "act": "hover", "expect": {"text_contains": "TEST"}, "word": "TEST"}
-{"at": [2, 1, 2], "act": "rename", "expect": {"to": "PLACE", "cells": [1, 2]}, "word": "SOLVE"}
+{"at": [2, 1, 2], "act": "rename", "new": "PLACE", "expect": {"cells": ["\tN = 5\n\tNM1 = N - 1; NP1 = N + 1; NSZ = N * NP1; &STLIMIT = 10 ** 9; &ANCHOR = 1\n\tTEST = BREAK('Q') 'Q' (ARBNO(LEN(N) '-') LEN(N) 'Q'\n+\t      | ARBNO(LEN(NP1) '-') LEN(NP1) 'Q'\n+\t      | ARBNO(LEN(NM1) '-') LEN(NM1) 'Q')\n\tP = LEN(NM1) . X LEN(1); L = 'Q' DUPL('-',NM1) ' '\n", "\tDEFINE('PLACE(B)I')                         :(SOLVE_END)\nPLACE\tEQ(SIZE(B),NSZ) \t    :S(PRINT)\n\tB = L B\nLOOP\tI = LT(I,N) I + 1 :F(RETURN)\n\tB TEST :S(NEXT)\n\tPLACE(B)\nNEXT\tB P = '-' X :(LOOP)\nPRINT\tSOLUTION = SOLUTION + 1\n\tOUTPUT = 'Solution number ' SOLUTION ' is:'\nPRTLOOP B LEN(NP1) . OUTPUT = :S(PRTLOOP)F(RETURN)\nSOLVE_END\n", "\tPLACE()\n\tOUTPUT = SOLUTION ' solutions of ' N ' queens'\n"]}, "word": "SOLVE"}
 {"at": [1, 10, 11], "act": "hover", "expect": {"text_contains": "LEN"}, "word": "LEN"}
 {"at": [2, 0, 1], "act": "diagnostics", "expect": {"count": 0}, "word": ""}
