@@ -7,6 +7,8 @@ import { LanguageSupport, StreamLanguage } from '@codemirror/language';
 import { IEditorTracker } from '@jupyterlab/fileeditor';
 import { INotebookTracker } from '@jupyterlab/notebook';
 import { ILauncher } from '@jupyterlab/launcher';
+import { ITableOfContentsRegistry } from '@jupyterlab/toc';
+import { ILSPDocumentConnectionManager } from '@jupyterlab/lsp';
 import { LabIcon } from '@jupyterlab/ui-components';
 import { tokenize, tag, cellLanguage } from './tokenizer.js';
 import snobol4 from '../grammars/snobol4.json';
@@ -239,4 +241,130 @@ const pascalCells = {
   }
 };
 
-export default [plugin, files, jump, pascalCells];
+// THE NOTEBOOK'S OUTLINE (the cao's ruling of 2026-11-25, on developer_07's measurement; row jupyter-the-labs-table-of-contents-shows-a-scrip-notebooks-symbols).
+// The Lab's table of contents of a notebook is the core notebook factory's model: its markdown headings alone, since jupyterlab-lsp's symbol factory takes file editors alone.
+// For a notebook of a SCRIP kernel entry this factory wraps that model: the markdown headings stay, and the server's documentSymbol of the notebook's one virtual
+// document is added beneath each code cell, in cell order, then the server's order. A cell the server cannot answer adds nothing and says nothing untrue.
+// THE PRECEDENCE is a private field of the Lab's table of contents registry (`_generators`, a Map read in insertion order by getModel): at activation our factory
+// is moved to its front, whatever order the plugins came in, and the outline walk is the guard on a Lab upgrade (a registry that is not a Map is said on the
+// console and left as the Lab has it). The pinned Lab is 4.6.6, the version of @jupyterlab/toc 6.6.6 in devDependencies.
+const SYMBOLS = 'textDocument/documentSymbol';
+function outlineFlatten(list, level, out) {
+  for (const s of list || []) {
+    const range = s.location ? s.location.range : s.range;
+    const at = s.location ? s.location.range.start : (s.selectionRange || s.range || {}).start;
+    if (range && at) out.push({ name: s.name, level, at });
+    if (s.children) outlineFlatten(s.children, level + 1, out);
+  }
+  return out;
+}
+function outlineAdapter(manager, panel) {
+  for (const a of manager.adapters.values()) if (a.widget && a.widget.node.contains(panel.node)) return a;
+  return null;
+}
+async function outlineSymbols(manager, panel) {
+  const a = outlineAdapter(manager, panel);
+  const vd = a && a.virtualDocument;
+  if (!vd) return null;
+  const conn = manager.connections.get(vd.uri);
+  if (!conn || !conn.isReady || !conn.serverCapabilities.documentSymbolProvider) return null;
+  const list = await conn.clientRequests[SYMBOLS].request({ textDocument: { uri: vd.documentInfo.uri } });
+  const byCell = new Map();
+  const cells = panel.content.widgets;
+  for (const s of outlineFlatten(list, 1, [])) {
+    const held = vd.getEditorAtVirtualLine({ line: s.at.line, ch: s.at.character });
+    const editor = held && held.getEditor ? held.getEditor() : held;
+    const idx = cells.findIndex(c => c.model.type === 'code' && c.editor && c.editor === editor);
+    if (idx < 0) continue;
+    const at = vd.transformVirtualToEditor({ line: s.at.line, ch: s.at.character });
+    if (!at) continue;
+    if (!byCell.has(cells[idx])) byCell.set(cells[idx], []);
+    byCell.get(cells[idx]).push({ name: s.name, level: s.level, at: { line: at.line, column: at.ch }, idx });
+  }
+  return byCell;
+}
+function outlineJump(panel, idx, at) {
+  panel.content.activeCellIndex = idx;
+  const cell = panel.content.widgets[idx];
+  if (cell && cell.editor) { cell.editor.setCursorPosition(at); cell.editor.focus(); }
+}
+function outlineMerge(panel, heads, byCell) {
+  const out = [];
+  const used = new Set();
+  for (const cell of panel.content.widgets) {
+    for (const h of heads) if (h.cellRef === cell) { out.push(h); used.add(h); }
+    for (const s of (byCell && byCell.get(cell)) || []) {
+      out.push({ text: s.name, level: s.level, prefix: '', collapsed: false, cellRef: cell, onClick: () => outlineJump(panel, s.idx, s.at) });
+    }
+  }
+  for (const h of heads) if (!used.has(h)) out.push(h);
+  return out;
+}
+function outlineWrap(core, panel, factory) {
+  const state = { byCell: null, timer: null, tries: 0 };
+  const base = core.getHeadings.bind(core);
+  core.getHeadings = async () => {
+    const heads = await base();
+    return ours(panel) && state.byCell && heads ? outlineMerge(panel, heads, state.byCell) : heads;
+  };
+  const refresh = async () => {
+    try {
+      state.byCell = ours(panel) ? await outlineSymbols(factory.manager, panel) : null;
+    } catch (e) {
+      state.byCell = null;
+      console.warn('scrip-highlight: outline: ' + e);
+    }
+    if (!core.isDisposed) core.refresh().catch(e => console.warn('scrip-highlight: outline: refresh: ' + e));
+    if (state.byCell === null && ours(panel) && state.tries++ < 20 && !panel.isDisposed) setTimeout(refresh, 1000);
+  };
+  const later = () => { clearTimeout(state.timer); state.timer = setTimeout(refresh, 400); };
+  panel.content.model.contentChanged.connect(later);
+  panel.disposed.connect(() => { clearTimeout(state.timer); });
+  panel.context.ready.then(refresh).catch(() => {});
+  return core;
+}
+function outlineCoreFor(registry, factory, panel) {
+  for (const g of registry._generators.values()) if (g !== factory && g.isApplicable(panel)) return g;
+  return null;
+}
+function outlineFirst(registry, factory) {
+  const gens = registry._generators;
+  if (!(gens instanceof Map)) {
+    console.error('scrip-highlight: outline: the table of contents registry has no generator map; the notebook outline is left as the Lab has it');
+    return;
+  }
+  const entries = [...gens.entries()];
+  const mine = entries.find(([, v]) => v === factory);
+  if (!mine) return;
+  gens.clear();
+  gens.set(mine[0], mine[1]);
+  for (const [k, v] of entries) if (k !== mine[0]) gens.set(k, v);
+  if (gens.values().next().value !== factory) console.error('scrip-highlight: outline: the factory is not first in the table of contents registry after the reorder');
+}
+const outline = {
+  id: 'scrip-highlight:outline',
+  description: 'The table of contents of a SCRIP notebook lists the server\'s symbols of each code cell beside the markdown headings.',
+  autoStart: true,
+  requires: [ITableOfContentsRegistry, ILSPDocumentConnectionManager],
+  activate: (app, registry, manager) => {
+    const factory = {
+      name: 'scrip-outline',
+      manager,
+      isApplicable: panel => !!(panel && panel.content && 'activeCellIndex' in panel.content),
+      createNew: (panel, translator) => {
+        const core = outlineCoreFor(registry, factory, panel);
+        if (!core) return null;
+        return outlineWrap(core.createNew(panel, translator), panel, factory);
+      },
+      getToolbarItems: panel => {
+        const core = outlineCoreFor(registry, factory, panel);
+        return core && core.getToolbarItems ? core.getToolbarItems(panel) : undefined;
+      }
+    };
+    registry.add(factory);
+    outlineFirst(registry, factory);
+  }
+};
+
+
+export default [plugin, files, jump, pascalCells, outline];
