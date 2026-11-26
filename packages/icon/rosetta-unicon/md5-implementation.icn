@@ -1,18 +1,18 @@
 procedure main()  # validate against the RFC test strings and more
-   testMD5("The quick brown fox jumps over the lazy dog", 16r9e107d9d372bb6826bd81d3542a419d6)
-   testMD5("The quick brown fox jumps over the lazy dog.", 16re4d909c290d0fb1ca068ffaddf22cbd0)
-   testMD5("", 16rd41d8cd98f00b204e9800998ecf8427e)    #R = MD5 test suite from RFC
-   testMD5("a", 16r0cc175b9c0f1b6a831c399e269772661)   #R
-   testMD5("abc", 16r900150983cd24fb0d6963f7d28e17f72) #R
-   testMD5("message digest", 16rf96b697d7cb7938d525a2f31aaf161d0) #R
-   testMD5("abcdefghijklmnopqrstuvwxyz", 16rc3fcd3d76192e4007dfb496cca67e13b) #R
-   testMD5("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", 16rd174ab98d277d9f5a5611c2c9f419d9f) #R
-   testMD5("12345678901234567890123456789012345678901234567890123456789012345678901234567890", 16r57edf4a22be3c955ac49da2e2107b67a) #R
+   testMD5("The quick brown fox jumps over the lazy dog", 16r9e107d9d372bb6826bd81d3542a419d6);
+   testMD5("The quick brown fox jumps over the lazy dog.", 16re4d909c290d0fb1ca068ffaddf22cbd0);
+   testMD5("", 16rd41d8cd98f00b204e9800998ecf8427e); #R = MD5 test suite from RFC
+   testMD5("a", 16r0cc175b9c0f1b6a831c399e269772661); #R
+   testMD5("abc", 16r900150983cd24fb0d6963f7d28e17f72); #R
+   testMD5("message digest", 16rf96b697d7cb7938d525a2f31aaf161d0); #R
+   testMD5("abcdefghijklmnopqrstuvwxyz", 16rc3fcd3d76192e4007dfb496cca67e13b); #R
+   testMD5("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", 16rd174ab98d277d9f5a5611c2c9f419d9f); #R
+   testMD5("12345678901234567890123456789012345678901234567890123456789012345678901234567890", 16r57edf4a22be3c955ac49da2e2107b67a); #R
 end
 
 procedure testMD5(s,rh)  # compute the MD5 hash and compare it to reference value
-   write("Message(length=",*s,") = ",image(s))
-   write("Digest = ",hexstring(h := MD5(s)),if h = rh then " matches reference hash" else (" does not match reference hash = " || hexstring(rh)),"\n")
+   write("Message(length=",*s,") = ",image(s));
+   write("Digest = ",hexstring(h := MD5(s)),if h = rh then " matches reference hash" else (" does not match reference hash = " || hexstring(rh)),"\n");
 end
 
 link hexcvt # for testMD5

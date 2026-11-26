@@ -55962,19 +55962,17 @@ File 100-prisoners.icn; Line 21 # "p": missing semicolon or operator
 File 100-prisoners.icn; Line 28 # ":": invalid expression list
 File 100-prisoners.icn; Line 35 # "end": missing semicolon or operator
 File 100-prisoners.icn; Line 39 # "every": missing semicolon or operator
-#----------------------------- 427 add-a-variable-to-a-class-instance-at-runtime
-File add-a-variable-to-a-class-instance-at-runtime.icn; Line 12 # "class": invalid declaration
-#------------------------------------------------------------ 428 almost-prime-2
+#------------------------------------------------------------ 427 almost-prime-2
 File almost-prime-2.icn; Line 1 # "(": invalid declaration
-#------------------------------------------------------------------ 429 anagrams
+#------------------------------------------------------------------ 428 anagrams
 File anagrams.icn; Line 3 # "end": missing semicolon or operator
 File anagrams.icn; Line 7 # "longestWSet": missing semicolon or operator
 File anagrams.icn; Line 28 # "write": missing semicolon or operator
 File anagrams.icn; Line 33 # "return": missing semicolon or operator
-#----------------------------------------------------- 430 anonymous-recursion-1
+#----------------------------------------------------- 429 anonymous-recursion-1
 File anonymous-recursion-1.icn; Line 3 # "end": missing semicolon or operator
 File anonymous-recursion-1.icn; Line 23 # "return": missing semicolon or operator
-#------------------------------------------------------ 431 arithmetic-complex-1
+#------------------------------------------------------ 430 arithmetic-complex-1
 
 Run-time error 106
 File arithmetic-complex-1.icn; Line 3
@@ -55983,19 +55981,15 @@ offending value: &null
 Traceback:
 main()
 &null() from line 3 in arithmetic-complex-1.icn
-#----------------------------------------------------- 432 arithmetic-rational-3
+#----------------------------------------------------- 431 arithmetic-rational-3
 File arithmetic-rational-3.icn; Line 3 # "addrat": invalid declaration
-#-------------------------------------------------------------- 433 array-length
+#-------------------------------------------------------------- 432 array-length
 File array-length.icn; Line 1 # "write": invalid declaration
-#-------------------------------------------------------------------- 434 arrays
+#-------------------------------------------------------------------- 433 arrays
 File arrays.icn; Line 5 # "A0": missing semicolon or operator
-#---------------------------------------------------------- 435 ascending-primes
-File ascending-primes.icn; Line 5 # "every": missing semicolon or operator
-File ascending-primes.icn; Line 11 # "t": missing semicolon or operator
-File ascending-primes.icn; Line 19 # ":": invalid expression list
-#-------------------------------------------------------------- 436 assertions-1
+#-------------------------------------------------------------- 434 assertions-1
 File assertions-1.icn; Line 1 # ".": invalid declaration
-#------------------------------------------------------- 437 averages-mean-angle
+#------------------------------------------------------- 435 averages-mean-angle
 
 Run-time error 204
 File averages-mean-angle.icn; Line 8
@@ -56004,7 +55998,7 @@ Traceback:
 main(list_1 = [])
 meanAngle(list_1 = []) from line 2 in averages-mean-angle.icn
 {0.0 / 0} from line 8 in averages-mean-angle.icn
-#------------------------------------------------- 438 averages-mean-time-of-day
+#------------------------------------------------- 436 averages-mean-time-of-day
 
 Run-time error 204
 File averages-mean-time-of-day.icn; Line 23
@@ -56013,19 +56007,17 @@ Traceback:
 main(list_1 = [])
 meanAngle(list_2 = []) from line 3 in averages-mean-time-of-day.icn
 {0.0 / 0} from line 23 in averages-mean-time-of-day.icn
-#------------------------------------------ 439 averages-simple-moving-average-2
+#------------------------------------------ 437 averages-simple-moving-average-2
 File averages-simple-moving-average-2.icn; Line 1 # "import": invalid declaration
 File averages-simple-moving-average-2.icn; Line 5 # "sma2": missing semicolon or operator
 File averages-simple-moving-average-2.icn; Line 11 # "if": missing semicolon or operator
-#---------------------------------------------------------- 440 binary-strings-1
+#---------------------------------------------------------- 438 binary-strings-1
 File binary-strings-1.icn; Line 1 # "s": invalid declaration
-#----------------------------------------------------------- 441 caesar-cipher-2
+#----------------------------------------------------------- 439 caesar-cipher-2
 File caesar-cipher-2.icn; Line 1 # "(": invalid declaration
 File caesar-cipher-2.icn; Line 10 # unclosed quote
 File caesar-cipher-2.icn; Line 12 # unclosed quote
-#------------------------------------------------ 442 calculating-the-value-of-e
-File calculating-the-value-of-e.icn; Line 5 # ":=": invalid declaration
-#----------------------------------------------------------- 443 call-a-function
+#----------------------------------------------------------- 440 call-a-function
 
 Run-time error 106
 File call-a-function.icn; Line 5
@@ -56034,9 +56026,9 @@ offending value: &null
 Traceback:
 main()
 &null() from line 5 in call-a-function.icn
-#---------------------------------------------------- 444 check-that-file-exists
+#---------------------------------------------------- 441 check-that-file-exists
 File check-that-file-exists.icn; Line 1 # "every": invalid declaration
-#-------------------------------------------------- 445 closures-value-capture-1
+#-------------------------------------------------- 442 closures-value-capture-1
 
 Run-time error 106
 File closures-value-capture-1.icn; Line 3
@@ -56045,16 +56037,16 @@ offending value: co-expression_4(0)
 Traceback:
 main(list_1 = [])
 co-expression_4(0)() from line 3 in closures-value-capture-1.icn
-#-------------------------------------------------- 446 closures-value-capture-2
+#-------------------------------------------------- 443 closures-value-capture-2
 File closures-value-capture-2.icn; Line 1 # "(": invalid declaration
-#------------------------------------------------------------- 447 collections-1
+#------------------------------------------------------------- 444 collections-1
 File collections-1.icn; Line 2 # "s": invalid declaration
 File collections-1.icn; Line 8 # "R": invalid declaration
-#------------------------------------------------------------- 448 collections-2
+#------------------------------------------------------------- 445 collections-2
 File collections-2.icn; Line 1 # "s": invalid declaration
-#------------------------------------------------------------- 449 collections-3
+#------------------------------------------------------------- 446 collections-3
 File collections-3.icn; Line 1 # "S": invalid declaration
-#------------------------------------------- 450 combinations-with-repetitions-2
+#------------------------------------------- 447 combinations-with-repetitions-2
 
 Run-time error 106
 File combinations-with-repetitions-2.icn; Line 10
@@ -56063,13 +56055,13 @@ offending value: &null
 Traceback:
 main()
 &null(list_1 = ["iced","jam","plain"],2) from line 10 in combinations-with-repetitions-2.icn
-#------------------------------------------------------------------ 451 comments
+#------------------------------------------------------------------ 448 comments
 File comments.icn; unexpected end of file
-#----------------------------------------------- 452 compare-a-list-of-strings-3
+#----------------------------------------------- 449 compare-a-list-of-strings-3
 File compare-a-list-of-strings-3.icn; Line 1 # "writes": invalid declaration
-#----------------------------------------------- 453 compare-a-list-of-strings-4
+#----------------------------------------------- 450 compare-a-list-of-strings-4
 File compare-a-list-of-strings-4.icn; Line 1 # "writes": invalid declaration
-#--------------------------------------------- 454 compare-length-of-two-strings
+#--------------------------------------------- 451 compare-length-of-two-strings
 
 Run-time error 103
 File compare-length-of-two-strings.icn; Line 4
@@ -56078,7 +56070,7 @@ offending value: list_3 = [list_4(2),list_5(2),list_7(2),list_6(2)]
 Traceback:
 main(list_2 = ["abcd","123456789","abcdef","1234567"])
 reverse(list_3 = [list_4(2),list_5(2),list_7(2),list_6(2)]) from line 4 in compare-length-of-two-strings.icn
-#-------------------------------------------------- 455 compiler-syntax-analyzer
+#-------------------------------------------------- 452 compiler-syntax-analyzer
 
 Run-time error 107
 File compiler-syntax-analyzer.icn; Line 234
@@ -56090,31 +56082,31 @@ parse(record token_getter_1(co-expression_2(0),co-expression_3(1))) from line 43
 stmt(record token_getter_1(co-expression_2(0),co-expression_3(1))) from line 110 in compiler-syntax-analyzer.icn
 accept(record token_getter_1(co-expression_2(0),co-expression_3(1)),"Keyword_if") from line 122 in compiler-syntax-analyzer.icn
 {&null . tok} from line 234 in compiler-syntax-analyzer.icn
-#-------------------------------------------------- 456 conditional-structures-1
+#-------------------------------------------------- 453 conditional-structures-1
 File conditional-structures-1.icn; Line 1 # "if": invalid declaration
-#------------------------------------------------- 457 conditional-structures-10
+#------------------------------------------------- 454 conditional-structures-10
 File conditional-structures-10.icn; Line 1 # "expr0": invalid declaration
-#------------------------------------------------- 458 conditional-structures-11
+#------------------------------------------------- 455 conditional-structures-11
 File conditional-structures-11.icn; Line 1 # "2": invalid declaration
-#------------------------------------------------- 459 conditional-structures-12
+#------------------------------------------------- 456 conditional-structures-12
 File conditional-structures-12.icn; Line 1 # "f": invalid declaration
-#-------------------------------------------------- 460 conditional-structures-2
+#-------------------------------------------------- 457 conditional-structures-2
 File conditional-structures-2.icn; Line 1 # "case": invalid declaration
-#-------------------------------------------------- 461 conditional-structures-3
+#-------------------------------------------------- 458 conditional-structures-3
 File conditional-structures-3.icn; Line 1 # "case": invalid declaration
-#-------------------------------------------------- 462 conditional-structures-4
+#-------------------------------------------------- 459 conditional-structures-4
 File conditional-structures-4.icn; Line 1 # "{": invalid declaration
-#-------------------------------------------------- 463 conditional-structures-5
+#-------------------------------------------------- 460 conditional-structures-5
 File conditional-structures-5.icn; Line 1 # "{": invalid declaration
-#-------------------------------------------------- 464 conditional-structures-6
+#-------------------------------------------------- 461 conditional-structures-6
 File conditional-structures-6.icn; Line 1 # "write": invalid declaration
-#-------------------------------------------------- 465 conditional-structures-7
+#-------------------------------------------------- 462 conditional-structures-7
 File conditional-structures-7.icn; Line 1 # "expr1": invalid declaration
-#-------------------------------------------------- 466 conditional-structures-8
+#-------------------------------------------------- 463 conditional-structures-8
 File conditional-structures-8.icn; Line 1 # "expr1": invalid declaration
-#-------------------------------------------------- 467 conditional-structures-9
+#-------------------------------------------------- 464 conditional-structures-9
 File conditional-structures-9.icn; Line 1 # "(": invalid declaration
-#--------------------------------------------------------- 468 count-the-coins-1
+#--------------------------------------------------------- 465 count-the-coins-1
 
 Run-time error 106
 File count-the-coins-1.icn; Line 9
@@ -56123,27 +56115,22 @@ offending value: &null
 Traceback:
 main()
 &null ! list_6 = [15,list_1(4)] from line 9 in count-the-coins-1.icn
-#------------------------------------------------------------- 469 create-a-file
+#------------------------------------------------------------- 466 create-a-file
 File create-a-file.icn; Line 1 # "every": invalid declaration
-#---------------------------------------------------- 470 create-an-html-table-2
+#---------------------------------------------------- 467 create-an-html-table-2
 File create-an-html-table-2.icn; Line 1 # "<": invalid declaration
-#----------------------------------------------------- 471 csv-data-manipulation
+#----------------------------------------------------- 468 csv-data-manipulation
 File csv-data-manipulation.icn; Line 1 # "import": invalid declaration
 File csv-data-manipulation.icn; Line 5 # "i": missing semicolon or operator
-#------------------------------------------------- 472 csv-to-html-translation-2
+#------------------------------------------------- 469 csv-to-html-translation-2
 File csv-to-html-translation-2.icn; Line 1 # "<": invalid declaration
-#---------------------------------------------------------------- 473 deepcopy-2
-File deepcopy-2.icn; Line 23 # "class": invalid declaration
-#------------------------------------------------------------- 474 delete-a-file
+#------------------------------------------------------------- 470 delete-a-file
 File delete-a-file.icn; Line 1 # "every": invalid declaration
-#--------------------------------------------------------- 475 descending-primes
-File descending-primes.icn; Line 5 # "write": missing semicolon or operator
-File descending-primes.icn; Line 11 # "digits": missing semicolon or operator
-#--------------------------------------------------- 476 detect-division-by-zero
+#--------------------------------------------------- 471 detect-division-by-zero
 Run-time error 201 : division by zero in line #3 - converted to failure
-#------------------------------------------ 477 determine-if-a-string-is-numeric
+#------------------------------------------ 472 determine-if-a-string-is-numeric
 File determine-if-a-string-is-numeric.icn; Line 1 # "write": invalid declaration
-#--------------------------------- 478 determine-if-only-one-instance-is-running
+#--------------------------------- 473 determine-if-only-one-instance-is-running
 
 Run-time error 209
 File determine-if-only-one-instance-is-running.icn; Line 2
@@ -56152,18 +56139,15 @@ offending value: "na"
 Traceback:
 main(list_1 = [])
 open(":54321","na") from line 2 in determine-if-only-one-instance-is-running.icn
-#------------------------------------------------------- 479 dijkstras-algorithm
-File dijkstras-algorithm.icn; Line 54 # "class": invalid declaration
-File dijkstras-algorithm.icn; Line 108 # "qMiceEmpty": missing semicolon or operator
-#------------------------------------------------------------- 480 documentation
+#------------------------------------------------------------- 474 documentation
 File documentation.icn; unexpected end of file
-#-------------------------------------------------------------- 481 empty-string
+#-------------------------------------------------------------- 475 empty-string
 File empty-string.icn; Line 1 # "s": invalid declaration
-#----------------------------------------------------- 482 enforced-immutability
+#----------------------------------------------------- 476 enforced-immutability
 File enforced-immutability.icn; Line 1 # $define: missing name
-#-------------------------------------------------------------- 483 enumerations
+#-------------------------------------------------------------- 477 enumerations
 File enumerations.icn; Line 1 # "fruits": invalid declaration
-#----------------------------------------------------- 484 environment-variables
+#----------------------------------------------------- 478 environment-variables
 
 Run-time error 112
 File environment-variables.icn; Line 3
@@ -56172,15 +56156,15 @@ offending value: &null
 Traceback:
 main(list_1 = [])
 {*&null} from line 3 in environment-variables.icn
-#-------------------------------------------------- 485 evolutionary-algorithm-2
+#-------------------------------------------------- 479 evolutionary-algorithm-2
 File evolutionary-algorithm-2.icn; Line 1 # "(": invalid declaration
-#-------------------------------------------------- 486 evolutionary-algorithm-3
+#-------------------------------------------------- 480 evolutionary-algorithm-3
 File evolutionary-algorithm-3.icn; Line 1 # "(": invalid declaration
-#-------------------------------------------------- 487 evolutionary-algorithm-4
+#-------------------------------------------------- 481 evolutionary-algorithm-4
 File evolutionary-algorithm-4.icn; Line 1 # "(": invalid declaration
-#------------------------------------------------ 488 execute-a-system-command-2
+#------------------------------------------------ 482 execute-a-system-command-2
 File execute-a-system-command-2.icn; Line 1 # "pid": invalid declaration
-#------------------------------------------------------------- 489 execute-snusp
+#------------------------------------------------------------- 483 execute-snusp
 File execute-snusp.icn; Line 21 # "local": invalid declaration
 File execute-snusp.icn; Line 22 # "local": missing semicolon or operator
 File execute-snusp.icn; Line 125 # "2": missing right brace or semicolon
@@ -56189,19 +56173,19 @@ File execute-snusp.icn; Line 127 # "4": missing right brace or semicolon
 File execute-snusp.icn; Line 129 # "end": missing semicolon or operator
 File execute-snusp.icn; Line 134 # "end": missing semicolon or operator
 File execute-snusp.icn; Line 139 # "write": missing semicolon or operator
-#--------------------------------------------------- 490 factors-of-an-integer-2
+#--------------------------------------------------- 484 factors-of-an-integer-2
 File factors-of-an-integer-2.icn; Line 1 # "(": invalid declaration
-#------------------------------------------------------ 491 fibonacci-sequence-1
+#------------------------------------------------------ 485 fibonacci-sequence-1
 File fibonacci-sequence-1.icn; Line 3 # "end": missing right parenthesis
-#---------------------------------------------------- 492 file-modification-time
+#---------------------------------------------------- 486 file-modification-time
 File file-modification-time.icn; Line 1 # "every": invalid declaration
-#----------------------------------------------------------------- 493 file-size
+#----------------------------------------------------------------- 487 file-size
 File file-size.icn; Line 1 # "every": invalid declaration
-#---------------------------------------- 494 find-the-last-sunday-of-each-month
+#---------------------------------------- 488 find-the-last-sunday-of-each-month
 File find-the-last-sunday-of-each-month.icn; Line 3 # "end": missing semicolon or operator
 File find-the-last-sunday-of-each-month.icn; Line 9 # "4": missing right brace or semicolon
 File find-the-last-sunday-of-each-month.icn; Line 13 # "z": missing right brace
-#-------------------------------------------- 495 find-the-missing-permutation-1
+#-------------------------------------------- 489 find-the-missing-permutation-1
 
 Run-time error 108
 File find-the-missing-permutation-1.icn; Line 4
@@ -56210,9 +56194,9 @@ offending value: "ABCD"
 Traceback:
 main()
 function set ! list_1 = ["ABCD","CABD","ACDB",...,"CBDA","DBCA","DCAB"] from line 4 in find-the-missing-permutation-1.icn
-#-------------------------------------------- 496 find-the-missing-permutation-2
+#-------------------------------------------- 490 find-the-missing-permutation-2
 File find-the-missing-permutation-2.icn; Line 1 # "every": invalid declaration
-#-------------------------------------------- 497 find-the-missing-permutation-3
+#-------------------------------------------- 491 find-the-missing-permutation-3
 
 Run-time error 108
 File find-the-missing-permutation-3.icn; Line 4
@@ -56221,32 +56205,11 @@ offending value: "ABCD"
 Traceback:
 main()
 set("ABCD") from line 4 in find-the-missing-permutation-3.icn
-#---------------------------------------------------------- 498 find-uri-in-text
-stop:
-http://en.wikipedia.org/wiki/Erich_K
-http://mediawiki.org/).
-http://mediawiki.org/)
-http://mediawiki.org/
-parser:
-http://en.wikipedia.org/wiki/-)
-http://en.wikipedia.org/wiki/-
-ftp://domain.name/path(balanced_brackets)/foo.html
-ftp://domain.name/path(balanced_brackets)/ending.in.dot.
-ftp://domain.name/path(balanced_brackets)/ending.in.dot
-ftp://domain.name/path(unbalanced_brackets/ending.in.dot.
-ftp://domain.name/path(unbalanced_brackets/ending.in.dot
-ftp://domain.name/path/embedded?punct/uation.
-ftp://domain.name/path/embedded?punct/uation
-ftp://domain.name/dangling_close_paren)
-ftp://domain.name/dangling_close_paren
-here:
-foo://domain.hld/))))
-foo://domain.hld/
-#----------------------------- 499 first-class-functions-use-numbers-analogously
+#----------------------------- 492 first-class-functions-use-numbers-analogously
 File first-class-functions-use-numbers-analogously.icn; Line 1 # "import": invalid declaration
 File first-class-functions-use-numbers-analogously.icn; Line 5 # "every": missing semicolon or operator
 File first-class-functions-use-numbers-analogously.icn; Line 10 # "end": missing semicolon or operator
-#---------------------------------------------------------------- 500 fizzbuzz-6
+#---------------------------------------------------------------- 493 fizzbuzz-6
 
 Run-time error 102
 File fizzbuzz-6.icn; Line 6
@@ -56255,7 +56218,7 @@ offending value: ""
 Traceback:
 main()
 {"" ~= ""} from line 6 in fizzbuzz-6.icn
-#---------------------------------------------------------- 501 flatten-a-list-3
+#---------------------------------------------------------- 494 flatten-a-list-3
 
 Run-time error 106
 File flatten-a-list-3.icn; Line 2
@@ -56264,23 +56227,17 @@ offending value: &null
 Traceback:
 main()
 &null(" [[1], 2, [[3,4]...") from line 2 in flatten-a-list-3.icn
-#------------------------------------------------- 502 flow-control-structures-1
+#------------------------------------------------- 495 flow-control-structures-1
 File flow-control-structures-1.icn; Line 1 # "if": invalid declaration
-#------------------------------------------------- 503 flow-control-structures-2
+#------------------------------------------------- 496 flow-control-structures-2
 File flow-control-structures-2.icn; Line 1 # "break": invalid declaration
-#------------------------------------------------- 504 flow-control-structures-3
+#------------------------------------------------- 497 flow-control-structures-3
 File flow-control-structures-3.icn; Line 1 # "x": invalid declaration
-#------------------------------------------------- 505 flow-control-structures-4
+#------------------------------------------------- 498 flow-control-structures-4
 File flow-control-structures-4.icn; Line 1 # "&": invalid declaration
-#------------------------------------------------- 506 flow-control-structures-5
+#------------------------------------------------- 499 flow-control-structures-5
 File flow-control-structures-5.icn; Line 1 # "runerr": invalid declaration
-#--------------------------------------------------------------- 507 forest-fire
-File forest-fire.icn; Line 13 # "Width": missing semicolon or operator
-File forest-fire.icn; Line 33 # "Colours": missing semicolon or operator
-File forest-fire.icn; Line 52 # "DrawPoint": missing right brace
-File forest-fire.icn; Line 58 # "every": missing semicolon or operator
-File forest-fire.icn; Line 73 # "end": invalid return expression
-#---------------------------------------------------------------------- 508 fork
+#---------------------------------------------------------------------- 500 fork
 
 Run-time error 106
 File fork.icn; Line 2
@@ -56289,9 +56246,9 @@ offending value: &null
 Traceback:
 main()
 &null() from line 2 in fork.icn
-#---------------------------------------------------- 509 function-composition-1
+#---------------------------------------------------- 501 function-composition-1
 File function-composition-1.icn; Line 1 # "x": invalid declaration
-#---------------------------------------------------- 510 function-composition-2
+#---------------------------------------------------- 502 function-composition-2
 
 Run-time error 103
 File function-composition-2.icn; Line 21
@@ -56301,18 +56258,15 @@ Traceback:
 main(list_1 = [])
 compose(list_2 = [function sqrt,function abs]) from line 2 in function-composition-2.icn
 reverse(list_2 = [function sqrt,function abs]) from line 21 in function-composition-2.icn
-#---------------------------------------------------------- 511 general-fizzbuzz
-File general-fizzbuzz.icn; Line 5 # "mtable": missing semicolon or operator
-File general-fizzbuzz.icn; Line 15 # "return": missing semicolon or operator
-#-------------------------------------- 512 generate-lower-case-ascii-alphabet-1
+#-------------------------------------- 503 generate-lower-case-ascii-alphabet-1
 File generate-lower-case-ascii-alphabet-1.icn; Line 1 # "every": invalid declaration
-#------------------------------------------------- 513 greatest-common-divisor-1
+#------------------------------------------------- 504 greatest-common-divisor-1
 File greatest-common-divisor-1.icn; Line 3 # ")": missing semicolon or operator
-#---------------------------------------------- 514 greatest-element-of-a-list-2
+#---------------------------------------------- 505 greatest-element-of-a-list-2
 File greatest-element-of-a-list-2.icn; Line 1 # "(": invalid declaration
-#------------------------------------------------ 515 greatest-subsequential-sum
+#------------------------------------------------ 506 greatest-subsequential-sum
 File greatest-subsequential-sum.icn; Line 3 # "L": missing semicolon or operator
-#------------------------------------------------------ 516 hailstone-sequence-2
+#------------------------------------------------------ 507 hailstone-sequence-2
 
 Run-time error 106
 File hailstone-sequence-2.icn; Line 3
@@ -56321,7 +56275,7 @@ offending value: &null
 Traceback:
 main(list_1 = [])
 &null((variable = 27)) from line 3 in hailstone-sequence-2.icn
-#------------------------------------------------------ 517 hailstone-sequence-4
+#------------------------------------------------------ 508 hailstone-sequence-4
 
 Run-time error 106
 File hailstone-sequence-4.icn; Line 10
@@ -56331,7 +56285,7 @@ Traceback:
 main(list_1 = [])
 task2(27) from line 3 in hailstone-sequence-4.icn
 &null((variable = 27)) from line 10 in hailstone-sequence-4.icn
-#------------------------------------------------------- 518 halt-and-catch-fire
+#------------------------------------------------------- 509 halt-and-catch-fire
 
 Run-time error 201
 File halt-and-catch-fire.icn; Line 2
@@ -56339,39 +56293,31 @@ division by zero
 Traceback:
 main()
 {5 / 0} from line 2 in halt-and-catch-fire.icn
-#--------------------------------------------------------- 519 history-variables
-File history-variables.icn; Line 14 # "class": invalid declaration
-#------------------------------------------------ 520 holidays-related-to-easter
-File holidays-related-to-easter.icn; Line 5 # "every": missing semicolon or operator
-File holidays-related-to-easter.icn; Line 39 # "b": missing semicolon or operator
-#---------------------------------------------------------------- 521 honeycombs
+#---------------------------------------------------------------- 510 honeycombs
 File honeycombs.icn; Line 61 # "now": invalid keyword
-#-------------------------------------------------------------------- 522 http-2
+#-------------------------------------------------------------------- 511 http-2
 File http-2.icn; Line 1 # "|": invalid declaration
-#---------------------------------------------------------- 523 huffman-coding-2
+#---------------------------------------------------------- 512 huffman-coding-2
 File huffman-coding-2.icn; Line 1 # "import": invalid declaration
 File huffman-coding-2.icn; Line 6 # "heap": missing right brace
 File huffman-coding-2.icn; Line 20 # "end": missing semicolon or operator
 File huffman-coding-2.icn; Line 24 # "if": missing semicolon or operator
-#----------------------------------------------- 524 i-before-e-except-after-c-1
+#----------------------------------------------- 513 i-before-e-except-after-c-1
 File i-before-e-except-after-c-1.icn; Line 1 # "import": invalid declaration
 File i-before-e-except-after-c-1.icn; Line 5 # "totals": missing semicolon or operator
-#----------------------------------------------- 525 i-before-e-except-after-c-2
+#----------------------------------------------- 514 i-before-e-except-after-c-2
 File i-before-e-except-after-c-2.icn; Line 1 # "import": invalid declaration
 File i-before-e-except-after-c-2.icn; Line 5 # "showCounts": missing semicolon or operator
-#---------------------------------------------- 526 increment-a-numerical-string
+#---------------------------------------------- 515 increment-a-numerical-string
 File increment-a-numerical-string.icn; Line 1 # "s": invalid declaration
-#---------------------------------------------------------- 527 jensens-device-2
+#---------------------------------------------------------- 516 jensens-device-2
 File jensens-device-2.icn; Line 1 # "write": invalid declaration
-#---------------------------------------------------------- 528 jensens-device-3
+#---------------------------------------------------------- 517 jensens-device-3
 File jensens-device-3.icn; Line 1 # "write": invalid declaration
 File jensens-device-3.icn; unexpected end of file
-#-------------------------------------------------------------------- 529 json-1
-File json-1.icn; Line 1 # "import": invalid declaration
-File json-1.icn; Line 6 # "write": missing semicolon or operator
-#-------------------------------------------------------------------- 530 json-2
+#-------------------------------------------------------------------- 518 json-2
 File json-2.icn; Line 1 # "(": invalid declaration
-#----------------------------------------------- 531 knapsack-problem-continuous
+#----------------------------------------------- 519 knapsack-problem-continuous
 
 Run-time error 103
 File knapsack-problem-continuous.icn; Line 6
@@ -56380,11 +56326,11 @@ offending value: list_2 = [record item_5(4),record item_2(4),record item_1(4),..
 Traceback:
 main()
 reverse(list_2 = [record item_5(4),record item_2(4),record item_1(4),...,record item_6(4),record item_3(4),record item_8(4)]) from line 6 in knapsack-problem-continuous.icn
-#-------------------------------------------------------- 532 knuths-algorithm-s
+#-------------------------------------------------------- 520 knuths-algorithm-s
 File knuths-algorithm-s.icn; Line 1 # "import": invalid declaration
 File knuths-algorithm-s.icn; Line 5 # "every": missing semicolon or operator
 File knuths-algorithm-s.icn; Line 15 # "itemCnt": missing semicolon or operator
-#-------------------------------------------------------------- 533 langtons-ant
+#-------------------------------------------------------------- 521 langtons-ant
 
 Run-time error 106
 File langtons-ant.icn; Line 23
@@ -56394,44 +56340,38 @@ Traceback:
 main(list_1 = [])
 LangtonsAnt(100) from line 5 in langtons-ant.icn
 &null("fg=red") from line 23 in langtons-ant.icn
-#---------------------------------------- 534 largest-int-from-concatenated-ints
+#---------------------------------------- 522 largest-int-from-concatenated-ints
 File largest-int-from-concatenated-ints.icn; Line 1 # "import": invalid declaration
 File largest-int-from-concatenated-ints.icn; Line 5 # "end": missing semicolon or operator
 File largest-int-from-concatenated-ints.icn; Line 9 # "return": missing semicolon or operator
 File largest-int-from-concatenated-ints.icn; Line 14 # "end": missing semicolon or operator
-#------------------------------------ 535 largest-number-divisible-by-its-digits
-File largest-number-divisible-by-its-digits.icn; Line 5 # "every": missing semicolon or operator
-File largest-number-divisible-by-its-digits.icn; Line 11 # "while": missing semicolon or operator
-File largest-number-divisible-by-its-digits.icn; Line 16 # ":": invalid expression list
-File largest-number-divisible-by-its-digits.icn; Line 17 # "end": missing semicolon or operator
-File largest-number-divisible-by-its-digits.icn; Line 21 # "return": missing semicolon or operator
-#------------------------------------------------- 536 last-friday-of-each-month
+#------------------------------------------------- 523 last-friday-of-each-month
 File last-friday-of-each-month.icn; Line 3 # "end": missing semicolon or operator
 File last-friday-of-each-month.icn; Line 9 # "4": missing right brace or semicolon
 File last-friday-of-each-month.icn; Line 13 # "z": missing right brace
-#----------------------------------------------------- 537 list-comprehensions-1
+#----------------------------------------------------- 524 list-comprehensions-1
 File list-comprehensions-1.icn; Line 1 # "|": invalid declaration
-#----------------------------------------------------- 538 list-comprehensions-2
+#----------------------------------------------------- 525 list-comprehensions-2
 File list-comprehensions-2.icn; Line 3 # "end": missing right parenthesis
-#----------------------------------------------------- 539 list-comprehensions-4
+#----------------------------------------------------- 526 list-comprehensions-4
 File list-comprehensions-4.icn; Line 3 # "s": missing semicolon or operator
-#-------------------------------------------------------- 540 literals-integer-2
+#-------------------------------------------------------- 527 literals-integer-2
 File literals-integer-2.icn; Line 1 # "[": invalid declaration
-#------------------------------------------------------ 541 logical-operations-2
+#------------------------------------------------------ 528 logical-operations-2
 File logical-operations-2.icn; Line 1 # "(": invalid declaration
-#------------------------------------------------------------- 542 loops-break-2
+#------------------------------------------------------------- 529 loops-break-2
 File loops-break-2.icn; Line 1 # "&": invalid declaration
-#------------------------------------------------------------- 543 loops-break-3
+#------------------------------------------------------------- 530 loops-break-3
 File loops-break-3.icn; Line 1 # "(": invalid declaration
-#---------------------------------------------------------- 544 loops-continue-2
+#---------------------------------------------------------- 531 loops-continue-2
 File loops-continue-2.icn; Line 1 # "every": invalid declaration
-#-------------------------------------------------------- 545 loops-downward-for
+#-------------------------------------------------------- 532 loops-downward-for
 File loops-downward-for.icn; Line 1 # "every": invalid declaration
-#----------------------------------------- 546 loops-for-with-a-specified-step-1
+#----------------------------------------- 533 loops-for-with-a-specified-step-1
 File loops-for-with-a-specified-step-1.icn; Line 1 # "every": invalid declaration
-#----------------------------------------- 547 loops-for-with-a-specified-step-2
+#----------------------------------------- 534 loops-for-with-a-specified-step-2
 File loops-for-with-a-specified-step-2.icn; Line 1 # "(": invalid declaration
-#----------------------------------------------------------- 548 loops-foreach-1
+#----------------------------------------------------------- 535 loops-foreach-1
 
 Run-time error 116
 File loops-foreach-1.icn; Line 3
@@ -56440,28 +56380,17 @@ offending value: &null
 Traceback:
 main()
 {!(variable = &null)} from line 3 in loops-foreach-1.icn
-#----------------------------------------------------------- 549 loops-foreach-2
+#----------------------------------------------------------- 536 loops-foreach-2
 File loops-foreach-2.icn; Line 1 # "every": invalid declaration
-#---------------------------------------------------------- 550 loops-infinite-2
+#---------------------------------------------------------- 537 loops-infinite-2
 File loops-infinite-2.icn; Line 1 # "until": invalid declaration
-#--------------------------------------------------- 551 loops-n-plus-one-half-2
+#--------------------------------------------------- 538 loops-n-plus-one-half-2
 File loops-n-plus-one-half-2.icn; Line 1 # "every": invalid declaration
-#------------------------------------------------------------ 552 loops-nested-2
+#------------------------------------------------------------ 539 loops-nested-2
 File loops-nested-2.icn; Line 1 # "e": invalid declaration
-#----------------------------------------------------------- 553 lychrel-numbers
+#----------------------------------------------------------- 540 lychrel-numbers
 File lychrel-numbers.icn; Line 5 # "palins": missing semicolon or operator
-#--------------------------------------------------------------- 554 map-range-1
-File map-range-1.icn; Line 5 # ":": invalid parameter list
-File map-range-1.icn; Line 12 # "end": missing semicolon or operator
-File map-range-1.icn; Line 16 # "range2": missing semicolon or operator
-#-------------------------------------------- 555 matrix-exponentiation-operator
-File matrix-exponentiation-operator.icn; Line 1 # "import": invalid declaration
-File matrix-exponentiation-operator.icn; Line 5 # "every": missing semicolon or operator
-File matrix-exponentiation-operator.icn; Line 29 # "write": missing right brace
-#----------------------------------------------------------- 556 maze-generation
-File maze-generation.icn; Line 6 # "mz": missing semicolon or operator
-File maze-generation.icn; Line 68 # "wh": missing semicolon or operator
-#------------------------------------------------------------ 557 maze-solving-1
+#------------------------------------------------------------ 541 maze-solving-1
 
 Run-time error 106
 File maze-solving-1.icn; Line 4
@@ -56470,7 +56399,7 @@ offending value: &null
 Traceback:
 main(list_1 = [])
 &null((variable = 12),(variable = 16)) from line 4 in maze-solving-1.icn
-#------------------------------------------------------------ 558 maze-solving-3
+#------------------------------------------------------------ 542 maze-solving-3
 File maze-solving-3.icn; Line 3 # "import": invalid declaration
 File maze-solving-3.icn; Line 7 # "if": missing semicolon or operator
 File maze-solving-3.icn; Line 23 # "write": missing semicolon or operator
@@ -56479,24 +56408,21 @@ File maze-solving-3.icn; Line 102 # "if": missing semicolon or operator
 File maze-solving-3.icn; Line 109 # "end": missing semicolon or operator
 File maze-solving-3.icn; Line 113 # "every": missing semicolon or operator
 File maze-solving-3.icn; Line 121 # "maze": missing right brace
-#-------------------------------------------------------- 559 md5-implementation
-File md5-implementation.icn; Line 3 # "testMD5": missing semicolon or operator
-File md5-implementation.icn; Line 15 # "write": missing semicolon or operator
-#--------------------------------------------------------- 560 memory-allocation
+#--------------------------------------------------------- 543 memory-allocation
 File memory-allocation.icn; Line 1 # "t": invalid declaration
-#---------------------------------------------------------- 561 minesweeper-game
+#---------------------------------------------------------- 544 minesweeper-game
 File minesweeper-game.icn; Line 18 # "initial": invalid declaration
 File minesweeper-game.icn; Line 20 # "DEFARGS": missing semicolon or operator
 File minesweeper-game.icn; Line 83 # "end": missing semicolon or operator
 File minesweeper-game.icn; Line 87 # "if": missing semicolon or operator
 File minesweeper-game.icn; Line 130 # "return": missing right brace
-#----------------------------------------------- 562 multiple-distinct-objects-1
+#----------------------------------------------- 545 multiple-distinct-objects-1
 File multiple-distinct-objects-1.icn; Line 1 # "items_wrong": invalid declaration
-#----------------------------------------------- 563 multiple-distinct-objects-2
+#----------------------------------------------- 546 multiple-distinct-objects-2
 File multiple-distinct-objects-2.icn; Line 1 # "items": invalid declaration
-#--------------------------------------------------- 564 multiplication-tables-2
+#--------------------------------------------------- 547 multiplication-tables-2
 File multiplication-tables-2.icn; Line 1 # "(": invalid declaration
-#---------------------------------------------------------- 565 munching-squares
+#---------------------------------------------------------- 548 munching-squares
 
 Run-time error 106
 File munching-squares.icn; Line 12
@@ -56505,7 +56431,7 @@ offending value: &null
 Traceback:
 main(list_1 = [])
 &null("0,32768,0") from line 12 in munching-squares.icn
-#-------------------------------------------------------- 566 n-queens-problem-2
+#-------------------------------------------------------- 549 n-queens-problem-2
 
 Run-time error 106
 File n-queens-problem-2.icn; Line 2
@@ -56514,13 +56440,9 @@ offending value: &null
 Traceback:
 main()
 &null(1) from line 2 in n-queens-problem-2.icn
-#--------------------------------------------------------------------- 567 nth-2
+#--------------------------------------------------------------------- 550 nth-2
 File nth-2.icn; Line 1 # "(": invalid declaration
-#------------------------------------------------------------------ 568 nth-root
-File nth-root.icn; Line 3 # "showroot": missing semicolon or operator
-File nth-root.icn; Line 11 # "end": missing semicolon or operator
-File nth-root.icn; Line 15 # "if": missing semicolon or operator
-#-------------------------------------------------------- 569 odd-word-problem-2
+#-------------------------------------------------------- 551 odd-word-problem-2
 
 Run-time error 103
 File odd-word-problem-2.icn; Line 3
@@ -56529,14 +56451,14 @@ offending value: &null
 Traceback:
 main(list_1 = [])
 {&null ~== "."} from line 3 in odd-word-problem-2.icn
-#--------------------------------------- 570 one-dimensional-cellular-automata-3
+#--------------------------------------- 552 one-dimensional-cellular-automata-3
 File one-dimensional-cellular-automata-3.icn; Line 1 # "(": invalid declaration
-#------------------------------------------------------- 571 optional-parameters
+#------------------------------------------------------- 553 optional-parameters
 File optional-parameters.icn; Line 2 # ")": missing right bracket
 File optional-parameters.icn; Line 4 # ")": missing right bracket
 File optional-parameters.icn; Line 7 # ")": missing right bracket
 File optional-parameters.icn; Line 19 # ")": missing right bracket
-#------------------------------------------------- 572 order-two-numerical-lists
+#------------------------------------------------- 554 order-two-numerical-lists
 
 Run-time error 106
 File order-two-numerical-lists.icn; Line 7
@@ -56546,21 +56468,13 @@ Traceback:
 main()
 list_llt(list_1 = [1,2,1,3,2],list_2 = [1,2,0,...,0,0,0]) from line 2 in order-two-numerical-lists.icn
 &null(5,8) from line 7 in order-two-numerical-lists.icn
-#--------------------------------------------------------- 573 pangram-checker-3
+#--------------------------------------------------------- 555 pangram-checker-3
 File pangram-checker-3.icn; Line 1 # "(": invalid declaration
-#---------------------------------------------- 574 parse-command-line-arguments
+#---------------------------------------------- 556 parse-command-line-arguments
 File parse-command-line-arguments.icn; Line 5 # "opstring": missing semicolon or operator
-#-------------------------------------- 575 pathological-floating-point-problems
-File pathological-floating-point-problems.icn; Line 14 # ":=": invalid declaration
-File pathological-floating-point-problems.icn; Line 15 # "local": invalid expression
-#----------------------------------------------------------- 576 perfect-shuffle
-File perfect-shuffle.icn; Line 5 # "every": missing semicolon or operator
-File perfect-shuffle.icn; Line 17 # "c2": missing semicolon or operator
-#----------------------------------------------------- 577 pick-random-element-2
+#----------------------------------------------------- 557 pick-random-element-2
 File pick-random-element-2.icn; Line 1 # "(": invalid declaration
-#---------------------------------------------------------- 578 polymorphic-copy
-File polymorphic-copy.icn; Line 1 # "class": invalid declaration
-#--------------------------------------------------------------- 579 power-set-2
+#--------------------------------------------------------------- 558 power-set-2
 
 Run-time error 108
 File power-set-2.icn; Line 2
@@ -56569,7 +56483,7 @@ offending value: 1
 Traceback:
 main()
 set(1) from line 2 in power-set-2.icn
-#--------------------------------------------------------------- 580 power-set-3
+#--------------------------------------------------------------- 559 power-set-3
 
 Run-time error 108
 File power-set-3.icn; Line 14
@@ -56578,9 +56492,9 @@ offending value: 1
 Traceback:
 main()
 set(1) from line 14 in power-set-3.icn
-#------------------------------------------------------ 581 pragmatic-directives
+#------------------------------------------------------ 560 pragmatic-directives
 File pragmatic-directives.icn; Line 1 # "&": invalid declaration
-#------------------------------------------------------------ 582 price-fraction
+#------------------------------------------------------------ 561 price-fraction
 
 Run-time error 211
 File price-fraction.icn; Line 36
@@ -56589,18 +56503,18 @@ offending value: 0
 Traceback:
 main()
 {0.0 to 1.0 by 0.1} from line 36 in price-fraction.icn
-#------------------------------------------------------------ 583 priority-queue
+#------------------------------------------------------------ 562 priority-queue
 File priority-queue.icn; Line 1 # "import": invalid declaration
 File priority-queue.icn; Line 6 # "pq": missing semicolon or operator
-#------------------------------------------------------- 584 program-termination
+#------------------------------------------------------- 563 program-termination
 File program-termination.icn; Line 1 # "exit": invalid declaration
-#-------------------------------------------------------- 585 read-entire-file-1
+#-------------------------------------------------------- 564 read-entire-file-1
 File read-entire-file-1.icn; Line 1 # "every": invalid declaration
-#-------------------------------------------------------- 586 read-entire-file-2
+#-------------------------------------------------------- 565 read-entire-file-2
 File read-entire-file-2.icn; Line 1 # "every": invalid declaration
-#------------------------------------------------------------- 587 rename-a-file
+#------------------------------------------------------------- 566 rename-a-file
 File rename-a-file.icn; Line 1 # "every": invalid declaration
-#--------------------------------------------------------- 588 repeat-a-string-1
+#--------------------------------------------------------- 567 repeat-a-string-1
 
 Run-time error 101
 File repeat-a-string-1.icn; Line 2
@@ -56609,17 +56523,9 @@ offending value: &null
 Traceback:
 main(list_1 = [])
 repl("5",&null) from line 2 in repeat-a-string-1.icn
-#-------------------------------------------------------- 589 reverse-a-string-2
+#-------------------------------------------------------- 568 reverse-a-string-2
 File reverse-a-string-2.icn; Line 1 # "(": invalid declaration
-#------------------------------------- 590 rosetta-code-find-unimplemented-tasks
-File rosetta-code-find-unimplemented-tasks.icn; Line 6 # "write": missing semicolon or operator
-File rosetta-code-find-unimplemented-tasks.icn; Line 15 # "while": missing semicolon or operator
-File rosetta-code-find-unimplemented-tasks.icn; Line 27 # "while": missing semicolon or operator
-File rosetta-code-find-unimplemented-tasks.icn; Line 38 # "return": missing semicolon or operator
-File rosetta-code-find-unimplemented-tasks.icn; Line 43 # "if": missing semicolon or operator
-#--------------------------------- 591 rosetta-code-rank-languages-by-popularity
-File rosetta-code-rank-languages-by-popularity.icn; Line 41 # "errno": invalid keyword
-#--------------------------------------------------------------------- 592 set-1
+#--------------------------------------------------------------------- 569 set-1
 
 Run-time error 108
 File set-1.icn; Line 21
@@ -56628,7 +56534,7 @@ offending value: 1
 Traceback:
 main()
 set(1) from line 21 in set-1.icn
-#--------------------------------------------------------------------- 593 set-2
+#--------------------------------------------------------------------- 570 set-2
 
 Run-time error 108
 File set-2.icn; Line 4
@@ -56637,13 +56543,13 @@ offending value: 1
 Traceback:
 main()
 set(1) from line 4 in set-2.icn
-#--------------------------------------------------------- 594 shell-one-liner-1
+#--------------------------------------------------------- 571 shell-one-liner-1
 File shell-one-liner-1.icn; Line 1 # "echo": invalid declaration
-#--------------------------------------------------------- 595 shell-one-liner-2
+#--------------------------------------------------------- 572 shell-one-liner-2
 File shell-one-liner-2.icn; Line 1 # "echo": invalid declaration
-#------------------------------------------------------------ 596 show-the-epoch
+#------------------------------------------------------------ 573 show-the-epoch
 File show-the-epoch.icn; Line 6 # "now": invalid keyword
-#---------------------------------------------- 597 singly-linked-list-traversal
+#---------------------------------------------- 574 singly-linked-list-traversal
 
 Run-time error 106
 File singly-linked-list-traversal.icn; Line 2
@@ -56652,9 +56558,9 @@ offending value: &null
 Traceback:
 main()
 &null(3) from line 2 in singly-linked-list-traversal.icn
-#----------------------------------------------------- 598 sort-an-integer-array
+#----------------------------------------------------- 575 sort-an-integer-array
 File sort-an-integer-array.icn; Line 1 # "S": invalid declaration
-#--------------------------------------------------- 599 sort-disjoint-sublist-1
+#--------------------------------------------------- 576 sort-disjoint-sublist-1
 
 Run-time error 108
 File sort-disjoint-sublist-1.icn; Line 16
@@ -56663,9 +56569,9 @@ offending value: 7
 Traceback:
 main()
 set(7) from line 16 in sort-disjoint-sublist-1.icn
-#--------------------------------------------------- 600 sort-disjoint-sublist-2
+#--------------------------------------------------- 577 sort-disjoint-sublist-2
 File sort-disjoint-sublist-2.icn; Line 1 # "every": invalid declaration
-#------------------------------------------ 601 sorting-algorithms-bubble-sort-1
+#------------------------------------------ 578 sorting-algorithms-bubble-sort-1
 
 Run-time error 106
 File sorting-algorithms-bubble-sort-1.icn; Line 2
@@ -56674,7 +56580,7 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure bubblesort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-bubble-sort-1.icn
-#------------------------------------------ 602 sorting-algorithms-cocktail-sort
+#------------------------------------------ 579 sorting-algorithms-cocktail-sort
 
 Run-time error 106
 File sorting-algorithms-cocktail-sort.icn; Line 2
@@ -56683,7 +56589,7 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure cocktailsort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-cocktail-sort.icn
-#---------------------------------------------- 603 sorting-algorithms-comb-sort
+#---------------------------------------------- 580 sorting-algorithms-comb-sort
 
 Run-time error 106
 File sorting-algorithms-comb-sort.icn; Line 2
@@ -56692,7 +56598,7 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure combsort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-comb-sort.icn
-#--------------------------------------------- 604 sorting-algorithms-gnome-sort
+#--------------------------------------------- 581 sorting-algorithms-gnome-sort
 
 Run-time error 106
 File sorting-algorithms-gnome-sort.icn; Line 2
@@ -56701,7 +56607,7 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure gnomesort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-gnome-sort.icn
-#----------------------------------------------- 605 sorting-algorithms-heapsort
+#----------------------------------------------- 582 sorting-algorithms-heapsort
 
 Run-time error 106
 File sorting-algorithms-heapsort.icn; Line 2
@@ -56710,7 +56616,7 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure heapsort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-heapsort.icn
-#----------------------------------------- 606 sorting-algorithms-insertion-sort
+#----------------------------------------- 583 sorting-algorithms-insertion-sort
 
 Run-time error 106
 File sorting-algorithms-insertion-sort.icn; Line 2
@@ -56719,7 +56625,7 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure insertionsort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-insertion-sort.icn
-#--------------------------------------------- 607 sorting-algorithms-merge-sort
+#--------------------------------------------- 584 sorting-algorithms-merge-sort
 
 Run-time error 106
 File sorting-algorithms-merge-sort.icn; Line 2
@@ -56728,7 +56634,7 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure mergesort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-merge-sort.icn
-#------------------------------------------- 608 sorting-algorithms-pancake-sort
+#------------------------------------------- 585 sorting-algorithms-pancake-sort
 
 Run-time error 106
 File sorting-algorithms-pancake-sort.icn; Line 2
@@ -56737,7 +56643,7 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure pancakesort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-pancake-sort.icn
-#---------------------------------------------- 609 sorting-algorithms-quicksort
+#---------------------------------------------- 586 sorting-algorithms-quicksort
 
 Run-time error 106
 File sorting-algorithms-quicksort.icn; Line 2
@@ -56746,7 +56652,7 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure quicksort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-quicksort.icn
-#--------------------------------------------- 610 sorting-algorithms-radix-sort
+#--------------------------------------------- 587 sorting-algorithms-radix-sort
 
 Run-time error 112
 File sorting-algorithms-radix-sort.icn; Line 8
@@ -56756,7 +56662,7 @@ Traceback:
 main(list_1 = [])
 rSort(list_1 = []) from line 2 in sorting-algorithms-radix-sort.icn
 {*&null} from line 8 in sorting-algorithms-radix-sort.icn
-#----------------------------------------- 611 sorting-algorithms-selection-sort
+#----------------------------------------- 588 sorting-algorithms-selection-sort
 
 Run-time error 106
 File sorting-algorithms-selection-sort.icn; Line 2
@@ -56765,7 +56671,7 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure selectionsort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-selection-sort.icn
-#--------------------------------------------- 612 sorting-algorithms-shell-sort
+#--------------------------------------------- 589 sorting-algorithms-shell-sort
 
 Run-time error 106
 File sorting-algorithms-shell-sort.icn; Line 2
@@ -56774,10 +56680,10 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure shellsort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-shell-sort.icn
-#--------------------------------------------- 613 sorting-algorithms-sleep-sort
+#--------------------------------------------- 590 sorting-algorithms-sleep-sort
 File sorting-algorithms-sleep-sort.icn; Line 3 # "every": missing semicolon or operator
 File sorting-algorithms-sleep-sort.icn; Line 8 # ">": invalid argument
-#-------------------------------------------- 614 sorting-algorithms-stooge-sort
+#-------------------------------------------- 591 sorting-algorithms-stooge-sort
 
 Run-time error 106
 File sorting-algorithms-stooge-sort.icn; Line 2
@@ -56786,9 +56692,9 @@ offending value: &null
 Traceback:
 main()
 &null((variable = procedure stoogesort),list_1 = [3,14,1,...,2,6,3],"qwerty") from line 2 in sorting-algorithms-stooge-sort.icn
-#--------------------------------------------------------- 615 special-variables
+#--------------------------------------------------------- 592 special-variables
 File special-variables.icn; Line 9 # "&": invalid declaration
-#------------------------------------------------------- 616 state-name-puzzle-1
+#------------------------------------------------------- 593 state-name-puzzle-1
 
 Run-time error 106
 File state-name-puzzle-1.icn; Line 4
@@ -56797,34 +56703,22 @@ offending value: &null
 Traceback:
 main(list_1 = [])
 &null() from line 4 in state-name-puzzle-1.icn
-#-------------------------------------------- 617 string-interpolation-included-
+#-------------------------------------------- 594 string-interpolation-included-
 File string-interpolation-included-.icn; Line 1 # "s2": invalid declaration
-#------------------------------------------------------------- 618 string-length
+#------------------------------------------------------------- 595 string-length
 File string-length.icn; Line 1 # "length": invalid declaration
-#---------------------------------------------------------- 619 string-prepend-1
+#---------------------------------------------------------- 596 string-prepend-1
 File string-prepend-1.icn; Line 1 # "s": invalid declaration
-#-------------------------------------------------- 620 substring-top-and-tail-2
+#-------------------------------------------------- 597 substring-top-and-tail-2
 File substring-top-and-tail-2.icn; Line 1 # "write": invalid declaration
-#--------------------------------------------------------- 621 sum-of-a-series-3
+#--------------------------------------------------------- 598 sum-of-a-series-3
 File sum-of-a-series-3.icn; Line 1 # "x": invalid declaration
-#--------------------------------------------------- 622 synchronous-concurrency
-File synchronous-concurrency.icn; Line 3 # "produce": missing semicolon or operator
-File synchronous-concurrency.icn; Line 4 # "consume": missing semicolon or operator
-File synchronous-concurrency.icn; Line 9 # ">>": invalid argument
-File synchronous-concurrency.icn; Line 11 # "<<": invalid expression list
-File synchronous-concurrency.icn; Line 16 # "<<": invalid argument for unary operator
-File synchronous-concurrency.icn; Line 18 # ">>": invalid argument
-#--------------------------------------------------------------- 623 system-time
+#--------------------------------------------------------------- 599 system-time
 File system-time.icn; Line 9 # "now": invalid keyword
-#-------------------------------------------- 624 take-notes-on-the-command-line
-File take-notes-on-the-command-line.icn; Line 10 # "now": invalid keyword
-#--------------------------------------------------------- 625 time-a-function-2
+#--------------------------------------------------------- 600 time-a-function-2
 File time-a-function-2.icn; Line 3 # "end": missing semicolon or operator
 File time-a-function-2.icn; unexpected end of file
-#------------------------------------------------------- 626 tokenize-a-string-2
-File tokenize-a-string-2.icn; Line 1 # "import": invalid declaration
-File tokenize-a-string-2.icn; Line 5 # "every": missing semicolon or operator
-#-------------------------------------------------------- 627 top-rank-per-group
+#-------------------------------------------------------- 601 top-rank-per-group
 
 Run-time error 103
 File top-rank-per-group.icn; Line 34
@@ -56833,21 +56727,7 @@ offending value: &null
 Traceback:
 main(list_1 = [])
 {"== Top " || &null} from line 34 in top-rank-per-group.icn
-#--------------------------------------- 628 topological-sort-extracted-top-item
-File topological-sort-extracted-top-item.icn; Line 9 # "import": invalid declaration
-File topological-sort-extracted-top-item.icn; Line 16 # "g": missing semicolon or operator
-File topological-sort-extracted-top-item.icn; Line 28 # "osize": missing semicolon or operator
-File topological-sort-extracted-top-item.icn; Line 36 # "if": missing right brace
-File topological-sort-extracted-top-item.icn; Line 53 # "while": missing semicolon or operator
-File topological-sort-extracted-top-item.icn; Line 72 # "sep": missing semicolon or operator
-File topological-sort-extracted-top-item.icn; Line 81 # ":": invalid expression list
-File topological-sort-extracted-top-item.icn; Line 82 # "end": missing semicolon or operator
-File topological-sort-extracted-top-item.icn; Line 87 # ":": invalid expression list
-File topological-sort-extracted-top-item.icn; Line 88 # "end": missing semicolon or operator
-File topological-sort-extracted-top-item.icn; Line 93 # "end": missing semicolon or operator
-File topological-sort-extracted-top-item.icn; Line 98 # "end": missing semicolon or operator
-File topological-sort-extracted-top-item.icn; Line 105 # "every": missing semicolon or operator
-#-------------------------------------------------------- 629 truncatable-primes
+#-------------------------------------------------------- 602 truncatable-primes
 
 Run-time error 106
 File truncatable-primes.icn; Line 4
@@ -56856,11 +56736,11 @@ offending value: &null
 Traceback:
 main(list_1 = [])
 &null((variable = 1000000)) from line 4 in truncatable-primes.icn
-#----------------------------------------------------------- 630 truncate-a-file
+#----------------------------------------------------------- 603 truncate-a-file
 File truncate-a-file.icn; Line 1 # "truncate": invalid declaration
-#--------------------------------------------------------- 631 variable-size-set
+#--------------------------------------------------------- 604 variable-size-set
 File variable-size-set.icn; Line 1 # "L": invalid declaration
-#----------------------------------------------------------- 632 voronoi-diagram
+#----------------------------------------------------------- 605 voronoi-diagram
 
 Run-time error 106
 File voronoi-diagram.icn; Line 10
@@ -56869,7 +56749,7 @@ offending value: &null
 Traceback:
 main(list_1 = [])
 &null("canvas=hidden") from line 10 in voronoi-diagram.icn
-#------------------------------------------ 633 walk-a-directory-non-recursively
+#------------------------------------------ 606 walk-a-directory-non-recursively
 
 Run-time error 106
 File walk-a-directory-non-recursively.icn; Line 8
@@ -56879,15 +56759,9 @@ Traceback:
 main()
 getdirs(".","icn") from line 2 in walk-a-directory-non-recursively.icn
 &null((variable = ".")) from line 8 in walk-a-directory-non-recursively.icn
-#----------------------------------------------------------------- 634 wireworld
-File wireworld.icn; Line 14 # "Width": missing semicolon or operator
-File wireworld.icn; Line 40 # "end": missing semicolon or operator
-File wireworld.icn; Line 45 # "Colours": missing semicolon or operator
-File wireworld.icn; Line 73 # "DrawPoint": missing right brace
-File wireworld.icn; Line 79 # "every": missing semicolon or operator
-#--------------------------------------------------------- 635 wordle-comparison
+#--------------------------------------------------------- 607 wordle-comparison
 File wordle-comparison.icn; Line 3 # "guesses": missing semicolon or operator
-#---------------------------------------------------- 636 zero-to-the-zero-power
+#---------------------------------------------------- 608 zero-to-the-zero-power
 
 Run-time error 204
 File zero-to-the-zero-power.icn; Line 2
@@ -56895,7 +56769,7 @@ real overflow, underflow, or division by zero
 Traceback:
 main()
 {0 ^ 0} from line 2 in zero-to-the-zero-power.icn
-#------------------------------------------------------------ 637 zig-zag-matrix
+#------------------------------------------------------------ 609 zig-zag-matrix
 
 Run-time error 106
 File zig-zag-matrix.icn; Line 23

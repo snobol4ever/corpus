@@ -9,14 +9,14 @@ global Colours,Width,Height,ProbTree,ProbFire,ProbInitialTree,Forest,oldForest
 
 procedure main()             # forest fire
 
-    Height := 400            # Window height
-    Width := 400             # Window width
-    ProbInitialTree := .10   # intial probability of trees
-    ProbTree := .01          # ongoing probability of trees
-    ProbFire := ProbTree/50. # probability of fire
-    Rounds := 500            # rounds to evolve
+    Height := 400; # Window height
+    Width := 400; # Window width
+    ProbInitialTree := .10; # intial probability of trees
+    ProbTree := .01; # ongoing probability of trees
+    ProbFire := ProbTree/50.; # probability of fire
+    Rounds := 500; # rounds to evolve
 
-    setup_forest()
+    setup_forest();
     every 1 to Rounds do {
        show_forest()
        evolve_forest()

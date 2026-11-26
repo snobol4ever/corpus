@@ -10990,35 +10990,7 @@ procedure smartPrisoner(d, n)
    i := n
    every 1 to *d/2 do if n = (i := d[i]) then break (insert(lp,n))
 end
-#----------------------------- 427 add-a-variable-to-a-class-instance-at-runtime
-link ximage
-
-procedure main()
-   c1 := foo(1,2);                            # instance of foo
-   write("c1:\n",ximage(c1));
-   c1 := extend(c1,["c","d"],[8,9]);          # 2 new fields
-   write("new c1:\n",ximage(c1));
-   c1 := extend(c1,["e"],[7]);                # 1 more
-   write("newest c1:\n",ximage(c1));
-end
-
-class foo(a,b)                               # dummy class
-end
-
-procedure extend(instance,newvars,newvals)   #: extend a class instance
-   every put(f := [],fieldnames(instance));   # copy existing fieldnames
-   c := ["tempconstructor"] ||| f;            # new constructor
-   every put(c,!newvars);                     # append new vars
-   t := constructor!c;                        # new constructor
-   x := t();                                  # new instance
-   every x[v := !f] := instance[v];           # same as old instance
-   x.__s := x;                                # new self
-   if \newvals then
-      every i := 1 to min(*newvars,*newvals) do
-         x[newvars[i]] := newvals[i];         # add new vars = values
-   return x;
-end
-#------------------------------------------------------------ 428 almost-prime-2
+#------------------------------------------------------------ 427 almost-prime-2
 (function prime-sieve search siever sieved
   (return-when (empty? siever) (.. vec sieved search))
   (let [p ps] ((juxt 0 (skip 1)) siever))
@@ -11048,7 +11020,7 @@ end
      @(str n (match n 1 "st" 2 "nd" 3 "rd" "th") " almost-primes: " )))
 
 (join "\n" (map row (range 1 6)))
-#------------------------------------------------------------------ 429 anagrams
+#------------------------------------------------------------------ 428 anagrams
 procedure main(args)
     every writeSet(!getLongestAnagramSets())
 end
@@ -11083,7 +11055,7 @@ procedure csort(w)
     every (s := "") ||:= (find(c := !cset(w),w),c)
     return s
 end
-#----------------------------------------------------- 430 anonymous-recursion-1
+#----------------------------------------------------- 429 anonymous-recursion-1
 procedure main(A)
    every write("fib(",a := numeric(!A),")=",fib(a))
 end
@@ -11108,7 +11080,7 @@ procedure makeProc(A)
    A := if type(A) == "list" then A[1]
    return (@A, A)                    # prime and return
 end
-#------------------------------------------------------ 431 arithmetic-complex-1
+#------------------------------------------------------ 430 arithmetic-complex-1
 procedure main()
 
 SetupComplex();
@@ -11131,7 +11103,7 @@ write("conj(a) := ", cpxstr(cpxconj(a)));
 write("abs(a) := ", cpxabs(a));
 write("neg(1) := ", cpxstr(cpxneg(1)));
 end
-#----------------------------------------------------- 432 arithmetic-rational-3
+#----------------------------------------------------- 431 arithmetic-rational-3
    record rational(numer, denom, sign)        # rational type
 
    addrat(r1,r2) # Add rational numbers r1 and r2.
@@ -11147,9 +11119,9 @@ end
    subrat(r1,r2) # Subtract rational numbers r1 and r2.
 
    gcd(i, j)     # returns greatest common divisor of i and j
-#-------------------------------------------------------------- 433 array-length
+#-------------------------------------------------------------- 432 array-length
 write(*["apple", "orange"])
-#-------------------------------------------------------------------- 434 arrays
+#-------------------------------------------------------------------- 433 arrays
 record aThing(a, b, c)       # arbitrary object (record or class) for illustration
 
 procedure main()
@@ -11248,38 +11220,13 @@ procedure main()
     S := A[-8 -: -3]    # S is [30, 40, 50]
     S := A[-5 +: -3]    # S is [30, 40, 50]
 end
-#---------------------------------------------------------- 435 ascending-primes
-link factors
-
-procedure main(A)
-   limit := integer(\A[1]) | 123456789
-   every writes(" ",aprimes(limit))
-   write()
-end
-
-procedure aprimes(limit)
-   a := mklist()
-   t := [: 1 to 9 :]
-   while (n := get(t)) <= limit do {
-      suspend isprime(n)
-      every put(t,10*n+!a[n%10])
-      }
-end
-
-procedure mklist()
-   t := [: 1 to 9 :]
-   every i := 1 to 9 do {
-      every put(t[i] := [],(i+1) to 9)
-      }
-   return t
-end
-#-------------------------------------------------------------- 436 assertions-1
+#-------------------------------------------------------------- 434 assertions-1
 ...
 runerr(n,( expression ,"Assertion/error - message."))  # Throw (and possibly trap) an error number n if expression succeeds.
 ...
 stop(( expression ,"Assertion/stop - message."))       # Terminate program if expression succeeds.
 ...
-#------------------------------------------------------- 437 averages-mean-angle
+#------------------------------------------------------- 435 averages-mean-angle
 procedure main(A)
     write("Mean angle is ",meanAngle(A));
 end
@@ -11289,7 +11236,7 @@ procedure meanAngle(A)
     every (sumCosines := 0.0) +:= cos(dtor(!A));
     return rtod(atan(sumSines/*A,sumCosines/*A));
 end
-#------------------------------------------------- 438 averages-mean-time-of-day
+#------------------------------------------------- 436 averages-mean-time-of-day
 procedure main(A)
     every put(B := [], ct2a(!A));
     write(ca2t(meanAngle(B)));
@@ -11314,7 +11261,7 @@ procedure meanAngle(A)
     every (sumCosines := 0.0) +:= cos(dtor(!A));
     return rtod(atan(sumSines/*A,sumCosines/*A));
 end
-#------------------------------------------ 439 averages-simple-moving-average-2
+#------------------------------------------ 437 averages-simple-moving-average-2
 import Utils
 
 procedure main(A)
@@ -11329,7 +11276,7 @@ procedure SMA(stream,P,n)
     every (avg := 0.0) +:= !stream
     return avg / *stream
 end
-#---------------------------------------------------------- 440 binary-strings-1
+#---------------------------------------------------------- 438 binary-strings-1
 s := "\x00" # strings can contain any value, even nulls
 s := "abc"             # create a string
 s := &null             # destroy a string (garbage collect value of s; set new value to &null)
@@ -11344,7 +11291,7 @@ s ||:= "a"             # append a byte "a" to s via concatenation
 t := s[2+:3]           # t is set to position 2 for 3 characters
 s := replace(s,s2,s3)  # IPL replace function
 s := s1 || s2          # concatenation (joining) of strings
-#----------------------------------------------------------- 441 caesar-cipher-2
+#----------------------------------------------------------- 439 caesar-cipher-2
 (function caeser by of
   (let alphabets (proj (map char-code) (range 65 91) (range 97 123))
        shifted   (.. vec (map (rotate by) alphabets))
@@ -11357,26 +11304,7 @@ s := s1 || s2          # concatenation (joining) of strings
 "Original:  {original}
 Encrypted: {encrypted}
 Decrypted: {decrypted}"
-#------------------------------------------------ 442 calculating-the-value-of-e
-$define EPSILON 1.0e-15
-
-procedure main()
-   local e0;
-   local e := 2.0;
-   local fact := 1;
-   local n := 2;
-
-   repeat {
-      e0 := e;
-      fact *:= n;
-      n +:= 1;
-      e +:= (1.0 / fact);
-      if abs(e - e0) < EPSILON then break
-   };
-   write("computed e ", e);
-   write("keyword &e ", &e);
-end
-#----------------------------------------------------------- 443 call-a-function
+#----------------------------------------------------------- 440 call-a-function
 procedure main()  # demonstrate and describe function calling syntax and semantics
 
    # normal procedure/function calling
@@ -11407,12 +11335,12 @@ procedure main()  # demonstrate and describe function calling syntax and semanti
 
    f("x:=",1,"y:=",2);       # named parameters (user defined)
 end
-#---------------------------------------------------- 444 check-that-file-exists
+#---------------------------------------------------- 441 check-that-file-exists
 every dir := !["./","/"] do {
    write("file ", f := dir || "input.txt", if stat(f) then " exists." else " doesn't exist.")
    write("directory ", f := dir || "docs", if stat(f) then " exists." else " doesn't exist.")
    }
-#-------------------------------------------------- 445 closures-value-capture-1
+#-------------------------------------------------- 442 closures-value-capture-1
 procedure main(args)                                      # Closure/Variable Capture
     every put(L := [], vcapture(1 to 10));                 # build list of index closures
     write("Randomly selecting L[",i := ?*L,"] = ",L[i]()); # L[i]() calls the closure
@@ -11428,11 +11356,11 @@ end
 procedure makeProc(A)             # the makeProc PDCO from the UniLib Utils package
     return (@A[1], A[1]);
 end
-#-------------------------------------------------- 446 closures-value-capture-2
+#-------------------------------------------------- 443 closures-value-capture-2
 (var funcs (for x (range 11) #(* x x)))
 
 [(0 funcs) ((3 funcs)) ((4 funcs))]
-#------------------------------------------------------------- 447 collections-1
+#------------------------------------------------------------- 444 collections-1
 #  Creation of collections:
  s := "abccd"                                   # string, an ordered collection of characters, immutable
  c := 'abcd'                                    # cset, an unordered collection of characters, immutable
@@ -11441,19 +11369,19 @@ end
  L := []                                        # list, an ordered collection of values indexed by position 1..n or as stack/queue, mutable, contents may be of any type
  record constructorname(field1,field2,fieldetc) # record, a collection of values stored in named fields, mutable, contents may be of any type (declare outside procedures)
  R := constructorname()                         # record (creation)
-#------------------------------------------------------------- 448 collections-2
+#------------------------------------------------------------- 445 collections-2
  s ||:= "xyz"                                   # concatenation
  c ++:= 'xyz'                                   # union
  insert(S,"abc")                                # insert
  T["abc"] := "xyz"                              # insert create/overwrite
  put(L,1)                                       # put (extend), also push
  R.field1 := "xyz"                              # overwrite
-#------------------------------------------------------------- 449 collections-3
+#------------------------------------------------------------- 446 collections-3
  S := S ++ S2                                   # union of two sets or two csets
  S ++:= S2                                      # augmented assignment
  L := L ||| L2                                  # list concatenation
  L |||:= L2                                     # augmented assignment
-#------------------------------------------- 450 combinations-with-repetitions-2
+#------------------------------------------- 447 combinations-with-repetitions-2
 # convenience function
 procedure write_list (l)
   every (writes (!l || " "));
@@ -11470,21 +11398,21 @@ procedure main ()
   every combinations_repetitions(num_list, 3) do count +:= 1;
   write ("There are " || count || " possible combinations of 3 from 10");
 end
-#------------------------------------------------------------------ 451 comments
+#------------------------------------------------------------------ 448 comments
 # This is a comment
 
 procedure x(y,z)    #: This is a comment and an IPL meta-comment for a procedure
-#----------------------------------------------- 452 compare-a-list-of-strings-3
+#----------------------------------------------- 449 compare-a-list-of-strings-3
 writes(if allequal(L) then "true" else "false")
-#----------------------------------------------- 453 compare-a-list-of-strings-4
+#----------------------------------------------- 450 compare-a-list-of-strings-4
 writes(if *L >= 2  &  !L ~== L[1] then "false" else "true")
-#--------------------------------------------- 454 compare-length-of-two-strings
+#--------------------------------------------- 451 compare-length-of-two-strings
 procedure main(A)
    \A := ["abcd","123456789","abcdef","1234567"];
    every (t := table())[a := !A] := *a;
    every write((t := !reverse(sort(t,2)))[1]," -> ",t[2]);
 end
-#-------------------------------------------------- 455 compiler-syntax-analyzer
+#-------------------------------------------------- 452 compiler-syntax-analyzer
 #
 # The Rosetta Code Tiny-Language Parser, in Icon.
 #
@@ -11843,46 +11771,46 @@ procedure text (tok)
   };
   return s;
 end
-#-------------------------------------------------- 456 conditional-structures-1
+#-------------------------------------------------- 453 conditional-structures-1
 if expr0 then
    expr1
 else
    expr2
-#------------------------------------------------- 457 conditional-structures-10
+#------------------------------------------------- 454 conditional-structures-10
    expr0(expr1, expr2, expr3)
-#------------------------------------------------- 458 conditional-structures-11
+#------------------------------------------------- 455 conditional-structures-11
    2(expr1, expr2, expr3)
-#------------------------------------------------- 459 conditional-structures-12
+#------------------------------------------------- 456 conditional-structures-12
    f(expr1)(g(expr2)(expr3,expr4,expr5))
-#-------------------------------------------------- 460 conditional-structures-2
+#-------------------------------------------------- 457 conditional-structures-2
 case expr0 of {
    expr1 : expr2
    expr3 : expr4
    default: expr5
    }
-#-------------------------------------------------- 461 conditional-structures-3
+#-------------------------------------------------- 458 conditional-structures-3
 case x of {
    f(x) | g(x) : expr2
    s(x) & t(x) : expr4
    default: expr5
    }
-#-------------------------------------------------- 462 conditional-structures-4
+#-------------------------------------------------- 459 conditional-structures-4
 {
    expr1
    expr2
    expr3
 }
-#-------------------------------------------------- 463 conditional-structures-5
+#-------------------------------------------------- 460 conditional-structures-5
 {expr1; expr2; expr3}
-#-------------------------------------------------- 464 conditional-structures-6
+#-------------------------------------------------- 461 conditional-structures-6
 write({1;2;3;4})
-#-------------------------------------------------- 465 conditional-structures-7
+#-------------------------------------------------- 462 conditional-structures-7
    expr1 | expr2 | expr3
-#-------------------------------------------------- 466 conditional-structures-8
+#-------------------------------------------------- 463 conditional-structures-8
    expr1 & expr2 & expr3
-#-------------------------------------------------- 467 conditional-structures-9
+#-------------------------------------------------- 464 conditional-structures-9
    (expr1, expr2, expr3)
-#--------------------------------------------------------- 468 count-the-coins-1
+#--------------------------------------------------------- 465 count-the-coins-1
 procedure main()
 
    US_coins       := [1, 5, 10, 25];
@@ -11902,12 +11830,12 @@ procedure ShowList(L)            # helper list to string
 every (s := "[ ") ||:= !L || " ";
 return s || "]";
 end
-#------------------------------------------------------------- 469 create-a-file
+#------------------------------------------------------------- 466 create-a-file
 every dir := !["./","/"] do {
    close(open(f := dir || "input.txt","w"))  |stop("failure for open ",f)
    mkdir(f := dir || "docs")                 |stop("failure for mkdir ",f)
    }
-#---------------------------------------------------- 470 create-an-html-table-2
+#---------------------------------------------------- 467 create-an-html-table-2
 <table>
     <tr><th></th><th>X</th><th>Y</th><th>Z</th></tr>
     <tr><td>1</td><td>3129</td><td>3294</td><td>7013</td></tr>
@@ -11915,7 +11843,7 @@ every dir := !["./","/"] do {
     <tr><td>3</td><td>7001</td><td>963</td><td>4183</td></tr>
     <tr><td>4</td><td>1695</td><td>1158</td><td>1240</td></tr>
 </table>
-#----------------------------------------------------- 471 csv-data-manipulation
+#----------------------------------------------------- 468 csv-data-manipulation
 import Utils   # To get CSV procedures
 
 procedure main(A)
@@ -11927,7 +11855,7 @@ procedure main(A)
         write(encodeCSV(csv))
         }
 end
-#------------------------------------------------- 472 csv-to-html-translation-2
+#------------------------------------------------- 469 csv-to-html-translation-2
 <TABLE>
    <THEAD>
        <TR><TD>Character</TD><TD>Speech</TD></TR>
@@ -11940,212 +11868,24 @@ end
        <TR><TD>The multitude</TD><TD>Behold his mother! Behold his mother!</TD></TR>
    </TBODY>
 </TABLE>
-#---------------------------------------------------------------- 473 deepcopy-2
-link printf,ximage
-
-procedure main()
-
-   knot    := makeknot();     # create a structure with loops
-   knota   := knot;           # copy by assignment (reference)
-   knotc   := copy(knot);     # built-in copy (shallow)
-   knotdc  := deepcopy(knot); # deep copy
-
-
-   showdeep("knota  (assignment) vs. knot",knota,knot);
-   showdeep("knotc  (copy)  vs. knot",knotc,knot);
-   showdeep("knotdc (deepcopy)  vs. knot",knotdc,knot);
-
-   xdump("knot   (original)",knot);
-   xdump("knota  (assignment)",knota);
-   xdump("knotc  (copy)",knotc);
-   xdump("knotdc (deepcopy)",knotdc);
-end
-
-record rec1(a,b,c)      # record for example
-
-class Class1(a1,a2)     # class - looks like a record under the covers
-   method one()
-      self.a1 := 1;
-      return;
-   end
-initially
-   self.a1 := 0;
-end
-
-
-procedure makeknot()    #: return a homogeneous structure with loops
-   L := [9,8,7];
-   T := table();
-   T["a"] := 1;
-   R := rec1(T);
-   S := set(R);
-   C := Class1();
-   C.one();
-   T["knot"] := [L,R,S,C];
-   put(L,R,S,T,C);
-   return L;
-end
-
-procedure showdeep(tag,XC,X)    #: demo to show (non-)equivalence of list elements
-   printf("Analysis of copy depth for %s:\n",tag);
-   showequiv(XC,X);
-   every showequiv(XC[i := 1 to *X],X[i]);
-end
-
-procedure showequiv(x,y)       #: show (non-)equivalence of two values
-   return printf("   %i %s %i\n",x,if x === y then "===" else "~===",y);
-end
-#------------------------------------------------------------- 474 delete-a-file
+#------------------------------------------------------------- 470 delete-a-file
 every dir := !["./","/"] do {
    remove(f := dir || "input.txt")  |stop("failure for file remove ",f)
    rmdir(f := dir || "docs")        |stop("failure for directory remove ",f)
    }
-#--------------------------------------------------------- 475 descending-primes
-link factors
-
-procedure main(A)
-   every writes(" ",descprimes())
-   write()
-end
-
-# Blatantly stolen from Lua example..
-procedure descprimes()
-   primes := []
-   digits := [: 9 to 1 by -1 :]
-   candidates := [0]
-
-   every i := 1 to *digits do
-      every j := 1 to *candidates do {
-         value := 10*candidates[j] + digits[i]
-         put(primes, (isprime(value),value))
-         put(candidates, value)
-         }
-
-   suspend !sort(primes)
-end
-#--------------------------------------------------- 476 detect-division-by-zero
+#--------------------------------------------------- 471 detect-division-by-zero
 procedure main()
 &error := 1;
 udef := 1 / 0 | stop("Run-time error ", &errornumber, " : ", &errortext," in line #",&line," - converted to failure");
 end
-#------------------------------------------ 477 determine-if-a-string-is-numeric
+#------------------------------------------ 472 determine-if-a-string-is-numeric
 write(image(x), if numeric(x) then " is numeric." else " is not numeric")
-#--------------------------------- 478 determine-if-only-one-instance-is-running
+#--------------------------------- 473 determine-if-only-one-instance-is-running
 procedure main(A)
    if not open(":"||54321,"na") then stop("Already running");
    repeat {};	# busy loop
 end
-#------------------------------------------------------- 479 dijkstras-algorithm
-procedure main(A)
-    graph := getGraph();
-    repeat {
-        writes("What is the start node? ");
-        start := \graph.nodes[read()] | stop();
-        writes("What is the finish node? ");
-        finish := read() | stop();
-
-        QMouse(graph,start,finish);
-        waitForCompletion(); # block until all quantum mice have finished
-
-        showPath(getBestMouse(),start.name,finish);
-        cleanGraph(graph)
-        };
-end
-
-procedure getGraph()
-    graph := Graph(table(),table());
-    write("Enter edges as 'n1,n2,weight' (blank line terminates)");
-    repeat {
-        if *(line := trim(read())) = 0 then break;
-        line ? {
-            n1 := 1(tab(upto(',')),move(1));
-            n2 := 1(tab(upto(',')),move(1));
-            w  := tab(0);
-            /graph.nodes[n1] := Node(n1,set());
-            /graph.nodes[n2] := Node(n2,set());
-            insert(graph.nodes[n1].targets,graph.nodes[n2]);
-            graph.weights[n1||":"||n2] := w
-            }
-        };
-    return graph;
-end
-
-procedure showPath(mouse,start,finish)
-    if \mouse then {
-        path := mouse.getPath();
-        writes("Weight: ",path.weight," -> ");
-        every writes(" ",!path.nodes);
-        write("\n")
-        }
-    else write("No path from ",start," to ",finish,"\n");
-end
-
-# A "Quantum-mouse" for traversing graphs.  Each mouse lives for just
-#  one node but can spawn additional mice to search adjoining nodes.
-
-global qMice, goodMice, region, qMiceEmpty
-
-record Graph(nodes,weights)
-record Node(name,targets,weight)
-record Path(weight, nodes)
-
-class QMouse(graph, loc, finish, path)
-
-    method getPath(); return path; end
-    method atEnd(); return (finish == loc.name); end
-
-    method visit(n)  # Visit if we don't already have a cheaper route to n
-        newWeight := path.weight + graph.weights[loc.name||":"||n.name];
-        critical region[n]: if /n.weight | (newWeight < n.weight) then {
-            n.weight := newWeight;
-            unlock(region[n]);
-            return n
-            };
-    end
-
-initially (g, l, f, p)
-    initial {   # Construct critical region mutexes and completion condvar
-        qMiceEmpty := condvar();
-        region := table();
-        every region[n := !g.nodes] := mutex();
-        qMice := mutex(set());
-        cleanGraph(g)
-        };
-    graph := g;
-    loc := l;
-    finish := f;
-    /p := Path(0,[]);
-    path := Path(p.weight,copy(p.nodes));
-    if *path.nodes > 0 then
-        path.weight +:= g.weights[path.nodes[-1]||":"||loc.name];
-    put(path.nodes, loc.name);
-    insert(qMice,self);
-    thread {
-        if atEnd() then insert(goodMice, self);    # This mouse found a finish
-        every QMouse(g,visit(!loc.targets),f,path);
-        delete(qMice, self);                       # Kill this mouse
-        if *qMice=0 then signal(qMiceEmpty)       # All mice are dead
-        };
-end
-
-procedure cleanGraph(graph)
-    every (!graph.nodes).weight := &null;
-    goodMice := mutex(set());
-end
-
-procedure getBestMouse()
-    every mouse := !goodMice do  { # Locate shortest path
-        weight := mouse.getPath().weight;
-        /minPathWeight := weight;
-        if minPathWeight >=:= weight then bestMouse := mouse
-        };
-    return bestMouse;
-end
-
-procedure waitForCompletion()
-    critical qMiceEmpty: while *qMice > 0 do wait(qMiceEmpty);
-end
-#------------------------------------------------------------- 480 documentation
+#------------------------------------------------------------- 474 documentation
 ############################################################################
 #
 #	File:     filename.icn
@@ -12171,7 +11911,7 @@ end
 ############################################################################
 
 procedure x1()    #: short description of procedure
-#-------------------------------------------------------------- 481 empty-string
+#-------------------------------------------------------------- 475 empty-string
 s := ""                 # null string
 s := string('A'--'A')   # ... converted from cset difference
 s := char(0)[0:0]       # ... by slicing
@@ -12188,16 +11928,16 @@ s1 ~=== ""
 s := &null              # NOT a null string, null type
 /s                      # test for null type
 \s                      # test for non-null type
-#----------------------------------------------------- 482 enforced-immutability
+#----------------------------------------------------- 476 enforced-immutability
 $define "1234"
-#-------------------------------------------------------------- 483 enumerations
+#-------------------------------------------------------------- 477 enumerations
   fruits := [ "apple", "banana", "cherry", "apple" ]  # a list keeps ordered data
   fruits := set("apple", "banana", "cherry")          # a set keeps unique data
   fruits := table()                                   # table keeps an unique data with values
   fruits["apple"]  := 1
   fruits["banana"] := 2
   fruits["cherry"] := 3
-#----------------------------------------------------- 484 environment-variables
+#----------------------------------------------------- 478 environment-variables
 procedure main(arglist)
 
 if *envars = 0 then envars := ["HOME", "TRACE", "BLKSIZE","STRSIZE","COEXPSIZE","MSTKSIZE", "IPATH","LPATH","NOERRBUF"];
@@ -12205,7 +11945,7 @@ if *envars = 0 then envars := ["HOME", "TRACE", "BLKSIZE","STRSIZE","COEXPSIZE",
 every v := !sort(envars) do
    write(v," = ",image(getenv(v))|"* not set *");
 end
-#-------------------------------------------------- 485 evolutionary-algorithm-2
+#-------------------------------------------------- 479 evolutionary-algorithm-2
 (var c 100   ;number of children in each generation
      p 0.05) ;mutation probability
 
@@ -12214,13 +11954,13 @@ end
 
 (var alphabet (to-vec " ABCDEFGHIJLKLMNOPQRSTUVWXYZ"))
 
-#-------------------------------------------------- 486 evolutionary-algorithm-3
+#-------------------------------------------------- 480 evolutionary-algorithm-3
 (var fitness (comp @(map = target) (count val)))
 (var perfect-fit? (comp fitness (= tsize)))
 
 (var rand-char #(rand-pick alphabet))
 (var mutate (map #(if (< (rand) p) (rand-char) %)))
-#-------------------------------------------------- 487 evolutionary-algorithm-4
+#-------------------------------------------------- 481 evolutionary-algorithm-4
 (function evolve generation parent
 
   (print (pad-left " " 3 generation) " " (... str parent) " " (fitness parent))
@@ -12233,10 +11973,10 @@ end
   (recur (inc generation) fittest))
 
 (evolve 1 (times tsize rand-char))
-#------------------------------------------------ 488 execute-a-system-command-2
+#------------------------------------------------ 482 execute-a-system-command-2
   pid := system(command_string,&input,&output,&errout,"wait")
   pid := system(command_string,&input,&output,&errout,"nowait")
-#------------------------------------------------------------- 489 execute-snusp
+#------------------------------------------------------------- 483 execute-snusp
 #
 # snusp.icn, A Modular SNUSP interpreter
 #
@@ -12424,12 +12164,12 @@ procedure show_help(verbose)
       write()
    }
 end
-#--------------------------------------------------- 490 factors-of-an-integer-2
+#--------------------------------------------------- 484 factors-of-an-integer-2
 (function factors n
   (filter (div? n) (range 1 (inc n))))
 
 (factors 45)
-#------------------------------------------------------ 491 fibonacci-sequence-1
+#------------------------------------------------------ 485 fibonacci-sequence-1
 procedure main(args)
     write(fib(integer(!args) | 1000)
 end
@@ -12444,7 +12184,7 @@ procedure fib(n)
     /fCache[n] := fib(n-1) + fib(n-2)
     return fCache[n]
 end
-#---------------------------------------------------- 492 file-modification-time
+#---------------------------------------------------- 486 file-modification-time
 every dir := !["./","/"] do {
    if i := stat(f := dir || "input.txt") then {
       write("info for ",f ," mtime= ",ctime(i.mtime),", atime=",ctime(i.ctime), ", atime=",ctime(i.atime))
@@ -12454,11 +12194,11 @@ every dir := !["./","/"] do {
       }
    else stop("failure to stat ",f)
    }
-#----------------------------------------------------------------- 493 file-size
+#----------------------------------------------------------------- 487 file-size
 every dir := !["./","/"] do {
    write("Size of ",f := dir || "input.txt"," = ",stat(f).size)  |stop("failure for to stat ",f)
    }
-#---------------------------------------- 494 find-the-last-sunday-of-each-month
+#---------------------------------------- 488 find-the-last-sunday-of-each-month
 procedure main(A)
 every write(lastsundays(!A))
 end
@@ -12479,7 +12219,7 @@ every m := 1 to 12 do {
 end
 
 link datetime, printf
-#-------------------------------------------- 495 find-the-missing-permutation-1
+#-------------------------------------------- 489 find-the-missing-permutation-1
 link strings    # for permutes
 
 procedure main()
@@ -12492,11 +12232,11 @@ givens := full--givens;                         # and difference
 write("The difference is : ");
 every write(!givens, " ");
 end
-#-------------------------------------------- 496 find-the-missing-permutation-2
+#-------------------------------------------- 490 find-the-missing-permutation-2
 every x := permutes("ABCD") do                    # generate all permutations
    if member(givens,x) then delete(givens,x)      # remove givens as they are generated
    else insert(givens,x)                          # add back any not given
-#-------------------------------------------- 497 find-the-missing-permutation-3
+#-------------------------------------------- 491 find-the-missing-permutation-3
 link strings
 
 procedure main()
@@ -12509,141 +12249,7 @@ procedure main()
         if not member(givens, p) then write(p);
 
 end
-#---------------------------------------------------------- 498 find-uri-in-text
-procedure main()
-   every write(findURItext("this URI contains an illegal character, parentheses_
-               and a misplaced full stop:\n_
-               http://en.wikipedia.org/wiki/Erich_Kästner_(camera_designer). _
-               which is handled by http://mediawiki.org/).\n_
-               and another one just to confuse the parser: _
-               http://en.wikipedia.org/wiki/-)\n_
-               \")\" is handled the wrong way by the mediawiki parser.\n_
-               ftp://domain.name/path(balanced_brackets)/foo.html\n_
-               ftp://domain.name/path(balanced_brackets)/ending.in.dot.\n_
-               ftp://domain.name/path(unbalanced_brackets/ending.in.dot.\n_
-               leading junk ftp://domain.name/path/embedded?punct/uation.\n_
-               leading junk ftp://domain.name/dangling_close_paren)\n_
-               if you have other interesting URIs for testing, please add them here:\n_
-               blah (foo://domain.hld/))))"));
-end
-
-$define GENDELIM   ':/?#[]@'
-$define SUBDELIM   '!$&()*+,;=\''
-$define UNRESERVED &letters ++ &digits ++ '-._~'
-$define RESERVED   GENDELIM++SUBDELIM
-$define HEXDIGITS  '0123456789aAbBcCdDeEfF'
-
-procedure findURItext(s)      #: generate all syntatically valid URI's from s
-   local u,p;
-   s ? while tab(upto(&letters)) || (u := 2(p := &pos, URI())) do  {
-      suspend u;                     # return parsed URI
-      every suspend disambURI(u,p)  # deal with text ambiguities, return many
-      };
-end
-
-procedure disambURI(u,p)      #: generate disambiguous URIs from parsed
-   local u2;
-   repeat  {
-      if any('.,;?',u[-1]) then
-         suspend u := u[1:-1]             # remove trailing .,;? from URI
-      else if u[-1] == "'" == &subject[p-:=1] then
-         suspend u := u[1:-1]             # remove trailing ' from 'URI'
-      else if any('()',u[-1]) then   {
-         every u ? u2 := tab(bal());
-         if u ~==:= u2 then suspend u     # longest balanced URI wrt ()
-         }
-      else break                          # done
-      };
-end
-
-procedure URI()               #: match longest URI at cursor
-   static sc2;
-   initial sc2 := &letters ++ &digits ++ '+-.';                    # scheme
-   suspend (
-      ( tab(any(&letters)) || (tab(many(sc2)) |="") || =":" ) ||  # scheme
-      ( (="//" || authority() || arbsp("/",segment)) |            # heir ...
-        (="/" || ( path_rootless() |="")) |
-        path_rootless() |
-        =""
-      ) ||
-      ( ( ="?" || queryfrag() ) |="" ) ||                         # query
-      ( ( ="#" || queryfrag() ) |="" )                            # fragment
-      );
-end
-
-procedure queryfrag()         #: match a query or fragment
-   static pc;
-   initial pc := UNRESERVED ++ SUBDELIM ++ ':@/?';
-   suspend arbcp(pc,pctencode);
-end
-
-procedure segment(n)          #: match a pchar segment
-   static sc;
-   initial sc := UNRESERVED ++ SUBDELIM ++ ':@';
-   suspend arbcp(sc,pctencode,n);
-end
-
-procedure segmentnc(n)        #: match a pchar--':' segment
-   static sc;
-   initial sc := UNRESERVED ++ SUBDELIM ++ '@';
-   suspend arbcp(sc,pctencode,n);
-end
-
-procedure path_rootless()     #: match a rootless path
-   suspend segment(1) || arbsp("/",segment);
-end
-
-procedure authority()         #: match authority
-   static uic,rnc;
-   initial {
-      rnc := UNRESERVED ++ SUBDELIM;    # regular name
-      uic := rnc ++ ':'                # userinfo
-      };
-   suspend  ( (arbcp(uic,pctencode) || ="@") |="")  ||      # userinfo
-            ( IPsimple() | arbcp(rnc,pctencode) )   ||      # host
-            ( (=":" || tab(many(&digits))) |="");
-end
-
-procedure IPsimple()          #: match ip address (trickable )
-   static i4c,i6c,ifc;
-   initial {
-      i4c := &digits ++ '.';
-      i6c := HEXDIGITS ++ '.:';
-      ifc := UNRESERVED ++ SUBDELIM ++ ':'
-      };
-   suspend (
-      ="[" ||
-         (  tab(many(i6c)) |
-            ( ="v"||tab(any(HEXDIGITS))||="."||tab(any(ifc))||tab(many(ifc)) )
-      ) || ="]" ) | tab(many(i4c));
-end
-
-procedure arbcp(cs,pr,n)      #: match arbitrary numbers of (cset|proc,n)
-   local p,i;
-   /n := 0;                    # for 0* / 1*
-   runerr(0 > n,205);
-   p := &pos;
-   i := 0;
-   while tab(many(cs)) | pr() do i +:= 1;
-   if i >= n then suspend &subject[p:&pos];
-   &pos := p;                  # restore &pos
-end
-
-procedure arbsp(st,pr,n)      #: match arbitrary numbers of (string || proc,n)
-   local p,i;
-   /n := 0;                    # for 0* / 1*
-   runerr(0 > n,205);
-   p := &pos;
-   i := 0;
-   while =st || pr() do i +:= 1;
-   if i >= n then suspend &subject[p:&pos];
-   &pos := p;                  # restore &pos
-end
-
-procedure pctencode()         #: match 1 % encoded single byte character
-   suspend ="%" || tab(any(HEXDIGITS)) || tab(any(HEXDIGITS));
-end
-#----------------------------- 499 first-class-functions-use-numbers-analogously
+#----------------------------- 492 first-class-functions-use-numbers-analogously
 import Utils
 
 procedure main(A)
@@ -12654,7 +12260,7 @@ end
 procedure multiplier(n1,n2)
     return makeProc { repeat inVal := n1 * n2 * (inVal@&source)[1] }
 end
-#---------------------------------------------------------------- 500 fizzbuzz-6
+#---------------------------------------------------------------- 493 fizzbuzz-6
 # idiomatic buffer builder, 2nd alternative
 procedure main()
     every i := 1 to 100 do {
@@ -12663,7 +12269,7 @@ procedure main()
         write(("" ~= s) | i)
     };
 end
-#---------------------------------------------------------- 501 flatten-a-list-3
+#---------------------------------------------------------- 494 flatten-a-list-3
 procedure main()
 write(sflatten(" [[1], 2, [[3,4], 5], [[[]]], [[[6]]], 7, 8, []]"));
 writelist(flatten( [[1], 2, [[3,4], 5], [[[]]], [[[6]]], 7, 8, []]));
@@ -12675,7 +12281,7 @@ every writes(" ",image(!L));
 write(" ]");
 return;
 end
-#------------------------------------------------- 502 flow-control-structures-1
+#------------------------------------------------- 495 flow-control-structures-1
     if x := every i := 1 to *container do {     # * is the 'length' operator
         if container[i] ~== y then
             write("item ", i, " is not interesting")
@@ -12685,11 +12291,11 @@ end
         write("found item ", x)
     else
         write("did not find an item")
-#------------------------------------------------- 503 flow-control-structures-2
+#------------------------------------------------- 496 flow-control-structures-2
     break break next
-#------------------------------------------------- 504 flow-control-structures-3
+#------------------------------------------------- 497 flow-control-structures-3
     x := ftn()
-#------------------------------------------------- 505 flow-control-structures-4
+#------------------------------------------------- 498 flow-control-structures-4
     &error := 1
     mayErrorOut()
     if &error == 1 then
@@ -12698,83 +12304,9 @@ end
         # deal with the fault
         handleError(&errornumber, &errortext, &errorvalue)   # keyword values containing facts about the failure
     }
-#------------------------------------------------- 506 flow-control-structures-5
+#------------------------------------------------- 499 flow-control-structures-5
     runerr(errnumber, errorvalue)    # choose an error number and supply the offending value
-#--------------------------------------------------------------- 507 forest-fire
-link graphics,printf
-
-$define EDGE  0
-$define EMPTY 1
-$define TREE  2
-$define FIRE  3
-
-global Colours,Width,Height,ProbTree,ProbFire,ProbInitialTree,Forest,oldForest
-
-procedure main()             # forest fire
-
-    Height := 400            # Window height
-    Width := 400             # Window width
-    ProbInitialTree := .10   # intial probability of trees
-    ProbTree := .01          # ongoing probability of trees
-    ProbFire := ProbTree/50. # probability of fire
-    Rounds := 500            # rounds to evolve
-
-    setup_forest()
-    every 1 to Rounds do {
-       show_forest()
-       evolve_forest()
-       }
-    printf("Forest fire %d x %d rounds=%d p.initial=%r p/f=%r/%r fps=%r\n",
-           Width,Height,Rounds,ProbInitialTree,ProbTree,ProbFire,
-           Rounds/(&time/1000.))  # stats
-    WDone()
-end
-
-procedure setup_forest()     #: setup the forest
-
-    Colours := table()       # define colours
-    Colours[EDGE]  := "black"
-    Colours[EMPTY] := "grey"
-    Colours[TREE]  := "green"
-    Colours[FIRE]  := "red"
-
-    WOpen("label=Forest Fire", "bg=black",
-          "size=" || Width+2 || "," || Height+2) | # add for border
-             stop("Unable to open Window")
-    every !(Forest := list(Height)) := list(Width,EMPTY)  # default
-    every ( Forest[1,1 to Width]  | Forest[Height,1 to Width] |
-            Forest[1 to Height,1] | Forest[1 to Height,Width] ) := EDGE
-    every r := 2 to Height-1 & c := 2 to Width-1 do
-       if probability(ProbInitialTree) then Forest[r,c] := TREE
-end
-
-procedure show_forest()      #: show Forest - drawn changes only
-   every r := 2 to *Forest-1 & c := 2 to *Forest[r]-1 do
-      if /oldForest | oldForest[r,c] ~= Forest[r,c] then {
-         WAttrib("fg=" || Colours[Forest[r,c]])
-         DrawPoint(r,c)
-      }
-end
-
-procedure evolve_forest()    #: evolve forest
-    old := oldForest := list(*Forest)     # freeze copy
-    every old[i := 1 to *Forest] := copy(Forest[i])  # deep copy
-
-    every r := 2 to *Forest-1 & c := 2 to *Forest[r]-1 do
-       Forest[r,c] := case old[r,c] of {   # apply rules
-          FIRE : EMPTY
-          TREE : if probability(ProbFire) |
-                  ( old[r-1, c-1 to c+1] |
-                    old[r,c-1|c+1] |
-                    old[r+1,c-1 to c+1] ) = FIRE then FIRE
-          EMPTY: if probability(ProbTree) then TREE
-          }
-end
-
-procedure probability(P)     #: succeed with probability P
-if ?0 <= P then return
-end
-#---------------------------------------------------------------------- 508 fork
+#---------------------------------------------------------------------- 500 fork
 procedure main()
    if (fork()|runerr(500)) = 0 then
       write("child")
@@ -12783,10 +12315,10 @@ procedure main()
       write("parent")
    };
 end
-#---------------------------------------------------- 509 function-composition-1
+#---------------------------------------------------- 501 function-composition-1
    x @ f                      # use this syntax in Icon instead of the Unicon f(x) to call co-expressions
    every push(fL := [],!rfL)  # use this instead of reverse(fL) as the Icon reverse applies only to strings
-#---------------------------------------------------- 510 function-composition-2
+#---------------------------------------------------- 502 function-composition-2
 procedure main(arglist)
     h := compose(sqrt,abs);
     k := compose(integer,"sqrt",ord);
@@ -12818,36 +12350,19 @@ procedure compose(fL[])   #: compose(f1,f2,...) returns the functional compositi
     return (@cf, cf);                                     # 'prime' the co-expr before returning it
 
 end
-#---------------------------------------------------------- 511 general-fizzbuzz
-link factors
-
-procedure main(A)
-   /A := [20,3,"Fizz",5,"Buzz",7,"Baxx"]
-   mtable := table()
-   limit := get(A)
-   while *A > 0 do mtable[integer(get(A))] := get(A)
-   mlist := sort([: key(mtable) :])
-
-   every i := 1 to limit do write((""~== fizzbuzz(i,mlist,mtable))|i)
-end
-
-procedure fizzbuzz(n,a,t)
-   every (s := "", n%(f := !a) = 0) do s ||:= t[f]
-   return s
-end
-#-------------------------------------- 512 generate-lower-case-ascii-alphabet-1
+#-------------------------------------- 503 generate-lower-case-ascii-alphabet-1
 every a := put([], !&lcase) # array of 1 character per element
 c := create !&lcase         # lazy generation of letters in sequence
-#------------------------------------------------- 513 greatest-common-divisor-1
+#------------------------------------------------- 504 greatest-common-divisor-1
 link numbers   # gcd is part of the Icon Programming Library
 procedure main(args)
     write(gcd(arg[1], arg[2])) | "Usage: gcd n m")
 end
-#---------------------------------------------- 514 greatest-element-of-a-list-2
+#---------------------------------------------- 505 greatest-element-of-a-list-2
 (max 1 2 3 4)
 ;or
 (... max [1 2 3 4])
-#------------------------------------------------ 515 greatest-subsequential-sum
+#------------------------------------------------ 506 greatest-subsequential-sum
 procedure main()
 L1 := [-1,-2,3,5,6,-2,-1,4,-4,2,-1]     # sample list
 L  := [-1,1,2,3,4,-11]|||L1             # prepend a local maximum into the mix
@@ -12870,12 +12385,12 @@ every i := 1 to *L do  {
    }
 return L[(\maxglobalI)[1]:maxglobalI[2]] | []                        # return sub-sequence or empty list
 end
-#------------------------------------------------------ 516 hailstone-sequence-2
+#------------------------------------------------------ 507 hailstone-sequence-2
 procedure main(args)
     n := integer(!args) | 27;
     every writes(" ",hailstone(n));
 end
-#------------------------------------------------------ 517 hailstone-sequence-4
+#------------------------------------------------------ 508 hailstone-sequence-4
 procedure main(args)
     n := integer(!args) | 27;
     task2(n);
@@ -12899,100 +12414,11 @@ procedure task3()
         };
     write(maxN," has a sequence of ",maxHS," values");
 end
-#------------------------------------------------------- 518 halt-and-catch-fire
+#------------------------------------------------------- 509 halt-and-catch-fire
 procedure main()
   5/0;
 end
-#--------------------------------------------------------- 519 history-variables
-procedure main(A)
-   \A := ["cat","hat",7];
-   x := history();
-   every x.set(!A);
-   write("x current value is: ",x.val());
-   write("Number of saved values is: ",x.size());
-   writes("3 most recent x values from newest to oldest: ");
-   every writes(" ",x.gen()\3);
-   write();
-   while write("x value was: ",\x.get());
-   write("Number of saved values is now: ",x.size());
-end
-
-class history(x)
-   method size(); return *x; end
-   method val();  return x[-1]; end
-   method set(v); put(x,v); end
-   method get();  return pull(x); end
-   method gen();  suspend x[*x to 1 by -1]; end
-initially
-   x := [];
-end
-#------------------------------------------------ 520 holidays-related-to-easter
-link printf
-
-procedure main()
-   printf("Christian holidays, related to Easter, for each centennial from 400 to 2100 CE:\n")
-   every year := 400 to 2100 by 100 do
-      OutputHolidays(year)
-
-   printf("\nChristian holidays, related to Easter, for years from 2010 to 2020 CE:\n")
-      every year := 2010 to 2020 do
-          OutputHolidays(year)
-end
-
-procedure OutputHolidays(year)
-static ho,hoo,monL,dayL
-initial {
-   ho := table()
-   ho["Easter"] := 0
-   ho["Ascension"] := 39
-   ho["Pentecost"] := 49
-   ho["Trinity"] := 56
-   ho["Corpus"] := 60
-   hoo := ["Easter","Ascension","Pentecost","Trinity","Corpus"] # order
-   monL := ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-             "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-   dayL := ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri","Sat"]
-   }
-
-   easter := CalculateEaster(year)
-   printf("%d ",year)
-   every d := Add2Easter(easter,ho[k := !hoo]) do
-      printf("%d: %s %d %s ", k, dayL[d.wday], d.day, monL[d.month])
-   printf("\n")
-end
-
-record daterec(year,month,day,wday)
-
-procedure CalculateEaster(year)  #: Calculates Gregorian Easter
-   a := year % 19
-   b := year / 100
-   c := year % 100
-   d := b / 4
-   e := b % 4
-   f := (b + 8) / 25
-   g := (b - f + 1) / 3
-   h := (19 * a + b - d - g + 15) % 30
-   i := c / 4
-   k := c % 4
-   l := (32 + 2 * e + 2 * i - h - k) % 7
-   m := (a + 11 * h + 22 * l) / 451
-   n := h + l - 7 * m + 114
-   return daterec(year, n / 31, (n % 31) + 1,1)  # year,month, day, "Sun"=1
-end
-
-procedure Add2Easter(dr,days)    #: very limited date addition
-static dom
-initial dom := [,,31,30,31,30,]  # limited days per month
-   dr := copy(dr)
-   dr.day +:= days
-   dr.wday := (dr.wday + days - 1 ) % 7 + 1 # rely upon Easter=Sunday
-   while dr.day > dom[dr.month] do {
-      dr.day   -:= dom[dr.month]
-      dr.month +:= 1
-      }
-   return dr
-end
-#---------------------------------------------------------------- 521 honeycombs
+#---------------------------------------------------------------- 510 honeycombs
 link printf
 
 procedure main(A)
@@ -13101,9 +12527,9 @@ procedure InHexWidget(W,x,y)                 #: return W if x,y are inside W
          return W
       };
 end
-#-------------------------------------------------------------------- 522 http-2
+#-------------------------------------------------------------------- 511 http-2
 |icon req.icn http://www.rosettacode.org
-#---------------------------------------------------------- 523 huffman-coding-2
+#---------------------------------------------------------- 512 huffman-coding-2
 import Collections
 
 procedure main(A)
@@ -13134,7 +12560,7 @@ procedure treeWalk(node, prefix, codeMap)
     else codeMap[node[1]] := prefix
     return codeMap
 end
-#----------------------------------------------- 524 i-before-e-except-after-c-1
+#----------------------------------------------- 513 i-before-e-except-after-c-1
 import Utils     # To get the FindFirst class
 
 procedure main(a)
@@ -13154,7 +12580,7 @@ procedure main(a)
 
     if \showCounts then every write(phrase := !phrases,": ",totals[phrase])
 end
-#----------------------------------------------- 525 i-before-e-except-after-c-2
+#----------------------------------------------- 514 i-before-e-except-after-c-2
 import Utils     # To get the FindFirst class
 
 procedure main(a)
@@ -13180,30 +12606,21 @@ procedure main(a)
 
     if \showCounts then every write(phrase := !phrases,": ",totals[phrase])
 end
-#---------------------------------------------- 526 increment-a-numerical-string
+#---------------------------------------------- 515 increment-a-numerical-string
 s := "123"  # s is a string
 s +:= 1     # s is now an integer
-#---------------------------------------------------------- 527 jensens-device-2
+#---------------------------------------------------------- 516 jensens-device-2
     write( sum(A, 1, 100, create |1.0/A.value) )
 ...
         temp +:= @term
-#---------------------------------------------------------- 528 jensens-device-3
+#---------------------------------------------------------- 517 jensens-device-3
     write( sum{A.value, 1, 100, 1.0/A.value} )
 ...
 procedure sum(X)
 ...
     every @X[1] := @X[2] to @X[3] do
         temp +:= @^X[4]
-#-------------------------------------------------------------------- 529 json-1
-import json  # Get the JSON package
-link ximage  # Used to display internal structures
-
-procedure main(A)
-   write(ximage(j := jtou(A[1])))  # JSON -> Unicon datatype
-   write(s := utoj(j))             # Unicon datatype -> JSON...
-   write(ximage(jtou(s)))          # ...and back again as as check
-end
-#-------------------------------------------------------------------- 530 json-2
+#-------------------------------------------------------------------- 518 json-2
 (var object       {:a 1 :b "Hello, world!" [1 2 3] :c}
      serialised   (to-json object)
      deserialised (from-json serialised))
@@ -13211,7 +12628,7 @@ end
 (print "Object:       " object)
 (print "Serialised:   " serialised)
 (str "Deserialised: " deserialised)
-#----------------------------------------------- 531 knapsack-problem-continuous
+#----------------------------------------------- 519 knapsack-problem-continuous
 link printf
 
 procedure main()
@@ -13248,7 +12665,7 @@ procedure get_items()
              item("salami", 3.0, 95),
              item("sausage", 5.9, 98) ];
 end
-#-------------------------------------------------------- 532 knuths-algorithm-s
+#-------------------------------------------------------- 520 knuths-algorithm-s
 import Utils
 
 procedure main(A)
@@ -13273,7 +12690,7 @@ procedure s_of_n_creator(n)
                    }
                }
 end
-#-------------------------------------------------------------- 533 langtons-ant
+#-------------------------------------------------------------- 521 langtons-ant
 link graphics,printf
 
 procedure main(A)
@@ -13326,7 +12743,7 @@ procedure LangtonsAnt(e)
    WAttrib(label);
    WDone();
 end
-#---------------------------------------- 534 largest-int-from-concatenated-ints
+#---------------------------------------- 522 largest-int-from-concatenated-ints
 import Collections    # For the Heap (dense priority queue) class
 
 procedure main(a)
@@ -13341,30 +12758,7 @@ end
 procedure cmp(a,b)
    return (a||b) > (b||a)
 end
-#------------------------------------ 535 largest-number-divisible-by-its-digits
-link lists
-
-procedure main(A)
-   n := \A[1] | 9
-   every (max := 0) <:= lynchbell(makenum(n to 1 by -1))
-   write(max)
-end
-
-procedure lynchbell(n)
-   m := n
-   while m > 0 do (n%(m%10) == 0, m /:= 10) | fail
-   return n
-end
-
-procedure makenum(n)
-   suspend tonum(lpermute(lcomb([: 9 to 1 by -1 :],n)))
-end
-
-procedure tonum(a)
-   every (n := 0, d := !a) do n := 10*n + d
-   return n
-end
-#------------------------------------------------- 536 last-friday-of-each-month
+#------------------------------------------------- 523 last-friday-of-each-month
 procedure main(A)
 every write(lastfridays(!A))
 end
@@ -13385,21 +12779,21 @@ every m := 1 to 12 do {
 end
 
 link datetime, printf
-#----------------------------------------------------- 537 list-comprehensions-1
+#----------------------------------------------------- 524 list-comprehensions-1
     |(x := seq(), x^2 > 3, x*2)
-#----------------------------------------------------- 538 list-comprehensions-2
+#----------------------------------------------------- 525 list-comprehensions-2
    procedure main()
       every write(|(x := seq(), x^2 > 3, x*2) \ 100
    end
-#----------------------------------------------------- 539 list-comprehensions-4
+#----------------------------------------------------- 526 list-comprehensions-4
 procedure main(a)
    n := !a | 20
    s := [: 1([x := 1 to n, y := x to n, z := y to n], x^2+y^2 = z^2) :]
    every b := !s do write(b[1]," ",b[2]," ",b[3])
 end
-#-------------------------------------------------------- 540 literals-integer-2
+#-------------------------------------------------------- 527 literals-integer-2
 [123 0x7F 0xFFF 0b0101001]
-#------------------------------------------------------ 541 logical-operations-2
+#------------------------------------------------------ 528 logical-operations-2
 (let pad (comp str (pad-right " " 10)))
 
 (print "a         b         | (and a b) (or a b)  (not a)   (xor a b)")
@@ -13411,19 +12805,19 @@ end
     (... str (pad a) (pad b) "| "
       (for op [and or not xor]
         (pad (if (= op not) (op a) (op a b)))))))
-#------------------------------------------------------------- 542 loops-break-2
+#------------------------------------------------------------- 529 loops-break-2
 &random := integer(map("smhSMH","Hh:Mm:Ss",&clock))
-#------------------------------------------------------------- 543 loops-break-3
+#------------------------------------------------------------- 530 loops-break-3
 (while true
   (print (let x (rand-int 0 20)))
   (when (= x 10) (break)))
-#---------------------------------------------------------- 544 loops-continue-2
+#---------------------------------------------------------- 531 loops-continue-2
 every writes(x := 1 to 10, if x % 5 = 0 then "\n" else ", ")
-#-------------------------------------------------------- 545 loops-downward-for
+#-------------------------------------------------------- 532 loops-downward-for
 every i := 10 to 0 by -1 do {
    # things to do within the loop
    }
-#----------------------------------------- 546 loops-for-with-a-specified-step-1
+#----------------------------------------- 533 loops-for-with-a-specified-step-1
    every 1 to 10 by 2                       # the simplest case that satisfies the task, step by 2
 
    every 1 to 10                            # no by, step is 1 by default
@@ -13437,7 +12831,7 @@ every i := 10 to 0 by -1 do {
    every (1 to 15 by 2) to 5                # . made explicit
 
    every writes( (TO_BY_EXPR) | "\n", " " ) # if you want to see how any of these work
-#----------------------------------------- 547 loops-for-with-a-specified-step-2
+#----------------------------------------- 534 loops-for-with-a-specified-step-2
 (for i (range 0 10 2)
   (print i)
   (continue))
@@ -13445,15 +12839,15 @@ every i := 10 to 0 by -1 do {
 ;or
 (loop 5 i
   (print (* i 2)))
-#----------------------------------------------------------- 548 loops-foreach-1
+#----------------------------------------------------------- 535 loops-foreach-1
 procedure main()
 X := [1,2,3,-5,6,9];
 every x := !L do
    write(x);
 end
-#----------------------------------------------------------- 549 loops-foreach-2
+#----------------------------------------------------------- 536 loops-foreach-2
 every write(!L)
-#---------------------------------------------------------- 550 loops-infinite-2
+#---------------------------------------------------------- 537 loops-infinite-2
 until &fail do write("SPAM")   # always fails, needs succeed to break
 ...
 while write("SPAM")            # always succeeds, needs failure to break
@@ -13463,11 +12857,11 @@ every write(|"SPAM")           # generator always succeeds, needs failure to bre
 while write(|"SPAM")           # this is a common mistake that results in an endless loop
 ...
 while write(1 to 5)            # a clearer version of the same mistake that generates endless 1's
-#--------------------------------------------------- 551 loops-n-plus-one-half-2
+#--------------------------------------------------- 538 loops-n-plus-one-half-2
 every writes(c := "",1 to 10) do c := ","
-#------------------------------------------------------------ 552 loops-nested-2
+#------------------------------------------------------------ 539 loops-nested-2
 e := !!L & write(e) & e = 20
-#----------------------------------------------------------- 553 lychrel-numbers
+#----------------------------------------------------------- 540 lychrel-numbers
 global seeds, related, palins
 
 procedure main(A)
@@ -13493,158 +12887,7 @@ procedure islychrel(n,limit:500)
       return on
       }
 end
-#--------------------------------------------------------------- 554 map-range-1
-record Range(a, b)
-
-# note, we force 'n' to be real, which means recalculation will
-# be using real numbers, not integers
-procedure remap (range1, range2, n : real)
-  if n < range2.a | n > range2.b then fail # n out of given range
-  return range1.a + (n - range2.a) * (range1.b - range1.a) / (range2.b - range2.a)
-end
-
-procedure range_string (range)
-  return "[" || range.a || ", " || range.b || "]"
-end
-
-procedure main ()
-  range1 := Range (0, 10)
-  range2 := Range (-1, 0)
-  # if i is out of range1, then 'remap' fails, so only valid changes are written
-  every i := -2 to 12 do {
-    if m := remap (range2, range1, i)
-      then write ("Value " || i || " in " || range_string (range1) ||
-                  " maps to " || m || " in " || range_string (range2))
-  }
-end
-#-------------------------------------------- 555 matrix-exponentiation-operator
-import util
-
-procedure main()
-   M := Matrix([[3,2], [2,1]])
-   every i := 0 to 5 do {
-       write("M^",i,":")
-       writeMatrix(M^i)
-       }
-end
-
-class Matrix(M)  # Operator overloading needs a class
-
-   # Extend the "^" binary operator
-   method __powr__(n)
-      if not (integer(n) >= 0) then fail
-      M1 := m_identity(*M,*M[1])
-      # Brute-force approach:
-      every 1 to n do M1 := m_multiply(M1,M)
-      return M1
-   end
-
-initially (a)
-   M := m_copy(a)
-end
-
-procedure writeMatrix(M)
-   every r := !M do {
-      every writes(!r," ")
-      write()
-      }
-   write()
-end
-#----------------------------------------------------------- 556 maze-generation
-link printf
-
-procedure main(A)                               # generate rows x col maze
-   /mh := \A[1] | 12                            # or take defaults 12 x 16
-   /mw := \A[2] | 16
-   mz := DisplayMaze(GenerateMaze(mh,mw))
-   WriteImage(mz.filename)                      # save file
-   WAttrib(mz.window,"canvas=normal")           # show maze in hidden window
-   until Event() == &lpress                     # wait for left mouse press
-   close(mz.window)
-end
-
-$define FINISH 64 # exit
-$define START  32 # entrance
-$define PATH  128
-$define SEEN   16 # bread crumbs for generator
-$define NORTH   8 # sides ...
-$define EAST    4
-$define SOUTH   2
-$define WEST    1
-$define EMPTY   0 # like new
-
-procedure GenerateMaze(r,c)                     #: Depth First Maze Generation
-static maze,h,w,rd
-   if /maze then {                              # BEGING - No maze yet
-      /h := integer(1 < r) | runerr(r,205)      # valid size 2x2 or better
-      /w := integer(1 < c) | runerr(r,205)
-      every !(maze := list(h)) := list(w,EMPTY) # shinny new empty maze
-      start  := [?h,?w,?4-1,START]              # random [r,c] start & finish
-      finish := [?h,?w,(start[3]+2)%4,FINISH]   # w/ opposite side exponent
-      every x := start | finish do {
-         case x[3] := 2 ^ x[3] of {             # get side from exponent and
-            NORTH : x[1] := 1                   # project r,c to selected edge
-            EAST  : x[2] := w
-            SOUTH : x[1] := h
-            WEST  : x[2] := 1
-            }
-         maze[x[1],x[2]] +:= x[3] + x[4]        # transcribe s/f to maze
-         }
-      rd := [NORTH, EAST, SOUTH, WEST]          # initial list of directions
-      GenerateMaze(start[1],start[2])           # recurse through maze
-      return 1(.maze,maze := &null)             # return maze, reset for next
-   }
-   else {         # ----------------------- recursed to clear insize of maze
-      if iand(maze[r,c],SEEN) = 0 then {        # in bounds and not SEEN yet?
-         maze[r,c] +:= SEEN                     # Mark current cell as visited
-         every !rd :=: ?rd                      # randomize list of directions
-         every d := !rd do
-            case d of {                         # try all, succeed & clear wall
-               NORTH :  maze[r,c] +:= ( GenerateMaze(r-1,c), NORTH)
-               EAST  :  maze[r,c] +:= ( GenerateMaze(r,c+1),  EAST)
-               SOUTH :  maze[r,c] +:= ( GenerateMaze(r+1,c), SOUTH)
-               WEST  :  maze[r,c] +:= ( GenerateMaze(r,c-1),  WEST)
-               }
-         return                                 # signal success to caller
-         }
-   }
-end
-
-$define CELL   20                                   # cell size in pixels
-$define BORDER 30                                   # border size in pixels
-
-record mazeinfo(window,maze,filename)               # keepers
-
-procedure DisplayMaze(maze)                         #: show it off
-if CELL < 8 then runerr(205,CELL)                   # too small
-
-wh := (ch := (mh := *maze  ) * CELL) + 2 * BORDER   # win, cell, maze height
-ww := (cw := (mw := *maze[1]) * CELL) + 2 * BORDER  # win, cell, maze width
-
-wparms := [ sprintf("Maze %dx%d",*maze,*maze[1]),   # window parameters
-            "g","bg=white","canvas=hidden",
-            sprintf("size=%d,%d",ww,wh),
-            sprintf("dx=%d",BORDER),
-            sprintf("dy=%d",BORDER)]
-
-&window := open!wparms | stop("Unable to open Window")
-
-Fg("black")                                         # Draw full grid
-every DrawLine(x := 0 to cw by CELL,0,x,ch+1)       # . verticals
-every DrawLine(0,y := 0 to ch by CELL,cw+1,y)       # . horizontals
-
-Fg("white")                                         # Set to erase lines
-every y := CELL*((r := 1 to mh)-1) & x := CELL*((c := 1 to mw)-1) do {
-   WAttrib("dx="||x+BORDER,"dy="||y+BORDER)         # position @ cell r,c
-   if iand(maze[r,c],NORTH) > 0 then DrawLine(2,0,CELL-1,0)
-   if iand(maze[r,c],EAST)  > 0 then DrawLine(CELL,2,CELL,CELL-1)
-   if iand(maze[r,c],SOUTH) > 0 then DrawLine(2,CELL,CELL-1,CELL)
-   if iand(maze[r,c],WEST)  > 0 then DrawLine(0,2,0,CELL-1)
-   }
-
-return mazeinfo(&window,maze,sprintf("maze-%dx%d-%d.gif",r,c,&now))
-end
-#------------------------------------------------------------ 557 maze-solving-1
+#------------------------------------------------------------ 541 maze-solving-1
 procedure main(A)
    /mh := \A[1] | 12;
    /mw := \A[2] | 16;
@@ -13658,7 +12901,7 @@ procedure main(A)
    until Event() == &lpress; # wait
    close(mz.window);
 end
-#------------------------------------------------------------ 558 maze-solving-3
+#------------------------------------------------------------ 542 maze-solving-3
 global showMice
 
 import Utils	# To get 'Args' singleton class
@@ -13789,114 +13032,11 @@ end
 procedure waitForCompletion()
    critical qMiceEmpty: while *qMice > 0 do wait(qMiceEmpty)
 end
-#-------------------------------------------------------- 559 md5-implementation
-procedure main()  # validate against the RFC test strings and more
-   testMD5("The quick brown fox jumps over the lazy dog", 16r9e107d9d372bb6826bd81d3542a419d6)
-   testMD5("The quick brown fox jumps over the lazy dog.", 16re4d909c290d0fb1ca068ffaddf22cbd0)
-   testMD5("", 16rd41d8cd98f00b204e9800998ecf8427e)    #R = MD5 test suite from RFC
-   testMD5("a", 16r0cc175b9c0f1b6a831c399e269772661)   #R
-   testMD5("abc", 16r900150983cd24fb0d6963f7d28e17f72) #R
-   testMD5("message digest", 16rf96b697d7cb7938d525a2f31aaf161d0) #R
-   testMD5("abcdefghijklmnopqrstuvwxyz", 16rc3fcd3d76192e4007dfb496cca67e13b) #R
-   testMD5("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", 16rd174ab98d277d9f5a5611c2c9f419d9f) #R
-   testMD5("12345678901234567890123456789012345678901234567890123456789012345678901234567890", 16r57edf4a22be3c955ac49da2e2107b67a) #R
-end
-
-procedure testMD5(s,rh)  # compute the MD5 hash and compare it to reference value
-   write("Message(length=",*s,") = ",image(s))
-   write("Digest = ",hexstring(h := MD5(s)),if h = rh then " matches reference hash" else (" does not match reference hash = " || hexstring(rh)),"\n")
-end
-
-link hexcvt # for testMD5
-
-$define B32                     4   #  32 bits
-$define B64                     8   #  64 bits in bytes
-$define B512                   64   # 512 bits in bytes
-$define M32          16r100000000   # 2^32
-$define M64  16r10000000000000000   # 2^64
-
-procedure MD5(s)                                    #: return MD5 hash of message s
-local w,a,b,c,d,i,t,m
-local mlength,message,hash
-static rs,ks,istate,maxpad,g
-
-initial {
-   every (rs := []) |||:=
-      (t := [ 7, 12, 17, 22] | [ 5,  9, 14, 20] | [ 4, 11, 16, 23] | [ 6, 10, 15, 21]) ||| t ||| t ||| t
-   every put(ks := [],integer(M32 * abs(sin(i := 1 to 64))))
-   istate := [ 16r67452301, 16rEFCDAB89, 16r98BADCFE, 16r10325476 ]  # "Magic" IV
-   maxpad := left(char(16r80),B512+B64,char(16r00)) # maximum possible padding
-   g := []
-   every i := 0 to 63 do                            # precompute offsets
-      case round := i/16 of {
-         0 : put(g,i + 1)
-         1 : put(g,(5*i+1) % 16 + 1)
-	 2 : put(g,(3*i+5) % 16 + 1)
-         3 : put(g,(7*i) % 16 + 1)
-         }
-   if not (*rs = *ks = 64) then runerr(500,"MD5 setup error")
-   }
-                                                    # 1. Construct prefix
-   t := (*s*8)%M64                                  # original message length
-   s ||:= maxpad                                    # append maximum padding
-   s[0-:*s%B512] := ""                              # trim to final length
-   s[0-:B64] := reverse(unsigned2string(t,B64) )    # as little endian length
-
-   message := []                                    # 2. Subdivide message
-   s ? while put(message,move(B512))                #  into 512 bit blocks
-
-                                                    # 3. Transform message ...
-   state := copy(istate)                            # Initialize hashes
-   every m := !message do {                         # For each message block
-      w := []
-      m ? while put(w,unsigned(reverse(move(B32)))) # break into little-endian words
-
-      a := state[1]                                 # pick up hashes
-      b := state[2]
-      c := state[3]
-      d := state[4]
-
-      every i := 1 to 64 do  {                      # Process 4 rounds of hashes	
-         case round := (i-1)/16 of {
-	    0 : a +:= ixor(d, iand(b,ixor(c,d)))          # 0..15  - alternate F
-            1 : a +:= ixor(c,iand(d,ixor(b,c)))           # 16..31 - alternate G	
-            2 : a +:= ixor(b,ixor(c,d))                   # 32..47 - H
-            3 : a +:= ixor(c,ior(b,ixor(d,16rffffffff)))  # 48..64 - alternate I
-	    }                                       # Core of FF, GG, HH, II
-         a +:= ks[i] + w[g[i]]                      # and the rest
-         a %:= M32
-         a := ior( ishift(a,rs[i]), ishift(a,-(32-rs[i]))) # 32bit rotate
-         a +:= b
-         a :=: b :=: c :=: d                        # rotate variables
-	 }
-
-      state[1] +:= a                                # Add back new hashes
-      state[2] +:= b
-      state[3] +:= c
-      state[4] +:= d
-      every !state %:= M32                          # mod 2^32
-   }
-   every (hash := "") ||:= reverse(unsigned2string(!state,4)) # little-endian digest
-   return unsigned(hash)
-end
-
-procedure unsigned2string(i,w)                      # uint to string pad to w bytes
-local s
-   if i < 0 then runerr(500,i)
-   s := ""
-   while (0 < i) | (*s < \w) do {
-      s ||:= char(i % 256)
-      i /:= 256
-      }
-   return reverse(s)
-end
-
-link unsigned                                       # string to unsigned integer
-#--------------------------------------------------------- 560 memory-allocation
+#--------------------------------------------------------- 543 memory-allocation
     t := table() # The table's memory is allocated
                  #... do things with t
     t := &null   # The table's memory can be reclaimed
-#---------------------------------------------------------- 561 minesweeper-game
+#---------------------------------------------------------- 544 minesweeper-game
 global DEFARGS,MF
 
 record minefield(mask,grid,rows,cols,mines,density,marked)
@@ -14078,7 +13218,7 @@ local i,j,m
    MF.mask := m
    write(tag) & showgrid()
 end
-#----------------------------------------------- 562 multiple-distinct-objects-1
+#----------------------------------------------- 545 multiple-distinct-objects-1
   items_wrong := list (10, [])
   # prints '0' for size of each item
   every item := !items_wrong do write (*item)
@@ -14086,10 +13226,10 @@ end
   push (items_wrong[1], 2)
   # now prints '1' for size of each item
   every item := !items_wrong do write (*item)
-#----------------------------------------------- 563 multiple-distinct-objects-2
+#----------------------------------------------- 546 multiple-distinct-objects-2
   items := list(10)
   every i := 1 to 10 do items[i] := []
-#--------------------------------------------------- 564 multiplication-tables-2
+#--------------------------------------------------- 547 multiplication-tables-2
 (var pad-num (comp str (pad-left " " 4)))
 
 (join "\n"
@@ -14099,7 +13239,7 @@ end
         (if (> y x)
             "    "
             (pad-num (* x y)))))))
-#---------------------------------------------------------- 565 munching-squares
+#---------------------------------------------------------- 548 munching-squares
 link printf
 
 procedure main(A)   #: XOR graphic
@@ -14118,11 +13258,11 @@ procedure main(A)   #: XOR graphic
   until Event() == &lpress;     # wait for left button to quit
   close(&window);
 end
-#-------------------------------------------------------- 566 n-queens-problem-2
+#-------------------------------------------------------- 549 n-queens-problem-2
 procedure main()
     every write(q(1), " ", q(2), " ", q(3), " ", q(4), " ", q(5), " ", q(6), " ", q(7), " ", q(8));
 end
-#--------------------------------------------------------------------- 567 nth-2
+#--------------------------------------------------------------------- 550 nth-2
 (function ordinal n
   (if ([11 12 13] (rem n 100))
       "{n}th"
@@ -14136,31 +13276,7 @@ end
 (.. str (line 0   13) "\n" (line 1000 1013)
  "\n\n" (line 13  26) "\n" (line 1013 1026)
  "\n\n" (line 250 266))
-#------------------------------------------------------------------ 568 nth-root
-procedure main()
-   showroot(125,3)
-   showroot(27,3)
-   showroot(1024,10)
-   showroot(39.0625,4)
-   showroot(7131.5^10,10)
-end
-
-procedure showroot(a,n)
-   printf("%i-th root of %i = %i\n",n,a,root(a,n))
-end
-
-procedure root(a,n,p) #: finds the n-th root of the number a to precision p
-   if n < 0 | type(n) !== "integer" then runerr(101,n)
-   if a < 0 then runerr(205,a)
-   /p := 1e-14                  # precision
-   xn := a / real(n)            # initial guess
-   while abs(a - xn^n) > p do
-      xn := ((n - 1) * (xi := xn) + a / (xi ^ (n-1))) / real(n)
-   return xn
-end
-
-link printf
-#-------------------------------------------------------- 569 odd-word-problem-2
+#-------------------------------------------------------- 551 odd-word-problem-2
 procedure main(A)
     repeat (while writes((any(&letters, c := reads(&input,1)),c))) |
            (writes(c) ~== "." ~== writes(rWord())) | break write();
@@ -14171,7 +13287,7 @@ procedure rWord(c)
     writes(\c);
     return c1;
 end
-#--------------------------------------- 570 one-dimensional-cellular-automata-3
+#--------------------------------------- 552 one-dimensional-cellular-automata-3
 (function next cells
   (... str
     (map (comp str (count ["#"]) (= 2) #(% "#" "_"))
@@ -14181,7 +13297,7 @@ end
 
 (function generate n cells
  (join "\n" (reductions next cells (range n))))
-#------------------------------------------------------- 571 optional-parameters
+#------------------------------------------------------- 553 optional-parameters
 procedure main()
    X := [ [1,2,3], [2,3,1], [3,1,2])                       # A list of lists
    Sort(X)                                                 # vanilla sort
@@ -14202,7 +13318,7 @@ procedure Sort(X,A[])                                      # A[] provides for a 
          }
    return (\reverseorder|1)(bubblesortf(X,\c|1,\op|"<<"))  # reverse or return the sorted list
 end
-#------------------------------------------------- 572 order-two-numerical-lists
+#------------------------------------------------- 554 order-two-numerical-lists
 procedure main()
    write( if list_llt([1,2,1,3,2],[1,2,0,4,4,0,0,0]) then "true" else "false" );
 end
@@ -14214,13 +13330,13 @@ every i := 1 to min(*L1,*L2) do
    else if L1[i] >> L2[i] then fail;
 if *L1 < *L2 then return L2;
 end
-#--------------------------------------------------------- 573 pangram-checker-3
+#--------------------------------------------------------- 555 pangram-checker-3
 (function pangram? sentence
   (let prepped (-> sentence lower-case to-vec))
   (all? prepped (map char-code (range 97 123))))
 
 (pangram? "The five boxing wizards jump quickly.")
-#---------------------------------------------- 574 parse-command-line-arguments
+#---------------------------------------------- 556 parse-command-line-arguments
 link options
 
 procedure main(ARGLIST)
@@ -14235,157 +13351,9 @@ s  := opttable(s)            # assign a string
 i  := opttable(i)            # assign an integer
 ...
 end
-#-------------------------------------- 575 pathological-floating-point-problems
-#
-# Pathological floating point problems
-#
-procedure main()
-    sequence();
-    chaotic();
-end
-
-#
-# First task, sequence convergence
-#
-link printf
-procedure sequence()
-     local l := [2, -4];
-     local iters := [3, 4, 5, 6, 7, 8, 20, 30, 50, 100, 200];
-     local i, j, k;
-     local n := 1;
-
-     write("Sequence convergence");
-     # Demonstrate the convergence problem with various precision values
-     every k := (100 | 300) do {
-         n := 10^k;
-         write("\n", k, " digits of intermediate precision");
-
-         # numbers are scaled up using large integer powers of 10
-         every i := !iters do {
-             l := [2 * n, -4 * n];
-             printf("i: %3d", i);
-
-             every j := 3 to i do {
-                 # build out a list of intermediate passes
-                 # order of scaling operations matters
-                 put(l, 111 * n - (1130 * n * n / l[j - 1]) +
-                        (3000 * n * n * n / (l[j - 1] * l[j - 2])))
-             };
-             # down scale the result to a real
-             # some precision may be lost in the final display
-             printf(" %20.16r\n", l[i] * 1.0 / n)
-         }
-     };
-end
-
-#
-# Task 2, chaotic bank of Euler
-#
-procedure chaotic()
-    local euler, e, scale, show, y, d;
-
-    write("\nChaotic Banking Society of Euler");
-    # format the number for listing, string form, way overboard on digits
-    euler :=
-"2718281828459045235360287471352662497757247093699959574966967627724076630353_
-  547594571382178525166427427466391932003059921817413596629043572900334295260_
-  595630738132328627943490763233829880753195251019011573834187930702154089149_
-  934884167509244761460668082264800168477411853742345442437107539077744992069_
-  551702761838606261331384583000752044933826560297606737113200709328709127443_
-  747047230696977209310141692836819025515108657463772111252389784425056953696_
-  770785449969967946864454905987931636889230098793127736178215424999229576351_
-  482208269895193668033182528869398496465105820939239829488793320362509443117_
-  301238197068416140397019837679320683282376464804295311802328782509819455815_
-  301756717361332069811250996181881593041690351598888519345807273866738589422_
-  879228499892086805825749279610484198444363463244968487560233624827041978623_
-  209002160990235304369941849146314093431738143640546253152096183690888707016_
-  768396424378140592714563549061303107208510383750510115747704171898610687396_
-  9655212671546889570350354";
-
-    # precise math with long integers, string form just for pretty listing
-    e := integer(euler);
-
-    # 1000 digits after the decimal for scaling intermediates and service fee
-    scale := 10^1000;
-
-    # initial deposit - $1
-    d := e - scale;
-
-    # show balance with 16 digits
-    show := 10^16;
-    write("Starting balance:       $", d * show / scale * 1.0 / show, "...");
-
-    # wait 25 years, with only a trivial $1 service fee
-    every y := 1 to 25 do {
-        d := d * y - scale
-    };
-
-    # show final balance with 4 digits after the decimal (truncation)
-    show := 10^4;
-    write("Balance after ", y, " years: $", d * show / scale * 1.0 / show);
-end
-#----------------------------------------------------------- 576 perfect-shuffle
-link lists
-
-procedure main()
-   A := [8,24,52,100,1020,1024,10000]
-   every len := !A do {
-      deck := [: 1 to len :]
-      tmpd := copy(deck)
-      cnt := 0
-      while (cnt +:= 1, tmpd := shuffledeck(tmpd)) do
-         if lequiv(deck,tmpd) then break
-      write("For deck of size ",len," it takes ",cnt," perfect shuffles.")
-      }
-end
-
-procedure shuffledeck(d)
-   c1 := create !d[1+:*d/2]
-   c2 := create !d[*d/2+1:0]
-   d := []
-   while (put(d,@c1),put(d,@c2))
-   return d
-end
-#----------------------------------------------------- 577 pick-random-element-2
+#----------------------------------------------------- 557 pick-random-element-2
 (rand-pick (range 100))
-#---------------------------------------------------------- 578 polymorphic-copy
-class T()
-    method a(); write("This is T's a"); end
-end
-
-class S: T()
-    method a(); write("This is S's a"); end
-end
-
-procedure main()
-    write("S:",deepcopy(S()).a());
-end
-
-procedure deepcopy(A, cache)  #: return a deepcopy of A
-    local k;
-
-    /cache := table();        # used to handle multireferenced objects
-    if \cache[A] then return cache[A];
-
-    case type(A) of {
-        "table"|"list": {
-            cache[A] := copy(A);
-            every cache[A][k := key(A)] := deepcopy(A[k], cache)
-            };
-        "set": {
-            cache[A] := set();
-            every insert(cache[A], deepcopy(!A, cache))
-            };
-        default: {           # records and objects (encoded as records)
-            cache[A] := copy(A);
-            if match("record ",image(A)) then {
-                every cache[A][k := key(A)] := deepcopy(A[k], cache)
-                }
-            }
-        };
-    return .cache[A];
-end
-#--------------------------------------------------------------- 579 power-set-2
+#--------------------------------------------------------------- 558 power-set-2
 procedure main ()
   every s := !power_set (set(1,2,3,4)) do { # requires '!' to generate items in the result set
     writes ("[ ");
@@ -14393,7 +13361,7 @@ procedure main ()
     write ("]")
   };
 end
-#--------------------------------------------------------------- 580 power-set-3
+#--------------------------------------------------------------- 559 power-set-3
 procedure power_set (s)
   if *s = 0
     then suspend set ()
@@ -14413,10 +13381,10 @@ procedure main ()
     write ("]")
   };
 end
-#------------------------------------------------------ 581 pragmatic-directives
+#------------------------------------------------------ 560 pragmatic-directives
 &trace # controls execution tracing
 &error # controls error handling
-#------------------------------------------------------------ 582 price-fraction
+#------------------------------------------------------------ 561 price-fraction
 record Bounds(low,high,new)
 
 # rescale given value according to a list of bounds
@@ -14456,7 +13424,7 @@ procedure main ()
     write (i || " rescaled is " || rescale(i, bounds))
   };
 end
-#------------------------------------------------------------ 583 priority-queue
+#------------------------------------------------------------ 562 priority-queue
 import Utils   # For Closure class
 import Collections      # For Heap (dense priority queue) class
 
@@ -14470,124 +13438,28 @@ procedure main()
 
    while task := pq.get() do write(task[1]," -> ",task[2])
 end
-#------------------------------------------------------- 584 program-termination
+#------------------------------------------------------- 563 program-termination
 exit(i)          # terminates the program setting an exit code of i
 stop(x1,x2,..)   # terminates the program writing out x1,..; if any xi is a file writing switches to that file
 runerr(i,x)      # terminates the program with run time error 'i' for value 'x'
-#-------------------------------------------------------- 585 read-entire-file-1
+#-------------------------------------------------------- 564 read-entire-file-1
 every (fs := "") ||:= |reads(1000000)
-#-------------------------------------------------------- 586 read-entire-file-2
+#-------------------------------------------------------- 565 read-entire-file-2
 every put(fL := [],|FUNC(read()))
 every (fs := "") ||:= !fL || "\n"
 fL := &null
-#------------------------------------------------------------- 587 rename-a-file
+#------------------------------------------------------------- 566 rename-a-file
 every dir := !["./","/"] do {
    rename(f := dir || "input.txt", dir || "output.txt")  |stop("failure for file rename ",f)
    rename(f := dir || "docs", dir || "mydocs")           |stop("failure for directory rename ",f)
    }
-#--------------------------------------------------------- 588 repeat-a-string-1
+#--------------------------------------------------------- 567 repeat-a-string-1
 procedure main(args)
     write(repl(integer(!args) | 5));
 end
-#-------------------------------------------------------- 589 reverse-a-string-2
+#-------------------------------------------------------- 568 reverse-a-string-2
 (reverse "hello")
-#------------------------------------- 590 rosetta-code-find-unimplemented-tasks
-$define RCPREFIX "https://rosettacode.org/w/api.php?action=query&list=categorymembers&format=xml&cmlimit=5000&cmtitle=Category:"
-$define RCSUFFIX1 "Programming%20Tasks"
-
-procedure main(A)   # simple single threaded read all at once implementation
-    lang := \A[1] | "Unicon"
-    write("Unimplemented tasks for ",lang," as of ",&date)
-    all_tasks := set([: taskNames() :])
-    tasks_for_lang := set([: tasksForLang(lang) :])
-    every write(!sort(all_tasks -- tasks_for_lang))
-end
-
-# Generate task names
-procedure taskNames()
-    continue := ""
-    while \(txt := ReadURL(RCPREFIX||RCSUFFIX1||continue)) do {
-        txt ? {
-            while tab((find("<cm "),find(s :="title=\""))+*s) do
-                suspend tab(find("\""))\1
-            continue := getContinue() | break
-            }
-        }
-end
-
-# Generate all tasks for a language
-procedure tasksForLang(lang)
-   continue := ""
-   while \(txt := ReadURL(RCPREFIX||lang||continue)) do {
-      txt ? {
-          while tab(find(s :="title=\"")+*s) do
-                suspend tab(find("\""))\1
-          continue := getContinue() | break
-          }
-      }
-end
-
-procedure getContinue()
-    gcm := "cmcontinue="
-    return (tab(1),"&"||2(tab(find(gcm)),=gcm,="\"")||tab(upto('"')))
-end
-
-procedure ReadURL(url)                 #: read URL into string
-    page := open(url,"m-") | stop("Unable to open ",url," -> ",&errortext)
-    if page["Status-Code"] < 300 then text := reads(page,-1)
-    else write(&errout,image(url),": ",
-                       page["Status-Code"]," ",page["Reason-Phrase"])
-    close(page)
-    return text
-end
-#--------------------------------- 591 rosetta-code-rank-languages-by-popularity
-$define RCLANGS "https://rosettacode.org/w/api.php?action=query&generator=categorymembers&gcmtitle=Category:Programming%20Languages&gcmlimit=500&prop=categoryinfo&format=xml"
-
-link strings
-link hexcvt
-
-procedure main(A)
-    limit := \A[1];    # Limit the output?
-    cnt := create seq();
-    last := -1;
-    every pair := !reverse(sort(langs := tallyPages(),2)) do {
-        n := if last ~=:= pair[2] then @cnt else (@cnt,"");
-        write(right(n,4),": ",left(pair[1],30,". "),right(pair[2],10,". "));
-        if 0 >= (\limit -:= 1) then break
-        };
-    write(*langs, " languages");
-end
-
-# Generate page counts for each language
-procedure tallyPages()
-    counts := table();
-    continue := "";
-    while \(txt := ReadURL(RCLANGS||continue)) do {
-        txt ? {
-            while tab(find("<page ") & find(s := "title=\"Category:")+*s) do {
-                lang := tab(upto('"'));
-                tab(find(s := "pages=\"")+*s);
-                counts[lang] := numeric(tab(upto('"')))
-                };
-            continue := getContinue() | break
-            }
-        };
-    return counts;
-end
-
-procedure getContinue()
-   gcm := "gcmcontinue=";
-   return (tab(1),"&"||2(tab(find(gcm)),=gcm,="\"")||tab(upto('"')));
-end
-
-procedure ReadURL(url)                 #: read URL into string
-    page := open(url,"m-") | stop("Unable to open ",url,"\n",&errno,"->",&errortext);
-    if page["Status-Code"] < 300 then text := reads(page,-1)
-    else write(&errout,"ERROR: ",&errout," -> ",&errortext);
-    close(page);
-    return text;
-end
-#--------------------------------------------------------------------- 592 set-1
+#--------------------------------------------------------------------- 569 set-1
 procedure display_set (s)
   writes ("[");
   every writes (!s || " ");
@@ -14649,7 +13521,7 @@ procedure main ()
   else
     write ("(1,2,5) is not included in a");
 end
-#--------------------------------------------------------------------- 593 set-2
+#--------------------------------------------------------------------- 570 set-2
 link sets
 
 procedure main ()
@@ -14689,11 +13561,11 @@ procedure main ()
   else
     write ("(1,2,5) is not included in a");
 end
-#--------------------------------------------------------- 594 shell-one-liner-1
+#--------------------------------------------------------- 571 shell-one-liner-1
 echo "procedure main();write(\"hello\");end" | icont - -x
-#--------------------------------------------------------- 595 shell-one-liner-2
+#--------------------------------------------------------- 572 shell-one-liner-2
 echo "procedure main();write(\"hello world\");end" >hello.icn; unicon hello.icn -x
-#------------------------------------------------------------ 596 show-the-epoch
+#------------------------------------------------------------ 573 show-the-epoch
 link printf,datetime
 
 procedure main()
@@ -14706,7 +13578,7 @@ procedure main()
   now := DateToSec(&date) + ClockToSec(&clock);
   printf("Now is also %s and %s\n",SecToDate(now),SecToDateLine(now));
 end
-#---------------------------------------------- 597 singly-linked-list-traversal
+#---------------------------------------------- 574 singly-linked-list-traversal
 procedure main ()
   ns := Node(1, Node(2, Node (3)));
   until /ns do { # repeat until ns is null
@@ -14714,9 +13586,9 @@ procedure main ()
     ns := ns.successor
   };
 end
-#----------------------------------------------------- 598 sort-an-integer-array
+#----------------------------------------------------- 575 sort-an-integer-array
 S := sort(L:= [63, 92, 51, 92, 39, 15, 43, 89, 36, 69])  # will sort a list
-#--------------------------------------------------- 599 sort-disjoint-sublist-1
+#--------------------------------------------------- 576 sort-disjoint-sublist-1
 link sort # get the 'isort' procedure for sorting a list
 
 procedure sortDisjoint (items, indices)
@@ -14742,9 +13614,9 @@ procedure main ()
   every writes (!result || " ");
   write ();
 end
-#--------------------------------------------------- 600 sort-disjoint-sublist-2
+#--------------------------------------------------- 577 sort-disjoint-sublist-2
 every put (values, result[!indices])
-#------------------------------------------ 601 sorting-algorithms-bubble-sort-1
+#------------------------------------------ 578 sorting-algorithms-bubble-sort-1
 procedure main()                     #: demonstrate various ways to sort a list and string
    demosort(bubblesort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
 end
@@ -14761,7 +13633,7 @@ local i,swapped;
             X[i-1] :=: X[swapped := i];
    return X;
 end
-#------------------------------------------ 602 sorting-algorithms-cocktail-sort
+#------------------------------------------ 579 sorting-algorithms-cocktail-sort
 procedure main()                     #: demonstrate various ways to sort a list and string
    demosort(cocktailsort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
 end
@@ -14779,7 +13651,7 @@ local i,swapped;
             X[i+1] :=: X[swapped := i];
    return X;
 end
-#---------------------------------------------- 603 sorting-algorithms-comb-sort
+#---------------------------------------------- 580 sorting-algorithms-comb-sort
 procedure main()                     #: demonstrate various ways to sort a list and string
    demosort(combsort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
 end
@@ -14802,7 +13674,7 @@ local gap,swapped,i;
       };
    return X;
 end
-#--------------------------------------------- 604 sorting-algorithms-gnome-sort
+#--------------------------------------------- 581 sorting-algorithms-gnome-sort
 procedure main()                     #: demonstrate various ways to sort a list and string
    demosort(gnomesort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
 end
@@ -14822,7 +13694,7 @@ local i,j;
    };
    return X;
 end
-#----------------------------------------------- 605 sorting-algorithms-heapsort
+#----------------------------------------------- 582 sorting-algorithms-heapsort
 procedure main()                     #: demonstrate various ways to sort a list and string
    demosort(heapsort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
 end
@@ -14860,7 +13732,7 @@ local child;
       };
    return X;
 end
-#----------------------------------------- 606 sorting-algorithms-insertion-sort
+#----------------------------------------- 583 sorting-algorithms-insertion-sort
 procedure main()                     #: demonstrate various ways to sort a list and string
    demosort(insertionsort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
 end
@@ -14878,7 +13750,7 @@ local i,temp;
       };
    return X;
 end
-#--------------------------------------------- 607 sorting-algorithms-merge-sort
+#--------------------------------------------- 584 sorting-algorithms-merge-sort
 procedure main()                                                         #: demonstrate various ways to sort a list and string
    demosort(mergesort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
 end
@@ -14928,7 +13800,7 @@ local p1,p2,add;
 
    return X;
 end
-#------------------------------------------- 608 sorting-algorithms-pancake-sort
+#------------------------------------------- 585 sorting-algorithms-pancake-sort
 procedure main()                                        #: demonstrate various ways to sort a list and string
    demosort(pancakesort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
    pancakeflip := pancakeflipshow;                       # replace pancakeflip procedure with a variant that displays each flip
@@ -14970,7 +13842,7 @@ local i;
    every writes("    ["|right(!X,4)|" ]\n");                # show X
    return X;
 end
-#---------------------------------------------- 609 sorting-algorithms-quicksort
+#---------------------------------------------- 586 sorting-algorithms-quicksort
 procedure main()                     #: demonstrate various ways to sort a list and string
    demosort(quicksort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
 end
@@ -15017,7 +13889,7 @@ initial pivotL := list(3);
    suspend lower;                                           # 1st return pivot point
    suspend X;                                               # 2nd return modified X (in case immutable)
 end
-#--------------------------------------------- 610 sorting-algorithms-radix-sort
+#--------------------------------------------- 587 sorting-algorithms-radix-sort
 procedure main(A)
     every writes((!rSort(A)||" ")|"\n");
 end
@@ -15032,7 +13904,7 @@ procedure rSort(A)
         };
     return A;
 end
-#----------------------------------------- 611 sorting-algorithms-selection-sort
+#----------------------------------------- 588 sorting-algorithms-selection-sort
 procedure main()                     #: demonstrate various ways to sort a list and string
    demosort(selectionsort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
 end
@@ -15050,7 +13922,7 @@ local i,m;
       };
    return X;
 end
-#--------------------------------------------- 612 sorting-algorithms-shell-sort
+#--------------------------------------------- 589 sorting-algorithms-shell-sort
 procedure main()                     #: demonstrate various ways to sort a list and string
    demosort(shellsort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
 end
@@ -15072,7 +13944,7 @@ local i,j,inc,temp;
       };
    return X;
 end
-#--------------------------------------------- 613 sorting-algorithms-sleep-sort
+#--------------------------------------------- 590 sorting-algorithms-sleep-sort
 procedure main(A)
     every insert(t:=set(),mkThread(t,!A))
     every spawn(!t)    # start threads as closely grouped as possible
@@ -15082,7 +13954,7 @@ end
 procedure mkThread(t,n)    # 10ms delay scale factor
     return create (delay(n*10),delete(t,&current),n@>&main)
 end
-#-------------------------------------------- 614 sorting-algorithms-stooge-sort
+#-------------------------------------------- 591 sorting-algorithms-stooge-sort
 procedure main()              #: demonstrate various ways to sort a list and string
    demosort(stoogesort,[3, 14, 1, 5, 9, 2, 6, 3],"qwerty");
 end
@@ -15105,7 +13977,7 @@ local t;
       };
    return X;                              # X must be returned and assigned to sort a string
 end
-#--------------------------------------------------------- 615 special-variables
+#--------------------------------------------------------- 592 special-variables
 # &keyword # type returned(indicators) - brief description
 # indicators:
 #    * - generates multiple values
@@ -15183,7 +14055,7 @@ end
 &y           # integer(=G) - pointer vertical position
 # keywords may also fail if the corresponding feature is not present.
 # Other variants of Icon (e.g. MT-Icon) will have different mixes of keywords.
-#------------------------------------------------------- 616 state-name-puzzle-1
+#------------------------------------------------------- 593 state-name-puzzle-1
 link strings                 # for csort and deletec
 
 procedure main(arglist)
@@ -15233,44 +14105,24 @@ procedure ECsolve(S)         # Solve challenge using equivalence classes
     };
     write("... runtime ",(&time - st)/1000.,"\n",m," matches found.");
 end
-#-------------------------------------------- 617 string-interpolation-included-
+#-------------------------------------------- 594 string-interpolation-included-
   s2 := "humongous"
   s3 := "little"
   s1 :=  "Mary had a humongous lamb."
   s1 ?:= tab(find(s2)) || (=s2,s3) || tab(0)          # replaces the first instance of s2 with s3
   while s1 ?:= tab(find(s2)) || (=s2,s3) || tab(0)    # replaces all instances of s2 with s3, equivalent to replace
-#------------------------------------------------------------- 618 string-length
+#------------------------------------------------------------- 595 string-length
    length := *s
-#---------------------------------------------------------- 619 string-prepend-1
+#---------------------------------------------------------- 596 string-prepend-1
 s := "world!"
 s := "Hello, " || s
-#-------------------------------------------------- 620 substring-top-and-tail-2
+#-------------------------------------------------- 597 substring-top-and-tail-2
 write(s := "knight"," --> ", s[1] := "", s)  # drop 1st char
-#--------------------------------------------------------- 621 sum-of-a-series-3
+#--------------------------------------------------------- 598 sum-of-a-series-3
    x := y := 0   # := is right associative so, y is assigned 0, then x
    1 < x < 99    # comparison operators are left associative so, 1 < x returns x (if it is greater than 1), then x < 99 returns 99 if the comparison succeeds
    (sum := 0)    # returns a reference to sum which can in turn be used with augmented assignment +:=
-#--------------------------------------------------- 622 synchronous-concurrency
-procedure main(A)
-    fName := A[1]|"index.txt";
-    p := thread produce(fName);
-    c := thread consume(p);
-    every wait(p | c);
-end
-
-procedure produce(fName)
-    every !open(fName)@>>;    # drop messages in p's outbox (blocking whenever box is full)
-    @>>;                      # Signal consumer that p is done
-    write("count is ",<<@);   # block until message in p's inbox
-end
-
-procedure consume(p)
-    i := 0;
-    while write(\<<@p) do (i+:=1);  # loop until empty message in p's outbox
-                                   #    (blocking until each message arrives)
-    i@>>p;                          # put row count into p's inbox
-end
-#--------------------------------------------------------------- 623 system-time
+#--------------------------------------------------------------- 599 system-time
 procedure main()
 
     write("&time - milliseconds of CPU time = ",&time);
@@ -15282,43 +14134,14 @@ procedure main()
        write("&now - time in seconds since the epoch = ", &now);  # Unicon only
 
 end
-#-------------------------------------------- 624 take-notes-on-the-command-line
-procedure write_out_notes (filename)
-  file := open (filename, "rt") | stop ("no notes file yet");
-  every write (!file);
-end
-
-procedure add_to_notes (filename, strs)
-  file := open (filename, "at")  | # append to file if it exists
-          open (filename, "cat") | # create the file if not there
-          stop ("unable to open " || filename);
-  writes (file, ctime(&now) || "\n\t");
-  every writes (file, !strs || " ");
-  write (file, "");
-end
-
-procedure main (args)
-  notes_file := "notes.txt";
-  if *args = 0
-    then write_out_notes (notes_file)
-    else add_to_notes (notes_file, args);
-end
-#--------------------------------------------------------- 625 time-a-function-2
+#--------------------------------------------------------- 600 time-a-function-2
 procedure main()
 timef(perfectnumbers)
 end
 
 procedure perfectnumbers()
 ...
-#------------------------------------------------------- 626 tokenize-a-string-2
-import util
-
-procedure main()
-   A := stringToList("Hello,How,Are,You,Today", ',')
-   every writes(!A,".")
-   write()
-end
-#-------------------------------------------------------- 627 top-rank-per-group
+#-------------------------------------------------------- 601 top-rank-per-group
 record Employee(name,id,salary,dept)
 
 procedure getEmployees ()
@@ -15363,146 +14186,7 @@ procedure main (args)
     every show_employee (!employeesInGroup[1:(1+min(N,*employeesInGroup))])
   };
 end
-#--------------------------------------- 628 topological-sort-extracted-top-item
-# Determine compile order from a directed graph.
-#   - get the original graph
-#   - Start a new graph with just the nodes listed as arguments and no arcs
-#      - for the nodes in the new graph, add nodes from the old graph that
-#           are successors to those nodes and add them to new graph (with arcs)
-#           until no new nodes added (assumes no cycles in original graph!)
-#   - do an inverse topological sort on the new graph
-
-import util
-
-record graph(nodes,arcs,rarcs)
-
-procedure main(a)
-
-   Args(a)
-   g := getGraph()
-   ng := buildSubGraph(g,set(Args().getArgs()))
-
-   # Try to sort.  tsort(g) will fail if graph contains a cycle
-   if t := tsort(ng) then {
-     write("the inverse topological ordering is:")
-     every write("\t",!t)
-     }
-end
-
-procedure buildSubGraph(g,top)  # starting from nodes in top
-   ng := graph(top,table(),table())
-   osize := *ng.nodes
-   while osize ~= *(ng := addNodes(g,ng)).nodes do osize := *ng.nodes
-   return ng
-end
-
-procedure addNodes(g,ng)
-   every n := !ng.nodes do {
-      sn := sarcs(n,g)   # direct ancestors of n in g
-      if *\sn > 0 then {
-         every insert(ng.nodes,!\sn)  # put them into ng, then add its arcs
-         /ng.arcs[n] := set()
-         ng.arcs[n] := \sn
-         every s := !\sn do {
-            /ng.rarcs[s] := set()
-            insert(ng.rarcs[s],n)
-            }
-         }
-      }
-   return ng
-end
-
-##tnsort(g) -- do an inverse topological sort or print all of the cycles if
-#              the sort can't be done
-procedure tsort(g)
-   t := []
-   while *\(n := g.nodes -- pnodes(g)) > 0 do {
-      every (s := "(") ||:= !n || " "
-      put(t, trim(s) || ")")
-      g := deleteNodes(g,n)
-      }
-
-   if *\(g.nodes) > 0 then {    # can't sort - has at least one cycle!
-      write("graph contains the cycles:")
-      every write("\t",genpath(set(), fn := !g.nodes,fn,g))
-      fail
-      }
-
-   return t
-end
-
-## genpath(f,t,g) -- generate all paths from f to t in g
-#     note: includes a memory of previous paths to avoid duplicates
-procedure genpath(visited,f,t,g)
-   if member(visited, f) then fail
-   sep := " <- "
-   if member(sn := \parcs(f,g),t) then return f || sep || t
-   every insert(visited, f)
-   suspend f || sep || genpath(visited,!\sn,t,g)
-end
-
-## snodes(g) -- return all the successor nodes of g
-#     (those that have an arc into them)
-procedure snodes(g)
-   return set(\[: key(g.rarcs) :] | [])
-end
-
-## pnodes(g) -- return all the predecessor nodes of g
-#     (those that have an arc out of them)
-procedure pnodes(g)
-   return set(\[: key(g.arcs) :] | [])
-end
-
-## sarcs(f,g) -- compute all nodes that immediately follow f in g
-procedure sarcs(f,g)
-   return g.arcs[f]
-end
-
-## parcs(f,g) -- compute all nodes that immediately precede f in g
-procedure parcs(f,g)
-   return g.rarcs[f]
-end
-
-## deleteNodes(g,x) -- deletes all nodes in x from graph g
-#     note that arcs and reverse arcs must be deleted as well
-procedure deleteNodes(g,x)
-   every delete(g.nodes|g.arcs|g.rarcs|!(g.arcs|g.rarcs), !x)
-   # May have some empty arcs now so get rid of those...
-   every *\g.arcs[k := key(g.arcs)] = 0 do delete(g.arcs,k)
-   every *\g.rarcs[k := key(g.rarcs)] = 0 do delete(g.rarcs,k)
-end
-
-## getGraph() -- read and construct a graph
-#
-#      a graph is described via arcs, as in:
-#
-#       phoenix -> flagstaff
-#       tucson -> globe,showlow
-#       flagstaff -> showlow
-#
-# where the node labels are any alphanumeric character strings and
-# the separators are any non-alphanumeric character strings
-procedure getGraph()
-static labchars
-   initial labchars := &letters ++ &digits
-
-   count := 0
-   nodes := set()
-   every (arcs|rarcs) := table()
-   every !&input ? {
-                   tab(upto(labchars))
-                   insert(nodes, nfrom := tab(many(labchars)))
-                   tab(upto(labchars))
-                   while insert(nodes, nto := tab(many(labchars))) do {
-                       tab(upto(labchars))
-                       arcs[nfrom] := insert(\arcs[nfrom]|set(), nto)
-                       rarcs[nto]  := insert(\rarcs[nto]|set(), nfrom)
-                       }
-                   }
-
-   return graph(nodes,arcs, rarcs)
-end
-#-------------------------------------------------------- 629 truncatable-primes
+#-------------------------------------------------------- 602 truncatable-primes
 procedure main(arglist)
    N := 0 < integer(\arglist[1]) | 1000000;              # primes to generator 1 to ... (1M or 1st arglist)
    D := (0 < integer(\arglist[2]) | 10) / 2;             # primes to display (10 or 2nd arglist)
@@ -15536,11 +14220,11 @@ end
 procedure islefttrunc(P,x) #: return integer x if x and all left truncations of x are in P or fails
 if *x = 0 | ( (x := integer(x)) & member(P,x) & islefttrunc(P,x[2:0]) ) then return x;
 end
-#----------------------------------------------------------- 630 truncate-a-file
+#----------------------------------------------------------- 603 truncate-a-file
 truncate(f := open(filename, "bu"), newsizeinbytes) & close(f)
-#--------------------------------------------------------- 631 variable-size-set
+#--------------------------------------------------------- 604 variable-size-set
    L := list(10) # 10 element list
-#----------------------------------------------------------- 632 voronoi-diagram
+#----------------------------------------------------------- 605 voronoi-diagram
 link graphics,printf,strings
 
 record site(x,y,colour)  # site data position and colour
@@ -15612,7 +14296,7 @@ procedure VoronoiDiagram(width,height,siteL,metric)
    every site := !siteL do                              # mark sites
       DrawCircle(site.x,site.y,1);
 end
-#------------------------------------------ 633 walk-a-directory-non-recursively
+#------------------------------------------ 606 walk-a-directory-non-recursively
 procedure main()
 every write(getdirs(".","icn"));  # writes out all directories from the current directory down
 end
@@ -15627,100 +14311,7 @@ if ( stat(s).mode ? ="d" ) & ( d := open(s) ) then {
       close(d)
       };
 end
-#----------------------------------------------------------------- 634 wireworld
-link graphics
-
-$define EDGE  -1
-$define EMPTY 0
-$define HEAD 1
-$define TAIL 2
-$define COND 3
-
-global Colours,Width,Height,World,oldWorld
-
-procedure main()             # wire world modified from forestfire
-
-    Height := 400            # Window height
-    Width  := 400            # Window width
-    Rounds := 500            # max Rounds
-    Delay  := 5              # Runout Delay
-
-    setup_world(read_world())
-    every round := 1 to Rounds do {
-       show_world()
-       if \runout then
-          delay(Delay)
-       else
-          case Event() of {
-             "q" : break                            # q = quit
-             "r" : runout := 1                      # r = run w/o stepping
-             "s" : WriteImage("Wireworld-"||round)  # save
-              }
-       evolve_world()
-       }
-    WDone()
-end
-
-procedure read_world()  #: for demo in place of reading
-   return [ "tH.........",
-            ".   .",
-            "   ...",
-            ".   .",
-            "Ht.. ......"]
-end
-
-procedure setup_world(L)     #: setup the world
-
-    Colours := table()       # define colours
-    Colours[EDGE]  := "grey"
-    Colours[EMPTY] := "black"
-    Colours[HEAD]  := "blue"
-    Colours[TAIL]  := "red"
-    Colours[COND]  := "yellow"
-
-    States := table()
-    States["t"] := TAIL
-    States["H"] := HEAD
-    States[" "] := EMPTY
-    States["."] := COND
-
-    WOpen("label=Wireworld", "bg=black",
-          "size=" || Width+2 || "," || Height+2) | # add for border
-             stop("Unable to open Window")
-    every !(World := list(Height)) := list(Width,EMPTY)  # default
-    every ( World[1,1 to Width]  | World[Height,1 to Width] |
-            World[1 to Height,1] | World[1 to Height,Width] ) := EDGE
-
-    every r := 1 to *L & c := 1 to *L[r] do {      # setup read in program
-       World[r+1, c+1] :=  States[L[r,c]]
-       }
-end
-
-procedure show_world()      #: show World - drawn changes only
-   every r := 2 to *World-1 & c := 2 to *World[r]-1 do
-      if /oldWorld | oldWorld[r,c] ~= World[r,c] then {
-         WAttrib("fg=" || Colours[tr := World[r,c]])
-         DrawPoint(r,c)
-      }
-end
-
-procedure evolve_world()    #: evolve world
-    old := oldWorld := list(*World)     # freeze copy
-    every old[i := 1 to *World] := copy(World[i])  # deep copy
-
-    every r := 2 to *World-1 & c := 2 to *World[r]-1 do
-       World[r,c] := case old[r,c] of {   # apply rules
-        # EMPTY : EMPTY
-          HEAD  : TAIL
-          TAIL  : COND
-          COND  : {
-              i := 0
-              every HEAD = ( old[r-1,c-1 to c+1] | old[r,c-1|c+1] | old[r+1,c-1 to c+1] ) do i +:= 1
-              if i := 1 | 2 then HEAD
-          }
-       }
-end
-#--------------------------------------------------------- 635 wordle-comparison
+#--------------------------------------------------------- 607 wordle-comparison
 procedure main()
    words :=   ["ALLOW","allow","&*^*&","!!!!!","aardvark","aardvark"]
    guesses := ["LOLLY","alloy","^&(&A","!!!__","aardvark","aardvarkian"]
@@ -15745,11 +14336,11 @@ local i, score
       score[i] := 1("yellow", w[find(g[i],w)] := "\b")
    return score
 end
-#---------------------------------------------------- 636 zero-to-the-zero-power
+#---------------------------------------------------- 608 zero-to-the-zero-power
 procedure main()
     write(0^0);
 end
-#------------------------------------------------------------ 637 zig-zag-matrix
+#------------------------------------------------------------ 609 zig-zag-matrix
 procedure main(args)
    n := integer(!args) | 5;
    every !(A := list(n)) := list(n);

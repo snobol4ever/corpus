@@ -1,43 +1,71 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=39 features=53 ubiquitous=5(package write every procedure assign) distinctive=48 core=22 clusters=12 chunks=1 sizes=17
+# shape: entries=67 features=63 ubiquitous=10(package write every return procedure alternation limitation to_by assign gen_with_alternation) distinctive=53 core=26 clusters=27 chunks=1 sizes=41
 entry	part	cluster	shells
-accumulator-factory	chunk:01	feat:coexpr_activate	aug_assign coexpr_activate keyword_ref return while
+accumulator-factory	chunk:01	feat:coexpr_activate	aug_assign coexpr_activate keyword_ref while
 animation-1-three-ticks	chunk:01	family:animation--three-ticks	
 arithmetic-complex	chunk:01	feat:want_rc	want_rc
-arrays-2	core	core	delete element_gen insert to_by
-barnsley-fern-seeded	core	core	alternation case gen_with_alternation global keyword_ref limitation local map repeat return to_by
+arrays-2	chunk:01	feat:delete	delete element_gen insert
+barnsley-fern-seeded	core	core	case global keyword_ref local map repeat
 currency	chunk:01	feat:want_rc	want_rc
 hello-world-graphical	chunk:01	family:hello-world-graphical	
 image-noise-seeded	chunk:01	family:image-noise-seeded	
-queue-definition	core	core	fail pop push put return to_by
+queue-definition	core	core	fail pop push put
 simple-windowed-application	chunk:01	family:simple-windowed-application	
 singly-linked-list-element-definition-1	chunk:01	feat:want_rc	want_rc
 singly-linked-list-element-definition-2	chunk:01	feat:want_rc	want_rc
 singly-linked-list-element-insertion	chunk:01	feat:insert	insert want_rc
-undefined-values	chunk:01	feat:global	alternation gen_with_alternation global keyword_ref local return static
-unix-ls	core	core	alternation element_gen gen_with_alternation sort
-vector	core	core	next return want_rc
-walsh-matrix	core	core	alternation element_gen gen_with_alternation limitation list return static to_by
-web-scraping	core	core	alternation aug_assign find gen_with_alternation keyword_ref map read scan scan_with_tab section stop tab to_by want_rc
+undefined-values	chunk:01	feat:global	global keyword_ref local static
+unix-ls	chunk:01	feat:sort	element_gen sort
+vector	core	core	next want_rc
+walsh-matrix	chunk:01	feat:list	element_gen list static
+web-scraping	core	core	aug_assign find keyword_ref map read scan scan_with_tab section stop tab want_rc
 window-creation	chunk:01	family:window-creation	
-sockets	core	core	alternation aug_assign local return stop to_by want_rc
-topological-sort	core	core	alternation aug_assign case coexpr_activate create delete element_gen every_with_suspend gen_with_alternation insert keyword_ref limitation many member next put record return scan scan_with_tab section set static suspend tab type upto while
-arrays	core	core	aug_assign list want_rc
+sockets	chunk:01	feat:local	aug_assign local stop want_rc
+topological-sort	core	core	aug_assign case coexpr_activate create delete element_gen every_with_suspend insert keyword_ref many member next put record scan scan_with_tab section set static suspend tab type upto while
+arrays	chunk:01	feat:list	aug_assign list want_rc
 arrays-1	chunk:01	feat:keyword_ref	keyword_ref want_rc
-arrays-3	core	core	aug_assign element_gen list want_rc
-circular-primes	core	core	alternation aug_assign fail gen_with_alternation insert limitation member return set static to_by while writes
-deceptive-numbers	core	core	alternation aug_assign every_with_suspend gen_with_alternation limitation return seq suspend to_by writes
-documentation-1	chunk:01	feat:to_by	to_by want_rc
-documentation-2	chunk:01	feat:to_by	to_by want_rc
+arrays-3	chunk:01	feat:list	aug_assign element_gen list want_rc
+circular-primes	core	core	aug_assign fail insert member set static while writes
+deceptive-numbers	core	core	aug_assign every_with_suspend seq suspend writes
+documentation-1	chunk:01	feat:want_rc	want_rc
+documentation-2	chunk:01	feat:want_rc	want_rc
 documentation-3	chunk:01	feat:want_rc	want_rc
-emirp-primes	core	core	alternation aug_assign every_with_suspend gen_with_alternation integer limitation suspend writes
-equal-prime-and-composite-sums	core	core	alternation aug_assign coexpr_activate create every_with_suspend gen_with_alternation global limitation seq static suspend while
-factorial-primes	core	core	alternation aug_assign break gen_with_alternation limitation seq
-fermat-numbers	core	core	alternation aug_assign every_with_suspend gen_with_alternation limitation seq suspend
-pell-numbers	core	core	alternation aug_assign coexpr_activate create every_with_suspend gen_with_alternation global limitation put repeat suspend swap to_by while writes
-repunit-primes	core	core	alternation aug_assign break every_with_suspend gen_with_alternation limitation return suspend to_by writes
-ultra-useful-primes	core	core	alternation aug_assign break gen_with_alternation limitation seq
-wagstaff-primes	chunk:01	feat:return	alternation aug_assign gen_with_alternation limitation return
-walk-a-directory-recursively	core	core	alternation aug_assign case coexpr_activate element_gen gen_with_alternation global integer keyword_ref limitation local put read return scan scan_with_tab stop tab to_by want_rc while
-average-loop-length	core	core	aug_assign limitation local repl return scan to_by while
+emirp-primes	chunk:01	feat:integer	aug_assign every_with_suspend integer suspend writes
+equal-prime-and-composite-sums	core	core	aug_assign coexpr_activate create every_with_suspend global seq static suspend while
+factorial-primes	chunk:01	feat:seq	aug_assign break seq
+fermat-numbers	chunk:01	feat:seq	aug_assign every_with_suspend seq suspend
+pell-numbers	core	core	aug_assign coexpr_activate create every_with_suspend global put repeat suspend swap while writes
+repunit-primes	chunk:01	feat:break	aug_assign break every_with_suspend suspend writes
+ultra-useful-primes	chunk:01	feat:seq	aug_assign break seq
+wagstaff-primes	chunk:01	feat:aug_assign	aug_assign
+walk-a-directory-recursively	core	core	aug_assign case coexpr_activate element_gen global integer keyword_ref local put read scan scan_with_tab stop tab want_rc while
+average-loop-length	core	core	aug_assign local repl scan while
+add-a-variable-to-a-class-instance-at-runtime	chunk:01	feat:put	element_gen put
+ascending-primes	core	core	every_with_suspend get integer put suspend while writes
+calculating-the-value-of-e	chunk:01	feat:repeat	aug_assign break keyword_ref local repeat
+deepcopy-2	chunk:01	feat:create	create put record set table want_rc
+descending-primes	chunk:01	feat:sort	element_gen every_with_suspend put sort suspend writes
+dijkstras-algorithm	core	core	aug_assign break delete element_gen global insert keyword_ref move put read record repeat scan scan_with_tab set stop tab table trim until upto want_rc while writes
+find-uri-in-text	core	core	any aug_assign bal break coexpr_activate every_with_suspend keyword_ref local many repeat scan scan_with_tab section static suspend tab upto while
+forest-fire	core	core	case element_gen global keyword_ref list stop table want_rc
+general-fizzbuzz	core	core	aug_assign element_gen get integer sort table want_rc while
+history-variables	core	core	element_gen every_with_suspend get put set suspend while writes
+holidays-related-to-easter	chunk:01	feat:record	aug_assign element_gen record static table while
+json-1	chunk:01	family:json	
+largest-number-divisible-by-its-digits	core	core	aug_assign element_gen every_with_suspend fail suspend while
+map-range-1	chunk:01	feat:fail	fail record
+matrix-exponentiation-operator	chunk:01	feat:fail	element_gen fail integer want_rc writes
+maze-generation	core	core	aug_assign case coexpr_activate element_gen integer keyword_ref list next record scan static stop swap until want_rc
+md5-implementation	core	core	aug_assign break case element_gen image integer local move put scan section static swap while
+nth-root	core	core	type want_rc while
+pathological-floating-point-problems	chunk:01	feat:integer	element_gen integer local put
+perfect-shuffle	chunk:01	feat:section	aug_assign break coexpr_activate create element_gen put section while
+polymorphic-copy	core	core	case element_gen image insert local match record set table type
+rosetta-code-find-unimplemented-tasks	core	core	break element_gen every_with_suspend find image keyword_ref reads scan scan_with_tab set sort stop suspend tab upto want_rc while
+rosetta-code-rank-languages-by-popularity	core	core	aug_assign break coexpr_activate create element_gen find keyword_ref reads scan scan_with_tab seq sort stop tab table upto while
+synchronous-concurrency	chunk:01	feat:until	aug_assign coexpr_activate element_gen until while
+take-notes-on-the-command-line	chunk:01	feat:create	create element_gen keyword_ref stop want_rc writes
+tokenize-a-string-2	chunk:01	feat:writes	element_gen writes
+topological-sort-extracted-top-item	core	core	aug_assign delete element_gen every_with_suspend fail insert keyword_ref many member put record scan scan_with_tab set static suspend tab table trim until upto while
+wireworld	core	core	aug_assign break case element_gen global list stop table want_rc

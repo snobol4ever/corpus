@@ -14,7 +14,6 @@ abc-problem	same-code
 abc-words	same-code
 accumulator-factory	same-code
 ackermann-function	same-code
-add-a-variable-to-a-class-instance-at-runtime	same-code
 additive-primes	same-code
 align-columns	same-code
 almost-prime-1	same-code
@@ -43,7 +42,6 @@ arithmetic-geometric-mean	same-code
 array-concatenation	same-code
 array-length	unchanged
 arrays	unchanged
-ascending-primes	unchanged
 assertions-1	unchanged
 assertions-2	same-code
 associative-array-creation	same-code
@@ -89,7 +87,6 @@ csv-to-html-translation-2	unchanged
 cusip	same-code
 caesar-cipher-1	same-code
 caesar-cipher-2	unchanged
-calculating-the-value-of-e	same-code
 calendar	same-code
 calendar---for-real-programmers-1	unchanged
 calendar---for-real-programmers-2	unchanged
@@ -174,10 +171,8 @@ day-of-the-week-2	same-code
 deal-cards-for-freecell	same-code
 decision-tables	same-code
 deepcopy-1	same-code
-deepcopy-2	same-code
 delete-a-file	unchanged
 department-numbers	same-code
-descending-primes	unchanged
 detect-division-by-zero	same-code
 determine-if-a-string-is-collapsible	same-code
 determine-if-a-string-is-numeric	unchanged
@@ -185,7 +180,6 @@ determine-if-a-string-is-squeezable	same-code
 determine-if-only-one-instance-is-running	same-code
 digital-root	same-code
 digital-root-multiplicative-digital-root	same-code
-dijkstras-algorithm	same-code
 dinesmans-multiple-dwelling-problem	same-code
 disarium-numbers	same-code
 discordian-date	same-code
@@ -238,7 +232,6 @@ file-input-output	same-code
 file-modification-time	unchanged
 file-size	unchanged
 filter	same-code
-find-uri-in-text	unchanged
 find-common-directory-path	same-code
 find-first-and-last-set-bit-of-a-long-integer	same-code
 find-limit-of-recursion	same-code
@@ -266,7 +259,6 @@ flow-control-structures-4	unchanged
 flow-control-structures-5	unchanged
 floyd-warshall-algorithm	same-code
 floyds-triangle	same-code
-forest-fire	unchanged
 fork	same-code
 formatted-numeric-output	same-code
 forward-difference	same-code
@@ -279,7 +271,6 @@ function-definition	same-code
 gui-maximum-window-dimensions	same-code
 galton-box-animation	same-code
 gapful-numbers	same-code
-general-fizzbuzz	unchanged
 generate-lower-case-ascii-alphabet-1	unchanged
 generate-lower-case-ascii-alphabet-2	same-code
 generator-exponential-1	same-code
@@ -317,11 +308,9 @@ hello-world-newline-omission	same-code
 hello-world-standard-error	same-code
 hello-world-text	same-code
 higher-order-functions	same-code
-history-variables	same-code
 hofstadter-conway-$10-000-sequence	same-code
 hofstadter-figure-figure-sequences	same-code
 hofstadter-q-sequence	same-code
-holidays-related-to-easter	unchanged
 honeycombs	same-code
 horizontal-sundial-calculations	same-code
 horners-rule-for-polynomial-evaluation	same-code
@@ -344,7 +333,6 @@ inverted-index-1	same-code
 inverted-index-2	same-code
 inverted-syntax	same-code
 isqrt-integer-square-root-of-x	same-code
-json-1	unchanged
 json-2	unchanged
 jensens-device-1	same-code
 jensens-device-2	unchanged
@@ -368,7 +356,6 @@ knuth-shuffle-2	same-code
 knuths-algorithm-s	unchanged
 langtons-ant	same-code
 largest-int-from-concatenated-ints	unchanged
-largest-number-divisible-by-its-digits	unchanged
 largest-proper-divisor-of-n	same-code
 last-friday-of-each-month	unchanged
 last-letter-first-letter	same-code
@@ -425,18 +412,14 @@ ludic-numbers	same-code
 luhn-test-of-credit-card-numbers	same-code
 lychrel-numbers	unchanged
 md5	same-code
-md5-implementation	unchanged
 mad-libs	same-code
 man-or-boy-test-1	same-code
 man-or-boy-test-2	same-code
 mandelbrot-set	same-code
-map-range-1	unchanged
 map-range-2	same-code
-matrix-exponentiation-operator	unchanged
 matrix-multiplication-1	same-code
 matrix-multiplication-2	same-code
 matrix-transposition	same-code
-maze-generation	unchanged
 maze-solving-1	same-code
 maze-solving-2	same-code
 maze-solving-3	unchanged
@@ -472,7 +455,6 @@ non-decimal-radices-input	same-code
 non-decimal-radices-output	same-code
 nth-1	same-code
 nth-2	unchanged
-nth-root	unchanged
 null-object	same-code
 number-names-1	same-code
 number-names-2	same-code
@@ -505,11 +487,9 @@ parsing-rpn-to-infix-conversion	same-code
 parsing-shunting-yard-algorithm	same-code
 partial-function-application	same-code
 pascals-triangle	same-code
-pathological-floating-point-problems	same-code
 percentage-difference-between-images	same-code
 percolation-mean-run-density	same-code
 perfect-numbers	same-code
-perfect-shuffle	unchanged
 permutations	same-code
 permutations-by-swapping	same-code
 pernicious-numbers	same-code
@@ -520,7 +500,6 @@ pinstripe-display	same-code
 playing-cards	same-code
 plot-coordinate-pairs	differs-code
 pollards-rho-algorithm	same-code
-polymorphic-copy	same-code
 power-set-1	same-code
 power-set-2	same-code
 power-set-3	same-code
@@ -571,8 +550,6 @@ roman-numerals-encode-2	same-code
 roots-of-a-function	same-code
 roots-of-a-quadratic-function	same-code
 roots-of-unity	same-code
-rosetta-code-find-unimplemented-tasks	unchanged
-rosetta-code-rank-languages-by-popularity	same-code
 rot-13	same-code
 run-length-encoding	same-code
 s-expressions	same-code
@@ -679,9 +656,7 @@ sum-of-squares	same-code
 summarize-and-say-sequence-1	same-code
 summarize-and-say-sequence-2	same-code
 symmetric-difference	same-code
-synchronous-concurrency	same-code
 system-time	same-code
-take-notes-on-the-command-line	same-code
 tau-function	same-code
 tau-number	same-code
 temperature-conversion	same-code
@@ -700,11 +675,9 @@ tic-tac-toe	same-code
 time-a-function-1	same-code
 time-a-function-2	unchanged
 tokenize-a-string-1	same-code
-tokenize-a-string-2	unchanged
 tokenize-a-string-with-escaping	same-code
 top-rank-per-group	same-code
 topological-sort	same-code
-topological-sort-extracted-top-item	unchanged
 towers-of-hanoi	same-code
 trabb-pardo-knuth-algorithm	same-code
 tree-from-nesting-levels	same-code
@@ -740,7 +713,6 @@ walk-a-directory-non-recursively	same-code
 window-creation	same-code
 window-creation-x11	same-code
 window-management	same-code
-wireworld	unchanged
 word-frequency	same-code
 word-wrap	same-code
 wordle-comparison	unchanged

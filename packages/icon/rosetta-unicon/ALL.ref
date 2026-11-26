@@ -161,3 +161,270 @@ File walk-a-directory-recursively.icn; Line 44 # "getdirs": inconsistent redecla
 18   5.0061   1.0000 400.610%
 19   5.1511   1.0000 415.113%
 20   5.2945   1.0000 429.452%
+#------------------------------ 40 add-a-variable-to-a-class-instance-at-runtime
+c1:
+foo_1 := foo()
+   foo_1.a := 1
+   foo_1.b := 2
+new c1:
+R_tempconstructor_1 := tempconstructor()
+   R_tempconstructor_1.__s := R_tempconstructor_1
+   R_tempconstructor_1.__m := R_foo__methods_1 := foo__methods()
+   R_tempconstructor_1.a := 1
+   R_tempconstructor_1.b := 2
+   R_tempconstructor_1.c := 8
+   R_tempconstructor_1.d := 9
+newest c1:
+R_tempconstructor_1 := tempconstructor()
+   R_tempconstructor_1.__s := R_tempconstructor_1
+   R_tempconstructor_1.__m := R_foo__methods_1 := foo__methods()
+   R_tempconstructor_1.a := 1
+   R_tempconstructor_1.b := 2
+   R_tempconstructor_1.c := 8
+   R_tempconstructor_1.d := 9
+   R_tempconstructor_1.e := 7
+#----------------------------------------------------------- 41 ascending-primes
+ 2 3 5 7 13 17 19 23 29 37 47 59 67 79 89 127 137 139 149 157 167 179 239 257 269 347 349 359 367 379 389 457 467 479 569 1237 1249 1259 1279 1289 1367 1459 1489 1567 1579 1789 2347 2357 2389 2459 2467 2579 2689 2789 3457 3467 3469 4567 4679 4789 5689 12347 12379 12457 12479 12569 12589 12689 13457 13469 13567 13679 13789 15679 23459 23567 23689 23789 25679 34589 34679 123457 123479 124567 124679 125789 134789 145679 234589 235679 235789 245789 345679 345689 1234789 1235789 1245689 1456789 12356789 23456789
+#------------------------------------------------- 42 calculating-the-value-of-e
+computed e 2.718281828459046
+keyword &e 2.718281828459045
+#----------------------------------------------------------------- 43 deepcopy-2
+
+Run-time error 106
+File deepcopy-2.icn; Line 8
+procedure or integer expected
+offending value: &null
+Traceback:
+   main()
+   &null((variable = list_1 = [9,8,7,...,set_1(1),table_1(2),Class1_1])) from line 8 in deepcopy-2.icn
+#---------------------------------------------------------- 44 descending-primes
+ 2 3 5 7 31 41 43 53 61 71 73 83 97 421 431 521 541 631 641 643 653 743 751 761 821 853 863 941 953 971 983 5431 6421 6521 7321 7541 7621 7643 8431 8521 8543 8641 8731 8741 8753 8761 9421 9431 9521 9631 9643 9721 9743 9851 9871 75431 76421 76541 76543 86531 87421 87541 87631 87641 87643 94321 96431 97651 98321 98543 98621 98641 98731 764321 865321 876431 975421 986543 987541 987631 8764321 8765321 9754321 9875321 97654321 98764321 98765431
+#-------------------------------------------------------- 45 dijkstras-algorithm
+Enter edges as 'n1,n2,weight' (blank line terminates)
+
+Run-time error 103
+File dijkstras-algorithm.icn; Line 22
+string expected
+offending value: &null
+Traceback:
+   main(list_1 = [])
+   getGraph() from line 2 in dijkstras-algorithm.icn
+   {&null ? ..} from line 22 in dijkstras-algorithm.icn
+#----------------------------------------------------------- 46 find-uri-in-text
+stop:
+http://en.wikipedia.org/wiki/Erich_K
+http://mediawiki.org/).
+http://mediawiki.org/)
+http://mediawiki.org/
+parser:
+http://en.wikipedia.org/wiki/-)
+http://en.wikipedia.org/wiki/-
+ftp://domain.name/path(balanced_brackets)/foo.html
+ftp://domain.name/path(balanced_brackets)/ending.in.dot.
+ftp://domain.name/path(balanced_brackets)/ending.in.dot
+ftp://domain.name/path(unbalanced_brackets/ending.in.dot.
+ftp://domain.name/path(unbalanced_brackets/ending.in.dot
+ftp://domain.name/path/embedded?punct/uation.
+ftp://domain.name/path/embedded?punct/uation
+ftp://domain.name/dangling_close_paren)
+ftp://domain.name/dangling_close_paren
+here:
+foo://domain.hld/))))
+foo://domain.hld/
+#---------------------------------------------------------------- 47 forest-fire
+Unable to open Window
+#----------------------------------------------------------- 48 general-fizzbuzz
+
+Run-time error 101
+File general-fizzbuzz.icn; Line 10
+integer expected or out of range
+offending value: &null
+Traceback:
+   main(list_1 = [])
+   {1 to &null by 1} from line 10 in general-fizzbuzz.icn
+#---------------------------------------------------------- 49 history-variables
+x current value is: 7
+Number of saved values is: 3
+3 most recent x values from newest to oldest:  7 hat cat
+x value was: 7
+x value was: hat
+x value was: cat
+Number of saved values is now: 0
+#------------------------------------------------- 50 holidays-related-to-easter
+Christian holidays, related to Easter, for each centennial from 400 to 2100 CE:
+400 Easter: Sun 2 Apr Ascension: Thu 11 May Pentecost: Sun 21 May Trinity: Sun 28 May Corpus: Thu 1 Jun 
+500 Easter: Sun 4 Apr Ascension: Thu 13 May Pentecost: Sun 23 May Trinity: Sun 30 May Corpus: Thu 3 Jun 
+600 Easter: Sun 13 Apr Ascension: Thu 22 May Pentecost: Sun 1 Jun Trinity: Sun 8 Jun Corpus: Thu 12 Jun 
+700 Easter: Sun 15 Apr Ascension: Thu 24 May Pentecost: Sun 3 Jun Trinity: Sun 10 Jun Corpus: Thu 14 Jun 
+800 Easter: Sun 23 Apr Ascension: Thu 1 Jun Pentecost: Sun 11 Jun Trinity: Sun 18 Jun Corpus: Thu 22 Jun 
+900 Easter: Sun 28 Mar Ascension: Thu 6 May Pentecost: Sun 16 May Trinity: Sun 23 May Corpus: Thu 27 May 
+1000 Easter: Sun 30 Mar Ascension: Thu 8 May Pentecost: Sun 18 May Trinity: Sun 25 May Corpus: Thu 29 May 
+1100 Easter: Sun 8 Apr Ascension: Thu 17 May Pentecost: Sun 27 May Trinity: Sun 3 Jun Corpus: Thu 7 Jun 
+1200 Easter: Sun 9 Apr Ascension: Thu 18 May Pentecost: Sun 28 May Trinity: Sun 4 Jun Corpus: Thu 8 Jun 
+1300 Easter: Sun 18 Apr Ascension: Thu 27 May Pentecost: Sun 6 Jun Trinity: Sun 13 Jun Corpus: Thu 17 Jun 
+1400 Easter: Sun 20 Apr Ascension: Thu 29 May Pentecost: Sun 8 Jun Trinity: Sun 15 Jun Corpus: Thu 19 Jun 
+1500 Easter: Sun 1 Apr Ascension: Thu 10 May Pentecost: Sun 20 May Trinity: Sun 27 May Corpus: Thu 31 May 
+1600 Easter: Sun 2 Apr Ascension: Thu 11 May Pentecost: Sun 21 May Trinity: Sun 28 May Corpus: Thu 1 Jun 
+1700 Easter: Sun 11 Apr Ascension: Thu 20 May Pentecost: Sun 30 May Trinity: Sun 6 Jun Corpus: Thu 10 Jun 
+1800 Easter: Sun 13 Apr Ascension: Thu 22 May Pentecost: Sun 1 Jun Trinity: Sun 8 Jun Corpus: Thu 12 Jun 
+1900 Easter: Sun 15 Apr Ascension: Thu 24 May Pentecost: Sun 3 Jun Trinity: Sun 10 Jun Corpus: Thu 14 Jun 
+2000 Easter: Sun 23 Apr Ascension: Thu 1 Jun Pentecost: Sun 11 Jun Trinity: Sun 18 Jun Corpus: Thu 22 Jun 
+2100 Easter: Sun 28 Mar Ascension: Thu 6 May Pentecost: Sun 16 May Trinity: Sun 23 May Corpus: Thu 27 May 
+
+Christian holidays, related to Easter, for years from 2010 to 2020 CE:
+2010 Easter: Sun 4 Apr Ascension: Thu 13 May Pentecost: Sun 23 May Trinity: Sun 30 May Corpus: Thu 3 Jun 
+2011 Easter: Sun 24 Apr Ascension: Thu 2 Jun Pentecost: Sun 12 Jun Trinity: Sun 19 Jun Corpus: Thu 23 Jun 
+2012 Easter: Sun 8 Apr Ascension: Thu 17 May Pentecost: Sun 27 May Trinity: Sun 3 Jun Corpus: Thu 7 Jun 
+2013 Easter: Sun 31 Mar Ascension: Thu 9 May Pentecost: Sun 19 May Trinity: Sun 26 May Corpus: Thu 30 May 
+2014 Easter: Sun 20 Apr Ascension: Thu 29 May Pentecost: Sun 8 Jun Trinity: Sun 15 Jun Corpus: Thu 19 Jun 
+2015 Easter: Sun 5 Apr Ascension: Thu 14 May Pentecost: Sun 24 May Trinity: Sun 31 May Corpus: Thu 4 Jun 
+2016 Easter: Sun 27 Mar Ascension: Thu 5 May Pentecost: Sun 15 May Trinity: Sun 22 May Corpus: Thu 26 May 
+2017 Easter: Sun 16 Apr Ascension: Thu 25 May Pentecost: Sun 4 Jun Trinity: Sun 11 Jun Corpus: Thu 15 Jun 
+2018 Easter: Sun 1 Apr Ascension: Thu 10 May Pentecost: Sun 20 May Trinity: Sun 27 May Corpus: Thu 31 May 
+2019 Easter: Sun 21 Apr Ascension: Thu 30 May Pentecost: Sun 9 Jun Trinity: Sun 16 Jun Corpus: Thu 20 Jun 
+2020 Easter: Sun 12 Apr Ascension: Thu 21 May Pentecost: Sun 31 May Trinity: Sun 7 Jun Corpus: Thu 11 Jun 
+#--------------------------------------------------------------------- 51 json-1
+null
+&null
+#------------------------------------- 52 largest-number-divisible-by-its-digits
+9867312
+#---------------------------------------------------------------- 53 map-range-1
+Value 0 in [0, 10] maps to -1.0 in [-1, 0]
+Value 1 in [0, 10] maps to -0.9 in [-1, 0]
+Value 2 in [0, 10] maps to -0.8 in [-1, 0]
+Value 3 in [0, 10] maps to -0.7 in [-1, 0]
+Value 4 in [0, 10] maps to -0.6 in [-1, 0]
+Value 5 in [0, 10] maps to -0.5 in [-1, 0]
+Value 6 in [0, 10] maps to -0.4 in [-1, 0]
+Value 7 in [0, 10] maps to -0.3 in [-1, 0]
+Value 8 in [0, 10] maps to -0.2 in [-1, 0]
+Value 9 in [0, 10] maps to -0.09999999999999998 in [-1, 0]
+Value 10 in [0, 10] maps to 0.0 in [-1, 0]
+#--------------------------------------------- 54 matrix-exponentiation-operator
+M^0:
+
+Run-time error 102
+File matrix-exponentiation-operator.icn; Line 7
+numeric expected
+offending value: Matrix_1
+Traceback:
+   main()
+   {Matrix_1 ^ 0} from line 7 in matrix-exponentiation-operator.icn
+#------------------------------------------------------------ 55 maze-generation
+
+Run-time error 121
+File maze-generation.icn; Line 79
+function not supported
+Traceback:
+   main(list_1 = [])
+   DisplayMaze(list_2 = [list_3(16),list_4(16),list_5(16),...,list_12(16),list_13(16),list_14(16)]) from line 6 in maze-generation.icn
+   Fg("black") from line 79 in maze-generation.icn
+#--------------------------------------------------------- 56 md5-implementation
+Message(length=43) = "The quick brown fox jumps over the lazy dog"
+Digest = 9E107D9D372BB6826BD81D3542A419D6 matches reference hash
+
+Message(length=44) = "The quick brown fox jumps over the lazy dog."
+Digest = E4D909C290D0FB1CA068FFADDF22CBD0 matches reference hash
+
+Message(length=0) = ""
+Digest = D41D8CD98F00B204E9800998ECF8427E matches reference hash
+
+Message(length=1) = "a"
+Digest = CC175B9C0F1B6A831C399E269772661 matches reference hash
+
+Message(length=3) = "abc"
+Digest = 900150983CD24FB0D6963F7D28E17F72 matches reference hash
+
+Message(length=14) = "message digest"
+Digest = F96B697D7CB7938D525A2F31AAF161D0 matches reference hash
+
+Message(length=26) = "abcdefghijklmnopqrstuvwxyz"
+Digest = C3FCD3D76192E4007DFB496CCA67E13B matches reference hash
+
+Message(length=62) = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
+Digest = D174AB98D277D9F5A5611C2C9F419D9F matches reference hash
+
+Message(length=80) = "12345678901234567890123456789012345678901234567890123456789012345678901234567890"
+Digest = 57EDF4A22BE3C955AC49DA2E2107B67A matches reference hash
+#------------------------------------------------------------------- 57 nth-root
+3-th root of 125 = 5.0
+3-th root of 27 = 3.0
+10-th root of 1024 = 2.0
+4-th root of 39.0625 = 2.5
+
+Run-time error 204
+File nth-root.icn; Line 18
+real overflow, underflow, or division by zero
+Traceback:
+   main()
+   showroot(3.402584077894253e+38,10) from line 6 in nth-root.icn
+   root(3.402584077894253e+38,10,1e-14) from line 10 in nth-root.icn
+   {3.402584077894253e+37 ^ 10} from line 18 in nth-root.icn
+#--------------------------------------- 58 pathological-floating-point-problems
+Sequence convergence
+
+100 digits of intermediate precision
+i:   3  18.5000000000000000
+i:   4   9.3783783783783792
+i:   5   7.8011527377521616
+i:   6   7.1544144809752488
+i:   7   6.8067847369236328
+i:   8   6.5926327687044376
+i:  20   6.0435521101892688
+i:  30   6.0067860930312056
+i:  50   6.0001758466271864
+i: 100  99.9999999999998464
+i: 200 100.0000000000000000
+
+300 digits of intermediate precision
+i:   3  18.5000000000000000
+i:   4   9.3783783783783792
+i:   5   7.8011527377521600
+i:   6   7.1544144809752488
+i:   7   6.8067847369236320
+i:   8   6.5926327687044376
+i:  20   6.0435521101892688
+i:  30   6.0067860930312056
+i:  50   6.0001758466271864
+i: 100   6.0000000193194776
+i: 200   6.0000000000000000
+
+Chaotic Banking Society of Euler
+Starting balance:       $1.718281828459045...
+Balance after 25 years: $0.0399
+#------------------------------------------------------------ 59 perfect-shuffle
+For deck of size 8 it takes 3 perfect shuffles.
+For deck of size 24 it takes 11 perfect shuffles.
+For deck of size 52 it takes 8 perfect shuffles.
+For deck of size 100 it takes 30 perfect shuffles.
+For deck of size 1020 it takes 1018 perfect shuffles.
+For deck of size 1024 it takes 10 perfect shuffles.
+For deck of size 10000 it takes 300 perfect shuffles.
+#----------------------------------------------------------- 60 polymorphic-copy
+This is S's a
+#-------------------------------------- 61 rosetta-code-find-unimplemented-tasks
+Unimplemented tasks for Unicon as of 2026/11/26
+"https://rosettacode.org/w/api.php?action=query&list=categorymembers&format=xml&cmlimit=5000&cmtitle=Category:Programming%20Tasks": 400 Bad Request
+"https://rosettacode.org/w/api.php?action=query&list=categorymembers&format=xml&cmlimit=5000&cmtitle=Category:Unicon": 400 Bad Request
+
+Run-time error 120
+File rosetta-code-find-unimplemented-tasks.icn; Line 9
+two csets, two sets, or two tables expected
+offending value: &null
+Traceback:
+   main(list_1 = [])
+   {&null -- &null} from line 9 in rosetta-code-find-unimplemented-tasks.icn
+#---------------------------------- 62 rosetta-code-rank-languages-by-popularity
+ERROR: 
+ -> 
+0 languages
+#---------------------------------------------------- 63 synchronous-concurrency
+count is 0
+#--------------------------------------------- 64 take-notes-on-the-command-line
+no notes file yet
+#-------------------------------------------------------- 65 tokenize-a-string-2
+Hello.How.Are.You.Today.
+#---------------------------------------- 66 topological-sort-extracted-top-item
+the inverse topological ordering is:
+#------------------------------------------------------------------ 67 wireworld
+Unable to open Window
