@@ -24,8 +24,7 @@ them consistently.
 | `Snocone.sublime-build`           | Build / run command for Snocone (`scrip --run`, output in the build panel) |
 | `SNOBOL4-scrip.sublime-build`     | Build / run command for SNOBOL4 by scrip, beside Lon's SPITBOL build |
 | `Rebus`, `Icon`, `Prolog`, `Pascal`, `Raku` `.sublime-build` | Build / run command of each language (`scrip --run`, output in the build panel) |
-| `SCRIPtix.sublime-build`          | Build / run command for a SCRIPtix document; runs its fenced programs through `scriptix_run.py` |
-| `scriptix_run.py`                 | The helper of `SCRIPtix.sublime-build`: runs each fence by scrip, in Packages/User |
+| `SCRIPtix.sublime-build`          | Build / run command for a SCRIPtix document: `scrip --run` on the whole `.md`, one program, as VS Code runs it |
 | `Preferences.sublime-settings`    | Global editor preferences (font size, trim trailing ws)  |
 | `DEFINE.sublime-snippet`          | `DEFINE` ↹  expansion for SNOBOL4 prototype-string form  |
 | `START.sublime-snippet`           | `START` ↹  expansion for SNOBOL4 program skeleton        |
@@ -172,12 +171,10 @@ the configured build.
   `.sublime-build` run the active file by `scrip --run`, output in the
   build panel.
 
-* **SCRIPtix** — `SCRIPtix.sublime-build` runs a `.md` document's
-  fenced programs in order.  scrip does not run a markdown file itself,
-  so the build calls `scriptix_run.py`, which must sit in `Packages/User/`
-  beside the builds (it is copied there with them); it writes each fence
-  whose label names a language scrip runs to a scratch file and runs
-  `scrip --run` on it.
+* **SCRIPtix** — `SCRIPtix.sublime-build` runs the whole `.md` document as
+  one program by `scrip --run`, as VS Code's run does: each fence whose label
+  names a language scrip runs is one part of it, in order, and the answers of
+  the whole document show in the build panel.
 
 scrip must be on PATH for every build (or set the build's `path`
 setting).  The builds send nothing to a file: a refusal's
