@@ -22848,12 +22848,12 @@ dump of keyword values
 ## t_gimpel__gimpel_decomb_combinatorial_number
 
 ```SNOBOL4
--FILE-ENTER "DECOMB.INC"
+*-FILE-ENTER "DECOMB.INC"
 * DECOMP.inc - DECOMP(S) returns the decimal number equivalent
 *	       of the argument S regarded as a representation
 *	       in the combinatorial number system.
 *
--FILE-ENTER "comb.inc"
+*-FILE-ENTER "comb.inc"
 * COMB.inc - COMB(N,M) returns the number of combinations
 *	     of N things, taken M at a time.
 *
@@ -22861,7 +22861,7 @@ dump of keyword values
 COMB	COMB  =  EQ(M,0)  1			:S(RETURN)
 	COMB  =  COMB(N - 1,M - 1) * N / M	:(RETURN)
 COMB_END
--FILE-LEAVE
+*-FILE-LEAVE
 	DEFINE('DECOMB(S)T')
 	COMB_ALPHA  =  '0123456789ABCDEFGHIJKLMNOP'
 						:(DECOMB_END)
@@ -22869,11 +22869,11 @@ DECOMB	S  LEN(1) . T  =			:F(RETURN)
 	COMB_ALPHA  @K  T			:F(FRETURN)
 	DECOMB = DECOMB + COMB(K,SIZE(S) + 1)	:(DECOMB)
 DECOMB_END
--FILE-LEAVE
+*-FILE-LEAVE
         D0 = DECOMB('0')
         D1 = DECOMB('1')
         DA = DECOMB('A')
-     END
+END
 ```
 
 ```file comb.inc
@@ -22890,92 +22890,48 @@ COMB_END
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:28 2026
+dump of natural variables
+
+COMB_ALPHA = '0123456789ABCDEFGHIJKLMNOP'
+D0 = 0
+D1 = 1
+DA = 10
+K = 10
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "DECOMB.INC"
-         !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-        -FILE-ENTER "comb.inc"
-         !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(6,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('COMB(N,M)')			:(COMB_END)
-        	                   			          !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(10,34) : ERROR 221 -- syntax error: missing operand
-
-2       COMB	COMB  =  EQ(M,0)  1			:S(RETURN)
-
-t_gimpel__gimpel_decomb_combinatorial_number.sno(11) : ERROR 214 -- bad label or misplaced continuation line
-
-3       	COMB  =  COMB(N - 1,M - 1) * N / M	:(RETURN)
-        	      !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(12,8) : ERROR 221 -- syntax error: missing operand
-
-4       COMB_END
-
-t_gimpel__gimpel_decomb_combinatorial_number.sno(13) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(14,2) : ERROR 233 -- syntax error: invalid use of operator
-
-6       	COMB_ALPHA  =  '0123456789ABCDEFGHIJKLMNOP'
-        	            !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(16,14) : ERROR 221 -- syntax error: missing operand
-
-7       						:(DECOMB_END)
-        						            !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(17,19) : ERROR 221 -- syntax error: missing operand
-
-8       DECOMB	S  LEN(1) . T  =			:F(RETURN)
-
-t_gimpel__gimpel_decomb_combinatorial_number.sno(18) : ERROR 214 -- bad label or misplaced continuation line
-
-9       	COMB_ALPHA  @K  T			:F(FRETURN)
-        	                 			!
-t_gimpel__gimpel_decomb_combinatorial_number.sno(19,22) : ERROR 221 -- syntax error: missing operand
-
-10      	DECOMB = DECOMB + COMB(K,SIZE(S) + 1)	:(DECOMB)
-        	       !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(20,9) : ERROR 221 -- syntax error: missing operand
-
-11      DECOMB_END
-
-t_gimpel__gimpel_decomb_combinatorial_number.sno(21) : ERROR 214 -- bad label or misplaced continuation line
-
-
-
-
-                                                                                                                page 2
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(22,2) : ERROR 233 -- syntax error: invalid use of operator
-
-12              D0 = DECOMB('0')
-                   !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(23,12) : ERROR 221 -- syntax error: missing operand
-
-13              D1 = DECOMB('1')
-                   !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(24,12) : ERROR 221 -- syntax error: missing operand
-
-14              DA = DECOMB('A')
-                   !
-t_gimpel__gimpel_decomb_combinatorial_number.sno(25,12) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_decomb_combinatorial_number.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_decomb_combinatorial_number.sno'
+&LASTLINE = 25
+&LASTNO = 14
+&LINE = 26
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 31
+&STLIMIT = 2147483647
+&STNO = 15
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_base10_from_binary
 
 ```SNOBOL4
--FILE-ENTER "BASE10.INC"
+*-FILE-ENTER "BASE10.INC"
 * BASE10 - BASE10(N,B) will convert the string N assumed
 *	   to be a numeral expressed in base B arithmetic
 *	   to decimal (base 10).
@@ -22989,69 +22945,56 @@ BASE10	N   LEN(1) . T  =			:F(RETURN)
 	BASEB_ALPHA    BREAK(*T)  @T		:F(ERROR)
 	BASE10  =  (BASE10 * B) + T		:(BASE10)
 BASE10_END
--FILE-LEAVE
+*-FILE-LEAVE
         D1 = BASE10('1010',2)
         D2 = BASE10('FF',16)
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:28 2026
+dump of natural variables
+
+BASEB_ALPHA = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+D1 = 10
+D2 = 255
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "BASE10.INC"
-         !
-t_gimpel__gimpel_base10_from_binary.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-2       	BASEB_ALPHA  =  '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        	             !
-t_gimpel__gimpel_base10_from_binary.sno(9,15) : ERROR 221 -- syntax error: missing operand
-
-3       						:(BASE10_END)
-        						            !
-t_gimpel__gimpel_base10_from_binary.sno(10,19) : ERROR 221 -- syntax error: missing operand
-
-4       BASE10	N   LEN(1) . T  =			:F(RETURN)
-
-t_gimpel__gimpel_base10_from_binary.sno(11) : ERROR 214 -- bad label or misplaced continuation line
-
-5       	BASEB_ALPHA    BREAK(*T)  @T		:F(ERROR)
-        	                       !
-t_gimpel__gimpel_base10_from_binary.sno(12,25) : ERROR 221 -- syntax error: missing operand
-
-6       	BASE10  =  (BASE10 * B) + T		:(BASE10)
-        	        !
-t_gimpel__gimpel_base10_from_binary.sno(13,10) : ERROR 221 -- syntax error: missing operand
-
-7       BASE10_END
-
-t_gimpel__gimpel_base10_from_binary.sno(14) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_base10_from_binary.sno(15,2) : ERROR 233 -- syntax error: invalid use of operator
-
-8               D1 = BASE10('1010',2)
-                   !
-t_gimpel__gimpel_base10_from_binary.sno(16,12) : ERROR 221 -- syntax error: missing operand
-
-9               D2 = BASE10('FF',16)
-                   !
-t_gimpel__gimpel_base10_from_binary.sno(17,12) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_base10_from_binary.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_base10_from_binary.sno'
+&LASTLINE = 17
+&LASTNO = 9
+&LINE = 18
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 27
+&STLIMIT = 2147483647
+&STNO = 10
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_baseb_base2
 
 ```SNOBOL4
--FILE-ENTER "BASEB.INC"
+*-FILE-ENTER "BASEB.INC"
 *  BASEB(N,B) will convert the integer N to its base B representation.
 *
 *  B may be any positive integer <=36.
@@ -23065,71 +23008,50 @@ BASEB	EQ(N,0)					:S(RETURN)
 	BASEB  =  C BASEB
 	N  =  N / B				:(BASEB)
 BASEB_END
--FILE-LEAVE
+*-FILE-LEAVE
         B2  = BASEB(10,2)
         B16 = BASEB(255,16)
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:28 2026
+dump of natural variables
+
+B16 = 'FF'
+B2 = '1010'
+BASEB_ALPHA = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "BASEB.INC"
-         !
-t_gimpel__gimpel_baseb_base2.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-2       	BASEB_ALPHA  =  '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        	             !
-t_gimpel__gimpel_baseb_base2.sno(7,15) : ERROR 221 -- syntax error: missing operand
-
-3       						:(BASEB_END)
-        						           !
-t_gimpel__gimpel_baseb_base2.sno(8,18) : ERROR 221 -- syntax error: missing operand
-
-4       BASEB	EQ(N,0)					:S(RETURN)
-
-t_gimpel__gimpel_baseb_base2.sno(9) : ERROR 214 -- bad label or misplaced continuation line
-
-5       	R  =  REMDR(N,B)
-        	   !
-t_gimpel__gimpel_baseb_base2.sno(10,5) : ERROR 221 -- syntax error: missing operand
-
-6       	BASEB_ALPHA  TAB(*R)   LEN(1) . C	:F(ERROR)
-        	                   !
-t_gimpel__gimpel_baseb_base2.sno(11,21) : ERROR 221 -- syntax error: missing operand
-
-7       	BASEB  =  C BASEB
-        	       !
-t_gimpel__gimpel_baseb_base2.sno(12,9) : ERROR 221 -- syntax error: missing operand
-
-8       	N  =  N / B				:(BASEB)
-        	   !
-t_gimpel__gimpel_baseb_base2.sno(13,5) : ERROR 221 -- syntax error: missing operand
-
-9       BASEB_END
-
-t_gimpel__gimpel_baseb_base2.sno(14) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_baseb_base2.sno(15,2) : ERROR 233 -- syntax error: invalid use of operator
-
-10              B2  = BASEB(10,2)
-                    !
-t_gimpel__gimpel_baseb_base2.sno(16,13) : ERROR 221 -- syntax error: missing operand
-
-11              B16 = BASEB(255,16)
-                    !
-t_gimpel__gimpel_baseb_base2.sno(17,13) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_baseb_base2.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_baseb_base2.sno'
+&LASTLINE = 17
+&LASTNO = 11
+&LINE = 18
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 39
+&STLIMIT = 2147483647
+&STNO = 12
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_bsort_bubble_sort
@@ -23166,12 +23088,12 @@ t_gimpel__gimpel_bsort_bubble_sort.sno(1,10) : ERROR 285 -- include file cannot 
 ## t_gimpel__gimpel_floor_function
 
 ```SNOBOL4
--FILE-ENTER "FLOOR.INC"
+*-FILE-ENTER "FLOOR.INC"
 * FLOORCEIL.inc
 *	FLOOR(X) will return the largest integer not greater than X.
 *	CEIL(X) will return the smallest integer not less than X.
 *
--FILE-ENTER "dexp.inc"
+*-FILE-ENTER "dexp.inc"
 * DEXP.inc - DEXP(PROTO) defines functions in terms of a
 *	     simple, one-line expression, such as
 *		DEXP('AVE(X,Y) = (X + Y) / 2.0')
@@ -23182,7 +23104,7 @@ DEXP	PROTO   POS(0)  SPAN(' ')  =
 	CODE(NAME  ' '  PROTO  '		:S(RETURN)F(FRETURN)')
 	DEFINE(NAME  ARGS)			:(RETURN)
 DEXP_END
--FILE-LEAVE
+*-FILE-LEAVE
 	DEXP('CEIL(X) = -FLOOR(-X)')
 
 	DEFINE('FLOOR(X)')			:(FLOOR_END)
@@ -23190,11 +23112,11 @@ FLOOR	FLOOR  =  CONVERT(X,'INTEGER')
 	GE(X,0)					:S(RETURN)
 	FLOOR  =  NE(X,FLOOR)  FLOOR - 1	:(RETURN)
 FLOOR_END
--FILE-LEAVE
+*-FILE-LEAVE
         F1 = FLOOR(3.7)
         F2 = FLOOR(-2.3)
         F3 = FLOOR(5.0)
-     END
+END
 ```
 
 ```file dexp.inc
@@ -23214,39 +23136,47 @@ DEXP_END
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:28 2026
+dump of natural variables
+
+BAL = PATTERN
+F1 = 3
+F2 = -3
+F3 = 5
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "FLOOR.INC"
-         !
-t_gimpel__gimpel_floor_function.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-        -FILE-ENTER "dexp.inc"
-         !
-t_gimpel__gimpel_floor_function.sno(6,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('DEXP(PROTO)NAME,ARGS')		:(DEXP_END)
-        	                              		          !
-t_gimpel__gimpel_floor_function.sno(11,44) : ERROR 221 -- syntax error: missing operand
-
-2       DEXP	PROTO   POS(0)  SPAN(' ')  =
-
-t_gimpel__gimpel_floor_function.sno(12) : ERROR 214 -- bad label or misplaced continuation line
-
-3       	PROTO   BREAK('(') . NAME  BAL . ARGS  =  NAME
-        	                               !
-t_gimpel__gimpel_floor_function.sno(13,33) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_floor_function.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_floor_function.sno'
+&LASTLINE = 28
+&LASTNO = 16
+&LINE = 29
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 20
+&STLIMIT = 2147483647
+&STNO = 17
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_repl_string_replace
 
 ```SNOBOL4
--FILE-ENTER "REPL.INC"
+*-FILE-ENTER "REPL.INC"
 * REPL.inc - REPL(S1,S2,S3) will do a string-by-string replacement
 *	     (as opposed to a character-by-character replacement
 *	     ala REPLACE) on the string S1.  The string S1 is scanned
@@ -23254,7 +23184,7 @@ t_gimpel__gimpel_floor_function.sno(13,33) : ERROR 221 -- syntax error: missing 
 *	     S3.  Portions of S1 already scanned and the replaced
 *	     string are not reexamined for instances of S2.
 *
--FILE-ENTER "breakx.inc"
+*-FILE-ENTER "breakx.inc"
 * BREAKX.inc - BREAKX(S) will return a pattern that will
 *	       extend itself to include characters from S
 *	       if required by a rematch attempt.
@@ -23265,7 +23195,7 @@ t_gimpel__gimpel_floor_function.sno(13,33) : ERROR 221 -- syntax error: missing 
 *BREAKX	BREAKX  =  BREAK(S)  ARBNO(LEN(1) BREAK(S))
 *						:(RETURN)
 *BREAKX_END
--FILE-LEAVE
+*-FILE-LEAVE
 	DEFINE('REPL(S1,S2,S3)C,T,FINDC')	:(REPL_END)
 REPL	S2   LEN(1) . C  =			:F(FRETURN)
 	FINDC  =  BREAK(C) . T  LEN(1)
@@ -23276,9 +23206,9 @@ REPL_1	S1   FINDC  =				:F(REPL_2)
 REPL_3	REPL  =  REPL  T  C			:(REPL_1)
 REPL_2	REPL  =  REPL  S1			:(RETURN)
 REPL_END
--FILE-LEAVE
+*-FILE-LEAVE
         R = REPL('abcabc','bc','XY')
-     END
+END
 ```
 
 ```file breakx.inc
@@ -23299,89 +23229,49 @@ REPL_END
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:33 2026
+dump of natural variables
+
+R = 'aXYaXY'
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "REPL.INC"
-         !
-t_gimpel__gimpel_repl_string_replace.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-        -FILE-ENTER "breakx.inc"
-         !
-t_gimpel__gimpel_repl_string_replace.sno(9,2) : ERROR 233 -- syntax error: invalid use of operator
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_repl_string_replace.sno(20,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('REPL(S1,S2,S3)C,T,FINDC')	:(REPL_END)
-        	                                 	          !
-t_gimpel__gimpel_repl_string_replace.sno(21,46) : ERROR 221 -- syntax error: missing operand
-
-2       REPL	S2   LEN(1) . C  =			:F(FRETURN)
-
-t_gimpel__gimpel_repl_string_replace.sno(22) : ERROR 214 -- bad label or misplaced continuation line
-
-3       	FINDC  =  BREAK(C) . T  LEN(1)
-        	       !
-t_gimpel__gimpel_repl_string_replace.sno(23,9) : ERROR 221 -- syntax error: missing operand
-
-4       	S2  =  POS(0)  S2
-        	    !
-t_gimpel__gimpel_repl_string_replace.sno(24,6) : ERROR 221 -- syntax error: missing operand
-
-5       REPL_1	S1   FINDC  =				:F(REPL_2)
-
-t_gimpel__gimpel_repl_string_replace.sno(25) : ERROR 214 -- bad label or misplaced continuation line
-
-6       	S1   S2  =				:F(REPL_3)
-        	         !
-t_gimpel__gimpel_repl_string_replace.sno(26,11) : ERROR 221 -- syntax error: missing operand
-
-7       	REPL  =  REPL  T  S3			:(REPL_1)
-        	      !
-t_gimpel__gimpel_repl_string_replace.sno(27,8) : ERROR 221 -- syntax error: missing operand
-
-8       REPL_3	REPL  =  REPL  T  C			:(REPL_1)
-
-t_gimpel__gimpel_repl_string_replace.sno(28) : ERROR 214 -- bad label or misplaced continuation line
-
-9       REPL_2	REPL  =  REPL  S1			:(RETURN)
-
-t_gimpel__gimpel_repl_string_replace.sno(29) : ERROR 214 -- bad label or misplaced continuation line
-
-10      REPL_END
-
-t_gimpel__gimpel_repl_string_replace.sno(30) : ERROR 214 -- bad label or misplaced continuation line
-
-
-
-
-                                                                                                                page 2
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_repl_string_replace.sno(31,2) : ERROR 233 -- syntax error: invalid use of operator
-
-11              R = REPL('abcabc','bc','XY')
-                  !
-t_gimpel__gimpel_repl_string_replace.sno(32,11) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_repl_string_replace.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_repl_string_replace.sno'
+&LASTLINE = 32
+&LASTNO = 11
+&LINE = 33
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 15
+&STLIMIT = 2147483647
+&STNO = 12
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_quote_snobol4_quoting
 
 ```SNOBOL4
--FILE-ENTER "QUOTE.INC"
+*-FILE-ENTER "QUOTE.INC"
 * QUOTE.inc - QUOTE(S) will convert its argument to a string
 *	      which will resemble a SNOBOL4 expression which,
 *	      when evaluated, will yield the original string S.
 *
--FILE-ENTER "repl.inc"
+*-FILE-ENTER "repl.inc"
 * REPL.inc - REPL(S1,S2,S3) will do a string-by-string replacement
 *	     (as opposed to a character-by-character replacement
 *	     ala REPLACE) on the string S1.  The string S1 is scanned
@@ -23389,7 +23279,7 @@ t_gimpel__gimpel_repl_string_replace.sno(32,11) : ERROR 221 -- syntax error: mis
 *	     S3.  Portions of S1 already scanned and the replaced
 *	     string are not reexamined for instances of S2.
 *
--FILE-ENTER "breakx.inc"
+*-FILE-ENTER "breakx.inc"
 * BREAKX.inc - BREAKX(S) will return a pattern that will
 *	       extend itself to include characters from S
 *	       if required by a rematch attempt.
@@ -23400,7 +23290,7 @@ t_gimpel__gimpel_repl_string_replace.sno(32,11) : ERROR 221 -- syntax error: mis
 *BREAKX	BREAKX  =  BREAK(S)  ARBNO(LEN(1) BREAK(S))
 *						:(RETURN)
 *BREAKX_END
--FILE-LEAVE
+*-FILE-LEAVE
 	DEFINE('REPL(S1,S2,S3)C,T,FINDC')	:(REPL_END)
 REPL	S2   LEN(1) . C  =			:F(FRETURN)
 	FINDC  =  BREAK(C) . T  LEN(1)
@@ -23411,14 +23301,14 @@ REPL_1	S1   FINDC  =				:F(REPL_2)
 REPL_3	REPL  =  REPL  T  C			:(REPL_1)
 REPL_2	REPL  =  REPL  S1			:(RETURN)
 REPL_END
--FILE-LEAVE
+*-FILE-LEAVE
 	DEFINE('QUOTE(S)S1,Q,QQ')		:(QUOTE_END)
 QUOTE	Q  =  "'"  ;  QQ  =  '"'
 	QUOTE = Q REPL(S, Q, Q ' ' QQ Q QQ ' ' Q) Q  :(RETURN)
 QUOTE_END
--FILE-LEAVE
+*-FILE-LEAVE
         R = QUOTE('hello')
-     END
+END
 ```
 
 ```file breakx.inc
@@ -23460,112 +23350,44 @@ REPL_END
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:33 2026
+dump of natural variables
+
+R = ''hello''
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "QUOTE.INC"
-         !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-        -FILE-ENTER "repl.inc"
-         !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(6,2) : ERROR 233 -- syntax error: invalid use of operator
-
-        -FILE-ENTER "breakx.inc"
-         !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(14,2) : ERROR 233 -- syntax error: invalid use of operator
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(25,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('REPL(S1,S2,S3)C,T,FINDC')	:(REPL_END)
-        	                                 	          !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(26,46) : ERROR 221 -- syntax error: missing operand
-
-2       REPL	S2   LEN(1) . C  =			:F(FRETURN)
-
-t_gimpel__gimpel_quote_snobol4_quoting.sno(27) : ERROR 214 -- bad label or misplaced continuation line
-
-3       	FINDC  =  BREAK(C) . T  LEN(1)
-        	       !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(28,9) : ERROR 221 -- syntax error: missing operand
-
-4       	S2  =  POS(0)  S2
-        	    !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(29,6) : ERROR 221 -- syntax error: missing operand
-
-5       REPL_1	S1   FINDC  =				:F(REPL_2)
-
-t_gimpel__gimpel_quote_snobol4_quoting.sno(30) : ERROR 214 -- bad label or misplaced continuation line
-
-6       	S1   S2  =				:F(REPL_3)
-        	         !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(31,11) : ERROR 221 -- syntax error: missing operand
-
-7       	REPL  =  REPL  T  S3			:(REPL_1)
-        	      !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(32,8) : ERROR 221 -- syntax error: missing operand
-
-8       REPL_3	REPL  =  REPL  T  C			:(REPL_1)
-
-t_gimpel__gimpel_quote_snobol4_quoting.sno(33) : ERROR 214 -- bad label or misplaced continuation line
-
-9       REPL_2	REPL  =  REPL  S1			:(RETURN)
-
-t_gimpel__gimpel_quote_snobol4_quoting.sno(34) : ERROR 214 -- bad label or misplaced continuation line
-
-
-
-
-                                                                                                                page 2
-
-10      REPL_END
-
-t_gimpel__gimpel_quote_snobol4_quoting.sno(35) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(36,2) : ERROR 233 -- syntax error: invalid use of operator
-
-11      	DEFINE('QUOTE(S)S1,Q,QQ')		:(QUOTE_END)
-        	                         		           !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(37,40) : ERROR 221 -- syntax error: missing operand
-
-12      QUOTE	Q  =  "'"  ;  QQ  =  '"'
-
-t_gimpel__gimpel_quote_snobol4_quoting.sno(38) : ERROR 214 -- bad label or misplaced continuation line
-
-
-             	                  !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(38,25) : ERROR 221 -- syntax error: missing operand
-
-14      	QUOTE = Q REPL(S, Q, Q ' ' QQ Q QQ ' ' Q) Q  :(RETURN)
-        	      !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(39,8) : ERROR 221 -- syntax error: missing operand
-
-15      QUOTE_END
-
-t_gimpel__gimpel_quote_snobol4_quoting.sno(40) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(41,2) : ERROR 233 -- syntax error: invalid use of operator
-
-16              R = QUOTE('hello')
-                  !
-t_gimpel__gimpel_quote_snobol4_quoting.sno(42,11) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_quote_snobol4_quoting.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_quote_snobol4_quoting.sno'
+&LASTLINE = 42
+&LASTNO = 16
+&LINE = 43
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 14
+&STLIMIT = 2147483647
+&STNO = 17
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_swap_values
 
 ```SNOBOL4
--FILE-ENTER "SWAP.INC"
+*-FILE-ENTER "SWAP.INC"
 * SWAP.inc - SWAP(.N,.M) will swap the contents of the two named
 *	     variables.
 *
@@ -23575,68 +23397,50 @@ SWAP	SWAP  =  $SWAP_ARG1
 	$SWAP_ARG2  =  SWAP
 	SWAP  =					:(RETURN)
 SWAP_END
--FILE-LEAVE
+*-FILE-LEAVE
         A = 'hello'
         B = 'world'
         SWAP(.A,.B)
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:33 2026
+dump of natural variables
+
+A = 'world'
+B = 'hello'
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "SWAP.INC"
-         !
-t_gimpel__gimpel_swap_values.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('SWAP(SWAP_ARG1,SWAP_ARG2)')	:(SWAP_END)
-        	                                   	          !
-t_gimpel__gimpel_swap_values.sno(5,48) : ERROR 221 -- syntax error: missing operand
-
-2       SWAP	SWAP  =  $SWAP_ARG1
-
-t_gimpel__gimpel_swap_values.sno(6) : ERROR 214 -- bad label or misplaced continuation line
-
-3       	$SWAP_ARG1  =  $SWAP_ARG2
-        	            !
-t_gimpel__gimpel_swap_values.sno(7,14) : ERROR 221 -- syntax error: missing operand
-
-4       	$SWAP_ARG2  =  SWAP
-        	            !
-t_gimpel__gimpel_swap_values.sno(8,14) : ERROR 221 -- syntax error: missing operand
-
-5       	SWAP  =					:(RETURN)
-        	      !
-t_gimpel__gimpel_swap_values.sno(9,8) : ERROR 221 -- syntax error: missing operand
-
-6       SWAP_END
-
-t_gimpel__gimpel_swap_values.sno(10) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_swap_values.sno(11,2) : ERROR 233 -- syntax error: invalid use of operator
-
-7               A = 'hello'
-                  !
-t_gimpel__gimpel_swap_values.sno(12,11) : ERROR 221 -- syntax error: missing operand
-
-8               B = 'world'
-                  !
-t_gimpel__gimpel_swap_values.sno(13,11) : ERROR 221 -- syntax error: missing operand
-
-9               SWAP(.A,.B)
-                       !
-t_gimpel__gimpel_swap_values.sno(14,16) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_swap_values.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_swap_values.sno'
+&LASTLINE = 14
+&LASTNO = 9
+&LINE = 15
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 10
+&STLIMIT = 2147483647
+&STNO = 10
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_crack_string_to_array
@@ -23841,7 +23645,7 @@ t_gimpel__gimpel_crack_string_to_array.sno(43,12) : ERROR 221 -- syntax error: m
 ## t_gimpel__gimpel_comb_combinations
 
 ```SNOBOL4
--FILE-ENTER "COMB.INC"
+*-FILE-ENTER "COMB.INC"
 * COMB.inc - COMB(N,M) returns the number of combinations
 *	     of N things, taken M at a time.
 *
@@ -23849,71 +23653,59 @@ t_gimpel__gimpel_crack_string_to_array.sno(43,12) : ERROR 221 -- syntax error: m
 COMB	COMB  =  EQ(M,0)  1			:S(RETURN)
 	COMB  =  COMB(N - 1,M - 1) * N / M	:(RETURN)
 COMB_END
--FILE-LEAVE
+*-FILE-LEAVE
         C1 = COMB(5,0)
         C2 = COMB(5,1)
         C3 = COMB(5,2)
         C4 = COMB(10,3)
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:34 2026
+dump of natural variables
+
+C1 = 1
+C2 = 5
+C3 = 10
+C4 = 120
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "COMB.INC"
-         !
-t_gimpel__gimpel_comb_combinations.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('COMB(N,M)')			:(COMB_END)
-        	                   			          !
-t_gimpel__gimpel_comb_combinations.sno(5,34) : ERROR 221 -- syntax error: missing operand
-
-2       COMB	COMB  =  EQ(M,0)  1			:S(RETURN)
-
-t_gimpel__gimpel_comb_combinations.sno(6) : ERROR 214 -- bad label or misplaced continuation line
-
-3       	COMB  =  COMB(N - 1,M - 1) * N / M	:(RETURN)
-        	      !
-t_gimpel__gimpel_comb_combinations.sno(7,8) : ERROR 221 -- syntax error: missing operand
-
-4       COMB_END
-
-t_gimpel__gimpel_comb_combinations.sno(8) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_comb_combinations.sno(9,2) : ERROR 233 -- syntax error: invalid use of operator
-
-5               C1 = COMB(5,0)
-                   !
-t_gimpel__gimpel_comb_combinations.sno(10,12) : ERROR 221 -- syntax error: missing operand
-
-6               C2 = COMB(5,1)
-                   !
-t_gimpel__gimpel_comb_combinations.sno(11,12) : ERROR 221 -- syntax error: missing operand
-
-7               C3 = COMB(5,2)
-                   !
-t_gimpel__gimpel_comb_combinations.sno(12,12) : ERROR 221 -- syntax error: missing operand
-
-8               C4 = COMB(10,3)
-                   !
-t_gimpel__gimpel_comb_combinations.sno(13,12) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_comb_combinations.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_comb_combinations.sno'
+&LASTLINE = 13
+&LASTNO = 8
+&LINE = 14
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 23
+&STLIMIT = 2147483647
+&STNO = 9
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_roman_larger_values
 
 ```SNOBOL4
--FILE-ENTER "ROMAN.INC"
+*-FILE-ENTER "ROMAN.INC"
 * ROMAN.inc - ROMAN(N) will return the roman numeral representation
 *	      of the integer N.  0 < N < 4000.
 *
@@ -23924,70 +23716,57 @@ ROMAN	N   RPOS(1)  LEN(1) . T  =		:F(RETURN)
 	ROMAN = REPLACE(ROMAN(N), 'IVXLCDM', 'XLCDM**') T
 +						:S(RETURN)F(FRETURN)
 ROMAN_END
--FILE-LEAVE
+*-FILE-LEAVE
         R14   = ROMAN(14)
         R40   = ROMAN(40)
         R1999 = ROMAN(1999)
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:34 2026
+dump of natural variables
+
+R14 = 'XIV'
+R1999 = 'MCMXCIX'
+R40 = 'XL'
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "ROMAN.INC"
-         !
-t_gimpel__gimpel_roman_larger_values.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('ROMAN(N)T')			:(ROMAN_END)
-        	                   			           !
-t_gimpel__gimpel_roman_larger_values.sno(5,35) : ERROR 221 -- syntax error: missing operand
-
-2       ROMAN	N   RPOS(1)  LEN(1) . T  =		:F(RETURN)
-
-t_gimpel__gimpel_roman_larger_values.sno(6) : ERROR 214 -- bad label or misplaced continuation line
-
-3       +	T   BREAK(',') . T			:F(FRETURN)
-         	                  			!
-t_gimpel__gimpel_roman_larger_values.sno(8,24) : ERROR 221 -- syntax error: missing operand
-
-4       	ROMAN = REPLACE(ROMAN(N), 'IVXLCDM', 'XLCDM**') T
-        	      !
-t_gimpel__gimpel_roman_larger_values.sno(9,8) : ERROR 221 -- syntax error: missing operand
-
-5       ROMAN_END
-
-t_gimpel__gimpel_roman_larger_values.sno(11) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_roman_larger_values.sno(12,2) : ERROR 233 -- syntax error: invalid use of operator
-
-6               R14   = ROMAN(14)
-                      !
-t_gimpel__gimpel_roman_larger_values.sno(13,15) : ERROR 221 -- syntax error: missing operand
-
-7               R40   = ROMAN(40)
-                      !
-t_gimpel__gimpel_roman_larger_values.sno(14,15) : ERROR 221 -- syntax error: missing operand
-
-8               R1999 = ROMAN(1999)
-                      !
-t_gimpel__gimpel_roman_larger_values.sno(15,15) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_roman_larger_values.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_roman_larger_values.sno'
+&LASTLINE = 15
+&LASTNO = 8
+&LINE = 16
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 33
+&STLIMIT = 2147483647
+&STNO = 9
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_sqrt_function
 
 ```SNOBOL4
--FILE-ENTER "SQRT.INC"
+*-FILE-ENTER "SQRT.INC"
 -MODULE SQRT
 *
 *  Note:  SNOBOL4+ allows exponentiation to a real power.
@@ -24012,50 +23791,72 @@ SQRT_1	ERR   =  SQRT * SQRT - Y
 	SQRT  =  SQRT - (ERR / SLOPE)
 	T     =  LT(SQRT,T)  SQRT		:S(SQRT_1)F(RETURN)
 SQRT_END
--FILE-LEAVE
+*-FILE-LEAVE
         RSQRT4 = SQRT(4.0)
         RSQRT9 = SQRT(9.0)
         RSQRT2 = SQRT(2.0)
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:34 2026
+t_gimpel__gimpel_sqrt_function.sno(9) : ERROR 248 -- attempted redefinition of system function
 
 
 
-                                                                                                                page 1
 
-        -FILE-ENTER "SQRT.INC"
-         !
-t_gimpel__gimpel_sqrt_function.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
 
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_sqrt_function.sno(26,2) : ERROR 233 -- syntax error: invalid use of operator
+in file              t_gimpel__gimpel_sqrt_function.sno
+in line              9
+in statement         1
+stmts executed       1
+execution time msec  0
+REGENERATIONS        0
+memory used (bytes)  12336
+memory left (bytes)  1036232
 
-17              RSQRT4 = SQRT(4.0)
-                       !
-t_gimpel__gimpel_sqrt_function.sno(27,16) : ERROR 221 -- syntax error: missing operand
 
-18              RSQRT9 = SQRT(9.0)
-                       !
-t_gimpel__gimpel_sqrt_function.sno(28,16) : ERROR 221 -- syntax error: missing operand
 
-19              RSQRT2 = SQRT(2.0)
-                       !
-t_gimpel__gimpel_sqrt_function.sno(29,16) : ERROR 221 -- syntax error: missing operand
 
+dump of natural variables
+
+
+
+dump of keyword values
+
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = 'attempted redefinition of system function'
+&ERRTYPE = 248
+&FILE = 't_gimpel__gimpel_sqrt_function.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = ''
+&LASTLINE = 0
+&LASTNO = 0
+&LINE = 9
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = ''
+&STCOUNT = 1
+&STLIMIT = 2147483647
+&STNO = 1
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_rotater_right
 
 ```SNOBOL4
--FILE-ENTER "ROTATER.INC"
+*-FILE-ENTER "ROTATER.INC"
 * ROTATER.inc - ROTATER(S,N) will rotate the string S right by N
 *		characters.  If N is negative, rotation is to the
 *		left.
@@ -24067,78 +23868,61 @@ ROTATER	IDENT(S)				:S(RETURN)
 	S    RTAB(N) . S  REM . S1  =  S1  S
 	ROTATER  =  S				:(RETURN)
 ROTATER_END
--FILE-LEAVE
+*-FILE-LEAVE
         R1 = ROTATER('ABCDE',2)
         R2 = ROTATER('ABCDE',0)
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:34 2026
+dump of natural variables
+
+R1 = 'DEABC'
+R2 = 'ABCDE'
+REM = PATTERN
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "ROTATER.INC"
-         !
-t_gimpel__gimpel_rotater_right.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('ROTATER(S,N)S1')		:(ROTATER_END)
-        	                        		             !
-t_gimpel__gimpel_rotater_right.sno(6,41) : ERROR 221 -- syntax error: missing operand
-
-2       ROTATER	IDENT(S)				:S(RETURN)
-
-t_gimpel__gimpel_rotater_right.sno(7) : ERROR 214 -- bad label or misplaced continuation line
-
-3       	N  =  REMDR(N, SIZE(S))
-        	   !
-t_gimpel__gimpel_rotater_right.sno(8,5) : ERROR 221 -- syntax error: missing operand
-
-4       	N  =  LT(N,0)  SIZE(S) - N
-        	   !
-t_gimpel__gimpel_rotater_right.sno(9,5) : ERROR 221 -- syntax error: missing operand
-
-5       	S    RTAB(N) . S  REM . S1  =  S1  S
-        	           !
-t_gimpel__gimpel_rotater_right.sno(10,13) : ERROR 221 -- syntax error: missing operand
-
-6       	ROTATER  =  S				:(RETURN)
-        	         !
-t_gimpel__gimpel_rotater_right.sno(11,11) : ERROR 221 -- syntax error: missing operand
-
-7       ROTATER_END
-
-t_gimpel__gimpel_rotater_right.sno(12) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_rotater_right.sno(13,2) : ERROR 233 -- syntax error: invalid use of operator
-
-8               R1 = ROTATER('ABCDE',2)
-                   !
-t_gimpel__gimpel_rotater_right.sno(14,12) : ERROR 221 -- syntax error: missing operand
-
-9               R2 = ROTATER('ABCDE',0)
-                   !
-t_gimpel__gimpel_rotater_right.sno(15,12) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_rotater_right.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_rotater_right.sno'
+&LASTLINE = 15
+&LASTNO = 9
+&LINE = 16
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 15
+&STLIMIT = 2147483647
+&STNO = 10
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_skim_unique_chars
 
 ```SNOBOL4
--FILE-ENTER "SKIM.INC"
+*-FILE-ENTER "SKIM.INC"
 * SKIM.inc - SKIM(S) "skims off" the first appearance of each
 *	     different character of S and returns the result.
 *	     SKIP("MISSISSIPPI") returns "MISP".
 *
--FILE-ENTER "diff.inc"
+*-FILE-ENTER "diff.inc"
 * DIFF.inc - DIFF(S1,S2) will return the set difference, S1 - S2,
 *	     which is a string containing all those characters that
 *	     are in S1 and not S2.
@@ -24149,16 +23933,16 @@ DIFF	DIFF  =  S1
 	S2  =  SPAN(S2)
 DIFF_1	DIFF    S2  =				:S(DIFF_1)F(RETURN)
 DIFF_END
--FILE-LEAVE
+*-FILE-LEAVE
 	DEFINE('SKIM(S)C')			:(SKIM_END)
 SKIM	S   LEN(1) . C  =			:F(RETURN)
 	SKIM   C				:S(SKIM_D)
 	SKIM  =  SKIM  C			:(SKIM)
 SKIM_D	S  =  DIFF(S, SKIM)			:(SKIM)
 SKIM_END
--FILE-LEAVE
+*-FILE-LEAVE
         R = SKIM('MISSISSIPPI')
-     END
+END
 ```
 
 ```file diff.inc
@@ -24178,92 +23962,44 @@ DIFF_END
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:34 2026
+dump of natural variables
+
+R = 'MISP'
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "SKIM.INC"
-         !
-t_gimpel__gimpel_skim_unique_chars.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-        -FILE-ENTER "diff.inc"
-         !
-t_gimpel__gimpel_skim_unique_chars.sno(6,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('DIFF(S1,S2)')			:(DIFF_END)
-        	                     			          !
-t_gimpel__gimpel_skim_unique_chars.sno(11,36) : ERROR 221 -- syntax error: missing operand
-
-2       DIFF	DIFF  =  S1
-
-t_gimpel__gimpel_skim_unique_chars.sno(12) : ERROR 214 -- bad label or misplaced continuation line
-
-3       	IDENT(S2,NULL)				:S(RETURN)
-        	        !
-t_gimpel__gimpel_skim_unique_chars.sno(13,10) : ERROR 221 -- syntax error: missing operand
-
-4       	S2  =  SPAN(S2)
-        	    !
-t_gimpel__gimpel_skim_unique_chars.sno(14,6) : ERROR 221 -- syntax error: missing operand
-
-5       DIFF_1	DIFF    S2  =				:S(DIFF_1)F(RETURN)
-
-t_gimpel__gimpel_skim_unique_chars.sno(15) : ERROR 214 -- bad label or misplaced continuation line
-
-6       DIFF_END
-
-t_gimpel__gimpel_skim_unique_chars.sno(16) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_skim_unique_chars.sno(17,2) : ERROR 233 -- syntax error: invalid use of operator
-
-7       	DEFINE('SKIM(S)C')			:(SKIM_END)
-        	                  			          !
-t_gimpel__gimpel_skim_unique_chars.sno(18,33) : ERROR 221 -- syntax error: missing operand
-
-8       SKIM	S   LEN(1) . C  =			:F(RETURN)
-
-t_gimpel__gimpel_skim_unique_chars.sno(19) : ERROR 214 -- bad label or misplaced continuation line
-
-9       	SKIM   C				:S(SKIM_D)
-        	        				!
-t_gimpel__gimpel_skim_unique_chars.sno(20,14) : ERROR 221 -- syntax error: missing operand
-
-10      	SKIM  =  SKIM  C			:(SKIM)
-        	      !
-t_gimpel__gimpel_skim_unique_chars.sno(21,8) : ERROR 221 -- syntax error: missing operand
-
-
-
-
-                                                                                                                page 2
-
-11      SKIM_D	S  =  DIFF(S, SKIM)			:(SKIM)
-
-t_gimpel__gimpel_skim_unique_chars.sno(22) : ERROR 214 -- bad label or misplaced continuation line
-
-12      SKIM_END
-
-t_gimpel__gimpel_skim_unique_chars.sno(23) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_skim_unique_chars.sno(24,2) : ERROR 233 -- syntax error: invalid use of operator
-
-13              R = SKIM('MISSISSIPPI')
-                  !
-t_gimpel__gimpel_skim_unique_chars.sno(25,11) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_skim_unique_chars.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_skim_unique_chars.sno'
+&LASTLINE = 25
+&LASTNO = 13
+&LINE = 26
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 35
+&STLIMIT = 2147483647
+&STNO = 14
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_order_sort_chars
 
 ```SNOBOL4
--FILE-ENTER "ORDER.INC"
+*-FILE-ENTER "ORDER.INC"
 * ORDER.inc - ORDER(S) will put the characters of its argument into
 *	      alphabetic order.
 *
@@ -24273,60 +24009,54 @@ ORDER	S    LEN(1) . T  =			:F(RETURN)
 	&ALPHABET  BREAK(T)  REM . HIGHS
 	ORDER   (BREAK(HIGHS) | REM) . S1 = S1 T  :(ORDER)
 ORDER_END
--FILE-LEAVE
+*-FILE-LEAVE
         R = ORDER('DCBA')
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:35 2026
+dump of natural variables
+
+R = 'ABCD'
+REM = PATTERN
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "ORDER.INC"
-         !
-t_gimpel__gimpel_order_sort_chars.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-2       						:(ORDER_END)
-        						           !
-t_gimpel__gimpel_order_sort_chars.sno(6,18) : ERROR 221 -- syntax error: missing operand
-
-3       ORDER	S    LEN(1) . T  =			:F(RETURN)
-
-t_gimpel__gimpel_order_sort_chars.sno(7) : ERROR 214 -- bad label or misplaced continuation line
-
-4       	&ALPHABET  BREAK(T)  REM . HIGHS
-        	                  !
-t_gimpel__gimpel_order_sort_chars.sno(8,20) : ERROR 221 -- syntax error: missing operand
-
-5       	ORDER   (BREAK(HIGHS) | REM) . S1 = S1 T  :(ORDER)
-        	                    !
-t_gimpel__gimpel_order_sort_chars.sno(9,22) : ERROR 221 -- syntax error: missing operand
-
-6       ORDER_END
-
-t_gimpel__gimpel_order_sort_chars.sno(10) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_order_sort_chars.sno(11,2) : ERROR 233 -- syntax error: invalid use of operator
-
-7               R = ORDER('DCBA')
-                  !
-t_gimpel__gimpel_order_sort_chars.sno(12,11) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_order_sort_chars.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_order_sort_chars.sno'
+&LASTLINE = 12
+&LASTNO = 7
+&LINE = 13
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 18
+&STLIMIT = 2147483647
+&STNO = 8
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_uplo_swap_case
 
 ```SNOBOL4
--FILE-ENTER "UPLO.INC"
+*-FILE-ENTER "UPLO.INC"
 * UPLO.inc - UPLO(S) will return its argument with upper case letters
 *	     converted to lower case, and vice versa.  Non-alphabetic
 *	     characters are ignored.
@@ -24337,60 +24067,55 @@ t_gimpel__gimpel_order_sort_chars.sno(12,11) : ERROR 221 -- syntax error: missin
 						:(UPLO_END)
 UPLO	UPLO   =  REPLACE(S, UP_LO, LO_UP)	:(RETURN)
 UPLO_END
--FILE-LEAVE
+*-FILE-LEAVE
         R = UPLO('Hello World')
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:35 2026
+dump of natural variables
+
+LO_UP = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+R = 'hELLO wORLD'
+UP_LO = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "UPLO.INC"
-         !
-t_gimpel__gimpel_uplo_swap_case.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-2       	UP_LO  =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
-        	       !
-t_gimpel__gimpel_uplo_swap_case.sno(7,9) : ERROR 221 -- syntax error: missing operand
-
-3       	LO_UP  =  'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        	       !
-t_gimpel__gimpel_uplo_swap_case.sno(8,9) : ERROR 221 -- syntax error: missing operand
-
-4       						:(UPLO_END)
-        						          !
-t_gimpel__gimpel_uplo_swap_case.sno(9,17) : ERROR 221 -- syntax error: missing operand
-
-5       UPLO	UPLO   =  REPLACE(S, UP_LO, LO_UP)	:(RETURN)
-
-t_gimpel__gimpel_uplo_swap_case.sno(10) : ERROR 214 -- bad label or misplaced continuation line
-
-6       UPLO_END
-
-t_gimpel__gimpel_uplo_swap_case.sno(11) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_uplo_swap_case.sno(12,2) : ERROR 233 -- syntax error: invalid use of operator
-
-7               R = UPLO('Hello World')
-                  !
-t_gimpel__gimpel_uplo_swap_case.sno(13,11) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_uplo_swap_case.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_uplo_swap_case.sno'
+&LASTLINE = 13
+&LASTNO = 7
+&LINE = 14
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 8
+&STLIMIT = 2147483647
+&STNO = 8
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_diff_set_difference
 
 ```SNOBOL4
--FILE-ENTER "DIFF.INC"
+*-FILE-ENTER "DIFF.INC"
 * DIFF.inc - DIFF(S1,S2) will return the set difference, S1 - S2,
 *	     which is a string containing all those characters that
 *	     are in S1 and not S2.
@@ -24401,58 +24126,47 @@ DIFF	DIFF  =  S1
 	S2  =  SPAN(S2)
 DIFF_1	DIFF    S2  =				:S(DIFF_1)F(RETURN)
 DIFF_END
--FILE-LEAVE
+*-FILE-LEAVE
         R = DIFF('ABCDE','BD')
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:35 2026
+dump of natural variables
+
+R = 'ACE'
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "DIFF.INC"
-         !
-t_gimpel__gimpel_diff_set_difference.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('DIFF(S1,S2)')			:(DIFF_END)
-        	                     			          !
-t_gimpel__gimpel_diff_set_difference.sno(6,36) : ERROR 221 -- syntax error: missing operand
-
-2       DIFF	DIFF  =  S1
-
-t_gimpel__gimpel_diff_set_difference.sno(7) : ERROR 214 -- bad label or misplaced continuation line
-
-3       	IDENT(S2,NULL)				:S(RETURN)
-        	        !
-t_gimpel__gimpel_diff_set_difference.sno(8,10) : ERROR 221 -- syntax error: missing operand
-
-4       	S2  =  SPAN(S2)
-        	    !
-t_gimpel__gimpel_diff_set_difference.sno(9,6) : ERROR 221 -- syntax error: missing operand
-
-5       DIFF_1	DIFF    S2  =				:S(DIFF_1)F(RETURN)
-
-t_gimpel__gimpel_diff_set_difference.sno(10) : ERROR 214 -- bad label or misplaced continuation line
-
-6       DIFF_END
-
-t_gimpel__gimpel_diff_set_difference.sno(11) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_diff_set_difference.sno(12,2) : ERROR 233 -- syntax error: invalid use of operator
-
-7               R = DIFF('ABCDE','BD')
-                  !
-t_gimpel__gimpel_diff_set_difference.sno(13,11) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_diff_set_difference.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_diff_set_difference.sno'
+&LASTLINE = 13
+&LASTNO = 7
+&LINE = 14
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 10
+&STLIMIT = 2147483647
+&STNO = 8
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_hsort_quicksort
@@ -24490,7 +24204,7 @@ t_gimpel__gimpel_hsort_quicksort.sno(1,10) : ERROR 285 -- include file cannot be
 ## t_gimpel__gimpel_permutation_ith
 
 ```SNOBOL4
--FILE-ENTER "PERMUTAT.INC"
+*-FILE-ENTER "PERMUTAT.INC"
 * PERMUTATE.inc - PERMUTATION(S,I) will return the Ith permutation of
 *		  the string S.
 *
@@ -24504,95 +24218,61 @@ PERMUTATION
 	PERMUTATION    RTAB(N) . S1  =  S1  T
 	I  =  I / RADIX				:(PERMUTATION)
 PERMUTATION_END
--FILE-LEAVE
+*-FILE-LEAVE
         P0 = PERMUTATION('ABC',0)
         P1 = PERMUTATION('ABC',1)
         P2 = PERMUTATION('ABC',2)
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:35 2026
+dump of natural variables
+
+P0 = 'ABC'
+P1 = 'BAC'
+P2 = 'ACB'
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "PERMUTAT.INC"
-         !
-t_gimpel__gimpel_permutation_ith.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-2       						:(PERMUTATION_END)
-        						                 !
-t_gimpel__gimpel_permutation_ith.sno(6,24) : ERROR 221 -- syntax error: missing operand
-
-3       PERMUTATION
-
-t_gimpel__gimpel_permutation_ith.sno(7) : ERROR 214 -- bad label or misplaced continuation line
-
-4       	PERMUTATION  =  EQ(I,0)  PERMUTATION S	:S(RETURN)
-        	             !
-t_gimpel__gimpel_permutation_ith.sno(8,15) : ERROR 221 -- syntax error: missing operand
-
-5       	S   LEN(1) . T  =			:F(FRETURN)
-        	                !
-t_gimpel__gimpel_permutation_ith.sno(9,18) : ERROR 221 -- syntax error: missing operand
-
-6       	RADIX  =  RADIX + 1
-        	       !
-t_gimpel__gimpel_permutation_ith.sno(10,9) : ERROR 221 -- syntax error: missing operand
-
-7       	N  =  REMDR(I,RADIX)
-        	   !
-t_gimpel__gimpel_permutation_ith.sno(11,5) : ERROR 221 -- syntax error: missing operand
-
-8       	PERMUTATION    RTAB(N) . S1  =  S1  T
-        	                     !
-t_gimpel__gimpel_permutation_ith.sno(12,23) : ERROR 221 -- syntax error: missing operand
-
-9       	I  =  I / RADIX				:(PERMUTATION)
-        	   !
-t_gimpel__gimpel_permutation_ith.sno(13,5) : ERROR 221 -- syntax error: missing operand
-
-10      PERMUTATION_END
-
-t_gimpel__gimpel_permutation_ith.sno(14) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_permutation_ith.sno(15,2) : ERROR 233 -- syntax error: invalid use of operator
-
-11              P0 = PERMUTATION('ABC',0)
-                   !
-t_gimpel__gimpel_permutation_ith.sno(16,12) : ERROR 221 -- syntax error: missing operand
-
-12              P1 = PERMUTATION('ABC',1)
-                   !
-t_gimpel__gimpel_permutation_ith.sno(17,12) : ERROR 221 -- syntax error: missing operand
-
-
-
-
-                                                                                                                page 2
-
-13              P2 = PERMUTATION('ABC',2)
-                   !
-t_gimpel__gimpel_permutation_ith.sno(18,12) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_permutation_ith.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_permutation_ith.sno'
+&LASTLINE = 18
+&LASTNO = 13
+&LINE = 19
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 48
+&STLIMIT = 2147483647
+&STNO = 14
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_count_substring
 
 ```SNOBOL4
--FILE-ENTER "COUNT.INC"
+*-FILE-ENTER "COUNT.INC"
 * COUNT.inc - COUNT(S1,S2) counts the number of occurrences
 *	      of string S2 in string S1.
 *
--FILE-ENTER "breakx.inc"
+*-FILE-ENTER "breakx.inc"
 * BREAKX.inc - BREAKX(S) will return a pattern that will
 *	       extend itself to include characters from S
 *	       if required by a rematch attempt.
@@ -24603,7 +24283,7 @@ t_gimpel__gimpel_permutation_ith.sno(18,12) : ERROR 221 -- syntax error: missing
 *BREAKX	BREAKX  =  BREAK(S)  ARBNO(LEN(1) BREAK(S))
 *						:(RETURN)
 *BREAKX_END
--FILE-LEAVE
+*-FILE-LEAVE
 	DEFINE('COUNT(S1,S2)FIRST,REST,P')
 						:(COUNT_END)
 COUNT	S2    LEN(1) . FIRST   REM . REST	:F(RETURN)
@@ -24611,11 +24291,11 @@ COUNT	S2    LEN(1) . FIRST   REM . REST	:F(RETURN)
 COUNT_1	S1    P  =  REST			:F(RETURN)
 	COUNT  =  COUNT + 1			:(COUNT_1)
 COUNT_END
--FILE-LEAVE
+*-FILE-LEAVE
         C1 = COUNT('MISSISSIPPI','SS')
         C2 = COUNT('ABCABC','ABC')
         C3 = COUNT('ABCABC','X')
-     END
+END
 ```
 
 ```file breakx.inc
@@ -24636,71 +24316,46 @@ COUNT_END
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:35 2026
+dump of natural variables
+
+C1 = 2
+C2 = 2
+REM = PATTERN
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "COUNT.INC"
-         !
-t_gimpel__gimpel_count_substring.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-        -FILE-ENTER "breakx.inc"
-         !
-t_gimpel__gimpel_count_substring.sno(5,2) : ERROR 233 -- syntax error: invalid use of operator
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_count_substring.sno(16,2) : ERROR 233 -- syntax error: invalid use of operator
-
-2       						:(COUNT_END)
-        						           !
-t_gimpel__gimpel_count_substring.sno(18,18) : ERROR 221 -- syntax error: missing operand
-
-3       COUNT	S2    LEN(1) . FIRST   REM . REST	:F(RETURN)
-
-t_gimpel__gimpel_count_substring.sno(19) : ERROR 214 -- bad label or misplaced continuation line
-
-4       	P  =  POS(0)  BREAKX(FIRST)  S2
-        	   !
-t_gimpel__gimpel_count_substring.sno(20,5) : ERROR 221 -- syntax error: missing operand
-
-5       COUNT_1	S1    P  =  REST			:F(RETURN)
-
-t_gimpel__gimpel_count_substring.sno(21) : ERROR 214 -- bad label or misplaced continuation line
-
-6       	COUNT  =  COUNT + 1			:(COUNT_1)
-        	       !
-t_gimpel__gimpel_count_substring.sno(22,9) : ERROR 221 -- syntax error: missing operand
-
-7       COUNT_END
-
-t_gimpel__gimpel_count_substring.sno(23) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_count_substring.sno(24,2) : ERROR 233 -- syntax error: invalid use of operator
-
-8               C1 = COUNT('MISSISSIPPI','SS')
-                   !
-t_gimpel__gimpel_count_substring.sno(25,12) : ERROR 221 -- syntax error: missing operand
-
-9               C2 = COUNT('ABCABC','ABC')
-                   !
-t_gimpel__gimpel_count_substring.sno(26,12) : ERROR 221 -- syntax error: missing operand
-
-10              C3 = COUNT('ABCABC','X')
-                   !
-t_gimpel__gimpel_count_substring.sno(27,12) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_count_substring.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_count_substring.sno'
+&LASTLINE = 27
+&LASTNO = 10
+&LINE = 28
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 24
+&STLIMIT = 2147483647
+&STNO = 11
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_agt_alphabetic_compare
 
 ```SNOBOL4
--FILE-ENTER "AGT.INC"
+*-FILE-ENTER "AGT.INC"
 * AGT - Alphabetic comparison with upper and lower case letters
 *       treated as equal.
 *
@@ -24715,7 +24370,7 @@ t_gimpel__gimpel_count_substring.sno(27,12) : ERROR 221 -- syntax error: missing
 AGT	LGT( REPLACE(S1, &ALPHABET, AGT_TT),
 +	REPLACE(S2, &ALPHABET, AGT_TT))		:S(RETURN)F(FRETURN)
 AGT_END
--FILE-LEAVE
+*-FILE-LEAVE
         AGT('Z','a')     :S(YES1)F(NO1)
 YES1    R1 = 'yes'       :(DONE1)
 NO1     R1 = 'no'
@@ -24723,91 +24378,58 @@ DONE1   AGT('apple','BANANA')  :S(YES2)F(NO2)
 YES2    R2 = 'yes'       :(DONE2)
 NO2     R2 = 'no'
 DONE2
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:36 2026
+dump of natural variables
+
+AGT_TT = ' 	
+ !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklm
+nopqrstuvwxyz{|}~������������������������������������������������������������������������������������������������������
+��������������������������'
+LOWERS_ = 'abcdefghijklmnopqrstuvwxyz'
+R1 = 'yes'
+R2 = 'no'
+UPPERS_ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "AGT.INC"
-         !
-t_gimpel__gimpel_agt_alphabetic_compare.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-2       	UPPERS_ = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-        	        !
-t_gimpel__gimpel_agt_alphabetic_compare.sno(9,10) : ERROR 221 -- syntax error: missing operand
-
-3       	LOWERS_ = 'abcdefghijklmnopqrstuvwxyz'
-        	        !
-t_gimpel__gimpel_agt_alphabetic_compare.sno(10,10) : ERROR 221 -- syntax error: missing operand
-
-4       	AGT_TT  =  REPLACE(&ALPHABET, UPPERS_, LOWERS_)
-        	        !
-t_gimpel__gimpel_agt_alphabetic_compare.sno(11,10) : ERROR 221 -- syntax error: missing operand
-
-5       						:(AGT_END)
-        						         !
-t_gimpel__gimpel_agt_alphabetic_compare.sno(12,16) : ERROR 221 -- syntax error: missing operand
-
-6       AGT	LGT( REPLACE(S1, &ALPHABET, AGT_TT),
-
-t_gimpel__gimpel_agt_alphabetic_compare.sno(13) : ERROR 214 -- bad label or misplaced continuation line
-
-7       AGT_END
-
-t_gimpel__gimpel_agt_alphabetic_compare.sno(15) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_agt_alphabetic_compare.sno(16,2) : ERROR 233 -- syntax error: invalid use of operator
-
-8               AGT('Z','a')     :S(YES1)F(NO1)
-                                        !
-t_gimpel__gimpel_agt_alphabetic_compare.sno(17,33) : ERROR 221 -- syntax error: missing operand
-
-9       YES1    R1 = 'yes'       :(DONE1)
-
-t_gimpel__gimpel_agt_alphabetic_compare.sno(18) : ERROR 214 -- bad label or misplaced continuation line
-
-10      NO1     R1 = 'no'
-
-t_gimpel__gimpel_agt_alphabetic_compare.sno(19) : ERROR 214 -- bad label or misplaced continuation line
-
-11      DONE1   AGT('apple','BANANA')  :S(YES2)F(NO2)
-
-t_gimpel__gimpel_agt_alphabetic_compare.sno(20) : ERROR 214 -- bad label or misplaced continuation line
-
-12      YES2    R2 = 'yes'       :(DONE2)
-
-t_gimpel__gimpel_agt_alphabetic_compare.sno(21) : ERROR 214 -- bad label or misplaced continuation line
-
-
-
-
-                                                                                                                page 2
-
-13      NO2     R2 = 'no'
-
-t_gimpel__gimpel_agt_alphabetic_compare.sno(22) : ERROR 214 -- bad label or misplaced continuation line
-
-14      DONE2
-
-t_gimpel__gimpel_agt_alphabetic_compare.sno(23) : ERROR 214 -- bad label or misplaced continuation line
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_agt_alphabetic_compare.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_agt_alphabetic_compare.sno'
+&LASTLINE = 23
+&LASTNO = 14
+&LINE = 24
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'FRETURN'
+&STCOUNT = 14
+&STLIMIT = 2147483647
+&STNO = 15
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_spell_numbers
 
 ```SNOBOL4
--FILE-ENTER "SPELL.INC"
+*-FILE-ENTER "SPELL.INC"
 * SPELL.inc - SPELL(N) will return an English phrase designating
 *	      the integer N.  Thus SPELL(13) will return "THIRTEEN".
 *
@@ -24837,66 +24459,58 @@ SPELL_1000
 	SPELL  =  SPELL  ' THOUSAND'
 	SPELL  =  NE(N,0)  SPELL ' AND ' SPELL(+N)  :(RETURN)
 SPELL_END
--FILE-LEAVE
+*-FILE-LEAVE
         S1  = SPELL(1)
         S13 = SPELL(13)
         S42 = SPELL(42)
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:36 2026
+dump of natural variables
+
+ARB = PATTERN
+S1 = 'ONE'
+S13 = 'THIRTEEN'
+S42 = 'FORTY-TWO'
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "SPELL.INC"
-         !
-t_gimpel__gimpel_spell_numbers.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('SPELL(N)M')			:(SPELL_END)
-        	                   			           !
-t_gimpel__gimpel_spell_numbers.sno(5,35) : ERROR 221 -- syntax error: missing operand
-
-2       SPELL	GE(N,1000)				:S(SPELL_1000)
-
-t_gimpel__gimpel_spell_numbers.sno(6) : ERROR 214 -- bad label or misplaced continuation line
-
-3       	GE(N,100)				:S(SPELL_100)
-        	    !
-t_gimpel__gimpel_spell_numbers.sno(7,6) : ERROR 221 -- syntax error: missing operand
-
-4       	GE(N,20)				:S(SPELL_20)
-        	    !
-t_gimpel__gimpel_spell_numbers.sno(8,6) : ERROR 221 -- syntax error: missing operand
-
-5       	GE(N,13)				:S(SPELL_13)
-        	    !
-t_gimpel__gimpel_spell_numbers.sno(9,6) : ERROR 221 -- syntax error: missing operand
-
-6       +	'10TEN,11ELEVEN,12TWELVE,')  N  ARB . SPELL  ','  :(RETURN)
-         	                                    !
-t_gimpel__gimpel_spell_numbers.sno(11,39) : ERROR 221 -- syntax error: missing operand
-
-7       SPELL_13	N  1  LEN(1) . M
-
-t_gimpel__gimpel_spell_numbers.sno(12) : ERROR 214 -- bad label or misplaced continuation line
-
-8       	SPELL  =  SPELL(M 0)
-        	       !
-t_gimpel__gimpel_spell_numbers.sno(13,9) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_spell_numbers.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_spell_numbers.sno'
+&LASTLINE = 34
+&LASTNO = 27
+&LINE = 35
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 38
+&STLIMIT = 2147483647
+&STNO = 28
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_random_in_range
 
 ```SNOBOL4
--FILE-ENTER "RANDOM.INC"
+*-FILE-ENTER "RANDOM.INC"
 -MODULE RANDOM
 	DEFINE('RANDOM(N)')
 	RAN_VAR  =  1				:(RANDOM_END)
@@ -24906,45 +24520,56 @@ RANDOM
 	RANDOM  = NE(N,0) CONVERT(RANDOM * N,'INTEGER') + 1
 						:(RETURN)
 RANDOM_END
--FILE-LEAVE
+*-FILE-LEAVE
         R1 = RANDOM(10)
         R2 = RANDOM(100)
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:40 2026
+dump of natural variables
+
+R1 = 1
+R2 = 70
+RAN_VAR = 286484.
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "RANDOM.INC"
-         !
-t_gimpel__gimpel_random_in_range.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_random_in_range.sno(11,2) : ERROR 233 -- syntax error: invalid use of operator
-
-9               R1 = RANDOM(10)
-                   !
-t_gimpel__gimpel_random_in_range.sno(12,12) : ERROR 221 -- syntax error: missing operand
-
-10              R2 = RANDOM(100)
-                   !
-t_gimpel__gimpel_random_in_range.sno(13,12) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_random_in_range.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_random_in_range.sno'
+&LASTLINE = 13
+&LASTNO = 10
+&LINE = 14
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 16
+&STLIMIT = 2147483647
+&STNO = 11
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_gimpel__gimpel_roman_single_digits
 
 ```SNOBOL4
--FILE-ENTER "ROMAN.INC"
+*-FILE-ENTER "ROMAN.INC"
 * ROMAN.inc - ROMAN(N) will return the roman numeral representation
 *	      of the integer N.  0 < N < 4000.
 *
@@ -24955,64 +24580,51 @@ ROMAN	N   RPOS(1)  LEN(1) . T  =		:F(RETURN)
 	ROMAN = REPLACE(ROMAN(N), 'IVXLCDM', 'XLCDM**') T
 +						:S(RETURN)F(FRETURN)
 ROMAN_END
--FILE-LEAVE
+*-FILE-LEAVE
         R1 = ROMAN(1)
         R4 = ROMAN(4)
         R9 = ROMAN(9)
-     END
+END
 ```
 
 ```stdout
 
 
 
-macro spitbol version 4.0f
-x86-64  Thu Nov 19 16:59:41 2026
+dump of natural variables
+
+R1 = 'I'
+R4 = 'IV'
+R9 = 'IX'
 
 
+dump of keyword values
 
-                                                                                                                page 1
-
-        -FILE-ENTER "ROMAN.INC"
-         !
-t_gimpel__gimpel_roman_single_digits.sno(1,2) : ERROR 233 -- syntax error: invalid use of operator
-
-1       	DEFINE('ROMAN(N)T')			:(ROMAN_END)
-        	                   			           !
-t_gimpel__gimpel_roman_single_digits.sno(5,35) : ERROR 221 -- syntax error: missing operand
-
-2       ROMAN	N   RPOS(1)  LEN(1) . T  =		:F(RETURN)
-
-t_gimpel__gimpel_roman_single_digits.sno(6) : ERROR 214 -- bad label or misplaced continuation line
-
-3       +	T   BREAK(',') . T			:F(FRETURN)
-         	                  			!
-t_gimpel__gimpel_roman_single_digits.sno(8,24) : ERROR 221 -- syntax error: missing operand
-
-4       	ROMAN = REPLACE(ROMAN(N), 'IVXLCDM', 'XLCDM**') T
-        	      !
-t_gimpel__gimpel_roman_single_digits.sno(9,8) : ERROR 221 -- syntax error: missing operand
-
-5       ROMAN_END
-
-t_gimpel__gimpel_roman_single_digits.sno(11) : ERROR 214 -- bad label or misplaced continuation line
-
-        -FILE-LEAVE
-         !
-t_gimpel__gimpel_roman_single_digits.sno(12,2) : ERROR 233 -- syntax error: invalid use of operator
-
-6               R1 = ROMAN(1)
-                   !
-t_gimpel__gimpel_roman_single_digits.sno(13,12) : ERROR 221 -- syntax error: missing operand
-
-7               R4 = ROMAN(4)
-                   !
-t_gimpel__gimpel_roman_single_digits.sno(14,12) : ERROR 221 -- syntax error: missing operand
-
-8               R9 = ROMAN(9)
-                   !
-t_gimpel__gimpel_roman_single_digits.sno(15,12) : ERROR 221 -- syntax error: missing operand
-
+&ANCHOR = 0
+&CASE = 0
+&CODE = 0
+&DUMP = 1
+&ERRLIMIT = 0
+&ERRTEXT = ''
+&ERRTYPE = 0
+&FILE = 't_gimpel__gimpel_roman_single_digits.sno'
+&FNCLEVEL = 0
+&FTRACE = 0
+&FULLSCAN = 1
+&INPUT = 1
+&LASTFILE = 't_gimpel__gimpel_roman_single_digits.sno'
+&LASTLINE = 15
+&LASTNO = 8
+&LINE = 16
+&MAXLNGTH = 16777216
+&OUTPUT = 1
+&PROFILE = 0
+&RTNTYPE = 'RETURN'
+&STCOUNT = 18
+&STLIMIT = 2147483647
+&STNO = 9
+&TRACE = 0
+&TRIM = 1
 ```
 
 ## t_goto__worm_goto_sf_failure
@@ -63904,7 +63516,8 @@ ntinuation line
 ## test_spitbol_rules_1118__a-carriage-return-is-a-character-of-its-line__4
 
 ```SNOBOL4
-        X = 'ab'
+        X = 'a
+b'
         OUTPUT = SIZE(X)
 END
 ```
