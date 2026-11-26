@@ -19,3 +19,14 @@ It overwrites a `languages.toml` of your own: if you have one, add the entries o
 ## Check
 
 `editors_helix` of the IDE witnesses (`/home/resources/evidence/cqo/scrip-ide-2026-11-21/run.sh SCRIP_ROOT editors_helix`) runs Helix on a scratch XDG folder, never yours: `hx --health` names the server for each language and the debug adapter for SNOBOL4, and Helix in a pseudo terminal opens eight files and must send the server `initialize` and a `didOpen` with the language's id. `SCRIP_IDE_HELIX` names a copy of this file under test. A debugged run is not in the witness.
+
+## Run the open file
+
+Helix 24.7 has no run command, and a key binding cannot name the file you have open: its `%{buffer_name}` is printed as written, not expanded (measured 2026-11-26, Helix 24.7). So a run is typed at Helix's own `:` prompt, in two lines:
+
+```
+:sh scrip hanoi.icn > run.out 2>&1
+:vsplit run.out
+```
+
+Put the program's own file name where `hanoi.icn` stands. The first line runs `scrip` on the file and writes its output to `run.out` beside the program; the second opens that output in a window beside the program.
