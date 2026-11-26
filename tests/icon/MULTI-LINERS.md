@@ -14908,6 +14908,37 @@ no such function
 4
 ```
 
+## ladder__rung46_field_capture
+
+```Icon
+class PTest(pat, cur, f, g)
+   method SetPattern()
+      pat := "a" => f;
+      cur := "b" || .> g;
+   end
+end
+procedure main()
+   local p, q;
+   p := PTest();
+   p.SetPattern();
+   "aaa" ?? p.pat;
+   write("p.f=", image(p.f));
+   "abb" ?? p.cur;
+   write("p.g=", image(p.g));
+   q := PTest();
+   q.pat := p.pat;
+   p.f := &null;
+   "aaa" ?? q.pat;
+   write("p.f=", image(p.f), " q.f=", image(q.f));
+end
+```
+
+```stdout
+p.f="a"
+p.g=3
+p.f="a" q.f=&null
+```
+
 ## procedure_write_keyword_6
 
 ```Icon
