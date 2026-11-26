@@ -1,0 +1,29 @@
+# Snocone (scrip-snocone) program, the six acts of the editor walk (developer_03 2026-11-23). By the cqo's LAW-OF-A-PLACE.md: the cursor on the word's first character, every expectation computed from the program's own text by gen_places.py (never from the server), CELL from 0 among the code cells, LINE and COL from 1.
+# AMENDED by the cqo 2026-11-25 18:xx CST: the outline line rewritten to the one outline law (skill language-server, 11:3x, reading (i)) by outline_law.py from the program; a references declaration corrected from the program (a global's definition is its first top-level write, the uses kind's same in).
+{"at": [0, 1, 10], "act": "references", "expect": {"places": [[0, 4, 46], [0, 5, 5], [0, 10, 16]], "declaration": [0, 1, 10]}}
+{"at": [0, 10, 16], "act": "references", "expect": {"places": [[0, 4, 46], [0, 5, 5], [0, 10, 16]], "declaration": [0, 1, 10]}}
+{"at": [1, 3, 1], "act": "references", "expect": {"places": [[1, 3, 1]], "declaration": [0, 9, 10]}}
+{"at": [1, 1, 1], "act": "references", "expect": {"places": [[0, 2, 5], [0, 3, 15], [0, 4, 9], [0, 5, 16], [0, 6, 5]], "declaration": [1, 1, 1]}}
+{"at": [1, 2, 1], "act": "references", "expect": {"places": [[1, 3, 7], [2, 1, 10]], "declaration": [1, 2, 1]}}
+{"at": [0, 11, 9], "act": "references", "expect": {"places": [[0, 11, 9], [0, 12, 19], [0, 12, 25], [0, 13, 20]], "declaration": [0, 9, 26]}}
+{"at": [1, 3, 1], "act": "rename", "new": "Tally", "expect": {"cells": ["function NextWord(w) {\n    text ? POS(0) SPAN(' ') = '';\n    if (IDENT(text)) freturn;\n    if (text ? POS(0) BREAK(' ') . w = '') { NextWord = w; return; }\n    NextWord = text;\n    text = '';\n    return;\n}\nfunction Tally(words, w, n) {\n    while (w = NextWord()) {\n        n = words[w];\n        if (IDENT(n)) { n = 0; }\n        words[w] = n + 1;\n    }\n}", "text = 'the cat and the dog and the bird sat';\nwords = TABLE();\nTally(words);", "a = SORT(words);\ni = 1;\nwhile (a[i, 1]) {\n    if (GT(a[i, 2], 1)) { OUTPUT = a[i, 1] ' ' a[i, 2]; }\n    i = i + 1;\n}"]}}
+{"at": [1, 1, 1], "act": "rename", "new": "input", "expect": {"cells": ["function NextWord(w) {\n    input ? POS(0) SPAN(' ') = '';\n    if (IDENT(input)) freturn;\n    if (input ? POS(0) BREAK(' ') . w = '') { NextWord = w; return; }\n    NextWord = input;\n    input = '';\n    return;\n}\nfunction Count(words, w, n) {\n    while (w = NextWord()) {\n        n = words[w];\n        if (IDENT(n)) { n = 0; }\n        words[w] = n + 1;\n    }\n}", "input = 'the cat and the dog and the bird sat';\nwords = TABLE();\nCount(words);", "a = SORT(words);\ni = 1;\nwhile (a[i, 1]) {\n    if (GT(a[i, 2], 1)) { OUTPUT = a[i, 1] ' ' a[i, 2]; }\n    i = i + 1;\n}"]}}
+{"at": [1, 2, 1], "act": "rename", "new": "freq", "expect": {"cells": ["function NextWord(w) {\n    text ? POS(0) SPAN(' ') = '';\n    if (IDENT(text)) freturn;\n    if (text ? POS(0) BREAK(' ') . w = '') { NextWord = w; return; }\n    NextWord = text;\n    text = '';\n    return;\n}\nfunction Count(words, w, n) {\n    while (w = NextWord()) {\n        n = words[w];\n        if (IDENT(n)) { n = 0; }\n        words[w] = n + 1;\n    }\n}", "text = 'the cat and the dog and the bird sat';\nfreq = TABLE();\nCount(freq);", "a = SORT(freq);\ni = 1;\nwhile (a[i, 1]) {\n    if (GT(a[i, 2], 1)) { OUTPUT = a[i, 1] ' ' a[i, 2]; }\n    i = i + 1;\n}"]}}
+{"at": [0, 2, 19], "act": "rename", "new": "Renamed", "expect": {"refused": true}}
+{"at": [0, 3, 5], "act": "rename", "new": "Renamed", "expect": {"refused": true}}
+{"at": [1, 3, 7], "act": "signature", "expect": {"label": "Count(words, w, n)", "active": 0}}
+{"at": [0, 10, 25], "act": "signature", "expect": {"label": "NextWord(w)", "active": 0}}
+{"act": "signature", "none": "a builtin's call (REMDR, LE, EQ, SPAN, POS, ARRAY and the rest of this program): the label of a builtin is not yet ruled for any language (the cqo 2026-11-23 15:2x); places of a builtin's call are written when it is ruled"}
+{"at": [1, 1, 1], "act": "highlight", "expect": {"places": [[0, 2, 5, "write"], [0, 3, 15, "read"], [0, 4, 9, "write"], [0, 5, 16, "read"], [0, 6, 5, "write"], [1, 1, 1, "write"]]}}
+{"at": [1, 2, 1], "act": "highlight", "expect": {"places": [[1, 2, 1, "write"], [1, 3, 7, "read"], [2, 1, 10, "read"]]}}
+{"at": [0, 10, 12], "act": "highlight", "expect": {"places": [[0, 9, 23, "write"], [0, 10, 12, "write"], [0, 11, 19, "read"], [0, 13, 15, "read"]]}}
+{"act": "outline", "expect": {"symbols": [["NextWord", "Function", 0, 1, null], ["w", "Variable", 0, 1, "NextWord"], ["Count", "Function", 0, 9, null], ["words", "Variable", 0, 9, "Count"], ["w", "Variable", 0, 9, "Count"], ["n", "Variable", 0, 9, "Count"]]}}
+{"at": [0, 1, 1], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [0, 9, 10], "act": "colouring", "expect": {"class": "function"}}
+{"at": [1, 1, 1], "act": "colouring", "expect": {"class": "variable"}}
+{"at": [1, 1, 8], "act": "colouring", "expect": {"class": "string"}}
+{"at": [2, 2, 5], "act": "colouring", "expect": {"class": "number"}}
+{"at": [0, 2, 10], "act": "colouring", "expect": {"class": "operator"}}
+{"act": "colouring", "none": "comment: the program has no comment line; label: Snocone has no goto label in this program; constant: Snocone has no constant class (no & keyword in it)"}
+{"act": "colouring", "none": "type: the program declares no struct, so no type name stands in it"}
+{"act": "colouring", "none": "tag: the %% line is a fence's; the fence notebook of this program carries it"}
