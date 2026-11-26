@@ -13,6 +13,23 @@ vim.lsp.config('scrip', { cmd = { scrip, '--lsp' }, filetypes = languages, root_
 vim.lsp.enable('scrip')
 vim.diagnostic.config({ virtual_text = true, severity_sort = true })
 
+-- THE EDITING ACTS. Completion is offered as the server answers it, while typing; go to definition is on gd.
+vim.api.nvim_create_autocmd('LspAttach', { callback = function(args)
+  local client = vim.lsp.get_client_by_id(args.data.client_id)
+  if not client or client.name ~= 'scrip' then return end
+  vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { buffer = args.buf, desc = 'SCRIP: go to definition' })
+end })
+
+-- THE RUN. F6 runs the file of this window under scrip --run, in a terminal split below it; the program's output shows there.
+local function scrip_run()
+  if vim.fn.expand('%:p') == '' then vim.notify('SCRIP: no file to run', vim.log.levels.WARN) return end
+  vim.cmd('write')
+  vim.cmd('botright 12split | terminal ' .. vim.fn.shellescape(scrip) .. ' --run ' .. vim.fn.shellescape(vim.fn.expand('%:p')))
+end
+vim.api.nvim_create_user_command('ScripRun', scrip_run, { desc = 'SCRIP: run the current file' })
+vim.keymap.set('n', '<F6>', scrip_run, { desc = 'SCRIP: run the current file' })
+
 -- THE DEBUGGER. :DapContinue starts the current file under scrip --dap; its output shows in the REPL window this opens.
 local ok, dap = pcall(require, 'dap')
 if ok then
@@ -25,4 +42,5 @@ if ok then
   vim.keymap.set('n', '<F9>', function() dap.toggle_breakpoint() end, { desc = 'SCRIP: toggle a breakpoint' })
   vim.keymap.set('n', '<F10>', function() dap.step_over() end, { desc = 'SCRIP: step over' })
   vim.keymap.set('n', '<F11>', function() dap.step_into() end, { desc = 'SCRIP: step into' })
+  vim.keymap.set('n', '<F7>', function() require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).open() end, { desc = 'SCRIP: the variables of the stop' })
 end

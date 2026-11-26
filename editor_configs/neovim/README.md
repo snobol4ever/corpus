@@ -4,7 +4,10 @@ One file, `init.lua`, sets up Neovim 0.11 or newer for every language of SCRIP:
 
 - **The language server**, `scrip --lsp`, attached to SNOBOL4, Snocone, Rebus, Icon, Prolog, Pascal, Raku and SCRIPtix (`.md`): diagnostics at the line and with the message `scrip --check` names.
 - **The file types Neovim gets wrong or does not know**: `.pl` is Prolog (Neovim reads it as Perl), `.sc` Snocone, `.reb` Rebus, `.sno` and `.spt` SNOBOL4, `.icn` Icon, `.raku` and `.rakumod` Raku.
-- **The debugger**, `scrip --dap`, through [nvim-dap](https://github.com/mfussenegger/nvim-dap): `dap.adapters.scrip` and one launch configuration, `SCRIP: run the current file`, for each language. `F5` runs or continues, `F9` toggles a breakpoint, `F10` steps over, `F11` steps into; the program's output shows in the REPL window.
+- **The run**, `scrip --run`: `F6` (or `:ScripRun`) saves the file and runs it in a terminal split below the window; the program's output shows there. Press `Ctrl-\ Ctrl-n` to leave the terminal for the buffer.
+- **Going to a definition**: `gd` on a name, on a server-attached buffer.
+- **Completion** is offered while typing, as the server answers it.
+- **The debugger**, `scrip --dap`, through [nvim-dap](https://github.com/mfussenegger/nvim-dap): `dap.adapters.scrip` and one launch configuration, `SCRIP: run the current file`, for each language. `F5` runs or continues, `F9` toggles a breakpoint, `F10` steps over, `F11` steps into, `F7` opens the variables of the stop; the program's output shows in the REPL window.
 
 The `scrip` that runs is the first one on `PATH`, else `/home/install/bin/scrip`.
 
