@@ -68,3 +68,10 @@ procs/iscreen.icn	same-code
 procs/itlib.icn	same-code
 mprocs/syntname.icn	same-code
 mincl/patdefs.icn	verbatim
+procs/datefns.icn	same-code
+procs/fastfncs.icn	same-code
+procs/genrfncs.icn	same-code
+procs/memrfncs.icn	same-code
+procs/partit.icn	same-code
+procs/periodic.icn	same-code
+procs/polynom.icn	same-code
