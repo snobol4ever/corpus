@@ -23,6 +23,28 @@ extends: Packages/Markdown/Markdown.sublime-syntax
 file_extensions:
   - md
 
+variables:
+  # Two variables this file's contexts use were the Markdown syntax's of Sublime build 4200 and are not in the installed
+  # Markdown of build 4215 (Sublime's console: "missing variable fenced_code_block_trailing_infostring_characters"; the syntax
+  # then fails to load, its scope is text.plain, and no language server attaches). Each is written here as the 4215 rule of the
+  # same job: the end of a fence (the escape, as Markdown's fenced_code_block_end) and the rest of a fence's opening line
+  # (the language name's break, then the infostring to the end of the line, which the embed starts after).
+  fenced_code_block_escape: |-
+    (?x:
+      [ \t]*
+      (
+        \1
+        (?:(?:\2)*|(?:\3)*)
+      )
+      (\s*$\n?)
+    )
+  fenced_code_block_trailing_infostring_characters: |-
+    (?x:
+      (?=[ \t\n;:{]|$)
+      ([^\n]*)
+      \n?
+    )
+
 contexts:
 
   fenced-syntaxes:
