@@ -55,3 +55,5 @@ Solve-a-Numbrix-puzzle/1.icn: NEEDS-INPUT: its answer changes with what standard
 Stack-traces/1.icn: ORACLE-REFUSES: unicon does not translate it: 1.icn:3: # "procedure" Unable to import (1) package "Utils"
 Stack-traces/2.icn: LIBRARY: no procedure main
 Yahoo-search-interface/1.icn: NEEDS-NETWORK: the source names open(url,"m"
+DNS-query/1.icn: NEEDS-NETWORK: the source names gethost( A[1] | "www.kame.net") (its stored answer is the address the network gave on the day of the cut; declared by the chairman census row unicon-rosetta-live-dns-query-and-https-are-network-programs-and-are-declared-so, 2026-11-26; Lon 2026-11-17: "Do not worry about network programs. Just exclude them.")
+HTTPS/1.icn: NEEDS-NETWORK: the source names open(url, "m-") with url "https://sourceforge.net/" (its stored answer is the 400 Bad Request page the network gave on the day of the cut; declared by the chairman census row unicon-rosetta-live-dns-query-and-https-are-network-programs-and-are-declared-so, 2026-11-26; Lon 2026-11-17: "Do not worry about network programs. Just exclude them.")
