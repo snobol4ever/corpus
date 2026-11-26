@@ -1,4 +1,4 @@
-q('day12a(X).', 3).
-day12a(X).
-q('day12b(X).', 3).
-day12b(X).
+q('day12:day12a(X).', 3).
+day12:day12a(X).
+q('day12:day12b(X).', 3).
+day12:day12b(X).

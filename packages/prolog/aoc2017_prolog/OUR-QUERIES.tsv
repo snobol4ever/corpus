@@ -21,8 +21,8 @@ day10.pl	day10a(X).
 day10.pl	day10b(X).
 day11.pl	day11a(X).
 day11.pl	day11b(X).
-day12.pl	day12a(X).
-day12.pl	day12b(X).
+day12.pl	day12:day12a(X).
+day12.pl	day12:day12b(X).
 day13.pl	day13a(X).
 day13.pl	day13b(X).
 day14.pl	day14a(X).

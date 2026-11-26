@@ -21,8 +21,8 @@ day10.pl	1	ASK3	day10a(X).
 day10.pl	2	ASK3	day10b(X).
 day11.pl	1	ASK3	day11a(X).
 day11.pl	2	ASK3	day11b(X).
-day12.pl	1	ASK3	day12a(X).
-day12.pl	2	ASK3	day12b(X).
+day12.pl	1	ASK3	day12:day12a(X).
+day12.pl	2	ASK3	day12:day12b(X).
 day13.pl	1	ASK3	day13a(X).
 day13.pl	2	ASK3	day13b(X).
 day14.pl	1	OUT-HANG	day14a(X).

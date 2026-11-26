@@ -1,4 +1,4 @@
-?- day12a(X).
-raised(existence_error(procedure,day12a/1))
-?- day12b(X).
-raised(existence_error(procedure,day12b/1))
+?- day12:day12a(X).
+X = 175
+?- day12:day12b(X).
+X = 213
