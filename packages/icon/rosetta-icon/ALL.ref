@@ -56222,9 +56222,26 @@ Traceback:
 main()
 set("ABCD") from line 4 in find-the-missing-permutation-3.icn
 #---------------------------------------------------------- 498 find-uri-in-text
-File find-uri-in-text.icn; Line 16 # "end": missing semicolon or operator
-File find-uri-in-text.icn; Line 82 # "end": missing semicolon or operator
-File find-uri-in-text.icn; Line 133 # "end": missing semicolon or operator
+stop:
+http://en.wikipedia.org/wiki/Erich_K
+http://mediawiki.org/).
+http://mediawiki.org/)
+http://mediawiki.org/
+parser:
+http://en.wikipedia.org/wiki/-)
+http://en.wikipedia.org/wiki/-
+ftp://domain.name/path(balanced_brackets)/foo.html
+ftp://domain.name/path(balanced_brackets)/ending.in.dot.
+ftp://domain.name/path(balanced_brackets)/ending.in.dot
+ftp://domain.name/path(unbalanced_brackets/ending.in.dot.
+ftp://domain.name/path(unbalanced_brackets/ending.in.dot
+ftp://domain.name/path/embedded?punct/uation.
+ftp://domain.name/path/embedded?punct/uation
+ftp://domain.name/dangling_close_paren)
+ftp://domain.name/dangling_close_paren
+here:
+foo://domain.hld/))))
+foo://domain.hld/
 #----------------------------- 499 first-class-functions-use-numbers-analogously
 File first-class-functions-use-numbers-analogously.icn; Line 1 # "import": invalid declaration
 File first-class-functions-use-numbers-analogously.icn; Line 5 # "every": missing semicolon or operator
