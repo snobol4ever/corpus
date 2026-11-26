@@ -13,18 +13,18 @@
 {"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
 {"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
 {"at": [2, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
-{"at": [2, 8, 30], "act": "references", "expect": {"places": [[0, 2, 10], [1, 7, 10], [2, 8, 30]]}}
+{"at": [2, 8, 30], "act": "references", "expect": {"places": [[1, 7, 10], [2, 8, 30]], "declaration": [0, 2, 10]}}
 {"at": [2, 8, 30], "act": "highlight", "expect": {"places": [[0, 2, 10, "write"], [1, 7, 10, "read"], [2, 8, 30, "read"]]}}
-{"at": [2, 9, 36], "act": "references", "expect": {"places": [[1, 1, 10], [2, 9, 36]]}}
+{"at": [2, 9, 36], "act": "references", "expect": {"places": [[2, 9, 36]], "declaration": [1, 1, 10]}}
 {"at": [2, 9, 36], "act": "highlight", "expect": {"places": [[1, 1, 10, "write"], [2, 9, 36, "read"]]}}
-{"at": [1, 12, 10], "act": "references", "expect": {"places": [[1, 2, 9], [1, 5, 3], [1, 6, 9], [1, 7, 18], [1, 10, 13], [1, 12, 5], [1, 12, 10]]}}
+{"at": [1, 12, 10], "act": "references", "expect": {"places": [[1, 5, 3], [1, 6, 9], [1, 7, 18], [1, 10, 13], [1, 12, 5], [1, 12, 10]], "declaration": [1, 2, 9]}}
 {"at": [1, 12, 10], "act": "highlight", "expect": {"places": [[1, 2, 9, "write"], [1, 5, 3, "write"], [1, 6, 9, "read"], [1, 7, 18, "read"], [1, 10, 13, "read"], [1, 12, 5, "write"], [1, 12, 10, "read"]]}}
 {"at": [1, 7, 18], "act": "signature", "expect": {"label": "collatz(n)", "active": 0}}
 {"at": [2, 9, 44], "act": "signature", "expect": {"label": "longest(limit)", "active": 0}}
 {"at": [0, 2, 10], "act": "rename", "new": "collatz2", "expect": {"cells": ["# Collatz and Hanoi: loops and recursion\nfunction collatz2(n)\n  local steps\n  steps := 0\n  while n ~= 1 do {\n    if n % 2 = 0 then n := n / 2 else n := 3 * n + 1\n    steps := steps + 1\n  }\n  return steps\nend", "function longest(limit)\n  local i, best, bi, c\n  best := 0\n  bi := 1\n  i := 1\n  while i <= limit do {\n    c := collatz2(i)\n    if c > best then {\n      best := c\n      bi := i\n    }\n    i := i + 1\n  }\n  return bi\nend", "%%rebus\nfunction hanoi(n, src, dst, via)\n  if n = 0 then return 0\n  return hanoi(n - 1, src, via, dst) + 1 + hanoi(n - 1, via, dst, src)\nend\n\nfunction main()\n  OUTPUT := \"collatz 27 \" || collatz2(27)\n  OUTPUT := \"longest under 30 \" || longest(30)\n  OUTPUT := \"hanoi 5 \" || hanoi(5, \"a\", \"c\", \"b\")\nend"]}}
 {"at": [1, 2, 9], "act": "rename", "new": "i2", "expect": {"cells": ["# Collatz and Hanoi: loops and recursion\nfunction collatz(n)\n  local steps\n  steps := 0\n  while n ~= 1 do {\n    if n % 2 = 0 then n := n / 2 else n := 3 * n + 1\n    steps := steps + 1\n  }\n  return steps\nend", "function longest(limit)\n  local i2, best, bi, c\n  best := 0\n  bi := 1\n  i2 := 1\n  while i2 <= limit do {\n    c := collatz(i2)\n    if c > best then {\n      best := c\n      bi := i2\n    }\n    i2 := i2 + 1\n  }\n  return bi\nend", "%%rebus\nfunction hanoi(n, src, dst, via)\n  if n = 0 then return 0\n  return hanoi(n - 1, src, via, dst) + 1 + hanoi(n - 1, via, dst, src)\nend\n\nfunction main()\n  OUTPUT := \"collatz 27 \" || collatz(27)\n  OUTPUT := \"longest under 30 \" || longest(30)\n  OUTPUT := \"hanoi 5 \" || hanoi(5, \"a\", \"c\", \"b\")\nend"]}}
 {"at": [0, 9, 3], "act": "rename", "new": "give", "expect": {"refused": true}}
-{"act": "outline", "expect": {"symbols": [["collatz", "Function", 0, 2, null], ["longest", "Function", 1, 1, null], ["hanoi", "Function", 2, 2, null], ["main", "Function", 2, 7, null]]}}
+{"act": "outline", "expect": {"items": [["collatz", 0], ["n", 1], ["steps", 1], ["longest", 0], ["limit", 1], ["i", 1], ["best", 1], ["bi", 1], ["c", 1], ["hanoi", 0], ["n", 1], ["src", 1], ["dst", 1], ["via", 1], ["main", 0]]}}
 {"at": [0, 2, 1], "act": "colouring", "expect": {"class": "keyword"}}
 {"at": [0, 9, 3], "act": "colouring", "expect": {"class": "keyword"}}
 {"at": [2, 8, 13], "act": "colouring", "expect": {"class": "string"}}

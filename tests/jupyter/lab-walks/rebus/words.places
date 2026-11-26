@@ -14,18 +14,18 @@
 {"at": [0, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
 {"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
 {"at": [2, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
-{"at": [2, 3, 13], "act": "references", "expect": {"places": [[0, 2, 10], [1, 2, 11], [2, 3, 13]]}}
+{"at": [2, 3, 13], "act": "references", "expect": {"places": [[1, 2, 11], [2, 3, 13]], "declaration": [0, 2, 10]}}
 {"at": [2, 3, 13], "act": "highlight", "expect": {"places": [[0, 2, 10, "write"], [1, 2, 11, "read"], [2, 3, 13, "read"]]}}
-{"at": [2, 6, 6], "act": "references", "expect": {"places": [[1, 1, 10], [2, 5, 6], [2, 6, 6]]}}
+{"at": [2, 6, 6], "act": "references", "expect": {"places": [[2, 5, 6], [2, 6, 6]], "declaration": [1, 1, 10]}}
 {"at": [2, 6, 6], "act": "highlight", "expect": {"places": [[1, 1, 10, "write"], [2, 5, 6, "read"], [2, 6, 6, "read"]]}}
-{"at": [1, 22, 10], "act": "references", "expect": {"places": [[1, 16, 9], [1, 18, 3], [1, 19, 9], [1, 20, 20], [1, 22, 5], [1, 22, 10]]}}
+{"at": [1, 22, 10], "act": "references", "expect": {"places": [[1, 18, 3], [1, 19, 9], [1, 20, 20], [1, 22, 5], [1, 22, 10]], "declaration": [1, 16, 9]}}
 {"at": [1, 22, 10], "act": "highlight", "expect": {"places": [[1, 16, 9, "write"], [1, 18, 3, "write"], [1, 19, 9, "read"], [1, 20, 20, "read"], [1, 22, 5, "write"], [1, 22, 10, "read"]]}}
 {"at": [1, 2, 15], "act": "signature", "expect": {"label": "rev(s)", "active": 0}}
 {"at": [2, 5, 12], "act": "signature", "expect": {"label": "ispal(s)", "active": 0}}
 {"at": [0, 2, 10], "act": "rename", "new": "rev2", "expect": {"cells": ["# Words: reverse, palindromes and vowels\nfunction rev2(s)\n  local i, r\n  r := \"\"\n  i := size(s)\n  while i >= 1 do {\n    r := r || SUBSTR(s, i, 1)\n    i := i - 1\n  }\n  return r\nend", "function ispal(s)\n  if s == rev2(s) then return s\n  fail\nend\n\nfunction isvowel(c)\n  if c == \"a\" then return 1\n  if c == \"e\" then return 1\n  if c == \"i\" then return 1\n  if c == \"o\" then return 1\n  if c == \"u\" then return 1\n  fail\nend\n\nfunction vowels(s)\n  local i, n, c\n  n := 0\n  i := 1\n  while i <= size(s) do {\n    c := SUBSTR(s, i, 1)\n    if isvowel(c) then n := n + 1\n    i := i + 1\n  }\n  return n\nend", "%%rebus\nfunction main()\n  OUTPUT := rev2(\"stressed\")\n  OUTPUT := vowels(\"encyclopedia\")\n  if ispal(\"level\") then OUTPUT := \"level yes\"\n  if ispal(\"scrip\") then OUTPUT := \"scrip yes\" else OUTPUT := \"scrip no\"\nend"]}}
 {"at": [1, 16, 9], "act": "rename", "new": "i2", "expect": {"cells": ["# Words: reverse, palindromes and vowels\nfunction rev(s)\n  local i, r\n  r := \"\"\n  i := size(s)\n  while i >= 1 do {\n    r := r || SUBSTR(s, i, 1)\n    i := i - 1\n  }\n  return r\nend", "function ispal(s)\n  if s == rev(s) then return s\n  fail\nend\n\nfunction isvowel(c)\n  if c == \"a\" then return 1\n  if c == \"e\" then return 1\n  if c == \"i\" then return 1\n  if c == \"o\" then return 1\n  if c == \"u\" then return 1\n  fail\nend\n\nfunction vowels(s)\n  local i2, n, c\n  n := 0\n  i2 := 1\n  while i2 <= size(s) do {\n    c := SUBSTR(s, i2, 1)\n    if isvowel(c) then n := n + 1\n    i2 := i2 + 1\n  }\n  return n\nend", "%%rebus\nfunction main()\n  OUTPUT := rev(\"stressed\")\n  OUTPUT := vowels(\"encyclopedia\")\n  if ispal(\"level\") then OUTPUT := \"level yes\"\n  if ispal(\"scrip\") then OUTPUT := \"scrip yes\" else OUTPUT := \"scrip no\"\nend"]}}
 {"at": [0, 10, 3], "act": "rename", "new": "give", "expect": {"refused": true}}
-{"act": "outline", "expect": {"symbols": [["rev", "Function", 0, 2, null], ["ispal", "Function", 1, 1, null], ["isvowel", "Function", 1, 6, null], ["vowels", "Function", 1, 15, null], ["main", "Function", 2, 2, null]]}}
+{"act": "outline", "expect": {"items": [["rev", 0], ["s", 1], ["i", 1], ["r", 1], ["ispal", 0], ["s", 1], ["isvowel", 0], ["c", 1], ["vowels", 0], ["s", 1], ["i", 1], ["n", 1], ["c", 1], ["main", 0]]}}
 {"at": [0, 2, 1], "act": "colouring", "expect": {"class": "keyword"}}
 {"at": [0, 10, 3], "act": "colouring", "expect": {"class": "keyword"}}
 {"at": [0, 4, 8], "act": "colouring", "expect": {"class": "string"}}
