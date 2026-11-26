@@ -1,6 +1,6 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=2876 features=43 ubiquitous=1(package) distinctive=42 core=30 clusters=192 chunks=29 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,46
+# shape: entries=2875 features=43 ubiquitous=1(package) distinctive=42 core=30 clusters=191 chunks=29 sizes=100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,100,45
 entry	part	cluster	shells
 1brc	chunk:23	feat:REM	CONVERT DEFINE LEN REM SIZE TABLE TRIM arith cond_assign keyword_ref
 SourceLines001	chunk:28	family:SourceLines	
@@ -684,7 +684,6 @@ CorpusRef_Builtins__TEST_Builtin_indirect_basic	chunk:12	feat:goto_fail	goto_fai
 CorpusRef_Builtins__TEST_Builtin_indirect_string_name_of_integer_value	chunk:17	feat:indirect_ref	goto_fail indirect_ref
 CorpusRef_Builtins__TEST_Builtin_indirect_via_namevar	chunk:17	feat:indirect_ref	goto_fail indirect_ref
 CorpusRef_Builtins__TEST_Builtin_value_as_data_field_still_defines	chunk:28	family:CorpusRef_Builtins__TEST_Builtin_value_as_data_field_still_defines	
-CorpusRef_Builtins__TEST_Builtin_value_is_undefined_22	chunk:28	family:CorpusRef_Builtins__TEST_Builtin_value_is_undefined	
 CorpusRef_Capture__TEST_Corpus_capture_any_into_var	chunk:18	feat:ANY	ANY cond_assign
 CorpusRef_Capture__TEST_Corpus_capture_arb_between	chunk:25	feat:ARB	ARB cond_assign
 CorpusRef_Capture__TEST_Corpus_capture_break_into_var	chunk:25	feat:BREAK	BREAK cond_assign
@@ -1323,7 +1322,7 @@ GotoErrors__TEST_GotoErrors_a_computed_goto_with_errlimit_is_followed_by_332__4	
 GotoErrors__TEST_GotoErrors_a_computed_goto_with_errlimit_is_followed_by_332__5	chunk:17	feat:indirect_ref	indirect_ref keyword_ref
 GotoErrors__TEST_GotoErrors_a_goto_to_an_undefined_label_is_38_and_ends_the_run_whatever_errlimit_allows	chunk:28	family:GotoErrors__TEST_GotoErrors_a_goto_to_an_undefined_label_is__and_ends_the_run_whatever_errlimit_allows	
 GotoErrors__TEST_GotoErrors_a_goto_to_an_undefined_label_is_38_and_ends_the_run_whatever_errlimit_allows__2	chunk:16	feat:keyword_ref	keyword_ref
-GotoErrors__TEST_GotoErrors_return_outside_a_function_is_242	chunk:29	family:GotoErrors__TEST_GotoErrors_return_outside_a_function_is	
+GotoErrors__TEST_GotoErrors_return_outside_a_function_is_242	chunk:28	family:GotoErrors__TEST_GotoErrors_return_outside_a_function_is	
 GotoErrors__TEST_GotoErrors_return_outside_a_function_is_242__2	chunk:16	feat:keyword_ref	keyword_ref
 GotoErrors__TEST_GotoErrors_return_outside_a_function_is_242__3	chunk:16	feat:keyword_ref	keyword_ref
 GotoTargets__TEST_GotoTargets_a_second_goto_is_judged_too	chunk:01	feat:want_rc	goto_success want_rc
