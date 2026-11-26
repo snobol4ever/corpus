@@ -23059,11 +23059,11 @@ dump of keyword values
 ```SNOBOL4
 -INCLUDE 'corpus/gimpel/SNOBOL4/BSORT.INC'
         A = ARRAY(5)
-        A<1> = 'dog'
-        A<2> = 'cat'
-        A<3> = 'ant'
-        A<4> = 'bee'
-        A<5> = 'emu'
+        A[1] = 'dog'
+        A[2] = 'cat'
+        A[3] = 'ant'
+        A[4] = 'bee'
+        A[5] = 'emu'
         BSORT(A,1,5)
      END
 ```
@@ -24174,12 +24174,12 @@ dump of keyword values
 ```SNOBOL4
 -INCLUDE 'corpus/gimpel/SNOBOL4/HSORT.INC'
         A = ARRAY(6)
-        A<1> = 'fox'
-        A<2> = 'ant'
-        A<3> = 'zoo'
-        A<4> = 'bee'
-        A<5> = 'cat'
-        A<6> = 'dog'
+        A[1] = 'fox'
+        A[2] = 'ant'
+        A[3] = 'zoo'
+        A[4] = 'bee'
+        A[5] = 'cat'
+        A[6] = 'dog'
         HSORT(A,1,6)
      END
 ```
@@ -65245,8 +65245,8 @@ dump of keyword values
 
 ```SNOBOL4
         A = TABLE()
-        A<'hello'> = 'world'
-        r1 = A<'hello'>
+        A['hello'] = 'world'
+        r1 = A['hello']
 end
 ```
 
