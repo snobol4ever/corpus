@@ -30,7 +30,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 29,serialise,serialise.pl,swi_bench__serialise,swi_bench,44,0,131072,4096,120,,swi
 30,sieve,sieve.pl,swi_bench__sieve,swi_bench,49,0,131072,4096,120,,swi
 31,simple_analyzer,simple_analyzer.pl,swi_bench__simple_analyzer,swi_bench,481,0,131072,4096,120,,swi
-32,tak,tak.pl,swi_bench__tak,swi_bench,25,0,131072,4096,120,,swi
+32,tak,tak.pl,swi_bench__tak,swi_bench,25,0,131072,65536,120,,swi
 33,times10,times10.pl,swi_bench__times10,swi_bench,38,0,131072,4096,120,,swi
 34,unify,unify.pl,swi_bench__unify,swi_bench,158,0,131072,4096,120,,swi
 35,zebra,zebra.pl,swi_bench__zebra,swi_bench,46,0,131072,4096,120,,swi
