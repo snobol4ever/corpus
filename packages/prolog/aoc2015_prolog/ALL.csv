@@ -1,7 +1,7 @@
 rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compile_args,dialect
 1,day1,day1.pl,aoc2015_prolog__day1,aoc2015_prolog,18,0,131072,4096,120,,swi
 2,day13,day13.pl,aoc2015_prolog__day13,aoc2015_prolog,62,0,131072,4096,120,,swi
-3,day14,day14.pl,aoc2015_prolog__day14,aoc2015_prolog,99,0,131072,4096,120,,swi
+3,day14,day14.pl,aoc2015_prolog__day14,aoc2015_prolog,99,0,131072,65536,120,,swi
 4,day16,day16.pl,aoc2015_prolog__day16,aoc2015_prolog,45,0,131072,4096,120,,swi
 5,day17,day17.pl,aoc2015_prolog__day17,aoc2015_prolog,62,0,131072,4096,120,,swi
 6,day19,day19.pl,aoc2015_prolog__day19,aoc2015_prolog,49,0,131072,4096,120,,swi
