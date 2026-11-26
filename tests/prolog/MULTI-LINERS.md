@@ -4177,6 +4177,27 @@ main :- format(codes(C), "~w", [hi]), write(C), nl.
 [104,105]
 ```
 
+## arithmetic_over_a_list
+
+```Prolog
+t(G) :- catch((G, write(yes(G))), error(E, _), write(raised(E))), nl.
+main :- t(_ is [1+2]), t(_ is [a,b]), t(_ is []), t(_ is [_]), t(_ is [x]), t(_ is [0'a]), t(_ is [[3]]), t(1 < [a,b,c]), t(_ is foo), t(_ is [1]+[2]).
+:- initialization(main).
+```
+
+```stdout
+raised(type_error(character,1+2))
+raised(type_error([],[a,b]))
+raised(type_error(evaluable,[]))
+raised(instantiation_error)
+yes(120 is [x])
+yes(97 is [97])
+raised(type_error(character,[3]))
+raised(type_error([],[a,b,c]))
+raised(type_error(evaluable,foo/0))
+yes(3 is [1]+[2])
+```
+
 ## assert_assertz_fact_1
 
 ```Prolog
