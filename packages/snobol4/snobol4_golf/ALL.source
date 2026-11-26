@@ -1,4 +1,4 @@
 root	/home/packages/snobol4/snobol4_golf
-origin	Anarchy Golf (http://golf.shinh.org), every revealed SNOBOL solution, one folder a problem, <problem>/<user>.sno, with the problem's tests (tests.json) and its first test's input (input.txt), fetched by /home/packages/tools/golf_fetch.py
+origin	Anarchy Golf (http://golf.shinh.org), every revealed SNOBOL solution, one folder a problem, <problem>/<user>.sno, with the problem's tests (tests.json) and its first test's input (input.txt), fetched by /home/packages/tools/golf_fetch.py; A005836/clock_1362065342.sno converted IN PLACE 2026-11-25: its two angle-bracket subscripts A<..> written A[..], one character for one (skill snobol4 section 7, Lon 2026-11-14); the answer stays sbl's ERROR 029 at line 1 (the unary = of =ARRAY), unchanged
 version	fetched 2026-11-18 (112 problems, 147 solutions)
 licence	none stated by the site; read in place, only the tables and the answers stored here
