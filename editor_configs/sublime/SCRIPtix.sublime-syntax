@@ -9,8 +9,8 @@
 # SCRIP language to Markdown's fenced-code-blocks context: the opening fence's NAME picks the language, `embed: scope:...` hands the
 # body to that language's own syntax file, and the closing fence hands control back. The names are the ones SCRIP's polyglot
 # splitter reads (SCRIP's polyglot reader, case-sensitive): SNOBOL4 (and SCRIP / Scrip, which it reads as SNOBOL4), Icon, Prolog,
-# Raku, Rebus; Snocone and Pascal are highlighted ahead of the compiler. Raku and Rebus have no Sublime syntax yet, so their
-# fences stay Markdown's plain raw blocks. Captures follow Markdown's own fenced-python context (Sublime build 4200).
+# Raku, Rebus; Snocone and Pascal are highlighted ahead of the compiler. Raku and Rebus have Sublime syntaxes in this directory
+# (Raku.sublime-syntax, Rebus.sublime-syntax), embedded the same way. Captures follow Markdown's own fenced-python context (Sublime build 4200).
 # Each fence embeds a scriptix-<lang>-lines context, not the language's main directly: SNOBOL4.sublime-syntax ends a comment line
 # by popping (its terminator sets line_comment, which pops at end of line), which in a stand-alone .sno file restarts main, but
 # inside an embed empties the stack and ends the embedded syntax after the first line (Lon 2026-10-02: "The SNOBOL4 snippet only
@@ -57,6 +57,8 @@ contexts:
     - include: fenced-scriptix-icon
     - include: fenced-scriptix-prolog
     - include: fenced-scriptix-pascal
+    - include: fenced-scriptix-raku
+    - include: fenced-scriptix-rebus
 
   # SNOBOL4: SNOBOL4.sublime-syntax in this directory
   fenced-scriptix-snobol4:
@@ -178,6 +180,54 @@ contexts:
         1: punctuation.definition.raw.code-fence.end.markdown
         2: meta.fold.code-fence.end.markdown
 
+  # Raku: Raku.sublime-syntax in this directory
+  fenced-scriptix-raku:
+    - match: |-
+        (?x)
+         {{fenced_code_block_start}}
+         \s*(Raku)
+         {{fenced_code_block_trailing_infostring_characters}}
+      captures:
+        0: meta.code-fence.definition.begin.markdown-gfm
+        2: punctuation.definition.raw.code-fence.begin.markdown
+        5: constant.other.language-name.markdown
+        6: comment.line.infostring.markdown
+        7: meta.fold.code-fence.begin.markdown
+      embed: scriptix-raku-lines
+      embed_scope:
+        meta.code-fence.body.markdown-gfm
+        markup.raw.code-fence.raku.markdown-gfm
+        source.raku
+      escape: '{{fenced_code_block_escape}}'
+      escape_captures:
+        0: meta.code-fence.definition.end.markdown-gfm
+        1: punctuation.definition.raw.code-fence.end.markdown
+        2: meta.fold.code-fence.end.markdown
+
+  # Rebus: Rebus.sublime-syntax in this directory
+  fenced-scriptix-rebus:
+    - match: |-
+        (?x)
+         {{fenced_code_block_start}}
+         \s*(Rebus)
+         {{fenced_code_block_trailing_infostring_characters}}
+      captures:
+        0: meta.code-fence.definition.begin.markdown-gfm
+        2: punctuation.definition.raw.code-fence.begin.markdown
+        5: constant.other.language-name.markdown
+        6: comment.line.infostring.markdown
+        7: meta.fold.code-fence.begin.markdown
+      embed: scriptix-rebus-lines
+      embed_scope:
+        meta.code-fence.body.markdown-gfm
+        markup.raw.code-fence.rebus.markdown-gfm
+        source.reb
+      escape: '{{fenced_code_block_escape}}'
+      escape_captures:
+        0: meta.code-fence.definition.end.markdown-gfm
+        1: punctuation.definition.raw.code-fence.end.markdown
+        2: meta.fold.code-fence.end.markdown
+
   scriptix-snobol4-lines:
     - match: ^
       push: scope:source.sno
@@ -197,3 +247,11 @@ contexts:
   scriptix-pascal-lines:
     - match: ^
       push: scope:source.pascal
+
+  scriptix-raku-lines:
+    - match: ^
+      push: scope:source.raku
+
+  scriptix-rebus-lines:
+    - match: ^
+      push: scope:source.reb
