@@ -75,14 +75,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -109,6 +101,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\(",
@@ -222,14 +226,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -256,6 +252,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     }
    ]
   },
@@ -326,14 +334,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -360,6 +360,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\\"",
@@ -435,14 +447,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -469,6 +473,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\'",
@@ -572,14 +588,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -606,6 +614,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\(",
@@ -693,14 +713,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -727,6 +739,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\\"",
@@ -802,14 +826,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -836,6 +852,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\'",
@@ -939,14 +967,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -973,6 +993,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\(",
@@ -1242,14 +1274,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -1276,6 +1300,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\$\\'([^\\']*)\\'",
@@ -1363,14 +1399,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -1397,6 +1425,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\$\\'([^\\']*)\\'",
@@ -1490,14 +1530,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -1524,6 +1556,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\$\\'([^\\']*)\\'",
@@ -1617,14 +1661,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -1651,6 +1687,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\$\\'([^\\']*)\\'",
@@ -1725,14 +1773,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -1759,6 +1799,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\$\\'([^\\']*)\\'",
@@ -1871,14 +1923,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -1905,6 +1949,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\$\\\"([^\\\"]*)\\\"",
@@ -2019,14 +2075,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -2053,6 +2101,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     },
     {
      "match": "\\(",
@@ -2160,14 +2220,6 @@
      "scope": "variable.language.sno"
     },
     {
-     "match": "\\b\\b(NULL|TRUE|FALSE|digits)\\b\\b",
-     "scope": "constant.language.sno"
-    },
-    {
-     "match": "\\b\\b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\\b\\b",
-     "scope": "constant.character.sno"
-    },
-    {
      "match": "\\b[A-Za-z][0-9A-Z_a-z\\.]*\\b",
      "scope": "variable.other.sno"
     },
@@ -2194,6 +2246,18 @@
       "2": "keyword.operator.logical.sno"
      },
      "match": "(^|[ \\t]+)([\\?])([ \\t]+|$)"
+    },
+    {
+     "match": "@(?=[A-Za-z_])",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "[&|@#/*%~]",
+     "scope": "keyword.operator.sno"
+    },
+    {
+     "match": "(?<=[ \\t])(\\*\\*|\\+|-|\\^|!|\\$|\\.)(?=[ \\t])",
+     "scope": "keyword.operator.sno"
     }
    ]
   },

@@ -37,10 +37,6 @@ variables:
   io_variable: \b(INPUT|OUTPUT|TERMINAL)\b
   # parser_snobol4.sc:169
   pattern_variable: \b(ARB|BAL|FAIL|FENCE|REM|epsilon)\b
-  # parser_snobol4.sc:188
-  user_constant_general: \b(NULL|TRUE|FALSE|digits)\b
-  # parser_snobol4.sc:188
-  user_constant_character: \b(bSlash|bksp|bs|cr|fSlash|ff|ht|lf|nl|nul|tab|vt)\b
   # parser_snobol4.sc:166
   pattern_function: \b(ANY|ARBNO|BREAK|BREAKX|FENCE|LEN|NOTANY|POS|RPOS|RTAB|SPAN|TAB)\b
   # parser_snobol4.sc:7
@@ -155,12 +151,6 @@ contexts:
     - match: \b{{pattern_variable}}\b  # parser_snobol4.sc:169 parser_snobol4.sc:172
       scope: variable.language.sno # (orange slanted) storage.type.sno (blue slanted)
 
-    - match: \b{{user_constant_general}}\b  # parser_snobol4.sc:188
-      scope: constant.language.sno # support.constant.sno #
-
-    - match: \b{{user_constant_character}}\b  # parser_snobol4.sc:188
-      scope: constant.character.sno # (purple) support.type.sno # (blue slanted)
-
     - match: \b{{variable}}\b  # parser_snobol4.sc:188
       scope: variable.other.sno # variable.other.sno
 
@@ -184,8 +174,19 @@ contexts:
       captures:
         2: keyword.operator.logical.sno
 
-#   - match: '[\=\?\&\|\#\/\*\%\^\!\@\~]'
-#     scope: keyword.operator.sno
+    # parser_snobol4.sc:142 Expr14: the unary cursor @ takes no blank after it (@c0 is one operator and one variable).
+    - match: '@(?=[A-Za-z_])'
+      scope: keyword.operator.sno
+
+    # parser_snobol4.sc:100-108 and 110-141: the binary operators read with no blank around them (Expr2t &, Expr3t |, Expr5 @,
+    # Expr7t #, Expr8t /, Expr9t *, Expr10t %, Expr13 ~, Expr0 = and Expr1t ?).
+    - match: '[&|@#/*%~]'
+      scope: keyword.operator.sno
+
+    # parser_snobol4.sc:100-108 and 124-141: the binary operators read with a blank on each side (Expr6t + and -, Expr11 **
+    # ^ and !, Expr12tail $ and .).
+    - match: '(?<=[ \t])(\*\*|\+|-|\^|!|\$|\.)(?=[ \t])'
+      scope: keyword.operator.sno
 
   indirect_squote_variable:
     - match: '{{indirect_squote_variable}}'  # parser_snobol4.sc:150 parser_snobol4.sc:200
