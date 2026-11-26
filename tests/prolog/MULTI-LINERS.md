@@ -1324,6 +1324,18 @@ main :- list_to_assoc([a-1, b-2], A), put_assoc(c, A, 3, B), get_assoc(c, B, V),
 3-[a,b,c]
 ```
 
+## clpqr_nonlinear__clpr_dump_nonlinear
+
+```Prolog
+:- use_module(library(clpr)).
+main :- {X * Y = 6.0}, dump([X, Y], [x, y], D), print(D), nl.
+:- initialization(main).
+```
+
+```stdout
+[-6.0+y*x=0.0]
+```
+
 ## declarations_ensure_loaded_1
 
 ```Prolog
@@ -4295,6 +4307,32 @@ main :- nl.
 
 ```stdout
 123
+```
+
+## clpqr_nonlinear__clpq_product
+
+```Prolog
+:- use_module(library(clpq)).
+main :- {X * Y = 6}, X = 2, write(Y), nl, {A * B = 12}, {A = 3}, write(B), nl.
+:- initialization(main).
+```
+
+```stdout
+3
+4
+```
+
+## clpqr_nonlinear__clpr_product
+
+```Prolog
+:- use_module(library(clpr)).
+main :- {X * Y = 6.0}, X = 2.0, write(Y), nl, {A * B = 12.0}, {A = 3.0}, write(B), nl.
+:- initialization(main).
+```
+
+```stdout
+3.0
+4.0
 ```
 
 ## copy_term_directive_1
