@@ -24388,8 +24388,7 @@ END
 dump of natural variables
 
 AGT_TT = ' 	
-
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklm
+ !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklm
 nopqrstuvwxyz{|}~������������������������������������������������������������������������������������������������������
 ��������������������������'
 LOWERS_ = 'abcdefghijklmnopqrstuvwxyz'
