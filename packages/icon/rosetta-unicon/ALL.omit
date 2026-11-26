@@ -1,2 +1,4 @@
 barnsley-fern: the oracle answers differently on two runs: it redraws until q or Esc and unicon seeds its random draw from the clock (MEASURED by the coo 2026-11-16 on the unicon graphics oracle: three md5 in three runs); its seeded one-pass form is the entry barnsley-fern-seeded
 http: oracle produced EMPTY output -- refusing to mint a vacuous ref
+rosetta-code-find-unimplemented-tasks: NEEDS-NETWORK: open(url,"m-") of the Rosetta Code API; the stored answer is the 400 Bad Request page the network gave on the day of the cut (Lon 2026-11-17: "Do not worry about network programs. Just exclude them.")
+rosetta-code-rank-languages-by-popularity: NEEDS-NETWORK: open(url,"m-") of the Rosetta Code API category; the stored answer is an empty list the network gave on the day of the cut (Lon 2026-11-17: "Do not worry about network programs. Just exclude them.")

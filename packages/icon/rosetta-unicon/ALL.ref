@@ -402,22 +402,6 @@ For deck of size 1024 it takes 10 perfect shuffles.
 For deck of size 10000 it takes 300 perfect shuffles.
 #----------------------------------------------------------- 60 polymorphic-copy
 This is S's a
-#-------------------------------------- 61 rosetta-code-find-unimplemented-tasks
-Unimplemented tasks for Unicon as of 2026/11/26
-"https://rosettacode.org/w/api.php?action=query&list=categorymembers&format=xml&cmlimit=5000&cmtitle=Category:Programming%20Tasks": 400 Bad Request
-"https://rosettacode.org/w/api.php?action=query&list=categorymembers&format=xml&cmlimit=5000&cmtitle=Category:Unicon": 400 Bad Request
-
-Run-time error 120
-File rosetta-code-find-unimplemented-tasks.icn; Line 9
-two csets, two sets, or two tables expected
-offending value: &null
-Traceback:
-   main(list_1 = [])
-   {&null -- &null} from line 9 in rosetta-code-find-unimplemented-tasks.icn
-#---------------------------------- 62 rosetta-code-rank-languages-by-popularity
-ERROR: 
- -> 
-0 languages
 #---------------------------------------------------- 63 synchronous-concurrency
 count is 0
 #--------------------------------------------- 64 take-notes-on-the-command-line
