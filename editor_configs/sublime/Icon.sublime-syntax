@@ -202,7 +202,7 @@ contexts:
     # parser_icon.sc:224 parser_icon.sc:226 -- any other Id before a parenthesis.
     - match: \b({{ident}})([ \t]*)(\()
       captures:
-        1: entity.name.function.icn
+        1: variable.function.icn
         3: punctuation.section.group.begin.icn
       push: brackets
 
@@ -465,7 +465,7 @@ contexts:
     # parser_icon.sc:224 parser_icon.sc:226 -- any other call.
     - match: \b({{ident}})([ \t]*)(\()
       captures:
-        1: entity.name.function.icn
+        1: variable.function.icn
         3: punctuation.section.group.begin.icn
       push: brackets
     # parser_icon.sc:13 -- a plain name.

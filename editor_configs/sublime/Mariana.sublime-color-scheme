@@ -61,6 +61,16 @@
             "scope": "constant.language.sno, constant.other.sno, punctuation.definition.keyword.begin.sno, punctuation.definition.variable.begin.sno",
             "foreground": "hsl(32, 93%, 66%)",
             "font_style": ""
+        },
+        {
+            // THE CALL NAMES OF ICON, REBUS AND RAKU KEEP THE FUNCTION BLUE.  The three syntaxes scope a call
+            // variable.function (Sublime's own scope for a call), so that Sublime's symbol index no longer lists
+            // a call as a definition.  Stock Mariana gives entity.name.function its blue5 = hsl(180, 36%, 54%),
+            // and the call keeps that colour here: a person sees no difference.  Scoped to the three suffixes,
+            // not to bare variable.function, which would also recolour the SNOBOL4 calls of variable.function.sno.
+            "name": "Call names of Icon, Rebus and Raku — the stock function blue",
+            "scope": "variable.function.icn, variable.function.reb, variable.function.raku",
+            "foreground": "hsl(180, 36%, 54%)"
         }
     ]
 }

@@ -21,7 +21,7 @@
 #       ^^^^^^ keyword.control.raku
 #              ^^ constant.numeric.integer.raku
     greet('world');
-#   ^^^^^ entity.name.function.call.raku
+#   ^^^^^ variable.function.raku
 #         ^^^^^^^ string.quoted.single.raku
     class Point is export { }
 #   ^^^^^ storage.type.class.raku

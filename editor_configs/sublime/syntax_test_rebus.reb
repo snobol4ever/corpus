@@ -32,7 +32,7 @@ function fact(n)
 #         ^^^^ keyword.control.reb
 #                     ^^ keyword.control.reb
     r := fact(3)
-#        ^^^^ entity.name.function.call.reb
+#        ^^^^ variable.function.reb
     q := 1. + 1e5 + 1.5e-3
 #        ^^ constant.numeric.float.reb
 #             ^^^ constant.numeric.float.reb

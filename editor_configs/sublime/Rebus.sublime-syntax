@@ -145,7 +145,7 @@ contexts:
   calls:
     # parser_rebus.sc:116 -- a name with its parenthesis touching it is a call.
     - match: '{{not_name_before}}{{id}}(?=\()'
-      scope: entity.name.function.call.reb
+      scope: variable.function.reb
 
   names:
     # parser_rebus.sc:12 -- any other name is a variable.
