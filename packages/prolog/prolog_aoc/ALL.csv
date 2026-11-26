@@ -10,7 +10,7 @@ rank,entry,path,language,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout
 9,Kim-Hammar_Advent-Of-Code16-Prolog/day11/11ab,Kim-Hammar_Advent-Of-Code16-Prolog/day11/11ab.pl,,prolog_aoc__Kim-Hammar_Advent-Of-Code16-Prolog/day11/11ab,prolog_aoc,360,0,131072,4096,60,,swi,
 10,Kim-Hammar_Advent-Of-Code16-Prolog/day13/13a,Kim-Hammar_Advent-Of-Code16-Prolog/day13/13a.pl,,prolog_aoc__Kim-Hammar_Advent-Of-Code16-Prolog/day13/13a,prolog_aoc,106,0,131072,4096,60,,swi,
 11,Kim-Hammar_Advent-Of-Code16-Prolog/day13/13b,Kim-Hammar_Advent-Of-Code16-Prolog/day13/13b.pl,,prolog_aoc__Kim-Hammar_Advent-Of-Code16-Prolog/day13/13b,prolog_aoc,119,0,131072,4096,60,,swi,
-12,Kim-Hammar_Advent-Of-Code16-Prolog/day14/14a,Kim-Hammar_Advent-Of-Code16-Prolog/day14/14a.pl,,prolog_aoc__Kim-Hammar_Advent-Of-Code16-Prolog/day14/14a,prolog_aoc,103,0,131072,4096,60,,swi,
+12,Kim-Hammar_Advent-Of-Code16-Prolog/day14/14a,Kim-Hammar_Advent-Of-Code16-Prolog/day14/14a.pl,,prolog_aoc__Kim-Hammar_Advent-Of-Code16-Prolog/day14/14a,prolog_aoc,103,0,131072,4096,120,,swi,
 13,Kim-Hammar_Advent-Of-Code16-Prolog/day15/15ab,Kim-Hammar_Advent-Of-Code16-Prolog/day15/15ab.pl,,prolog_aoc__Kim-Hammar_Advent-Of-Code16-Prolog/day15/15ab,prolog_aoc,78,0,131072,4096,60,,swi,
 14,Kim-Hammar_Advent-Of-Code16-Prolog/day17/17a,Kim-Hammar_Advent-Of-Code16-Prolog/day17/17a.pl,,prolog_aoc__Kim-Hammar_Advent-Of-Code16-Prolog/day17/17a,prolog_aoc,147,0,131072,4096,60,,swi,
 15,Kim-Hammar_Advent-Of-Code16-Prolog/day17/17b,Kim-Hammar_Advent-Of-Code16-Prolog/day17/17b.pl,,prolog_aoc__Kim-Hammar_Advent-Of-Code16-Prolog/day17/17b,prolog_aoc,134,0,131072,4096,60,,swi,
