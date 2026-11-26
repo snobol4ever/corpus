@@ -10,7 +10,7 @@ gui/guidemos/dyncomps	chunk:03	dir:gui/guidemos
 gui/guidemos/editlisttest	core	core	fixtures
 gui/guidemos/editor	chunk:03	dir:gui/guidemos	
 gui/guidemos/fillpanel	chunk:03	dir:gui/guidemos	
-gui/guidemos/getweb	chunk:03	dir:gui/guidemos	
+gui/guidemos/getweb	core	core	want_rc
 gui/guidemos/imageview	chunk:04	dir:gui/guidemos	
 gui/guidemos/leak	chunk:04	dir:gui/guidemos	
 gui/guidemos/lines	chunk:04	dir:gui/guidemos	
@@ -129,7 +129,7 @@ lib/jsonrpc_driver	chunk:01	dir:lib
 lib/label_driver	chunk:01	dir:lib	
 lib/langprocs_driver	chunk:01	dir:lib	
 lib/listener_driver	chunk:01	dir:lib	
-parser/showtree	core	core	want_rc
+parser/showtree	chunk:02	feat:want_rc	want_rc
 progs/cleanup	chunk:05	dir:progs	
 progs/complex_ex	chunk:02	feat:want_rc	want_rc
 progs/csv	chunk:05	dir:progs	
@@ -276,7 +276,7 @@ udb/internals_driver	chunk:04	dir:udb
 udb/lib/counter_deref_driver	chunk:02	feat:want_rc	want_rc
 udb/lib/counter_line_driver	chunk:02	feat:want_rc	want_rc
 udb/lib/counter_pcall_driver	chunk:02	feat:want_rc	want_rc
-udb/lib/counter_syntax_driver	chunk:02	feat:want_rc	want_rc
+udb/lib/counter_syntax_driver	chunk:03	feat:want_rc	want_rc
 udb/lib/deadvar_driver	chunk:03	feat:want_rc	want_rc
 udb/lib/failedloop_driver	chunk:03	feat:want_rc	want_rc
 udb/lib/failedsubscript_driver	chunk:03	feat:want_rc	want_rc
