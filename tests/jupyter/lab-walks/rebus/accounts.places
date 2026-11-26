@@ -17,3 +17,36 @@
 {"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
 {"at": [2, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
 {"act": "outline", "expect": {"items": [["account", 0], ["owner", 1], ["balance", 1], ["deposit", 0], ["a", 1], ["amt", 1], ["withdraw", 0], ["a", 1], ["amt", 1], ["report", 0], ["a", 1], ["transfer", 0], ["src", 1], ["dst", 1], ["amt", 1], ["main", 0], ["ann", 1], ["bob", 1]]}}
+{"at": [2, 12, 10], "act": "references", "expect": {"places": [[2, 11, 10], [2, 12, 10]], "declaration": [0, 1, 8]}}
+{"at": [2, 12, 10], "act": "highlight", "expect": {"places": [[0, 1, 8, "write"], [2, 11, 10, "read"], [2, 12, 10, "read"]]}}
+{"at": [2, 3, 5], "act": "references", "expect": {"places": [[2, 3, 5]], "declaration": [0, 3, 10]}}
+{"at": [2, 3, 5], "act": "highlight", "expect": {"places": [[0, 3, 10, "write"], [2, 3, 5, "read"]]}}
+{"at": [2, 2, 6], "act": "references", "expect": {"places": [[2, 2, 6]], "declaration": [1, 1, 10]}}
+{"at": [2, 2, 6], "act": "highlight", "expect": {"places": [[1, 1, 10, "write"], [2, 2, 6, "read"]]}}
+{"at": [2, 18, 3], "act": "references", "expect": {"places": [[2, 13, 3], [2, 14, 3], [2, 17, 3], [2, 18, 3]], "declaration": [1, 7, 10]}}
+{"at": [2, 18, 3], "act": "highlight", "expect": {"places": [[1, 7, 10, "write"], [2, 13, 3, "read"], [2, 14, 3, "read"], [2, 17, 3, "read"], [2, 18, 3, "read"]]}}
+{"at": [2, 16, 6], "act": "references", "expect": {"places": [[2, 15, 6], [2, 16, 6]], "declaration": [2, 1, 10]}}
+{"at": [2, 16, 6], "act": "highlight", "expect": {"places": [[2, 1, 10, "write"], [2, 15, 6, "read"], [2, 16, 6, "read"]]}}
+{"at": [2, 17, 10], "act": "references", "expect": {"places": [[2, 11, 3], [2, 13, 10], [2, 15, 15], [2, 16, 15], [2, 17, 10]], "declaration": [2, 10, 9]}}
+{"at": [2, 17, 10], "act": "highlight", "expect": {"places": [[2, 10, 9, "write"], [2, 11, 3, "write"], [2, 13, 10, "read"], [2, 15, 15, "read"], [2, 16, 15, "read"], [2, 17, 10, "read"]]}}
+{"at": [2, 12, 10], "act": "rename", "new": "acct", "expect": {"cells": ["record acct(owner, balance)\n\nfunction deposit(a, amt)\n  balance(a) := balance(a) + amt\n  return a\nend", "function withdraw(a, amt)\n  if amt > balance(a) then fail\n  balance(a) := balance(a) - amt\n  return a\nend\n\nfunction report(a)\n  OUTPUT := owner(a) || \" \" || balance(a)\n  return a\nend", "function transfer(src, dst, amt)\n  if withdraw(src, amt) then {\n    deposit(dst, amt)\n    return amt\n  }\n  fail\nend\n\nfunction main()\n  local ann, bob\n  ann := acct(\"ann\", 100)\n  bob := acct(\"bob\", 20)\n  report(ann)\n  report(bob)\n  if transfer(ann, bob, 70) then OUTPUT := \"moved 70\"\n  if transfer(ann, bob, 70) then OUTPUT := \"moved 70 again\" else OUTPUT := \"refused\"\n  report(ann)\n  report(bob)\nend"]}}
+{"at": [2, 3, 5], "act": "rename", "new": "put", "expect": {"cells": ["record account(owner, balance)\n\nfunction put(a, amt)\n  balance(a) := balance(a) + amt\n  return a\nend", "function withdraw(a, amt)\n  if amt > balance(a) then fail\n  balance(a) := balance(a) - amt\n  return a\nend\n\nfunction report(a)\n  OUTPUT := owner(a) || \" \" || balance(a)\n  return a\nend", "function transfer(src, dst, amt)\n  if withdraw(src, amt) then {\n    put(dst, amt)\n    return amt\n  }\n  fail\nend\n\nfunction main()\n  local ann, bob\n  ann := account(\"ann\", 100)\n  bob := account(\"bob\", 20)\n  report(ann)\n  report(bob)\n  if transfer(ann, bob, 70) then OUTPUT := \"moved 70\"\n  if transfer(ann, bob, 70) then OUTPUT := \"moved 70 again\" else OUTPUT := \"refused\"\n  report(ann)\n  report(bob)\nend"]}}
+{"at": [2, 17, 10], "act": "rename", "new": "amy", "expect": {"cells": ["record account(owner, balance)\n\nfunction deposit(a, amt)\n  balance(a) := balance(a) + amt\n  return a\nend", "function withdraw(a, amt)\n  if amt > balance(a) then fail\n  balance(a) := balance(a) - amt\n  return a\nend\n\nfunction report(a)\n  OUTPUT := owner(a) || \" \" || balance(a)\n  return a\nend", "function transfer(src, dst, amt)\n  if withdraw(src, amt) then {\n    deposit(dst, amt)\n    return amt\n  }\n  fail\nend\n\nfunction main()\n  local amy, bob\n  amy := account(\"ann\", 100)\n  bob := account(\"bob\", 20)\n  report(amy)\n  report(bob)\n  if transfer(amy, bob, 70) then OUTPUT := \"moved 70\"\n  if transfer(amy, bob, 70) then OUTPUT := \"moved 70 again\" else OUTPUT := \"refused\"\n  report(amy)\n  report(bob)\nend"]}}
+{"at": [2, 3, 13], "act": "signature", "expect": {"label": "deposit(a, amt)", "active": 0}}
+{"at": [2, 3, 18], "act": "signature", "expect": {"label": "deposit(a, amt)", "active": 1}}
+{"at": [2, 2, 15], "act": "signature", "expect": {"label": "withdraw(a, amt)", "active": 0}}
+{"at": [2, 2, 20], "act": "signature", "expect": {"label": "withdraw(a, amt)", "active": 1}}
+{"at": [2, 13, 10], "act": "signature", "expect": {"label": "report(a)", "active": 0}}
+{"at": [2, 15, 15], "act": "signature", "expect": {"label": "transfer(src, dst, amt)", "active": 0}}
+{"at": [2, 15, 20], "act": "signature", "expect": {"label": "transfer(src, dst, amt)", "active": 1}}
+{"at": [0, 3, 1], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [0, 6, 1], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [0, 5, 3], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [1, 8, 26], "act": "colouring", "expect": {"class": "string"}}
+{"at": [2, 11, 25], "act": "colouring", "expect": {"class": "number"}}
+{"at": [1, 8, 22], "act": "colouring", "expect": {"class": "operator"}}
+{"at": [0, 3, 10], "act": "colouring", "expect": {"class": "function"}}
+{"at": [0, 1, 8], "act": "colouring", "expect": {"class": "type"}}
+{"at": [2, 11, 3], "act": "colouring", "expect": {"class": "variable"}}
+{"act": "colouring", "none": "label: Rebus has no label"}
+{"act": "colouring", "none": "constant: this program writes no ampersand keyword, the one scope the Rebus grammar holds for a constant"}

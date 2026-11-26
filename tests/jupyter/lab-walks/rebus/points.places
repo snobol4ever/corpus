@@ -13,3 +13,29 @@
 {"at": [1, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
 {"at": [2, 1, 1], "act": "diagnostics", "expect": {"messages": []}}
 {"act": "outline", "expect": {"items": [["point", 0], ["x", 1], ["y", 1], ["sqdist", 0], ["p", 1], ["q", 1], ["dx", 1], ["dy", 1], ["sortpoints", 0], ["a", 1], ["n", 1], ["i", 1], ["j", 1], ["t", 1], ["main", 0], ["pts", 1], ["k", 1], ["o", 1]]}}
+{"at": [2, 8, 8], "act": "references", "expect": {"places": [[2, 4, 13], [2, 5, 13], [2, 6, 13], [2, 7, 13], [2, 8, 8]], "declaration": [0, 1, 8]}}
+{"at": [2, 8, 8], "act": "highlight", "expect": {"places": [[0, 1, 8, "write"], [2, 4, 13, "read"], [2, 5, 13, "read"], [2, 6, 13, "read"], [2, 7, 13, "read"], [2, 8, 8, "read"]]}}
+{"at": [2, 12, 55], "act": "references", "expect": {"places": [[2, 12, 55]], "declaration": [0, 3, 10]}}
+{"at": [2, 12, 55], "act": "highlight", "expect": {"places": [[0, 3, 10, "write"], [2, 12, 55, "read"]]}}
+{"at": [2, 9, 10], "act": "references", "expect": {"places": [[2, 9, 10]], "declaration": [1, 1, 10]}}
+{"at": [2, 9, 10], "act": "highlight", "expect": {"places": [[1, 1, 10, "write"], [2, 9, 10, "read"]]}}
+{"at": [0, 7, 15], "act": "references", "expect": {"places": [[0, 5, 3], [0, 7, 10], [0, 7, 15]], "declaration": [0, 4, 9]}}
+{"at": [0, 7, 15], "act": "highlight", "expect": {"places": [[0, 4, 9, "write"], [0, 5, 3, "write"], [0, 7, 10, "read"], [0, 7, 15, "read"]]}}
+{"at": [2, 8, 8], "act": "rename", "new": "pt", "expect": {"cells": ["record pt(x, y)\n\nfunction sqdist(p, q)\n  local dx, dy\n  dx := x(p) - x(q)\n  dy := y(p) - y(q)\n  return dx * dx + dy * dy\nend", "function sortpoints(a, n)\n  local i, j, t\n  i := 1\n  while i < n do {\n    j := 1\n    while j <= n - i do {\n      if x(a[j]) > x(a[j + 1]) then {\n        t := a[j]\n        a[j] := a[j + 1]\n        a[j + 1] := t\n      }\n      j := j + 1\n    }\n    i := i + 1\n  }\n  return a\nend", "function main()\n  local pts, k, o\n  pts := ARRAY(4)\n  pts[1] := pt(5, 1)\n  pts[2] := pt(2, 7)\n  pts[3] := pt(9, 3)\n  pts[4] := pt(1, 1)\n  o := pt(0, 0)\n  pts := sortpoints(pts, 4)\n  k := 1\n  while k <= 4 do {\n    OUTPUT := x(pts[k]) || \",\" || y(pts[k]) || \" \" || sqdist(pts[k], o)\n    k := k + 1\n  }\nend"]}}
+{"at": [2, 12, 55], "act": "rename", "new": "dist2", "expect": {"cells": ["record point(x, y)\n\nfunction dist2(p, q)\n  local dx, dy\n  dx := x(p) - x(q)\n  dy := y(p) - y(q)\n  return dx * dx + dy * dy\nend", "function sortpoints(a, n)\n  local i, j, t\n  i := 1\n  while i < n do {\n    j := 1\n    while j <= n - i do {\n      if x(a[j]) > x(a[j + 1]) then {\n        t := a[j]\n        a[j] := a[j + 1]\n        a[j + 1] := t\n      }\n      j := j + 1\n    }\n    i := i + 1\n  }\n  return a\nend", "function main()\n  local pts, k, o\n  pts := ARRAY(4)\n  pts[1] := point(5, 1)\n  pts[2] := point(2, 7)\n  pts[3] := point(9, 3)\n  pts[4] := point(1, 1)\n  o := point(0, 0)\n  pts := sortpoints(pts, 4)\n  k := 1\n  while k <= 4 do {\n    OUTPUT := x(pts[k]) || \",\" || y(pts[k]) || \" \" || dist2(pts[k], o)\n    k := k + 1\n  }\nend"]}}
+{"at": [0, 7, 15], "act": "rename", "new": "ddx", "expect": {"cells": ["record point(x, y)\n\nfunction sqdist(p, q)\n  local ddx, dy\n  ddx := x(p) - x(q)\n  dy := y(p) - y(q)\n  return ddx * ddx + dy * dy\nend", "function sortpoints(a, n)\n  local i, j, t\n  i := 1\n  while i < n do {\n    j := 1\n    while j <= n - i do {\n      if x(a[j]) > x(a[j + 1]) then {\n        t := a[j]\n        a[j] := a[j + 1]\n        a[j + 1] := t\n      }\n      j := j + 1\n    }\n    i := i + 1\n  }\n  return a\nend", "function main()\n  local pts, k, o\n  pts := ARRAY(4)\n  pts[1] := point(5, 1)\n  pts[2] := point(2, 7)\n  pts[3] := point(9, 3)\n  pts[4] := point(1, 1)\n  o := point(0, 0)\n  pts := sortpoints(pts, 4)\n  k := 1\n  while k <= 4 do {\n    OUTPUT := x(pts[k]) || \",\" || y(pts[k]) || \" \" || sqdist(pts[k], o)\n    k := k + 1\n  }\nend"]}}
+{"at": [2, 12, 62], "act": "signature", "expect": {"label": "sqdist(p, q)", "active": 0}}
+{"at": [2, 12, 70], "act": "signature", "expect": {"label": "sqdist(p, q)", "active": 1}}
+{"at": [2, 9, 21], "act": "signature", "expect": {"label": "sortpoints(a, n)", "active": 0}}
+{"at": [2, 9, 26], "act": "signature", "expect": {"label": "sortpoints(a, n)", "active": 1}}
+{"at": [0, 3, 1], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [0, 8, 1], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [0, 7, 3], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [2, 12, 29], "act": "colouring", "expect": {"class": "string"}}
+{"at": [1, 3, 8], "act": "colouring", "expect": {"class": "number"}}
+{"at": [0, 5, 6], "act": "colouring", "expect": {"class": "operator"}}
+{"at": [0, 3, 10], "act": "colouring", "expect": {"class": "function"}}
+{"at": [0, 1, 8], "act": "colouring", "expect": {"class": "type"}}
+{"at": [0, 5, 3], "act": "colouring", "expect": {"class": "variable"}}
+{"act": "colouring", "none": "label: Rebus has no label"}
+{"act": "colouring", "none": "constant: this program writes no ampersand keyword, the one scope the Rebus grammar holds for a constant"}
