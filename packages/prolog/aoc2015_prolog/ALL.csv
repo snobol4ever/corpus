@@ -14,4 +14,4 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 13,day3,day3.pl,aoc2015_prolog__day3,aoc2015_prolog,25,0,131072,4096,120,,swi
 14,day5,day5.pl,aoc2015_prolog__day5,aoc2015_prolog,51,0,131072,4096,120,,swi
 15,day7,day7.pl,aoc2015_prolog__day7,aoc2015_prolog,54,0,131072,4096,120,,swi
-16,day8,day8.pl,aoc2015_prolog__day8,aoc2015_prolog,41,0,131072,4096,120,,swi
+16,day8,day8.pl,aoc2015_prolog__day8,aoc2015_prolog,41,0,131072,32768,300,,swi
