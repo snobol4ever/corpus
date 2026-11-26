@@ -21,4 +21,4 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 22,Pollard-s-rho-algorithm/1,Pollard-s-rho-algorithm/1.icn,rosetta_live_unicon__Pollard-s-rho-algorithm/1,rosetta_live_unicon,28,0,131072,4096,60,,unicon
 23,Polymorphism/1,Polymorphism/1.icn,rosetta_live_unicon__Polymorphism/1,rosetta_live_unicon,63,0,131072,4096,60,,unicon
 24,Set-of-real-numbers/1,Set-of-real-numbers/1.icn,rosetta_live_unicon__Set-of-real-numbers/1,rosetta_live_unicon,100,0,131072,4096,60,,unicon
-25,Topswops/1,Topswops/1.icn,rosetta_live_unicon__Topswops/1,rosetta_live_unicon,21,0,131072,4096,60,,unicon
+25,Topswops/1,Topswops/1.icn,rosetta_live_unicon__Topswops/1,rosetta_live_unicon,21,0,131072,4096,180,,unicon
