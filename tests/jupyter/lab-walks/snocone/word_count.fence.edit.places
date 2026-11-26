@@ -1,0 +1,10 @@
+{"at": [0, 1, 1], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [0, 2, 24], "act": "colouring", "expect": {"class": "string"}}
+{"at": [0, 2, 16], "act": "colouring", "expect": {"class": "number"}}
+{"at": [1, 1, 8], "act": "colouring", "expect": {"class": "string"}}
+{"at": [2, 3, 5], "act": "colouring", "expect": {"class": "number"}}
+{"at": [2, 4, 1], "act": "colouring", "expect": {"class": "keyword"}}
+{"at": [2, 5, 44], "act": "colouring", "expect": {"class": "string"}}
+{"at": [0, 9, 10], "act": "colouring", "expect": {"class": "function"}}
+{"at": [1, 1, 1], "act": "colouring", "expect": {"class": "variable"}}
+{"at": [2, 1, 1], "act": "colouring", "expect": {"class": "tag"}}
