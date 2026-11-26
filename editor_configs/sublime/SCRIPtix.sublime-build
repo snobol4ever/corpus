@@ -1,0 +1,16 @@
+{
+//  SCRIPtix build: a SCRIPtix document (.md) runs each of its fenced programs in order by scrip, under its own language.
+//  scrip cannot run a markdown file itself, so scriptix_run.py (beside this file, in Packages/User/) takes each fence
+//  whose label names a language scrip runs, writes it to a scratch file, and runs scrip --run on it. Its output is
+//  shown in Sublime's build panel. scriptix_run.py needs python3 on PATH.
+    "cmd": ["python3", "$packages/User/scriptix_run.py", "scrip", "$file"],
+
+//  scrip prints a refusal as "at FILE:LINE" under its error line (SNOBOL4, Icon) or as "FILE:LINE: message" (Prolog);
+//  this regex takes both, so the panel's links jump to the line. A file name with a space is not linked.
+    "file_regex": "^(?:  at )?([^ :]+):([0-9]+)(?::[0-9]+)?(?:: | *$)",
+
+    "selector": "text.html.markdown.scriptix",
+    "file_patterns": ["*.md"],
+    "target": "exec",
+    "cancel": {"kill": true}
+}

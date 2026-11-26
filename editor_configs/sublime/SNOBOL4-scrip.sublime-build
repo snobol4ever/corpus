@@ -1,0 +1,15 @@
+{
+//  SNOBOL4 run by scrip (the SCRIP build, beside Lon's SPITBOL build SNOBOL4.sublime-build, which stays as it is).
+//  Output is shown in Sublime's build panel.
+//  scrip must be on PATH, or set "path" to the folder holding it.
+    "shell_cmd": "scrip --run \"$file\"",
+
+//  scrip prints a refusal as "at FILE:LINE" under its error line (SNOBOL4, Icon) or as "FILE:LINE: message" (Prolog);
+//  this regex takes both, so the panel's links jump to the line. A file name with a space is not linked.
+    "file_regex": "^(?:  at )?([^ :]+):([0-9]+)(?::[0-9]+)?(?:: | *$)",
+
+    "selector": "source.sno",
+    "file_patterns": ["*.sno", "*.spt"],
+    "target": "exec",
+    "cancel": {"kill": true}
+}

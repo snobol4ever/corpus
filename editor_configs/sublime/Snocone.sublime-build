@@ -1,36 +1,14 @@
 {
-//  Snocone build — invokes scrip on the current .sc file.  scrip is
-//  the multi-frontend driver from snobol4ever/SCRIP; build it from
-//  SCRIP's source and put it on PATH (or set "path" below).
-//
-//  Lon's Windows-flavoured SNOBOL4.sublime-build was a useful
-//  reference for the env / file_regex / cancel keys.  This Snocone
-//  build is platform-neutral: shell_cmd invokes `scrip --run` on
-//  the file Sublime is currently building, capturing stdout to
-//  $project_base_name.out for inspection.
+//  Snocone build: runs the open file by scrip; its output is shown in Sublime's build panel.
+//  scrip must be on PATH, or set "path" to the folder holding it.
+    "shell_cmd": "scrip --run \"$file\"",
 
-//  If scrip is not on PATH, set "path" to a directory containing it:
-//  "path": "/home/lon/snobol4ever/SCRIP",
-//  "path": "C:\\snobol4ever\\SCRIP",
-
-    "shell_cmd": "scrip --run \"$file\" > \"$file_base_name.out\" 2>&1",
-
-//  Snocone parser error messages come out as
-//      filename:line:col: error: message
-//  (and also as Bison's
-//      file:line.col-line.col: syntax error: ...).
-//  This regex catches the first form; a second build with a tweaked
-//  regex can be added if Bison's two-position form needs jumping to.
-    "file_regex": "^([^:]+):([0-9]+):([0-9]+): (.*)$",
+//  scrip prints a refusal as "at FILE:LINE" under its error line (SNOBOL4, Icon) or as "FILE:LINE: message" (Prolog);
+//  this regex takes both, so the panel's links jump to the line. A file name with a space is not linked.
+    "file_regex": "^(?:  at )?([^ :]+):([0-9]+)(?::[0-9]+)?(?:: | *$)",
 
     "selector": "source.sc",
     "file_patterns": ["*.sc"],
     "target": "exec",
-    "cancel": {"kill": true},
-
-//  Optional: pre-build steps if Snocone .sc files have a generated
-//  parser table or include-file dependency, the next-session can wire
-//  that up here.  For now the build is single-file: select a .sc file
-//  in the editor, hit Ctrl+B (Cmd+B on macOS), result lands in the
-//  matching .out file beside the source.
+    "cancel": {"kill": true}
 }

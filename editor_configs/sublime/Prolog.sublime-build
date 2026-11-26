@@ -1,0 +1,14 @@
+{
+//  Prolog build: runs the open file by scrip; its output is shown in Sublime's build panel.
+//  scrip must be on PATH, or set "path" to the folder holding it.
+    "shell_cmd": "scrip --run \"$file\"",
+
+//  scrip prints a refusal as "at FILE:LINE" under its error line (SNOBOL4, Icon) or as "FILE:LINE: message" (Prolog);
+//  this regex takes both, so the panel's links jump to the line. A file name with a space is not linked.
+    "file_regex": "^(?:  at )?([^ :]+):([0-9]+)(?::[0-9]+)?(?:: | *$)",
+
+    "selector": "source.pl",
+    "file_patterns": ["*.pl"],
+    "target": "exec",
+    "cancel": {"kill": true}
+}

@@ -21,7 +21,11 @@ them consistently.
 | `SNOBOL4.sublime-settings`        | Editor settings applied when SNOBOL4 syntax is active    |
 | `Snocone.sublime-settings`        | Editor settings applied when Snocone  syntax is active   |
 | `SNOBOL4.sublime-build`           | Build / run command for SNOBOL4 (Lon's local SPITBOL)    |
-| `Snocone.sublime-build`           | Build / run command for Snocone (uses `scrip --run`)  |
+| `Snocone.sublime-build`           | Build / run command for Snocone (`scrip --run`, output in the build panel) |
+| `SNOBOL4-scrip.sublime-build`     | Build / run command for SNOBOL4 by scrip, beside Lon's SPITBOL build |
+| `Rebus`, `Icon`, `Prolog`, `Pascal`, `Raku` `.sublime-build` | Build / run command of each language (`scrip --run`, output in the build panel) |
+| `SCRIPtix.sublime-build`          | Build / run command for a SCRIPtix document; runs its fenced programs through `scriptix_run.py` |
+| `scriptix_run.py`                 | The helper of `SCRIPtix.sublime-build`: runs each fence by scrip, in Packages/User |
 | `Preferences.sublime-settings`    | Global editor preferences (font size, trim trailing ws)  |
 | `DEFINE.sublime-snippet`          | `DEFINE` ↹  expansion for SNOBOL4 prototype-string form  |
 | `START.sublime-snippet`           | `START` ↹  expansion for SNOBOL4 program skeleton        |
@@ -155,12 +159,29 @@ the configured build.
   SPITBOL's `filename(line,col) : Error N…` diagnostic format and
   jumps to the offending source line on error.
 
-* **Snocone** — `Snocone.sublime-build` invokes `scrip --run` on
-  the active `.sc` file, capturing stdout/stderr to a matching
-  `.out` file alongside.  Build `scrip` from
-  SCRIP's source and put it on PATH
-  (or set the build's `path` setting).  Cross-platform; no path
-  edits needed if `scrip` is on PATH.
+* **SNOBOL4 (scrip)** — `SNOBOL4-scrip.sublime-build` runs the active
+  `.sno` file by `scrip --run`; its output is shown in Sublime's build
+  panel.  Lon's `SNOBOL4.sublime-build` (SPITBOL) is beside it and is
+  unchanged; Sublime offers both under Tools > Build With.
+
+* **Snocone** — `Snocone.sublime-build` runs the active `.sc` file by
+  `scrip --run`; its output is shown in Sublime's build panel.
+
+* **Rebus**, **Icon** (Unicon files open as Icon), **Prolog**, **Pascal**,
+  **Raku** — `Rebus`, `Icon`, `Prolog`, `Pascal` and `Raku`
+  `.sublime-build` run the active file by `scrip --run`, output in the
+  build panel.
+
+* **SCRIPtix** — `SCRIPtix.sublime-build` runs a `.md` document's
+  fenced programs in order.  scrip does not run a markdown file itself,
+  so the build calls `scriptix_run.py`, which must sit in `Packages/User/`
+  beside the builds (it is copied there with them); it writes each fence
+  whose label names a language scrip runs to a scratch file and runs
+  `scrip --run` on it.
+
+scrip must be on PATH for every build (or set the build's `path`
+setting).  The builds send nothing to a file: a refusal's
+`filename:line:col: error:` form is a link in the panel.
 
 ## Snippets
 
