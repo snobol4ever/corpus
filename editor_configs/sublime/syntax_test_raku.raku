@@ -42,7 +42,7 @@
 #                    ^^^^^^ string.regexp.raku
     say @a.elems;
 #         ^ punctuation.accessor.raku
-#          ^^^^^ entity.name.function.method.raku
+#          ^^^^^ variable.function.raku
     for @a -> $i { BEGIN { } }
 #          ^^ keyword.operator.pointy.raku
 #                  ^^^^^ keyword.control.phaser.raku

@@ -281,12 +281,12 @@ contexts:
     - match: '(?<=[A-Za-z0-9_)\]}>])(\.\^?)({{ident}})'
       captures:
         1: punctuation.accessor.raku
-        2: entity.name.function.method.raku
+        2: variable.function.raku
     # parser_raku.sc:240 .method on the topic $_ at the start of a term
     - match: '(?<![A-Za-z0-9_)\]}>.])(\.\^?)({{ident}})'
       captures:
         1: punctuation.accessor.raku
-        2: entity.name.function.method.raku
+        2: variable.function.raku
 
   operators:
     # parser_raku.sc:225 the pointy arrow -> and the return arrow --> (signature, 209)
