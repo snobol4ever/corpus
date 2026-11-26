@@ -1,10 +1,10 @@
         R = R DIFFER(SORT(TABLE())) 'a'
         T = TABLE()
-        T<'x'> = ''
+        T['x'] = ''
         R = R DIFFER(SORT(T)) 'b'
         R = R DIFFER(RSORT(TABLE())) 'c'
-        T<'a'> = 1
-        T<'c'> = 3
+        T['a'] = 1
+        T['c'] = 3
         A = CONVERT(T,'ARRAY')
         R = R PROTOTYPE(A)
 END

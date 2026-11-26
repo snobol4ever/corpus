@@ -3065,7 +3065,7 @@ CUT
 ADDON
         WRD = WRD X                               :(RETURN)
 TRY
-        DIFFER(DICTIONARY<WRD>)                   :S(RETURN)F(FRETURN)
+        DIFFER(DICTIONARY[WRD])                   :S(RETURN)F(FRETURN)
 WORDEND.END
  DICTIONARY = TABLE(101)
  WORDS =
@@ -3074,7 +3074,7 @@ WORDEND.END
 +     'NOBLE,PATROL,'
 DICT.LOOP
        WORDS BREAK(',') . W LEN(1) =              :F(DICT.DONE)
-       DICTIONARY<W> = 1                          :(DICT.LOOP)
+       DICTIONARY[W] = 1                          :(DICT.LOOP)
 DICT.DONE
        WORDEND('DENTED')   :F(END)
        R_DENTED = WRD
@@ -3198,7 +3198,7 @@ CUT
 ADDON
         WRD = WRD X                               :(RETURN)
 TRY
-        DIFFER(DICTIONARY<WRD>)                   :S(RETURN)F(FRETURN)
+        DIFFER(DICTIONARY[WRD])                   :S(RETURN)F(FRETURN)
 WORDEND.END
  DICTIONARY = TABLE(101)
  WORDS =
@@ -3207,7 +3207,7 @@ WORDEND.END
 +     'NOBLE,PATROL,'
 DICT.LOOP
        WORDS BREAK(',') . W LEN(1) =              :F(DICT.DONE)
-       DICTIONARY<W> = 1                          :(DICT.LOOP)
+       DICTIONARY[W] = 1                          :(DICT.LOOP)
 DICT.DONE
        WORDEND('DOGS')    :F(END)
        R_DOGS = WRD
@@ -3331,7 +3331,7 @@ CUT
 ADDON
         WRD = WRD X                               :(RETURN)
 TRY
-        DIFFER(DICTIONARY<WRD>)                   :S(RETURN)F(FRETURN)
+        DIFFER(DICTIONARY[WRD])                   :S(RETURN)F(FRETURN)
 WORDEND.END
  DICTIONARY = TABLE(101)
  WORDS =
@@ -3340,7 +3340,7 @@ WORDEND.END
 +     'NOBLE,PATROL,'
 DICT.LOOP
        WORDS BREAK(',') . W LEN(1) =              :F(DICT.DONE)
-       DICTIONARY<W> = 1                          :(DICT.LOOP)
+       DICTIONARY[W] = 1                          :(DICT.LOOP)
 DICT.DONE
        WORDEND('PRETTIEST') :F(END)
        R_PRETTIEST = WRD
@@ -3461,7 +3461,7 @@ CUT
 ADDON
         WRD = WRD X                               :(RETURN)
 TRY
-        DIFFER(DICTIONARY<WRD>)                   :S(RETURN)F(FRETURN)
+        DIFFER(DICTIONARY[WRD])                   :S(RETURN)F(FRETURN)
 WORDEND.END
  DICTIONARY = TABLE(101)
  WORDS =
@@ -3470,7 +3470,7 @@ WORDEND.END
 +     'NOBLE,PATROL,'
 DICT.LOOP
        WORDS BREAK(',') . W LEN(1) =              :F(DICT.DONE)
-       DICTIONARY<W> = 1                          :(DICT.LOOP)
+       DICTIONARY[W] = 1                          :(DICT.LOOP)
 DICT.DONE
        WORDEND('LEAN')    :F(END)
        R_LEAN = WRD
@@ -3594,7 +3594,7 @@ CUT
 ADDON
         WRD = WRD X                               :(RETURN)
 TRY
-        DIFFER(DICTIONARY<WRD>)                   :S(RETURN)F(FRETURN)
+        DIFFER(DICTIONARY[WRD])                   :S(RETURN)F(FRETURN)
 WORDEND.END
  DICTIONARY = TABLE(101)
  WORDS =
@@ -3603,7 +3603,7 @@ WORDEND.END
 +     'NOBLE,PATROL,'
 DICT.LOOP
        WORDS BREAK(',') . W LEN(1) =              :F(DICT.DONE)
-       DICTIONARY<W> = 1                          :(DICT.LOOP)
+       DICTIONARY[W] = 1                          :(DICT.LOOP)
 DICT.DONE
        WORDEND('DANCING')  :F(END)
        R_DANCING = WRD
@@ -3675,26 +3675,26 @@ dump of keyword values
 HSORT
       GT(N - I,  1)                        :S(HSORT1)
       GE(I, N)                             :S(RETURN)
-      (HSORT.KO(A<I>,A<N>)   HSORT.SWAP(I,N))
+      (HSORT.KO(A[I],A[N])   HSORT.SWAP(I,N))
          :(RETURN)
 HSORT1
-      C = A<(I + N) / 2>
+      C = A[(I + N) / 2]
       J = I - 1
       K = N + 1
 HSORT2   J = J + 1
-      HSORT.OK(C,A<J>)                     :F(HSORT2)
+      HSORT.OK(C,A[J])                     :F(HSORT2)
 HSORT3   K = K - 1
-      HSORT.OK(A<K>,C)                     :F(HSORT3)
+      HSORT.OK(A[K],C)                     :F(HSORT3)
       (LT(J,K)    HSORT.SWAP(J,K))         :S(HSORT2)
       HSORT(A, I, K, P)
       HSORT(A, K + 1, N, P)                :(RETURN)
-HSORT.SWAP  T = A<I1> ; A<I1> = A<I2> ; A<I2> = T     :(RETURN)
+HSORT.SWAP  T = A[I1] ; A[I1] = A[I2] ; A[I2] = T     :(RETURN)
 HSORT.OK      APPLY(P,V1,V2)               :S(RETURN)F(FRETURN)
 HSORT.KO      APPLY(P,V1,V2)               :S(FRETURN)F(RETURN)
 HSORT.END
       A = ARRAY(2)
-      A<1> = 'Z'
-      A<2> = 'A'
+      A[1] = 'Z'
+      A[2] = 'A'
       HSORT(A, 1, 2, .LLE)
 END
 ```
@@ -3750,30 +3750,30 @@ dump of keyword values
 HSORT
       GT(N - I,  1)                        :S(HSORT1)
       GE(I, N)                             :S(RETURN)
-      (HSORT.KO(A<I>,A<N>)   HSORT.SWAP(I,N))
+      (HSORT.KO(A[I],A[N])   HSORT.SWAP(I,N))
          :(RETURN)
 HSORT1
-      C = A<(I + N) / 2>
+      C = A[(I + N) / 2]
       J = I - 1
       K = N + 1
 HSORT2   J = J + 1
-      HSORT.OK(C,A<J>)                     :F(HSORT2)
+      HSORT.OK(C,A[J])                     :F(HSORT2)
 HSORT3   K = K - 1
-      HSORT.OK(A<K>,C)                     :F(HSORT3)
+      HSORT.OK(A[K],C)                     :F(HSORT3)
       (LT(J,K)    HSORT.SWAP(J,K))         :S(HSORT2)
       HSORT(A, I, K, P)
       HSORT(A, K + 1, N, P)                :(RETURN)
-HSORT.SWAP  T = A<I1> ; A<I1> = A<I2> ; A<I2> = T     :(RETURN)
+HSORT.SWAP  T = A[I1] ; A[I1] = A[I2] ; A[I2] = T     :(RETURN)
 HSORT.OK      APPLY(P,V1,V2)               :S(RETURN)F(FRETURN)
 HSORT.KO      APPLY(P,V1,V2)               :S(FRETURN)F(RETURN)
 HSORT.END
       &TRIM = 1
       A = ARRAY(5)
-      A<1> = 'ZEBRA'
-      A<2> = 'ANT'
-      A<3> = 'CAT'
-      A<4> = 'BEE'
-      A<5> = 'DOG'
+      A[1] = 'ZEBRA'
+      A[2] = 'ANT'
+      A[3] = 'CAT'
+      A[4] = 'BEE'
+      A[5] = 'DOG'
       HSORT(A, 1, 5, .LLE)
 END
 ```
@@ -3947,28 +3947,28 @@ dump of keyword values
 HSORT
       GT(N - I,  1)                        :S(HSORT1)
       GE(I, N)                             :S(RETURN)
-      (HSORT.KO(A<I>,A<N>)   HSORT.SWAP(I,N))
+      (HSORT.KO(A[I],A[N])   HSORT.SWAP(I,N))
          :(RETURN)
 HSORT1
-      C = A<(I + N) / 2>
+      C = A[(I + N) / 2]
       J = I - 1
       K = N + 1
 HSORT2   J = J + 1
-      HSORT.OK(C,A<J>)                     :F(HSORT2)
+      HSORT.OK(C,A[J])                     :F(HSORT2)
 HSORT3   K = K - 1
-      HSORT.OK(A<K>,C)                     :F(HSORT3)
+      HSORT.OK(A[K],C)                     :F(HSORT3)
       (LT(J,K)    HSORT.SWAP(J,K))         :S(HSORT2)
       HSORT(A, I, K, P)
       HSORT(A, K + 1, N, P)                :(RETURN)
-HSORT.SWAP  T = A<I1> ; A<I1> = A<I2> ; A<I2> = T     :(RETURN)
+HSORT.SWAP  T = A[I1] ; A[I1] = A[I2] ; A[I2] = T     :(RETURN)
 HSORT.OK      APPLY(P,V1,V2)               :S(RETURN)F(FRETURN)
 HSORT.KO      APPLY(P,V1,V2)               :S(FRETURN)F(RETURN)
 HSORT.END
       A = ARRAY(4)
-      A<1> = 50
-      A<2> = 10
-      A<3> = 30
-      A<4> = 20
+      A[1] = 50
+      A[2] = 10
+      A[3] = 30
+      A[4] = 20
       HSORT(A, 1, 4, .LE)
 END
 ```
@@ -13996,8 +13996,8 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(1)
-        A<1> = 10
-        R = A<1>
+        A[1] = 10
+        R = A[1]
 end
 ```
 
@@ -14047,8 +14047,8 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(3)
-        A<3> = 30
-        R = A<3>
+        A[3] = 30
+        R = A[3]
 end
 ```
 
@@ -14098,8 +14098,8 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(2)
-        A<2> = 20
-        R = A<2>
+        A[2] = 20
+        R = A[2]
 end
 ```
 
@@ -14149,8 +14149,8 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(5)
-        A<5> = 50
-        R = A<5>
+        A[5] = 50
+        R = A[5]
 end
 ```
 
@@ -14201,10 +14201,10 @@ dump of keyword values
 ```SNOBOL4
         A = ARRAY(5)
         I = 1
-LOOP    A<I> = I * I
+LOOP    A[I] = I * I
         I = I + 1
         LE(I,5) :S(LOOP)
-        R = A<1> A<4> A<5>
+        R = A[1] A[4] A[5]
 end
 ```
 
@@ -14255,7 +14255,7 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(5)
-        R = A<3>
+        R = A[3]
 end
 ```
 
@@ -14304,8 +14304,8 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(10)
-        A<10> = 100
-        R = A<10>
+        A[10] = 100
+        R = A[10]
 end
 ```
 
@@ -23478,17 +23478,17 @@ COUNT_END
 CRACK	IDENT(B,NULL)				:S(CRACK_1)
 	S   RTAB(1) B ABORT | REM . S  =  S B
 	CRACK  =  ARRAY(COUNT(S,B))
-	PAT  =  BREAK(B) . *CRACK<I>  LEN(1)
+	PAT  =  BREAK(B) . *CRACK[I]  LEN(1)
 CRACK_2	I  =  I + 1
 	S   PAT  =				:S(CRACK_2)F(RETURN)
 CRACK_1	CRACK  =  ARRAY(SIZE(S))
-	PAT  =  LEN(1) . *CRACK<I>		:(CRACK_2)
+	PAT  =  LEN(1) . *CRACK[I]		:(CRACK_2)
 CRACK_END
 -FILE-LEAVE
         A = CRACK('A,B,C',',')
-        E1 = A<1>
-        E2 = A<2>
-        E3 = A<3>
+        E1 = A[1]
+        E2 = A[2]
+        E3 = A[3]
      END
 ```
 
@@ -24388,7 +24388,8 @@ END
 dump of natural variables
 
 AGT_TT = ' 	
- !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklm
+
+ !"#$%&'()*+,-./0123456789:;<=>?@abcdefghijklmnopqrstuvwxyz[\]^_`abcdefghijklm
 nopqrstuvwxyz{|}~������������������������������������������������������������������������������������������������������
 ��������������������������'
 LOWERS_ = 'abcdefghijklmnopqrstuvwxyz'
@@ -26782,8 +26783,8 @@ dump of keyword values
 
 ```SNOBOL4
         T = TABLE()
-        T<1> = 42
-        R = T<1>
+        T[1] = 42
+        R = T[1]
 end
 ```
 
@@ -27080,10 +27081,10 @@ dump of keyword values
 
 ```SNOBOL4
         T = TABLE()
-        T<'a'> = 1
-        T<'b'> = 2
-        T<'c'> = 3
-        R = T<'a'> T<'b'> T<'c'>
+        T['a'] = 1
+        T['b'] = 2
+        T['c'] = 3
+        R = T['a'] T['b'] T['c']
 end
 ```
 
@@ -28038,7 +28039,7 @@ dump of keyword values
 
 ```SNOBOL4
         T = TABLE()
-        R = T<'missing'>
+        R = T['missing']
 end
 ```
 
@@ -28390,9 +28391,9 @@ dump of keyword values
 
 ```SNOBOL4
         T = TABLE()
-        T<'x'> = 'first'
-        T<'x'> = 'second'
-        R = T<'x'>
+        T['x'] = 'first'
+        T['x'] = 'second'
+        R = T['x']
 end
 ```
 
@@ -30154,8 +30155,8 @@ dump of keyword values
 
 ```SNOBOL4
         T = TABLE()
-        T<'k'> = 'v'
-        R = T<'k'>
+        T['k'] = 'v'
+        R = T['k']
 end
 ```
 
@@ -30928,17 +30929,17 @@ dump of keyword values
 ```SNOBOL4
          STARS = '  ERROR DETECTED          ***'
          T = TABLE(10)
-         TEST = DIFFER(T<'CAT'>) STARS
-         T<'CAT'> = 'DOG'
-         TEST = DIFFER(T<'CAT'>,'DOG') STARS
-         T<7> = 45
-         TEST = DIFFER(T<7>,45) STARS
-         TEST = DIFFER(T<'CAT'>,'DOG') STARS
+         TEST = DIFFER(T['CAT']) STARS
+         T['CAT'] = 'DOG'
+         TEST = DIFFER(T['CAT'],'DOG') STARS
+         T[7] = 45
+         TEST = DIFFER(T[7],45) STARS
+         TEST = DIFFER(T['CAT'],'DOG') STARS
          TA = CONVERT(T,'ARRAY')
          TEST = DIFFER(PROTOTYPE(TA),'2,2') STARS
          ATA = CONVERT(TA,'TABLE')
-         TEST = DIFFER(ATA<7>,45) STARS
-         TEST = DIFFER(ATA<'CAT'>,'DOG') STARS
+         TEST = DIFFER(ATA[7],45) STARS
+         TEST = DIFFER(ATA['CAT'],'DOG') STARS
 END
 ```
 
@@ -32052,14 +32053,14 @@ dump of keyword values
          AAA = ARRAY(10)
          ITEM(AAA,1) = 5
          TEST = DIFFER(ITEM(AAA,1),5) STARS
-         TEST = DIFFER(AAA<1>,5) STARS
-         AAA<2> = 22
+         TEST = DIFFER(AAA[1],5) STARS
+         AAA[2] = 22
          TEST = DIFFER(ITEM(AAA,2),22) STARS
          AMA = ARRAY('2,2,2,2')
          ITEM(AMA,1,2,1,2) = 1212
          TEST = DIFFER(ITEM(AMA,1,2,1,2),1212) STARS
-         TEST = DIFFER(AMA<1,2,1,2>,1212) STARS
-         AMA<2,1,2,1> = 2121
+         TEST = DIFFER(AMA[1,2,1,2],1212) STARS
+         AMA[2,1,2,1] = 2121
          TEST = DIFFER(ITEM(AMA,2,1,2,1),2121) STARS
 END
 ```
@@ -32578,26 +32579,26 @@ dump of keyword values
 ```SNOBOL4
          STARS = '  ERROR DETECTED          ***'
          A = ARRAY(3)
-         TEST = DIFFER(A<1>) STARS
-         A<2> = 4.5
-         TEST = DIFFER(A<2>,4.5) STARS
-         TEST = ?A<4> STARS
-         TEST = ?A<0> STARS
+         TEST = DIFFER(A[1]) STARS
+         A[2] = 4.5
+         TEST = DIFFER(A[2],4.5) STARS
+         TEST = ?A[4] STARS
+         TEST = ?A[0] STARS
          TEST = DIFFER(PROTOTYPE(A),3) STARS
          B = ARRAY(3,10)
-         TEST = DIFFER(B<2>,10) STARS
+         TEST = DIFFER(B[2],10) STARS
          B = ARRAY('3')
-         B<2> = 'A'
-         TEST = DIFFER(B<2>,'A') STARS
+         B[2] = 'A'
+         TEST = DIFFER(B[2],'A') STARS
          C = ARRAY('2,2')
-         C<1,2> = '*'
-         TEST = DIFFER(C<1,2>,'*') STARS
+         C[1,2] = '*'
+         TEST = DIFFER(C[1,2],'*') STARS
          TEST = DIFFER(PROTOTYPE(C),'2,2') STARS
          D = ARRAY('-1:1,2')
-         D<-1,1> = 0
-         TEST = DIFFER(D<-1,1>,0) STARS
-         TEST = ?D<-2,1> STARS
-         TEST = ?D<2,1> STARS
+         D[-1,1] = 0
+         TEST = DIFFER(D[-1,1],0) STARS
+         TEST = ?D[-2,1] STARS
+         TEST = ?D[2,1] STARS
 END
 ```
 
@@ -32893,8 +32894,8 @@ dump of keyword values
          TEST = DIFFER(QQ,'X') STARS
          TEST = DIFFER($'GARBAGE') STARS
          A = ARRAY(3)
-         A<2> = 'X'
-         TEST = DIFFER($.A<2>,'X') STARS
+         A[2] = 'X'
+         TEST = DIFFER($.A[2],'X') STARS
 END
 ```
 
@@ -34276,21 +34277,21 @@ dump of keyword values
         N = 20
         A = ARRAY(20)
         I = 2
-INIT    A<I> = 1
+INIT    A[I] = 1
         I = I + 1
         LE(I,N) :S(INIT)
         I = 2
-OUTER   EQ(A<I>,0) :S(SKIP_I)
+OUTER   EQ(A[I],0) :S(SKIP_I)
         J = I * 2
 INNER   GT(J,N) :S(SKIP_I)
-        A<J> = 0
+        A[J] = 0
         J = J + I
         :(INNER)
 SKIP_I  I = I + 1
         LE(I,N) :S(OUTER)
         CNT = 0
         I = 2
-COUNT   EQ(A<I>,1) :F(CNT_SKIP)
+COUNT   EQ(A[I],1) :F(CNT_SKIP)
         CNT = CNT + 1
 CNT_SKIP I = I + 1
         LE(I,N) :S(COUNT)
@@ -34374,19 +34375,19 @@ t_worm_algorithms__t_reverse_string_recursive.sno(3,39) : ERROR 233 -- syntax er
 
 ```SNOBOL4
         A = ARRAY(5)
-        A<1> = 1
-        A<2> = 3
-        A<3> = 5
-        A<4> = 7
-        A<5> = 9
+        A[1] = 1
+        A[2] = 3
+        A[3] = 5
+        A[4] = 7
+        A[5] = 9
         TARGET = 4
         LO = 1
         HI = 5
         POS = -1
 BLOOP   GT(LO,HI) :S(BDONE)
         MID = (LO + HI) / 2
-        EQ(A<MID>,TARGET) :S(BFOUND)
-        LT(A<MID>,TARGET) :S(BHIGH)
+        EQ(A[MID],TARGET) :S(BFOUND)
+        LT(A[MID],TARGET) :S(BHIGH)
         HI = MID - 1
         :(BLOOP)
 BHIGH   LO = MID + 1
@@ -34414,20 +34415,20 @@ DONE    end
 
 ```SNOBOL4
         A = ARRAY(5)
-        A<1> = 5
-        A<2> = 3
-        A<3> = 1
-        A<4> = 4
-        A<5> = 2
+        A[1] = 5
+        A[2] = 3
+        A[3] = 1
+        A[4] = 4
+        A[5] = 2
         N = 5
         I = 1
 OUTER   J = 1
 INNER   K = J + 1
         GT(K,N) :S(NEXT_I)
-        GT(A<J>,A<K>) :F(SKIP)
-        T = A<J>
-        A<J> = A<K>
-        A<K> = T
+        GT(A[J],A[K]) :F(SKIP)
+        T = A[J]
+        A[J] = A[K]
+        A[K] = T
 SKIP    J = J + 1
         LT(J,N) :S(INNER)
 NEXT_I  I = I + 1
@@ -34603,19 +34604,19 @@ t_worm_algorithms__t_palindrome_check_true.sno(3,39) : ERROR 233 -- syntax error
 
 ```SNOBOL4
         A = ARRAY(5)
-        A<1> = 1
-        A<2> = 3
-        A<3> = 5
-        A<4> = 7
-        A<5> = 9
+        A[1] = 1
+        A[2] = 3
+        A[3] = 5
+        A[4] = 7
+        A[5] = 9
         TARGET = 7
         LO = 1
         HI = 5
         POS = -1
 BLOOP   GT(LO,HI) :S(BDONE)
         MID = (LO + HI) / 2
-        EQ(A<MID>,TARGET) :S(BFOUND)
-        LT(A<MID>,TARGET) :S(BHIGH)
+        EQ(A[MID],TARGET) :S(BFOUND)
+        LT(A[MID],TARGET) :S(BHIGH)
         HI = MID - 1
         :(BLOOP)
 BHIGH   LO = MID + 1
@@ -36972,15 +36973,15 @@ dump of keyword values
 ```SNOBOL4
         A = ARRAY(3)
         B = ARRAY(3)
-        A<1> = 1
-        A<2> = 2
-        A<3> = 3
-        B<1> = 4
-        B<2> = 5
-        B<3> = 6
+        A[1] = 1
+        A[2] = 2
+        A[3] = 3
+        B[1] = 4
+        B[2] = 5
+        B[3] = 6
         D = 0
         I = 1
-LOOP    D = D + A<I> * B<I>
+LOOP    D = D + A[I] * B[I]
         I = I + 1
         LE(I,3) :S(LOOP)
 end
@@ -37158,9 +37159,9 @@ DONE    end
 
 ```SNOBOL4
         T = TABLE()
-        T<'apple'> = 1
-        T<'banana'> = 1
-        R = T<'apple'>
+        T['apple'] = 1
+        T['banana'] = 1
+        R = T['apple']
 end
 ```
 
@@ -37457,14 +37458,14 @@ DONE    end
 
 ```SNOBOL4
         A = ARRAY(5)
-        A<1> = 1
-        A<2> = 2
-        A<3> = 3
-        A<4> = 4
-        A<5> = 5
+        A[1] = 1
+        A[2] = 2
+        A[3] = 3
+        A[4] = 4
+        A[5] = 5
         S = 0
         I = 1
-LOOP    S = S + A<I>
+LOOP    S = S + A[I]
         I = I + 1
         LE(I,5) :S(LOOP)
 end
@@ -37568,7 +37569,7 @@ dump of keyword values
 ```SNOBOL4
         A = ARRAY(5)
         I = 1
-LOOP    A<I> = I * I
+LOOP    A[I] = I * I
         I = I + 1
         LE(I,5) :S(LOOP)
 end
@@ -38006,8 +38007,8 @@ DONE    end
 
 ```SNOBOL4
         T = TABLE()
-        T<'x'> = T<'x'> + 1
-        R = T<'x'>
+        T['x'] = T['x'] + 1
+        R = T['x']
 end
 ```
 
@@ -38083,7 +38084,7 @@ DONE    end
         S = 'aababc'
         I = 1
 LOOP    C = SUBSTR(S,I,1)
-        T<C> = T<C> + 1
+        T[C] = T[C] + 1
         I = I + 1
         LE(I,SIZE(S)) :S(LOOP)
 end
@@ -38148,18 +38149,18 @@ DONE    end
 
 ```SNOBOL4
         A = ARRAY(8)
-        A<1> = 3
-        A<2> = 1
-        A<3> = 4
-        A<4> = 1
-        A<5> = 5
-        A<6> = 9
-        A<7> = 2
-        A<8> = 6
-        M = A<1>
+        A[1] = 3
+        A[2] = 1
+        A[3] = 4
+        A[4] = 1
+        A[5] = 5
+        A[6] = 9
+        A[7] = 2
+        A[8] = 6
+        M = A[1]
         I = 2
-LOOP    GT(A<I>,M) :F(SKIP)
-        M = A<I>
+LOOP    GT(A[I],M) :F(SKIP)
+        M = A[I]
 SKIP    I = I + 1
         LE(I,8) :S(LOOP)
 end
@@ -38406,9 +38407,9 @@ dump of keyword values
 
 ```SNOBOL4
         T = TABLE()
-        T<'k'> = 10
-        T<'k'> = 99
-        R = T<'k'>
+        T['k'] = 10
+        T['k'] = 99
+        R = T['k']
 end
 ```
 
@@ -38912,11 +38913,11 @@ dump of keyword values
 ```SNOBOL4
         &ERRLIMIT = 2
         OUTPUT = &ERRTYPE ' ' &ERRLIMIT
-        a<1> = 'x'              :S(OK)F(NOPE)
+        a[1] = 'x'              :S(OK)F(NOPE)
         OUTPUT = 'fell through'
 OK      OUTPUT = 'S branch'     :(NEXT)
 NOPE    OUTPUT = 'F branch ' &ERRTYPE ' ' &ERRLIMIT ' ' &ERRTEXT
-NEXT    a<2> =
+NEXT    a[2] =
         OUTPUT = &ERRTYPE ' ' &ERRLIMIT ' ' &ERRTEXT
 END
 ```
@@ -39916,9 +39917,9 @@ memory left (bytes)  1037296
  tt['blue']['green'] = 'cyan'
  OUTPUT = tt['blue']['green']
  a = ARRAY('2,3')
- a<1,2> = TABLE()
- a<1,2>['k'] = 'v'
- OUTPUT = a<1,2>['k']
+ a[1,2] = TABLE()
+ a[1,2]['k'] = 'v'
+ OUTPUT = a[1,2]['k']
  t2 = TABLE()
  t2['x'] = ARRAY(3)
  t2['x']<2> = 'arr'
@@ -41296,9 +41297,9 @@ memory left (bytes)  1037184
 ## core_test__the-subject-of-a-replacement-may-be-an-element-or-a-field
 
 ```SNOBOL4
-        A = ARRAY(3) ; A<1> = 'hello world' ; I = 1
-        A<I> 'o' = '0'
-        OUTPUT = '1 ' A<1>
+        A = ARRAY(3) ; A[1] = 'hello world' ; I = 1
+        A[I] 'o' = '0'
+        OUTPUT = '1 ' A[1]
         T = TABLE() ; T['k'] = 'abcabc'
         T['k'] 'b' = 'B'
         OUTPUT = '2 ' T['k']
@@ -41306,14 +41307,14 @@ memory left (bytes)  1037184
         N = NODE('xyz', '')
         VAL(N) 'y' = 'Y'
         OUTPUT = '3 ' VAL(N)
-        A<I> 'q' = 'Q'                     :S(S4)
-        OUTPUT = '4 fails ' A<1>          :(N4)
+        A[I] 'q' = 'Q'                     :S(S4)
+        OUTPUT = '4 fails ' A[1]          :(N4)
 S4      OUTPUT = '4 ok'
 N4      DEFINE('BUMP()') :(BE)
 BUMP    I = I + 1 ; BUMP = 'w' :(RETURN)
-BE      A<2> = 'wow' ; I = 2
-        A<I> BUMP() = 'W'
-        OUTPUT = '5 ' A<2> ' ' A<3> ' ' I
+BE      A[2] = 'wow' ; I = 2
+        A[I] BUMP() = 'W'
+        OUTPUT = '5 ' A[2] ' ' A[3] ' ' I
 END
 ```
 
@@ -41855,7 +41856,7 @@ d 0. 0.23e-307
         OUTPUT = '5 [' T[.X] ']'
         OUTPUT = '6 ' DIFFER(.X, .Y) 'differ'
         A = ARRAY(2)
-        OUTPUT = '7 ' IDENT(.A<1>, .A<1>) 'ident'
+        OUTPUT = '7 ' IDENT(.A[1], .A[1]) 'ident'
 END
 ```
 
@@ -43134,32 +43135,32 @@ b
 
 ```SNOBOL4
  T = ARRAY(3)
- 'xyz' LEN(1) . T<2>
- OUTPUT = 'a: ' T<2>
+ 'xyz' LEN(1) . T[2]
+ OUTPUT = 'a: ' T[2]
  I = 3
- 'xyz' LEN(1) . *T<I>
- OUTPUT = 'b: ' T<3>
- 'xyz' LEN(1) $ T<1>
- OUTPUT = 'c: ' T<1>
+ 'xyz' LEN(1) . *T[I]
+ OUTPUT = 'b: ' T[3]
+ 'xyz' LEN(1) $ T[1]
+ OUTPUT = 'c: ' T[1]
  V = 'W'
  'xyz' LEN(2) . $V
  OUTPUT = 'd: ' W
  U = TABLE()
- 'abc' LEN(1) . U<'k'>
- OUTPUT = 'e: ' U<'k'>
- 'abc' LEN(2) @T<1>
- OUTPUT = 'f: ' T<1>
+ 'abc' LEN(1) . U['k']
+ OUTPUT = 'e: ' U['k']
+ 'abc' LEN(2) @T[1]
+ OUTPUT = 'f: ' T[1]
  R = ARRAY(3)
- PAT = LEN(1) . *R<J>
+ PAT = LEN(1) . *R[J]
  S = 'pqr'
  J = 0
 LOOP J = J + 1
  S PAT =                           :S(LOOP)
- OUTPUT = 'g: ' R<1> R<2> R<3>
- 'xyz' LEN(1) . T<2> LEN(5)
- OUTPUT = 'h: ' T<2>
- 'xyz' LEN(1) $ T<2> LEN(5)
- OUTPUT = 'i: ' T<2>
+ OUTPUT = 'g: ' R[1] R[2] R[3]
+ 'xyz' LEN(1) . T[2] LEN(5)
+ OUTPUT = 'h: ' T[2]
+ 'xyz' LEN(1) $ T[2] LEN(5)
+ OUTPUT = 'i: ' T[2]
 END
 ```
 
@@ -43691,10 +43692,10 @@ ed
 
 ```SNOBOL4
  A = ARRAY(3); T = TABLE()
- A<2> = 'q' 'r'; OUTPUT = DATATYPE(A<2>) ' ' A<2>
- T<'k'> = 'p' 'p'; OUTPUT = DATATYPE(T<'k'>) ' ' T<'k'>
- A<1> = 'p'; K = 1
- A<K + 1> = LGT(A<K>,'a') A<K>; OUTPUT = DATATYPE(A<2>) ' ' A<2>
+ A[2] = 'q' 'r'; OUTPUT = DATATYPE(A[2]) ' ' A[2]
+ T['k'] = 'p' 'p'; OUTPUT = DATATYPE(T['k']) ' ' T['k']
+ A[1] = 'p'; K = 1
+ A[K + 1] = LGT(A[K],'a') A[K]; OUTPUT = DATATYPE(A[2]) ' ' A[2]
 END
 ```
 
@@ -44046,13 +44047,13 @@ END
 ## core_test__sort-of-a-table-sorts-on-the-keys-or-the-named-column
 
 ```SNOBOL4
- T = TABLE(); T<'b'> = 30; T<'a'> = 10; T<'c'> = 20
- S = SORT(T); OUTPUT = S<1,1> S<1,2> ' ' S<2,1> S<2,2> ' ' S<3,1> S<3,2>
- S = RSORT(T); OUTPUT = S<1,1> S<1,2> ' ' S<2,1> S<2,2> ' ' S<3,1> S<3,2>
- S = SORT(T,2); OUTPUT = S<1,1> S<1,2> ' ' S<2,1> S<2,2> ' ' S<3,1> S<3,2>
- S = RSORT(T,2); OUTPUT = S<1,1> S<1,2> ' ' S<2,1> S<2,2> ' ' S<3,1> S<3,2>
- N = TABLE(); N<10> = 'x'; N<9> = 'y'; N<100> = 'z'
- S = SORT(N); OUTPUT = S<1,1> ' ' S<2,1> ' ' S<3,1>
+ T = TABLE(); T['b'] = 30; T['a'] = 10; T['c'] = 20
+ S = SORT(T); OUTPUT = S[1,1] S[1,2] ' ' S[2,1] S[2,2] ' ' S[3,1] S[3,2]
+ S = RSORT(T); OUTPUT = S[1,1] S[1,2] ' ' S[2,1] S[2,2] ' ' S[3,1] S[3,2]
+ S = SORT(T,2); OUTPUT = S[1,1] S[1,2] ' ' S[2,1] S[2,2] ' ' S[3,1] S[3,2]
+ S = RSORT(T,2); OUTPUT = S[1,1] S[1,2] ' ' S[2,1] S[2,2] ' ' S[3,1] S[3,2]
+ N = TABLE(); N[10] = 'x'; N[9] = 'y'; N[100] = 'z'
+ S = SORT(N); OUTPUT = S[1,1] ' ' S[2,1] ' ' S[3,1]
 END
 ```
 
@@ -44912,18 +44913,18 @@ TRIM=[mine] ab|
 ```SNOBOL4
         SETEXIT(.H)
         &ERRLIMIT = 5
-        A<1> = 'x'              :S(OK)F(NOPE)
+        A[1] = 'x'              :S(OK)F(NOPE)
         OUTPUT = 'fell through' :(T2)
 OK      OUTPUT = 'S branch'     :(T2)
 NOPE    OUTPUT = 'F branch'
 T2      OUTPUT = 'T2 ' &ERRLIMIT ' [' SETEXIT() ']'
-        A<2> = 'y'
+        A[2] = 'y'
         OUTPUT = 'after second error'
         SETEXIT(.H)
-        B<1> = 'x'
+        B[1] = 'x'
         OUTPUT = 'next ' &ERRLIMIT
         SETEXIT(.G)
-        C<1> = 'x'
+        C[1] = 'x'
         OUTPUT = 'not reached'
         :(DONE)
 H       OUTPUT = 'H ' &ERRTYPE ' ' &ERRLIMIT ' ' &LASTNO ' [' &ERRTEXT ']'
@@ -44985,7 +44986,7 @@ d: y+y+y
         DATA('NODE(V,N)')
         A = NODE(1)
         B = NODE(2, A)
-        Z<1> = B
+        Z[1] = B
         A = 'gone'
         X = DUMP(0)
         OUTPUT = 'after DUMP(0) [' X ']'
@@ -45621,7 +45622,7 @@ after 2
         &ERRTEXT =
         OUTPUT = '[' &ERRTEXT ']'
         &ERRLIMIT = 1
-        A<1> = 'x'
+        A[1] = 'x'
         OUTPUT = '[' &ERRTEXT ']'
 END
 ```
@@ -46304,7 +46305,7 @@ memory left (bytes)  1033616
  OUTPUT = 'c: ' ITEM(PROP['r'],'h')
  A = ARRAY(3)
  ITEM(A,2) = 'two'
- OUTPUT = 'd: ' A<2> ' ' ITEM(A,2)
+ OUTPUT = 'd: ' A[2] ' ' ITEM(A,2)
  X = ITEM(A,3)
  OUTPUT = 'e: [' X ']'
 END
@@ -46703,7 +46704,7 @@ a
         &ERRTYPE = 0
         OUTPUT = 'N ' (LEQ(.X, 'X') 'eq', 'ne') ' ' &ERRTYPE
         A = ARRAY(2)
-        LEQ(.A<1>, 'x')
+        LEQ(.A[1], 'x')
         OUTPUT = 'E ' &ERRTYPE
         LNE(.&ANCHOR, 'x')
         OUTPUT = 'K ' &ERRTYPE
@@ -46756,8 +46757,8 @@ X
         OUTPUT = CONVERT(X,'STRING') '|' SIZE(X) '|' DUPL(X,2) '|' REVERSE(X) '|' TRIM(X)
         OUTPUT = REPLACE(X,'1','9') '|' LPAD(X,6) '|' SUBSTR(X,1,2)
         T = TABLE()
-        T<X> = 'k'
-        OUTPUT = 'key ' T<21.0> ' ' T<'21.'>
+        T[X] = 'k'
+        OUTPUT = 'key ' T[21.0] ' ' T['21.']
         L = 'a'
         L = L ' ' X
         OUTPUT = L
@@ -47134,14 +47135,14 @@ e 254
 ```SNOBOL4
         DATA = ARRAY(3)
         DATA[1] = 'one'
-        DATA<2> = 'two'
-        OUTPUT = DATA[1] ' ' DATA<2>
+        DATA[2] = 'two'
+        OUTPUT = DATA[1] ' ' DATA[2]
         SIZE = TABLE()
         SIZE['k'] = 'v'
         OUTPUT = SIZE['k'] ' ' SIZE('abc')
         &ERRLIMIT = 10
         B = 'str'
-        X = B<1>
+        X = B[1]
         OUTPUT = &ERRTYPE ' ' &ERRTEXT
 END
 ```
@@ -47186,7 +47187,7 @@ bc
  OUTPUT = PROTOTYPE(ARRAY('1:3,1:2'))
  OUTPUT = PROTOTYPE(ARRAY(' 4 '))
  OUTPUT = PROTOTYPE(ARRAY('-2:2'))
- T = TABLE(); T<1> = 2; OUTPUT = PROTOTYPE(CONVERT(T,'ARRAY'))
+ T = TABLE(); T[1] = 2; OUTPUT = PROTOTYPE(CONVERT(T,'ARRAY'))
 END
 ```
 
@@ -48168,16 +48169,16 @@ end
 
 ```SNOBOL4
         A = ARRAY(3)
-        A<5> = 'x'              :S(S1)F(F1)
+        A[5] = 'x'              :S(S1)F(F1)
 S1      OUTPUT = 'assigned'     :(N2)
 F1      OUTPUT = 'assignment failed'
-N2      X = A<5>                :S(S2)F(F2)
+N2      X = A[5]                :S(S2)F(F2)
 S2      OUTPUT = 'read [' X ']' :(N3)
 F2      OUTPUT = 'read failed'
-N3      A<0> = 'y'
+N3      A[0] = 'y'
         OUTPUT = 'after a failing assignment without a branch'
         B = ARRAY('2,2')
-        B<3,1> = 'z'            :F(F4)
+        B[3,1] = 'z'            :F(F4)
         OUTPUT = 'two-dim assigned'     :(END)
 F4      OUTPUT = 'two-dim failed'
 END
@@ -48202,27 +48203,27 @@ two-dim failed
         t['cherry'] = 3
         arr = CONVERT(t,'ARRAY')
         i = 1
-L0      OUTPUT = 'raw  ' arr<i,1> ' ' arr<i,2>   :F(R1)
+L0      OUTPUT = 'raw  ' arr[i,1] ' ' arr[i,2]   :F(R1)
         i = i + 1                                :(L0)
 R1      b = RSORT(arr,2)
         i = 1
-L1      OUTPUT = 'rs2  ' b<i,1> ' ' b<i,2>       :F(R2)
+L1      OUTPUT = 'rs2  ' b[i,1] ' ' b[i,2]       :F(R2)
         i = i + 1                                :(L1)
 R2      b = SORT(arr,2)
         i = 1
-L2      OUTPUT = 's2   ' b<i,1> ' ' b<i,2>       :F(R3)
+L2      OUTPUT = 's2   ' b[i,1] ' ' b[i,2]       :F(R3)
         i = i + 1                                :(L2)
 R3      b = SORT(arr,1)
         i = 1
-L3      OUTPUT = 's1   ' b<i,1> ' ' b<i,2>       :F(R4)
+L3      OUTPUT = 's1   ' b[i,1] ' ' b[i,2]       :F(R4)
         i = i + 1                                :(L3)
 R4      b = RSORT(arr)
         i = 1
-L4      OUTPUT = 'rs   ' b<i,1> ' ' b<i,2>       :F(R5)
+L4      OUTPUT = 'rs   ' b[i,1] ' ' b[i,2]       :F(R5)
         i = i + 1                                :(L4)
 R5      b = SORT(t)
         i = 1
-L5      OUTPUT = 'st   ' b<i,1> ' ' b<i,2>       :F(R6)
+L5      OUTPUT = 'st   ' b[i,1] ' ' b[i,2]       :F(R6)
         i = i + 1                                :(L5)
 R6      OUTPUT = 'done'
 END
@@ -48455,8 +48456,8 @@ matched 20000
 ## core_test__a-name-fails-when-its-subscripts-fail
 
 ```SNOBOL4
-        A = ARRAY(3) ; A<1> = 'one'
-        X = .A<DIFFER(1, 1)>                   :S(S1)
+        A = ARRAY(3) ; A[1] = 'one'
+        X = .A[DIFFER(1, 1)]                   :S(S1)
         OUTPUT = '1 fails'                     :(N1)
 S1      OUTPUT = '1 ok'
 N1      DATA('FOO(P,Q)')
@@ -48464,7 +48465,7 @@ N1      DATA('FOO(P,Q)')
         N = .APPLY(FIELD('FOO', 3), Y)         :S(S2)
         OUTPUT = '2 fails'                     :(N2)
 S2      OUTPUT = '2 ok'
-N2      N = .A<1>
+N2      N = .A[1]
         OUTPUT = '3 ' $N
 END
 ```
@@ -49018,12 +49019,12 @@ collected
 ## core_test__the-name-of-an-element-names-the-element
 
 ```SNOBOL4
- A = ARRAY(3); A<2> = 'X'
- OUTPUT = '[' $.A<2> ']'
- B = .A<2>; OUTPUT = '[' $B ']' DATATYPE(B)
- $B = 'Y'; OUTPUT = '[' A<2> ']'
- K = 3; C = .A<K>; K = 1; $C = 'Z'; OUTPUT = '[' A<3> '][' A<1> ']'
- T = TABLE(); T<'k'> = 'v'; D = .T<'k'>; OUTPUT = '[' $D ']'
+ A = ARRAY(3); A[2] = 'X'
+ OUTPUT = '[' $.A[2] ']'
+ B = .A[2]; OUTPUT = '[' $B ']' DATATYPE(B)
+ $B = 'Y'; OUTPUT = '[' A[2] ']'
+ K = 3; C = .A[K]; K = 1; $C = 'Z'; OUTPUT = '[' A[3] '][' A[1] ']'
+ T = TABLE(); T['k'] = 'v'; D = .T['k']; OUTPUT = '[' $D ']'
 END
 ```
 
@@ -49068,12 +49069,12 @@ core_test__a-statement-that-fails-to-compile-still-defines-its-label.sno(2) : ER
 ## core_test__interrogation-is-null-or-failure
 
 ```SNOBOL4
- A = ARRAY(3); A<2> = 'v'
- X = ?A<2> :F(N1)
+ A = ARRAY(3); A[2] = 'v'
+ X = ?A[2] :F(N1)
  OUTPUT = '1 S [' X ']'
-N1 ?A<4> :S(END)
+N1 ?A[4] :S(END)
  OUTPUT = '2 F'
- ?A<0> :S(END)
+ ?A[0] :S(END)
  OUTPUT = '3 F'
  X = ?'abc'; OUTPUT = '4 [' X '] ' DATATYPE(X)
  ?LT(2,1) :S(END)
@@ -49340,7 +49341,7 @@ T4      'ABC' ('B' $ *F() | 'C') . X    :S(Y4)F(N4)
 Y4      OUTPUT = 'alt Y ' X             :(T5)
 N4      OUTPUT = 'alt N'
 T5      A = ARRAY(3)
-        'ABC' 'B' . A<5>                :S(Y5)F(N5)
+        'ABC' 'B' . A[5]                :S(Y5)F(N5)
 Y5      OUTPUT = 'bounds Y'             :(END)
 N5      OUTPUT = 'bounds N'
 END
@@ -49369,10 +49370,10 @@ N_END    B = ARRAY('0:10')
          NEXT(B) = 'SECOND'
          OUTPUT = '1 ' B[1] ' ' B[2] ' ' NEXT(B) '|'
          DEFINE('SLOT(T,K)')                  :(S_END)
-SLOT     SLOT = .T<K>                         :(NRETURN)
+SLOT     SLOT = .T[K]                         :(NRETURN)
 S_END    U = TABLE()
          SLOT(U, 'a') = 'x'
-         OUTPUT = '2 ' U<'a'> ' ' SLOT(U, 'a')
+         OUTPUT = '2 ' U['a'] ' ' SLOT(U, 'a')
          N = .B[1]
          $N = 'third'
          OUTPUT = '3 ' B[1] ' ' IDENT(.B[2], .B[2]) 'same'
@@ -49502,11 +49503,11 @@ end 0 14
         d = node(1)
         OUTPUT = DIFFER(a,d) 'd: different objects'
         arr = ARRAY(2)
-        arr<1> = node('x')
-        arr<2> = node('y')
-        next(arr<1>) = arr<2>
-        val(arr<2>) = 'Y'
-        OUTPUT = 'e: ' val(next(arr<1>)) ' ' val(arr<2>)
+        arr[1] = node('x')
+        arr[2] = node('y')
+        next(arr[1]) = arr[2]
+        val(arr[2]) = 'Y'
+        OUTPUT = 'e: ' val(next(arr[1])) ' ' val(arr[2])
         t = TABLE()
         t['k'] = node('tv')
         val(t['k']) = 'TV'
@@ -49823,9 +49824,9 @@ X=bb
 	B = 'str'
 	C = 2.5
 	D = ARRAY(3)
-	D<2> = 'x'
+	D[2] = 'x'
 	T = TABLE()
-	T<'k'> = 'v'
+	T['k'] = 'v'
 	P = LEN(3)
 	E = *A
 	N =
@@ -50049,7 +50050,7 @@ memory left (bytes)  1035600
 	F = 1.5E10
 	G = .A
 	T = TABLE()
-	H = .T<1>
+	H = .T[1]
 	J = 'long string 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789 0123456789'
 	K = ARRAY('2,2')
 	L = 'a' 'b'
@@ -50355,9 +50356,9 @@ END
         $N 'q' = 'Q'                       :S(S2)
         OUTPUT = '2 fails ' X              :(N2)
 S2      OUTPUT = '2 ok'
-N2      A = ARRAY(2) ; A<1> = 'xyz' ; M = .A<1>
+N2      A = ARRAY(2) ; A[1] = 'xyz' ; M = .A[1]
         $M 'y' = 'Y'
-        OUTPUT = '3 ' A<1>
+        OUTPUT = '3 ' A[1]
         S = 'X'
         $S 'a' = 'A'
         OUTPUT = '4 ' X
@@ -51400,7 +51401,7 @@ E1      SETEXIT(LEN(1))                                 :S(Y2)
         OUTPUT = '2 F ' &ERRTYPE                        :(E2)
 Y2      OUTPUT = '2 S'
 E2      A = ARRAY(1)
-        SETEXIT(.A<1>)                                  :S(Y3)
+        SETEXIT(.A[1])                                  :S(Y3)
         OUTPUT = '3 F ' &ERRTYPE                        :(E3)
 Y3      OUTPUT = '3 S'
 E3      &CASE = 1
@@ -51623,19 +51624,19 @@ k: ABxDEF K9=3
 
 ```SNOBOL4
         t = TABLE()
-        t<'t'> = 1
-        t<'B'> = 1
-        t<'u'> = 1
-        t<'a'> = 1
-        t<'r'> = 1
-        t<'x'> = 0
+        t['t'] = 1
+        t['B'] = 1
+        t['u'] = 1
+        t['a'] = 1
+        t['r'] = 1
+        t['x'] = 0
         a = SORT(t,2)
         i = 1
-L       OUTPUT = a<i,1> a<i,2>  :F(R)
+L       OUTPUT = a[i,1] a[i,2]  :F(R)
         i = i + 1 :(L)
 R       a = RSORT(t,2)
         i = 1
-M       OUTPUT = 'r ' a<i,1> a<i,2>  :F(END)
+M       OUTPUT = 'r ' a[i,1] a[i,2]  :F(END)
         i = i + 1 :(M)
 END
 ```
@@ -52263,10 +52264,10 @@ n: two nulls succeed
 ## core_test__an-array-subscript-converts-to-an-integer
 
 ```SNOBOL4
- A = ARRAY(3); A<2> = 'x'
- OUTPUT = A<'2'> A<' 2'> A<'+2'> A<'02'> A<2.5> A<'2.0'>
- A<'3'> = 'y'; OUTPUT = A<3>
- V = A<''> :S(END)
+ A = ARRAY(3); A[2] = 'x'
+ OUTPUT = A['2'] A[' 2'] A['+2'] A['02'] A[2.5] A['2.0']
+ A['3'] = 'y'; OUTPUT = A[3]
+ V = A[''] :S(END)
  OUTPUT = 'null fails'
 END
 ```
@@ -52281,7 +52282,7 @@ null fails
 
 ```SNOBOL4
         A = ARRAY(3)
-        V = A<'abc'>
+        V = A['abc']
 END
 ```
 
@@ -52482,9 +52483,9 @@ e: PATTERN PATTERN
  OUTPUT = IDENT(.A,'A') 'str-yes'
  OUTPUT = DIFFER(.A,.B) 'differ-yes'
  OUTPUT = DIFFER(.A,.A) 'differ-same-yes'
- T = TABLE(); T<'k'> = 'v'
- OUTPUT = IDENT(.T<'k'>,.T<'k'>) 'elem-same'
- OUTPUT = IDENT(.T<'k'>,.T<'j'>) 'elem-diff-yes'
+ T = TABLE(); T['k'] = 'v'
+ OUTPUT = IDENT(.T['k'],.T['k']) 'elem-same'
+ OUTPUT = IDENT(.T['k'],.T['j']) 'elem-diff-yes'
 END
 ```
 
@@ -52904,10 +52905,10 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(3)
-        A<1> = 'one'
-        A<2> = 'two'
-        A<3> = 'three'
-        R = A<1> ',' A<2> ',' A<3>
+        A[1] = 'one'
+        A[2] = 'two'
+        A[3] = 'three'
+        R = A[1] ',' A[2] ',' A[3]
 end
 ```
 
@@ -55142,8 +55143,8 @@ dump of keyword values
 
 ```SNOBOL4
         T = TABLE()
-        T<'key'> = 'value'
-        R = T<'key'>
+        T['key'] = 'value'
+        R = T['key']
 end
 ```
 
@@ -56182,9 +56183,9 @@ dump of keyword values
 
 ```SNOBOL4
         T = TABLE()
-        T<'c'> = 3
-        T<'a'> = 1
-        T<'b'> = 2
+        T['c'] = 3
+        T['a'] = 1
+        T['b'] = 2
         A = SORT(T)
         R = DATATYPE(A)
 end
@@ -57075,11 +57076,11 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(2)
-        A<1> = 'original'
+        A[1] = 'original'
         B = COPY(A)
-        B<1> = 'copy'
-        R1 = A<1>
-        R2 = B<1>
+        B[1] = 'copy'
+        R1 = A[1]
+        R2 = B[1]
 end
 ```
 
@@ -57326,10 +57327,10 @@ dump of keyword values
 ```SNOBOL4
         A = ARRAY(5)
         I = 1
-LOOP    A<I> = I * I
+LOOP    A[I] = I * I
         I = I + 1
         LE(I,5) :S(LOOP)
-        R = A<1> A<2> A<3> A<4> A<5>
+        R = A[1] A[2] A[3] A[4] A[5]
 end
 ```
 
@@ -58820,24 +58821,24 @@ dump of keyword values
 BSORT   J  =  I
 BSORT_1 J  =  J + 1  LT(J,N)         :F(RETURN)
         K  =  J
-        V  =  A<J>
+        V  =  A[J]
 BSORT_2 K  =  K - 1  GT(K,I)         :F(BSORT_RO)
-        A<K + 1>  =  LGT(A<K>,V)  A<K>  :S(BSORT_2)
-        A<K + 1>  =  V               :(BSORT_1)
-BSORT_RO A<I>  =  V                  :(BSORT_1)
+        A[K + 1]  =  LGT(A[K],V)  A[K]  :S(BSORT_2)
+        A[K + 1]  =  V               :(BSORT_1)
+BSORT_RO A[I]  =  V                  :(BSORT_1)
 BSORT_END
         ARR = ARRAY(5)
-        ARR<1> = 'pear'
-        ARR<2> = 'apple'
-        ARR<3> = 'mango'
-        ARR<4> = 'banana'
-        ARR<5> = 'cherry'
+        ARR[1] = 'pear'
+        ARR[2] = 'apple'
+        ARR[3] = 'mango'
+        ARR[4] = 'banana'
+        ARR[5] = 'cherry'
         BSORT(ARR,1,5)
-        R1 = ARR<1>
-        R2 = ARR<2>
-        R3 = ARR<3>
-        R4 = ARR<4>
-        R5 = ARR<5>
+        R1 = ARR[1]
+        R2 = ARR[2]
+        R3 = ARR[3]
+        R4 = ARR[4]
+        R5 = ARR[5]
 END
 ```
 
@@ -64384,7 +64385,7 @@ END
 ```SNOBOL4
         &ERRLIMIT = 1
         X = 3
-        X<1> = 2
+        X[1] = 2
         OUTPUT = &ERRTYPE
 END
 ```
@@ -64953,10 +64954,10 @@ cannot be opened
         &ERRLIMIT = 30
         A = ARRAY(2)
         B = ARRAY('2,2')
-        X = A<1,'x'>
+        X = A[1,'x']
         OUTPUT = 'a1x ' &ERRTYPE
         &ERRTYPE = 0
-        X = A<1,2>
+        X = A[1,2]
         OUTPUT = 'a12 ' &ERRTYPE
         &ERRTYPE = 0
         X = ITEM(A,1,'x')
@@ -64965,16 +64966,16 @@ cannot be opened
         X = ITEM(A,1,2)
         OUTPUT = 'i12 ' &ERRTYPE
         &ERRTYPE = 0
-        X = B<'x'>
+        X = B['x']
         OUTPUT = 'bx ' &ERRTYPE
         &ERRTYPE = 0
-        X = B<1,'x'>
+        X = B[1,'x']
         OUTPUT = 'b1x ' &ERRTYPE
         &ERRTYPE = 0
-        A<1,'x'> = 5
+        A[1,'x'] = 5
         OUTPUT = 'set1x ' &ERRTYPE
         &ERRTYPE = 0
-        X = A<'x'>
+        X = A['x']
         OUTPUT = 'ax ' &ERRTYPE
         &ERRTYPE = 0
         X = ITEM(A)
@@ -64983,16 +64984,16 @@ cannot be opened
         X = ITEM(B,1)
         OUTPUT = 'ib1 ' &ERRTYPE
         &ERRTYPE = 0
-        X = B<1>
+        X = B[1]
         OUTPUT = 'b1 ' &ERRTYPE
         &ERRTYPE = 0
-        X = A<3,1>
+        X = A[3,1]
         OUTPUT = 'a31 ' &ERRTYPE
         &ERRTYPE = 0
-        X = A<3> :F(F1)
+        X = A[3] :F(F1)
         OUTPUT = 'a3 ok' :(N1)
 F1      OUTPUT = 'a3 fail ' &ERRTYPE
-N1      'abc' LEN(1) . A<1,2>
+N1      'abc' LEN(1) . A[1,2]
         OUTPUT = 'cap ' &ERRTYPE
 END
 ```
@@ -65019,7 +65020,7 @@ cap 236
 ```SNOBOL4
         &ERRLIMIT = 10
         TA = TABLE()
-        TA<1> = 2
+        TA[1] = 2
         OUTPUT = EVAL('1 + 2', 'x')
         OUTPUT = DATATYPE(ARRAY(2, 0, 'x')) ' ' DATATYPE(TABLE(1, 1, 'd', 'x'))
         OUTPUT = DATATYPE(SORT(TA, 1, 'x')) ' ' DATATYPE(RSORT(TA, 1, 'x'))
@@ -65044,13 +65045,13 @@ ARRAY ARRAY
         N3 = .$'3'
         N7 = .$'7'
         V = ARRAY(N3, N7)
-        OUTPUT = PROTOTYPE(V) ' ' V<3>
+        OUTPUT = PROTOTYPE(V) ' ' V[3]
         OUTPUT = PROTOTYPE(ARRAY(.$'2:4'))
         X = 'abc'
         V = ARRAY(.X)
         OUTPUT = &ERRTYPE
         A = ARRAY(3)
-        V = ARRAY(.A<1>)
+        V = ARRAY(.A[1])
         OUTPUT = &ERRTYPE
 END
 ```
@@ -65196,7 +65197,7 @@ both 107
 
 ```SNOBOL4
         A = TABLE()
-        r1 = A<'nosuchkey'>
+        r1 = A['nosuchkey']
 end
 ```
 
@@ -65297,8 +65298,8 @@ dump of keyword values
 ```SNOBOL4
         A = TABLE()
         B = A
-        A<'k'> = 'v'
-        r1 = B<'k'>
+        A['k'] = 'v'
+        r1 = B['k']
 end
 ```
 
@@ -65349,8 +65350,8 @@ dump of keyword values
 
 ```SNOBOL4
         A = TABLE()
-        A<42> = 'answer'
-        r1 = A<42>
+        A[42] = 'answer'
+        r1 = A[42]
 end
 ```
 
@@ -65401,8 +65402,8 @@ dump of keyword values
 ```SNOBOL4
         A = TABLE()
         K = 'mykey'
-        A<K> = 'myval'
-        r1 = A<K>
+        A[K] = 'myval'
+        r1 = A[K]
 end
 ```
 
@@ -65453,12 +65454,12 @@ dump of keyword values
 
 ```SNOBOL4
         A = TABLE()
-        A<'x'> = '1'
-        A<'y'> = '2'
-        A<'z'> = '3'
-        r1 = A<'x'>
-        r2 = A<'y'>
-        r3 = A<'z'>
+        A['x'] = '1'
+        A['y'] = '2'
+        A['z'] = '3'
+        r1 = A['x']
+        r2 = A['y']
+        r3 = A['z']
 end
 ```
 
@@ -65510,9 +65511,9 @@ dump of keyword values
 
 ```SNOBOL4
         A = TABLE()
-        A<'k'> = 'first'
-        A<'k'> = 'second'
-        r1 = A<'k'>
+        A['k'] = 'first'
+        A['k'] = 'second'
+        r1 = A['k']
 end
 ```
 
@@ -65562,8 +65563,8 @@ dump of keyword values
 
 ```SNOBOL4
         A = TABLE()
-        A<'abc'> = 'ABC'
-        A<'def'> = 'DEF'
+        A['abc'] = 'ABC'
+        A['def'] = 'DEF'
         r1 = ITEM(A,'abc')
         r2 = ITEM(A,'def')
 end
@@ -65765,7 +65766,7 @@ dump of keyword values
 
 ```SNOBOL4
         a = ARRAY(10)
-        b = a<11>       :S(y)F(n)
+        b = a[11]       :S(y)F(n)
 y       result = 'success' :(end)
 n       result = 'failure'
 end
@@ -65817,7 +65818,7 @@ dump of keyword values
 
 ```SNOBOL4
         a = ARRAY(10)
-        b = a<-1>       :S(y)F(n)
+        b = a[-1]       :S(y)F(n)
 y       result = 'success' :(end)
 n       result = 'failure'
 end
@@ -65919,9 +65920,9 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY('3,3')
-        A<2,2> = 'center'
-        r1 = A<2,2>
-        r2 = A<1,1>
+        A[2,2] = 'center'
+        r1 = A[2,2]
+        r2 = A[1,1]
 end
 ```
 
@@ -65971,7 +65972,7 @@ dump of keyword values
 
 ```SNOBOL4
         a = ARRAY(10)
-        b = a<1>       :S(y)F(n)
+        b = a[1]       :S(y)F(n)
 y       result = 'success' :(end)
 n       result = 'failure'
 end
@@ -66023,8 +66024,8 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(10,999)
-        r1 = A<3>
-        r2 = A<7>
+        r1 = A[3]
+        r2 = A[7]
 end
 ```
 
@@ -66075,9 +66076,9 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(10)
-        A<5> = 'first'
-        A<5> = 'second'
-        r1 = A<5>
+        A[5] = 'first'
+        A[5] = 'second'
+        r1 = A[5]
 end
 ```
 
@@ -66127,7 +66128,7 @@ dump of keyword values
 
 ```SNOBOL4
         a = ARRAY(10)
-        b = a<10>       :S(y)F(n)
+        b = a[10]       :S(y)F(n)
 y       result = 'success' :(end)
 n       result = 'failure'
 end
@@ -66179,7 +66180,7 @@ dump of keyword values
 
 ```SNOBOL4
         a = ARRAY(10)
-        b = a<0>       :S(y)F(n)
+        b = a[0]       :S(y)F(n)
 y       result = 'success' :(end)
 n       result = 'failure'
 end
@@ -66231,8 +66232,8 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(10)
-        A<3> = 'hello'
-        r1 = A<3>
+        A[3] = 'hello'
+        r1 = A[3]
 end
 ```
 
@@ -66380,7 +66381,7 @@ dump of keyword values
 
 ```SNOBOL4
         A = ARRAY(10)
-        r1 = A<5>
+        r1 = A[5]
 end
 ```
 
@@ -66687,7 +66688,7 @@ dump of keyword values
 ```SNOBOL4
  D = 'failure'
  T = TABLE()
- T<1> = 2
+ T[1] = 2
  B = CONVERT(T,'TABLE') :F(DONE)
  D = 'success'
 DONE
@@ -66741,12 +66742,12 @@ dump of keyword values
 
 ```SNOBOL4
  B = ARRAY('3,2')
- B<1,1> = 'x'
- B<1,2> = 10
- B<2,1> = 'y'
- B<2,2> = 20
- B<3,1> = 'z'
- B<3,2> = 30
+ B[1,1] = 'x'
+ B[1,2] = 10
+ B[2,1] = 'y'
+ B[2,2] = 20
+ B[3,1] = 'z'
+ B[3,2] = 30
  A = CONVERT(B,'TABLE')
  VX = ITEM(A,'x')
  VY = ITEM(A,'y')
@@ -67015,9 +67016,9 @@ dump of keyword values
 
 ```SNOBOL4
  T = TABLE()
- T<'a'> = 1
- T<'b'> = 2
- T<'c'> = 3
+ T['a'] = 1
+ T['b'] = 2
+ T['c'] = 3
  B = CONVERT(T,'ARRAY')
  PROTO = PROTOTYPE(B)
 END
@@ -67327,13 +67328,13 @@ dump of keyword values
 
 ```SNOBOL4
  T = TABLE()
- T<'a'> = 30
- T<'b'> = 10
- T<'c'> = 20
+ T['a'] = 30
+ T['b'] = 10
+ T['c'] = 20
  S = SORT(T)
- V1 = S<1,2>
- V2 = S<2,2>
- V3 = S<3,2>
+ V1 = S[1,2]
+ V2 = S[2,2]
+ V3 = S[3,2]
 END
 ```
 
@@ -68263,13 +68264,13 @@ dump of keyword values
 
 ```SNOBOL4
  T = TABLE()
- T<'a'> = 30
- T<'b'> = 10
- T<'c'> = 20
+ T['a'] = 30
+ T['b'] = 10
+ T['c'] = 20
  S = RSORT(T)
- V1 = S<1,2>
- V2 = S<2,2>
- V3 = S<3,2>
+ V1 = S[1,2]
+ V2 = S[2,2]
+ V3 = S[3,2]
 END
 ```
 
@@ -70263,9 +70264,9 @@ DONE    end
 
 ```SNOBOL4
         A1 = ARRAY(5)
-        A1<1> = 'first'
-        A1<5> = 'last'
-        S = A1<1> ' ' A1<5>
+        A1[1] = 'first'
+        A1[5] = 'last'
+        S = A1[1] ' ' A1[5]
 end
 ```
 
@@ -70472,7 +70473,7 @@ dump of keyword values
 
 ```SNOBOL4
         T1 = TABLE()
-        I = SIZE(T1<'absent'>)
+        I = SIZE(T1['absent'])
 end
 ```
 
@@ -71163,9 +71164,9 @@ end
 
 ```SNOBOL4
         T1 = TABLE()
-        T1<'x'> = 'first'
-        T1<'x'> = 'second'
-        S = T1<'x'>
+        T1['x'] = 'first'
+        T1['x'] = 'second'
+        S = T1['x']
 end
 ```
 
@@ -72725,8 +72726,8 @@ dump of keyword values
 
 ```SNOBOL4
         T1 = TABLE()
-        T1<'key'> = 'value'
-        S = T1<'key'>
+        T1['key'] = 'value'
+        S = T1['key']
 end
 ```
 
@@ -73562,7 +73563,7 @@ DONE    end
 
 ```SNOBOL4
         A1 = ARRAY(3)
-        I = SIZE(A1<2>)
+        I = SIZE(A1[2])
 end
 ```
 
@@ -76327,10 +76328,10 @@ DONE    end
 ```SNOBOL4
         A1 = ARRAY(5)
         I = 1
-LOOP    A1<I> = I * I
+LOOP    A1[I] = I * I
         I = I + 1
         LE(I,5) :S(LOOP)
-        S = A1<3>
+        S = A1[3]
 end
 ```
 

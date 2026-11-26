@@ -2,7 +2,7 @@
 
 
 macro spitbol version 4.0f
-x86-64  Thu Nov 19 18:48:00 2026
+x86-64  Wed Nov 25 21:43:08 2026
 
 
 
@@ -18,7 +18,7 @@ ere name is required
 SubscriptOfACall__TEST_SubscriptOfACall_the_statement_is_still_checked.sno(2) : ERROR 212 -- syntax error: value used wh
 ere name is required
 
-3               X = 1 / 0 ARRAY(1)<1>
+3               X = 1 / 0 ARRAY(1)[1]
 
 SubscriptOfACall__TEST_SubscriptOfACall_the_statement_is_still_checked.sno(3) : ERROR 014 -- division caused integer ove
 rflow

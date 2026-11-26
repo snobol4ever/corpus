@@ -2,12 +2,12 @@
 
 
 macro spitbol version 4.0f
-x86-64  Thu Nov 19 18:54:12 2026
+x86-64  Wed Nov 25 21:43:08 2026
 
 
 
                                                                                                                 page 1
 
-1           :S(end(>F<end>;end
+1           :S(end(>F[end];end
                    !
 TestLexer__TEST_225_007.sno(1,12) : ERROR 225 -- syntax error: unbalanced right bracket

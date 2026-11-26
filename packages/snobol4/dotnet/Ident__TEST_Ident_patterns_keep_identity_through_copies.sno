@@ -4,8 +4,8 @@
         R = R IDENT(P '', P) 'b'
         R = R IDENT('' P, P) 'c'
         A = ARRAY(2)
-        A<1> = P
-        R = R IDENT(A<1>, P) 'd'
+        A[1] = P
+        R = R IDENT(A[1], P) 'd'
         R = R IDENT(BAL NULL, BAL) 'e'
         R = R IDENT(LEN(1), LEN(1)) 'f'
         R = R IDENT(P, LEN(1)) 'g'
