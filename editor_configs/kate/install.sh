@@ -56,6 +56,9 @@ merge_json("lspclient/settings.json", "servers")
 merge_json("debugger/dap.json", "dap")
 merge_ini("katerc")
 merge_ini("katemoderc")
+merge_ini("kate-externaltoolspluginrc")
+for f in sorted(os.listdir(os.path.join(here, "externaltools"))):
+    put(os.path.join(cfg, "kate", "externaltools", f), open(os.path.join(here, "externaltools", f), encoding="utf-8").read())
 sd = os.path.join(data, "org.kde.syntax-highlighting", "syntax")
 os.makedirs(sd, exist_ok=True)
 for f in sorted(os.listdir(os.path.join(here, "syntax"))):

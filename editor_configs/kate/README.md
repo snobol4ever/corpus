@@ -10,6 +10,10 @@ Kate 23.08 or newer, set up for every language of SCRIP. Four files and a folder
 
 The `scrip` that runs is `/home/install/bin/scrip`, an absolute path, because Kate starts a server only on a command line `katerc` allows: the path is the same in `lspclient/settings.json`, `debugger/dap.json` and `katerc`. If your `scrip` is installed elsewhere, put its absolute path in all three, before or after `install.sh`.
 
+## Run
+
+The install also adds one external tool, **Run with SCRIP**: Tools > External Tools > Tools > Run with SCRIP. It runs `scrip --run` on the open file, in the file's folder, and the program's answer appears in Kate's External Tools output pane. The tool is the file `externaltools/Run%20with%20SCRIP.ini`, and the install merges `[Global] firststart=false` into `kate-externaltoolspluginrc` so that Kate lists the folder (its own keys are kept).
+
 ## Install (for one user)
 
 Close Kate, then:
