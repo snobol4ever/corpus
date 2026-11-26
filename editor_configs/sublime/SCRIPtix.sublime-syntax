@@ -6,7 +6,7 @@
 # create a Sublime syntax file for *.md which respects the triple-ticks and NAME of LANGUAGE. I'm hoping one syntax file can
 # reference another.").
 # It EXTENDS Sublime's own Markdown syntax, so prose, headings and lists render as Markdown, and prepends one fence context per
-# SCRIP language to Markdown's fenced-syntaxes list: the opening fence's NAME picks the language, `embed: scope:...` hands the
+# SCRIP language to Markdown's fenced-code-blocks context: the opening fence's NAME picks the language, `embed: scope:...` hands the
 # body to that language's own syntax file, and the closing fence hands control back. The names are the ones SCRIP's polyglot
 # splitter reads (SCRIP's polyglot reader, case-sensitive): SNOBOL4 (and SCRIP / Scrip, which it reads as SNOBOL4), Icon, Prolog,
 # Raku, Rebus; Snocone and Pascal are highlighted ahead of the compiler. Raku and Rebus have no Sublime syntax yet, so their
@@ -47,7 +47,10 @@ variables:
 
 contexts:
 
-  fenced-syntaxes:
+  # The installed Markdown (build 4215) opens every fence in its fenced-code-blocks context and never includes a context named
+  # fenced-syntaxes, so the rules below were never tried and every fence body read markup.raw.code-fence.markdown-gfm
+  # (MEASURED 4de7cb18c: the walk's console, developer_15). They are prepended to fenced-code-blocks, the context that matches the opening line.
+  fenced-code-blocks:
     - meta_prepend: true
     - include: fenced-scriptix-snobol4
     - include: fenced-scriptix-snocone
