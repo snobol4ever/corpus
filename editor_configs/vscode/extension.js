@@ -162,8 +162,6 @@ function followNotebooks(context) {
   vscode.workspace.notebookDocuments.forEach(notebookOpened);
 }
 
-const DEBUG_LANGS = ['snobol4', 'snocone', 'rebus', 'icon', 'prolog', 'pascal', 'raku'];
-
 function activeNotebook() {
   const editor = vscode.window.activeTextEditor, nbe = vscode.window.activeNotebookEditor;
   if (editor && editor.document.uri.scheme === 'vscode-notebook-cell') return vscode.workspace.notebookDocuments.find(nb => nb.uri.path === editor.document.uri.path);
@@ -174,7 +172,7 @@ const debugConfigs = {
   async resolveDebugConfiguration(folder, config) {
     const editor = vscode.window.activeTextEditor, nb = activeNotebook();
     if (!config.type || config.type === 'scrip') {
-      if (!config.program && !nb && (!editor || !DEBUG_LANGS.includes(editor.document.languageId))) { vscode.window.showInformationMessage('Open a SNOBOL4, Snocone, Rebus, Icon, Prolog, Pascal or Raku file, or a notebook, to debug it.'); return undefined; }
+      if (!config.program && !nb && (!editor || !runnable(editor.document))) { vscode.window.showInformationMessage('Open a SNOBOL4, Snocone, Rebus, Icon, Prolog, Pascal or Raku file, a SCRIPtix document, or a notebook, to debug it.'); return undefined; }
       if (!config.program) config.program = nb ? nb.uri.fsPath : editor.document.uri.fsPath;
       config.type = 'scrip';
       if (!config.request) config.request = 'launch';
