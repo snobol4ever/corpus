@@ -5,7 +5,7 @@ rank,entry,path,origin,package,n_lines,want_rc,heap_kb,stack_kb,timeout_s,compil
 4,day04,day04.pl,aoc2017_prolog__day04,aoc2017_prolog,25,0,131072,4096,120,,swi
 5,day05,day05.pl,aoc2017_prolog__day05,aoc2017_prolog,55,0,131072,4096,120,,swi
 6,day06,day06.pl,aoc2017_prolog__day06,aoc2017_prolog,58,0,131072,4096,120,,swi
-7,day07,day07.pl,aoc2017_prolog__day07,aoc2017_prolog,78,0,131072,4096,120,,swi
+7,day07,day07.pl,aoc2017_prolog__day07,aoc2017_prolog,78,0,131072,16384,120,,swi
 8,day08,day08.pl,aoc2017_prolog__day08,aoc2017_prolog,93,0,131072,4096,120,,swi
 9,day09,day09.pl,aoc2017_prolog__day09,aoc2017_prolog,71,0,131072,8192,120,,swi
 10,day10,day10.pl,aoc2017_prolog__day10,aoc2017_prolog,94,0,131072,4096,120,,swi
