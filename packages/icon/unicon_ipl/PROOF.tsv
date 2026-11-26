@@ -66,3 +66,5 @@ procs/findre.icn	same-code
 procs/fullimag.icn	same-code
 procs/iscreen.icn	same-code
 procs/itlib.icn	same-code
+mprocs/syntname.icn	same-code
+mincl/patdefs.icn	verbatim
