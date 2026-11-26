@@ -1,0 +1,55 @@
+
+Tracing level reset from 0 to 1.
+
+Solving cos(2 * x) + 1 = sin(2 * x) for x
+
+Tidying to -1 * sin(2 * x) + cos(2 * x) = -1
+
+Applying substitution 
+    2 * x = x1
+
+   to    : 
+    -1 * sin(2 * x) + cos(2 * x) = -1
+
+   gives : 
+    cos(x1) + -1 * sin(x1) = -1
+
+
+sin(-45 + x1) * 2 ^ (1/2) = -1 
+
+	Letting n1 denote an arbitrary integer
+    x1 = 45 + 180 * n1 + arcsin(-1 * 2 ^ (-1/2)) * -1 ^ n1
+     (by Isolation)
+
+Applying substitution 
+    x1 = 2 * x
+
+   to    : 
+    x1 = 45 + 180 * n1 + arcsin(-1 * 2 ^ (-1/2)) * -1 ^ n1
+
+   gives : 
+    2 * x = 45 + 180 * n1 + -1 ^ n1 * arcsin(-1 * 2 ^ (-1/2))
+
+
+    x = (45/2) + (1/2) * (arcsin(-1 * 2 ^ (-1/2)) * -1 ^ n1 + 180 * n1)
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (45/2) + (1/2) * (180 * n1 + -1 ^ n1 * arcsin(-1 * 2 ^ (-1/2)))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 22.5 + 0.5 * (180 * n1 + -1 ^ n1 * -0.013707783890401889)
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 22.5 + 0.5 * (180 * n1 + -1 ^ n1 * -0.013707783890401889)
+

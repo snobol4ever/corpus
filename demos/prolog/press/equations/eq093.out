@@ -1,0 +1,32 @@
+
+Tracing level reset from 0 to 1.
+
+Solving sin(x) - cos(x) = 1 for x
+
+Tidying to sin(x) + -1 * cos(x) = 1
+
+sin(-45 + x) * 2 ^ (1/2) = 1 
+
+	Letting n1 denote an arbitrary integer
+    x = 45 + 180 * n1 + arcsin(2 ^ (-1/2)) * -1 ^ n1
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 45 + 180 * n1 + -1 ^ n1 * arcsin(2 ^ (-1/2))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 45 + 180 * n1 + -1 ^ n1 * 0.013707783890401889
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 45 + 180 * n1 + -1 ^ n1 * 0.013707783890401889
+

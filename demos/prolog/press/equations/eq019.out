@@ -1,0 +1,65 @@
+
+Tracing level reset from 0 to 1.
+
+Solving log(x, 8) + log(8, x) = 13 / 6 for x
+
+Tidying to log(x, 8) + log(8, x) = (13/6)
+
+Rewriting equation in terms of log(x, 8)
+gives log(x, 8) + log(x, 8) ^ -1 = (13/6)
+
+Substituting   x1 for log(x, 8) gives
+ x1 ^ -1 + x1 = (13/6)
+
+Multiply through by x1 to get 
+
+x1 ^ 2 + (-13/6) * x1 + 1 = 0
+
+Using quadratic equation formula
+
+Solutions are x1 = (3/2) and x1 = (2/3)
+
+Applying substitution 
+    x1 = log(x, 8)
+
+   to    : 
+    x1 = (3/2) # x1 = (2/3)
+
+   gives : 
+    log(x, 8) = (3/2) # log(x, 8) = (2/3)
+
+
+
+Solving disjunct log(x, 8) = (3/2)
+
+    x = 4
+     (by Isolation)
+
+
+Solving disjunct log(x, 8) = (2/3)
+
+    x = 8 ^ (3/2)
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 4
+    X2 =  x = 8 ^ (3/2)
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 4
+    X2 =  x = 22.627416997969508
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 4
+    X2 =  x = 22.627416997969508
+

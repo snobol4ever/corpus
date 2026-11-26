@@ -1,0 +1,65 @@
+
+Tracing level reset from 0 to 1.
+
+Solving arcsin(x) - arccos(x) = arcsin(1 - x) for x
+
+Tidying to -1 * arcsin(1 + -1 * x) + -1 * arccos(x) + arcsin(x) = 0
+
+Trying to isolate x
+ in arcsin(x) + -1 * arcsin(1 + -1 * x) + -1 * arccos(x) = 0
+
+    x = sin(arcsin(1 + -1 * x) + arccos(x))
+     (by Isolation)
+
+Attracting nasty functions
+x + -1 * x * (1 + -1 * x) + -1 * (1 + -1 * (1 + -1 * x) ^ 2) ^ (1/2) * (1 + -1 * x ^ 2) ^ (1/2) = 0
+
+-1 * (1 + -1 * (1 + -1 * x) ^ 2) ^ (1/2) * (1 + -1 * x ^ 2) ^ (1/2) + x * (1 * x) = 0
+
+-1 * (1 + -1 * (1 + -1 * x) ^ 2) ^ (1/2) * (1 + -1 * x ^ 2) ^ (1/2) + x ^ 2 = 0
+
+Trying to isolate 1 + -1 * (1 + -1 * x) ^ 2
+ in x ^ 2 + -1 * (1 + -1 * (1 + -1 * x) ^ 2) ^ (1/2) * (1 + -1 * x ^ 2) ^ (1/2) = 0
+
+Assuming (1 + -1 * x ^ 2) ^ (1/2) is non-zero
+
+    1 + -1 * (1 + -1 * x) ^ 2 = (1 + -1 * x ^ 2) ^ -1 * x ^ 4
+     (by Isolation)
+
+Clearing of rational functions
+
+-1 * x ^ 4 + -1 * (1 + -1 * x) ^ 2 * (1 + -1 * x ^ 2) = -1 + x ^ 2
+
+Polynomial 1 + -1 * x ^ 2 + -1 * (1 + -1 * x) ^ 2 * (1 + -1 * x ^ 2) + -1 * x ^ 4 becomes 
+
+-2 * x ^ 3 + -1 * x ^ 2 + 2 * x when in normal form
+
+Using quadratic equation formula
+
+Solutions are x = (-1/4) + (-1/4) * 17 ^ (1/2) and x = (-1/4) + (-1/4) * (-1 * 17 ^ (1/2))
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 0
+    X2 =  x = (-1/4) + (-1/4) * 17 ^ (1/2)
+    X3 =  x = (-1/4) + (1/4) * 17 ^ (1/2)
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 0
+    X2 =  x = -1.2807764064044151
+    X3 =  x = 0.7807764064044151
+
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 0
+    X2 =  x = -1.2807764064044151
+    X3 =  x = 0.7807764064044151
+

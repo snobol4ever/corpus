@@ -1,0 +1,47 @@
+
+Tracing level reset from 0 to 1.
+
+Solving cos(5 * x) = cos(2 * x) for x
+
+Tidying to cos(5 * x) + -1 * cos(2 * x) = 0
+
+Using trigonometric addition
+ -2 * sin((7/2) * x) * sin((3/2) * x) = 0
+
+Dividing through by -2
+
+Solving factor sin((3/2) * x) = 0
+
+	Letting n1 denote an arbitrary integer
+    x = 120 * n1
+     (by Isolation)
+
+
+Solving factor sin((7/2) * x) = 0
+
+	Letting n2 denote an arbitrary integer
+    x = (360/7) * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 120 * n1
+    X2 =  x = (360/7) * n2
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 120 * n1
+    X2 =  x = n2 * 51.42857142857143
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 120 * n1
+    X2 =  x = n2 * 51.42857142857143
+

@@ -1,0 +1,55 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 5 * cos(2 * x) - 2 * sin(2 * x) = 2 for x
+
+Tidying to 5 * cos(2 * x) + -2 * sin(2 * x) = 2
+
+Applying substitution 
+    2 * x = x1
+
+   to    : 
+    5 * cos(2 * x) + -2 * sin(2 * x) = 2
+
+   gives : 
+    -2 * sin(x1) + 5 * cos(x1) = 2
+
+
+sin(arctan((-2/5)) + x1) * 29 ^ (1/2) = 2 
+
+	Letting n1 denote an arbitrary integer
+    x1 = -1 * arctan((-2/5)) + 180 * n1 + arcsin(2 * 29 ^ (-1/2)) * -1 ^ n1
+     (by Isolation)
+
+Applying substitution 
+    x1 = 2 * x
+
+   to    : 
+    x1 = -1 * arctan((-2/5)) + 180 * n1 + arcsin(2 * 29 ^ (-1/2)) * -1 ^ n1
+
+   gives : 
+    2 * x = -1 ^ n1 * arcsin(2 * 29 ^ (-1/2)) + -1 * arctan((-2/5)) + 180 * n1
+
+
+    x = (1/2) * (180 * n1 + arcsin(2 * 29 ^ (-1/2)) * -1 ^ n1 + -1 * arctan((-2/5)))
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (1/2) * (-1 * arctan((-2/5)) + 180 * n1 + -1 ^ n1 * arcsin(2 * 29 ^ (-1/2)))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 0.5 * (180 * n1 + -1 ^ n1 * 0.00664108910544596 + -1 * -0.00664108910544596)
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 0.5 * (180 * n1 + -1 ^ n1 * 0.00664108910544596 + -1 * -0.00664108910544596)
+

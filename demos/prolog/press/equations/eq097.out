@@ -1,0 +1,108 @@
+
+Tracing level reset from 0 to 1.
+
+Solving sec(x) - 1 / sec(x) = sin(x) for x
+
+Tidying to -1 * sin(x) + -1 * sec(x) ^ -1 + sec(x) = 0
+
+Rewriting equation in terms of cos(x)
+gives -1 * (1 * (1 - cos(x) ^ 2) ^ (1 / 2)) + -1 * (cos(x) ^ -1) ^ -1 + cos(x) ^ -1 = 0
+
+Substituting   x1 for cos(x) gives
+ x1 ^ -1 + -1 * (1 + -1 * x1 ^ 2) ^ (1/2) + -1 * x1 = 0
+
+Trying to isolate 1 + -1 * x1 ^ 2
+ in -1 * (1 + -1 * x1 ^ 2) ^ (1/2) + -1 * x1 + x1 ^ -1 = 0
+
+    1 + -1 * x1 ^ 2 = (-1 * x1 + 1 * x1 ^ -1) ^ 2
+     (by Isolation)
+
+Polynomial 1 + -1 * x1 ^ 2 + -1 * (x1 ^ -1 + -1 * x1) ^ 2 becomes 
+
+-2 * x1 ^ 2 + 3 + -1 * x1 ^ -2 when in normal form
+
+Multiply through by x1 ^ 2 to get 
+
+-2 * x1 ^ 4 + 3 * x1 ^ 2 + -1 = 0
+
+This is a hidden polynomial in x1 ^ 2
+
+Using quadratic equation formula
+
+Solutions are x1 ^ 2 = (1/2) and x1 ^ 2 = 1
+
+    x1 = (1/2) ^ (1/2) # x1 = -1 * (1/2) ^ (1/2) # x1 = 1 # x1 = -1
+     (by Isolation)
+
+Applying substitution 
+    x1 = cos(x)
+
+   to    : 
+    x1 = (1/2) ^ (1/2) # x1 = -1 * (1/2) ^ (1/2) # x1 = 1 # x1 = -1
+
+   gives : 
+    cos(x) = (1/2) ^ (1/2) # cos(x) = -1 * (1/2) ^ (1/2) # cos(x) = 1 # cos(x) = -1
+
+
+
+Solving disjunct cos(x) = (1/2) ^ (1/2)
+
+	Letting n1 denote an arbitrary integer
+    x = arccos((1/2) ^ (1/2)) + 360 * n1 # x = -1 * arccos((1/2) ^ (1/2)) + 360 * n1
+     (by Isolation)
+
+
+Solving disjunct cos(x) = -1 * (1/2) ^ (1/2)
+
+	Letting n2 denote an arbitrary integer
+    x = arccos(-1 * (1/2) ^ (1/2)) + 360 * n2 # x = -1 * arccos(-1 * (1/2) ^ (1/2)) + 360 * n2
+     (by Isolation)
+
+
+Solving disjunct cos(x) = 1
+
+	Letting n3 denote an arbitrary integer
+    x = 360 * n3
+     (by Isolation)
+
+
+Solving disjunct cos(x) = -1
+
+	Letting n4 denote an arbitrary integer
+    x = 180 + 360 * n4
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # (X3 # (X4 # (X5 # X6)))))
+  where :
+    X1 =  x = 360 * n1 + arccos((1/2) ^ (1/2))
+    X2 =  x = 360 * n1 + -1 * arccos((1/2) ^ (1/2))
+    X3 =  x = 360 * n2 + arccos(-1 * (1/2) ^ (1/2))
+    X4 =  x = 360 * n2 + -1 * arccos(-1 * (1/2) ^ (1/2))
+    X5 =  x = 360 * n3
+    X6 =  x = 180 + 360 * n4
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # (X3 # (X4 # (X5 # X6)))))
+  where :
+    X1 =  x = 0.013707783890401885 + 360 * n1
+    X2 =  x = 360 * n1 + -1 * 0.013707783890401885
+    X3 =  x = 0.041123351671205656 + 360 * n2
+    X4 =  x = 360 * n2 + -1 * 0.041123351671205656
+    X5 =  x = 360 * n3
+    X6 =  x = 180 + 360 * n4
+
+
+Answer is : 
+(X1 # (X2 # (X3 # (X4 # (X5 # X6)))))
+  where :
+    X1 =  x = 0.013707783890401885 + 360 * n1
+    X2 =  x = 360 * n1 + -1 * 0.013707783890401885
+    X3 =  x = 0.041123351671205656 + 360 * n2
+    X4 =  x = 360 * n2 + -1 * 0.041123351671205656
+    X5 =  x = 360 * n3
+    X6 =  x = 180 + 360 * n4
+

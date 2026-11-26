@@ -1,0 +1,29 @@
+
+Tracing level reset from 0 to 1.
+
+Solving sin(x) + sin(3 * x) = 0 for x
+
+Using trigonometric addition
+ 2 * sin(2 * x) * cos(x) = 0
+
+Dividing through by 2
+
+Solving factor cos(x) = 0
+
+	Letting n1 denote an arbitrary integer
+    x = 90 + 180 * n1
+     (by Isolation)
+
+
+Solving factor sin(2 * x) = 0
+
+	Letting n2 denote an arbitrary integer
+    x = 90 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 90 + 180 * n1
+    X2 =  x = 90 * n2
+

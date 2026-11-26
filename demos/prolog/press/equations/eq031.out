@@ -1,0 +1,65 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 3 * log(8, x) - 8 * log(x, 2) = 8 for x
+
+Tidying to 3 * log(8, x) + -8 * log(x, 2) = 8
+
+Rewriting equation in terms of log(8, x)
+gives 3 * log(8, x) + -8 * ((1/3) * log(8, x) ^ -1) = 8
+
+Substituting   x1 for log(8, x) gives
+ (-8/3) * x1 ^ -1 + 3 * x1 = 8
+
+Multiply through by x1 to get 
+
+3 * x1 ^ 2 + -8 * x1 + (-8/3) = 0
+
+Using quadratic equation formula
+
+Solutions are x1 = (4/3) + (1/6) * 96 ^ (1/2) and x1 = (4/3) + (1/6) * (-1 * 96 ^ (1/2))
+
+Applying substitution 
+    x1 = log(8, x)
+
+   to    : 
+    x1 = (4/3) + (1/6) * 96 ^ (1/2) # x1 = (4/3) + (1/6) * (-1 * 96 ^ (1/2))
+
+   gives : 
+    log(8, x) = (4/3) + (1/6) * 96 ^ (1/2) # log(8, x) = (4/3) + (-1/6) * 96 ^ (1/2)
+
+
+
+Solving disjunct log(8, x) = (4/3) + (1/6) * 96 ^ (1/2)
+
+    x = 8 ^ ((4/3) + (1/6) * 96 ^ (1/2))
+     (by Isolation)
+
+
+Solving disjunct log(8, x) = (4/3) + (-1/6) * 96 ^ (1/2)
+
+    x = 8 ^ ((4/3) + (-1/6) * 96 ^ (1/2))
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 8 ^ ((4/3) + (1/6) * 96 ^ (1/2))
+    X2 =  x = 8 ^ ((4/3) + (-1/6) * 96 ^ (1/2))
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 477.3750929618354
+    X2 =  x = 0.5362659337999148
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 477.3750929618354
+    X2 =  x = 0.5362659337999148
+

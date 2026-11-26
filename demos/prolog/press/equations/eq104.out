@@ -1,0 +1,27 @@
+
+Tracing level reset from 0 to 1.
+
+Solving x ^ 4 - 6 * x ^ 3 - 7 * x ^ 2 + 36 * x + 36 = 0 for x
+
+Tidying to 36 * x + -6 * x ^ 3 + -7 * x ^ 2 + x ^ 4 = -36
+
+By inspection x = -1 is a solution
+
+After division, polynomial becomes
+x ^ 3 + -7 * x ^ 2 + 36
+By inspection x = -2 is a solution
+
+After division, polynomial becomes
+x ^ 2 + -9 * x + 18
+Using quadratic equation formula
+
+Solutions are x = 6 and x = 3
+
+Answer is : 
+(X1 # (X2 # (X3 # X4)))
+  where :
+    X1 =  x = -1
+    X2 =  x = -2
+    X3 =  x = 6
+    X4 =  x = 3
+

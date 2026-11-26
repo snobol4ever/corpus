@@ -1,0 +1,41 @@
+
+Tracing level reset from 0 to 1.
+
+Solving log(e, 2 * x - 5) + log(e, x - 3) = 2 * log(e, 2 * x - 1) - log(e, 2) for x
+
+Tidying to -2 * log(e, -1 + 2 * x) + log(e, -3 + x) + log(e, -5 + 2 * x) = -1 * log(e, 2)
+
+-2 * log(e, -1 + 2 * x) + log(e, (-5 + 2 * x) * (-3 + x)) = -1 * log(e, 2)
+
+log(e, (-1 + 2 * x) ^ -2 * (-3 + x) * (-5 + 2 * x)) = -1 * log(e, 2)
+
+    (-5 + 2 * x) * (-1 + 2 * x) ^ -2 * (-3 + x) = (1/2)
+     (by Isolation)
+
+Clearing of rational functions
+
+15 + -6 * x + 2 * x * x + -5 * x = (1/2) * (-1 + 2 * x) ^ 2
+
+Polynomial 15 + 2 * x * x + -6 * x + -5 * x + (-1/2) * (-1 + 2 * x) ^ 2 becomes 
+
+-9 * x + (29/2) when in normal form
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (29/18)
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 1.6111111111111112
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 1.6111111111111112
+

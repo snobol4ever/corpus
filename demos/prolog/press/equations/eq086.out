@@ -1,0 +1,16 @@
+
+Tracing level reset from 0 to 1.
+
+Solving e ^ log(e, x) + log(e, e ^ x) = 8 for x
+
+Tidying to x + x = 8
+
+Polynomial -8 + x + x becomes 
+
+2 * x + -8 when in normal form
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 4
+

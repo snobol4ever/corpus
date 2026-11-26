@@ -1,0 +1,30 @@
+
+Tracing level reset from 0 to 1.
+
+Solving sin(x) + 2 * cos(x) = 0 for x
+
+tan(x) = (-1/2) 
+
+	Letting n1 denote an arbitrary integer
+    x = arctan((-1/2)) + 180 * n1
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 180 * n1 + arctan((-1/2))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 180 * n1 + -0.008092177346063363
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 180 * n1 + -0.008092177346063363
+

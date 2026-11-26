@@ -1,0 +1,66 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 3 * sin(x) ^ 2 - cos(x) - 1 = 0 for x
+
+Tidying to 3 * sin(x) ^ 2 + -1 * cos(x) = 1
+
+Rewriting equation in terms of cos(x)
+gives 3 * (1 * (1 - cos(x) ^ 2) ^ (1 / 2)) ^ 2 + -1 * cos(x) = 1
+
+Substituting   x1 for cos(x) gives
+ -1 * x1 + 3 * (1 + -1 * x1 ^ 2) = 1
+
+Using quadratic equation formula
+
+Solutions are x1 = -1 and x1 = (2/3)
+
+Applying substitution 
+    x1 = cos(x)
+
+   to    : 
+    x1 = -1 # x1 = (2/3)
+
+   gives : 
+    cos(x) = -1 # cos(x) = (2/3)
+
+
+
+Solving disjunct cos(x) = -1
+
+	Letting n1 denote an arbitrary integer
+    x = 180 + 360 * n1
+     (by Isolation)
+
+
+Solving disjunct cos(x) = (2/3)
+
+	Letting n2 denote an arbitrary integer
+    x = arccos((2/3)) + 360 * n2 # x = -1 * arccos((2/3)) + 360 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 180 + 360 * n1
+    X2 =  x = 360 * n2 + arccos((2/3))
+    X3 =  x = 360 * n2 + -1 * arccos((2/3))
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 180 + 360 * n1
+    X2 =  x = 360 * n2 + 0.014679417536781909
+    X3 =  x = 360 * n2 + -1 * 0.014679417536781909
+
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 180 + 360 * n1
+    X2 =  x = 360 * n2 + 0.014679417536781909
+    X3 =  x = 360 * n2 + -1 * 0.014679417536781909
+

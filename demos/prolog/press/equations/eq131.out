@@ -1,0 +1,61 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 9 * 6 ^ (2 * x) - 10 * 6 ^ x + 1 = 0 for x
+
+Tidying to 9 * 6 ^ (2 * x) + -10 * 6 ^ x = -1
+
+Rewriting equation in terms of 6 ^ x
+gives 9 * (6 ^ x) ^ 2 + -10 * 6 ^ x = -1
+
+Substituting   x1 for 6 ^ x gives
+ -10 * x1 + 9 * x1 ^ 2 = -1
+
+Using quadratic equation formula
+
+Solutions are x1 = 1 and x1 = (1/9)
+
+Applying substitution 
+    x1 = 6 ^ x
+
+   to    : 
+    x1 = 1 # x1 = (1/9)
+
+   gives : 
+    6 ^ x = 1 # 6 ^ x = (1/9)
+
+
+
+Solving disjunct 6 ^ x = 1
+
+    x = 0
+     (by Isolation)
+
+
+Solving disjunct 6 ^ x = (1/9)
+
+    x = log(6, (1/9))
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 0
+    X2 =  x = log(6, (1/9))
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 0
+    X2 =  x = -1.226294385530917
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 0
+    X2 =  x = -1.226294385530917
+

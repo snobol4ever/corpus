@@ -1,0 +1,22 @@
+
+Tracing level reset from 0 to 1.
+
+Solving x ^ 3 - 2 * x ^ 2 - 4 * x + 8 = 0 for x
+
+Tidying to -4 * x + x ^ 3 + -2 * x ^ 2 = -8
+
+By inspection x = 2 is a solution
+
+After division, polynomial becomes
+x ^ 2 + -4
+Using quadratic equation formula
+
+Solutions are x = 2 and x = -2
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 2
+    X2 =  x = 2
+    X3 =  x = -2
+

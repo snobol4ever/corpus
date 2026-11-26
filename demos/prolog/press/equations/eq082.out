@@ -1,0 +1,42 @@
+
+Tracing level reset from 0 to 1.
+
+Solving log(2, x + 4) = 2 - log(2, x) for x
+
+Tidying to log(2, 4 + x) + log(2, x) = 2
+
+log(2, x * (4 + x)) = 2
+
+    (4 + x) * x = 4
+     (by Isolation)
+
+Polynomial -4 + x * (4 + x) becomes 
+
+x ^ 2 + 4 * x + -4 when in normal form
+
+Using quadratic equation formula
+
+Solutions are x = -2 + (1/2) * 32 ^ (1/2) and x = -2 + (1/2) * (-1 * 32 ^ (1/2))
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = -2 + (1/2) * 32 ^ (1/2)
+    X2 =  x = -2 + (-1/2) * 32 ^ (1/2)
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 0.8284271247461903
+    X2 =  x = -4.82842712474619
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 0.8284271247461903
+    X2 =  x = -4.82842712474619
+

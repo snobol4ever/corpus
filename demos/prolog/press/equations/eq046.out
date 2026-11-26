@@ -1,0 +1,69 @@
+
+Tracing level reset from 0 to 1.
+
+Solving cos(x) - cos(2 * x) = 1 / 2 for x
+
+Tidying to cos(x) + -1 * cos(2 * x) = (1/2)
+
+Rewriting equation in terms of cos(x)
+gives cos(x) + -1 * (2 * cos(x) ^ 2 - 1 * 1) = (1/2)
+
+Substituting   x1 for cos(x) gives
+ x1 + -2 * x1 ^ 2 = (-1/2)
+
+Using quadratic equation formula
+
+Solutions are x1 = (1/4) + (-1/4) * 5 ^ (1/2) and x1 = (1/4) + (-1/4) * (-1 * 5 ^ (1/2))
+
+Applying substitution 
+    x1 = cos(x)
+
+   to    : 
+    x1 = (1/4) + (-1/4) * 5 ^ (1/2) # x1 = (1/4) + (-1/4) * (-1 * 5 ^ (1/2))
+
+   gives : 
+    cos(x) = (1/4) + (-1/4) * 5 ^ (1/2) # cos(x) = (1/4) + (1/4) * 5 ^ (1/2)
+
+
+
+Solving disjunct cos(x) = (1/4) + (-1/4) * 5 ^ (1/2)
+
+	Letting n1 denote an arbitrary integer
+    x = arccos((1/4) + (-1/4) * 5 ^ (1/2)) + 360 * n1 # x = -1 * arccos((1/4) + (-1/4) * 5 ^ (1/2)) + 360 * n1
+     (by Isolation)
+
+
+Solving disjunct cos(x) = (1/4) + (1/4) * 5 ^ (1/2)
+
+	Letting n2 denote an arbitrary integer
+    x = arccos((1/4) + (1/4) * 5 ^ (1/2)) + 360 * n2 # x = -1 * arccos((1/4) + (1/4) * 5 ^ (1/2)) + 360 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # (X3 # X4)))
+  where :
+    X1 =  x = 360 * n1 + arccos((1/4) + (-1/4) * 5 ^ (1/2))
+    X2 =  x = 360 * n1 + -1 * arccos((1/4) + (-1/4) * 5 ^ (1/2))
+    X3 =  x = 360 * n2 + arccos((1/4) + (1/4) * 5 ^ (1/2))
+    X4 =  x = 360 * n2 + -1 * arccos((1/4) + (1/4) * 5 ^ (1/2))
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # (X3 # X4)))
+  where :
+    X1 =  x = 0.032898681336964525 + 360 * n1
+    X2 =  x = 360 * n1 + -1 * 0.032898681336964525
+    X3 =  x = 0.010966227112321508 + 360 * n2
+    X4 =  x = -1 * 0.010966227112321508 + 360 * n2
+
+
+Answer is : 
+(X1 # (X2 # (X3 # X4)))
+  where :
+    X1 =  x = 0.032898681336964525 + 360 * n1
+    X2 =  x = 360 * n1 + -1 * 0.032898681336964525
+    X3 =  x = 0.010966227112321508 + 360 * n2
+    X4 =  x = -1 * 0.010966227112321508 + 360 * n2
+

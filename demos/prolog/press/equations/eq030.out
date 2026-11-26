@@ -1,0 +1,35 @@
+
+Tracing level reset from 0 to 1.
+
+Solving sin(x) - sin(2 * x) + sin(3 * x) = 0 for x
+
+Tidying to sin(3 * x) + sin(x) + -1 * sin(2 * x) = 0
+
+Angles are in arithmetic progression 
+
+Adding in pairs
+-1 * sin(2 * x) + 2 * sin(2 * x) * cos(x) = 0
+
+(-1 + 2 * cos(x)) * sin(2 * x) = 0
+
+
+Solving factor sin(2 * x) = 0
+
+	Letting n1 denote an arbitrary integer
+    x = 90 * n1
+     (by Isolation)
+
+
+Solving factor -1 + 2 * cos(x) = 0
+
+	Letting n2 denote an arbitrary integer
+    x = 60 + 360 * n2 # x = -60 + 360 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 90 * n1
+    X2 =  x = 60 + 360 * n2
+    X3 =  x = -60 + 360 * n2
+

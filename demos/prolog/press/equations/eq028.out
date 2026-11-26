@@ -1,0 +1,33 @@
+
+Tracing level reset from 0 to 1.
+
+Solving log(4, x) + log(2, x) = 6 for x
+
+Rewriting equation in terms of log(4, x)
+gives log(4, x) + 2 * log(4, x) = 6
+
+Substituting   x1 for log(4, x) gives
+ 2 * x1 + x1 = 6
+
+Polynomial -6 + x1 + 2 * x1 becomes 
+
+3 * x1 + -6 when in normal form
+
+Applying substitution 
+    x1 = log(4, x)
+
+   to    : 
+    x1 = 2
+
+   gives : 
+    log(4, x) = 2
+
+
+    x = 16
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 16
+

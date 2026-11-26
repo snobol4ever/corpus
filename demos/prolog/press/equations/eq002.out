@@ -1,0 +1,57 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 3 * sech(x) ^ 2 + 4 * tanh(x) + 1 = 0 for x
+
+Tidying to 3 * sech(x) ^ 2 + 4 * tanh(x) = -1
+
+Rewriting equation in terms of tanh(x)
+gives 3 * ((1 - tanh(x) ^ 2) ^ (1 / 2)) ^ 2 + 4 * tanh(x) = -1
+
+Substituting   x1 for tanh(x) gives
+ 4 * x1 + 3 * (1 + -1 * x1 ^ 2) = -1
+
+Using quadratic equation formula
+
+Solutions are x1 = (-2/3) and x1 = 2
+
+Applying substitution 
+    x1 = tanh(x)
+
+   to    : 
+    x1 = (-2/3) # x1 = 2
+
+   gives : 
+    tanh(x) = (-2/3) # tanh(x) = 2
+
+
+
+Solving disjunct tanh(x) = (-2/3)
+
+    x = (1/2) * log(e, (1/5))
+     (by Isolation)
+
+
+Solving disjunct tanh(x) = 2
+
+tanh(x)=2 has no real roots, tanh must lie in (-1,1)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (1/2) * log(e, (1/5))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -0.8047189562170501
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -0.8047189562170501
+

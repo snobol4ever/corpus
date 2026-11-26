@@ -1,0 +1,38 @@
+
+Tracing level reset from 0 to 1.
+
+Solving x ^ 3 - 3 * x ^ 2 - 3 * x + 1 = 0 for x
+
+Tidying to -3 * x + x ^ 3 + -3 * x ^ 2 = -1
+
+Polynomial is odd-symmetric so x + 1 is a factor
+
+Using quadratic equation formula
+
+Solutions are x = 2 + (1/2) * 12 ^ (1/2) and x = 2 + (1/2) * (-1 * 12 ^ (1/2))
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = -1
+    X2 =  x = 2 + (1/2) * 12 ^ (1/2)
+    X3 =  x = 2 + (-1/2) * 12 ^ (1/2)
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = -1
+    X2 =  x = 3.7320508075688776
+    X3 =  x = 0.2679491924311226
+
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = -1
+    X2 =  x = 3.7320508075688776
+    X3 =  x = 0.2679491924311226
+

@@ -1,0 +1,76 @@
+
+Tracing level reset from 0 to 1.
+
+Solving e ^ (3 * x) - 11 * e ^ x + 14 = 0 for x
+
+Tidying to e ^ (3 * x) + -11 * e ^ x = -14
+
+Rewriting equation in terms of e ^ x
+gives (e ^ x) ^ 3 + -11 * e ^ x = -14
+
+Substituting   x1 for e ^ x gives
+ -11 * x1 + x1 ^ 3 = -14
+
+By inspection x1 = 2 is a solution
+
+After division, polynomial becomes
+x1 ^ 2 + 2 * x1 + -7
+Using quadratic equation formula
+
+Solutions are x1 = -1 + (1/2) * 32 ^ (1/2) and x1 = -1 + (1/2) * (-1 * 32 ^ (1/2))
+
+Applying substitution 
+    x1 = e ^ x
+
+   to    : 
+    x1 = 2 # x1 = -1 + (1/2) * 32 ^ (1/2) # x1 = -1 + (1/2) * (-1 * 32 ^ (1/2))
+
+   gives : 
+    e ^ x = 2 # e ^ x = -1 + (1/2) * 32 ^ (1/2) # e ^ x = -1 + (-1/2) * 32 ^ (1/2)
+
+
+
+Solving disjunct e ^ x = 2
+
+    x = log(e, 2)
+     (by Isolation)
+
+
+Solving disjunct e ^ x = -1 + (1/2) * 32 ^ (1/2)
+
+    x = log(e, -1 + (1/2) * 32 ^ (1/2))
+     (by Isolation)
+
+
+Solving disjunct e ^ x = -1 + (-1/2) * 32 ^ (1/2)
+
+    x = log(e, -1 + (-1/2) * 32 ^ (1/2))
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = log(e, 2)
+    X2 =  x = log(e, -1 + (1/2) * 32 ^ (1/2))
+    X3 =  x = log(e, -1 + (-1/2) * 32 ^ (1/2))
+
+
+ Answer x = log(e, -1 + (-1/2) * 32 ^ (1/2))
+ is invalid as it contains a negative argument to a log
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 0.6931471805599453
+    X2 =  x = 0.6034561026017874
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 0.6931471805599453
+    X2 =  x = 0.6034561026017874
+

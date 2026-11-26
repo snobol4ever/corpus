@@ -1,0 +1,53 @@
+
+Tracing level reset from 0 to 1.
+
+Solving cos(3 * x) + sin(3 * x) = 1 for x
+
+Applying substitution 
+    3 * x = x1
+
+   to    : 
+    cos(3 * x) + sin(3 * x) = 1
+
+   gives : 
+    sin(x1) + cos(x1) = 1
+
+
+sin(45 + x1) * 2 ^ (1/2) = 1 
+
+	Letting n1 denote an arbitrary integer
+    x1 = -45 + 180 * n1 + arcsin(2 ^ (-1/2)) * -1 ^ n1
+     (by Isolation)
+
+Applying substitution 
+    x1 = 3 * x
+
+   to    : 
+    x1 = -45 + 180 * n1 + arcsin(2 ^ (-1/2)) * -1 ^ n1
+
+   gives : 
+    3 * x = -45 + 180 * n1 + -1 ^ n1 * arcsin(2 ^ (-1/2))
+
+
+    x = -15 + (1/3) * (arcsin(2 ^ (-1/2)) * -1 ^ n1 + 180 * n1)
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -15 + (1/3) * (180 * n1 + -1 ^ n1 * arcsin(2 ^ (-1/2)))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -15 + 0.3333333333333333 * (180 * n1 + -1 ^ n1 * 0.013707783890401889)
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -15 + 0.3333333333333333 * (180 * n1 + -1 ^ n1 * 0.013707783890401889)
+

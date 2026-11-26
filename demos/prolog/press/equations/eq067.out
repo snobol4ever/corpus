@@ -1,0 +1,45 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 2 ^ (2 * x) - 5 * 2 ^ (x + 1) + 16 = 0 for x
+
+Tidying to 2 ^ (2 * x) + -5 * 2 ^ (1 + x) = -16
+
+Rewriting equation in terms of 2 ^ x
+gives (2 ^ x) ^ 2 + -5 * (2 ^ 1 * 2 ^ x) = -16
+
+Substituting   x1 for 2 ^ x gives
+ -10 * x1 + x1 ^ 2 = -16
+
+Using quadratic equation formula
+
+Solutions are x1 = 8 and x1 = 2
+
+Applying substitution 
+    x1 = 2 ^ x
+
+   to    : 
+    x1 = 8 # x1 = 2
+
+   gives : 
+    2 ^ x = 8 # 2 ^ x = 2
+
+
+
+Solving disjunct 2 ^ x = 8
+
+    x = 3
+     (by Isolation)
+
+
+Solving disjunct 2 ^ x = 2
+
+    x = 1
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 3
+    X2 =  x = 1
+

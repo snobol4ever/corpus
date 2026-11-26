@@ -1,0 +1,32 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 6 ^ (1 / 2) * cos(x) - 2 ^ (1 / 2) * sin(x) = 2 for x
+
+Tidying to cos(x) * 6 ^ (1/2) + -1 * 2 ^ (1/2) * sin(x) = 2
+
+sin(arctan(-1 * 2 ^ (1/2) * 6 ^ (-1/2)) + x) * (2 + 6) ^ (1/2) = 2 
+
+	Letting n1 denote an arbitrary integer
+    x = -1 * arctan(-1 * 2 ^ (1/2) * 6 ^ (-1/2)) + 180 * n1 + arcsin(2 * 8 ^ (-1/2)) * -1 ^ n1
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 ^ n1 * arcsin(2 * 8 ^ (-1/2)) + -1 * arctan(-1 * 2 ^ (1/2) * 6 ^ (-1/2)) + 180 * n1
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -1 * -0.009138522593601256 + 180 * n1 + -1 ^ n1 * 0.013707783890401889
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 * -0.009138522593601256 + 180 * n1 + -1 ^ n1 * 0.013707783890401889
+

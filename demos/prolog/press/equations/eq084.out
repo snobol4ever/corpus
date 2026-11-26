@@ -1,0 +1,91 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 2 * cosh(2 * x) + sinh(x) = 2 for x
+
+Rewriting equation in terms of e ^ x
+gives 2 * (((e ^ x) ^ 2 + (e ^ x) ^ - 2) / 2) + ((e ^ x) ^ 1 - (e ^ x) ^ - 1) / 2 = 2
+
+Substituting   x1 for e ^ x gives
+ (1/2) * (-1 * x1 ^ -1 + x1) + 2 * ((1/2) * (x1 ^ -2 + x1 ^ 2)) = 2
+
+Polynomial -2 + 2 * ((1/2) * (x1 ^ -2 + x1 ^ 2)) + (1/2) * (-1 * x1 ^ -1 + x1) becomes 
+
+x1 ^ 2 + (1/2) * x1 + -2 + (-1/2) * x1 ^ -1 + x1 ^ -2 when in normal form
+
+Multiply through by x1 ^ 2 to get 
+
+x1 ^ 4 + (1/2) * x1 ^ 3 + -2 * x1 ^ 2 + (-1/2) * x1 + 1 = 0
+
+By inspection x1 = 1 is a solution
+
+After division, polynomial becomes
+x1 ^ 3 + (3/2) * x1 ^ 2 + (-1/2) * x1 + -1
+By inspection x1 = -1 is a solution
+
+After division, polynomial becomes
+x1 ^ 2 + (1/2) * x1 + -1
+Using quadratic equation formula
+
+Solutions are x1 = (-1/4) + (1/2) * (17/4) ^ (1/2) and x1 = (-1/4) + (1/2) * (-1 * (17/4) ^ (1/2))
+
+Applying substitution 
+    x1 = e ^ x
+
+   to    : 
+    x1 = 1 # x1 = -1 # x1 = (-1/4) + (1/2) * (17/4) ^ (1/2) # x1 = (-1/4) + (1/2) * (-1 * (17/4) ^ (1/2))
+
+   gives : 
+    e ^ x = 1 # e ^ x = -1 # e ^ x = (-1/4) + (1/2) * (17/4) ^ (1/2) # e ^ x = (-1/4) + (-1/2) * (17/4) ^ (1/2)
+
+
+
+Solving disjunct e ^ x = 1
+
+    x = 0
+     (by Isolation)
+
+
+Solving disjunct e ^ x = -1
+
+e^x = -1 has no real roots, e^x must be > 0
+
+
+Solving disjunct e ^ x = (-1/4) + (1/2) * (17/4) ^ (1/2)
+
+    x = log(e, (-1/4) + (1/2) * (17/4) ^ (1/2))
+     (by Isolation)
+
+
+Solving disjunct e ^ x = (-1/4) + (-1/2) * (17/4) ^ (1/2)
+
+    x = log(e, (-1/4) + (-1/2) * (17/4) ^ (1/2))
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 0
+    X2 =  x = log(e, (-1/4) + (1/2) * (17/4) ^ (1/2))
+    X3 =  x = log(e, (-1/4) + (-1/2) * (17/4) ^ (1/2))
+
+
+ Answer x = log(e, (-1/4) + (-1/2) * (17/4) ^ (1/2))
+ is invalid as it contains a negative argument to a log
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 0
+    X2 =  x = -0.24746646154726343
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 0
+    X2 =  x = -0.24746646154726343
+

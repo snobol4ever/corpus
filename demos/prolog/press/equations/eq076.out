@@ -1,0 +1,31 @@
+
+Tracing level reset from 0 to 1.
+
+Solving sin(2 * x) = sin(x) for x
+
+Tidying to sin(2 * x) + -1 * sin(x) = 0
+
+Using trigonometric addition
+ 2 * sin((1/2) * x) * cos((3/2) * x) = 0
+
+Dividing through by 2
+
+Solving factor cos((3/2) * x) = 0
+
+	Letting n1 denote an arbitrary integer
+    x = 60 + (2/3) * (180 * n1)
+     (by Isolation)
+
+
+Solving factor sin((1/2) * x) = 0
+
+	Letting n2 denote an arbitrary integer
+    x = 360 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 60 + 120 * n1
+    X2 =  x = 360 * n2
+

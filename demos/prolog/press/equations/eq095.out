@@ -1,0 +1,32 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 8 * cos(x) - sin(x) = 4 for x
+
+Tidying to 8 * cos(x) + -1 * sin(x) = 4
+
+sin(arctan((-1/8)) + x) * 65 ^ (1/2) = 4 
+
+	Letting n1 denote an arbitrary integer
+    x = -1 * arctan((-1/8)) + 180 * n1 + arcsin(4 * 65 ^ (-1/2)) * -1 ^ n1
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 ^ n1 * arcsin(4 * 65 ^ (-1/2)) + -1 * arctan((-1/8)) + 180 * n1
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -1 * -0.0021704040961405806 + 180 * n1 + -1 ^ n1 * 0.009060808992536466
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 * -0.0021704040961405806 + 180 * n1 + -1 ^ n1 * 0.009060808992536466
+

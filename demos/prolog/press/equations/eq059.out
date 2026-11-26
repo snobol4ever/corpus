@@ -1,0 +1,91 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 4 * sec(x) ^ 3 - 7 * sec(x) + 3 = 0 for x
+
+Tidying to 4 * sec(x) ^ 3 + -7 * sec(x) = -3
+
+Applying substitution 
+    sec(x) = x1
+
+   to    : 
+    4 * sec(x) ^ 3 + -7 * sec(x) = -3
+
+   gives : 
+    -7 * x1 + 4 * x1 ^ 3 = -3
+
+
+By inspection x1 = 1 is a solution
+
+After division, polynomial becomes
+4 * x1 ^ 2 + 4 * x1 + -3
+Using quadratic equation formula
+
+Solutions are x1 = (1/2) and x1 = (-3/2)
+
+Applying substitution 
+    x1 = sec(x)
+
+   to    : 
+    x1 = 1 # x1 = (1/2) # x1 = (-3/2)
+
+   gives : 
+    sec(x) = 1 # sec(x) = (1/2) # sec(x) = (-3/2)
+
+
+
+Solving disjunct sec(x) = 1
+
+	Letting n1 denote an arbitrary integer
+    x = 360 * n1
+     (by Isolation)
+
+
+Solving disjunct sec(x) = (1/2)
+
+	Letting n2 denote an arbitrary integer
+    x = arccos(2) + 360 * n2 # x = -1 * arccos(2) + 360 * n2
+     (by Isolation)
+
+
+Solving disjunct sec(x) = (-3/2)
+
+	Letting n3 denote an arbitrary integer
+    x = arccos((-2/3)) + 360 * n3 # x = -1 * arccos((-2/3)) + 360 * n3
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # (X3 # (X4 # X5))))
+  where :
+    X1 =  x = 360 * n1
+    X2 =  x = 360 * n2 + arccos(2)
+    X3 =  x = 360 * n2 + -1 * arccos(2)
+    X4 =  x = 360 * n3 + arccos((-2/3))
+    X5 =  x = 360 * n3 + -1 * arccos((-2/3))
+
+
+ Answer x = 360 * n2 + arccos(2)
+ is invalid as it contains a argument to acos that is numerically > 1
+
+
+ Answer x = 360 * n2 + -1 * arccos(2)
+ is invalid as it contains a argument to acos that is numerically > 1
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 360 * n1
+    X2 =  x = 360 * n3 + 0.04015171802482564
+    X3 =  x = 360 * n3 + -1 * 0.04015171802482564
+
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 360 * n1
+    X2 =  x = 360 * n3 + 0.04015171802482564
+    X3 =  x = 360 * n3 + -1 * 0.04015171802482564
+

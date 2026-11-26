@@ -1,0 +1,20 @@
+
+Tracing level reset from 0 to 1.
+
+Solving sin(x) = cos(a) for x
+
+	Letting n1 denote an arbitrary integer
+    x = (90 + -1 * a) * -1 ^ n1 + 180 * n1
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 180 * n1 + -1 ^ n1 * (90 + -1 * a)
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (90 + -1 * a) * -1 ^ n1 + 180 * n1
+

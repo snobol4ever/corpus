@@ -1,0 +1,48 @@
+
+Tracing level reset from 0 to 1.
+
+Solving sin(3 * x) - sin(x) = 1 / 2 * cos(2 * x) for x
+
+Tidying to (-1/2) * cos(2 * x) + -1 * sin(x) + sin(3 * x) = 0
+
+Adding sin terms 
+(-1/2) * cos(2 * x) + 2 * sin(x) * cos(2 * x) = 0 
+
+((-1/2) + 2 * sin(x)) * cos(2 * x) = 0
+
+
+Solving factor cos(2 * x) = 0
+
+	Letting n1 denote an arbitrary integer
+    x = 45 + (1/2) * (180 * n1)
+     (by Isolation)
+
+
+Solving factor (-1/2) + 2 * sin(x) = 0
+
+	Letting n2 denote an arbitrary integer
+    x = arcsin((1/4)) * -1 ^ n2 + 180 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 45 + 90 * n1
+    X2 =  x = 180 * n2 + -1 ^ n2 * arcsin((1/4))
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 45 + 90 * n1
+    X2 =  x = 0.004410102407008605 * -1 ^ n2 + 180 * n2
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 45 + 90 * n1
+    X2 =  x = 0.004410102407008605 * -1 ^ n2 + 180 * n2
+

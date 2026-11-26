@@ -1,0 +1,53 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 2 * cosh(x) - 2 * sinh(x) = 3 for x
+
+Tidying to 2 * cosh(x) + -2 * sinh(x) = 3
+
+Rewriting equation in terms of e ^ x
+gives 2 * (((e ^ x) ^ 1 + (e ^ x) ^ - 1) / 2) + -2 * (((e ^ x) ^ 1 - (e ^ x) ^ - 1) / 2) = 3
+
+Substituting   x1 for e ^ x gives
+ -2 * ((1/2) * (-1 * x1 ^ -1 + x1)) + 2 * ((1/2) * (x1 ^ -1 + x1)) = 3
+
+Polynomial -3 + 2 * ((1/2) * (x1 ^ -1 + x1)) + -2 * ((1/2) * (-1 * x1 ^ -1 + x1)) becomes 
+
+-3 + 2 * x1 ^ -1 when in normal form
+
+Multiply through by x1 to get 
+
+-3 * x1 + 2 = 0
+
+Applying substitution 
+    x1 = e ^ x
+
+   to    : 
+    x1 = (2/3)
+
+   gives : 
+    e ^ x = (2/3)
+
+
+    x = log(e, (2/3))
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = log(e, (2/3))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -0.40546510810816444
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -0.40546510810816444
+

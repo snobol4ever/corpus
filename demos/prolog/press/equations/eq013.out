@@ -1,0 +1,151 @@
+
+Tracing level reset from 0 to 1.
+
+Solving (cot(2 * x) + cosec(2 * x)) ^ 2 = sec(2 * x) for x
+
+Tidying to (cosec(2 * x) + cot(2 * x)) ^ 2 + -1 * sec(2 * x) = 0
+
+Applying substitution 
+    2 * x = x1
+
+   to    : 
+    (cosec(2 * x) + cot(2 * x)) ^ 2 + -1 * sec(2 * x) = 0
+
+   gives : 
+    -1 * sec(x1) + (cot(x1) + cosec(x1)) ^ 2 = 0
+
+
+Rewriting equation in terms of cos(x1)
+gives -1 * cos(x1) ^ -1 + ((1 * (1 - cos(x1) ^ 2) ^ (1 / 2) * cos(x1) ^ -1) ^ -1 + (1 * (1 - cos(x1) ^ 2) ^ (1 / 2)) ^ -1) ^ 2 = 0
+
+Substituting   x2 for cos(x1) gives
+ ((1 + -1 * x2 ^ 2) ^ (-1/2) + x2 * (1 + -1 * x2 ^ 2) ^ (-1/2)) ^ 2 + -1 * x2 ^ -1 = 0
+
+-1 * x2 ^ -1 + ((1 + -1 * x2 ^ 2) ^ (-1/2) * (1 + x2)) ^ 2 = 0
+
+Clearing of rational functions
+
+(1 + x2) ^ 2 + -1 * x2 ^ -1 * (1 + -1 * x2 ^ 2) = 0
+
+Polynomial (1 + x2) ^ 2 + -1 * x2 ^ -1 * (1 + -1 * x2 ^ 2) becomes 
+
+x2 ^ 2 + 3 * x2 + 1 + -1 * x2 ^ -1 when in normal form
+
+Multiply through by x2 to get 
+
+x2 ^ 3 + 3 * x2 ^ 2 + x2 + -1 = 0
+
+By inspection x2 = -1 is a solution
+
+After division, polynomial becomes
+x2 ^ 2 + 2 * x2 + -1
+Using quadratic equation formula
+
+Solutions are x2 = -1 + (1/2) * 8 ^ (1/2) and x2 = -1 + (1/2) * (-1 * 8 ^ (1/2))
+
+Applying substitution 
+    x2 = cos(x1)
+
+   to    : 
+    x2 = -1 # x2 = -1 + (1/2) * 8 ^ (1/2) # x2 = -1 + (1/2) * (-1 * 8 ^ (1/2))
+
+   gives : 
+    cos(x1) = -1 # cos(x1) = -1 + (1/2) * 8 ^ (1/2) # cos(x1) = -1 + (-1/2) * 8 ^ (1/2)
+
+
+
+Solving disjunct cos(x1) = -1
+
+	Letting n1 denote an arbitrary integer
+    x1 = 180 + 360 * n1
+     (by Isolation)
+
+
+Solving disjunct cos(x1) = -1 + (1/2) * 8 ^ (1/2)
+
+	Letting n2 denote an arbitrary integer
+    x1 = arccos(-1 + (1/2) * 8 ^ (1/2)) + 360 * n2 # x1 = -1 * arccos(-1 + (1/2) * 8 ^ (1/2)) + 360 * n2
+     (by Isolation)
+
+
+Solving disjunct cos(x1) = -1 + (-1/2) * 8 ^ (1/2)
+
+	Letting n3 denote an arbitrary integer
+    x1 = arccos(-1 + (-1/2) * 8 ^ (1/2)) + 360 * n3 # x1 = -1 * arccos(-1 + (-1/2) * 8 ^ (1/2)) + 360 * n3
+     (by Isolation)
+
+Applying substitution 
+    x1 = 2 * x
+
+   to    : 
+    x1 = 180 + 360 * n1 # (x1 = arccos(-1 + (1/2) * 8 ^ (1/2)) + 360 * n2 # x1 = -1 * arccos(-1 + (1/2) * 8 ^ (1/2)) + 360 * n2) # x1 = arccos(-1 + (-1/2) * 8 ^ (1/2)) + 360 * n3 # x1 = -1 * arccos(-1 + (-1/2) * 8 ^ (1/2)) + 360 * n3
+
+   gives : 
+    2 * x = 180 + 360 * n1 # 2 * x = 360 * n2 + arccos(-1 + (1/2) * 8 ^ (1/2)) # 2 * x = 360 * n2 + -1 * arccos(-1 + (1/2) * 8 ^ (1/2)) # 2 * x = 360 * n3 + arccos(-1 + (-1/2) * 8 ^ (1/2)) # 2 * x = 360 * n3 + -1 * arccos(-1 + (-1/2) * 8 ^ (1/2))
+
+
+
+Solving disjunct 2 * x = 180 + 360 * n1
+
+    x = 90 + (1/2) * (360 * n1)
+     (by Isolation)
+
+
+Solving disjunct 2 * x = 360 * n2 + arccos(-1 + (1/2) * 8 ^ (1/2))
+
+    x = (1/2) * (arccos(-1 + (1/2) * 8 ^ (1/2)) + 360 * n2)
+     (by Isolation)
+
+
+Solving disjunct 2 * x = 360 * n2 + -1 * arccos(-1 + (1/2) * 8 ^ (1/2))
+
+    x = (1/2) * (-1 * arccos(-1 + (1/2) * 8 ^ (1/2)) + 360 * n2)
+     (by Isolation)
+
+
+Solving disjunct 2 * x = 360 * n3 + arccos(-1 + (-1/2) * 8 ^ (1/2))
+
+    x = (1/2) * (arccos(-1 + (-1/2) * 8 ^ (1/2)) + 360 * n3)
+     (by Isolation)
+
+
+Solving disjunct 2 * x = 360 * n3 + -1 * arccos(-1 + (-1/2) * 8 ^ (1/2))
+
+    x = (1/2) * (-1 * arccos(-1 + (-1/2) * 8 ^ (1/2)) + 360 * n3)
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # (X3 # (X4 # X5))))
+  where :
+    X1 =  x = 90 + 180 * n1
+    X2 =  x = (1/2) * (360 * n2 + arccos(-1 + (1/2) * 8 ^ (1/2)))
+    X3 =  x = (1/2) * (360 * n2 + -1 * arccos(-1 + (1/2) * 8 ^ (1/2)))
+    X4 =  x = (1/2) * (360 * n3 + arccos(-1 + (-1/2) * 8 ^ (1/2)))
+    X5 =  x = (1/2) * (360 * n3 + -1 * arccos(-1 + (-1/2) * 8 ^ (1/2)))
+
+
+ Answer x = (1/2) * (360 * n3 + arccos(-1 + (-1/2) * 8 ^ (1/2)))
+ is invalid as it contains a argument to acos that is numerically > 1
+
+
+ Answer x = (1/2) * (360 * n3 + -1 * arccos(-1 + (-1/2) * 8 ^ (1/2)))
+ is invalid as it contains a argument to acos that is numerically > 1
+
+
+Evaluating expression to
+
+
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 90 + 180 * n1
+    X2 =  x = 0.5 * (360 * n2 + 0.019961640283492014)
+    X3 =  x = (-1 * 0.019961640283492014 + 360 * n2) * 0.5
+
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 90 + 180 * n1
+    X2 =  x = 0.5 * (360 * n2 + 0.019961640283492014)
+    X3 =  x = (-1 * 0.019961640283492014 + 360 * n2) * 0.5
+

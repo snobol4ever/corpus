@@ -1,0 +1,55 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 2 * cos(2 * x) + sin(2 * x) = 5 ^ (1 / 2) / 2 for x
+
+Tidying to 2 * cos(2 * x) + sin(2 * x) = (1/2) * 5 ^ (1/2)
+
+Applying substitution 
+    2 * x = x1
+
+   to    : 
+    2 * cos(2 * x) + sin(2 * x) = (1/2) * 5 ^ (1/2)
+
+   gives : 
+    sin(x1) + 2 * cos(x1) = (1/2) * 5 ^ (1/2)
+
+
+sin(arctan((1/2)) + x1) * 5 ^ (1/2) = (1/2) * 5 ^ (1/2) 
+
+	Letting n1 denote an arbitrary integer
+    x1 = -1 * arctan((1/2)) + 180 * n1 + arcsin((1/2) * 5 ^ (1/2) * 5 ^ (-1/2)) * -1 ^ n1
+     (by Isolation)
+
+Applying substitution 
+    x1 = 2 * x
+
+   to    : 
+    x1 = -1 * arctan((1/2)) + 180 * n1 + arcsin((1/2) * 5 ^ (1/2) * 5 ^ (-1/2)) * -1 ^ n1
+
+   gives : 
+    2 * x = -1 ^ n1 * arcsin((1/2) * 5 ^ (1/2) * 5 ^ (-1/2)) + -1 * arctan((1/2)) + 180 * n1
+
+
+    x = (1/2) * (180 * n1 + arcsin((1/2) * 5 ^ (1/2) * 5 ^ (-1/2)) * -1 ^ n1 + -1 * arctan((1/2)))
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (1/2) * (-1 * arctan((1/2)) + 180 * n1 + -1 ^ n1 * arcsin((1/2) * 5 ^ (1/2) * 5 ^ (-1/2)))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 0.5 * (180 * n1 + -1 ^ n1 * 0.00913852259360126 + -1 * 0.008092177346063363)
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 0.5 * (180 * n1 + -1 ^ n1 * 0.00913852259360126 + -1 * 0.008092177346063363)
+

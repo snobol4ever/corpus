@@ -1,0 +1,83 @@
+
+Tracing level reset from 0 to 1.
+
+Solving sec(x / 2) ^ 2 - 2 * tan(x / 2) ^ 2 = 0 for x
+
+Tidying to sec((1/2) * x) ^ 2 + -2 * tan((1/2) * x) ^ 2 = 0
+
+Applying substitution 
+    (1/2) * x = x1
+
+   to    : 
+    sec((1/2) * x) ^ 2 + -2 * tan((1/2) * x) ^ 2 = 0
+
+   gives : 
+    -2 * tan(x1) ^ 2 + sec(x1) ^ 2 = 0
+
+
+Rewriting equation in terms of tan(x1)
+gives -2 * tan(x1) ^ 2 + ((1 + tan(x1) ^ 2) ^ (1 / 2)) ^ 2 = 0
+
+Substituting   x2 for tan(x1) gives
+ 1 + x2 ^ 2 + -2 * x2 ^ 2 = 0
+
+Polynomial 1 + -2 * x2 ^ 2 + x2 ^ 2 becomes 
+
+-1 * x2 ^ 2 + 1 when in normal form
+
+Using quadratic equation formula
+
+Solutions are x2 = -1 and x2 = 1
+
+Applying substitution 
+    x2 = tan(x1)
+
+   to    : 
+    x2 = -1 # x2 = 1
+
+   gives : 
+    tan(x1) = -1 # tan(x1) = 1
+
+
+
+Solving disjunct tan(x1) = -1
+
+	Letting n1 denote an arbitrary integer
+    x1 = -45 + 180 * n1
+     (by Isolation)
+
+
+Solving disjunct tan(x1) = 1
+
+	Letting n2 denote an arbitrary integer
+    x1 = 45 + 180 * n2
+     (by Isolation)
+
+Applying substitution 
+    x1 = (1/2) * x
+
+   to    : 
+    x1 = -45 + 180 * n1 # x1 = 45 + 180 * n2
+
+   gives : 
+    (1/2) * x = -45 + 180 * n1 # (1/2) * x = 45 + 180 * n2
+
+
+
+Solving disjunct (1/2) * x = -45 + 180 * n1
+
+    x = -90 + 2 * (180 * n1)
+     (by Isolation)
+
+
+Solving disjunct (1/2) * x = 45 + 180 * n2
+
+    x = 90 + 2 * (180 * n2)
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = -90 + 360 * n1
+    X2 =  x = 90 + 360 * n2
+

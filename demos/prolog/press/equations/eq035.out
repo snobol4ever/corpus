@@ -1,0 +1,55 @@
+
+Tracing level reset from 0 to 1.
+
+Solving sin(2 * x) = 4 * cos(2 * x) - 1 for x
+
+Tidying to sin(2 * x) + -4 * cos(2 * x) = -1
+
+Applying substitution 
+    2 * x = x1
+
+   to    : 
+    sin(2 * x) + -4 * cos(2 * x) = -1
+
+   gives : 
+    -4 * cos(x1) + sin(x1) = -1
+
+
+sin(arctan((-1/4)) + x1) * 17 ^ (1/2) = -1 
+
+	Letting n1 denote an arbitrary integer
+    x1 = -1 * arctan((-1/4)) + 180 * n1 + arcsin(-1 * 17 ^ (-1/2)) * -1 ^ n1
+     (by Isolation)
+
+Applying substitution 
+    x1 = 2 * x
+
+   to    : 
+    x1 = -1 * arctan((-1/4)) + 180 * n1 + arcsin(-1 * 17 ^ (-1/2)) * -1 ^ n1
+
+   gives : 
+    2 * x = -1 ^ n1 * arcsin(-1 * 17 ^ (-1/2)) + -1 * arctan((-1/4)) + 180 * n1
+
+
+    x = (1/2) * (180 * n1 + arcsin(-1 * 17 ^ (-1/2)) * -1 ^ n1 + -1 * arctan((-1/4)))
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (1/2) * (-1 * arctan((-1/4)) + 180 * n1 + -1 ^ n1 * arcsin(-1 * 17 ^ (-1/2)))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 0.5 * (180 * n1 + -1 ^ n1 * -0.004275684268697806 + -1 * -0.004275684268697806)
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 0.5 * (180 * n1 + -1 ^ n1 * -0.004275684268697806 + -1 * -0.004275684268697806)
+

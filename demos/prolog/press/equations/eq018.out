@@ -1,0 +1,51 @@
+
+Tracing level reset from 0 to 1.
+
+Solving (1 - tan(x)) * (1 + sin(2 * x)) = 1 + tan(x) for x
+
+Tidying to (1 + sin(2 * x)) * (1 + -1 * tan(x)) + -1 * tan(x) = 1
+
+Rewriting equation in terms of tan(x)
+gives (1 + 2 * tan(x) * (1 + tan(x) ^ 2) ^ -1) * (1 + -1 * tan(x)) + -1 * tan(x) = 1
+
+Substituting   x1 for tan(x) gives
+ -1 * x1 + (1 + -1 * x1) * (1 + 2 * x1 * (1 + x1 ^ 2) ^ -1) = 1
+
+Clearing of rational functions
+
+2 * x1 + -1 * x1 * (1 + x1 ^ 2) + x1 ^ 2 + -1 * x1 * (1 + x1 ^ 2) + -2 * x1 * x1 = x1 ^ 2
+
+Polynomial x1 ^ 2 + -1 * x1 * (1 + x1 ^ 2) + -1 * x1 ^ 2 + -2 * x1 * x1 + 2 * x1 + -1 * x1 * (1 + x1 ^ 2) becomes 
+
+-2 * x1 ^ 3 + -2 * x1 ^ 2 when in normal form
+
+Applying substitution 
+    x1 = tan(x)
+
+   to    : 
+    x1 = 0 # x1 = -1
+
+   gives : 
+    tan(x) = 0 # tan(x) = -1
+
+
+
+Solving disjunct tan(x) = 0
+
+	Letting n1 denote an arbitrary integer
+    x = 180 * n1
+     (by Isolation)
+
+
+Solving disjunct tan(x) = -1
+
+	Letting n2 denote an arbitrary integer
+    x = -45 + 180 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 180 * n1
+    X2 =  x = -45 + 180 * n2
+

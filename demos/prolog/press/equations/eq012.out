@@ -1,0 +1,50 @@
+
+Tracing level reset from 0 to 1.
+
+Solving cos(2 * x) + 3 * sin(x) + 1 = 0 for x
+
+Tidying to cos(2 * x) + 3 * sin(x) = -1
+
+Rewriting equation in terms of sin(x)
+gives 1 - 2 * sin(x) ^ 2 + 3 * sin(x) = -1
+
+Substituting   x1 for sin(x) gives
+ 3 * x1 + -2 * x1 ^ 2 = -2
+
+Using quadratic equation formula
+
+Solutions are x1 = (-1/2) and x1 = 2
+
+Applying substitution 
+    x1 = sin(x)
+
+   to    : 
+    x1 = (-1/2) # x1 = 2
+
+   gives : 
+    sin(x) = (-1/2) # sin(x) = 2
+
+
+
+Solving disjunct sin(x) = (-1/2)
+
+	Letting n1 denote an arbitrary integer
+    x = -30 * -1 ^ n1 + 180 * n1
+     (by Isolation)
+
+
+Solving disjunct sin(x) = 2
+
+sin(x)=2 has no real roots, sin must lie in [-1,1]
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 180 * n1 + -30 * -1 ^ n1
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -30 * -1 ^ n1 + 180 * n1
+

@@ -1,0 +1,36 @@
+
+Tracing level reset from 0 to 1.
+
+Solving sin(30 + x) = cos(45 + x) for x
+
+Tidying to sin(30 + x) + -1 * cos(45 + x) = 0
+
+Expanding and collecting terms gives
+
+-1 * sin(x) * (-1 * sin(45) + cos(30)) + ((1/2) + -1 * cos(45)) * cos(x) = 0
+
+tan(x) = - (cos(30) * -1 + sin(45)) / (cos(45) * -1 + (1/2)) 
+
+	Letting n1 denote an arbitrary integer
+    x = arctan(((1/2) + -1 * cos(45)) ^ -1 * (-1 * sin(45) + 1 * cos(30))) + 180 * n1
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 180 * n1 + arctan((cos(30) + -1 * sin(45)) * ((1/2) + -1 * cos(45)) ^ -1)
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 180 * n1 + -0.017536050056284162
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 180 * n1 + -0.017536050056284162
+

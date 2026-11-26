@@ -1,0 +1,31 @@
+
+Tracing level reset from 0 to 1.
+
+Solving cos(x) + cos(x + a) + cos(x + 2 * a) = 1 + 2 * cos(a) for x
+
+Angles are in arithmetic progression 
+
+Adding in pairs
+cos(x + a) + 2 * cos(x + a) * cos(-1 * a) = 1 + 2 * cos(a)
+
+(1 + 2 * cos(-1 * a)) * cos(a + x) = 1 + 2 * cos(a)
+
+Assuming 1 + 2 * cos(-1 * a) is non-zero
+
+	Letting n1 denote an arbitrary integer
+    x = -1 * a + 360 * n1 + arccos((1 + 2 * cos(-1 * a)) ^ -1 * (1 + 2 * cos(a))) # x = -1 * a + 360 * n1 + -1 * arccos((1 + 2 * cos(-1 * a)) ^ -1 * (1 + 2 * cos(a)))
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = arccos((1 + 2 * cos(a)) * (1 + 2 * cos(-1 * a)) ^ -1) + -1 * a + 360 * n1
+    X2 =  x = -1 * arccos((1 + 2 * cos(a)) * (1 + 2 * cos(-1 * a)) ^ -1) + -1 * a + 360 * n1
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 360 * n1 + arccos((1 + 2 * cos(-1 * a)) ^ -1 * (1 + 2 * cos(a))) + -1 * a
+    X2 =  x = 360 * n1 + -1 * arccos((1 + 2 * cos(-1 * a)) ^ -1 * (1 + 2 * cos(a))) + -1 * a
+

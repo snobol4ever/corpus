@@ -1,0 +1,55 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 4 * sin(2 * x) + 3 * cos(2 * x) = 249 / 100 for x
+
+Tidying to 4 * sin(2 * x) + 3 * cos(2 * x) = (249/100)
+
+Applying substitution 
+    2 * x = x1
+
+   to    : 
+    4 * sin(2 * x) + 3 * cos(2 * x) = (249/100)
+
+   gives : 
+    3 * cos(x1) + 4 * sin(x1) = (249/100)
+
+
+5 * sin(arctan((4/3)) + x1) = (249/100) 
+
+	Letting n1 denote an arbitrary integer
+    x1 = -1 * arctan((4/3)) + 180 * n1 + arcsin((249/500)) * -1 ^ n1
+     (by Isolation)
+
+Applying substitution 
+    x1 = 2 * x
+
+   to    : 
+    x1 = -1 * arctan((4/3)) + 180 * n1 + arcsin((249/500)) * -1 ^ n1
+
+   gives : 
+    2 * x = -1 ^ n1 * arcsin((249/500)) + -1 * arctan((4/3)) + 180 * n1
+
+
+    x = (1/2) * (180 * n1 + arcsin((249/500)) * -1 ^ n1 + -1 * arctan((4/3)))
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = (1/2) * (-1 * arctan((4/3)) + 180 * n1 + -1 ^ n1 * arcsin((249/500)))
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 0.5 * (180 * n1 + -1 ^ n1 * 0.009098242740674858 + -1 * 0.016184354692126725)
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 0.5 * (180 * n1 + -1 ^ n1 * 0.009098242740674858 + -1 * 0.016184354692126725)
+

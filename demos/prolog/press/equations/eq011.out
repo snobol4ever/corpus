@@ -1,0 +1,61 @@
+
+Tracing level reset from 0 to 1.
+
+Solving cos(6 * x) + sin(6 * x) + cos(4 * x) + sin(4 * x) = 0 for x
+
+Adding sin terms and cos terms
+2 * cos(5 * x) * cos(x) + 2 * sin(5 * x) * cos(x) = 0 
+
+(2 * sin(5 * x) + 2 * cos(5 * x)) * cos(x) = 0
+
+
+Solving factor cos(x) = 0
+
+	Letting n1 denote an arbitrary integer
+    x = 90 + 180 * n1
+     (by Isolation)
+
+
+Solving factor 2 * sin(5 * x) + 2 * cos(5 * x) = 0
+
+Applying substitution 
+    5 * x = x1
+
+   to    : 
+    2 * sin(5 * x) + 2 * cos(5 * x) = 0
+
+   gives : 
+    2 * cos(x1) + 2 * sin(x1) = 0
+
+
+2 * (sin(x1) + cos(x1)) = 0
+
+Dividing through by 2
+
+Solving factor sin(x1) + cos(x1) = 0
+
+tan(x1) = -1 
+
+	Letting n2 denote an arbitrary integer
+    x1 = -45 + 180 * n2
+     (by Isolation)
+
+Applying substitution 
+    x1 = 5 * x
+
+   to    : 
+    x1 = -45 + 180 * n2
+
+   gives : 
+    5 * x = -45 + 180 * n2
+
+
+    x = -9 + (1/5) * (180 * n2)
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 90 + 180 * n1
+    X2 =  x = -9 + 36 * n2
+

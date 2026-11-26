@@ -1,0 +1,58 @@
+
+Tracing level reset from 0 to 1.
+
+Solving cos(3 * x) - 3 * cos(x) = cos(2 * x) + 1 for x
+
+Tidying to -3 * cos(x) + cos(3 * x) + -1 * cos(2 * x) = 1
+
+Angles are in arithmetic progression 
+
+Rewriting equation in terms of cos(x)
+gives -3 * cos(x) + (4 * cos(x) ^ 3 - 3 * cos(x)) + -1 * (2 * cos(x) ^ 2 - 1 * 1) = 1
+
+Substituting   x1 for cos(x) gives
+ -2 * x1 ^ 2 + 4 * x1 ^ 3 + -3 * x1 + -3 * x1 = 0
+
+Polynomial -3 * x1 + -3 * x1 + -2 * x1 ^ 2 + 4 * x1 ^ 3 becomes 
+
+4 * x1 ^ 3 + -2 * x1 ^ 2 + -6 * x1 when in normal form
+
+Using quadratic equation formula
+
+Solutions are x1 = (3/2) and x1 = -1
+
+Applying substitution 
+    x1 = cos(x)
+
+   to    : 
+    x1 = 0 # x1 = (3/2) # x1 = -1
+
+   gives : 
+    cos(x) = 0 # cos(x) = (3/2) # cos(x) = -1
+
+
+
+Solving disjunct cos(x) = 0
+
+	Letting n1 denote an arbitrary integer
+    x = 90 + 180 * n1
+     (by Isolation)
+
+
+Solving disjunct cos(x) = (3/2)
+
+cos(x)=(3/2) has no real roots, cos must lie in [-1,1]
+
+
+Solving disjunct cos(x) = -1
+
+	Letting n2 denote an arbitrary integer
+    x = 180 + 360 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 90 + 180 * n1
+    X2 =  x = 180 + 360 * n2
+

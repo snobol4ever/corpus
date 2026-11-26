@@ -1,0 +1,57 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 5 ^ (2 * x) - 9 * 5 ^ x - 10 = 0 for x
+
+Tidying to 5 ^ (2 * x) + -9 * 5 ^ x = 10
+
+Rewriting equation in terms of 5 ^ x
+gives (5 ^ x) ^ 2 + -9 * 5 ^ x = 10
+
+Substituting   x1 for 5 ^ x gives
+ -9 * x1 + x1 ^ 2 = 10
+
+Using quadratic equation formula
+
+Solutions are x1 = 10 and x1 = -1
+
+Applying substitution 
+    x1 = 5 ^ x
+
+   to    : 
+    x1 = 10 # x1 = -1
+
+   gives : 
+    5 ^ x = 10 # 5 ^ x = -1
+
+
+
+Solving disjunct 5 ^ x = 10
+
+    x = log(5, 10)
+     (by Isolation)
+
+
+Solving disjunct 5 ^ x = -1
+
+5^x = -1 has no real roots, 5^x must be > 0
+
+Answer is : 
+X1
+  where :
+    X1 =  x = log(5, 10)
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = 1.4306765580733933
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = 1.4306765580733933
+

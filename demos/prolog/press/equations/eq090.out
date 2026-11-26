@@ -1,0 +1,67 @@
+
+Tracing level reset from 0 to 1.
+
+Solving log(x, 2) * log(x, 3) = 5 for x
+
+Rewriting equation in terms of log(10, x)
+gives log(10, x) ^ -1 * log(10, 3) * (log(10, x) ^ -1 * log(10, 2)) = 5
+
+Substituting   x1 for log(10, x) gives
+ log(10, 2) * x1 ^ -1 * log(10, 3) * x1 ^ -1 = 5
+
+Polynomial -5 + log(10, 3) * x1 ^ -1 * log(10, 2) * x1 ^ -1 becomes 
+
+-5 + x1 ^ -2 * log(10, 3) * log(10, 2) when in normal form
+
+Multiply through by x1 ^ 2 to get 
+
+-5 * x1 ^ 2 + log(10, 3) * log(10, 2) = 0
+
+Using quadratic equation formula
+
+Solutions are x1 = (-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2) and x1 = (1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2)
+
+Applying substitution 
+    x1 = log(10, x)
+
+   to    : 
+    x1 = (-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2) # x1 = (1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2)
+
+   gives : 
+    log(10, x) = (-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2) # log(10, x) = (1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2)
+
+
+
+Solving disjunct log(10, x) = (-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2)
+
+    x = 10 ^ ((-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2))
+     (by Isolation)
+
+
+Solving disjunct log(10, x) = (1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2)
+
+    x = 10 ^ ((1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2))
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 10 ^ ((-1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2))
+    X2 =  x = 10 ^ ((1/10) * 20 ^ (1/2) * log(10, 3) ^ (1/2) * log(10, 2) ^ (1/2))
+
+
+Evaluating expression to
+
+
+(X1 # X2)
+  where :
+    X1 =  x = 0.6768833476363658
+    X2 =  x = 1.4773594349631105
+
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 0.6768833476363658
+    X2 =  x = 1.4773594349631105
+

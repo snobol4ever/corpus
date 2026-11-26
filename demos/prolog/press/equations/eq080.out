@@ -1,0 +1,30 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 4 * cos(x) + sin(x) = 1 for x
+
+sin(arctan((1/4)) + x) * 17 ^ (1/2) = 1 
+
+	Letting n1 denote an arbitrary integer
+    x = -1 * arctan((1/4)) + 180 * n1 + arcsin(17 ^ (-1/2)) * -1 ^ n1
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 ^ n1 * arcsin(17 ^ (-1/2)) + -1 * arctan((1/4)) + 180 * n1
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -1 * 0.004275684268697806 + 180 * n1 + -1 ^ n1 * 0.004275684268697806
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 * 0.004275684268697806 + 180 * n1 + -1 ^ n1 * 0.004275684268697806
+

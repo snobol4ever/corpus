@@ -1,0 +1,45 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 2 * sin(x) + cos(2 * x) = 1 for x
+
+Rewriting equation in terms of sin(x)
+gives 2 * sin(x) + (1 - 2 * sin(x) ^ 2) = 1
+
+Substituting   x1 for sin(x) gives
+ 2 * x1 + -2 * x1 ^ 2 = 0
+
+Using quadratic equation formula
+
+Solutions are x1 = 0 and x1 = 1
+
+Applying substitution 
+    x1 = sin(x)
+
+   to    : 
+    x1 = 0 # x1 = 1
+
+   gives : 
+    sin(x) = 0 # sin(x) = 1
+
+
+
+Solving disjunct sin(x) = 0
+
+	Letting n1 denote an arbitrary integer
+    x = 180 * n1
+     (by Isolation)
+
+
+Solving disjunct sin(x) = 1
+
+	Letting n2 denote an arbitrary integer
+    x = 90 + 360 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # X2)
+  where :
+    X1 =  x = 180 * n1
+    X2 =  x = 90 + 360 * n2
+

@@ -1,0 +1,30 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 3 * sin(x) + 4 * cos(x) = 1 for x
+
+5 * sin(arctan((3/4)) + x) = 1 
+
+	Letting n1 denote an arbitrary integer
+    x = -1 * arctan((3/4)) + 180 * n1 + arcsin((1/5)) * -1 ^ n1
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 ^ n1 * arcsin((1/5)) + -1 * arctan((3/4)) + 180 * n1
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -1 * 0.011231213088677047 + 180 * n1 + -1 ^ n1 * 0.003514358692761215
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 * 0.011231213088677047 + 180 * n1 + -1 ^ n1 * 0.003514358692761215
+

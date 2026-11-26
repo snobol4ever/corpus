@@ -1,0 +1,33 @@
+
+Tracing level reset from 0 to 1.
+
+Solving cos(x) + 2 * cos(2 * x) + cos(3 * x) = 0 for x
+
+Angles are in arithmetic progression 
+
+Adding in pairs
+2 * cos(2 * x) + 2 * cos(2 * x) * cos(x) = 0
+
+(2 + 2 * cos(x)) * cos(2 * x) = 0
+
+
+Solving factor cos(2 * x) = 0
+
+	Letting n1 denote an arbitrary integer
+    x = 45 + (1/2) * (180 * n1)
+     (by Isolation)
+
+
+Solving factor 2 + 2 * cos(x) = 0
+
+	Letting n2 denote an arbitrary integer
+    x = 180 + 360 * n2 # x = -180 + 360 * n2
+     (by Isolation)
+
+Answer is : 
+(X1 # (X2 # X3))
+  where :
+    X1 =  x = 45 + 90 * n1
+    X2 =  x = 180 + 360 * n2
+    X3 =  x = -180 + 360 * n2
+

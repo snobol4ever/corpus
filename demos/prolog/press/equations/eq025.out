@@ -1,0 +1,30 @@
+
+Tracing level reset from 0 to 1.
+
+Solving 3 * cos(x) + 6 * sin(x) = 1 for x
+
+sin(arctan(2) + x) * 45 ^ (1/2) = 1 
+
+	Letting n1 denote an arbitrary integer
+    x = -1 * arctan(2) + 180 * n1 + arcsin(45 ^ (-1/2)) * -1 ^ n1
+     (by Isolation)
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 ^ n1 * arcsin(45 ^ (-1/2)) + -1 * arctan(2) + 180 * n1
+
+
+Evaluating expression to
+
+
+X1
+  where :
+    X1 =  x = -1 * 0.01932339043474041 + 180 * n1 + -1 ^ n1 * 0.0026115171244917392
+
+
+Answer is : 
+X1
+  where :
+    X1 =  x = -1 * 0.01932339043474041 + 180 * n1 + -1 ^ n1 * 0.0026115171244917392
+
