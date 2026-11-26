@@ -1,0 +1,4 @@
+# PLACE SCRIPT of the refusal notebook (Prolog), developer_05 2026-11-23, the cfo's ruling 14:5x: one cell, a clause (greet/1) with its full stop missing, the next clause on line 4 where the parser stops; the message is the words scrip --check prints for that text (run by hand: line 4 col 0, "parse error: expected . at end of clause"), never the oracle's.
+{"at": [0, 4, 1], "act": "diagnostics", "expect": {"messages": ["parse error: expected . at end of clause"]}, "word": "greet(world)"}
+{"at": [0, 1, 7], "act": "colouring", "expect": {"class": "variable"}, "word": "Name"}
+{"at": [0, 2, 12], "act": "colouring", "expect": {"class": "string"}, "word": "\"hello, ~w~n\""}
