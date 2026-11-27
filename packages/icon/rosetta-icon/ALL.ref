@@ -56476,13 +56476,13 @@ File parse-command-line-arguments.icn; Line 5 # "opstring": missing semicolon or
 File pick-random-element-2.icn; Line 1 # "(": invalid declaration
 #--------------------------------------------------------------- 558 power-set-2
 
-Run-time error 108
+Run-time error 106
 File power-set-2.icn; Line 2
-list expected
-offending value: 1
+procedure or integer expected
+offending value: &null
 Traceback:
-main()
-set(1) from line 2 in power-set-2.icn
+   main()
+   &null(set_1(4)) from line 2 in power-set-2.icn
 #--------------------------------------------------------------- 559 power-set-3
 
 Run-time error 108
@@ -56771,12 +56771,11 @@ main()
 {0 ^ 0} from line 2 in zero-to-the-zero-power.icn
 #------------------------------------------------------------ 609 zig-zag-matrix
 
-Run-time error 106
-File zig-zag-matrix.icn; Line 23
-procedure or integer expected
-offending value: &null
+Run-time error 103
+File zig-zag-matrix.icn; Line 9
+string expected
+offending value: list_3 = [0,1,5,6,14]
 Traceback:
-main(list_1 = [])
-zigzag(list_2 = [list_3(5),list_4(5),list_5(5),list_6(5),list_7(5)]) from line 4 in zig-zag-matrix.icn
-nextIndices(5,list_8 = [0,0]) from line 15 in zig-zag-matrix.icn
-&null(1,-1) from line 23 in zig-zag-matrix.icn
+   main(list_1 = [])
+   show(list_2 = [list_3(5),list_4(5),list_5(5),list_6(5),list_7(5)]) from line 5 in zig-zag-matrix.icn
+   right(list_3 = [0,1,5,6,14],5,&null) from line 9 in zig-zag-matrix.icn
