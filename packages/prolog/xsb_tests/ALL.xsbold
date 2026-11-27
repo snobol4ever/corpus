@@ -1,4 +1,4 @@
-# each absorbed entry's XSB answer against the upstream NAME_old XSB ships, as gentest.sh compares (sorted; MATCH-w: equal once white space is removed, diff -w): name<TAB>check. The ref is XSB's answer either way (ceo CEO-1927 (1)).
+# each absorbed entry's XSB answer against the upstream NAME_old XSB ships, as gentest.sh compares (sorted; MATCH-w: equal once white space is removed, diff -w): name<TAB>check. The ref is XSB's answer either way (R-1927 (1)).
 ai_tests_cs_o	MATCH
 ai_tests_cs_r	MATCH
 ai_tests_disj	MATCH
@@ -154,15 +154,6 @@ float_tests_read_test	MATCH
 float_tests_roots	DIFF 6 lines in NAME_old, 6 in XSB's answer
 float_tests_roots_int_comp	DIFF 6 lines in NAME_old, 6 in XSB's answer
 float_tests_vac	DIFF 16 lines in NAME_old, 16 in XSB's answer
-foreign_tests_c_calls_xsb_make	MATCH-w
-foreign_tests_cfixedstring_make	MATCH
-foreign_tests_cinter1	MATCH
-foreign_tests_cinter2	MATCH
-foreign_tests_cregs_make	MATCH
-foreign_tests_cvarconstr_make	MATCH
-foreign_tests_cvarstring_make	MATCH
-foreign_tests_fibp	MATCH
-foreign_tests_test_importas	MATCH
 incremental_tests_inc_abol	MATCH
 incremental_tests_inc_atc	MATCH
 incremental_tests_inc_atc_gc	MATCH
@@ -226,7 +217,6 @@ incremental_tests_test_wfs_update	MATCH
 io_tests_fmt_io	MATCH
 io_tests_io_basics	MATCH
 io_tests_test_proc_files	MATCH
-json_tests_jsontest	MATCH
 neg_tests_ldynstrat0	MATCH
 neg_tests_ldynstrat1	MATCH
 neg_tests_ldynstrat2	MATCH
