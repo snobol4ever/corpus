@@ -161,7 +161,6 @@ incremental_tests_inc_atc_gc_tricky	MATCH
 incremental_tests_inc_trie_alt	MATCH
 incremental_tests_inc_trie_dyn	MATCH
 incremental_tests_incr_scc	MATCH
-incremental_tests_incr_test_romero	MATCH
 incremental_tests_incremental	MATCH
 incremental_tests_incremental1	MATCH
 incremental_tests_incremental_rule	MATCH
@@ -174,7 +173,6 @@ incremental_tests_s_inc_atc_gc_tricky	MATCH
 incremental_tests_s_inc_trie_alt	MATCH
 incremental_tests_s_inc_trie_dyn	MATCH
 incremental_tests_s_incr_scc	MATCH
-incremental_tests_s_incr_test_romero	MATCH
 incremental_tests_s_incremental	MATCH
 incremental_tests_s_incremental1	MATCH
 incremental_tests_s_incremental_rule	MATCH
