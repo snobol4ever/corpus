@@ -8959,12 +8959,10 @@ end
 ```
 
 ```stdout
-min: error 106
-max: error 106
 printf: error 106
 sprintf: error 106
 nosuch: error 106
-3 2 &null function abs
+3 2 function min function abs
 end
 ```
 
