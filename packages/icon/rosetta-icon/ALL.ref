@@ -55970,8 +55970,7 @@ File anagrams.icn; Line 7 # "longestWSet": missing semicolon or operator
 File anagrams.icn; Line 28 # "write": missing semicolon or operator
 File anagrams.icn; Line 33 # "return": missing semicolon or operator
 #----------------------------------------------------- 429 anonymous-recursion-1
-File anonymous-recursion-1.icn; Line 3 # "end": missing semicolon or operator
-File anonymous-recursion-1.icn; Line 23 # "return": missing semicolon or operator
+
 #------------------------------------------------------ 430 arithmetic-complex-1
 
 Run-time error 106
