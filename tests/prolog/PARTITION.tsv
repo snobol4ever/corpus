@@ -1,12 +1,12 @@
 # PARTITION.tsv -- built by util_suite_partition.py (R-1676; ARCH-SUITE-PARTITIONS.md); regenerate, never edit by hand; `util_suite_partition.py check <ALL.csv>` is the gate.
 # params: core_k=3 ubiquitous=0.5 chunk_entries=100 secs=none
-# shape: entries=753 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=74 chunks=8 sizes=100,100,100,100,100,100,100,15
+# shape: entries=756 features=39 ubiquitous=3(write nl directive) distinctive=36 core=38 clusters=75 chunks=8 sizes=100,100,100,100,100,100,100,18
 entry	part	cluster	shells
 runtime_consult__a_directive_of_a_file_consulted_at_run_time_runs_as_at_compile_time	chunk:08	family:runtime_consult	
 write_family_writeln_1	chunk:01	family:ladder	
 clause_source_record__csr_consult_dcg_listing	chunk:07	family:clause_source_record	
 clause_source_record__csr_listing_consulted	chunk:07	family:clause_source_record	
-linker__ancestor	chunk:07	family:linker	
+linker__ancestor	chunk:08	family:linker	
 directive_32	chunk:08	family:rung22_write_canonical	
 format_directive_1	chunk:05	feat:format	format
 format_directive_2	chunk:05	feat:format	format
@@ -60,7 +60,7 @@ directive_40	chunk:07	family:rung23_arith_ext
 directive_41	chunk:07	family:rung23_arith_ext	
 directive_43	chunk:06	family:rung24	
 directive_44	chunk:06	family:rung24	
-directive_45	chunk:06	family:rung24	
+directive_45	chunk:07	family:rung24	
 directive_46	chunk:07	family:rung24	
 directive_47	chunk:07	family:rung24	
 directive_53	chunk:07	family:rung25	
@@ -180,7 +180,7 @@ write_canonical_directive_2	chunk:06	feat:write_canonical	write_canonical
 write_canonical_directive_3	chunk:06	feat:write_canonical	write_canonical
 clause_choice_first_solution_only_1	chunk:01	family:ladder	
 clpr_chr__cr09_linprog	chunk:02	feat:unify	if_then_else unify
-directive_1	chunk:07	family:hello	
+directive_1	chunk:08	family:hello	
 directive_14	chunk:07	family:probe_plz	
 directive_33	chunk:06	family:rung23	
 directive_34	chunk:06	family:rung23	
@@ -237,6 +237,7 @@ streamio_get_byte_peek_byte_1	chunk:02	family:ladder
 streamio_get_code_peek_code_1	chunk:02	family:ladder	
 streamio_put_byte_1	chunk:02	family:ladder	
 timelimit__tl06_sequential_limits_and_zero	chunk:03	feat:catch	catch
+xsb_update_view__retractall_keeps	chunk:08	family:xsb_update_view	
 simple_program_104	chunk:07	family:rung39_atom_iso	
 simple_program_96	chunk:07	family:rung36_arith_edge	
 simple_program_98	chunk:07	family:rung36_arith_edge	
@@ -527,6 +528,7 @@ cut_directive_8	chunk:03	feat:cut	cut unify
 dcg_ite_directive_1	chunk:06	feat:dcg	dcg if_then_else
 lifo__lifo_repeat_read_loop_in_setup_call_cleanup	chunk:05	feat:assertz	assertz catch cut if_then_else
 univ_3	chunk:07	feat:univ	unify univ
+xsb_update_view__immediate	chunk:05	feat:assertz	assertz findall
 benchmark_witness_depth_nrev8	chunk:03	feat:list_cons	cut list_cons
 catch_ite_directive_1	chunk:04	feat:catch	catch if_then_else
 frames__retained_iteration_euler24_loop	chunk:03	feat:list_cons	list_cons unify
@@ -591,7 +593,7 @@ neg_negation_of_unification_1	chunk:05	feat:negation	if_then_else negation unify
 writeq_format_directive_3	core	core	format write_canonical writeq
 abolish_call_after_abolish_raises_existence_error_1	chunk:06	feat:abolish	abolish assertz catch
 abolish_pred_1	chunk:06	feat:abolish	abolish assertz catch
-abolish_retractall_vs_abolish_1	chunk:05	feat:assertz	assertz catch findall
+abolish_retractall_vs_abolish_1	chunk:06	feat:assertz	assertz catch findall
 asserta_order_1	core	core	asserta assertz findall
 catch_throw_directive_1	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
 catch_throw_directive_3	chunk:04	feat:catch_with_throw	catch catch_with_throw throw
@@ -630,6 +632,7 @@ module_import_table__mit_meta_call	chunk:05	feat:call	call findall unify writeq
 op_ite_format_1	chunk:06	feat:op	format if_then_else op
 resource__r03_string_overflow_caught	chunk:05	feat:format	catch format list_cons
 writeq_format_directive_2	chunk:05	feat:format	format unify writeq
+xsb_update_view__retract_hides	chunk:07	feat:retract	if_then_else retract unify
 call_ite_directive_replace_1	chunk:05	feat:call	call if_then_else unify
 findall_directive_replace_2	chunk:06	feat:findall_with_var_goal	findall findall_with_var_goal unify
 resource__r02_deep_unify_caught	chunk:03	feat:cut	catch cut unify

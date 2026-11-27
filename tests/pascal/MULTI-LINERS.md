@@ -3750,6 +3750,20 @@ program tc1; type tr = 0..9; var d: longword; begin d := dword($12345678) shr 4;
 8
 ```
 
+## fpc_features__class-of-a-type-is-written-inline-in-a-type-position
+
+```Pascal
+{$mode objfpc}
+program cr3; type TA = class end; TB = class(TA) end; TR = record k: class of TA end;
+var c: class of TA; r: TR; begin c := TA; if c = TA then writeln('same'); r.k := TB; if r.k = TB then writeln('TB'); c := r.k; if c <> TA then writeln('other') end.
+```
+
+```stdout
+same
+TB
+other
+```
+
 ## ladder__rung04_for_repeat_for_downto
 
 ```Pascal
@@ -6265,6 +6279,28 @@ var p: tf; begin p := @f1; writeln(p(0), f2(0), f3(0), f4(0), f5(0), f6(0), f7(0
 123456789
 ```
 
+## ladder__rung32_the_address_of_an_untyped_formal_is_the_actual
+
+```Pascal
+{$mode objfpc}
+program rung32ab;
+var x, y: integer;
+procedure put(var b; v: integer);
+var r: ^integer;
+begin r := @b; r^ := v end;
+procedure relay(var b; v: integer);
+begin put(b, v + 1) end;
+begin
+  x := 1; y := 2;
+  put(x, 5); relay(y, 7);
+  writeln(x, ' ', y);
+end.
+```
+
+```stdout
+5 8
+```
+
 ## program_procedure_record_10
 
 ```Pascal
@@ -7773,6 +7809,30 @@ end.
 -1 -1
 -1 55 3
 0 3
+```
+
+## ladder__rung31_an_untyped_formal_parses_and_takes_any_variable
+
+```Pascal
+{$mode objfpc}
+program rung31up;
+var x: integer; c: char;
+procedure p(var b);
+begin writeln('in p') end;
+procedure q(const b; n: integer);
+begin writeln('in q ', n) end;
+begin
+  x := 1; c := 'z';
+  p(x); q(c, 2); q(x, 3);
+  writeln('ok');
+end.
+```
+
+```stdout
+in p
+in q 2
+in q 3
+ok
 ```
 
 ## parseforms__parse_a_default_parameter_value_in_a_procedural_type
