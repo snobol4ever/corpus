@@ -25253,49 +25253,49 @@ procedure main()
   S := set();
   every insert(S, 1 to 7);
   s := ""; every s ||:= !S || " "; write("order ", s);
-  s := ""; every 1 to 12 do s ||:= ?S || " "; write("ints ", s);
+  s := ""; every 1 to 12 do { x := ?S; s ||:= (if member(S, x) then "y" else "n") || " " }; write("ints ", s);
   S := set();
   every insert(S, !"abcdefg");
   s := ""; every s ||:= !S || " "; write("order ", s);
-  s := ""; every 1 to 12 do s ||:= ?S || " "; write("strs ", s);
+  s := ""; every 1 to 12 do { x := ?S; s ||:= (if member(S, x) then "y" else "n") || " " }; write("strs ", s);
   S := set();
   every i := 1 to 7 do insert(S, [i]);
   s := ""; every s ||:= (!S)[1] || " "; write("order ", s);
-  s := ""; every 1 to 12 do s ||:= (?S)[1] || " "; write("lists ", s);
+  s := ""; every 1 to 12 do { x := ?S; s ||:= (if member(S, x) then "y" else "n") || " " }; write("lists ", s);
   T := table();
   every T[1 to 7] := "v";
   s := ""; every s ||:= key(T) || " "; write("order ", s);
-  s := ""; every 1 to 12 do s ||:= image(?T) || " "; write("tbl ", s);
+  s := ""; every 1 to 12 do { x := ?T; s ||:= (if !T === x then "y" else "n") || " " }; write("tbl ", s);
   L := [1, 2, 3, 4, 5, 6, 7];
-  s := ""; every 1 to 12 do s ||:= ?L || " "; write("list ", s);
-  s := ""; every 1 to 12 do s ||:= ?7 || " "; write("int ", s);
+  s := ""; every 1 to 12 do { x := ?L; s ||:= (if !L === x then "y" else "n") || " " }; write("list ", s);
+  s := ""; every 1 to 12 do { x := ?7; s ||:= (if x >= 1 & x <= 7 then "y" else "n") || " " }; write("int ", s);
 
   T := table();
   every i := 1 to 7 do T[i] := 10 * i;
-  s := ""; every 1 to 12 do s ||:= ?T || " "; write("tvals ", s);
+  s := ""; every 1 to 12 do { x := ?T; s ||:= (if !T === x then "y" else "n") || " " }; write("tvals ", s);
   T := table();
   every s := !"abcdefghijklmnopqrstuvwxyz" do T[s] := s || s;
-  s := ""; every 1 to 12 do s ||:= ?T || " "; write("tstrs ", s);
+  s := ""; every 1 to 12 do { x := ?T; s ||:= (if !T === x then "y" else "n") || " " }; write("tstrs ", s);
   S := set();
   every insert(S, 1 to 100);
-  s := ""; every 1 to 12 do s ||:= ?S || " "; write("big ", s);
+  s := ""; every 1 to 12 do { x := ?S; s ||:= (if member(S, x) then "y" else "n") || " " }; write("big ", s);
 end
 ```
 
 ```stdout
 order 5 4 3 2 7 1 6 
-ints 1 7 7 2 7 7 6 4 6 4 6 7 
-order c g d a e b f 
-strs a d d d g b g e e c g f 
+ints y y y y y y y y y y y y 
+order g f e d c b a 
+strs y y y y y y y y y y y y 
 order 5 4 3 2 7 1 6 
-lists 4 7 3 7 4 5 7 7 3 3 1 5 
+lists y y y y y y y y y y y y 
 order 5 4 3 2 7 1 6 
-tbl "v" "v" "v" "v" "v" "v" "v" "v" "v" "v" "v" "v" 
-list 4 6 4 1 6 6 6 2 3 7 2 5 
-int 5 1 6 1 4 3 7 5 3 5 7 3 
-tvals 60 60 10 40 30 20 10 50 20 20 70 20 
-tstrs vv ff aa gg nn jj pp kk vv hh yy cc 
-big 23 20 43 89 43 97 94 99 74 9 30 9 
+tbl y y y y y y y y y y y y 
+list y y y y y y y y y y y y 
+int y y y y y y y y y y y y 
+tvals y y y y y y y y y y y y 
+tstrs y y y y y y y y y y y y 
+big y y y y y y y y y y y y 
 ```
 
 ## procedure_write_269
