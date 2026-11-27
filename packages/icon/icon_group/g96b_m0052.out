@@ -1,9 +1,9 @@
 
-	while(l := read()) do
-	s := set();	
-		write(l);
-	local	l, s;
-end
 procedure	main()
-		insert(s, l);
+	local	l, s;
 	every l := !s do
+		insert(s, l);
+end
+	while(l := read()) do
+		write(l);
+	s := set();	
