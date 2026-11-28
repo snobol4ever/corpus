@@ -1763,6 +1763,18 @@ say ([+] gather { say 1 });
 0
 ```
 
+## ladder__rung08_surface_tree_maps
+
+```Raku
+say [1,[2,3]].deepmap(* + 1); say [1,[2,3]].duckmap(-> Int $x { $x * 2 }); say [1,[2,3]].nodemap(*.elems);
+```
+
+```stdout
+[2 [3 4]]
+[2 [4 6]]
+(1 2)
+```
+
 ## parser__assign_bare
 
 ```Raku
