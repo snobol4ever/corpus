@@ -9499,6 +9499,21 @@ abab
 end
 ```
 
+## setting__lhm
+
+```Raku
+say (1,2,3,4).Hash;
+say ((2,3) X=> 1).Hash;
+my @p = a => 1, b => 2;
+say @p.Hash<b>;
+```
+
+```stdout
+{1 => 2, 3 => 4}
+{2 => 1, 3 => 1}
+2
+```
+
 ## while_9
 
 ```Raku
