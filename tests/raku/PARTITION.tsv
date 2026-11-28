@@ -747,6 +747,7 @@ array_say_12	chunk:05	feat:sigil_array	say sigil_array
 array_say_7	chunk:05	feat:sigil_array	say sigil_array
 array_say_8	chunk:05	feat:sigil_array	say sigil_array
 emitter_refusal__a_lexical_named_c_is_read_in_a_closure_argument	chunk:08	feat:sub	sub
+emitter_refusal__a_unicode_digit_match_variable_reads_its_capture	chunk:09	feat:smartmatch	regex smartmatch string_concat
 exceptions__splice_refuses_an_array_where_its_size_belongs	chunk:10	feat:try	sigil_array try
 for_2	chunk:07	feat:for_with_say	for for_with_say
 for_3	chunk:07	feat:for_with_say	for for_with_say

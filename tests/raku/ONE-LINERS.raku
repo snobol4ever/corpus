@@ -229,6 +229,7 @@ my $n = 4; my @c = "yo" xx $n; say @c.elems;
  my @a = (10, 20, 30); say(@a.elems); 
  my @a = (1, 2, 3); say(@a.join); 
 sub g(&b) { b() }; my $c = 5; g({ say $c });
+{ "a b" ~~ /(\w) \s (\w)/; say $١ }
 my %h; %h<k> = 5; my @w = <a b c>; say %h<k>;
 enum Color <red green>; sub f { my $red = 5; $red + +green }; say f();
 my class R1 { method Str { $.^name } }; say R1.Str;
