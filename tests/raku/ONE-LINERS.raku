@@ -252,6 +252,7 @@ my $b = { say(7); }; $b();
 my $s = "ab" x 0; say "[" ~ $s ~ "]";
  my $s = sub { say 8; }; $s(); 
 my @list = (1 ... 10); say @list;
+sub t($/) { -> { say ~$<w> } }; t("ab" ~~ /$<w>=b/)();
  my @a = (1, 2, 3); say(@a.join("-")); 
 my ($a, @b) = 1, 2, 3; say $a ~ @b.join;
 my $a; multi sub rt() { $a = 1 }; rt; say $a;
