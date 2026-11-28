@@ -1934,6 +1934,17 @@ say (Slip(2, 3), 4).elems;
 3
 ```
 
+## exceptions__a_compile_time_sorry_is_thrown_in_an_x_comp_group
+
+```Raku
+use MONKEY-SEE-NO-EVAL;
+try EVAL ｢1__0｣; say $!.^name, " ", $!.sorrows[0].message;
+```
+
+```stdout
+X::Comp::Group Only isolated underscores are allowed inside numbers
+```
+
 ## ladder__rung01_variables_no_strict_declares_a_hash_that_is_only_read
 
 ```Raku
